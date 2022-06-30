@@ -1,0 +1,3 @@
+module AWS::SDK::ACMPCA
+  Config: untyped
+end

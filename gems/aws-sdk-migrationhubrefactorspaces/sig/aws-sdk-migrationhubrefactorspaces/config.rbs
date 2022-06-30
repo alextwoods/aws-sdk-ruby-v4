@@ -1,0 +1,3 @@
+module AWS::SDK::MigrationHubRefactorSpaces
+  Config: untyped
+end

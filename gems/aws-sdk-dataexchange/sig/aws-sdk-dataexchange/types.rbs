@@ -1,0 +1,372 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DataExchange
+  module Types
+
+    AccessDeniedException: untyped
+
+    Action: untyped
+
+    ApiGatewayApiAsset: untyped
+
+    AssetDestinationEntry: untyped
+
+    AssetDetails: untyped
+
+    AssetEntry: untyped
+
+    AssetSourceEntry: untyped
+
+    module AssetType
+      S3_SNAPSHOT: ::String
+
+      REDSHIFT_DATA_SHARE: ::String
+
+      API_GATEWAY_API: ::String
+    end
+
+    AutoExportRevisionDestinationEntry: untyped
+
+    AutoExportRevisionToS3RequestDetails: untyped
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    module Code
+      ACCESS_DENIED_EXCEPTION: ::String
+
+      INTERNAL_SERVER_EXCEPTION: ::String
+
+      MALWARE_DETECTED: ::String
+
+      RESOURCE_NOT_FOUND_EXCEPTION: ::String
+
+      SERVICE_QUOTA_EXCEEDED_EXCEPTION: ::String
+
+      VALIDATION_EXCEPTION: ::String
+
+      MALWARE_SCAN_ENCRYPTED_FILE: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateDataSetInput: untyped
+
+    CreateDataSetOutput: untyped
+
+    CreateEventActionInput: untyped
+
+    CreateEventActionOutput: untyped
+
+    CreateJobInput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateRevisionInput: untyped
+
+    CreateRevisionOutput: untyped
+
+    DataSetEntry: untyped
+
+    DeleteAssetInput: untyped
+
+    DeleteAssetOutput: untyped
+
+    DeleteDataSetInput: untyped
+
+    DeleteDataSetOutput: untyped
+
+    DeleteEventActionInput: untyped
+
+    DeleteEventActionOutput: untyped
+
+    DeleteRevisionInput: untyped
+
+    DeleteRevisionOutput: untyped
+
+    Details: untyped
+
+    Event: untyped
+
+    EventActionEntry: untyped
+
+    module ExceptionCause
+      InsufficientS3BucketPolicy: ::String
+
+      S3AccessDenied: ::String
+    end
+
+    ExportAssetToSignedUrlRequestDetails: untyped
+
+    ExportAssetToSignedUrlResponseDetails: untyped
+
+    ExportAssetsToS3RequestDetails: untyped
+
+    ExportAssetsToS3ResponseDetails: untyped
+
+    ExportRevisionsToS3RequestDetails: untyped
+
+    ExportRevisionsToS3ResponseDetails: untyped
+
+    ExportServerSideEncryption: untyped
+
+    GetAssetInput: untyped
+
+    GetAssetOutput: untyped
+
+    GetDataSetInput: untyped
+
+    GetDataSetOutput: untyped
+
+    GetEventActionInput: untyped
+
+    GetEventActionOutput: untyped
+
+    GetJobInput: untyped
+
+    GetJobOutput: untyped
+
+    GetRevisionInput: untyped
+
+    GetRevisionOutput: untyped
+
+    ImportAssetFromApiGatewayApiRequestDetails: untyped
+
+    ImportAssetFromApiGatewayApiResponseDetails: untyped
+
+    ImportAssetFromSignedUrlJobErrorDetails: untyped
+
+    ImportAssetFromSignedUrlRequestDetails: untyped
+
+    ImportAssetFromSignedUrlResponseDetails: untyped
+
+    ImportAssetsFromRedshiftDataSharesRequestDetails: untyped
+
+    ImportAssetsFromRedshiftDataSharesResponseDetails: untyped
+
+    ImportAssetsFromS3RequestDetails: untyped
+
+    ImportAssetsFromS3ResponseDetails: untyped
+
+    InternalServerException: untyped
+
+    JobEntry: untyped
+
+    JobError: untyped
+
+    module JobErrorLimitName
+      Assets_per_revision: ::String
+
+      Asset_size_in_GB: ::String
+
+      Amazon_Redshift_datashare_assets_per_revision: ::String
+    end
+
+    module JobErrorResourceTypes
+      REVISION: ::String
+
+      ASSET: ::String
+
+      DATA_SET: ::String
+    end
+
+    module LimitName
+      Products_per_account: ::String
+
+      Data_sets_per_account: ::String
+
+      Data_sets_per_product: ::String
+
+      Revisions_per_data_set: ::String
+
+      Assets_per_revision: ::String
+
+      Assets_per_import_job_from_Amazon_S3: ::String
+
+      Asset_per_export_job_from_Amazon_S3: ::String
+
+      Asset_size_in_GB: ::String
+
+      Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3: ::String
+
+      Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL: ::String
+
+      Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3: ::String
+
+      Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL: ::String
+
+      Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3: ::String
+
+      Event_actions_per_account: ::String
+
+      Auto_export_event_actions_per_data_set: ::String
+
+      Amazon_Redshift_datashare_assets_per_import_job_from_Redshift: ::String
+
+      Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares: ::String
+
+      Revisions_per_Amazon_Redshift_datashare_data_set: ::String
+
+      Amazon_Redshift_datashare_assets_per_revision: ::String
+
+      Concurrent_in_progress_jobs_to_import_assets_from_an_API_Gateway_API: ::String
+
+      Amazon_API_Gateway_API_assets_per_revision: ::String
+
+      Revisions_per_Amazon_API_Gateway_API_data_set: ::String
+    end
+
+    ListDataSetRevisionsInput: untyped
+
+    ListDataSetRevisionsOutput: untyped
+
+    ListDataSetsInput: untyped
+
+    ListDataSetsOutput: untyped
+
+    ListEventActionsInput: untyped
+
+    ListEventActionsOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListRevisionAssetsInput: untyped
+
+    ListRevisionAssetsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module Origin
+      OWNED: ::String
+
+      ENTITLED: ::String
+    end
+
+    OriginDetails: untyped
+
+    module ProtocolType
+      REST: ::String
+    end
+
+    RedshiftDataShareAsset: untyped
+
+    RedshiftDataShareAssetSourceEntry: untyped
+
+    RequestDetails: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      DATA_SET: ::String
+
+      REVISION: ::String
+
+      ASSET: ::String
+
+      JOB: ::String
+
+      EVENT_ACTION: ::String
+    end
+
+    ResponseDetails: untyped
+
+    RevisionDestinationEntry: untyped
+
+    RevisionEntry: untyped
+
+    RevisionPublished: untyped
+
+    RevokeRevisionInput: untyped
+
+    RevokeRevisionOutput: untyped
+
+    S3SnapshotAsset: untyped
+
+    SendApiAssetInput: untyped
+
+    SendApiAssetOutput: untyped
+
+    module ServerSideEncryptionTypes
+      aws_kms: ::String
+
+      AES256: ::String
+    end
+
+    ServiceLimitExceededException: untyped
+
+    StartJobInput: untyped
+
+    StartJobOutput: untyped
+
+    module State
+      WAITING: ::String
+
+      IN_PROGRESS: ::String
+
+      ERROR: ::String
+
+      COMPLETED: ::String
+
+      CANCELLED: ::String
+
+      TIMED_OUT: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    module Type
+      IMPORT_ASSETS_FROM_S3: ::String
+
+      IMPORT_ASSET_FROM_SIGNED_URL: ::String
+
+      EXPORT_ASSETS_TO_S3: ::String
+
+      EXPORT_ASSET_TO_SIGNED_URL: ::String
+
+      EXPORT_REVISIONS_TO_S3: ::String
+
+      IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES: ::String
+
+      IMPORT_ASSET_FROM_API_GATEWAY_API: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAssetInput: untyped
+
+    UpdateAssetOutput: untyped
+
+    UpdateDataSetInput: untyped
+
+    UpdateDataSetOutput: untyped
+
+    UpdateEventActionInput: untyped
+
+    UpdateEventActionOutput: untyped
+
+    UpdateRevisionInput: untyped
+
+    UpdateRevisionOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

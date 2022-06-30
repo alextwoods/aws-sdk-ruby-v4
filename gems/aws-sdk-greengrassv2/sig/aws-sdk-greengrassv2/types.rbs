@@ -1,0 +1,382 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::GreengrassV2
+  module Types
+
+    AccessDeniedException: untyped
+
+    AssociateClientDeviceWithCoreDeviceEntry: untyped
+
+    AssociateClientDeviceWithCoreDeviceErrorEntry: untyped
+
+    AssociateServiceRoleToAccountInput: untyped
+
+    AssociateServiceRoleToAccountOutput: untyped
+
+    AssociatedClientDevice: untyped
+
+    BatchAssociateClientDeviceWithCoreDeviceInput: untyped
+
+    BatchAssociateClientDeviceWithCoreDeviceOutput: untyped
+
+    BatchDisassociateClientDeviceFromCoreDeviceInput: untyped
+
+    BatchDisassociateClientDeviceFromCoreDeviceOutput: untyped
+
+    CancelDeploymentInput: untyped
+
+    CancelDeploymentOutput: untyped
+
+    module CloudComponentState
+      REQUESTED: ::String
+
+      INITIATED: ::String
+
+      DEPLOYABLE: ::String
+
+      FAILED: ::String
+
+      DEPRECATED: ::String
+    end
+
+    CloudComponentStatus: untyped
+
+    Component: untyped
+
+    ComponentCandidate: untyped
+
+    ComponentConfigurationUpdate: untyped
+
+    ComponentDependencyRequirement: untyped
+
+    module ComponentDependencyType
+      HARD: ::String
+
+      SOFT: ::String
+    end
+
+    ComponentDeploymentSpecification: untyped
+
+    ComponentLatestVersion: untyped
+
+    ComponentPlatform: untyped
+
+    ComponentRunWith: untyped
+
+    ComponentVersionListItem: untyped
+
+    module ComponentVisibilityScope
+      PRIVATE: ::String
+
+      PUBLIC: ::String
+    end
+
+    ConflictException: untyped
+
+    ConnectivityInfo: untyped
+
+    CoreDevice: untyped
+
+    module CoreDeviceStatus
+      HEALTHY: ::String
+
+      UNHEALTHY: ::String
+    end
+
+    CreateComponentVersionInput: untyped
+
+    CreateComponentVersionOutput: untyped
+
+    CreateDeploymentInput: untyped
+
+    CreateDeploymentOutput: untyped
+
+    DeleteComponentInput: untyped
+
+    DeleteComponentOutput: untyped
+
+    DeleteCoreDeviceInput: untyped
+
+    DeleteCoreDeviceOutput: untyped
+
+    DeleteDeploymentInput: untyped
+
+    DeleteDeploymentOutput: untyped
+
+    Deployment: untyped
+
+    DeploymentComponentUpdatePolicy: untyped
+
+    module DeploymentComponentUpdatePolicyAction
+      NOTIFY_COMPONENTS: ::String
+
+      SKIP_NOTIFY_COMPONENTS: ::String
+    end
+
+    DeploymentConfigurationValidationPolicy: untyped
+
+    module DeploymentFailureHandlingPolicy
+      ROLLBACK: ::String
+
+      DO_NOTHING: ::String
+    end
+
+    module DeploymentHistoryFilter
+      ALL: ::String
+
+      LATEST_ONLY: ::String
+    end
+
+    DeploymentIoTJobConfiguration: untyped
+
+    DeploymentPolicies: untyped
+
+    module DeploymentStatus
+      ACTIVE: ::String
+
+      COMPLETED: ::String
+
+      CANCELED: ::String
+
+      FAILED: ::String
+
+      INACTIVE: ::String
+    end
+
+    DescribeComponentInput: untyped
+
+    DescribeComponentOutput: untyped
+
+    DisassociateClientDeviceFromCoreDeviceEntry: untyped
+
+    DisassociateClientDeviceFromCoreDeviceErrorEntry: untyped
+
+    DisassociateServiceRoleFromAccountInput: untyped
+
+    DisassociateServiceRoleFromAccountOutput: untyped
+
+    EffectiveDeployment: untyped
+
+    module EffectiveDeploymentExecutionStatus
+      IN_PROGRESS: ::String
+
+      QUEUED: ::String
+
+      FAILED: ::String
+
+      COMPLETED: ::String
+
+      TIMED_OUT: ::String
+
+      CANCELED: ::String
+
+      REJECTED: ::String
+    end
+
+    GetComponentInput: untyped
+
+    GetComponentOutput: untyped
+
+    GetComponentVersionArtifactInput: untyped
+
+    GetComponentVersionArtifactOutput: untyped
+
+    GetConnectivityInfoInput: untyped
+
+    GetConnectivityInfoOutput: untyped
+
+    GetCoreDeviceInput: untyped
+
+    GetCoreDeviceOutput: untyped
+
+    GetDeploymentInput: untyped
+
+    GetDeploymentOutput: untyped
+
+    GetServiceRoleForAccountInput: untyped
+
+    GetServiceRoleForAccountOutput: untyped
+
+    InstalledComponent: untyped
+
+    module InstalledComponentLifecycleState
+      NEW: ::String
+
+      INSTALLED: ::String
+
+      STARTING: ::String
+
+      RUNNING: ::String
+
+      STOPPING: ::String
+
+      ERRORED: ::String
+
+      BROKEN: ::String
+
+      FINISHED: ::String
+    end
+
+    InternalServerException: untyped
+
+    module IoTJobAbortAction
+      CANCEL: ::String
+    end
+
+    IoTJobAbortConfig: untyped
+
+    IoTJobAbortCriteria: untyped
+
+    module IoTJobExecutionFailureType
+      FAILED: ::String
+
+      REJECTED: ::String
+
+      TIMED_OUT: ::String
+
+      ALL: ::String
+    end
+
+    IoTJobExecutionsRolloutConfig: untyped
+
+    IoTJobExponentialRolloutRate: untyped
+
+    IoTJobRateIncreaseCriteria: untyped
+
+    IoTJobTimeoutConfig: untyped
+
+    LambdaContainerParams: untyped
+
+    LambdaDeviceMount: untyped
+
+    LambdaEventSource: untyped
+
+    module LambdaEventSourceType
+      PUB_SUB: ::String
+
+      IOT_CORE: ::String
+    end
+
+    LambdaExecutionParameters: untyped
+
+    module LambdaFilesystemPermission
+      RO: ::String
+
+      RW: ::String
+    end
+
+    LambdaFunctionRecipeSource: untyped
+
+    module LambdaInputPayloadEncodingType
+      JSON: ::String
+
+      BINARY: ::String
+    end
+
+    module LambdaIsolationMode
+      GREENGRASS_CONTAINER: ::String
+
+      NO_CONTAINER: ::String
+    end
+
+    LambdaLinuxProcessParams: untyped
+
+    LambdaVolumeMount: untyped
+
+    ListClientDevicesAssociatedWithCoreDeviceInput: untyped
+
+    ListClientDevicesAssociatedWithCoreDeviceOutput: untyped
+
+    ListComponentVersionsInput: untyped
+
+    ListComponentVersionsOutput: untyped
+
+    ListComponentsInput: untyped
+
+    ListComponentsOutput: untyped
+
+    ListCoreDevicesInput: untyped
+
+    ListCoreDevicesOutput: untyped
+
+    ListDeploymentsInput: untyped
+
+    ListDeploymentsOutput: untyped
+
+    ListEffectiveDeploymentsInput: untyped
+
+    ListEffectiveDeploymentsOutput: untyped
+
+    ListInstalledComponentsInput: untyped
+
+    ListInstalledComponentsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module RecipeOutputFormat
+      JSON: ::String
+
+      YAML: ::String
+    end
+
+    RequestAlreadyInProgressException: untyped
+
+    ResolveComponentCandidatesInput: untyped
+
+    ResolveComponentCandidatesOutput: untyped
+
+    ResolvedComponentVersion: untyped
+
+    ResourceNotFoundException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SystemResourceLimits: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateConnectivityInfoInput: untyped
+
+    UpdateConnectivityInfoOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+    module VendorGuidance
+      ACTIVE: ::String
+
+      DISCONTINUED: ::String
+
+      DELETED: ::String
+    end
+
+  end
+end

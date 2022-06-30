@@ -1,0 +1,460 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Backup
+  module Types
+
+    AdvancedBackupSetting: untyped
+
+    AlreadyExistsException: untyped
+
+    BackupJob: untyped
+
+    module BackupJobState
+      CREATED: ::String
+
+      PENDING: ::String
+
+      RUNNING: ::String
+
+      ABORTING: ::String
+
+      ABORTED: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      EXPIRED: ::String
+    end
+
+    BackupPlan: untyped
+
+    BackupPlanInput: untyped
+
+    BackupPlanTemplatesListMember: untyped
+
+    BackupPlansListMember: untyped
+
+    BackupRule: untyped
+
+    BackupRuleInput: untyped
+
+    BackupSelection: untyped
+
+    BackupSelectionsListMember: untyped
+
+    module BackupVaultEvent
+      BACKUP_JOB_STARTED: ::String
+
+      BACKUP_JOB_COMPLETED: ::String
+
+      BACKUP_JOB_SUCCESSFUL: ::String
+
+      BACKUP_JOB_FAILED: ::String
+
+      BACKUP_JOB_EXPIRED: ::String
+
+      RESTORE_JOB_STARTED: ::String
+
+      RESTORE_JOB_COMPLETED: ::String
+
+      RESTORE_JOB_SUCCESSFUL: ::String
+
+      RESTORE_JOB_FAILED: ::String
+
+      COPY_JOB_STARTED: ::String
+
+      COPY_JOB_SUCCESSFUL: ::String
+
+      COPY_JOB_FAILED: ::String
+
+      RECOVERY_POINT_MODIFIED: ::String
+
+      BACKUP_PLAN_CREATED: ::String
+
+      BACKUP_PLAN_MODIFIED: ::String
+
+      S3_BACKUP_OBJECT_FAILED: ::String
+
+      S3_RESTORE_OBJECT_FAILED: ::String
+    end
+
+    BackupVaultListMember: untyped
+
+    CalculatedLifecycle: untyped
+
+    Condition: untyped
+
+    ConditionParameter: untyped
+
+    module ConditionType
+      STRINGEQUALS: ::String
+    end
+
+    Conditions: untyped
+
+    ConflictException: untyped
+
+    ControlInputParameter: untyped
+
+    ControlScope: untyped
+
+    CopyAction: untyped
+
+    CopyJob: untyped
+
+    module CopyJobState
+      CREATED: ::String
+
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+    end
+
+    CreateBackupPlanInput: untyped
+
+    CreateBackupPlanOutput: untyped
+
+    CreateBackupSelectionInput: untyped
+
+    CreateBackupSelectionOutput: untyped
+
+    CreateBackupVaultInput: untyped
+
+    CreateBackupVaultOutput: untyped
+
+    CreateFrameworkInput: untyped
+
+    CreateFrameworkOutput: untyped
+
+    CreateReportPlanInput: untyped
+
+    CreateReportPlanOutput: untyped
+
+    DeleteBackupPlanInput: untyped
+
+    DeleteBackupPlanOutput: untyped
+
+    DeleteBackupSelectionInput: untyped
+
+    DeleteBackupSelectionOutput: untyped
+
+    DeleteBackupVaultAccessPolicyInput: untyped
+
+    DeleteBackupVaultAccessPolicyOutput: untyped
+
+    DeleteBackupVaultInput: untyped
+
+    DeleteBackupVaultLockConfigurationInput: untyped
+
+    DeleteBackupVaultLockConfigurationOutput: untyped
+
+    DeleteBackupVaultNotificationsInput: untyped
+
+    DeleteBackupVaultNotificationsOutput: untyped
+
+    DeleteBackupVaultOutput: untyped
+
+    DeleteFrameworkInput: untyped
+
+    DeleteFrameworkOutput: untyped
+
+    DeleteRecoveryPointInput: untyped
+
+    DeleteRecoveryPointOutput: untyped
+
+    DeleteReportPlanInput: untyped
+
+    DeleteReportPlanOutput: untyped
+
+    DependencyFailureException: untyped
+
+    DescribeBackupJobInput: untyped
+
+    DescribeBackupJobOutput: untyped
+
+    DescribeBackupVaultInput: untyped
+
+    DescribeBackupVaultOutput: untyped
+
+    DescribeCopyJobInput: untyped
+
+    DescribeCopyJobOutput: untyped
+
+    DescribeFrameworkInput: untyped
+
+    DescribeFrameworkOutput: untyped
+
+    DescribeGlobalSettingsInput: untyped
+
+    DescribeGlobalSettingsOutput: untyped
+
+    DescribeProtectedResourceInput: untyped
+
+    DescribeProtectedResourceOutput: untyped
+
+    DescribeRecoveryPointInput: untyped
+
+    DescribeRecoveryPointOutput: untyped
+
+    DescribeRegionSettingsInput: untyped
+
+    DescribeRegionSettingsOutput: untyped
+
+    DescribeReportJobInput: untyped
+
+    DescribeReportJobOutput: untyped
+
+    DescribeReportPlanInput: untyped
+
+    DescribeReportPlanOutput: untyped
+
+    DescribeRestoreJobInput: untyped
+
+    DescribeRestoreJobOutput: untyped
+
+    DisassociateRecoveryPointInput: untyped
+
+    DisassociateRecoveryPointOutput: untyped
+
+    ExportBackupPlanTemplateInput: untyped
+
+    ExportBackupPlanTemplateOutput: untyped
+
+    Framework: untyped
+
+    FrameworkControl: untyped
+
+    GetBackupPlanFromJSONInput: untyped
+
+    GetBackupPlanFromJSONOutput: untyped
+
+    GetBackupPlanFromTemplateInput: untyped
+
+    GetBackupPlanFromTemplateOutput: untyped
+
+    GetBackupPlanInput: untyped
+
+    GetBackupPlanOutput: untyped
+
+    GetBackupSelectionInput: untyped
+
+    GetBackupSelectionOutput: untyped
+
+    GetBackupVaultAccessPolicyInput: untyped
+
+    GetBackupVaultAccessPolicyOutput: untyped
+
+    GetBackupVaultNotificationsInput: untyped
+
+    GetBackupVaultNotificationsOutput: untyped
+
+    GetRecoveryPointRestoreMetadataInput: untyped
+
+    GetRecoveryPointRestoreMetadataOutput: untyped
+
+    GetSupportedResourceTypesInput: untyped
+
+    GetSupportedResourceTypesOutput: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidRequestException: untyped
+
+    InvalidResourceStateException: untyped
+
+    Lifecycle: untyped
+
+    LimitExceededException: untyped
+
+    ListBackupJobsInput: untyped
+
+    ListBackupJobsOutput: untyped
+
+    ListBackupPlanTemplatesInput: untyped
+
+    ListBackupPlanTemplatesOutput: untyped
+
+    ListBackupPlanVersionsInput: untyped
+
+    ListBackupPlanVersionsOutput: untyped
+
+    ListBackupPlansInput: untyped
+
+    ListBackupPlansOutput: untyped
+
+    ListBackupSelectionsInput: untyped
+
+    ListBackupSelectionsOutput: untyped
+
+    ListBackupVaultsInput: untyped
+
+    ListBackupVaultsOutput: untyped
+
+    ListCopyJobsInput: untyped
+
+    ListCopyJobsOutput: untyped
+
+    ListFrameworksInput: untyped
+
+    ListFrameworksOutput: untyped
+
+    ListProtectedResourcesInput: untyped
+
+    ListProtectedResourcesOutput: untyped
+
+    ListRecoveryPointsByBackupVaultInput: untyped
+
+    ListRecoveryPointsByBackupVaultOutput: untyped
+
+    ListRecoveryPointsByResourceInput: untyped
+
+    ListRecoveryPointsByResourceOutput: untyped
+
+    ListReportJobsInput: untyped
+
+    ListReportJobsOutput: untyped
+
+    ListReportPlansInput: untyped
+
+    ListReportPlansOutput: untyped
+
+    ListRestoreJobsInput: untyped
+
+    ListRestoreJobsOutput: untyped
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    MissingParameterValueException: untyped
+
+    ProtectedResource: untyped
+
+    PutBackupVaultAccessPolicyInput: untyped
+
+    PutBackupVaultAccessPolicyOutput: untyped
+
+    PutBackupVaultLockConfigurationInput: untyped
+
+    PutBackupVaultLockConfigurationOutput: untyped
+
+    PutBackupVaultNotificationsInput: untyped
+
+    PutBackupVaultNotificationsOutput: untyped
+
+    RecoveryPointByBackupVault: untyped
+
+    RecoveryPointByResource: untyped
+
+    RecoveryPointCreator: untyped
+
+    module RecoveryPointStatus
+      COMPLETED: ::String
+
+      PARTIAL: ::String
+
+      DELETING: ::String
+
+      EXPIRED: ::String
+    end
+
+    ReportDeliveryChannel: untyped
+
+    ReportDestination: untyped
+
+    ReportJob: untyped
+
+    ReportPlan: untyped
+
+    ReportSetting: untyped
+
+    ResourceNotFoundException: untyped
+
+    module RestoreJobStatus
+      PENDING: ::String
+
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      ABORTED: ::String
+
+      FAILED: ::String
+    end
+
+    RestoreJobsListMember: untyped
+
+    ServiceUnavailableException: untyped
+
+    StartBackupJobInput: untyped
+
+    StartBackupJobOutput: untyped
+
+    StartCopyJobInput: untyped
+
+    StartCopyJobOutput: untyped
+
+    StartReportJobInput: untyped
+
+    StartReportJobOutput: untyped
+
+    StartRestoreJobInput: untyped
+
+    StartRestoreJobOutput: untyped
+
+    StopBackupJobInput: untyped
+
+    StopBackupJobOutput: untyped
+
+    module StorageClass
+      WARM: ::String
+
+      COLD: ::String
+
+      DELETED: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateBackupPlanInput: untyped
+
+    UpdateBackupPlanOutput: untyped
+
+    UpdateFrameworkInput: untyped
+
+    UpdateFrameworkOutput: untyped
+
+    UpdateGlobalSettingsInput: untyped
+
+    UpdateGlobalSettingsOutput: untyped
+
+    UpdateRecoveryPointLifecycleInput: untyped
+
+    UpdateRecoveryPointLifecycleOutput: untyped
+
+    UpdateRegionSettingsInput: untyped
+
+    UpdateRegionSettingsOutput: untyped
+
+    UpdateReportPlanInput: untyped
+
+    UpdateReportPlanOutput: untyped
+
+  end
+end

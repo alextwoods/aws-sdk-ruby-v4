@@ -1,0 +1,3 @@
+module AWS::SDK::PersonalizeEvents
+  Config: untyped
+end

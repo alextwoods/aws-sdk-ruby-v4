@@ -1,0 +1,776 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoTWireless
+  module Types
+
+    AbpV1_0_x: untyped
+
+    AbpV1_1: untyped
+
+    AccessDeniedException: untyped
+
+    AssociateAwsAccountWithPartnerAccountInput: untyped
+
+    AssociateAwsAccountWithPartnerAccountOutput: untyped
+
+    AssociateMulticastGroupWithFuotaTaskInput: untyped
+
+    AssociateMulticastGroupWithFuotaTaskOutput: untyped
+
+    AssociateWirelessDeviceWithFuotaTaskInput: untyped
+
+    AssociateWirelessDeviceWithFuotaTaskOutput: untyped
+
+    AssociateWirelessDeviceWithMulticastGroupInput: untyped
+
+    AssociateWirelessDeviceWithMulticastGroupOutput: untyped
+
+    AssociateWirelessDeviceWithThingInput: untyped
+
+    AssociateWirelessDeviceWithThingOutput: untyped
+
+    AssociateWirelessGatewayWithCertificateInput: untyped
+
+    AssociateWirelessGatewayWithCertificateOutput: untyped
+
+    AssociateWirelessGatewayWithThingInput: untyped
+
+    AssociateWirelessGatewayWithThingOutput: untyped
+
+    module BatteryLevel
+      NORMAL: ::String
+
+      LOW: ::String
+
+      CRITICAL: ::String
+    end
+
+    CancelMulticastGroupSessionInput: untyped
+
+    CancelMulticastGroupSessionOutput: untyped
+
+    CertificateList: untyped
+
+    ConflictException: untyped
+
+    module ConnectionStatus
+      CONNECTED: ::String
+
+      DISCONNECTED: ::String
+    end
+
+    ConnectionStatusEventConfiguration: untyped
+
+    ConnectionStatusResourceTypeEventConfiguration: untyped
+
+    CreateDestinationInput: untyped
+
+    CreateDestinationOutput: untyped
+
+    CreateDeviceProfileInput: untyped
+
+    CreateDeviceProfileOutput: untyped
+
+    CreateFuotaTaskInput: untyped
+
+    CreateFuotaTaskOutput: untyped
+
+    CreateMulticastGroupInput: untyped
+
+    CreateMulticastGroupOutput: untyped
+
+    CreateNetworkAnalyzerConfigurationInput: untyped
+
+    CreateNetworkAnalyzerConfigurationOutput: untyped
+
+    CreateServiceProfileInput: untyped
+
+    CreateServiceProfileOutput: untyped
+
+    CreateWirelessDeviceInput: untyped
+
+    CreateWirelessDeviceOutput: untyped
+
+    CreateWirelessGatewayInput: untyped
+
+    CreateWirelessGatewayOutput: untyped
+
+    CreateWirelessGatewayTaskDefinitionInput: untyped
+
+    CreateWirelessGatewayTaskDefinitionOutput: untyped
+
+    CreateWirelessGatewayTaskInput: untyped
+
+    CreateWirelessGatewayTaskOutput: untyped
+
+    DeleteDestinationInput: untyped
+
+    DeleteDestinationOutput: untyped
+
+    DeleteDeviceProfileInput: untyped
+
+    DeleteDeviceProfileOutput: untyped
+
+    DeleteFuotaTaskInput: untyped
+
+    DeleteFuotaTaskOutput: untyped
+
+    DeleteMulticastGroupInput: untyped
+
+    DeleteMulticastGroupOutput: untyped
+
+    DeleteNetworkAnalyzerConfigurationInput: untyped
+
+    DeleteNetworkAnalyzerConfigurationOutput: untyped
+
+    DeleteQueuedMessagesInput: untyped
+
+    DeleteQueuedMessagesOutput: untyped
+
+    DeleteServiceProfileInput: untyped
+
+    DeleteServiceProfileOutput: untyped
+
+    DeleteWirelessDeviceInput: untyped
+
+    DeleteWirelessDeviceOutput: untyped
+
+    DeleteWirelessGatewayInput: untyped
+
+    DeleteWirelessGatewayOutput: untyped
+
+    DeleteWirelessGatewayTaskDefinitionInput: untyped
+
+    DeleteWirelessGatewayTaskDefinitionOutput: untyped
+
+    DeleteWirelessGatewayTaskInput: untyped
+
+    DeleteWirelessGatewayTaskOutput: untyped
+
+    Destinations: untyped
+
+    DeviceProfile: untyped
+
+    DeviceRegistrationStateEventConfiguration: untyped
+
+    DeviceRegistrationStateResourceTypeEventConfiguration: untyped
+
+    module DeviceState
+      PROVISIONED: ::String
+
+      REGISTEREDNOTSEEN: ::String
+
+      REGISTEREDREACHABLE: ::String
+
+      REGISTEREDUNREACHABLE: ::String
+    end
+
+    DisassociateAwsAccountFromPartnerAccountInput: untyped
+
+    DisassociateAwsAccountFromPartnerAccountOutput: untyped
+
+    DisassociateMulticastGroupFromFuotaTaskInput: untyped
+
+    DisassociateMulticastGroupFromFuotaTaskOutput: untyped
+
+    DisassociateWirelessDeviceFromFuotaTaskInput: untyped
+
+    DisassociateWirelessDeviceFromFuotaTaskOutput: untyped
+
+    DisassociateWirelessDeviceFromMulticastGroupInput: untyped
+
+    DisassociateWirelessDeviceFromMulticastGroupOutput: untyped
+
+    DisassociateWirelessDeviceFromThingInput: untyped
+
+    DisassociateWirelessDeviceFromThingOutput: untyped
+
+    DisassociateWirelessGatewayFromCertificateInput: untyped
+
+    DisassociateWirelessGatewayFromCertificateOutput: untyped
+
+    DisassociateWirelessGatewayFromThingInput: untyped
+
+    DisassociateWirelessGatewayFromThingOutput: untyped
+
+    module DlClass
+      ClassB: ::String
+
+      ClassC: ::String
+    end
+
+    DownlinkQueueMessage: untyped
+
+    module Event
+      DISCOVERED: ::String
+
+      LOST: ::String
+
+      ACK: ::String
+
+      NACK: ::String
+
+      PASSTHROUGH: ::String
+    end
+
+    EventConfigurationItem: untyped
+
+    EventNotificationItemConfigurations: untyped
+
+    module EventNotificationPartnerType
+      Sidewalk: ::String
+    end
+
+    module EventNotificationResourceType
+      SidewalkAccount: ::String
+
+      WirelessDevice: ::String
+
+      WirelessGateway: ::String
+    end
+
+    module EventNotificationTopicStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ExpressionType
+      RuleName: ::String
+
+      MqttTopic: ::String
+    end
+
+    FPorts: untyped
+
+    module FuotaDeviceStatus
+      Initial: ::String
+
+      Package_Not_Supported: ::String
+
+      FragAlgo_unsupported: ::String
+
+      Not_enough_memory: ::String
+
+      FragIndex_unsupported: ::String
+
+      Wrong_descriptor: ::String
+
+      SessionCnt_replay: ::String
+
+      MissingFrag: ::String
+
+      MemoryError: ::String
+
+      MICError: ::String
+
+      Successful: ::String
+    end
+
+    FuotaTask: untyped
+
+    module FuotaTaskStatus
+      Pending: ::String
+
+      FuotaSession_Waiting: ::String
+
+      In_FuotaSession: ::String
+
+      FuotaDone: ::String
+
+      Delete_Waiting: ::String
+    end
+
+    GetDestinationInput: untyped
+
+    GetDestinationOutput: untyped
+
+    GetDeviceProfileInput: untyped
+
+    GetDeviceProfileOutput: untyped
+
+    GetEventConfigurationByResourceTypesInput: untyped
+
+    GetEventConfigurationByResourceTypesOutput: untyped
+
+    GetFuotaTaskInput: untyped
+
+    GetFuotaTaskOutput: untyped
+
+    GetLogLevelsByResourceTypesInput: untyped
+
+    GetLogLevelsByResourceTypesOutput: untyped
+
+    GetMulticastGroupInput: untyped
+
+    GetMulticastGroupOutput: untyped
+
+    GetMulticastGroupSessionInput: untyped
+
+    GetMulticastGroupSessionOutput: untyped
+
+    GetNetworkAnalyzerConfigurationInput: untyped
+
+    GetNetworkAnalyzerConfigurationOutput: untyped
+
+    GetPartnerAccountInput: untyped
+
+    GetPartnerAccountOutput: untyped
+
+    GetResourceEventConfigurationInput: untyped
+
+    GetResourceEventConfigurationOutput: untyped
+
+    GetResourceLogLevelInput: untyped
+
+    GetResourceLogLevelOutput: untyped
+
+    GetServiceEndpointInput: untyped
+
+    GetServiceEndpointOutput: untyped
+
+    GetServiceProfileInput: untyped
+
+    GetServiceProfileOutput: untyped
+
+    GetWirelessDeviceInput: untyped
+
+    GetWirelessDeviceOutput: untyped
+
+    GetWirelessDeviceStatisticsInput: untyped
+
+    GetWirelessDeviceStatisticsOutput: untyped
+
+    GetWirelessGatewayCertificateInput: untyped
+
+    GetWirelessGatewayCertificateOutput: untyped
+
+    GetWirelessGatewayFirmwareInformationInput: untyped
+
+    GetWirelessGatewayFirmwareInformationOutput: untyped
+
+    GetWirelessGatewayInput: untyped
+
+    GetWirelessGatewayOutput: untyped
+
+    GetWirelessGatewayStatisticsInput: untyped
+
+    GetWirelessGatewayStatisticsOutput: untyped
+
+    GetWirelessGatewayTaskDefinitionInput: untyped
+
+    GetWirelessGatewayTaskDefinitionOutput: untyped
+
+    GetWirelessGatewayTaskInput: untyped
+
+    GetWirelessGatewayTaskOutput: untyped
+
+    module IdentifierType
+      PartnerAccountId: ::String
+
+      DevEui: ::String
+
+      GatewayEui: ::String
+
+      WirelessDeviceId: ::String
+
+      WirelessGatewayId: ::String
+    end
+
+    InternalServerException: untyped
+
+    JoinEventConfiguration: untyped
+
+    JoinResourceTypeEventConfiguration: untyped
+
+    ListDestinationsInput: untyped
+
+    ListDestinationsOutput: untyped
+
+    ListDeviceProfilesInput: untyped
+
+    ListDeviceProfilesOutput: untyped
+
+    ListEventConfigurationsInput: untyped
+
+    ListEventConfigurationsOutput: untyped
+
+    ListFuotaTasksInput: untyped
+
+    ListFuotaTasksOutput: untyped
+
+    ListMulticastGroupsByFuotaTaskInput: untyped
+
+    ListMulticastGroupsByFuotaTaskOutput: untyped
+
+    ListMulticastGroupsInput: untyped
+
+    ListMulticastGroupsOutput: untyped
+
+    ListNetworkAnalyzerConfigurationsInput: untyped
+
+    ListNetworkAnalyzerConfigurationsOutput: untyped
+
+    ListPartnerAccountsInput: untyped
+
+    ListPartnerAccountsOutput: untyped
+
+    ListQueuedMessagesInput: untyped
+
+    ListQueuedMessagesOutput: untyped
+
+    ListServiceProfilesInput: untyped
+
+    ListServiceProfilesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWirelessDevicesInput: untyped
+
+    ListWirelessDevicesOutput: untyped
+
+    ListWirelessGatewayTaskDefinitionsInput: untyped
+
+    ListWirelessGatewayTaskDefinitionsOutput: untyped
+
+    ListWirelessGatewaysInput: untyped
+
+    ListWirelessGatewaysOutput: untyped
+
+    LoRaWANConnectionStatusEventNotificationConfigurations: untyped
+
+    LoRaWANConnectionStatusResourceTypeEventConfiguration: untyped
+
+    LoRaWANDevice: untyped
+
+    LoRaWANDeviceMetadata: untyped
+
+    LoRaWANDeviceProfile: untyped
+
+    LoRaWANFuotaTask: untyped
+
+    LoRaWANFuotaTaskGetInfo: untyped
+
+    LoRaWANGateway: untyped
+
+    LoRaWANGatewayCurrentVersion: untyped
+
+    LoRaWANGatewayMetadata: untyped
+
+    LoRaWANGatewayVersion: untyped
+
+    LoRaWANGetServiceProfileInfo: untyped
+
+    LoRaWANJoinEventNotificationConfigurations: untyped
+
+    LoRaWANJoinResourceTypeEventConfiguration: untyped
+
+    LoRaWANListDevice: untyped
+
+    LoRaWANMulticast: untyped
+
+    LoRaWANMulticastGet: untyped
+
+    LoRaWANMulticastMetadata: untyped
+
+    LoRaWANMulticastSession: untyped
+
+    LoRaWANSendDataToDevice: untyped
+
+    LoRaWANServiceProfile: untyped
+
+    LoRaWANStartFuotaTask: untyped
+
+    LoRaWANUpdateDevice: untyped
+
+    LoRaWANUpdateGatewayTaskCreate: untyped
+
+    LoRaWANUpdateGatewayTaskEntry: untyped
+
+    module LogLevel
+      INFO: ::String
+
+      ERROR: ::String
+
+      DISABLED: ::String
+    end
+
+    module MessageType
+      CUSTOM_COMMAND_ID_NOTIFY: ::String
+
+      CUSTOM_COMMAND_ID_GET: ::String
+
+      CUSTOM_COMMAND_ID_SET: ::String
+
+      CUSTOM_COMMAND_ID_RESP: ::String
+    end
+
+    MulticastGroup: untyped
+
+    MulticastGroupByFuotaTask: untyped
+
+    MulticastWirelessMetadata: untyped
+
+    NetworkAnalyzerConfigurations: untyped
+
+    OtaaV1_0_x: untyped
+
+    OtaaV1_1: untyped
+
+    module PartnerType
+      Sidewalk: ::String
+    end
+
+    ProximityEventConfiguration: untyped
+
+    ProximityResourceTypeEventConfiguration: untyped
+
+    PutResourceLogLevelInput: untyped
+
+    PutResourceLogLevelOutput: untyped
+
+    ResetAllResourceLogLevelsInput: untyped
+
+    ResetAllResourceLogLevelsOutput: untyped
+
+    ResetResourceLogLevelInput: untyped
+
+    ResetResourceLogLevelOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    SendDataToMulticastGroupInput: untyped
+
+    SendDataToMulticastGroupOutput: untyped
+
+    SendDataToWirelessDeviceInput: untyped
+
+    SendDataToWirelessDeviceOutput: untyped
+
+    ServiceProfile: untyped
+
+    SessionKeysAbpV1_0_x: untyped
+
+    SessionKeysAbpV1_1: untyped
+
+    SidewalkAccountInfo: untyped
+
+    SidewalkAccountInfoWithFingerprint: untyped
+
+    SidewalkDevice: untyped
+
+    SidewalkDeviceMetadata: untyped
+
+    SidewalkEventNotificationConfigurations: untyped
+
+    SidewalkListDevice: untyped
+
+    SidewalkResourceTypeEventConfiguration: untyped
+
+    SidewalkSendDataToDevice: untyped
+
+    SidewalkUpdateAccount: untyped
+
+    module SigningAlg
+      Ed25519: ::String
+
+      P256r1: ::String
+    end
+
+    StartBulkAssociateWirelessDeviceWithMulticastGroupInput: untyped
+
+    StartBulkAssociateWirelessDeviceWithMulticastGroupOutput: untyped
+
+    StartBulkDisassociateWirelessDeviceFromMulticastGroupInput: untyped
+
+    StartBulkDisassociateWirelessDeviceFromMulticastGroupOutput: untyped
+
+    StartFuotaTaskInput: untyped
+
+    StartFuotaTaskOutput: untyped
+
+    StartMulticastGroupSessionInput: untyped
+
+    StartMulticastGroupSessionOutput: untyped
+
+    module SupportedRfRegion
+      EU868: ::String
+
+      US915: ::String
+
+      AU915: ::String
+
+      AS923_1: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TestWirelessDeviceInput: untyped
+
+    TestWirelessDeviceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TooManyTagsException: untyped
+
+    TraceContent: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAbpV1_0_x: untyped
+
+    UpdateAbpV1_1: untyped
+
+    UpdateDestinationInput: untyped
+
+    UpdateDestinationOutput: untyped
+
+    UpdateEventConfigurationByResourceTypesInput: untyped
+
+    UpdateEventConfigurationByResourceTypesOutput: untyped
+
+    UpdateFuotaTaskInput: untyped
+
+    UpdateFuotaTaskOutput: untyped
+
+    UpdateLogLevelsByResourceTypesInput: untyped
+
+    UpdateLogLevelsByResourceTypesOutput: untyped
+
+    UpdateMulticastGroupInput: untyped
+
+    UpdateMulticastGroupOutput: untyped
+
+    UpdateNetworkAnalyzerConfigurationInput: untyped
+
+    UpdateNetworkAnalyzerConfigurationOutput: untyped
+
+    UpdatePartnerAccountInput: untyped
+
+    UpdatePartnerAccountOutput: untyped
+
+    UpdateResourceEventConfigurationInput: untyped
+
+    UpdateResourceEventConfigurationOutput: untyped
+
+    UpdateWirelessDeviceInput: untyped
+
+    UpdateWirelessDeviceOutput: untyped
+
+    UpdateWirelessGatewayInput: untyped
+
+    UpdateWirelessGatewayOutput: untyped
+
+    UpdateWirelessGatewayTaskCreate: untyped
+
+    UpdateWirelessGatewayTaskEntry: untyped
+
+    ValidationException: untyped
+
+    module WirelessDeviceEvent
+      Join: ::String
+
+      Rejoin: ::String
+
+      Uplink_Data: ::String
+
+      Downlink_Data: ::String
+
+      Registration: ::String
+    end
+
+    WirelessDeviceEventLogOption: untyped
+
+    module WirelessDeviceFrameInfo
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module WirelessDeviceIdType
+      WirelessDeviceId: ::String
+
+      DevEui: ::String
+
+      ThingName: ::String
+
+      SidewalkManufacturingSn: ::String
+    end
+
+    WirelessDeviceLogOption: untyped
+
+    WirelessDeviceStatistics: untyped
+
+    module WirelessDeviceType
+      Sidewalk: ::String
+
+      LoRaWAN: ::String
+    end
+
+    module WirelessGatewayEvent
+      CUPS_Request: ::String
+
+      Certificate: ::String
+    end
+
+    WirelessGatewayEventLogOption: untyped
+
+    module WirelessGatewayIdType
+      GatewayEui: ::String
+
+      WirelessGatewayId: ::String
+
+      ThingName: ::String
+    end
+
+    WirelessGatewayLogOption: untyped
+
+    module WirelessGatewayServiceType
+      CUPS: ::String
+
+      LNS: ::String
+    end
+
+    WirelessGatewayStatistics: untyped
+
+    module WirelessGatewayTaskDefinitionType
+      UPDATE: ::String
+    end
+
+    module WirelessGatewayTaskStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      FIRST_RETRY: ::String
+
+      SECOND_RETRY: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+    end
+
+    module WirelessGatewayType
+      LoRaWAN: ::String
+    end
+
+    WirelessMetadata: untyped
+
+  end
+end

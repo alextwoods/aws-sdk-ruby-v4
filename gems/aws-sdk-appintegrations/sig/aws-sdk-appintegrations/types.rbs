@@ -1,0 +1,100 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::AppIntegrations
+  module Types
+
+    AccessDeniedException: untyped
+
+    CreateDataIntegrationInput: untyped
+
+    CreateDataIntegrationOutput: untyped
+
+    CreateEventIntegrationInput: untyped
+
+    CreateEventIntegrationOutput: untyped
+
+    DataIntegrationAssociationSummary: untyped
+
+    DataIntegrationSummary: untyped
+
+    DeleteDataIntegrationInput: untyped
+
+    DeleteDataIntegrationOutput: untyped
+
+    DeleteEventIntegrationInput: untyped
+
+    DeleteEventIntegrationOutput: untyped
+
+    DuplicateResourceException: untyped
+
+    EventFilter: untyped
+
+    EventIntegration: untyped
+
+    EventIntegrationAssociation: untyped
+
+    GetDataIntegrationInput: untyped
+
+    GetDataIntegrationOutput: untyped
+
+    GetEventIntegrationInput: untyped
+
+    GetEventIntegrationOutput: untyped
+
+    InternalServiceError: untyped
+
+    InvalidRequestException: untyped
+
+    ListDataIntegrationAssociationsInput: untyped
+
+    ListDataIntegrationAssociationsOutput: untyped
+
+    ListDataIntegrationsInput: untyped
+
+    ListDataIntegrationsOutput: untyped
+
+    ListEventIntegrationAssociationsInput: untyped
+
+    ListEventIntegrationAssociationsOutput: untyped
+
+    ListEventIntegrationsInput: untyped
+
+    ListEventIntegrationsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceQuotaExceededException: untyped
+
+    ScheduleConfiguration: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDataIntegrationInput: untyped
+
+    UpdateDataIntegrationOutput: untyped
+
+    UpdateEventIntegrationInput: untyped
+
+    UpdateEventIntegrationOutput: untyped
+
+  end
+end

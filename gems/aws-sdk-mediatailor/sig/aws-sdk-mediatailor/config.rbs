@@ -1,0 +1,3 @@
+module AWS::SDK::MediaTailor
+  Config: untyped
+end

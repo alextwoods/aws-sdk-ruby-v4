@@ -1,0 +1,3 @@
+module AWS::SDK::CloudControl
+  Config: untyped
+end

@@ -1,0 +1,158 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ElasticTranscoder
+  module Types
+
+    AccessDeniedException: untyped
+
+    Artwork: untyped
+
+    AudioCodecOptions: untyped
+
+    AudioParameters: untyped
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    CaptionFormat: untyped
+
+    CaptionSource: untyped
+
+    Captions: untyped
+
+    Clip: untyped
+
+    CreateJobInput: untyped
+
+    CreateJobOperationOutput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateJobPlaylist: untyped
+
+    CreatePipelineInput: untyped
+
+    CreatePipelineOutput: untyped
+
+    CreatePresetInput: untyped
+
+    CreatePresetOutput: untyped
+
+    DeletePipelineInput: untyped
+
+    DeletePipelineOutput: untyped
+
+    DeletePresetInput: untyped
+
+    DeletePresetOutput: untyped
+
+    DetectedProperties: untyped
+
+    Encryption: untyped
+
+    HlsContentProtection: untyped
+
+    IncompatibleVersionException: untyped
+
+    InputCaptions: untyped
+
+    InternalServiceException: untyped
+
+    Job: untyped
+
+    JobAlbumArt: untyped
+
+    JobInput: untyped
+
+    JobOutput: untyped
+
+    JobWatermark: untyped
+
+    LimitExceededException: untyped
+
+    ListJobsByPipelineInput: untyped
+
+    ListJobsByPipelineOutput: untyped
+
+    ListJobsByStatusInput: untyped
+
+    ListJobsByStatusOutput: untyped
+
+    ListPipelinesInput: untyped
+
+    ListPipelinesOutput: untyped
+
+    ListPresetsInput: untyped
+
+    ListPresetsOutput: untyped
+
+    Notifications: untyped
+
+    Permission: untyped
+
+    Pipeline: untyped
+
+    PipelineOutputConfig: untyped
+
+    PlayReadyDrm: untyped
+
+    Playlist: untyped
+
+    Preset: untyped
+
+    PresetWatermark: untyped
+
+    ReadJobInput: untyped
+
+    ReadJobOutput: untyped
+
+    ReadPipelineInput: untyped
+
+    ReadPipelineOutput: untyped
+
+    ReadPresetInput: untyped
+
+    ReadPresetOutput: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    TestRoleInput: untyped
+
+    TestRoleOutput: untyped
+
+    Thumbnails: untyped
+
+    TimeSpan: untyped
+
+    Timing: untyped
+
+    UpdatePipelineInput: untyped
+
+    UpdatePipelineNotificationsInput: untyped
+
+    UpdatePipelineNotificationsOutput: untyped
+
+    UpdatePipelineOutput: untyped
+
+    UpdatePipelineStatusInput: untyped
+
+    UpdatePipelineStatusOutput: untyped
+
+    ValidationException: untyped
+
+    VideoParameters: untyped
+
+    Warning: untyped
+
+  end
+end

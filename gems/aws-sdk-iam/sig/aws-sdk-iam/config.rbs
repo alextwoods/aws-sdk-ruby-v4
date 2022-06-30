@@ -1,0 +1,3 @@
+module AWS::SDK::IAM
+  Config: untyped
+end

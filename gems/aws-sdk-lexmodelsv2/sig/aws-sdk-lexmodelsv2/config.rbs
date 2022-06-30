@@ -1,0 +1,3 @@
+module AWS::SDK::LexModelsV2
+  Config: untyped
+end

@@ -1,0 +1,220 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SSMContacts
+  module Types
+
+    module AcceptCodeValidation
+      IGNORE: ::String
+
+      ENFORCE: ::String
+    end
+
+    AcceptPageInput: untyped
+
+    AcceptPageOutput: untyped
+
+    module AcceptType
+      DELIVERED: ::String
+
+      READ: ::String
+    end
+
+    AccessDeniedException: untyped
+
+    ActivateContactChannelInput: untyped
+
+    ActivateContactChannelOutput: untyped
+
+    module ActivationStatus
+      ACTIVATED: ::String
+
+      NOT_ACTIVATED: ::String
+    end
+
+    ChannelTargetInfo: untyped
+
+    module ChannelType
+      SMS: ::String
+
+      VOICE: ::String
+
+      EMAIL: ::String
+    end
+
+    ConflictException: untyped
+
+    Contact: untyped
+
+    ContactChannel: untyped
+
+    ContactChannelAddress: untyped
+
+    ContactTargetInfo: untyped
+
+    module ContactType
+      PERSONAL: ::String
+
+      ESCALATION: ::String
+    end
+
+    CreateContactChannelInput: untyped
+
+    CreateContactChannelOutput: untyped
+
+    CreateContactInput: untyped
+
+    CreateContactOutput: untyped
+
+    DataEncryptionException: untyped
+
+    DeactivateContactChannelInput: untyped
+
+    DeactivateContactChannelOutput: untyped
+
+    DeleteContactChannelInput: untyped
+
+    DeleteContactChannelOutput: untyped
+
+    DeleteContactInput: untyped
+
+    DeleteContactOutput: untyped
+
+    DescribeEngagementInput: untyped
+
+    DescribeEngagementOutput: untyped
+
+    DescribePageInput: untyped
+
+    DescribePageOutput: untyped
+
+    Engagement: untyped
+
+    GetContactChannelInput: untyped
+
+    GetContactChannelOutput: untyped
+
+    GetContactInput: untyped
+
+    GetContactOutput: untyped
+
+    GetContactPolicyInput: untyped
+
+    GetContactPolicyOutput: untyped
+
+    InternalServerException: untyped
+
+    ListContactChannelsInput: untyped
+
+    ListContactChannelsOutput: untyped
+
+    ListContactsInput: untyped
+
+    ListContactsOutput: untyped
+
+    ListEngagementsInput: untyped
+
+    ListEngagementsOutput: untyped
+
+    ListPageReceiptsInput: untyped
+
+    ListPageReceiptsOutput: untyped
+
+    ListPagesByContactInput: untyped
+
+    ListPagesByContactOutput: untyped
+
+    ListPagesByEngagementInput: untyped
+
+    ListPagesByEngagementOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    Page: untyped
+
+    Plan: untyped
+
+    PutContactPolicyInput: untyped
+
+    PutContactPolicyOutput: untyped
+
+    Receipt: untyped
+
+    module ReceiptType
+      DELIVERED: ::String
+
+      ERROR: ::String
+
+      READ: ::String
+
+      SENT: ::String
+
+      STOP: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    SendActivationCodeInput: untyped
+
+    SendActivationCodeOutput: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    Stage: untyped
+
+    StartEngagementInput: untyped
+
+    StartEngagementOutput: untyped
+
+    StopEngagementInput: untyped
+
+    StopEngagementOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Target: untyped
+
+    ThrottlingException: untyped
+
+    TimeRange: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateContactChannelInput: untyped
+
+    UpdateContactChannelOutput: untyped
+
+    UpdateContactInput: untyped
+
+    UpdateContactOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+  end
+end

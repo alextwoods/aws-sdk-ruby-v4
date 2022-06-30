@@ -1,0 +1,258 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ApplicationAutoScaling
+  module Types
+
+    module AdjustmentType
+      ChangeInCapacity: ::String
+
+      PercentChangeInCapacity: ::String
+
+      ExactCapacity: ::String
+    end
+
+    Alarm: untyped
+
+    ConcurrentUpdateException: untyped
+
+    CustomizedMetricSpecification: untyped
+
+    DeleteScalingPolicyInput: untyped
+
+    DeleteScalingPolicyOutput: untyped
+
+    DeleteScheduledActionInput: untyped
+
+    DeleteScheduledActionOutput: untyped
+
+    DeregisterScalableTargetInput: untyped
+
+    DeregisterScalableTargetOutput: untyped
+
+    DescribeScalableTargetsInput: untyped
+
+    DescribeScalableTargetsOutput: untyped
+
+    DescribeScalingActivitiesInput: untyped
+
+    DescribeScalingActivitiesOutput: untyped
+
+    DescribeScalingPoliciesInput: untyped
+
+    DescribeScalingPoliciesOutput: untyped
+
+    DescribeScheduledActionsInput: untyped
+
+    DescribeScheduledActionsOutput: untyped
+
+    FailedResourceAccessException: untyped
+
+    InternalServiceException: untyped
+
+    InvalidNextTokenException: untyped
+
+    LimitExceededException: untyped
+
+    module MetricAggregationType
+      Average: ::String
+
+      Minimum: ::String
+
+      Maximum: ::String
+    end
+
+    MetricDimension: untyped
+
+    module MetricStatistic
+      Average: ::String
+
+      Minimum: ::String
+
+      Maximum: ::String
+
+      SampleCount: ::String
+
+      Sum: ::String
+    end
+
+    module MetricType
+      DynamoDBReadCapacityUtilization: ::String
+
+      DynamoDBWriteCapacityUtilization: ::String
+
+      ALBRequestCountPerTarget: ::String
+
+      RDSReaderAverageCPUUtilization: ::String
+
+      RDSReaderAverageDatabaseConnections: ::String
+
+      EC2SpotFleetRequestAverageCPUUtilization: ::String
+
+      EC2SpotFleetRequestAverageNetworkIn: ::String
+
+      EC2SpotFleetRequestAverageNetworkOut: ::String
+
+      SageMakerVariantInvocationsPerInstance: ::String
+
+      ECSServiceAverageCPUUtilization: ::String
+
+      ECSServiceAverageMemoryUtilization: ::String
+
+      AppStreamAverageCapacityUtilization: ::String
+
+      ComprehendInferenceUtilization: ::String
+
+      LambdaProvisionedConcurrencyUtilization: ::String
+
+      CassandraReadCapacityUtilization: ::String
+
+      CassandraWriteCapacityUtilization: ::String
+
+      KafkaBrokerStorageUtilization: ::String
+
+      ElastiCachePrimaryEngineCPUUtilization: ::String
+
+      ElastiCacheReplicaEngineCPUUtilization: ::String
+
+      ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage: ::String
+
+      NeptuneReaderAverageCPUUtilization: ::String
+    end
+
+    ObjectNotFoundException: untyped
+
+    module PolicyType
+      StepScaling: ::String
+
+      TargetTrackingScaling: ::String
+    end
+
+    PredefinedMetricSpecification: untyped
+
+    PutScalingPolicyInput: untyped
+
+    PutScalingPolicyOutput: untyped
+
+    PutScheduledActionInput: untyped
+
+    PutScheduledActionOutput: untyped
+
+    RegisterScalableTargetInput: untyped
+
+    RegisterScalableTargetOutput: untyped
+
+    module ScalableDimension
+      ECSServiceDesiredCount: ::String
+
+      EC2SpotFleetRequestTargetCapacity: ::String
+
+      EMRInstanceGroupInstanceCount: ::String
+
+      AppstreamFleetDesiredCapacity: ::String
+
+      DynamoDBTableReadCapacityUnits: ::String
+
+      DynamoDBTableWriteCapacityUnits: ::String
+
+      DynamoDBIndexReadCapacityUnits: ::String
+
+      DynamoDBIndexWriteCapacityUnits: ::String
+
+      RDSClusterReadReplicaCount: ::String
+
+      SageMakerVariantDesiredInstanceCount: ::String
+
+      CustomResourceScalableDimension: ::String
+
+      ComprehendDocClassifierEndpointInferenceUnits: ::String
+
+      ComprehendEntityRecognizerEndpointInferenceUnits: ::String
+
+      LambdaFunctionProvisionedConcurrency: ::String
+
+      CassandraTableReadCapacityUnits: ::String
+
+      CassandraTableWriteCapacityUnits: ::String
+
+      KafkaBrokerStorageVolumeSize: ::String
+
+      ElastiCacheReplicationGroupNodeGroups: ::String
+
+      ElastiCacheReplicationGroupReplicas: ::String
+
+      NeptuneClusterReadReplicaCount: ::String
+    end
+
+    ScalableTarget: untyped
+
+    ScalableTargetAction: untyped
+
+    ScalingActivity: untyped
+
+    module ScalingActivityStatusCode
+      Pending: ::String
+
+      InProgress: ::String
+
+      Successful: ::String
+
+      Overridden: ::String
+
+      Unfulfilled: ::String
+
+      Failed: ::String
+    end
+
+    ScalingPolicy: untyped
+
+    ScheduledAction: untyped
+
+    module ServiceNamespace
+      ECS: ::String
+
+      EMR: ::String
+
+      EC2: ::String
+
+      APPSTREAM: ::String
+
+      DYNAMODB: ::String
+
+      RDS: ::String
+
+      SAGEMAKER: ::String
+
+      CUSTOM_RESOURCE: ::String
+
+      COMPREHEND: ::String
+
+      LAMBDA: ::String
+
+      CASSANDRA: ::String
+
+      KAFKA: ::String
+
+      ELASTICACHE: ::String
+
+      NEPTUNE: ::String
+    end
+
+    StepAdjustment: untyped
+
+    StepScalingPolicyConfiguration: untyped
+
+    SuspendedState: untyped
+
+    TargetTrackingScalingPolicyConfiguration: untyped
+
+    ValidationException: untyped
+
+  end
+end

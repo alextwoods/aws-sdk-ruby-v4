@@ -1,0 +1,3 @@
+module AWS::SDK::CloudWatch
+  Config: untyped
+end

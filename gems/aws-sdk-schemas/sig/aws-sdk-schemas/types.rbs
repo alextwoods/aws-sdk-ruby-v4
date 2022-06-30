@@ -1,0 +1,190 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Schemas
+  module Types
+
+    BadRequestException: untyped
+
+    module CodeGenerationStatus
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_COMPLETE: ::String
+
+      CREATE_FAILED: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateDiscovererInput: untyped
+
+    CreateDiscovererOutput: untyped
+
+    CreateRegistryInput: untyped
+
+    CreateRegistryOutput: untyped
+
+    CreateSchemaInput: untyped
+
+    CreateSchemaOutput: untyped
+
+    DeleteDiscovererInput: untyped
+
+    DeleteDiscovererOutput: untyped
+
+    DeleteRegistryInput: untyped
+
+    DeleteRegistryOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DeleteSchemaInput: untyped
+
+    DeleteSchemaOutput: untyped
+
+    DeleteSchemaVersionInput: untyped
+
+    DeleteSchemaVersionOutput: untyped
+
+    DescribeCodeBindingInput: untyped
+
+    DescribeCodeBindingOutput: untyped
+
+    DescribeDiscovererInput: untyped
+
+    DescribeDiscovererOutput: untyped
+
+    DescribeRegistryInput: untyped
+
+    DescribeRegistryOutput: untyped
+
+    DescribeSchemaInput: untyped
+
+    DescribeSchemaOutput: untyped
+
+    module DiscovererState
+      STARTED: ::String
+
+      STOPPED: ::String
+    end
+
+    DiscovererSummary: untyped
+
+    ExportSchemaInput: untyped
+
+    ExportSchemaOutput: untyped
+
+    ForbiddenException: untyped
+
+    GetCodeBindingSourceInput: untyped
+
+    GetCodeBindingSourceOutput: untyped
+
+    GetDiscoveredSchemaInput: untyped
+
+    GetDiscoveredSchemaOutput: untyped
+
+    GetResourcePolicyInput: untyped
+
+    GetResourcePolicyOutput: untyped
+
+    GoneException: untyped
+
+    InternalServerErrorException: untyped
+
+    ListDiscoverersInput: untyped
+
+    ListDiscoverersOutput: untyped
+
+    ListRegistriesInput: untyped
+
+    ListRegistriesOutput: untyped
+
+    ListSchemaVersionsInput: untyped
+
+    ListSchemaVersionsOutput: untyped
+
+    ListSchemasInput: untyped
+
+    ListSchemasOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    NotFoundException: untyped
+
+    PreconditionFailedException: untyped
+
+    PutCodeBindingInput: untyped
+
+    PutCodeBindingOutput: untyped
+
+    PutResourcePolicyInput: untyped
+
+    PutResourcePolicyOutput: untyped
+
+    RegistrySummary: untyped
+
+    SchemaSummary: untyped
+
+    SchemaVersionSummary: untyped
+
+    SearchSchemaSummary: untyped
+
+    SearchSchemaVersionSummary: untyped
+
+    SearchSchemasInput: untyped
+
+    SearchSchemasOutput: untyped
+
+    ServiceUnavailableException: untyped
+
+    StartDiscovererInput: untyped
+
+    StartDiscovererOutput: untyped
+
+    StopDiscovererInput: untyped
+
+    StopDiscovererOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    module Type
+      OpenApi3: ::String
+
+      JSONSchemaDraft4: ::String
+    end
+
+    UnauthorizedException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDiscovererInput: untyped
+
+    UpdateDiscovererOutput: untyped
+
+    UpdateRegistryInput: untyped
+
+    UpdateRegistryOutput: untyped
+
+    UpdateSchemaInput: untyped
+
+    UpdateSchemaOutput: untyped
+
+  end
+end

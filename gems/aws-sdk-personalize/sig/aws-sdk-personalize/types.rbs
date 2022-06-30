@@ -1,0 +1,424 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Personalize
+  module Types
+
+    Algorithm: untyped
+
+    AlgorithmImage: untyped
+
+    AutoMLConfig: untyped
+
+    AutoMLResult: untyped
+
+    BatchInferenceJob: untyped
+
+    BatchInferenceJobConfig: untyped
+
+    BatchInferenceJobInput: untyped
+
+    BatchInferenceJobOutput: untyped
+
+    BatchInferenceJobSummary: untyped
+
+    BatchSegmentJob: untyped
+
+    BatchSegmentJobInput: untyped
+
+    BatchSegmentJobOutput: untyped
+
+    BatchSegmentJobSummary: untyped
+
+    Campaign: untyped
+
+    CampaignConfig: untyped
+
+    CampaignSummary: untyped
+
+    CampaignUpdateSummary: untyped
+
+    CategoricalHyperParameterRange: untyped
+
+    ContinuousHyperParameterRange: untyped
+
+    CreateBatchInferenceJobInput: untyped
+
+    CreateBatchInferenceJobOutput: untyped
+
+    CreateBatchSegmentJobInput: untyped
+
+    CreateBatchSegmentJobOutput: untyped
+
+    CreateCampaignInput: untyped
+
+    CreateCampaignOutput: untyped
+
+    CreateDatasetExportJobInput: untyped
+
+    CreateDatasetExportJobOutput: untyped
+
+    CreateDatasetGroupInput: untyped
+
+    CreateDatasetGroupOutput: untyped
+
+    CreateDatasetImportJobInput: untyped
+
+    CreateDatasetImportJobOutput: untyped
+
+    CreateDatasetInput: untyped
+
+    CreateDatasetOutput: untyped
+
+    CreateEventTrackerInput: untyped
+
+    CreateEventTrackerOutput: untyped
+
+    CreateFilterInput: untyped
+
+    CreateFilterOutput: untyped
+
+    CreateRecommenderInput: untyped
+
+    CreateRecommenderOutput: untyped
+
+    CreateSchemaInput: untyped
+
+    CreateSchemaOutput: untyped
+
+    CreateSolutionInput: untyped
+
+    CreateSolutionOutput: untyped
+
+    CreateSolutionVersionInput: untyped
+
+    CreateSolutionVersionOutput: untyped
+
+    DataSource: untyped
+
+    Dataset: untyped
+
+    DatasetExportJob: untyped
+
+    DatasetExportJobOutput: untyped
+
+    DatasetExportJobSummary: untyped
+
+    DatasetGroup: untyped
+
+    DatasetGroupSummary: untyped
+
+    DatasetImportJob: untyped
+
+    DatasetImportJobSummary: untyped
+
+    DatasetSchema: untyped
+
+    DatasetSchemaSummary: untyped
+
+    DatasetSummary: untyped
+
+    DefaultCategoricalHyperParameterRange: untyped
+
+    DefaultContinuousHyperParameterRange: untyped
+
+    DefaultHyperParameterRanges: untyped
+
+    DefaultIntegerHyperParameterRange: untyped
+
+    DeleteCampaignInput: untyped
+
+    DeleteCampaignOutput: untyped
+
+    DeleteDatasetGroupInput: untyped
+
+    DeleteDatasetGroupOutput: untyped
+
+    DeleteDatasetInput: untyped
+
+    DeleteDatasetOutput: untyped
+
+    DeleteEventTrackerInput: untyped
+
+    DeleteEventTrackerOutput: untyped
+
+    DeleteFilterInput: untyped
+
+    DeleteFilterOutput: untyped
+
+    DeleteRecommenderInput: untyped
+
+    DeleteRecommenderOutput: untyped
+
+    DeleteSchemaInput: untyped
+
+    DeleteSchemaOutput: untyped
+
+    DeleteSolutionInput: untyped
+
+    DeleteSolutionOutput: untyped
+
+    DescribeAlgorithmInput: untyped
+
+    DescribeAlgorithmOutput: untyped
+
+    DescribeBatchInferenceJobInput: untyped
+
+    DescribeBatchInferenceJobOutput: untyped
+
+    DescribeBatchSegmentJobInput: untyped
+
+    DescribeBatchSegmentJobOutput: untyped
+
+    DescribeCampaignInput: untyped
+
+    DescribeCampaignOutput: untyped
+
+    DescribeDatasetExportJobInput: untyped
+
+    DescribeDatasetExportJobOutput: untyped
+
+    DescribeDatasetGroupInput: untyped
+
+    DescribeDatasetGroupOutput: untyped
+
+    DescribeDatasetImportJobInput: untyped
+
+    DescribeDatasetImportJobOutput: untyped
+
+    DescribeDatasetInput: untyped
+
+    DescribeDatasetOutput: untyped
+
+    DescribeEventTrackerInput: untyped
+
+    DescribeEventTrackerOutput: untyped
+
+    DescribeFeatureTransformationInput: untyped
+
+    DescribeFeatureTransformationOutput: untyped
+
+    DescribeFilterInput: untyped
+
+    DescribeFilterOutput: untyped
+
+    DescribeRecipeInput: untyped
+
+    DescribeRecipeOutput: untyped
+
+    DescribeRecommenderInput: untyped
+
+    DescribeRecommenderOutput: untyped
+
+    DescribeSchemaInput: untyped
+
+    DescribeSchemaOutput: untyped
+
+    DescribeSolutionInput: untyped
+
+    DescribeSolutionOutput: untyped
+
+    DescribeSolutionVersionInput: untyped
+
+    DescribeSolutionVersionOutput: untyped
+
+    module Domain
+      ECOMMERCE: ::String
+
+      VIDEO_ON_DEMAND: ::String
+    end
+
+    EventTracker: untyped
+
+    EventTrackerSummary: untyped
+
+    FeatureTransformation: untyped
+
+    Filter: untyped
+
+    FilterSummary: untyped
+
+    GetSolutionMetricsInput: untyped
+
+    GetSolutionMetricsOutput: untyped
+
+    HPOConfig: untyped
+
+    HPOObjective: untyped
+
+    HPOResourceConfig: untyped
+
+    HyperParameterRanges: untyped
+
+    module IngestionMode
+      BULK: ::String
+
+      PUT: ::String
+
+      ALL: ::String
+    end
+
+    IntegerHyperParameterRange: untyped
+
+    InvalidInputException: untyped
+
+    InvalidNextTokenException: untyped
+
+    LimitExceededException: untyped
+
+    ListBatchInferenceJobsInput: untyped
+
+    ListBatchInferenceJobsOutput: untyped
+
+    ListBatchSegmentJobsInput: untyped
+
+    ListBatchSegmentJobsOutput: untyped
+
+    ListCampaignsInput: untyped
+
+    ListCampaignsOutput: untyped
+
+    ListDatasetExportJobsInput: untyped
+
+    ListDatasetExportJobsOutput: untyped
+
+    ListDatasetGroupsInput: untyped
+
+    ListDatasetGroupsOutput: untyped
+
+    ListDatasetImportJobsInput: untyped
+
+    ListDatasetImportJobsOutput: untyped
+
+    ListDatasetsInput: untyped
+
+    ListDatasetsOutput: untyped
+
+    ListEventTrackersInput: untyped
+
+    ListEventTrackersOutput: untyped
+
+    ListFiltersInput: untyped
+
+    ListFiltersOutput: untyped
+
+    ListRecipesInput: untyped
+
+    ListRecipesOutput: untyped
+
+    ListRecommendersInput: untyped
+
+    ListRecommendersOutput: untyped
+
+    ListSchemasInput: untyped
+
+    ListSchemasOutput: untyped
+
+    ListSolutionVersionsInput: untyped
+
+    ListSolutionVersionsOutput: untyped
+
+    ListSolutionsInput: untyped
+
+    ListSolutionsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module ObjectiveSensitivity
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      OFF: ::String
+    end
+
+    OptimizationObjective: untyped
+
+    Recipe: untyped
+
+    module RecipeProvider
+      SERVICE: ::String
+    end
+
+    RecipeSummary: untyped
+
+    Recommender: untyped
+
+    RecommenderConfig: untyped
+
+    RecommenderSummary: untyped
+
+    RecommenderUpdateSummary: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3DataConfig: untyped
+
+    Solution: untyped
+
+    SolutionConfig: untyped
+
+    SolutionSummary: untyped
+
+    SolutionVersion: untyped
+
+    SolutionVersionSummary: untyped
+
+    StartRecommenderInput: untyped
+
+    StartRecommenderOutput: untyped
+
+    StopRecommenderInput: untyped
+
+    StopRecommenderOutput: untyped
+
+    StopSolutionVersionCreationInput: untyped
+
+    StopSolutionVersionCreationOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyTagKeysException: untyped
+
+    TooManyTagsException: untyped
+
+    module TrainingMode
+      FULL: ::String
+
+      UPDATE: ::String
+    end
+
+    TunedHPOParams: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateCampaignInput: untyped
+
+    UpdateCampaignOutput: untyped
+
+    UpdateRecommenderInput: untyped
+
+    UpdateRecommenderOutput: untyped
+
+  end
+end

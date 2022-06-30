@@ -1,0 +1,92 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Rbin
+  module Types
+
+    CreateRuleInput: untyped
+
+    CreateRuleOutput: untyped
+
+    DeleteRuleInput: untyped
+
+    DeleteRuleOutput: untyped
+
+    GetRuleInput: untyped
+
+    GetRuleOutput: untyped
+
+    InternalServerException: untyped
+
+    ListRulesInput: untyped
+
+    ListRulesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceNotFoundExceptionReason
+      RULE_NOT_FOUND: ::String
+    end
+
+    ResourceTag: untyped
+
+    module ResourceType
+      EBS_SNAPSHOT: ::String
+
+      EC2_IMAGE: ::String
+    end
+
+    RetentionPeriod: untyped
+
+    module RetentionPeriodUnit
+      DAYS: ::String
+    end
+
+    module RuleStatus
+      PENDING: ::String
+
+      AVAILABLE: ::String
+    end
+
+    RuleSummary: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module ServiceQuotaExceededExceptionReason
+      SERVICE_QUOTA_EXCEEDED: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateRuleInput: untyped
+
+    UpdateRuleOutput: untyped
+
+    ValidationException: untyped
+
+    module ValidationExceptionReason
+      INVALID_PAGE_TOKEN: ::String
+
+      INVALID_PARAMETER_VALUE: ::String
+    end
+
+  end
+end

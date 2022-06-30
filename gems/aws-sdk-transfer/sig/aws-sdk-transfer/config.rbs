@@ -1,0 +1,3 @@
+module AWS::SDK::Transfer
+  Config: untyped
+end

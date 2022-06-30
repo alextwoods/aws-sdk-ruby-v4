@@ -1,0 +1,3 @@
+module AWS::SDK::IoTThingsGraph
+  Config: untyped
+end

@@ -1,0 +1,164 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Amp
+  module Types
+
+    AccessDeniedException: untyped
+
+    AlertManagerDefinitionDescription: untyped
+
+    AlertManagerDefinitionStatus: untyped
+
+    module AlertManagerDefinitionStatusCode
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      CREATION_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateAlertManagerDefinitionInput: untyped
+
+    CreateAlertManagerDefinitionOutput: untyped
+
+    CreateRuleGroupsNamespaceInput: untyped
+
+    CreateRuleGroupsNamespaceOutput: untyped
+
+    CreateWorkspaceInput: untyped
+
+    CreateWorkspaceOutput: untyped
+
+    DeleteAlertManagerDefinitionInput: untyped
+
+    DeleteAlertManagerDefinitionOutput: untyped
+
+    DeleteRuleGroupsNamespaceInput: untyped
+
+    DeleteRuleGroupsNamespaceOutput: untyped
+
+    DeleteWorkspaceInput: untyped
+
+    DeleteWorkspaceOutput: untyped
+
+    DescribeAlertManagerDefinitionInput: untyped
+
+    DescribeAlertManagerDefinitionOutput: untyped
+
+    DescribeRuleGroupsNamespaceInput: untyped
+
+    DescribeRuleGroupsNamespaceOutput: untyped
+
+    DescribeWorkspaceInput: untyped
+
+    DescribeWorkspaceOutput: untyped
+
+    InternalServerException: untyped
+
+    ListRuleGroupsNamespacesInput: untyped
+
+    ListRuleGroupsNamespacesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWorkspacesInput: untyped
+
+    ListWorkspacesOutput: untyped
+
+    PutAlertManagerDefinitionInput: untyped
+
+    PutAlertManagerDefinitionOutput: untyped
+
+    PutRuleGroupsNamespaceInput: untyped
+
+    PutRuleGroupsNamespaceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    RuleGroupsNamespaceDescription: untyped
+
+    RuleGroupsNamespaceStatus: untyped
+
+    module RuleGroupsNamespaceStatusCode
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      CREATION_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    RuleGroupsNamespaceSummary: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateWorkspaceAliasInput: untyped
+
+    UpdateWorkspaceAliasOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+    WorkspaceDescription: untyped
+
+    WorkspaceStatus: untyped
+
+    module WorkspaceStatusCode
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      CREATION_FAILED: ::String
+    end
+
+    WorkspaceSummary: untyped
+
+  end
+end

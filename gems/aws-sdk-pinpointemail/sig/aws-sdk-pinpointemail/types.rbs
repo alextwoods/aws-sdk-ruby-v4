@@ -1,0 +1,362 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::PinpointEmail
+  module Types
+
+    AccountSuspendedException: untyped
+
+    AlreadyExistsException: untyped
+
+    BadRequestException: untyped
+
+    module BehaviorOnMxFailure
+      USE_DEFAULT_VALUE: ::String
+
+      REJECT_MESSAGE: ::String
+    end
+
+    BlacklistEntry: untyped
+
+    Body: untyped
+
+    CloudWatchDestination: untyped
+
+    CloudWatchDimensionConfiguration: untyped
+
+    ConcurrentModificationException: untyped
+
+    Content: untyped
+
+    CreateConfigurationSetEventDestinationInput: untyped
+
+    CreateConfigurationSetEventDestinationOutput: untyped
+
+    CreateConfigurationSetInput: untyped
+
+    CreateConfigurationSetOutput: untyped
+
+    CreateDedicatedIpPoolInput: untyped
+
+    CreateDedicatedIpPoolOutput: untyped
+
+    CreateDeliverabilityTestReportInput: untyped
+
+    CreateDeliverabilityTestReportOutput: untyped
+
+    CreateEmailIdentityInput: untyped
+
+    CreateEmailIdentityOutput: untyped
+
+    DailyVolume: untyped
+
+    DedicatedIp: untyped
+
+    DeleteConfigurationSetEventDestinationInput: untyped
+
+    DeleteConfigurationSetEventDestinationOutput: untyped
+
+    DeleteConfigurationSetInput: untyped
+
+    DeleteConfigurationSetOutput: untyped
+
+    DeleteDedicatedIpPoolInput: untyped
+
+    DeleteDedicatedIpPoolOutput: untyped
+
+    DeleteEmailIdentityInput: untyped
+
+    DeleteEmailIdentityOutput: untyped
+
+    module DeliverabilityDashboardAccountStatus
+      ACTIVE: ::String
+
+      PENDING_EXPIRATION: ::String
+
+      DISABLED: ::String
+    end
+
+    DeliverabilityTestReport: untyped
+
+    module DeliverabilityTestStatus
+      IN_PROGRESS: ::String
+
+      COMPLETED: ::String
+    end
+
+    DeliveryOptions: untyped
+
+    Destination: untyped
+
+    module DimensionValueSource
+      MESSAGE_TAG: ::String
+
+      EMAIL_HEADER: ::String
+
+      LINK_TAG: ::String
+    end
+
+    DkimAttributes: untyped
+
+    module DkimStatus
+      PENDING: ::String
+
+      SUCCESS: ::String
+
+      FAILED: ::String
+
+      TEMPORARY_FAILURE: ::String
+
+      NOT_STARTED: ::String
+    end
+
+    DomainDeliverabilityCampaign: untyped
+
+    DomainDeliverabilityTrackingOption: untyped
+
+    DomainIspPlacement: untyped
+
+    EmailContent: untyped
+
+    EventDestination: untyped
+
+    EventDestinationDefinition: untyped
+
+    module EventType
+      SEND: ::String
+
+      REJECT: ::String
+
+      BOUNCE: ::String
+
+      COMPLAINT: ::String
+
+      DELIVERY: ::String
+
+      OPEN: ::String
+
+      CLICK: ::String
+
+      RENDERING_FAILURE: ::String
+    end
+
+    GetAccountInput: untyped
+
+    GetAccountOutput: untyped
+
+    GetBlacklistReportsInput: untyped
+
+    GetBlacklistReportsOutput: untyped
+
+    GetConfigurationSetEventDestinationsInput: untyped
+
+    GetConfigurationSetEventDestinationsOutput: untyped
+
+    GetConfigurationSetInput: untyped
+
+    GetConfigurationSetOutput: untyped
+
+    GetDedicatedIpInput: untyped
+
+    GetDedicatedIpOutput: untyped
+
+    GetDedicatedIpsInput: untyped
+
+    GetDedicatedIpsOutput: untyped
+
+    GetDeliverabilityDashboardOptionsInput: untyped
+
+    GetDeliverabilityDashboardOptionsOutput: untyped
+
+    GetDeliverabilityTestReportInput: untyped
+
+    GetDeliverabilityTestReportOutput: untyped
+
+    GetDomainDeliverabilityCampaignInput: untyped
+
+    GetDomainDeliverabilityCampaignOutput: untyped
+
+    GetDomainStatisticsReportInput: untyped
+
+    GetDomainStatisticsReportOutput: untyped
+
+    GetEmailIdentityInput: untyped
+
+    GetEmailIdentityOutput: untyped
+
+    IdentityInfo: untyped
+
+    module IdentityType
+      EMAIL_ADDRESS: ::String
+
+      DOMAIN: ::String
+
+      MANAGED_DOMAIN: ::String
+    end
+
+    InboxPlacementTrackingOption: untyped
+
+    IspPlacement: untyped
+
+    KinesisFirehoseDestination: untyped
+
+    LimitExceededException: untyped
+
+    ListConfigurationSetsInput: untyped
+
+    ListConfigurationSetsOutput: untyped
+
+    ListDedicatedIpPoolsInput: untyped
+
+    ListDedicatedIpPoolsOutput: untyped
+
+    ListDeliverabilityTestReportsInput: untyped
+
+    ListDeliverabilityTestReportsOutput: untyped
+
+    ListDomainDeliverabilityCampaignsInput: untyped
+
+    ListDomainDeliverabilityCampaignsOutput: untyped
+
+    ListEmailIdentitiesInput: untyped
+
+    ListEmailIdentitiesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    MailFromAttributes: untyped
+
+    MailFromDomainNotVerifiedException: untyped
+
+    module MailFromDomainStatus
+      PENDING: ::String
+
+      SUCCESS: ::String
+
+      FAILED: ::String
+
+      TEMPORARY_FAILURE: ::String
+    end
+
+    Message: untyped
+
+    MessageRejected: untyped
+
+    MessageTag: untyped
+
+    NotFoundException: untyped
+
+    OverallVolume: untyped
+
+    PinpointDestination: untyped
+
+    PlacementStatistics: untyped
+
+    PutAccountDedicatedIpWarmupAttributesInput: untyped
+
+    PutAccountDedicatedIpWarmupAttributesOutput: untyped
+
+    PutAccountSendingAttributesInput: untyped
+
+    PutAccountSendingAttributesOutput: untyped
+
+    PutConfigurationSetDeliveryOptionsInput: untyped
+
+    PutConfigurationSetDeliveryOptionsOutput: untyped
+
+    PutConfigurationSetReputationOptionsInput: untyped
+
+    PutConfigurationSetReputationOptionsOutput: untyped
+
+    PutConfigurationSetSendingOptionsInput: untyped
+
+    PutConfigurationSetSendingOptionsOutput: untyped
+
+    PutConfigurationSetTrackingOptionsInput: untyped
+
+    PutConfigurationSetTrackingOptionsOutput: untyped
+
+    PutDedicatedIpInPoolInput: untyped
+
+    PutDedicatedIpInPoolOutput: untyped
+
+    PutDedicatedIpWarmupAttributesInput: untyped
+
+    PutDedicatedIpWarmupAttributesOutput: untyped
+
+    PutDeliverabilityDashboardOptionInput: untyped
+
+    PutDeliverabilityDashboardOptionOutput: untyped
+
+    PutEmailIdentityDkimAttributesInput: untyped
+
+    PutEmailIdentityDkimAttributesOutput: untyped
+
+    PutEmailIdentityFeedbackAttributesInput: untyped
+
+    PutEmailIdentityFeedbackAttributesOutput: untyped
+
+    PutEmailIdentityMailFromAttributesInput: untyped
+
+    PutEmailIdentityMailFromAttributesOutput: untyped
+
+    RawMessage: untyped
+
+    ReputationOptions: untyped
+
+    SendEmailInput: untyped
+
+    SendEmailOutput: untyped
+
+    SendQuota: untyped
+
+    SendingOptions: untyped
+
+    SendingPausedException: untyped
+
+    SnsDestination: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Template: untyped
+
+    module TlsPolicy
+      REQUIRE: ::String
+
+      OPTIONAL: ::String
+    end
+
+    TooManyRequestsException: untyped
+
+    TrackingOptions: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateConfigurationSetEventDestinationInput: untyped
+
+    UpdateConfigurationSetEventDestinationOutput: untyped
+
+    VolumeStatistics: untyped
+
+    module WarmupStatus
+      IN_PROGRESS: ::String
+
+      DONE: ::String
+    end
+
+  end
+end

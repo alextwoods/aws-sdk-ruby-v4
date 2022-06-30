@@ -1,0 +1,1806 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Lightsail
+  module Types
+
+    AccessDeniedException: untyped
+
+    module AccessDirection
+      inbound: ::String
+
+      outbound: ::String
+    end
+
+    AccessKey: untyped
+
+    AccessKeyLastUsed: untyped
+
+    AccessRules: untyped
+
+    module AccessType
+      Public: ::String
+
+      Private: ::String
+    end
+
+    AccountLevelBpaSync: untyped
+
+    module AccountLevelBpaSyncStatus
+      InSync: ::String
+
+      Failed: ::String
+
+      NeverSynced: ::String
+
+      Defaulted: ::String
+    end
+
+    AccountSetupInProgressException: untyped
+
+    AddOn: untyped
+
+    AddOnRequest: untyped
+
+    module AddOnType
+      AutoSnapshot: ::String
+    end
+
+    Alarm: untyped
+
+    module AlarmState
+      OK: ::String
+
+      ALARM: ::String
+
+      INSUFFICIENT_DATA: ::String
+    end
+
+    AllocateStaticIpInput: untyped
+
+    AllocateStaticIpOutput: untyped
+
+    AttachCertificateToDistributionInput: untyped
+
+    AttachCertificateToDistributionOutput: untyped
+
+    AttachDiskInput: untyped
+
+    AttachDiskOutput: untyped
+
+    AttachInstancesToLoadBalancerInput: untyped
+
+    AttachInstancesToLoadBalancerOutput: untyped
+
+    AttachLoadBalancerTlsCertificateInput: untyped
+
+    AttachLoadBalancerTlsCertificateOutput: untyped
+
+    AttachStaticIpInput: untyped
+
+    AttachStaticIpOutput: untyped
+
+    AttachedDisk: untyped
+
+    AutoSnapshotAddOnRequest: untyped
+
+    AutoSnapshotDetails: untyped
+
+    module AutoSnapshotStatus
+      SUCCESS: ::String
+
+      FAILED: ::String
+
+      IN_PROGRESS: ::String
+
+      NOT_FOUND: ::String
+    end
+
+    AvailabilityZone: untyped
+
+    module BPAStatusMessage
+      DEFAULTED_FOR_SLR_MISSING: ::String
+
+      SYNC_ON_HOLD: ::String
+
+      DEFAULTED_FOR_SLR_MISSING_ON_HOLD: ::String
+
+      Unknown: ::String
+    end
+
+    module BehaviorEnum
+      DontCacheSetting: ::String
+
+      CacheSetting: ::String
+    end
+
+    Blueprint: untyped
+
+    module BlueprintType
+      os: ::String
+
+      app: ::String
+    end
+
+    Bucket: untyped
+
+    BucketAccessLogConfig: untyped
+
+    BucketBundle: untyped
+
+    module BucketMetricName
+      BucketSizeBytes: ::String
+
+      NumberOfObjects: ::String
+    end
+
+    BucketState: untyped
+
+    Bundle: untyped
+
+    CacheBehavior: untyped
+
+    CacheBehaviorPerPath: untyped
+
+    CacheSettings: untyped
+
+    Certificate: untyped
+
+    module CertificateStatus
+      PendingValidation: ::String
+
+      Issued: ::String
+
+      Inactive: ::String
+
+      Expired: ::String
+
+      ValidationTimedOut: ::String
+
+      Revoked: ::String
+
+      Failed: ::String
+    end
+
+    CertificateSummary: untyped
+
+    CloseInstancePublicPortsInput: untyped
+
+    CloseInstancePublicPortsOutput: untyped
+
+    CloudFormationStackRecord: untyped
+
+    CloudFormationStackRecordSourceInfo: untyped
+
+    module CloudFormationStackRecordSourceType
+      ExportSnapshotRecord: ::String
+    end
+
+    module ComparisonOperator
+      GreaterThanOrEqualToThreshold: ::String
+
+      GreaterThanThreshold: ::String
+
+      LessThanThreshold: ::String
+
+      LessThanOrEqualToThreshold: ::String
+    end
+
+    ContactMethod: untyped
+
+    module ContactMethodStatus
+      PendingVerification: ::String
+
+      Valid: ::String
+
+      Invalid: ::String
+    end
+
+    module ContactMethodVerificationProtocol
+      Email: ::String
+    end
+
+    module ContactProtocol
+      Email: ::String
+
+      SMS: ::String
+    end
+
+    Container: untyped
+
+    ContainerImage: untyped
+
+    ContainerService: untyped
+
+    ContainerServiceDeployment: untyped
+
+    ContainerServiceDeploymentRequest: untyped
+
+    module ContainerServiceDeploymentState
+      ACTIVATING: ::String
+
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      FAILED: ::String
+    end
+
+    ContainerServiceECRImagePullerRole: untyped
+
+    ContainerServiceECRImagePullerRoleRequest: untyped
+
+    ContainerServiceEndpoint: untyped
+
+    ContainerServiceHealthCheckConfig: untyped
+
+    ContainerServiceLogEvent: untyped
+
+    module ContainerServiceMetricName
+      CPUUtilization: ::String
+
+      MemoryUtilization: ::String
+    end
+
+    ContainerServicePower: untyped
+
+    module ContainerServicePowerName
+      nano: ::String
+
+      micro: ::String
+
+      small: ::String
+
+      medium: ::String
+
+      large: ::String
+
+      xlarge: ::String
+    end
+
+    module ContainerServiceProtocol
+      HTTP: ::String
+
+      HTTPS: ::String
+
+      TCP: ::String
+
+      UDP: ::String
+    end
+
+    ContainerServiceRegistryLogin: untyped
+
+    module ContainerServiceState
+      PENDING: ::String
+
+      READY: ::String
+
+      RUNNING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DISABLED: ::String
+
+      DEPLOYING: ::String
+    end
+
+    ContainerServiceStateDetail: untyped
+
+    module ContainerServiceStateDetailCode
+      CREATING_SYSTEM_RESOURCES: ::String
+
+      CREATING_NETWORK_INFRASTRUCTURE: ::String
+
+      PROVISIONING_CERTIFICATE: ::String
+
+      PROVISIONING_SERVICE: ::String
+
+      CREATING_DEPLOYMENT: ::String
+
+      EVALUATING_HEALTH_CHECK: ::String
+
+      ACTIVATING_DEPLOYMENT: ::String
+
+      CERTIFICATE_LIMIT_EXCEEDED: ::String
+
+      UNKNOWN_ERROR: ::String
+    end
+
+    CookieObject: untyped
+
+    CopySnapshotInput: untyped
+
+    CopySnapshotOutput: untyped
+
+    CreateBucketAccessKeyInput: untyped
+
+    CreateBucketAccessKeyOutput: untyped
+
+    CreateBucketInput: untyped
+
+    CreateBucketOutput: untyped
+
+    CreateCertificateInput: untyped
+
+    CreateCertificateOutput: untyped
+
+    CreateCloudFormationStackInput: untyped
+
+    CreateCloudFormationStackOutput: untyped
+
+    CreateContactMethodInput: untyped
+
+    CreateContactMethodOutput: untyped
+
+    CreateContainerServiceDeploymentInput: untyped
+
+    CreateContainerServiceDeploymentOutput: untyped
+
+    CreateContainerServiceInput: untyped
+
+    CreateContainerServiceOutput: untyped
+
+    CreateContainerServiceRegistryLoginInput: untyped
+
+    CreateContainerServiceRegistryLoginOutput: untyped
+
+    CreateDiskFromSnapshotInput: untyped
+
+    CreateDiskFromSnapshotOutput: untyped
+
+    CreateDiskInput: untyped
+
+    CreateDiskOutput: untyped
+
+    CreateDiskSnapshotInput: untyped
+
+    CreateDiskSnapshotOutput: untyped
+
+    CreateDistributionInput: untyped
+
+    CreateDistributionOutput: untyped
+
+    CreateDomainEntryInput: untyped
+
+    CreateDomainEntryOutput: untyped
+
+    CreateDomainInput: untyped
+
+    CreateDomainOutput: untyped
+
+    CreateInstanceSnapshotInput: untyped
+
+    CreateInstanceSnapshotOutput: untyped
+
+    CreateInstancesFromSnapshotInput: untyped
+
+    CreateInstancesFromSnapshotOutput: untyped
+
+    CreateInstancesInput: untyped
+
+    CreateInstancesOutput: untyped
+
+    CreateKeyPairInput: untyped
+
+    CreateKeyPairOutput: untyped
+
+    CreateLoadBalancerInput: untyped
+
+    CreateLoadBalancerOutput: untyped
+
+    CreateLoadBalancerTlsCertificateInput: untyped
+
+    CreateLoadBalancerTlsCertificateOutput: untyped
+
+    CreateRelationalDatabaseFromSnapshotInput: untyped
+
+    CreateRelationalDatabaseFromSnapshotOutput: untyped
+
+    CreateRelationalDatabaseInput: untyped
+
+    CreateRelationalDatabaseOutput: untyped
+
+    CreateRelationalDatabaseSnapshotInput: untyped
+
+    CreateRelationalDatabaseSnapshotOutput: untyped
+
+    DeleteAlarmInput: untyped
+
+    DeleteAlarmOutput: untyped
+
+    DeleteAutoSnapshotInput: untyped
+
+    DeleteAutoSnapshotOutput: untyped
+
+    DeleteBucketAccessKeyInput: untyped
+
+    DeleteBucketAccessKeyOutput: untyped
+
+    DeleteBucketInput: untyped
+
+    DeleteBucketOutput: untyped
+
+    DeleteCertificateInput: untyped
+
+    DeleteCertificateOutput: untyped
+
+    DeleteContactMethodInput: untyped
+
+    DeleteContactMethodOutput: untyped
+
+    DeleteContainerImageInput: untyped
+
+    DeleteContainerImageOutput: untyped
+
+    DeleteContainerServiceInput: untyped
+
+    DeleteContainerServiceOutput: untyped
+
+    DeleteDiskInput: untyped
+
+    DeleteDiskOutput: untyped
+
+    DeleteDiskSnapshotInput: untyped
+
+    DeleteDiskSnapshotOutput: untyped
+
+    DeleteDistributionInput: untyped
+
+    DeleteDistributionOutput: untyped
+
+    DeleteDomainEntryInput: untyped
+
+    DeleteDomainEntryOutput: untyped
+
+    DeleteDomainInput: untyped
+
+    DeleteDomainOutput: untyped
+
+    DeleteInstanceInput: untyped
+
+    DeleteInstanceOutput: untyped
+
+    DeleteInstanceSnapshotInput: untyped
+
+    DeleteInstanceSnapshotOutput: untyped
+
+    DeleteKeyPairInput: untyped
+
+    DeleteKeyPairOutput: untyped
+
+    DeleteKnownHostKeysInput: untyped
+
+    DeleteKnownHostKeysOutput: untyped
+
+    DeleteLoadBalancerInput: untyped
+
+    DeleteLoadBalancerOutput: untyped
+
+    DeleteLoadBalancerTlsCertificateInput: untyped
+
+    DeleteLoadBalancerTlsCertificateOutput: untyped
+
+    DeleteRelationalDatabaseInput: untyped
+
+    DeleteRelationalDatabaseOutput: untyped
+
+    DeleteRelationalDatabaseSnapshotInput: untyped
+
+    DeleteRelationalDatabaseSnapshotOutput: untyped
+
+    DestinationInfo: untyped
+
+    DetachCertificateFromDistributionInput: untyped
+
+    DetachCertificateFromDistributionOutput: untyped
+
+    DetachDiskInput: untyped
+
+    DetachDiskOutput: untyped
+
+    DetachInstancesFromLoadBalancerInput: untyped
+
+    DetachInstancesFromLoadBalancerOutput: untyped
+
+    DetachStaticIpInput: untyped
+
+    DetachStaticIpOutput: untyped
+
+    DisableAddOnInput: untyped
+
+    DisableAddOnOutput: untyped
+
+    Disk: untyped
+
+    DiskInfo: untyped
+
+    DiskMap: untyped
+
+    DiskSnapshot: untyped
+
+    DiskSnapshotInfo: untyped
+
+    module DiskSnapshotState
+      Pending: ::String
+
+      Completed: ::String
+
+      Error: ::String
+
+      Unknown: ::String
+    end
+
+    module DiskState
+      Pending: ::String
+
+      Error: ::String
+
+      Available: ::String
+
+      InUse: ::String
+
+      Unknown: ::String
+    end
+
+    DistributionBundle: untyped
+
+    module DistributionMetricName
+      Requests: ::String
+
+      BytesDownloaded: ::String
+
+      BytesUploaded: ::String
+
+      TotalErrorRate: ::String
+
+      Http4xxErrorRate: ::String
+
+      Http5xxErrorRate: ::String
+    end
+
+    Domain: untyped
+
+    DomainEntry: untyped
+
+    DomainValidationRecord: untyped
+
+    DownloadDefaultKeyPairInput: untyped
+
+    DownloadDefaultKeyPairOutput: untyped
+
+    EnableAddOnInput: untyped
+
+    EnableAddOnOutput: untyped
+
+    EndpointRequest: untyped
+
+    ExportSnapshotInput: untyped
+
+    ExportSnapshotOutput: untyped
+
+    ExportSnapshotRecord: untyped
+
+    ExportSnapshotRecordSourceInfo: untyped
+
+    module ExportSnapshotRecordSourceType
+      InstanceSnapshot: ::String
+
+      DiskSnapshot: ::String
+    end
+
+    module ForwardValues
+      none: ::String
+
+      allowList: ::String
+
+      all: ::String
+    end
+
+    GetActiveNamesInput: untyped
+
+    GetActiveNamesOutput: untyped
+
+    GetAlarmsInput: untyped
+
+    GetAlarmsOutput: untyped
+
+    GetAutoSnapshotsInput: untyped
+
+    GetAutoSnapshotsOutput: untyped
+
+    GetBlueprintsInput: untyped
+
+    GetBlueprintsOutput: untyped
+
+    GetBucketAccessKeysInput: untyped
+
+    GetBucketAccessKeysOutput: untyped
+
+    GetBucketBundlesInput: untyped
+
+    GetBucketBundlesOutput: untyped
+
+    GetBucketMetricDataInput: untyped
+
+    GetBucketMetricDataOutput: untyped
+
+    GetBucketsInput: untyped
+
+    GetBucketsOutput: untyped
+
+    GetBundlesInput: untyped
+
+    GetBundlesOutput: untyped
+
+    GetCertificatesInput: untyped
+
+    GetCertificatesOutput: untyped
+
+    GetCloudFormationStackRecordsInput: untyped
+
+    GetCloudFormationStackRecordsOutput: untyped
+
+    GetContactMethodsInput: untyped
+
+    GetContactMethodsOutput: untyped
+
+    GetContainerAPIMetadataInput: untyped
+
+    GetContainerAPIMetadataOutput: untyped
+
+    GetContainerImagesInput: untyped
+
+    GetContainerImagesOutput: untyped
+
+    GetContainerLogInput: untyped
+
+    GetContainerLogOutput: untyped
+
+    GetContainerServiceDeploymentsInput: untyped
+
+    GetContainerServiceDeploymentsOutput: untyped
+
+    GetContainerServiceMetricDataInput: untyped
+
+    GetContainerServiceMetricDataOutput: untyped
+
+    GetContainerServicePowersInput: untyped
+
+    GetContainerServicePowersOutput: untyped
+
+    GetContainerServicesInput: untyped
+
+    GetContainerServicesOutput: untyped
+
+    GetDiskInput: untyped
+
+    GetDiskOutput: untyped
+
+    GetDiskSnapshotInput: untyped
+
+    GetDiskSnapshotOutput: untyped
+
+    GetDiskSnapshotsInput: untyped
+
+    GetDiskSnapshotsOutput: untyped
+
+    GetDisksInput: untyped
+
+    GetDisksOutput: untyped
+
+    GetDistributionBundlesInput: untyped
+
+    GetDistributionBundlesOutput: untyped
+
+    GetDistributionLatestCacheResetInput: untyped
+
+    GetDistributionLatestCacheResetOutput: untyped
+
+    GetDistributionMetricDataInput: untyped
+
+    GetDistributionMetricDataOutput: untyped
+
+    GetDistributionsInput: untyped
+
+    GetDistributionsOutput: untyped
+
+    GetDomainInput: untyped
+
+    GetDomainOutput: untyped
+
+    GetDomainsInput: untyped
+
+    GetDomainsOutput: untyped
+
+    GetExportSnapshotRecordsInput: untyped
+
+    GetExportSnapshotRecordsOutput: untyped
+
+    GetInstanceAccessDetailsInput: untyped
+
+    GetInstanceAccessDetailsOutput: untyped
+
+    GetInstanceInput: untyped
+
+    GetInstanceMetricDataInput: untyped
+
+    GetInstanceMetricDataOutput: untyped
+
+    GetInstanceOutput: untyped
+
+    GetInstancePortStatesInput: untyped
+
+    GetInstancePortStatesOutput: untyped
+
+    GetInstanceSnapshotInput: untyped
+
+    GetInstanceSnapshotOutput: untyped
+
+    GetInstanceSnapshotsInput: untyped
+
+    GetInstanceSnapshotsOutput: untyped
+
+    GetInstanceStateInput: untyped
+
+    GetInstanceStateOutput: untyped
+
+    GetInstancesInput: untyped
+
+    GetInstancesOutput: untyped
+
+    GetKeyPairInput: untyped
+
+    GetKeyPairOutput: untyped
+
+    GetKeyPairsInput: untyped
+
+    GetKeyPairsOutput: untyped
+
+    GetLoadBalancerInput: untyped
+
+    GetLoadBalancerMetricDataInput: untyped
+
+    GetLoadBalancerMetricDataOutput: untyped
+
+    GetLoadBalancerOutput: untyped
+
+    GetLoadBalancerTlsCertificatesInput: untyped
+
+    GetLoadBalancerTlsCertificatesOutput: untyped
+
+    GetLoadBalancerTlsPoliciesInput: untyped
+
+    GetLoadBalancerTlsPoliciesOutput: untyped
+
+    GetLoadBalancersInput: untyped
+
+    GetLoadBalancersOutput: untyped
+
+    GetOperationInput: untyped
+
+    GetOperationOutput: untyped
+
+    GetOperationsForResourceInput: untyped
+
+    GetOperationsForResourceOutput: untyped
+
+    GetOperationsInput: untyped
+
+    GetOperationsOutput: untyped
+
+    GetRegionsInput: untyped
+
+    GetRegionsOutput: untyped
+
+    GetRelationalDatabaseBlueprintsInput: untyped
+
+    GetRelationalDatabaseBlueprintsOutput: untyped
+
+    GetRelationalDatabaseBundlesInput: untyped
+
+    GetRelationalDatabaseBundlesOutput: untyped
+
+    GetRelationalDatabaseEventsInput: untyped
+
+    GetRelationalDatabaseEventsOutput: untyped
+
+    GetRelationalDatabaseInput: untyped
+
+    GetRelationalDatabaseLogEventsInput: untyped
+
+    GetRelationalDatabaseLogEventsOutput: untyped
+
+    GetRelationalDatabaseLogStreamsInput: untyped
+
+    GetRelationalDatabaseLogStreamsOutput: untyped
+
+    GetRelationalDatabaseMasterUserPasswordInput: untyped
+
+    GetRelationalDatabaseMasterUserPasswordOutput: untyped
+
+    GetRelationalDatabaseMetricDataInput: untyped
+
+    GetRelationalDatabaseMetricDataOutput: untyped
+
+    GetRelationalDatabaseOutput: untyped
+
+    GetRelationalDatabaseParametersInput: untyped
+
+    GetRelationalDatabaseParametersOutput: untyped
+
+    GetRelationalDatabaseSnapshotInput: untyped
+
+    GetRelationalDatabaseSnapshotOutput: untyped
+
+    GetRelationalDatabaseSnapshotsInput: untyped
+
+    GetRelationalDatabaseSnapshotsOutput: untyped
+
+    GetRelationalDatabasesInput: untyped
+
+    GetRelationalDatabasesOutput: untyped
+
+    GetStaticIpInput: untyped
+
+    GetStaticIpOutput: untyped
+
+    GetStaticIpsInput: untyped
+
+    GetStaticIpsOutput: untyped
+
+    module HeaderEnum
+      accept: ::String
+
+      acceptCharset: ::String
+
+      acceptDatetime: ::String
+
+      acceptEncoding: ::String
+
+      acceptLanguage: ::String
+
+      authorization: ::String
+
+      cloudFrontForwardedProto: ::String
+
+      cloudFrontIsDesktopViewer: ::String
+
+      cloudFrontIsMobileViewer: ::String
+
+      cloudFrontIsSmartTVViewer: ::String
+
+      cloudFrontIsTabletViewer: ::String
+
+      cloudFrontViewerCountry: ::String
+
+      host: ::String
+
+      origin: ::String
+
+      referer: ::String
+    end
+
+    HeaderObject: untyped
+
+    HostKeyAttributes: untyped
+
+    ImportKeyPairInput: untyped
+
+    ImportKeyPairOutput: untyped
+
+    InputOrigin: untyped
+
+    Instance: untyped
+
+    InstanceAccessDetails: untyped
+
+    module InstanceAccessProtocol
+      ssh: ::String
+
+      rdp: ::String
+    end
+
+    InstanceEntry: untyped
+
+    InstanceHardware: untyped
+
+    module InstanceHealthReason
+      LbRegistrationInProgress: ::String
+
+      LbInitialHealthChecking: ::String
+
+      LbInternalError: ::String
+
+      InstanceResponseCodeMismatch: ::String
+
+      InstanceTimeout: ::String
+
+      InstanceFailedHealthChecks: ::String
+
+      InstanceNotRegistered: ::String
+
+      InstanceNotInUse: ::String
+
+      InstanceDeregistrationInProgress: ::String
+
+      InstanceInvalidState: ::String
+
+      InstanceIpUnusable: ::String
+    end
+
+    module InstanceHealthState
+      Initial: ::String
+
+      Healthy: ::String
+
+      Unhealthy: ::String
+
+      Unused: ::String
+
+      Draining: ::String
+
+      Unavailable: ::String
+    end
+
+    InstanceHealthSummary: untyped
+
+    module InstanceMetricName
+      CPUUtilization: ::String
+
+      NetworkIn: ::String
+
+      NetworkOut: ::String
+
+      StatusCheckFailed: ::String
+
+      StatusCheckFailed_Instance: ::String
+
+      StatusCheckFailed_System: ::String
+
+      BurstCapacityTime: ::String
+
+      BurstCapacityPercentage: ::String
+    end
+
+    InstanceNetworking: untyped
+
+    module InstancePlatform
+      LinuxUnix: ::String
+
+      Windows: ::String
+    end
+
+    InstancePortInfo: untyped
+
+    InstancePortState: untyped
+
+    InstanceSnapshot: untyped
+
+    InstanceSnapshotInfo: untyped
+
+    module InstanceSnapshotState
+      Pending: ::String
+
+      Error: ::String
+
+      Available: ::String
+    end
+
+    InstanceState: untyped
+
+    InvalidInputException: untyped
+
+    module IpAddressType
+      DUALSTACK: ::String
+
+      IPV4: ::String
+    end
+
+    IsVpcPeeredInput: untyped
+
+    IsVpcPeeredOutput: untyped
+
+    KeyPair: untyped
+
+    LightsailDistribution: untyped
+
+    LoadBalancer: untyped
+
+    module LoadBalancerAttributeName
+      HealthCheckPath: ::String
+
+      SessionStickinessEnabled: ::String
+
+      SessionStickiness_LB_CookieDurationSeconds: ::String
+
+      HttpsRedirectionEnabled: ::String
+
+      TlsPolicyName: ::String
+    end
+
+    module LoadBalancerMetricName
+      ClientTLSNegotiationErrorCount: ::String
+
+      HealthyHostCount: ::String
+
+      UnhealthyHostCount: ::String
+
+      HTTPCode_LB_4XX_Count: ::String
+
+      HTTPCode_LB_5XX_Count: ::String
+
+      HTTPCode_Instance_2XX_Count: ::String
+
+      HTTPCode_Instance_3XX_Count: ::String
+
+      HTTPCode_Instance_4XX_Count: ::String
+
+      HTTPCode_Instance_5XX_Count: ::String
+
+      InstanceResponseTime: ::String
+
+      RejectedConnectionCount: ::String
+
+      RequestCount: ::String
+    end
+
+    module LoadBalancerProtocol
+      HTTP_HTTPS: ::String
+
+      HTTP: ::String
+    end
+
+    module LoadBalancerState
+      Active: ::String
+
+      Provisioning: ::String
+
+      ActiveImpaired: ::String
+
+      Failed: ::String
+
+      Unknown: ::String
+    end
+
+    LoadBalancerTlsCertificate: untyped
+
+    module LoadBalancerTlsCertificateDomainStatus
+      PendingValidation: ::String
+
+      Failed: ::String
+
+      Success: ::String
+    end
+
+    LoadBalancerTlsCertificateDomainValidationOption: untyped
+
+    LoadBalancerTlsCertificateDomainValidationRecord: untyped
+
+    module LoadBalancerTlsCertificateFailureReason
+      NoAvailableContacts: ::String
+
+      AdditionalVerificationRequired: ::String
+
+      DomainNotAllowed: ::String
+
+      InvalidPublicDomain: ::String
+
+      Other: ::String
+    end
+
+    module LoadBalancerTlsCertificateRenewalStatus
+      PendingAutoRenewal: ::String
+
+      PendingValidation: ::String
+
+      Success: ::String
+
+      Failed: ::String
+    end
+
+    LoadBalancerTlsCertificateRenewalSummary: untyped
+
+    module LoadBalancerTlsCertificateRevocationReason
+      Unspecified: ::String
+
+      KeyCompromise: ::String
+
+      CaCompromise: ::String
+
+      AffiliationChanged: ::String
+
+      Superceded: ::String
+
+      CessationOfOperation: ::String
+
+      CertificateHold: ::String
+
+      RemoveFromCrl: ::String
+
+      PrivilegeWithdrawn: ::String
+
+      AACompromise: ::String
+    end
+
+    module LoadBalancerTlsCertificateStatus
+      PendingValidation: ::String
+
+      Issued: ::String
+
+      Inactive: ::String
+
+      Expired: ::String
+
+      ValidationTimedOut: ::String
+
+      Revoked: ::String
+
+      Failed: ::String
+
+      Unknown: ::String
+    end
+
+    LoadBalancerTlsCertificateSummary: untyped
+
+    LoadBalancerTlsPolicy: untyped
+
+    LogEvent: untyped
+
+    MetricDatapoint: untyped
+
+    module MetricName
+      CPUUtilization: ::String
+
+      NetworkIn: ::String
+
+      NetworkOut: ::String
+
+      StatusCheckFailed: ::String
+
+      StatusCheckFailed_Instance: ::String
+
+      StatusCheckFailed_System: ::String
+
+      ClientTLSNegotiationErrorCount: ::String
+
+      HealthyHostCount: ::String
+
+      UnhealthyHostCount: ::String
+
+      HTTPCode_LB_4XX_Count: ::String
+
+      HTTPCode_LB_5XX_Count: ::String
+
+      HTTPCode_Instance_2XX_Count: ::String
+
+      HTTPCode_Instance_3XX_Count: ::String
+
+      HTTPCode_Instance_4XX_Count: ::String
+
+      HTTPCode_Instance_5XX_Count: ::String
+
+      InstanceResponseTime: ::String
+
+      RejectedConnectionCount: ::String
+
+      RequestCount: ::String
+
+      DatabaseConnections: ::String
+
+      DiskQueueDepth: ::String
+
+      FreeStorageSpace: ::String
+
+      NetworkReceiveThroughput: ::String
+
+      NetworkTransmitThroughput: ::String
+
+      BurstCapacityTime: ::String
+
+      BurstCapacityPercentage: ::String
+    end
+
+    module MetricStatistic
+      Minimum: ::String
+
+      Maximum: ::String
+
+      Sum: ::String
+
+      Average: ::String
+
+      SampleCount: ::String
+    end
+
+    module MetricUnit
+      Seconds: ::String
+
+      Microseconds: ::String
+
+      Milliseconds: ::String
+
+      Bytes: ::String
+
+      Kilobytes: ::String
+
+      Megabytes: ::String
+
+      Gigabytes: ::String
+
+      Terabytes: ::String
+
+      Bits: ::String
+
+      Kilobits: ::String
+
+      Megabits: ::String
+
+      Gigabits: ::String
+
+      Terabits: ::String
+
+      Percent: ::String
+
+      Count: ::String
+
+      BytesSecond: ::String
+
+      KilobytesSecond: ::String
+
+      MegabytesSecond: ::String
+
+      GigabytesSecond: ::String
+
+      TerabytesSecond: ::String
+
+      BitsSecond: ::String
+
+      KilobitsSecond: ::String
+
+      MegabitsSecond: ::String
+
+      GigabitsSecond: ::String
+
+      TerabitsSecond: ::String
+
+      CountSecond: ::String
+
+      None: ::String
+    end
+
+    MonitoredResourceInfo: untyped
+
+    MonthlyTransfer: untyped
+
+    module NetworkProtocol
+      TCP: ::String
+
+      ALL: ::String
+
+      UDP: ::String
+
+      ICMP: ::String
+    end
+
+    NotFoundException: untyped
+
+    OpenInstancePublicPortsInput: untyped
+
+    OpenInstancePublicPortsOutput: untyped
+
+    Operation: untyped
+
+    OperationFailureException: untyped
+
+    module OperationStatus
+      NotStarted: ::String
+
+      Started: ::String
+
+      Failed: ::String
+
+      Completed: ::String
+
+      Succeeded: ::String
+    end
+
+    module OperationType
+      DeleteKnownHostKeys: ::String
+
+      DeleteInstance: ::String
+
+      CreateInstance: ::String
+
+      StopInstance: ::String
+
+      StartInstance: ::String
+
+      RebootInstance: ::String
+
+      OpenInstancePublicPorts: ::String
+
+      PutInstancePublicPorts: ::String
+
+      CloseInstancePublicPorts: ::String
+
+      AllocateStaticIp: ::String
+
+      ReleaseStaticIp: ::String
+
+      AttachStaticIp: ::String
+
+      DetachStaticIp: ::String
+
+      UpdateDomainEntry: ::String
+
+      DeleteDomainEntry: ::String
+
+      CreateDomain: ::String
+
+      DeleteDomain: ::String
+
+      CreateInstanceSnapshot: ::String
+
+      DeleteInstanceSnapshot: ::String
+
+      CreateInstancesFromSnapshot: ::String
+
+      CreateLoadBalancer: ::String
+
+      DeleteLoadBalancer: ::String
+
+      AttachInstancesToLoadBalancer: ::String
+
+      DetachInstancesFromLoadBalancer: ::String
+
+      UpdateLoadBalancerAttribute: ::String
+
+      CreateLoadBalancerTlsCertificate: ::String
+
+      DeleteLoadBalancerTlsCertificate: ::String
+
+      AttachLoadBalancerTlsCertificate: ::String
+
+      CreateDisk: ::String
+
+      DeleteDisk: ::String
+
+      AttachDisk: ::String
+
+      DetachDisk: ::String
+
+      CreateDiskSnapshot: ::String
+
+      DeleteDiskSnapshot: ::String
+
+      CreateDiskFromSnapshot: ::String
+
+      CreateRelationalDatabase: ::String
+
+      UpdateRelationalDatabase: ::String
+
+      DeleteRelationalDatabase: ::String
+
+      CreateRelationalDatabaseFromSnapshot: ::String
+
+      CreateRelationalDatabaseSnapshot: ::String
+
+      DeleteRelationalDatabaseSnapshot: ::String
+
+      UpdateRelationalDatabaseParameters: ::String
+
+      StartRelationalDatabase: ::String
+
+      RebootRelationalDatabase: ::String
+
+      StopRelationalDatabase: ::String
+
+      EnableAddOn: ::String
+
+      DisableAddOn: ::String
+
+      PutAlarm: ::String
+
+      GetAlarms: ::String
+
+      DeleteAlarm: ::String
+
+      TestAlarm: ::String
+
+      CreateContactMethod: ::String
+
+      GetContactMethods: ::String
+
+      SendContactMethodVerification: ::String
+
+      DeleteContactMethod: ::String
+
+      CreateDistribution: ::String
+
+      UpdateDistribution: ::String
+
+      DeleteDistribution: ::String
+
+      ResetDistributionCache: ::String
+
+      AttachCertificateToDistribution: ::String
+
+      DetachCertificateFromDistribution: ::String
+
+      UpdateDistributionBundle: ::String
+
+      SetIpAddressType: ::String
+
+      CreateCertificate: ::String
+
+      DeleteCertificate: ::String
+
+      CreateContainerService: ::String
+
+      UpdateContainerService: ::String
+
+      DeleteContainerService: ::String
+
+      CreateContainerServiceDeployment: ::String
+
+      CreateContainerServiceRegistryLogin: ::String
+
+      RegisterContainerImage: ::String
+
+      DeleteContainerImage: ::String
+
+      CreateBucket: ::String
+
+      DeleteBucket: ::String
+
+      CreateBucketAccessKey: ::String
+
+      DeleteBucketAccessKey: ::String
+
+      UpdateBucketBundle: ::String
+
+      UpdateBucket: ::String
+
+      SetResourceAccessForBucket: ::String
+    end
+
+    Origin: untyped
+
+    module OriginProtocolPolicyEnum
+      HTTPOnly: ::String
+
+      HTTPSOnly: ::String
+    end
+
+    PasswordData: untyped
+
+    PeerVpcInput: untyped
+
+    PeerVpcOutput: untyped
+
+    PendingMaintenanceAction: untyped
+
+    PendingModifiedRelationalDatabaseValues: untyped
+
+    module PortAccessType
+      Public: ::String
+
+      Private: ::String
+    end
+
+    PortInfo: untyped
+
+    module PortInfoSourceType
+      Default: ::String
+
+      Instance: ::String
+
+      None: ::String
+
+      Closed: ::String
+    end
+
+    module PortState
+      Open: ::String
+
+      Closed: ::String
+    end
+
+    PrivateRegistryAccess: untyped
+
+    PrivateRegistryAccessRequest: untyped
+
+    PutAlarmInput: untyped
+
+    PutAlarmOutput: untyped
+
+    PutInstancePublicPortsInput: untyped
+
+    PutInstancePublicPortsOutput: untyped
+
+    QueryStringObject: untyped
+
+    RebootInstanceInput: untyped
+
+    RebootInstanceOutput: untyped
+
+    RebootRelationalDatabaseInput: untyped
+
+    RebootRelationalDatabaseOutput: untyped
+
+    module RecordState
+      Started: ::String
+
+      Succeeded: ::String
+
+      Failed: ::String
+    end
+
+    Region: untyped
+
+    module RegionName
+      US_EAST_1: ::String
+
+      US_EAST_2: ::String
+
+      US_WEST_1: ::String
+
+      US_WEST_2: ::String
+
+      EU_WEST_1: ::String
+
+      EU_WEST_2: ::String
+
+      EU_WEST_3: ::String
+
+      EU_CENTRAL_1: ::String
+
+      CA_CENTRAL_1: ::String
+
+      AP_SOUTH_1: ::String
+
+      AP_SOUTHEAST_1: ::String
+
+      AP_SOUTHEAST_2: ::String
+
+      AP_NORTHEAST_1: ::String
+
+      AP_NORTHEAST_2: ::String
+
+      EU_NORTH_1: ::String
+    end
+
+    RegisterContainerImageInput: untyped
+
+    RegisterContainerImageOutput: untyped
+
+    RelationalDatabase: untyped
+
+    RelationalDatabaseBlueprint: untyped
+
+    RelationalDatabaseBundle: untyped
+
+    RelationalDatabaseEndpoint: untyped
+
+    module RelationalDatabaseEngine
+      MYSQL: ::String
+    end
+
+    RelationalDatabaseEvent: untyped
+
+    RelationalDatabaseHardware: untyped
+
+    module RelationalDatabaseMetricName
+      CPUUtilization: ::String
+
+      DatabaseConnections: ::String
+
+      DiskQueueDepth: ::String
+
+      FreeStorageSpace: ::String
+
+      NetworkReceiveThroughput: ::String
+
+      NetworkTransmitThroughput: ::String
+    end
+
+    RelationalDatabaseParameter: untyped
+
+    module RelationalDatabasePasswordVersion
+      CURRENT: ::String
+
+      PREVIOUS: ::String
+
+      PENDING: ::String
+    end
+
+    RelationalDatabaseSnapshot: untyped
+
+    ReleaseStaticIpInput: untyped
+
+    ReleaseStaticIpOutput: untyped
+
+    module RenewalStatus
+      PendingAutoRenewal: ::String
+
+      PendingValidation: ::String
+
+      Success: ::String
+
+      Failed: ::String
+    end
+
+    RenewalSummary: untyped
+
+    ResetDistributionCacheInput: untyped
+
+    ResetDistributionCacheOutput: untyped
+
+    module ResourceBucketAccess
+      Allow: ::String
+
+      Deny: ::String
+    end
+
+    ResourceLocation: untyped
+
+    ResourceReceivingAccess: untyped
+
+    ResourceRecord: untyped
+
+    module ResourceType
+      ContainerService: ::String
+
+      Instance: ::String
+
+      StaticIp: ::String
+
+      KeyPair: ::String
+
+      InstanceSnapshot: ::String
+
+      Domain: ::String
+
+      PeeredVpc: ::String
+
+      LoadBalancer: ::String
+
+      LoadBalancerTlsCertificate: ::String
+
+      Disk: ::String
+
+      DiskSnapshot: ::String
+
+      RelationalDatabase: ::String
+
+      RelationalDatabaseSnapshot: ::String
+
+      ExportSnapshotRecord: ::String
+
+      CloudFormationStackRecord: ::String
+
+      Alarm: ::String
+
+      ContactMethod: ::String
+
+      Distribution: ::String
+
+      Certificate: ::String
+
+      Bucket: ::String
+    end
+
+    SendContactMethodVerificationInput: untyped
+
+    SendContactMethodVerificationOutput: untyped
+
+    ServiceException: untyped
+
+    SetIpAddressTypeInput: untyped
+
+    SetIpAddressTypeOutput: untyped
+
+    SetResourceAccessForBucketInput: untyped
+
+    SetResourceAccessForBucketOutput: untyped
+
+    StartInstanceInput: untyped
+
+    StartInstanceOutput: untyped
+
+    StartRelationalDatabaseInput: untyped
+
+    StartRelationalDatabaseOutput: untyped
+
+    StaticIp: untyped
+
+    module StatusType
+      Active: ::String
+
+      Inactive: ::String
+    end
+
+    StopInstanceInput: untyped
+
+    StopInstanceOutput: untyped
+
+    StopRelationalDatabaseInput: untyped
+
+    StopRelationalDatabaseOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TestAlarmInput: untyped
+
+    TestAlarmOutput: untyped
+
+    module TreatMissingData
+      Breaching: ::String
+
+      NotBreaching: ::String
+
+      Ignore: ::String
+
+      Missing: ::String
+    end
+
+    UnauthenticatedException: untyped
+
+    UnpeerVpcInput: untyped
+
+    UnpeerVpcOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateBucketBundleInput: untyped
+
+    UpdateBucketBundleOutput: untyped
+
+    UpdateBucketInput: untyped
+
+    UpdateBucketOutput: untyped
+
+    UpdateContainerServiceInput: untyped
+
+    UpdateContainerServiceOutput: untyped
+
+    UpdateDistributionBundleInput: untyped
+
+    UpdateDistributionBundleOutput: untyped
+
+    UpdateDistributionInput: untyped
+
+    UpdateDistributionOutput: untyped
+
+    UpdateDomainEntryInput: untyped
+
+    UpdateDomainEntryOutput: untyped
+
+    UpdateLoadBalancerAttributeInput: untyped
+
+    UpdateLoadBalancerAttributeOutput: untyped
+
+    UpdateRelationalDatabaseInput: untyped
+
+    UpdateRelationalDatabaseOutput: untyped
+
+    UpdateRelationalDatabaseParametersInput: untyped
+
+    UpdateRelationalDatabaseParametersOutput: untyped
+
+  end
+end

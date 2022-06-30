@@ -1,0 +1,3 @@
+module AWS::SDK::DataSync
+  Config: untyped
+end

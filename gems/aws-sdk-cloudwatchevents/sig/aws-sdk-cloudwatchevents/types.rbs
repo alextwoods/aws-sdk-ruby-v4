@@ -1,0 +1,484 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CloudWatchEvents
+  module Types
+
+    ActivateEventSourceInput: untyped
+
+    ActivateEventSourceOutput: untyped
+
+    ApiDestination: untyped
+
+    module ApiDestinationHttpMethod
+      POST: ::String
+
+      GET: ::String
+
+      HEAD: ::String
+
+      OPTIONS: ::String
+
+      PUT: ::String
+
+      PATCH: ::String
+
+      DELETE: ::String
+    end
+
+    module ApiDestinationState
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    Archive: untyped
+
+    module ArchiveState
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    module AssignPublicIp
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    AwsVpcConfiguration: untyped
+
+    BatchArrayProperties: untyped
+
+    BatchParameters: untyped
+
+    BatchRetryStrategy: untyped
+
+    CancelReplayInput: untyped
+
+    CancelReplayOutput: untyped
+
+    CapacityProviderStrategyItem: untyped
+
+    ConcurrentModificationException: untyped
+
+    Condition: untyped
+
+    Connection: untyped
+
+    ConnectionApiKeyAuthResponseParameters: untyped
+
+    ConnectionAuthResponseParameters: untyped
+
+    module ConnectionAuthorizationType
+      BASIC: ::String
+
+      OAUTH_CLIENT_CREDENTIALS: ::String
+
+      API_KEY: ::String
+    end
+
+    ConnectionBasicAuthResponseParameters: untyped
+
+    ConnectionBodyParameter: untyped
+
+    ConnectionHeaderParameter: untyped
+
+    ConnectionHttpParameters: untyped
+
+    ConnectionOAuthClientResponseParameters: untyped
+
+    module ConnectionOAuthHttpMethod
+      GET: ::String
+
+      POST: ::String
+
+      PUT: ::String
+    end
+
+    ConnectionOAuthResponseParameters: untyped
+
+    ConnectionQueryStringParameter: untyped
+
+    module ConnectionState
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      AUTHORIZED: ::String
+
+      DEAUTHORIZED: ::String
+
+      AUTHORIZING: ::String
+
+      DEAUTHORIZING: ::String
+    end
+
+    CreateApiDestinationInput: untyped
+
+    CreateApiDestinationOutput: untyped
+
+    CreateArchiveInput: untyped
+
+    CreateArchiveOutput: untyped
+
+    CreateConnectionApiKeyAuthRequestParameters: untyped
+
+    CreateConnectionAuthRequestParameters: untyped
+
+    CreateConnectionBasicAuthRequestParameters: untyped
+
+    CreateConnectionInput: untyped
+
+    CreateConnectionOAuthClientRequestParameters: untyped
+
+    CreateConnectionOAuthRequestParameters: untyped
+
+    CreateConnectionOutput: untyped
+
+    CreateEventBusInput: untyped
+
+    CreateEventBusOutput: untyped
+
+    CreatePartnerEventSourceInput: untyped
+
+    CreatePartnerEventSourceOutput: untyped
+
+    DeactivateEventSourceInput: untyped
+
+    DeactivateEventSourceOutput: untyped
+
+    DeadLetterConfig: untyped
+
+    DeauthorizeConnectionInput: untyped
+
+    DeauthorizeConnectionOutput: untyped
+
+    DeleteApiDestinationInput: untyped
+
+    DeleteApiDestinationOutput: untyped
+
+    DeleteArchiveInput: untyped
+
+    DeleteArchiveOutput: untyped
+
+    DeleteConnectionInput: untyped
+
+    DeleteConnectionOutput: untyped
+
+    DeleteEventBusInput: untyped
+
+    DeleteEventBusOutput: untyped
+
+    DeletePartnerEventSourceInput: untyped
+
+    DeletePartnerEventSourceOutput: untyped
+
+    DeleteRuleInput: untyped
+
+    DeleteRuleOutput: untyped
+
+    DescribeApiDestinationInput: untyped
+
+    DescribeApiDestinationOutput: untyped
+
+    DescribeArchiveInput: untyped
+
+    DescribeArchiveOutput: untyped
+
+    DescribeConnectionInput: untyped
+
+    DescribeConnectionOutput: untyped
+
+    DescribeEventBusInput: untyped
+
+    DescribeEventBusOutput: untyped
+
+    DescribeEventSourceInput: untyped
+
+    DescribeEventSourceOutput: untyped
+
+    DescribePartnerEventSourceInput: untyped
+
+    DescribePartnerEventSourceOutput: untyped
+
+    DescribeReplayInput: untyped
+
+    DescribeReplayOutput: untyped
+
+    DescribeRuleInput: untyped
+
+    DescribeRuleOutput: untyped
+
+    DisableRuleInput: untyped
+
+    DisableRuleOutput: untyped
+
+    EcsParameters: untyped
+
+    EnableRuleInput: untyped
+
+    EnableRuleOutput: untyped
+
+    EventBus: untyped
+
+    EventSource: untyped
+
+    module EventSourceState
+      PENDING: ::String
+
+      ACTIVE: ::String
+
+      DELETED: ::String
+    end
+
+    HttpParameters: untyped
+
+    IllegalStatusException: untyped
+
+    InputTransformer: untyped
+
+    InternalException: untyped
+
+    InvalidEventPatternException: untyped
+
+    InvalidStateException: untyped
+
+    KinesisParameters: untyped
+
+    module LaunchType
+      EC2: ::String
+
+      FARGATE: ::String
+
+      EXTERNAL: ::String
+    end
+
+    LimitExceededException: untyped
+
+    ListApiDestinationsInput: untyped
+
+    ListApiDestinationsOutput: untyped
+
+    ListArchivesInput: untyped
+
+    ListArchivesOutput: untyped
+
+    ListConnectionsInput: untyped
+
+    ListConnectionsOutput: untyped
+
+    ListEventBusesInput: untyped
+
+    ListEventBusesOutput: untyped
+
+    ListEventSourcesInput: untyped
+
+    ListEventSourcesOutput: untyped
+
+    ListPartnerEventSourceAccountsInput: untyped
+
+    ListPartnerEventSourceAccountsOutput: untyped
+
+    ListPartnerEventSourcesInput: untyped
+
+    ListPartnerEventSourcesOutput: untyped
+
+    ListReplaysInput: untyped
+
+    ListReplaysOutput: untyped
+
+    ListRuleNamesByTargetInput: untyped
+
+    ListRuleNamesByTargetOutput: untyped
+
+    ListRulesInput: untyped
+
+    ListRulesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTargetsByRuleInput: untyped
+
+    ListTargetsByRuleOutput: untyped
+
+    ManagedRuleException: untyped
+
+    NetworkConfiguration: untyped
+
+    OperationDisabledException: untyped
+
+    PartnerEventSource: untyped
+
+    PartnerEventSourceAccount: untyped
+
+    PlacementConstraint: untyped
+
+    module PlacementConstraintType
+      DISTINCT_INSTANCE: ::String
+
+      MEMBER_OF: ::String
+    end
+
+    PlacementStrategy: untyped
+
+    module PlacementStrategyType
+      RANDOM: ::String
+
+      SPREAD: ::String
+
+      BINPACK: ::String
+    end
+
+    PolicyLengthExceededException: untyped
+
+    module PropagateTags
+      TASK_DEFINITION: ::String
+    end
+
+    PutEventsInput: untyped
+
+    PutEventsOutput: untyped
+
+    PutEventsRequestEntry: untyped
+
+    PutEventsResultEntry: untyped
+
+    PutPartnerEventsInput: untyped
+
+    PutPartnerEventsOutput: untyped
+
+    PutPartnerEventsRequestEntry: untyped
+
+    PutPartnerEventsResultEntry: untyped
+
+    PutPermissionInput: untyped
+
+    PutPermissionOutput: untyped
+
+    PutRuleInput: untyped
+
+    PutRuleOutput: untyped
+
+    PutTargetsInput: untyped
+
+    PutTargetsOutput: untyped
+
+    PutTargetsResultEntry: untyped
+
+    RedshiftDataParameters: untyped
+
+    RemovePermissionInput: untyped
+
+    RemovePermissionOutput: untyped
+
+    RemoveTargetsInput: untyped
+
+    RemoveTargetsOutput: untyped
+
+    RemoveTargetsResultEntry: untyped
+
+    Replay: untyped
+
+    ReplayDestination: untyped
+
+    module ReplayState
+      STARTING: ::String
+
+      RUNNING: ::String
+
+      CANCELLING: ::String
+
+      COMPLETED: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+    end
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RetryPolicy: untyped
+
+    Rule: untyped
+
+    module RuleState
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    RunCommandParameters: untyped
+
+    RunCommandTarget: untyped
+
+    SageMakerPipelineParameter: untyped
+
+    SageMakerPipelineParameters: untyped
+
+    SqsParameters: untyped
+
+    StartReplayInput: untyped
+
+    StartReplayOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Target: untyped
+
+    TestEventPatternInput: untyped
+
+    TestEventPatternOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateApiDestinationInput: untyped
+
+    UpdateApiDestinationOutput: untyped
+
+    UpdateArchiveInput: untyped
+
+    UpdateArchiveOutput: untyped
+
+    UpdateConnectionApiKeyAuthRequestParameters: untyped
+
+    UpdateConnectionAuthRequestParameters: untyped
+
+    UpdateConnectionBasicAuthRequestParameters: untyped
+
+    UpdateConnectionInput: untyped
+
+    UpdateConnectionOAuthClientRequestParameters: untyped
+
+    UpdateConnectionOAuthRequestParameters: untyped
+
+    UpdateConnectionOutput: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::KinesisVideoSignaling
+  Config: untyped
+end

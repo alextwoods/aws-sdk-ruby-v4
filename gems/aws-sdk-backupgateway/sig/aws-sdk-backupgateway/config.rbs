@@ -1,0 +1,3 @@
+module AWS::SDK::BackupGateway
+  Config: untyped
+end

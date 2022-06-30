@@ -1,0 +1,78 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ApplicationCostProfiler
+  module Types
+
+    AccessDeniedException: untyped
+
+    DeleteReportDefinitionInput: untyped
+
+    DeleteReportDefinitionOutput: untyped
+
+    module Format
+      CSV: ::String
+
+      PARQUET: ::String
+    end
+
+    GetReportDefinitionInput: untyped
+
+    GetReportDefinitionOutput: untyped
+
+    ImportApplicationUsageInput: untyped
+
+    ImportApplicationUsageOutput: untyped
+
+    InternalServerException: untyped
+
+    ListReportDefinitionsInput: untyped
+
+    ListReportDefinitionsOutput: untyped
+
+    PutReportDefinitionInput: untyped
+
+    PutReportDefinitionOutput: untyped
+
+    ReportDefinition: untyped
+
+    module ReportFrequency
+      MONTHLY: ::String
+
+      DAILY: ::String
+
+      ALL: ::String
+    end
+
+    module S3BucketRegion
+      AP_EAST_1: ::String
+
+      ME_SOUTH_1: ::String
+
+      EU_SOUTH_1: ::String
+
+      AF_SOUTH_1: ::String
+    end
+
+    S3Location: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SourceS3Location: untyped
+
+    ThrottlingException: untyped
+
+    UpdateReportDefinitionInput: untyped
+
+    UpdateReportDefinitionOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

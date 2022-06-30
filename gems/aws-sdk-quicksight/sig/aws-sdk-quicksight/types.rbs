@@ -1,0 +1,1468 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::QuickSight
+  module Types
+
+    AccessDeniedException: untyped
+
+    AccountCustomization: untyped
+
+    AccountSettings: untyped
+
+    ActiveIAMPolicyAssignment: untyped
+
+    AdHocFilteringOption: untyped
+
+    AmazonElasticsearchParameters: untyped
+
+    AmazonOpenSearchParameters: untyped
+
+    Analysis: untyped
+
+    AnalysisError: untyped
+
+    module AnalysisErrorType
+      ACCESS_DENIED: ::String
+
+      SOURCE_NOT_FOUND: ::String
+
+      DATA_SET_NOT_FOUND: ::String
+
+      INTERNAL_FAILURE: ::String
+
+      PARAMETER_VALUE_INCOMPATIBLE: ::String
+
+      PARAMETER_TYPE_INVALID: ::String
+
+      PARAMETER_NOT_FOUND: ::String
+
+      COLUMN_TYPE_MISMATCH: ::String
+
+      COLUMN_GEOGRAPHIC_ROLE_MISMATCH: ::String
+
+      COLUMN_REPLACEMENT_MISSING: ::String
+    end
+
+    module AnalysisFilterAttribute
+      QUICKSIGHT_USER: ::String
+    end
+
+    AnalysisSearchFilter: untyped
+
+    AnalysisSourceEntity: untyped
+
+    AnalysisSourceTemplate: untyped
+
+    AnalysisSummary: untyped
+
+    AnonymousUserDashboardEmbeddingConfiguration: untyped
+
+    AnonymousUserEmbeddingExperienceConfiguration: untyped
+
+    module AssignmentStatus
+      ENABLED: ::String
+
+      DRAFT: ::String
+
+      DISABLED: ::String
+    end
+
+    AthenaParameters: untyped
+
+    AuroraParameters: untyped
+
+    AuroraPostgreSqlParameters: untyped
+
+    AwsIotAnalyticsParameters: untyped
+
+    BorderStyle: untyped
+
+    CalculatedColumn: untyped
+
+    CancelIngestionInput: untyped
+
+    CancelIngestionOutput: untyped
+
+    CastColumnTypeOperation: untyped
+
+    module ColumnDataType
+      STRING: ::String
+
+      INTEGER: ::String
+
+      DECIMAL: ::String
+
+      DATETIME: ::String
+    end
+
+    ColumnDescription: untyped
+
+    ColumnGroup: untyped
+
+    ColumnGroupColumnSchema: untyped
+
+    ColumnGroupSchema: untyped
+
+    ColumnLevelPermissionRule: untyped
+
+    ColumnSchema: untyped
+
+    ColumnTag: untyped
+
+    module ColumnTagName
+      COLUMN_GEOGRAPHIC_ROLE: ::String
+
+      COLUMN_DESCRIPTION: ::String
+    end
+
+    ConcurrentUpdatingException: untyped
+
+    ConflictException: untyped
+
+    CreateAccountCustomizationInput: untyped
+
+    CreateAccountCustomizationOutput: untyped
+
+    CreateAnalysisInput: untyped
+
+    CreateAnalysisOutput: untyped
+
+    CreateColumnsOperation: untyped
+
+    CreateDashboardInput: untyped
+
+    CreateDashboardOutput: untyped
+
+    CreateDataSetInput: untyped
+
+    CreateDataSetOutput: untyped
+
+    CreateDataSourceInput: untyped
+
+    CreateDataSourceOutput: untyped
+
+    CreateFolderInput: untyped
+
+    CreateFolderMembershipInput: untyped
+
+    CreateFolderMembershipOutput: untyped
+
+    CreateFolderOutput: untyped
+
+    CreateGroupInput: untyped
+
+    CreateGroupMembershipInput: untyped
+
+    CreateGroupMembershipOutput: untyped
+
+    CreateGroupOutput: untyped
+
+    CreateIAMPolicyAssignmentInput: untyped
+
+    CreateIAMPolicyAssignmentOutput: untyped
+
+    CreateIngestionInput: untyped
+
+    CreateIngestionOutput: untyped
+
+    CreateNamespaceInput: untyped
+
+    CreateNamespaceOutput: untyped
+
+    CreateTemplateAliasInput: untyped
+
+    CreateTemplateAliasOutput: untyped
+
+    CreateTemplateInput: untyped
+
+    CreateTemplateOutput: untyped
+
+    CreateThemeAliasInput: untyped
+
+    CreateThemeAliasOutput: untyped
+
+    CreateThemeInput: untyped
+
+    CreateThemeOutput: untyped
+
+    CredentialPair: untyped
+
+    CustomSql: untyped
+
+    Dashboard: untyped
+
+    module DashboardBehavior
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    DashboardError: untyped
+
+    module DashboardErrorType
+      ACCESS_DENIED: ::String
+
+      SOURCE_NOT_FOUND: ::String
+
+      DATA_SET_NOT_FOUND: ::String
+
+      INTERNAL_FAILURE: ::String
+
+      PARAMETER_VALUE_INCOMPATIBLE: ::String
+
+      PARAMETER_TYPE_INVALID: ::String
+
+      PARAMETER_NOT_FOUND: ::String
+
+      COLUMN_TYPE_MISMATCH: ::String
+
+      COLUMN_GEOGRAPHIC_ROLE_MISMATCH: ::String
+
+      COLUMN_REPLACEMENT_MISSING: ::String
+    end
+
+    module DashboardFilterAttribute
+      QUICKSIGHT_USER: ::String
+    end
+
+    DashboardPublishOptions: untyped
+
+    DashboardSearchFilter: untyped
+
+    DashboardSourceEntity: untyped
+
+    DashboardSourceTemplate: untyped
+
+    DashboardSummary: untyped
+
+    module DashboardUIState
+      EXPANDED: ::String
+
+      COLLAPSED: ::String
+    end
+
+    DashboardVersion: untyped
+
+    DashboardVersionSummary: untyped
+
+    DataColorPalette: untyped
+
+    DataSet: untyped
+
+    DataSetConfiguration: untyped
+
+    module DataSetImportMode
+      SPICE: ::String
+
+      DIRECT_QUERY: ::String
+    end
+
+    DataSetReference: untyped
+
+    DataSetSchema: untyped
+
+    DataSetSummary: untyped
+
+    DataSetUsageConfiguration: untyped
+
+    DataSource: untyped
+
+    DataSourceCredentials: untyped
+
+    DataSourceErrorInfo: untyped
+
+    module DataSourceErrorInfoType
+      ACCESS_DENIED: ::String
+
+      COPY_SOURCE_NOT_FOUND: ::String
+
+      TIMEOUT: ::String
+
+      ENGINE_VERSION_NOT_SUPPORTED: ::String
+
+      UNKNOWN_HOST: ::String
+
+      GENERIC_SQL_FAILURE: ::String
+
+      CONFLICT: ::String
+
+      UNKNOWN: ::String
+    end
+
+    class DataSourceParameters < Hearth::Union
+      class AmazonElasticsearchParameters < DataSourceParameters
+        def to_h: () -> { amazon_elasticsearch_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class AthenaParameters < DataSourceParameters
+        def to_h: () -> { athena_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class AuroraParameters < DataSourceParameters
+        def to_h: () -> { aurora_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class AuroraPostgreSqlParameters < DataSourceParameters
+        def to_h: () -> { aurora_postgre_sql_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class AwsIotAnalyticsParameters < DataSourceParameters
+        def to_h: () -> { aws_iot_analytics_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class JiraParameters < DataSourceParameters
+        def to_h: () -> { jira_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class MariaDbParameters < DataSourceParameters
+        def to_h: () -> { maria_db_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class MySqlParameters < DataSourceParameters
+        def to_h: () -> { my_sql_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class OracleParameters < DataSourceParameters
+        def to_h: () -> { oracle_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class PostgreSqlParameters < DataSourceParameters
+        def to_h: () -> { postgre_sql_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class PrestoParameters < DataSourceParameters
+        def to_h: () -> { presto_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class RdsParameters < DataSourceParameters
+        def to_h: () -> { rds_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class RedshiftParameters < DataSourceParameters
+        def to_h: () -> { redshift_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class S3Parameters < DataSourceParameters
+        def to_h: () -> { s3_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class ServiceNowParameters < DataSourceParameters
+        def to_h: () -> { service_now_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class SnowflakeParameters < DataSourceParameters
+        def to_h: () -> { snowflake_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class SparkParameters < DataSourceParameters
+        def to_h: () -> { spark_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class SqlServerParameters < DataSourceParameters
+        def to_h: () -> { sql_server_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class TeradataParameters < DataSourceParameters
+        def to_h: () -> { teradata_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class TwitterParameters < DataSourceParameters
+        def to_h: () -> { twitter_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class AmazonOpenSearchParameters < DataSourceParameters
+        def to_h: () -> { amazon_open_search_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class ExasolParameters < DataSourceParameters
+        def to_h: () -> { exasol_parameters: Hash[Symbol,DataSourceParameters] }
+      end
+
+      class Unknown < DataSourceParameters
+        def to_h: () -> { unknown: Hash[Symbol,DataSourceParameters] }
+      end
+    end
+
+    module DataSourceType
+      ADOBE_ANALYTICS: ::String
+
+      AMAZON_ELASTICSEARCH: ::String
+
+      ATHENA: ::String
+
+      AURORA: ::String
+
+      AURORA_POSTGRESQL: ::String
+
+      AWS_IOT_ANALYTICS: ::String
+
+      GITHUB: ::String
+
+      JIRA: ::String
+
+      MARIADB: ::String
+
+      MYSQL: ::String
+
+      ORACLE: ::String
+
+      POSTGRESQL: ::String
+
+      PRESTO: ::String
+
+      REDSHIFT: ::String
+
+      S3: ::String
+
+      SALESFORCE: ::String
+
+      SERVICENOW: ::String
+
+      SNOWFLAKE: ::String
+
+      SPARK: ::String
+
+      SQLSERVER: ::String
+
+      TERADATA: ::String
+
+      TWITTER: ::String
+
+      TIMESTREAM: ::String
+
+      AMAZON_OPENSEARCH: ::String
+
+      EXASOL: ::String
+    end
+
+    DateTimeParameter: untyped
+
+    DecimalParameter: untyped
+
+    DeleteAccountCustomizationInput: untyped
+
+    DeleteAccountCustomizationOutput: untyped
+
+    DeleteAnalysisInput: untyped
+
+    DeleteAnalysisOutput: untyped
+
+    DeleteDashboardInput: untyped
+
+    DeleteDashboardOutput: untyped
+
+    DeleteDataSetInput: untyped
+
+    DeleteDataSetOutput: untyped
+
+    DeleteDataSourceInput: untyped
+
+    DeleteDataSourceOutput: untyped
+
+    DeleteFolderInput: untyped
+
+    DeleteFolderMembershipInput: untyped
+
+    DeleteFolderMembershipOutput: untyped
+
+    DeleteFolderOutput: untyped
+
+    DeleteGroupInput: untyped
+
+    DeleteGroupMembershipInput: untyped
+
+    DeleteGroupMembershipOutput: untyped
+
+    DeleteGroupOutput: untyped
+
+    DeleteIAMPolicyAssignmentInput: untyped
+
+    DeleteIAMPolicyAssignmentOutput: untyped
+
+    DeleteNamespaceInput: untyped
+
+    DeleteNamespaceOutput: untyped
+
+    DeleteTemplateAliasInput: untyped
+
+    DeleteTemplateAliasOutput: untyped
+
+    DeleteTemplateInput: untyped
+
+    DeleteTemplateOutput: untyped
+
+    DeleteThemeAliasInput: untyped
+
+    DeleteThemeAliasOutput: untyped
+
+    DeleteThemeInput: untyped
+
+    DeleteThemeOutput: untyped
+
+    DeleteUserByPrincipalIdInput: untyped
+
+    DeleteUserByPrincipalIdOutput: untyped
+
+    DeleteUserInput: untyped
+
+    DeleteUserOutput: untyped
+
+    DescribeAccountCustomizationInput: untyped
+
+    DescribeAccountCustomizationOutput: untyped
+
+    DescribeAccountSettingsInput: untyped
+
+    DescribeAccountSettingsOutput: untyped
+
+    DescribeAnalysisInput: untyped
+
+    DescribeAnalysisOutput: untyped
+
+    DescribeAnalysisPermissionsInput: untyped
+
+    DescribeAnalysisPermissionsOutput: untyped
+
+    DescribeDashboardInput: untyped
+
+    DescribeDashboardOutput: untyped
+
+    DescribeDashboardPermissionsInput: untyped
+
+    DescribeDashboardPermissionsOutput: untyped
+
+    DescribeDataSetInput: untyped
+
+    DescribeDataSetOutput: untyped
+
+    DescribeDataSetPermissionsInput: untyped
+
+    DescribeDataSetPermissionsOutput: untyped
+
+    DescribeDataSourceInput: untyped
+
+    DescribeDataSourceOutput: untyped
+
+    DescribeDataSourcePermissionsInput: untyped
+
+    DescribeDataSourcePermissionsOutput: untyped
+
+    DescribeFolderInput: untyped
+
+    DescribeFolderOutput: untyped
+
+    DescribeFolderPermissionsInput: untyped
+
+    DescribeFolderPermissionsOutput: untyped
+
+    DescribeFolderResolvedPermissionsInput: untyped
+
+    DescribeFolderResolvedPermissionsOutput: untyped
+
+    DescribeGroupInput: untyped
+
+    DescribeGroupMembershipInput: untyped
+
+    DescribeGroupMembershipOutput: untyped
+
+    DescribeGroupOutput: untyped
+
+    DescribeIAMPolicyAssignmentInput: untyped
+
+    DescribeIAMPolicyAssignmentOutput: untyped
+
+    DescribeIngestionInput: untyped
+
+    DescribeIngestionOutput: untyped
+
+    DescribeIpRestrictionInput: untyped
+
+    DescribeIpRestrictionOutput: untyped
+
+    DescribeNamespaceInput: untyped
+
+    DescribeNamespaceOutput: untyped
+
+    DescribeTemplateAliasInput: untyped
+
+    DescribeTemplateAliasOutput: untyped
+
+    DescribeTemplateInput: untyped
+
+    DescribeTemplateOutput: untyped
+
+    DescribeTemplatePermissionsInput: untyped
+
+    DescribeTemplatePermissionsOutput: untyped
+
+    DescribeThemeAliasInput: untyped
+
+    DescribeThemeAliasOutput: untyped
+
+    DescribeThemeInput: untyped
+
+    DescribeThemeOutput: untyped
+
+    DescribeThemePermissionsInput: untyped
+
+    DescribeThemePermissionsOutput: untyped
+
+    DescribeUserInput: untyped
+
+    DescribeUserOutput: untyped
+
+    DomainNotWhitelistedException: untyped
+
+    module Edition
+      STANDARD: ::String
+
+      ENTERPRISE: ::String
+    end
+
+    module EmbeddingIdentityType
+      IAM: ::String
+
+      QUICKSIGHT: ::String
+
+      ANONYMOUS: ::String
+    end
+
+    ErrorInfo: untyped
+
+    ExasolParameters: untyped
+
+    module ExceptionResourceType
+      USER: ::String
+
+      GROUP: ::String
+
+      NAMESPACE: ::String
+
+      ACCOUNT_SETTINGS: ::String
+
+      IAMPOLICY_ASSIGNMENT: ::String
+
+      DATA_SOURCE: ::String
+
+      DATA_SET: ::String
+
+      VPC_CONNECTION: ::String
+
+      INGESTION: ::String
+    end
+
+    ExportToCSVOption: untyped
+
+    FieldFolder: untyped
+
+    module FileFormat
+      CSV: ::String
+
+      TSV: ::String
+
+      CLF: ::String
+
+      ELF: ::String
+
+      XLSX: ::String
+
+      JSON: ::String
+    end
+
+    FilterOperation: untyped
+
+    module FilterOperator
+      StringEquals: ::String
+    end
+
+    Folder: untyped
+
+    module FolderFilterAttribute
+      PARENT_FOLDER_ARN: ::String
+    end
+
+    FolderMember: untyped
+
+    FolderSearchFilter: untyped
+
+    FolderSummary: untyped
+
+    module FolderType
+      SHARED: ::String
+    end
+
+    GenerateEmbedUrlForAnonymousUserInput: untyped
+
+    GenerateEmbedUrlForAnonymousUserOutput: untyped
+
+    GenerateEmbedUrlForRegisteredUserInput: untyped
+
+    GenerateEmbedUrlForRegisteredUserOutput: untyped
+
+    GeoSpatialColumnGroup: untyped
+
+    module GeoSpatialCountryCode
+      US: ::String
+    end
+
+    module GeoSpatialDataRole
+      COUNTRY: ::String
+
+      STATE: ::String
+
+      COUNTY: ::String
+
+      CITY: ::String
+
+      POSTCODE: ::String
+
+      LONGITUDE: ::String
+
+      LATITUDE: ::String
+    end
+
+    GetDashboardEmbedUrlInput: untyped
+
+    GetDashboardEmbedUrlOutput: untyped
+
+    GetSessionEmbedUrlInput: untyped
+
+    GetSessionEmbedUrlOutput: untyped
+
+    Group: untyped
+
+    module GroupFilterAttribute
+      GROUP_NAME: ::String
+    end
+
+    module GroupFilterOperator
+      StartsWith: ::String
+    end
+
+    GroupMember: untyped
+
+    GroupSearchFilter: untyped
+
+    GutterStyle: untyped
+
+    IAMPolicyAssignment: untyped
+
+    IAMPolicyAssignmentSummary: untyped
+
+    module IdentityStore
+      QUICKSIGHT: ::String
+    end
+
+    module IdentityType
+      IAM: ::String
+
+      QUICKSIGHT: ::String
+    end
+
+    IdentityTypeNotSupportedException: untyped
+
+    Ingestion: untyped
+
+    module IngestionErrorType
+      FAILURE_TO_ASSUME_ROLE: ::String
+
+      INGESTION_SUPERSEDED: ::String
+
+      INGESTION_CANCELED: ::String
+
+      DATA_SET_DELETED: ::String
+
+      DATA_SET_NOT_SPICE: ::String
+
+      S3_UPLOADED_FILE_DELETED: ::String
+
+      S3_MANIFEST_ERROR: ::String
+
+      DATA_TOLERANCE_EXCEPTION: ::String
+
+      SPICE_TABLE_NOT_FOUND: ::String
+
+      DATA_SET_SIZE_LIMIT_EXCEEDED: ::String
+
+      ROW_SIZE_LIMIT_EXCEEDED: ::String
+
+      ACCOUNT_CAPACITY_LIMIT_EXCEEDED: ::String
+
+      CUSTOMER_ERROR: ::String
+
+      DATA_SOURCE_NOT_FOUND: ::String
+
+      IAM_ROLE_NOT_AVAILABLE: ::String
+
+      CONNECTION_FAILURE: ::String
+
+      SQL_TABLE_NOT_FOUND: ::String
+
+      PERMISSION_DENIED: ::String
+
+      SSL_CERTIFICATE_VALIDATION_FAILURE: ::String
+
+      OAUTH_TOKEN_FAILURE: ::String
+
+      SOURCE_API_LIMIT_EXCEEDED_FAILURE: ::String
+
+      PASSWORD_AUTHENTICATION_FAILURE: ::String
+
+      SQL_SCHEMA_MISMATCH_ERROR: ::String
+
+      INVALID_DATE_FORMAT: ::String
+
+      INVALID_DATAPREP_SYNTAX: ::String
+
+      SOURCE_RESOURCE_LIMIT_EXCEEDED: ::String
+
+      SQL_INVALID_PARAMETER_VALUE: ::String
+
+      QUERY_TIMEOUT: ::String
+
+      SQL_NUMERIC_OVERFLOW: ::String
+
+      UNRESOLVABLE_HOST: ::String
+
+      UNROUTABLE_HOST: ::String
+
+      SQL_EXCEPTION: ::String
+
+      S3_FILE_INACCESSIBLE: ::String
+
+      IOT_FILE_NOT_FOUND: ::String
+
+      IOT_DATA_SET_FILE_EMPTY: ::String
+
+      INVALID_DATA_SOURCE_CONFIG: ::String
+
+      DATA_SOURCE_AUTH_FAILED: ::String
+
+      DATA_SOURCE_CONNECTION_FAILED: ::String
+
+      FAILURE_TO_PROCESS_JSON_FILE: ::String
+
+      INTERNAL_SERVICE_ERROR: ::String
+
+      REFRESH_SUPPRESSED_BY_EDIT: ::String
+
+      PERMISSION_NOT_FOUND: ::String
+
+      ELASTICSEARCH_CURSOR_NOT_ENABLED: ::String
+
+      CURSOR_NOT_ENABLED: ::String
+    end
+
+    module IngestionRequestSource
+      MANUAL: ::String
+
+      SCHEDULED: ::String
+    end
+
+    module IngestionRequestType
+      INITIAL_INGESTION: ::String
+
+      EDIT: ::String
+
+      INCREMENTAL_REFRESH: ::String
+
+      FULL_REFRESH: ::String
+    end
+
+    module IngestionStatus
+      INITIALIZED: ::String
+
+      QUEUED: ::String
+
+      RUNNING: ::String
+
+      FAILED: ::String
+
+      COMPLETED: ::String
+
+      CANCELLED: ::String
+    end
+
+    module IngestionType
+      INCREMENTAL_REFRESH: ::String
+
+      FULL_REFRESH: ::String
+    end
+
+    InputColumn: untyped
+
+    module InputColumnDataType
+      STRING: ::String
+
+      INTEGER: ::String
+
+      DECIMAL: ::String
+
+      DATETIME: ::String
+
+      BIT: ::String
+
+      BOOLEAN: ::String
+
+      JSON: ::String
+    end
+
+    IntegerParameter: untyped
+
+    InternalFailureException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidParameterValueException: untyped
+
+    JiraParameters: untyped
+
+    JoinInstruction: untyped
+
+    JoinKeyProperties: untyped
+
+    module JoinType
+      INNER: ::String
+
+      OUTER: ::String
+
+      LEFT: ::String
+
+      RIGHT: ::String
+    end
+
+    LimitExceededException: untyped
+
+    LinkSharingConfiguration: untyped
+
+    ListAnalysesInput: untyped
+
+    ListAnalysesOutput: untyped
+
+    ListDashboardVersionsInput: untyped
+
+    ListDashboardVersionsOutput: untyped
+
+    ListDashboardsInput: untyped
+
+    ListDashboardsOutput: untyped
+
+    ListDataSetsInput: untyped
+
+    ListDataSetsOutput: untyped
+
+    ListDataSourcesInput: untyped
+
+    ListDataSourcesOutput: untyped
+
+    ListFolderMembersInput: untyped
+
+    ListFolderMembersOutput: untyped
+
+    ListFoldersInput: untyped
+
+    ListFoldersOutput: untyped
+
+    ListGroupMembershipsInput: untyped
+
+    ListGroupMembershipsOutput: untyped
+
+    ListGroupsInput: untyped
+
+    ListGroupsOutput: untyped
+
+    ListIAMPolicyAssignmentsForUserInput: untyped
+
+    ListIAMPolicyAssignmentsForUserOutput: untyped
+
+    ListIAMPolicyAssignmentsInput: untyped
+
+    ListIAMPolicyAssignmentsOutput: untyped
+
+    ListIngestionsInput: untyped
+
+    ListIngestionsOutput: untyped
+
+    ListNamespacesInput: untyped
+
+    ListNamespacesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTemplateAliasesInput: untyped
+
+    ListTemplateAliasesOutput: untyped
+
+    ListTemplateVersionsInput: untyped
+
+    ListTemplateVersionsOutput: untyped
+
+    ListTemplatesInput: untyped
+
+    ListTemplatesOutput: untyped
+
+    ListThemeAliasesInput: untyped
+
+    ListThemeAliasesOutput: untyped
+
+    ListThemeVersionsInput: untyped
+
+    ListThemeVersionsOutput: untyped
+
+    ListThemesInput: untyped
+
+    ListThemesOutput: untyped
+
+    ListUserGroupsInput: untyped
+
+    ListUserGroupsOutput: untyped
+
+    ListUsersInput: untyped
+
+    ListUsersOutput: untyped
+
+    LogicalTable: untyped
+
+    LogicalTableSource: untyped
+
+    ManifestFileLocation: untyped
+
+    MarginStyle: untyped
+
+    MariaDbParameters: untyped
+
+    MemberIdArnPair: untyped
+
+    module MemberType
+      DASHBOARD: ::String
+
+      ANALYSIS: ::String
+
+      DATASET: ::String
+    end
+
+    MySqlParameters: untyped
+
+    NamespaceError: untyped
+
+    module NamespaceErrorType
+      PERMISSION_DENIED: ::String
+
+      INTERNAL_SERVICE_ERROR: ::String
+    end
+
+    NamespaceInfoV2: untyped
+
+    module NamespaceStatus
+      CREATED: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      RETRYABLE_FAILURE: ::String
+
+      NON_RETRYABLE_FAILURE: ::String
+    end
+
+    OracleParameters: untyped
+
+    OutputColumn: untyped
+
+    Parameters: untyped
+
+    class PhysicalTable < Hearth::Union
+      class RelationalTable < PhysicalTable
+        def to_h: () -> { relational_table: Hash[Symbol,PhysicalTable] }
+      end
+
+      class CustomSql < PhysicalTable
+        def to_h: () -> { custom_sql: Hash[Symbol,PhysicalTable] }
+      end
+
+      class S3Source < PhysicalTable
+        def to_h: () -> { s3_source: Hash[Symbol,PhysicalTable] }
+      end
+
+      class Unknown < PhysicalTable
+        def to_h: () -> { unknown: Hash[Symbol,PhysicalTable] }
+      end
+    end
+
+    PostgreSqlParameters: untyped
+
+    PreconditionNotMetException: untyped
+
+    PrestoParameters: untyped
+
+    ProjectOperation: untyped
+
+    QueueInfo: untyped
+
+    QuickSightUserNotFoundException: untyped
+
+    RdsParameters: untyped
+
+    RedshiftParameters: untyped
+
+    RegisterUserInput: untyped
+
+    RegisterUserOutput: untyped
+
+    RegisteredUserDashboardEmbeddingConfiguration: untyped
+
+    RegisteredUserEmbeddingExperienceConfiguration: untyped
+
+    RegisteredUserQSearchBarEmbeddingConfiguration: untyped
+
+    RegisteredUserQuickSightConsoleEmbeddingConfiguration: untyped
+
+    RelationalTable: untyped
+
+    RenameColumnOperation: untyped
+
+    ResourceExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourcePermission: untyped
+
+    module ResourceStatus
+      CREATION_IN_PROGRESS: ::String
+
+      CREATION_SUCCESSFUL: ::String
+
+      CREATION_FAILED: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_SUCCESSFUL: ::String
+
+      UPDATE_FAILED: ::String
+
+      DELETED: ::String
+    end
+
+    ResourceUnavailableException: untyped
+
+    RestoreAnalysisInput: untyped
+
+    RestoreAnalysisOutput: untyped
+
+    RowInfo: untyped
+
+    RowLevelPermissionDataSet: untyped
+
+    module RowLevelPermissionFormatVersion
+      VERSION_1: ::String
+
+      VERSION_2: ::String
+    end
+
+    module RowLevelPermissionPolicy
+      GRANT_ACCESS: ::String
+
+      DENY_ACCESS: ::String
+    end
+
+    RowLevelPermissionTagConfiguration: untyped
+
+    RowLevelPermissionTagRule: untyped
+
+    S3Parameters: untyped
+
+    S3Source: untyped
+
+    SearchAnalysesInput: untyped
+
+    SearchAnalysesOutput: untyped
+
+    SearchDashboardsInput: untyped
+
+    SearchDashboardsOutput: untyped
+
+    SearchFoldersInput: untyped
+
+    SearchFoldersOutput: untyped
+
+    SearchGroupsInput: untyped
+
+    SearchGroupsOutput: untyped
+
+    ServiceNowParameters: untyped
+
+    SessionLifetimeInMinutesInvalidException: untyped
+
+    SessionTag: untyped
+
+    Sheet: untyped
+
+    SheetControlsOption: untyped
+
+    SheetStyle: untyped
+
+    SnowflakeParameters: untyped
+
+    SparkParameters: untyped
+
+    SqlServerParameters: untyped
+
+    SslProperties: untyped
+
+    module Status
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    StringParameter: untyped
+
+    Tag: untyped
+
+    TagColumnOperation: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Template: untyped
+
+    TemplateAlias: untyped
+
+    TemplateError: untyped
+
+    module TemplateErrorType
+      SOURCE_NOT_FOUND: ::String
+
+      DATA_SET_NOT_FOUND: ::String
+
+      INTERNAL_FAILURE: ::String
+
+      ACCESS_DENIED: ::String
+    end
+
+    TemplateSourceAnalysis: untyped
+
+    TemplateSourceEntity: untyped
+
+    TemplateSourceTemplate: untyped
+
+    TemplateSummary: untyped
+
+    TemplateVersion: untyped
+
+    TemplateVersionSummary: untyped
+
+    TeradataParameters: untyped
+
+    module TextQualifier
+      DOUBLE_QUOTE: ::String
+
+      SINGLE_QUOTE: ::String
+    end
+
+    Theme: untyped
+
+    ThemeAlias: untyped
+
+    ThemeConfiguration: untyped
+
+    ThemeError: untyped
+
+    module ThemeErrorType
+      INTERNAL_FAILURE: ::String
+    end
+
+    ThemeSummary: untyped
+
+    module ThemeType
+      QUICKSIGHT: ::String
+
+      CUSTOM: ::String
+
+      ALL: ::String
+    end
+
+    ThemeVersion: untyped
+
+    ThemeVersionSummary: untyped
+
+    ThrottlingException: untyped
+
+    TileLayoutStyle: untyped
+
+    TileStyle: untyped
+
+    class TransformOperation < Hearth::Union
+      class ProjectOperation < TransformOperation
+        def to_h: () -> { project_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class FilterOperation < TransformOperation
+        def to_h: () -> { filter_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class CreateColumnsOperation < TransformOperation
+        def to_h: () -> { create_columns_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class RenameColumnOperation < TransformOperation
+        def to_h: () -> { rename_column_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class CastColumnTypeOperation < TransformOperation
+        def to_h: () -> { cast_column_type_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class TagColumnOperation < TransformOperation
+        def to_h: () -> { tag_column_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class UntagColumnOperation < TransformOperation
+        def to_h: () -> { untag_column_operation: Hash[Symbol,TransformOperation] }
+      end
+
+      class Unknown < TransformOperation
+        def to_h: () -> { unknown: Hash[Symbol,TransformOperation] }
+      end
+    end
+
+    TwitterParameters: untyped
+
+    UIColorPalette: untyped
+
+    UnsupportedPricingPlanException: untyped
+
+    UnsupportedUserEditionException: untyped
+
+    UntagColumnOperation: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAccountCustomizationInput: untyped
+
+    UpdateAccountCustomizationOutput: untyped
+
+    UpdateAccountSettingsInput: untyped
+
+    UpdateAccountSettingsOutput: untyped
+
+    UpdateAnalysisInput: untyped
+
+    UpdateAnalysisOutput: untyped
+
+    UpdateAnalysisPermissionsInput: untyped
+
+    UpdateAnalysisPermissionsOutput: untyped
+
+    UpdateDashboardInput: untyped
+
+    UpdateDashboardOutput: untyped
+
+    UpdateDashboardPermissionsInput: untyped
+
+    UpdateDashboardPermissionsOutput: untyped
+
+    UpdateDashboardPublishedVersionInput: untyped
+
+    UpdateDashboardPublishedVersionOutput: untyped
+
+    UpdateDataSetInput: untyped
+
+    UpdateDataSetOutput: untyped
+
+    UpdateDataSetPermissionsInput: untyped
+
+    UpdateDataSetPermissionsOutput: untyped
+
+    UpdateDataSourceInput: untyped
+
+    UpdateDataSourceOutput: untyped
+
+    UpdateDataSourcePermissionsInput: untyped
+
+    UpdateDataSourcePermissionsOutput: untyped
+
+    UpdateFolderInput: untyped
+
+    UpdateFolderOutput: untyped
+
+    UpdateFolderPermissionsInput: untyped
+
+    UpdateFolderPermissionsOutput: untyped
+
+    UpdateGroupInput: untyped
+
+    UpdateGroupOutput: untyped
+
+    UpdateIAMPolicyAssignmentInput: untyped
+
+    UpdateIAMPolicyAssignmentOutput: untyped
+
+    UpdateIpRestrictionInput: untyped
+
+    UpdateIpRestrictionOutput: untyped
+
+    UpdatePublicSharingSettingsInput: untyped
+
+    UpdatePublicSharingSettingsOutput: untyped
+
+    UpdateTemplateAliasInput: untyped
+
+    UpdateTemplateAliasOutput: untyped
+
+    UpdateTemplateInput: untyped
+
+    UpdateTemplateOutput: untyped
+
+    UpdateTemplatePermissionsInput: untyped
+
+    UpdateTemplatePermissionsOutput: untyped
+
+    UpdateThemeAliasInput: untyped
+
+    UpdateThemeAliasOutput: untyped
+
+    UpdateThemeInput: untyped
+
+    UpdateThemeOutput: untyped
+
+    UpdateThemePermissionsInput: untyped
+
+    UpdateThemePermissionsOutput: untyped
+
+    UpdateUserInput: untyped
+
+    UpdateUserOutput: untyped
+
+    UploadSettings: untyped
+
+    User: untyped
+
+    module UserRole
+      ADMIN: ::String
+
+      AUTHOR: ::String
+
+      READER: ::String
+
+      RESTRICTED_AUTHOR: ::String
+
+      RESTRICTED_READER: ::String
+    end
+
+    VpcConnectionProperties: untyped
+
+  end
+end

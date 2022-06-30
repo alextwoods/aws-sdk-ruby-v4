@@ -1,0 +1,3 @@
+module AWS::SDK::SSMIncidents
+  Config: untyped
+end

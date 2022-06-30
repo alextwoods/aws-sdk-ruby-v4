@@ -1,0 +1,3 @@
+module AWS::SDK::AmplifyBackend
+  Config: untyped
+end

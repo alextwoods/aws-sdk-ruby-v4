@@ -1,0 +1,310 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoTTwinMaker
+  module Types
+
+    AccessDeniedException: untyped
+
+    BatchPutPropertyError: untyped
+
+    BatchPutPropertyErrorEntry: untyped
+
+    BatchPutPropertyValuesInput: untyped
+
+    BatchPutPropertyValuesOutput: untyped
+
+    ComponentRequest: untyped
+
+    ComponentResponse: untyped
+
+    ComponentTypeSummary: untyped
+
+    ComponentUpdateRequest: untyped
+
+    module ComponentUpdateType
+      CREATE: ::String
+
+      UPDATE: ::String
+
+      DELETE: ::String
+    end
+
+    ConflictException: untyped
+
+    ConnectorFailureException: untyped
+
+    ConnectorTimeoutException: untyped
+
+    CreateComponentTypeInput: untyped
+
+    CreateComponentTypeOutput: untyped
+
+    CreateEntityInput: untyped
+
+    CreateEntityOutput: untyped
+
+    CreateSceneInput: untyped
+
+    CreateSceneOutput: untyped
+
+    CreateWorkspaceInput: untyped
+
+    CreateWorkspaceOutput: untyped
+
+    DataConnector: untyped
+
+    DataType: untyped
+
+    DataValue: untyped
+
+    DeleteComponentTypeInput: untyped
+
+    DeleteComponentTypeOutput: untyped
+
+    DeleteEntityInput: untyped
+
+    DeleteEntityOutput: untyped
+
+    DeleteSceneInput: untyped
+
+    DeleteSceneOutput: untyped
+
+    DeleteWorkspaceInput: untyped
+
+    DeleteWorkspaceOutput: untyped
+
+    EntityPropertyReference: untyped
+
+    EntitySummary: untyped
+
+    module ErrorCode
+      VALIDATION_ERROR: ::String
+
+      INTERNAL_FAILURE: ::String
+    end
+
+    ErrorDetails: untyped
+
+    FunctionRequest: untyped
+
+    FunctionResponse: untyped
+
+    GetComponentTypeInput: untyped
+
+    GetComponentTypeOutput: untyped
+
+    GetEntityInput: untyped
+
+    GetEntityOutput: untyped
+
+    GetPropertyValueHistoryInput: untyped
+
+    GetPropertyValueHistoryOutput: untyped
+
+    GetPropertyValueInput: untyped
+
+    GetPropertyValueOutput: untyped
+
+    GetSceneInput: untyped
+
+    GetSceneOutput: untyped
+
+    GetWorkspaceInput: untyped
+
+    GetWorkspaceOutput: untyped
+
+    InternalServerException: untyped
+
+    InterpolationParameters: untyped
+
+    module InterpolationType
+      LINEAR: ::String
+    end
+
+    LambdaFunction: untyped
+
+    class ListComponentTypesFilter < Hearth::Union
+      class ExtendsFrom < ListComponentTypesFilter
+        def to_h: () -> { extends_from: Hash[Symbol,ListComponentTypesFilter] }
+      end
+
+      class Namespace < ListComponentTypesFilter
+        def to_h: () -> { namespace: Hash[Symbol,ListComponentTypesFilter] }
+      end
+
+      class IsAbstract < ListComponentTypesFilter
+        def to_h: () -> { is_abstract: Hash[Symbol,ListComponentTypesFilter] }
+      end
+
+      class Unknown < ListComponentTypesFilter
+        def to_h: () -> { unknown: Hash[Symbol,ListComponentTypesFilter] }
+      end
+    end
+
+    ListComponentTypesInput: untyped
+
+    ListComponentTypesOutput: untyped
+
+    class ListEntitiesFilter < Hearth::Union
+      class ParentEntityId < ListEntitiesFilter
+        def to_h: () -> { parent_entity_id: Hash[Symbol,ListEntitiesFilter] }
+      end
+
+      class ComponentTypeId < ListEntitiesFilter
+        def to_h: () -> { component_type_id: Hash[Symbol,ListEntitiesFilter] }
+      end
+
+      class ExternalId < ListEntitiesFilter
+        def to_h: () -> { external_id: Hash[Symbol,ListEntitiesFilter] }
+      end
+
+      class Unknown < ListEntitiesFilter
+        def to_h: () -> { unknown: Hash[Symbol,ListEntitiesFilter] }
+      end
+    end
+
+    ListEntitiesInput: untyped
+
+    ListEntitiesOutput: untyped
+
+    ListScenesInput: untyped
+
+    ListScenesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWorkspacesInput: untyped
+
+    ListWorkspacesOutput: untyped
+
+    module OrderByTime
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    ParentEntityUpdateRequest: untyped
+
+    module ParentEntityUpdateType
+      UPDATE: ::String
+
+      DELETE: ::String
+    end
+
+    PropertyDefinitionRequest: untyped
+
+    PropertyDefinitionResponse: untyped
+
+    PropertyFilter: untyped
+
+    PropertyLatestValue: untyped
+
+    PropertyRequest: untyped
+
+    PropertyResponse: untyped
+
+    module PropertyUpdateType
+      UPDATE: ::String
+
+      DELETE: ::String
+
+      CREATE: ::String
+    end
+
+    PropertyValue: untyped
+
+    PropertyValueEntry: untyped
+
+    PropertyValueHistory: untyped
+
+    Relationship: untyped
+
+    RelationshipValue: untyped
+
+    ResourceNotFoundException: untyped
+
+    SceneSummary: untyped
+
+    module Scope
+      ENTITY: ::String
+
+      WORKSPACE: ::String
+    end
+
+    ServiceQuotaExceededException: untyped
+
+    module State
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      ACTIVE: ::String
+
+      ERROR: ::String
+    end
+
+    Status: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TooManyTagsException: untyped
+
+    module Type
+      RELATIONSHIP: ::String
+
+      STRING: ::String
+
+      LONG: ::String
+
+      BOOLEAN: ::String
+
+      INTEGER: ::String
+
+      DOUBLE: ::String
+
+      LIST: ::String
+
+      MAP: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateComponentTypeInput: untyped
+
+    UpdateComponentTypeOutput: untyped
+
+    UpdateEntityInput: untyped
+
+    UpdateEntityOutput: untyped
+
+    UpdateSceneInput: untyped
+
+    UpdateSceneOutput: untyped
+
+    UpdateWorkspaceInput: untyped
+
+    UpdateWorkspaceOutput: untyped
+
+    ValidationException: untyped
+
+    WorkspaceSummary: untyped
+
+  end
+end

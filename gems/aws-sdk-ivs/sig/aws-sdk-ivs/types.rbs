@@ -1,0 +1,228 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Ivs
+  module Types
+
+    AccessDeniedException: untyped
+
+    AudioConfiguration: untyped
+
+    BatchError: untyped
+
+    BatchGetChannelInput: untyped
+
+    BatchGetChannelOutput: untyped
+
+    BatchGetStreamKeyInput: untyped
+
+    BatchGetStreamKeyOutput: untyped
+
+    Channel: untyped
+
+    module ChannelLatencyMode
+      NormalLatency: ::String
+
+      LowLatency: ::String
+    end
+
+    ChannelNotBroadcasting: untyped
+
+    ChannelSummary: untyped
+
+    module ChannelType
+      BasicChannelType: ::String
+
+      StandardChannelType: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateChannelInput: untyped
+
+    CreateChannelOutput: untyped
+
+    CreateRecordingConfigurationInput: untyped
+
+    CreateRecordingConfigurationOutput: untyped
+
+    CreateStreamKeyInput: untyped
+
+    CreateStreamKeyOutput: untyped
+
+    DeleteChannelInput: untyped
+
+    DeleteChannelOutput: untyped
+
+    DeletePlaybackKeyPairInput: untyped
+
+    DeletePlaybackKeyPairOutput: untyped
+
+    DeleteRecordingConfigurationInput: untyped
+
+    DeleteRecordingConfigurationOutput: untyped
+
+    DeleteStreamKeyInput: untyped
+
+    DeleteStreamKeyOutput: untyped
+
+    DestinationConfiguration: untyped
+
+    GetChannelInput: untyped
+
+    GetChannelOutput: untyped
+
+    GetPlaybackKeyPairInput: untyped
+
+    GetPlaybackKeyPairOutput: untyped
+
+    GetRecordingConfigurationInput: untyped
+
+    GetRecordingConfigurationOutput: untyped
+
+    GetStreamInput: untyped
+
+    GetStreamKeyInput: untyped
+
+    GetStreamKeyOutput: untyped
+
+    GetStreamOutput: untyped
+
+    GetStreamSessionInput: untyped
+
+    GetStreamSessionOutput: untyped
+
+    ImportPlaybackKeyPairInput: untyped
+
+    ImportPlaybackKeyPairOutput: untyped
+
+    IngestConfiguration: untyped
+
+    InternalServerException: untyped
+
+    ListChannelsInput: untyped
+
+    ListChannelsOutput: untyped
+
+    ListPlaybackKeyPairsInput: untyped
+
+    ListPlaybackKeyPairsOutput: untyped
+
+    ListRecordingConfigurationsInput: untyped
+
+    ListRecordingConfigurationsOutput: untyped
+
+    ListStreamKeysInput: untyped
+
+    ListStreamKeysOutput: untyped
+
+    ListStreamSessionsInput: untyped
+
+    ListStreamSessionsOutput: untyped
+
+    ListStreamsInput: untyped
+
+    ListStreamsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    PendingVerification: untyped
+
+    PlaybackKeyPair: untyped
+
+    PlaybackKeyPairSummary: untyped
+
+    PutMetadataInput: untyped
+
+    PutMetadataOutput: untyped
+
+    RecordingConfiguration: untyped
+
+    module RecordingConfigurationState
+      Creating: ::String
+
+      CreateFailed: ::String
+
+      Active: ::String
+    end
+
+    RecordingConfigurationSummary: untyped
+
+    module RecordingMode
+      Disabled: ::String
+
+      Interval: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    S3DestinationConfiguration: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    StopStreamInput: untyped
+
+    StopStreamOutput: untyped
+
+    Stream: untyped
+
+    StreamEvent: untyped
+
+    StreamFilters: untyped
+
+    module StreamHealth
+      StreamHealthy: ::String
+
+      Starving: ::String
+
+      Unknown: ::String
+    end
+
+    StreamKey: untyped
+
+    StreamKeySummary: untyped
+
+    StreamSession: untyped
+
+    StreamSessionSummary: untyped
+
+    module StreamState
+      StreamLive: ::String
+
+      StreamOffline: ::String
+    end
+
+    StreamSummary: untyped
+
+    StreamUnavailable: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    ThumbnailConfiguration: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateChannelInput: untyped
+
+    UpdateChannelOutput: untyped
+
+    ValidationException: untyped
+
+    VideoConfiguration: untyped
+
+  end
+end

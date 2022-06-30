@@ -1,0 +1,3 @@
+module AWS::SDK::Macie2
+  Config: untyped
+end

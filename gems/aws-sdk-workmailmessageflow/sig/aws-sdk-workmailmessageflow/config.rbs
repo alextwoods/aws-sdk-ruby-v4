@@ -1,0 +1,3 @@
+module AWS::SDK::WorkMailMessageFlow
+  Config: untyped
+end

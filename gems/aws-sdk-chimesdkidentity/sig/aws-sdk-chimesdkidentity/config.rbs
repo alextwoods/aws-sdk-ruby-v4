@@ -1,0 +1,3 @@
+module AWS::SDK::ChimeSDKIdentity
+  Config: untyped
+end

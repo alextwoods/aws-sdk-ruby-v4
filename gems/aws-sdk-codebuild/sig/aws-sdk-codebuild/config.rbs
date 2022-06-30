@@ -1,0 +1,3 @@
+module AWS::SDK::CodeBuild
+  Config: untyped
+end

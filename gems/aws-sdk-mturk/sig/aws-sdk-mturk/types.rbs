@@ -1,0 +1,344 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MTurk
+  module Types
+
+    AcceptQualificationRequestInput: untyped
+
+    AcceptQualificationRequestOutput: untyped
+
+    ApproveAssignmentInput: untyped
+
+    ApproveAssignmentOutput: untyped
+
+    Assignment: untyped
+
+    module AssignmentStatus
+      Submitted: ::String
+
+      Approved: ::String
+
+      Rejected: ::String
+    end
+
+    AssociateQualificationWithWorkerInput: untyped
+
+    AssociateQualificationWithWorkerOutput: untyped
+
+    BonusPayment: untyped
+
+    module Comparator
+      LessThan: ::String
+
+      LessThanOrEqualTo: ::String
+
+      GreaterThan: ::String
+
+      GreaterThanOrEqualTo: ::String
+
+      EqualTo: ::String
+
+      NotEqualTo: ::String
+
+      Exists: ::String
+
+      DoesNotExist: ::String
+
+      In: ::String
+
+      NotIn: ::String
+    end
+
+    CreateAdditionalAssignmentsForHITInput: untyped
+
+    CreateAdditionalAssignmentsForHITOutput: untyped
+
+    CreateHITInput: untyped
+
+    CreateHITOutput: untyped
+
+    CreateHITTypeInput: untyped
+
+    CreateHITTypeOutput: untyped
+
+    CreateHITWithHITTypeInput: untyped
+
+    CreateHITWithHITTypeOutput: untyped
+
+    CreateQualificationTypeInput: untyped
+
+    CreateQualificationTypeOutput: untyped
+
+    CreateWorkerBlockInput: untyped
+
+    CreateWorkerBlockOutput: untyped
+
+    DeleteHITInput: untyped
+
+    DeleteHITOutput: untyped
+
+    DeleteQualificationTypeInput: untyped
+
+    DeleteQualificationTypeOutput: untyped
+
+    DeleteWorkerBlockInput: untyped
+
+    DeleteWorkerBlockOutput: untyped
+
+    DisassociateQualificationFromWorkerInput: untyped
+
+    DisassociateQualificationFromWorkerOutput: untyped
+
+    module EventType
+      AssignmentAccepted: ::String
+
+      AssignmentAbandoned: ::String
+
+      AssignmentReturned: ::String
+
+      AssignmentSubmitted: ::String
+
+      AssignmentRejected: ::String
+
+      AssignmentApproved: ::String
+
+      HITCreated: ::String
+
+      HITExpired: ::String
+
+      HITReviewable: ::String
+
+      HITExtended: ::String
+
+      HITDisposed: ::String
+
+      Ping: ::String
+    end
+
+    GetAccountBalanceInput: untyped
+
+    GetAccountBalanceOutput: untyped
+
+    GetAssignmentInput: untyped
+
+    GetAssignmentOutput: untyped
+
+    GetFileUploadURLInput: untyped
+
+    GetFileUploadURLOutput: untyped
+
+    GetHITInput: untyped
+
+    GetHITOutput: untyped
+
+    GetQualificationScoreInput: untyped
+
+    GetQualificationScoreOutput: untyped
+
+    GetQualificationTypeInput: untyped
+
+    GetQualificationTypeOutput: untyped
+
+    HIT: untyped
+
+    module HITAccessActions
+      Accept: ::String
+
+      PreviewAndAccept: ::String
+
+      DiscoverPreviewAndAccept: ::String
+    end
+
+    HITLayoutParameter: untyped
+
+    module HITReviewStatus
+      NotReviewed: ::String
+
+      MarkedForReview: ::String
+
+      ReviewedAppropriate: ::String
+
+      ReviewedInappropriate: ::String
+    end
+
+    module HITStatus
+      Assignable: ::String
+
+      Unassignable: ::String
+
+      Reviewable: ::String
+
+      Reviewing: ::String
+
+      Disposed: ::String
+    end
+
+    ListAssignmentsForHITInput: untyped
+
+    ListAssignmentsForHITOutput: untyped
+
+    ListBonusPaymentsInput: untyped
+
+    ListBonusPaymentsOutput: untyped
+
+    ListHITsForQualificationTypeInput: untyped
+
+    ListHITsForQualificationTypeOutput: untyped
+
+    ListHITsInput: untyped
+
+    ListHITsOutput: untyped
+
+    ListQualificationRequestsInput: untyped
+
+    ListQualificationRequestsOutput: untyped
+
+    ListQualificationTypesInput: untyped
+
+    ListQualificationTypesOutput: untyped
+
+    ListReviewPolicyResultsForHITInput: untyped
+
+    ListReviewPolicyResultsForHITOutput: untyped
+
+    ListReviewableHITsInput: untyped
+
+    ListReviewableHITsOutput: untyped
+
+    ListWorkerBlocksInput: untyped
+
+    ListWorkerBlocksOutput: untyped
+
+    ListWorkersWithQualificationTypeInput: untyped
+
+    ListWorkersWithQualificationTypeOutput: untyped
+
+    Locale: untyped
+
+    NotificationSpecification: untyped
+
+    module NotificationTransport
+      Email: ::String
+
+      SQS: ::String
+
+      SNS: ::String
+    end
+
+    module NotifyWorkersFailureCode
+      SoftFailure: ::String
+
+      HardFailure: ::String
+    end
+
+    NotifyWorkersFailureStatus: untyped
+
+    NotifyWorkersInput: untyped
+
+    NotifyWorkersOutput: untyped
+
+    ParameterMapEntry: untyped
+
+    PolicyParameter: untyped
+
+    Qualification: untyped
+
+    QualificationRequest: untyped
+
+    QualificationRequirement: untyped
+
+    module QualificationStatus
+      Granted: ::String
+
+      Revoked: ::String
+    end
+
+    QualificationType: untyped
+
+    module QualificationTypeStatus
+      Active: ::String
+
+      Inactive: ::String
+    end
+
+    RejectAssignmentInput: untyped
+
+    RejectAssignmentOutput: untyped
+
+    RejectQualificationRequestInput: untyped
+
+    RejectQualificationRequestOutput: untyped
+
+    RequestError: untyped
+
+    ReviewActionDetail: untyped
+
+    module ReviewActionStatus
+      Intended: ::String
+
+      Succeeded: ::String
+
+      Failed: ::String
+
+      Cancelled: ::String
+    end
+
+    ReviewPolicy: untyped
+
+    module ReviewPolicyLevel
+      Assignment: ::String
+
+      HIT: ::String
+    end
+
+    ReviewReport: untyped
+
+    ReviewResultDetail: untyped
+
+    module ReviewableHITStatus
+      Reviewable: ::String
+
+      Reviewing: ::String
+    end
+
+    SendBonusInput: untyped
+
+    SendBonusOutput: untyped
+
+    SendTestEventNotificationInput: untyped
+
+    SendTestEventNotificationOutput: untyped
+
+    ServiceFault: untyped
+
+    UpdateExpirationForHITInput: untyped
+
+    UpdateExpirationForHITOutput: untyped
+
+    UpdateHITReviewStatusInput: untyped
+
+    UpdateHITReviewStatusOutput: untyped
+
+    UpdateHITTypeOfHITInput: untyped
+
+    UpdateHITTypeOfHITOutput: untyped
+
+    UpdateNotificationSettingsInput: untyped
+
+    UpdateNotificationSettingsOutput: untyped
+
+    UpdateQualificationTypeInput: untyped
+
+    UpdateQualificationTypeOutput: untyped
+
+    WorkerBlock: untyped
+
+  end
+end

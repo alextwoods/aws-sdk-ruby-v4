@@ -1,0 +1,670 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::StorageGateway
+  module Types
+
+    ActivateGatewayInput: untyped
+
+    ActivateGatewayOutput: untyped
+
+    module ActiveDirectoryStatus
+      ACCESS_DENIED: ::String
+
+      DETACHED: ::String
+
+      JOINED: ::String
+
+      JOINING: ::String
+
+      NETWORK_ERROR: ::String
+
+      TIMEOUT: ::String
+
+      UNKNOWN_ERROR: ::String
+    end
+
+    AddCacheInput: untyped
+
+    AddCacheOutput: untyped
+
+    AddTagsToResourceInput: untyped
+
+    AddTagsToResourceOutput: untyped
+
+    AddUploadBufferInput: untyped
+
+    AddUploadBufferOutput: untyped
+
+    AddWorkingStorageInput: untyped
+
+    AddWorkingStorageOutput: untyped
+
+    AssignTapePoolInput: untyped
+
+    AssignTapePoolOutput: untyped
+
+    AssociateFileSystemInput: untyped
+
+    AssociateFileSystemOutput: untyped
+
+    AttachVolumeInput: untyped
+
+    AttachVolumeOutput: untyped
+
+    AutomaticTapeCreationPolicyInfo: untyped
+
+    AutomaticTapeCreationRule: untyped
+
+    module AvailabilityMonitorTestStatus
+      COMPLETE: ::String
+
+      FAILED: ::String
+
+      PENDING: ::String
+    end
+
+    BandwidthRateLimitInterval: untyped
+
+    CacheAttributes: untyped
+
+    CachediSCSIVolume: untyped
+
+    CancelArchivalInput: untyped
+
+    CancelArchivalOutput: untyped
+
+    CancelRetrievalInput: untyped
+
+    CancelRetrievalOutput: untyped
+
+    module CaseSensitivity
+      ClientSpecified: ::String
+
+      CaseSensitive: ::String
+    end
+
+    ChapInfo: untyped
+
+    CreateCachediSCSIVolumeInput: untyped
+
+    CreateCachediSCSIVolumeOutput: untyped
+
+    CreateNFSFileShareInput: untyped
+
+    CreateNFSFileShareOutput: untyped
+
+    CreateSMBFileShareInput: untyped
+
+    CreateSMBFileShareOutput: untyped
+
+    CreateSnapshotFromVolumeRecoveryPointInput: untyped
+
+    CreateSnapshotFromVolumeRecoveryPointOutput: untyped
+
+    CreateSnapshotInput: untyped
+
+    CreateSnapshotOutput: untyped
+
+    CreateStorediSCSIVolumeInput: untyped
+
+    CreateStorediSCSIVolumeOutput: untyped
+
+    CreateTapePoolInput: untyped
+
+    CreateTapePoolOutput: untyped
+
+    CreateTapeWithBarcodeInput: untyped
+
+    CreateTapeWithBarcodeOutput: untyped
+
+    CreateTapesInput: untyped
+
+    CreateTapesOutput: untyped
+
+    DeleteAutomaticTapeCreationPolicyInput: untyped
+
+    DeleteAutomaticTapeCreationPolicyOutput: untyped
+
+    DeleteBandwidthRateLimitInput: untyped
+
+    DeleteBandwidthRateLimitOutput: untyped
+
+    DeleteChapCredentialsInput: untyped
+
+    DeleteChapCredentialsOutput: untyped
+
+    DeleteFileShareInput: untyped
+
+    DeleteFileShareOutput: untyped
+
+    DeleteGatewayInput: untyped
+
+    DeleteGatewayOutput: untyped
+
+    DeleteSnapshotScheduleInput: untyped
+
+    DeleteSnapshotScheduleOutput: untyped
+
+    DeleteTapeArchiveInput: untyped
+
+    DeleteTapeArchiveOutput: untyped
+
+    DeleteTapeInput: untyped
+
+    DeleteTapeOutput: untyped
+
+    DeleteTapePoolInput: untyped
+
+    DeleteTapePoolOutput: untyped
+
+    DeleteVolumeInput: untyped
+
+    DeleteVolumeOutput: untyped
+
+    DescribeAvailabilityMonitorTestInput: untyped
+
+    DescribeAvailabilityMonitorTestOutput: untyped
+
+    DescribeBandwidthRateLimitInput: untyped
+
+    DescribeBandwidthRateLimitOutput: untyped
+
+    DescribeBandwidthRateLimitScheduleInput: untyped
+
+    DescribeBandwidthRateLimitScheduleOutput: untyped
+
+    DescribeCacheInput: untyped
+
+    DescribeCacheOutput: untyped
+
+    DescribeCachediSCSIVolumesInput: untyped
+
+    DescribeCachediSCSIVolumesOutput: untyped
+
+    DescribeChapCredentialsInput: untyped
+
+    DescribeChapCredentialsOutput: untyped
+
+    DescribeFileSystemAssociationsInput: untyped
+
+    DescribeFileSystemAssociationsOutput: untyped
+
+    DescribeGatewayInformationInput: untyped
+
+    DescribeGatewayInformationOutput: untyped
+
+    DescribeMaintenanceStartTimeInput: untyped
+
+    DescribeMaintenanceStartTimeOutput: untyped
+
+    DescribeNFSFileSharesInput: untyped
+
+    DescribeNFSFileSharesOutput: untyped
+
+    DescribeSMBFileSharesInput: untyped
+
+    DescribeSMBFileSharesOutput: untyped
+
+    DescribeSMBSettingsInput: untyped
+
+    DescribeSMBSettingsOutput: untyped
+
+    DescribeSnapshotScheduleInput: untyped
+
+    DescribeSnapshotScheduleOutput: untyped
+
+    DescribeStorediSCSIVolumesInput: untyped
+
+    DescribeStorediSCSIVolumesOutput: untyped
+
+    DescribeTapeArchivesInput: untyped
+
+    DescribeTapeArchivesOutput: untyped
+
+    DescribeTapeRecoveryPointsInput: untyped
+
+    DescribeTapeRecoveryPointsOutput: untyped
+
+    DescribeTapesInput: untyped
+
+    DescribeTapesOutput: untyped
+
+    DescribeUploadBufferInput: untyped
+
+    DescribeUploadBufferOutput: untyped
+
+    DescribeVTLDevicesInput: untyped
+
+    DescribeVTLDevicesOutput: untyped
+
+    DescribeWorkingStorageInput: untyped
+
+    DescribeWorkingStorageOutput: untyped
+
+    DetachVolumeInput: untyped
+
+    DetachVolumeOutput: untyped
+
+    DeviceiSCSIAttributes: untyped
+
+    DisableGatewayInput: untyped
+
+    DisableGatewayOutput: untyped
+
+    DisassociateFileSystemInput: untyped
+
+    DisassociateFileSystemOutput: untyped
+
+    Disk: untyped
+
+    EndpointNetworkConfiguration: untyped
+
+    module ErrorCode
+      ActivationKeyExpired: ::String
+
+      ActivationKeyInvalid: ::String
+
+      ActivationKeyNotFound: ::String
+
+      GatewayInternalError: ::String
+
+      GatewayNotConnected: ::String
+
+      GatewayNotFound: ::String
+
+      GatewayProxyNetworkConnectionBusy: ::String
+
+      AuthenticationFailure: ::String
+
+      BandwidthThrottleScheduleNotFound: ::String
+
+      Blocked: ::String
+
+      CannotExportSnapshot: ::String
+
+      ChapCredentialNotFound: ::String
+
+      DiskAlreadyAllocated: ::String
+
+      DiskDoesNotExist: ::String
+
+      DiskSizeGreaterThanVolumeMaxSize: ::String
+
+      DiskSizeLessThanVolumeSize: ::String
+
+      DiskSizeNotGigAligned: ::String
+
+      DuplicateCertificateInfo: ::String
+
+      DuplicateSchedule: ::String
+
+      EndpointNotFound: ::String
+
+      IAMNotSupported: ::String
+
+      InitiatorInvalid: ::String
+
+      InitiatorNotFound: ::String
+
+      InternalError: ::String
+
+      InvalidGateway: ::String
+
+      InvalidEndpoint: ::String
+
+      InvalidParameters: ::String
+
+      InvalidSchedule: ::String
+
+      LocalStorageLimitExceeded: ::String
+
+      LunAlreadyAllocated_: ::String
+
+      LunInvalid: ::String
+
+      JoinDomainInProgress: ::String
+
+      MaximumContentLengthExceeded: ::String
+
+      MaximumTapeCartridgeCountExceeded: ::String
+
+      MaximumVolumeCountExceeded: ::String
+
+      NetworkConfigurationChanged: ::String
+
+      NoDisksAvailable: ::String
+
+      NotImplemented: ::String
+
+      NotSupported: ::String
+
+      OperationAborted: ::String
+
+      OutdatedGateway: ::String
+
+      ParametersNotImplemented: ::String
+
+      RegionInvalid: ::String
+
+      RequestTimeout: ::String
+
+      ServiceUnavailable: ::String
+
+      SnapshotDeleted: ::String
+
+      SnapshotIdInvalid: ::String
+
+      SnapshotInProgress: ::String
+
+      SnapshotNotFound: ::String
+
+      SnapshotScheduleNotFound: ::String
+
+      StagingAreaFull: ::String
+
+      StorageFailure: ::String
+
+      TapeCartridgeNotFound: ::String
+
+      TargetAlreadyExists: ::String
+
+      TargetInvalid: ::String
+
+      TargetNotFound: ::String
+
+      UnauthorizedOperation: ::String
+
+      VolumeAlreadyExists: ::String
+
+      VolumeIdInvalid: ::String
+
+      VolumeInUse: ::String
+
+      VolumeNotFound: ::String
+
+      VolumeNotReady: ::String
+    end
+
+    FileShareInfo: untyped
+
+    module FileShareType
+      NFS: ::String
+
+      SMB: ::String
+    end
+
+    FileSystemAssociationInfo: untyped
+
+    FileSystemAssociationStatusDetail: untyped
+
+    FileSystemAssociationSummary: untyped
+
+    module GatewayCapacity
+      Small: ::String
+
+      Medium: ::String
+
+      Large: ::String
+    end
+
+    GatewayInfo: untyped
+
+    module HostEnvironment
+      VMWARE: ::String
+
+      HYPER_V: ::String
+
+      EC2: ::String
+
+      KVM: ::String
+
+      OTHER: ::String
+
+      SNOWBALL: ::String
+    end
+
+    InternalServerError: untyped
+
+    InvalidGatewayRequestException: untyped
+
+    JoinDomainInput: untyped
+
+    JoinDomainOutput: untyped
+
+    ListAutomaticTapeCreationPoliciesInput: untyped
+
+    ListAutomaticTapeCreationPoliciesOutput: untyped
+
+    ListFileSharesInput: untyped
+
+    ListFileSharesOutput: untyped
+
+    ListFileSystemAssociationsInput: untyped
+
+    ListFileSystemAssociationsOutput: untyped
+
+    ListGatewaysInput: untyped
+
+    ListGatewaysOutput: untyped
+
+    ListLocalDisksInput: untyped
+
+    ListLocalDisksOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTapePoolsInput: untyped
+
+    ListTapePoolsOutput: untyped
+
+    ListTapesInput: untyped
+
+    ListTapesOutput: untyped
+
+    ListVolumeInitiatorsInput: untyped
+
+    ListVolumeInitiatorsOutput: untyped
+
+    ListVolumeRecoveryPointsInput: untyped
+
+    ListVolumeRecoveryPointsOutput: untyped
+
+    ListVolumesInput: untyped
+
+    ListVolumesOutput: untyped
+
+    NFSFileShareDefaults: untyped
+
+    NFSFileShareInfo: untyped
+
+    NetworkInterface: untyped
+
+    NotifyWhenUploadedInput: untyped
+
+    NotifyWhenUploadedOutput: untyped
+
+    module ObjectACL
+      private: ::String
+
+      public_read: ::String
+
+      public_read_write: ::String
+
+      authenticated_read: ::String
+
+      bucket_owner_read: ::String
+
+      bucket_owner_full_control: ::String
+
+      aws_exec_read: ::String
+    end
+
+    PoolInfo: untyped
+
+    module PoolStatus
+      ACTIVE: ::String
+
+      DELETED: ::String
+    end
+
+    RefreshCacheInput: untyped
+
+    RefreshCacheOutput: untyped
+
+    RemoveTagsFromResourceInput: untyped
+
+    RemoveTagsFromResourceOutput: untyped
+
+    ResetCacheInput: untyped
+
+    ResetCacheOutput: untyped
+
+    module RetentionLockType
+      COMPLIANCE: ::String
+
+      GOVERNANCE: ::String
+
+      NONE: ::String
+    end
+
+    RetrieveTapeArchiveInput: untyped
+
+    RetrieveTapeArchiveOutput: untyped
+
+    RetrieveTapeRecoveryPointInput: untyped
+
+    RetrieveTapeRecoveryPointOutput: untyped
+
+    SMBFileShareInfo: untyped
+
+    SMBLocalGroups: untyped
+
+    module SMBSecurityStrategy
+      ClientSpecified: ::String
+
+      MandatorySigning: ::String
+
+      MandatoryEncryption: ::String
+    end
+
+    ServiceUnavailableError: untyped
+
+    SetLocalConsolePasswordInput: untyped
+
+    SetLocalConsolePasswordOutput: untyped
+
+    SetSMBGuestPasswordInput: untyped
+
+    SetSMBGuestPasswordOutput: untyped
+
+    ShutdownGatewayInput: untyped
+
+    ShutdownGatewayOutput: untyped
+
+    StartAvailabilityMonitorTestInput: untyped
+
+    StartAvailabilityMonitorTestOutput: untyped
+
+    StartGatewayInput: untyped
+
+    StartGatewayOutput: untyped
+
+    StorageGatewayError: untyped
+
+    StorediSCSIVolume: untyped
+
+    Tag: untyped
+
+    Tape: untyped
+
+    TapeArchive: untyped
+
+    TapeInfo: untyped
+
+    TapeRecoveryPointInfo: untyped
+
+    module TapeStorageClass
+      DEEP_ARCHIVE: ::String
+
+      GLACIER: ::String
+    end
+
+    UpdateAutomaticTapeCreationPolicyInput: untyped
+
+    UpdateAutomaticTapeCreationPolicyOutput: untyped
+
+    UpdateBandwidthRateLimitInput: untyped
+
+    UpdateBandwidthRateLimitOutput: untyped
+
+    UpdateBandwidthRateLimitScheduleInput: untyped
+
+    UpdateBandwidthRateLimitScheduleOutput: untyped
+
+    UpdateChapCredentialsInput: untyped
+
+    UpdateChapCredentialsOutput: untyped
+
+    UpdateFileSystemAssociationInput: untyped
+
+    UpdateFileSystemAssociationOutput: untyped
+
+    UpdateGatewayInformationInput: untyped
+
+    UpdateGatewayInformationOutput: untyped
+
+    UpdateGatewaySoftwareNowInput: untyped
+
+    UpdateGatewaySoftwareNowOutput: untyped
+
+    UpdateMaintenanceStartTimeInput: untyped
+
+    UpdateMaintenanceStartTimeOutput: untyped
+
+    UpdateNFSFileShareInput: untyped
+
+    UpdateNFSFileShareOutput: untyped
+
+    UpdateSMBFileShareInput: untyped
+
+    UpdateSMBFileShareOutput: untyped
+
+    UpdateSMBFileShareVisibilityInput: untyped
+
+    UpdateSMBFileShareVisibilityOutput: untyped
+
+    UpdateSMBLocalGroupsInput: untyped
+
+    UpdateSMBLocalGroupsOutput: untyped
+
+    UpdateSMBSecurityStrategyInput: untyped
+
+    UpdateSMBSecurityStrategyOutput: untyped
+
+    UpdateSnapshotScheduleInput: untyped
+
+    UpdateSnapshotScheduleOutput: untyped
+
+    UpdateVTLDeviceTypeInput: untyped
+
+    UpdateVTLDeviceTypeOutput: untyped
+
+    VTLDevice: untyped
+
+    VolumeInfo: untyped
+
+    VolumeRecoveryPointInfo: untyped
+
+    VolumeiSCSIAttributes: untyped
+
+  end
+end

@@ -1,0 +1,274 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Amplify
+  module Types
+
+    App: untyped
+
+    Artifact: untyped
+
+    AutoBranchCreationConfig: untyped
+
+    BackendEnvironment: untyped
+
+    BadRequestException: untyped
+
+    Branch: untyped
+
+    CreateAppInput: untyped
+
+    CreateAppOutput: untyped
+
+    CreateBackendEnvironmentInput: untyped
+
+    CreateBackendEnvironmentOutput: untyped
+
+    CreateBranchInput: untyped
+
+    CreateBranchOutput: untyped
+
+    CreateDeploymentInput: untyped
+
+    CreateDeploymentOutput: untyped
+
+    CreateDomainAssociationInput: untyped
+
+    CreateDomainAssociationOutput: untyped
+
+    CreateWebhookInput: untyped
+
+    CreateWebhookOutput: untyped
+
+    CustomRule: untyped
+
+    DeleteAppInput: untyped
+
+    DeleteAppOutput: untyped
+
+    DeleteBackendEnvironmentInput: untyped
+
+    DeleteBackendEnvironmentOutput: untyped
+
+    DeleteBranchInput: untyped
+
+    DeleteBranchOutput: untyped
+
+    DeleteDomainAssociationInput: untyped
+
+    DeleteDomainAssociationOutput: untyped
+
+    DeleteJobInput: untyped
+
+    DeleteJobOutput: untyped
+
+    DeleteWebhookInput: untyped
+
+    DeleteWebhookOutput: untyped
+
+    DependentServiceFailureException: untyped
+
+    DomainAssociation: untyped
+
+    module DomainStatus
+      PENDING_VERIFICATION: ::String
+
+      IN_PROGRESS: ::String
+
+      AVAILABLE: ::String
+
+      PENDING_DEPLOYMENT: ::String
+
+      FAILED: ::String
+
+      CREATING: ::String
+
+      REQUESTING_CERTIFICATE: ::String
+
+      UPDATING: ::String
+    end
+
+    GenerateAccessLogsInput: untyped
+
+    GenerateAccessLogsOutput: untyped
+
+    GetAppInput: untyped
+
+    GetAppOutput: untyped
+
+    GetArtifactUrlInput: untyped
+
+    GetArtifactUrlOutput: untyped
+
+    GetBackendEnvironmentInput: untyped
+
+    GetBackendEnvironmentOutput: untyped
+
+    GetBranchInput: untyped
+
+    GetBranchOutput: untyped
+
+    GetDomainAssociationInput: untyped
+
+    GetDomainAssociationOutput: untyped
+
+    GetJobInput: untyped
+
+    GetJobOutput: untyped
+
+    GetWebhookInput: untyped
+
+    GetWebhookOutput: untyped
+
+    InternalFailureException: untyped
+
+    Job: untyped
+
+    module JobStatus
+      PENDING: ::String
+
+      PROVISIONING: ::String
+
+      RUNNING: ::String
+
+      FAILED: ::String
+
+      SUCCEED: ::String
+
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+    end
+
+    JobSummary: untyped
+
+    module JobType
+      RELEASE: ::String
+
+      RETRY: ::String
+
+      MANUAL: ::String
+
+      WEB_HOOK: ::String
+    end
+
+    LimitExceededException: untyped
+
+    ListAppsInput: untyped
+
+    ListAppsOutput: untyped
+
+    ListArtifactsInput: untyped
+
+    ListArtifactsOutput: untyped
+
+    ListBackendEnvironmentsInput: untyped
+
+    ListBackendEnvironmentsOutput: untyped
+
+    ListBranchesInput: untyped
+
+    ListBranchesOutput: untyped
+
+    ListDomainAssociationsInput: untyped
+
+    ListDomainAssociationsOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWebhooksInput: untyped
+
+    ListWebhooksOutput: untyped
+
+    NotFoundException: untyped
+
+    module Platform
+      WEB: ::String
+
+      WEB_DYNAMIC: ::String
+    end
+
+    ProductionBranch: untyped
+
+    module RepositoryCloneMethod
+      SSH: ::String
+
+      TOKEN: ::String
+
+      SIGV4: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    module Stage
+      PRODUCTION: ::String
+
+      BETA: ::String
+
+      DEVELOPMENT: ::String
+
+      EXPERIMENTAL: ::String
+
+      PULL_REQUEST: ::String
+    end
+
+    StartDeploymentInput: untyped
+
+    StartDeploymentOutput: untyped
+
+    StartJobInput: untyped
+
+    StartJobOutput: untyped
+
+    Step: untyped
+
+    StopJobInput: untyped
+
+    StopJobOutput: untyped
+
+    SubDomain: untyped
+
+    SubDomainSetting: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UnauthorizedException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAppInput: untyped
+
+    UpdateAppOutput: untyped
+
+    UpdateBranchInput: untyped
+
+    UpdateBranchOutput: untyped
+
+    UpdateDomainAssociationInput: untyped
+
+    UpdateDomainAssociationOutput: untyped
+
+    UpdateWebhookInput: untyped
+
+    UpdateWebhookOutput: untyped
+
+    Webhook: untyped
+
+  end
+end

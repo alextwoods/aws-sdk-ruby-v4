@@ -1,0 +1,3 @@
+module AWS::SDK::AppSync
+  Config: untyped
+end

@@ -1,0 +1,222 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Textract
+  module Types
+
+    AccessDeniedException: untyped
+
+    AnalyzeDocumentInput: untyped
+
+    AnalyzeDocumentOutput: untyped
+
+    AnalyzeExpenseInput: untyped
+
+    AnalyzeExpenseOutput: untyped
+
+    AnalyzeIDDetections: untyped
+
+    AnalyzeIDInput: untyped
+
+    AnalyzeIDOutput: untyped
+
+    BadDocumentException: untyped
+
+    Block: untyped
+
+    module BlockType
+      KEY_VALUE_SET: ::String
+
+      PAGE: ::String
+
+      LINE: ::String
+
+      WORD: ::String
+
+      TABLE: ::String
+
+      CELL: ::String
+
+      SELECTION_ELEMENT: ::String
+
+      MERGED_CELL: ::String
+
+      TITLE: ::String
+
+      QUERY: ::String
+
+      QUERY_RESULT: ::String
+    end
+
+    BoundingBox: untyped
+
+    module ContentClassifier
+      FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: ::String
+
+      FREE_OF_ADULT_CONTENT: ::String
+    end
+
+    DetectDocumentTextInput: untyped
+
+    DetectDocumentTextOutput: untyped
+
+    Document: untyped
+
+    DocumentLocation: untyped
+
+    DocumentMetadata: untyped
+
+    DocumentTooLargeException: untyped
+
+    module EntityType
+      KEY: ::String
+
+      VALUE: ::String
+
+      COLUMN_HEADER: ::String
+    end
+
+    ExpenseDetection: untyped
+
+    ExpenseDocument: untyped
+
+    ExpenseField: untyped
+
+    ExpenseType: untyped
+
+    module FeatureType
+      TABLES: ::String
+
+      FORMS: ::String
+
+      QUERIES: ::String
+    end
+
+    Geometry: untyped
+
+    GetDocumentAnalysisInput: untyped
+
+    GetDocumentAnalysisOutput: untyped
+
+    GetDocumentTextDetectionInput: untyped
+
+    GetDocumentTextDetectionOutput: untyped
+
+    GetExpenseAnalysisInput: untyped
+
+    GetExpenseAnalysisOutput: untyped
+
+    HumanLoopActivationOutput: untyped
+
+    HumanLoopConfig: untyped
+
+    HumanLoopDataAttributes: untyped
+
+    HumanLoopQuotaExceededException: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    IdentityDocument: untyped
+
+    IdentityDocumentField: untyped
+
+    InternalServerError: untyped
+
+    InvalidJobIdException: untyped
+
+    InvalidKMSKeyException: untyped
+
+    InvalidParameterException: untyped
+
+    InvalidS3ObjectException: untyped
+
+    module JobStatus
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      PARTIAL_SUCCESS: ::String
+    end
+
+    LimitExceededException: untyped
+
+    LineItemFields: untyped
+
+    LineItemGroup: untyped
+
+    NormalizedValue: untyped
+
+    NotificationChannel: untyped
+
+    OutputConfig: untyped
+
+    Point: untyped
+
+    ProvisionedThroughputExceededException: untyped
+
+    QueriesConfig: untyped
+
+    Query: untyped
+
+    Relationship: untyped
+
+    module RelationshipType
+      VALUE: ::String
+
+      CHILD: ::String
+
+      COMPLEX_FEATURES: ::String
+
+      MERGED_CELL: ::String
+
+      TITLE: ::String
+
+      ANSWER: ::String
+    end
+
+    S3Object: untyped
+
+    module SelectionStatus
+      SELECTED: ::String
+
+      NOT_SELECTED: ::String
+    end
+
+    StartDocumentAnalysisInput: untyped
+
+    StartDocumentAnalysisOutput: untyped
+
+    StartDocumentTextDetectionInput: untyped
+
+    StartDocumentTextDetectionOutput: untyped
+
+    StartExpenseAnalysisInput: untyped
+
+    StartExpenseAnalysisOutput: untyped
+
+    module TextType
+      HANDWRITING: ::String
+
+      PRINTED: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UnsupportedDocumentException: untyped
+
+    module ValueType
+      DATE: ::String
+    end
+
+    Warning: untyped
+
+  end
+end

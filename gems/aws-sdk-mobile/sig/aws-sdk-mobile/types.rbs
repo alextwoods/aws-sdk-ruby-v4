@@ -1,0 +1,98 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Mobile
+  module Types
+
+    AccountActionRequiredException: untyped
+
+    BadRequestException: untyped
+
+    BundleDetails: untyped
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DescribeBundleInput: untyped
+
+    DescribeBundleOutput: untyped
+
+    DescribeProjectInput: untyped
+
+    DescribeProjectOutput: untyped
+
+    ExportBundleInput: untyped
+
+    ExportBundleOutput: untyped
+
+    ExportProjectInput: untyped
+
+    ExportProjectOutput: untyped
+
+    InternalFailureException: untyped
+
+    LimitExceededException: untyped
+
+    ListBundlesInput: untyped
+
+    ListBundlesOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    NotFoundException: untyped
+
+    module Platform
+      OSX: ::String
+
+      WINDOWS: ::String
+
+      LINUX: ::String
+
+      OBJC: ::String
+
+      SWIFT: ::String
+
+      ANDROID: ::String
+
+      JAVASCRIPT: ::String
+    end
+
+    ProjectDetails: untyped
+
+    module ProjectState
+      NORMAL: ::String
+
+      SYNCING: ::String
+
+      IMPORTING: ::String
+    end
+
+    ProjectSummary: untyped
+
+    Resource: untyped
+
+    ServiceUnavailableException: untyped
+
+    TooManyRequestsException: untyped
+
+    UnauthorizedException: untyped
+
+    UpdateProjectInput: untyped
+
+    UpdateProjectOutput: untyped
+
+  end
+end

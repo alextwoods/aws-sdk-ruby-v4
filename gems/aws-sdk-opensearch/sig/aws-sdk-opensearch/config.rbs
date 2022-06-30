@@ -1,0 +1,3 @@
+module AWS::SDK::OpenSearch
+  Config: untyped
+end

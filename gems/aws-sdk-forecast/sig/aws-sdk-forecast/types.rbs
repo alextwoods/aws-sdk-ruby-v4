@@ -1,0 +1,482 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Forecast
+  module Types
+
+    AdditionalDataset: untyped
+
+    AttributeConfig: untyped
+
+    module AttributeType
+      STRING: ::String
+
+      INTEGER: ::String
+
+      FLOAT: ::String
+
+      TIMESTAMP: ::String
+
+      GEOLOCATION: ::String
+    end
+
+    module AutoMLOverrideStrategy
+      LatencyOptimized: ::String
+
+      AccuracyOptimized: ::String
+    end
+
+    Baseline: untyped
+
+    BaselineMetric: untyped
+
+    CategoricalParameterRange: untyped
+
+    ContinuousParameterRange: untyped
+
+    CreateAutoPredictorInput: untyped
+
+    CreateAutoPredictorOutput: untyped
+
+    CreateDatasetGroupInput: untyped
+
+    CreateDatasetGroupOutput: untyped
+
+    CreateDatasetImportJobInput: untyped
+
+    CreateDatasetImportJobOutput: untyped
+
+    CreateDatasetInput: untyped
+
+    CreateDatasetOutput: untyped
+
+    CreateExplainabilityExportInput: untyped
+
+    CreateExplainabilityExportOutput: untyped
+
+    CreateExplainabilityInput: untyped
+
+    CreateExplainabilityOutput: untyped
+
+    CreateForecastExportJobInput: untyped
+
+    CreateForecastExportJobOutput: untyped
+
+    CreateForecastInput: untyped
+
+    CreateForecastOutput: untyped
+
+    CreateMonitorInput: untyped
+
+    CreateMonitorOutput: untyped
+
+    CreatePredictorBacktestExportJobInput: untyped
+
+    CreatePredictorBacktestExportJobOutput: untyped
+
+    CreatePredictorInput: untyped
+
+    CreatePredictorOutput: untyped
+
+    DataConfig: untyped
+
+    DataDestination: untyped
+
+    DataSource: untyped
+
+    DatasetGroupSummary: untyped
+
+    DatasetImportJobSummary: untyped
+
+    DatasetSummary: untyped
+
+    module DatasetType
+      TARGET_TIME_SERIES: ::String
+
+      RELATED_TIME_SERIES: ::String
+
+      ITEM_METADATA: ::String
+    end
+
+    module DayOfWeek
+      MONDAY: ::String
+
+      TUESDAY: ::String
+
+      WEDNESDAY: ::String
+
+      THURSDAY: ::String
+
+      FRIDAY: ::String
+
+      SATURDAY: ::String
+
+      SUNDAY: ::String
+    end
+
+    DeleteDatasetGroupInput: untyped
+
+    DeleteDatasetGroupOutput: untyped
+
+    DeleteDatasetImportJobInput: untyped
+
+    DeleteDatasetImportJobOutput: untyped
+
+    DeleteDatasetInput: untyped
+
+    DeleteDatasetOutput: untyped
+
+    DeleteExplainabilityExportInput: untyped
+
+    DeleteExplainabilityExportOutput: untyped
+
+    DeleteExplainabilityInput: untyped
+
+    DeleteExplainabilityOutput: untyped
+
+    DeleteForecastExportJobInput: untyped
+
+    DeleteForecastExportJobOutput: untyped
+
+    DeleteForecastInput: untyped
+
+    DeleteForecastOutput: untyped
+
+    DeleteMonitorInput: untyped
+
+    DeleteMonitorOutput: untyped
+
+    DeletePredictorBacktestExportJobInput: untyped
+
+    DeletePredictorBacktestExportJobOutput: untyped
+
+    DeletePredictorInput: untyped
+
+    DeletePredictorOutput: untyped
+
+    DeleteResourceTreeInput: untyped
+
+    DeleteResourceTreeOutput: untyped
+
+    DescribeAutoPredictorInput: untyped
+
+    DescribeAutoPredictorOutput: untyped
+
+    DescribeDatasetGroupInput: untyped
+
+    DescribeDatasetGroupOutput: untyped
+
+    DescribeDatasetImportJobInput: untyped
+
+    DescribeDatasetImportJobOutput: untyped
+
+    DescribeDatasetInput: untyped
+
+    DescribeDatasetOutput: untyped
+
+    DescribeExplainabilityExportInput: untyped
+
+    DescribeExplainabilityExportOutput: untyped
+
+    DescribeExplainabilityInput: untyped
+
+    DescribeExplainabilityOutput: untyped
+
+    DescribeForecastExportJobInput: untyped
+
+    DescribeForecastExportJobOutput: untyped
+
+    DescribeForecastInput: untyped
+
+    DescribeForecastOutput: untyped
+
+    DescribeMonitorInput: untyped
+
+    DescribeMonitorOutput: untyped
+
+    DescribePredictorBacktestExportJobInput: untyped
+
+    DescribePredictorBacktestExportJobOutput: untyped
+
+    DescribePredictorInput: untyped
+
+    DescribePredictorOutput: untyped
+
+    module Domain
+      RETAIL: ::String
+
+      CUSTOM: ::String
+
+      INVENTORY_PLANNING: ::String
+
+      EC2_CAPACITY: ::String
+
+      WORK_FORCE: ::String
+
+      WEB_TRAFFIC: ::String
+
+      METRICS: ::String
+    end
+
+    EncryptionConfig: untyped
+
+    ErrorMetric: untyped
+
+    EvaluationParameters: untyped
+
+    EvaluationResult: untyped
+
+    module EvaluationType
+      SUMMARY: ::String
+
+      COMPUTED: ::String
+    end
+
+    ExplainabilityConfig: untyped
+
+    ExplainabilityExportSummary: untyped
+
+    ExplainabilityInfo: untyped
+
+    ExplainabilitySummary: untyped
+
+    Featurization: untyped
+
+    FeaturizationConfig: untyped
+
+    FeaturizationMethod: untyped
+
+    module FeaturizationMethodName
+      filling: ::String
+    end
+
+    Filter: untyped
+
+    module FilterConditionString
+      IS: ::String
+
+      IS_NOT: ::String
+    end
+
+    ForecastExportJobSummary: untyped
+
+    ForecastSummary: untyped
+
+    GetAccuracyMetricsInput: untyped
+
+    GetAccuracyMetricsOutput: untyped
+
+    HyperParameterTuningJobConfig: untyped
+
+    InputDataConfig: untyped
+
+    IntegerParameterRange: untyped
+
+    InvalidInputException: untyped
+
+    InvalidNextTokenException: untyped
+
+    LimitExceededException: untyped
+
+    ListDatasetGroupsInput: untyped
+
+    ListDatasetGroupsOutput: untyped
+
+    ListDatasetImportJobsInput: untyped
+
+    ListDatasetImportJobsOutput: untyped
+
+    ListDatasetsInput: untyped
+
+    ListDatasetsOutput: untyped
+
+    ListExplainabilitiesInput: untyped
+
+    ListExplainabilitiesOutput: untyped
+
+    ListExplainabilityExportsInput: untyped
+
+    ListExplainabilityExportsOutput: untyped
+
+    ListForecastExportJobsInput: untyped
+
+    ListForecastExportJobsOutput: untyped
+
+    ListForecastsInput: untyped
+
+    ListForecastsOutput: untyped
+
+    ListMonitorEvaluationsInput: untyped
+
+    ListMonitorEvaluationsOutput: untyped
+
+    ListMonitorsInput: untyped
+
+    ListMonitorsOutput: untyped
+
+    ListPredictorBacktestExportJobsInput: untyped
+
+    ListPredictorBacktestExportJobsOutput: untyped
+
+    ListPredictorsInput: untyped
+
+    ListPredictorsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    MetricResult: untyped
+
+    Metrics: untyped
+
+    MonitorConfig: untyped
+
+    MonitorDataSource: untyped
+
+    MonitorInfo: untyped
+
+    MonitorSummary: untyped
+
+    module Month
+      JANUARY: ::String
+
+      FEBRUARY: ::String
+
+      MARCH: ::String
+
+      APRIL: ::String
+
+      MAY: ::String
+
+      JUNE: ::String
+
+      JULY: ::String
+
+      AUGUST: ::String
+
+      SEPTEMBER: ::String
+
+      OCTOBER: ::String
+
+      NOVEMBER: ::String
+
+      DECEMBER: ::String
+    end
+
+    module OptimizationMetric
+      WAPE: ::String
+
+      RMSE: ::String
+
+      AverageWeightedQuantileLoss: ::String
+
+      MASE: ::String
+
+      MAPE: ::String
+    end
+
+    ParameterRanges: untyped
+
+    PredictorBacktestExportJobSummary: untyped
+
+    PredictorBaseline: untyped
+
+    PredictorEvent: untyped
+
+    PredictorExecution: untyped
+
+    PredictorExecutionDetails: untyped
+
+    PredictorMonitorEvaluation: untyped
+
+    PredictorSummary: untyped
+
+    ReferencePredictorSummary: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResumeResourceInput: untyped
+
+    ResumeResourceOutput: untyped
+
+    S3Config: untyped
+
+    module ScalingType
+      Auto: ::String
+
+      Linear: ::String
+
+      Logarithmic: ::String
+
+      ReverseLogarithmic: ::String
+    end
+
+    Schema: untyped
+
+    SchemaAttribute: untyped
+
+    module State
+      Active: ::String
+
+      Deleted: ::String
+    end
+
+    Statistics: untyped
+
+    StopResourceInput: untyped
+
+    StopResourceOutput: untyped
+
+    SupplementaryFeature: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TestWindowSummary: untyped
+
+    TimeAlignmentBoundary: untyped
+
+    module TimePointGranularity
+      ALL: ::String
+
+      SPECIFIC: ::String
+    end
+
+    module TimeSeriesGranularity
+      ALL: ::String
+
+      SPECIFIC: ::String
+    end
+
+    TimeSeriesIdentifiers: untyped
+
+    TimeSeriesSelector: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDatasetGroupInput: untyped
+
+    UpdateDatasetGroupOutput: untyped
+
+    WeightedQuantileLoss: untyped
+
+    WindowSummary: untyped
+
+  end
+end

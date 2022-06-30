@@ -1,0 +1,3 @@
+module AWS::SDK::Kafka
+  Config: untyped
+end

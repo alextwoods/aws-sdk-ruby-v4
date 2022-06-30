@@ -1,0 +1,3 @@
+module AWS::SDK::ECRPUBLIC
+  Config: untyped
+end

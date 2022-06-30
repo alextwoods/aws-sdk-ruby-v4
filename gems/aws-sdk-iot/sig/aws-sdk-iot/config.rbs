@@ -1,0 +1,3 @@
+module AWS::SDK::IoT
+  Config: untyped
+end

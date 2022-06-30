@@ -1,0 +1,3 @@
+module AWS::SDK::ElasticLoadBalancing
+  Config: untyped
+end

@@ -1,0 +1,564 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Proton
+  module Types
+
+    AcceptEnvironmentAccountConnectionInput: untyped
+
+    AcceptEnvironmentAccountConnectionOutput: untyped
+
+    AccessDeniedException: untyped
+
+    AccountSettings: untyped
+
+    CancelComponentDeploymentInput: untyped
+
+    CancelComponentDeploymentOutput: untyped
+
+    CancelEnvironmentDeploymentInput: untyped
+
+    CancelEnvironmentDeploymentOutput: untyped
+
+    CancelServiceInstanceDeploymentInput: untyped
+
+    CancelServiceInstanceDeploymentOutput: untyped
+
+    CancelServicePipelineDeploymentInput: untyped
+
+    CancelServicePipelineDeploymentOutput: untyped
+
+    CompatibleEnvironmentTemplate: untyped
+
+    CompatibleEnvironmentTemplateInput: untyped
+
+    Component: untyped
+
+    module ComponentDeploymentUpdateType
+      NONE: ::String
+
+      CURRENT_VERSION: ::String
+    end
+
+    ComponentSummary: untyped
+
+    ConflictException: untyped
+
+    CreateComponentInput: untyped
+
+    CreateComponentOutput: untyped
+
+    CreateEnvironmentAccountConnectionInput: untyped
+
+    CreateEnvironmentAccountConnectionOutput: untyped
+
+    CreateEnvironmentInput: untyped
+
+    CreateEnvironmentOutput: untyped
+
+    CreateEnvironmentTemplateInput: untyped
+
+    CreateEnvironmentTemplateOutput: untyped
+
+    CreateEnvironmentTemplateVersionInput: untyped
+
+    CreateEnvironmentTemplateVersionOutput: untyped
+
+    CreateRepositoryInput: untyped
+
+    CreateRepositoryOutput: untyped
+
+    CreateServiceInput: untyped
+
+    CreateServiceOutput: untyped
+
+    CreateServiceTemplateInput: untyped
+
+    CreateServiceTemplateOutput: untyped
+
+    CreateServiceTemplateVersionInput: untyped
+
+    CreateServiceTemplateVersionOutput: untyped
+
+    CreateTemplateSyncConfigInput: untyped
+
+    CreateTemplateSyncConfigOutput: untyped
+
+    DeleteComponentInput: untyped
+
+    DeleteComponentOutput: untyped
+
+    DeleteEnvironmentAccountConnectionInput: untyped
+
+    DeleteEnvironmentAccountConnectionOutput: untyped
+
+    DeleteEnvironmentInput: untyped
+
+    DeleteEnvironmentOutput: untyped
+
+    DeleteEnvironmentTemplateInput: untyped
+
+    DeleteEnvironmentTemplateOutput: untyped
+
+    DeleteEnvironmentTemplateVersionInput: untyped
+
+    DeleteEnvironmentTemplateVersionOutput: untyped
+
+    DeleteRepositoryInput: untyped
+
+    DeleteRepositoryOutput: untyped
+
+    DeleteServiceInput: untyped
+
+    DeleteServiceOutput: untyped
+
+    DeleteServiceTemplateInput: untyped
+
+    DeleteServiceTemplateOutput: untyped
+
+    DeleteServiceTemplateVersionInput: untyped
+
+    DeleteServiceTemplateVersionOutput: untyped
+
+    DeleteTemplateSyncConfigInput: untyped
+
+    DeleteTemplateSyncConfigOutput: untyped
+
+    module DeploymentStatus
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_COMPLETE: ::String
+
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+    end
+
+    module DeploymentUpdateType
+      NONE: ::String
+
+      CURRENT_VERSION: ::String
+
+      MINOR_VERSION: ::String
+
+      MAJOR_VERSION: ::String
+    end
+
+    Environment: untyped
+
+    EnvironmentAccountConnection: untyped
+
+    module EnvironmentAccountConnectionRequesterAccountType
+      MANAGEMENT_ACCOUNT: ::String
+
+      ENVIRONMENT_ACCOUNT: ::String
+    end
+
+    module EnvironmentAccountConnectionStatus
+      PENDING: ::String
+
+      CONNECTED: ::String
+
+      REJECTED: ::String
+    end
+
+    EnvironmentAccountConnectionSummary: untyped
+
+    EnvironmentSummary: untyped
+
+    EnvironmentTemplate: untyped
+
+    EnvironmentTemplateFilter: untyped
+
+    EnvironmentTemplateSummary: untyped
+
+    EnvironmentTemplateVersion: untyped
+
+    EnvironmentTemplateVersionSummary: untyped
+
+    GetAccountSettingsInput: untyped
+
+    GetAccountSettingsOutput: untyped
+
+    GetComponentInput: untyped
+
+    GetComponentOutput: untyped
+
+    GetEnvironmentAccountConnectionInput: untyped
+
+    GetEnvironmentAccountConnectionOutput: untyped
+
+    GetEnvironmentInput: untyped
+
+    GetEnvironmentOutput: untyped
+
+    GetEnvironmentTemplateInput: untyped
+
+    GetEnvironmentTemplateOutput: untyped
+
+    GetEnvironmentTemplateVersionInput: untyped
+
+    GetEnvironmentTemplateVersionOutput: untyped
+
+    GetRepositoryInput: untyped
+
+    GetRepositoryOutput: untyped
+
+    GetRepositorySyncStatusInput: untyped
+
+    GetRepositorySyncStatusOutput: untyped
+
+    GetServiceInput: untyped
+
+    GetServiceInstanceInput: untyped
+
+    GetServiceInstanceOutput: untyped
+
+    GetServiceOutput: untyped
+
+    GetServiceTemplateInput: untyped
+
+    GetServiceTemplateOutput: untyped
+
+    GetServiceTemplateVersionInput: untyped
+
+    GetServiceTemplateVersionOutput: untyped
+
+    GetTemplateSyncConfigInput: untyped
+
+    GetTemplateSyncConfigOutput: untyped
+
+    GetTemplateSyncStatusInput: untyped
+
+    GetTemplateSyncStatusOutput: untyped
+
+    InternalServerException: untyped
+
+    ListComponentOutputsInput: untyped
+
+    ListComponentOutputsOutput: untyped
+
+    ListComponentProvisionedResourcesInput: untyped
+
+    ListComponentProvisionedResourcesOutput: untyped
+
+    ListComponentsInput: untyped
+
+    ListComponentsOutput: untyped
+
+    ListEnvironmentAccountConnectionsInput: untyped
+
+    ListEnvironmentAccountConnectionsOutput: untyped
+
+    ListEnvironmentOutputsInput: untyped
+
+    ListEnvironmentOutputsOutput: untyped
+
+    ListEnvironmentProvisionedResourcesInput: untyped
+
+    ListEnvironmentProvisionedResourcesOutput: untyped
+
+    ListEnvironmentTemplateVersionsInput: untyped
+
+    ListEnvironmentTemplateVersionsOutput: untyped
+
+    ListEnvironmentTemplatesInput: untyped
+
+    ListEnvironmentTemplatesOutput: untyped
+
+    ListEnvironmentsInput: untyped
+
+    ListEnvironmentsOutput: untyped
+
+    ListRepositoriesInput: untyped
+
+    ListRepositoriesOutput: untyped
+
+    ListRepositorySyncDefinitionsInput: untyped
+
+    ListRepositorySyncDefinitionsOutput: untyped
+
+    ListServiceInstanceOutputsInput: untyped
+
+    ListServiceInstanceOutputsOutput: untyped
+
+    ListServiceInstanceProvisionedResourcesInput: untyped
+
+    ListServiceInstanceProvisionedResourcesOutput: untyped
+
+    ListServiceInstancesInput: untyped
+
+    ListServiceInstancesOutput: untyped
+
+    ListServicePipelineOutputsInput: untyped
+
+    ListServicePipelineOutputsOutput: untyped
+
+    ListServicePipelineProvisionedResourcesInput: untyped
+
+    ListServicePipelineProvisionedResourcesOutput: untyped
+
+    ListServiceTemplateVersionsInput: untyped
+
+    ListServiceTemplateVersionsOutput: untyped
+
+    ListServiceTemplatesInput: untyped
+
+    ListServiceTemplatesOutput: untyped
+
+    ListServicesInput: untyped
+
+    ListServicesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    NotifyResourceDeploymentStatusChangeInput: untyped
+
+    NotifyResourceDeploymentStatusChangeOutput: untyped
+
+    Output: untyped
+
+    ProvisionedResource: untyped
+
+    module ProvisionedResourceEngine
+      CLOUDFORMATION: ::String
+
+      TERRAFORM: ::String
+    end
+
+    module Provisioning
+      CUSTOMER_MANAGED: ::String
+    end
+
+    RejectEnvironmentAccountConnectionInput: untyped
+
+    RejectEnvironmentAccountConnectionOutput: untyped
+
+    Repository: untyped
+
+    RepositoryBranch: untyped
+
+    RepositoryBranchInput: untyped
+
+    module RepositoryProvider
+      GITHUB: ::String
+
+      GITHUB_ENTERPRISE: ::String
+
+      BITBUCKET: ::String
+    end
+
+    RepositorySummary: untyped
+
+    RepositorySyncAttempt: untyped
+
+    RepositorySyncDefinition: untyped
+
+    RepositorySyncEvent: untyped
+
+    module RepositorySyncStatus
+      INITIATED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      QUEUED: ::String
+    end
+
+    module ResourceDeploymentStatus
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    ResourceSyncAttempt: untyped
+
+    ResourceSyncEvent: untyped
+
+    module ResourceSyncStatus
+      INITIATED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    Revision: untyped
+
+    S3ObjectSource: untyped
+
+    Service: untyped
+
+    ServiceInstance: untyped
+
+    ServiceInstanceSummary: untyped
+
+    ServicePipeline: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module ServiceStatus
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_FAILED_CLEANUP_IN_PROGRESS: ::String
+
+      CREATE_FAILED_CLEANUP_COMPLETE: ::String
+
+      CREATE_FAILED_CLEANUP_FAILED: ::String
+
+      CREATE_FAILED: ::String
+
+      ACTIVE: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_FAILED: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED_CLEANUP_IN_PROGRESS: ::String
+
+      UPDATE_FAILED_CLEANUP_COMPLETE: ::String
+
+      UPDATE_FAILED_CLEANUP_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+
+      UPDATE_COMPLETE_CLEANUP_FAILED: ::String
+    end
+
+    ServiceSummary: untyped
+
+    ServiceTemplate: untyped
+
+    ServiceTemplateSummary: untyped
+
+    module ServiceTemplateSupportedComponentSourceType
+      DIRECTLY_DEFINED: ::String
+    end
+
+    ServiceTemplateVersion: untyped
+
+    ServiceTemplateVersionSummary: untyped
+
+    module SyncType
+      TEMPLATE_SYNC: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TemplateSyncConfig: untyped
+
+    module TemplateType
+      ENVIRONMENT: ::String
+
+      SERVICE: ::String
+    end
+
+    class TemplateVersionSourceInput < Hearth::Union
+      class S3 < TemplateVersionSourceInput
+        def to_h: () -> { s3: Hash[Symbol,TemplateVersionSourceInput] }
+      end
+
+      class Unknown < TemplateVersionSourceInput
+        def to_h: () -> { unknown: Hash[Symbol,TemplateVersionSourceInput] }
+      end
+    end
+
+    module TemplateVersionStatus
+      REGISTRATION_IN_PROGRESS: ::String
+
+      REGISTRATION_FAILED: ::String
+
+      DRAFT: ::String
+
+      PUBLISHED: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAccountSettingsInput: untyped
+
+    UpdateAccountSettingsOutput: untyped
+
+    UpdateComponentInput: untyped
+
+    UpdateComponentOutput: untyped
+
+    UpdateEnvironmentAccountConnectionInput: untyped
+
+    UpdateEnvironmentAccountConnectionOutput: untyped
+
+    UpdateEnvironmentInput: untyped
+
+    UpdateEnvironmentOutput: untyped
+
+    UpdateEnvironmentTemplateInput: untyped
+
+    UpdateEnvironmentTemplateOutput: untyped
+
+    UpdateEnvironmentTemplateVersionInput: untyped
+
+    UpdateEnvironmentTemplateVersionOutput: untyped
+
+    UpdateServiceInput: untyped
+
+    UpdateServiceInstanceInput: untyped
+
+    UpdateServiceInstanceOutput: untyped
+
+    UpdateServiceOutput: untyped
+
+    UpdateServicePipelineInput: untyped
+
+    UpdateServicePipelineOutput: untyped
+
+    UpdateServiceTemplateInput: untyped
+
+    UpdateServiceTemplateOutput: untyped
+
+    UpdateServiceTemplateVersionInput: untyped
+
+    UpdateServiceTemplateVersionOutput: untyped
+
+    UpdateTemplateSyncConfigInput: untyped
+
+    UpdateTemplateSyncConfigOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

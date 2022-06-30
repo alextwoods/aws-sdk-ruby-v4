@@ -1,0 +1,610 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SES
+  module Types
+
+    AccountSendingPausedException: untyped
+
+    AddHeaderAction: untyped
+
+    AlreadyExistsException: untyped
+
+    module BehaviorOnMXFailure
+      UseDefaultValue: ::String
+
+      RejectMessage: ::String
+    end
+
+    Body: untyped
+
+    BounceAction: untyped
+
+    module BounceType
+      DoesNotExist: ::String
+
+      MessageTooLarge: ::String
+
+      ExceededQuota: ::String
+
+      ContentRejected: ::String
+
+      Undefined: ::String
+
+      TemporaryFailure: ::String
+    end
+
+    BouncedRecipientInfo: untyped
+
+    BulkEmailDestination: untyped
+
+    BulkEmailDestinationStatus: untyped
+
+    module BulkEmailStatus
+      Success: ::String
+
+      MessageRejected: ::String
+
+      MailFromDomainNotVerified: ::String
+
+      ConfigurationSetDoesNotExist: ::String
+
+      TemplateDoesNotExist: ::String
+
+      AccountSuspended: ::String
+
+      AccountThrottled: ::String
+
+      AccountDailyQuotaExceeded: ::String
+
+      InvalidSendingPoolName: ::String
+
+      AccountSendingPaused: ::String
+
+      ConfigurationSetSendingPaused: ::String
+
+      InvalidParameterValue: ::String
+
+      TransientFailure: ::String
+
+      Failed: ::String
+    end
+
+    CannotDeleteException: untyped
+
+    CloneReceiptRuleSetInput: untyped
+
+    CloneReceiptRuleSetOutput: untyped
+
+    CloudWatchDestination: untyped
+
+    CloudWatchDimensionConfiguration: untyped
+
+    ConfigurationSet: untyped
+
+    ConfigurationSetAlreadyExistsException: untyped
+
+    module ConfigurationSetAttribute
+      EVENT_DESTINATIONS: ::String
+
+      TRACKING_OPTIONS: ::String
+
+      DELIVERY_OPTIONS: ::String
+
+      REPUTATION_OPTIONS: ::String
+    end
+
+    ConfigurationSetDoesNotExistException: untyped
+
+    ConfigurationSetSendingPausedException: untyped
+
+    Content: untyped
+
+    CreateConfigurationSetEventDestinationInput: untyped
+
+    CreateConfigurationSetEventDestinationOutput: untyped
+
+    CreateConfigurationSetInput: untyped
+
+    CreateConfigurationSetOutput: untyped
+
+    CreateConfigurationSetTrackingOptionsInput: untyped
+
+    CreateConfigurationSetTrackingOptionsOutput: untyped
+
+    CreateCustomVerificationEmailTemplateInput: untyped
+
+    CreateCustomVerificationEmailTemplateOutput: untyped
+
+    CreateReceiptFilterInput: untyped
+
+    CreateReceiptFilterOutput: untyped
+
+    CreateReceiptRuleInput: untyped
+
+    CreateReceiptRuleOutput: untyped
+
+    CreateReceiptRuleSetInput: untyped
+
+    CreateReceiptRuleSetOutput: untyped
+
+    CreateTemplateInput: untyped
+
+    CreateTemplateOutput: untyped
+
+    module CustomMailFromStatus
+      Pending: ::String
+
+      Success: ::String
+
+      Failed: ::String
+
+      TemporaryFailure: ::String
+    end
+
+    CustomVerificationEmailInvalidContentException: untyped
+
+    CustomVerificationEmailTemplate: untyped
+
+    CustomVerificationEmailTemplateAlreadyExistsException: untyped
+
+    CustomVerificationEmailTemplateDoesNotExistException: untyped
+
+    DeleteConfigurationSetEventDestinationInput: untyped
+
+    DeleteConfigurationSetEventDestinationOutput: untyped
+
+    DeleteConfigurationSetInput: untyped
+
+    DeleteConfigurationSetOutput: untyped
+
+    DeleteConfigurationSetTrackingOptionsInput: untyped
+
+    DeleteConfigurationSetTrackingOptionsOutput: untyped
+
+    DeleteCustomVerificationEmailTemplateInput: untyped
+
+    DeleteCustomVerificationEmailTemplateOutput: untyped
+
+    DeleteIdentityInput: untyped
+
+    DeleteIdentityOutput: untyped
+
+    DeleteIdentityPolicyInput: untyped
+
+    DeleteIdentityPolicyOutput: untyped
+
+    DeleteReceiptFilterInput: untyped
+
+    DeleteReceiptFilterOutput: untyped
+
+    DeleteReceiptRuleInput: untyped
+
+    DeleteReceiptRuleOutput: untyped
+
+    DeleteReceiptRuleSetInput: untyped
+
+    DeleteReceiptRuleSetOutput: untyped
+
+    DeleteTemplateInput: untyped
+
+    DeleteTemplateOutput: untyped
+
+    DeleteVerifiedEmailAddressInput: untyped
+
+    DeleteVerifiedEmailAddressOutput: untyped
+
+    DeliveryOptions: untyped
+
+    DescribeActiveReceiptRuleSetInput: untyped
+
+    DescribeActiveReceiptRuleSetOutput: untyped
+
+    DescribeConfigurationSetInput: untyped
+
+    DescribeConfigurationSetOutput: untyped
+
+    DescribeReceiptRuleInput: untyped
+
+    DescribeReceiptRuleOutput: untyped
+
+    DescribeReceiptRuleSetInput: untyped
+
+    DescribeReceiptRuleSetOutput: untyped
+
+    Destination: untyped
+
+    module DimensionValueSource
+      MESSAGE_TAG: ::String
+
+      EMAIL_HEADER: ::String
+
+      LINK_TAG: ::String
+    end
+
+    module DsnAction
+      FAILED: ::String
+
+      DELAYED: ::String
+
+      DELIVERED: ::String
+
+      RELAYED: ::String
+
+      EXPANDED: ::String
+    end
+
+    EventDestination: untyped
+
+    EventDestinationAlreadyExistsException: untyped
+
+    EventDestinationDoesNotExistException: untyped
+
+    module EventType
+      SEND: ::String
+
+      REJECT: ::String
+
+      BOUNCE: ::String
+
+      COMPLAINT: ::String
+
+      DELIVERY: ::String
+
+      OPEN: ::String
+
+      CLICK: ::String
+
+      RENDERING_FAILURE: ::String
+    end
+
+    ExtensionField: untyped
+
+    FromEmailAddressNotVerifiedException: untyped
+
+    GetAccountSendingEnabledInput: untyped
+
+    GetAccountSendingEnabledOutput: untyped
+
+    GetCustomVerificationEmailTemplateInput: untyped
+
+    GetCustomVerificationEmailTemplateOutput: untyped
+
+    GetIdentityDkimAttributesInput: untyped
+
+    GetIdentityDkimAttributesOutput: untyped
+
+    GetIdentityMailFromDomainAttributesInput: untyped
+
+    GetIdentityMailFromDomainAttributesOutput: untyped
+
+    GetIdentityNotificationAttributesInput: untyped
+
+    GetIdentityNotificationAttributesOutput: untyped
+
+    GetIdentityPoliciesInput: untyped
+
+    GetIdentityPoliciesOutput: untyped
+
+    GetIdentityVerificationAttributesInput: untyped
+
+    GetIdentityVerificationAttributesOutput: untyped
+
+    GetSendQuotaInput: untyped
+
+    GetSendQuotaOutput: untyped
+
+    GetSendStatisticsInput: untyped
+
+    GetSendStatisticsOutput: untyped
+
+    GetTemplateInput: untyped
+
+    GetTemplateOutput: untyped
+
+    IdentityDkimAttributes: untyped
+
+    IdentityMailFromDomainAttributes: untyped
+
+    IdentityNotificationAttributes: untyped
+
+    module IdentityType
+      EmailAddress: ::String
+
+      Domain: ::String
+    end
+
+    IdentityVerificationAttributes: untyped
+
+    InvalidCloudWatchDestinationException: untyped
+
+    InvalidConfigurationSetException: untyped
+
+    InvalidDeliveryOptionsException: untyped
+
+    InvalidFirehoseDestinationException: untyped
+
+    InvalidLambdaFunctionException: untyped
+
+    InvalidPolicyException: untyped
+
+    InvalidRenderingParameterException: untyped
+
+    InvalidS3ConfigurationException: untyped
+
+    InvalidSNSDestinationException: untyped
+
+    InvalidSnsTopicException: untyped
+
+    InvalidTemplateException: untyped
+
+    InvalidTrackingOptionsException: untyped
+
+    module InvocationType
+      Event: ::String
+
+      RequestResponse: ::String
+    end
+
+    KinesisFirehoseDestination: untyped
+
+    LambdaAction: untyped
+
+    LimitExceededException: untyped
+
+    ListConfigurationSetsInput: untyped
+
+    ListConfigurationSetsOutput: untyped
+
+    ListCustomVerificationEmailTemplatesInput: untyped
+
+    ListCustomVerificationEmailTemplatesOutput: untyped
+
+    ListIdentitiesInput: untyped
+
+    ListIdentitiesOutput: untyped
+
+    ListIdentityPoliciesInput: untyped
+
+    ListIdentityPoliciesOutput: untyped
+
+    ListReceiptFiltersInput: untyped
+
+    ListReceiptFiltersOutput: untyped
+
+    ListReceiptRuleSetsInput: untyped
+
+    ListReceiptRuleSetsOutput: untyped
+
+    ListTemplatesInput: untyped
+
+    ListTemplatesOutput: untyped
+
+    ListVerifiedEmailAddressesInput: untyped
+
+    ListVerifiedEmailAddressesOutput: untyped
+
+    MailFromDomainNotVerifiedException: untyped
+
+    Message: untyped
+
+    MessageDsn: untyped
+
+    MessageRejected: untyped
+
+    MessageTag: untyped
+
+    MissingRenderingAttributeException: untyped
+
+    module NotificationType
+      Bounce: ::String
+
+      Complaint: ::String
+
+      Delivery: ::String
+    end
+
+    ProductionAccessNotGrantedException: untyped
+
+    PutConfigurationSetDeliveryOptionsInput: untyped
+
+    PutConfigurationSetDeliveryOptionsOutput: untyped
+
+    PutIdentityPolicyInput: untyped
+
+    PutIdentityPolicyOutput: untyped
+
+    RawMessage: untyped
+
+    ReceiptAction: untyped
+
+    ReceiptFilter: untyped
+
+    module ReceiptFilterPolicy
+      Block: ::String
+
+      Allow: ::String
+    end
+
+    ReceiptIpFilter: untyped
+
+    ReceiptRule: untyped
+
+    ReceiptRuleSetMetadata: untyped
+
+    RecipientDsnFields: untyped
+
+    ReorderReceiptRuleSetInput: untyped
+
+    ReorderReceiptRuleSetOutput: untyped
+
+    ReputationOptions: untyped
+
+    RuleDoesNotExistException: untyped
+
+    RuleSetDoesNotExistException: untyped
+
+    S3Action: untyped
+
+    SNSAction: untyped
+
+    module SNSActionEncoding
+      UTF8: ::String
+
+      Base64: ::String
+    end
+
+    SNSDestination: untyped
+
+    SendBounceInput: untyped
+
+    SendBounceOutput: untyped
+
+    SendBulkTemplatedEmailInput: untyped
+
+    SendBulkTemplatedEmailOutput: untyped
+
+    SendCustomVerificationEmailInput: untyped
+
+    SendCustomVerificationEmailOutput: untyped
+
+    SendDataPoint: untyped
+
+    SendEmailInput: untyped
+
+    SendEmailOutput: untyped
+
+    SendRawEmailInput: untyped
+
+    SendRawEmailOutput: untyped
+
+    SendTemplatedEmailInput: untyped
+
+    SendTemplatedEmailOutput: untyped
+
+    SetActiveReceiptRuleSetInput: untyped
+
+    SetActiveReceiptRuleSetOutput: untyped
+
+    SetIdentityDkimEnabledInput: untyped
+
+    SetIdentityDkimEnabledOutput: untyped
+
+    SetIdentityFeedbackForwardingEnabledInput: untyped
+
+    SetIdentityFeedbackForwardingEnabledOutput: untyped
+
+    SetIdentityHeadersInNotificationsEnabledInput: untyped
+
+    SetIdentityHeadersInNotificationsEnabledOutput: untyped
+
+    SetIdentityMailFromDomainInput: untyped
+
+    SetIdentityMailFromDomainOutput: untyped
+
+    SetIdentityNotificationTopicInput: untyped
+
+    SetIdentityNotificationTopicOutput: untyped
+
+    SetReceiptRulePositionInput: untyped
+
+    SetReceiptRulePositionOutput: untyped
+
+    StopAction: untyped
+
+    module StopScope
+      RULE_SET: ::String
+    end
+
+    Template: untyped
+
+    TemplateDoesNotExistException: untyped
+
+    TemplateMetadata: untyped
+
+    TestRenderTemplateInput: untyped
+
+    TestRenderTemplateOutput: untyped
+
+    module TlsPolicy
+      Require: ::String
+
+      Optional: ::String
+    end
+
+    TrackingOptions: untyped
+
+    TrackingOptionsAlreadyExistsException: untyped
+
+    TrackingOptionsDoesNotExistException: untyped
+
+    UpdateAccountSendingEnabledInput: untyped
+
+    UpdateAccountSendingEnabledOutput: untyped
+
+    UpdateConfigurationSetEventDestinationInput: untyped
+
+    UpdateConfigurationSetEventDestinationOutput: untyped
+
+    UpdateConfigurationSetReputationMetricsEnabledInput: untyped
+
+    UpdateConfigurationSetReputationMetricsEnabledOutput: untyped
+
+    UpdateConfigurationSetSendingEnabledInput: untyped
+
+    UpdateConfigurationSetSendingEnabledOutput: untyped
+
+    UpdateConfigurationSetTrackingOptionsInput: untyped
+
+    UpdateConfigurationSetTrackingOptionsOutput: untyped
+
+    UpdateCustomVerificationEmailTemplateInput: untyped
+
+    UpdateCustomVerificationEmailTemplateOutput: untyped
+
+    UpdateReceiptRuleInput: untyped
+
+    UpdateReceiptRuleOutput: untyped
+
+    UpdateTemplateInput: untyped
+
+    UpdateTemplateOutput: untyped
+
+    module VerificationStatus
+      Pending: ::String
+
+      Success: ::String
+
+      Failed: ::String
+
+      TemporaryFailure: ::String
+
+      NotStarted: ::String
+    end
+
+    VerifyDomainDkimInput: untyped
+
+    VerifyDomainDkimOutput: untyped
+
+    VerifyDomainIdentityInput: untyped
+
+    VerifyDomainIdentityOutput: untyped
+
+    VerifyEmailAddressInput: untyped
+
+    VerifyEmailAddressOutput: untyped
+
+    VerifyEmailIdentityInput: untyped
+
+    VerifyEmailIdentityOutput: untyped
+
+    WorkmailAction: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::Inspector2
+  Config: untyped
+end

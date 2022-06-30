@@ -1,0 +1,156 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ResourceGroups
+  module Types
+
+    BadRequestException: untyped
+
+    CreateGroupInput: untyped
+
+    CreateGroupOutput: untyped
+
+    DeleteGroupInput: untyped
+
+    DeleteGroupOutput: untyped
+
+    FailedResource: untyped
+
+    ForbiddenException: untyped
+
+    GetGroupConfigurationInput: untyped
+
+    GetGroupConfigurationOutput: untyped
+
+    GetGroupInput: untyped
+
+    GetGroupOutput: untyped
+
+    GetGroupQueryInput: untyped
+
+    GetGroupQueryOutput: untyped
+
+    GetTagsInput: untyped
+
+    GetTagsOutput: untyped
+
+    Group: untyped
+
+    GroupConfiguration: untyped
+
+    GroupConfigurationItem: untyped
+
+    GroupConfigurationParameter: untyped
+
+    module GroupConfigurationStatus
+      UPDATING: ::String
+
+      UPDATE_COMPLETE: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    GroupFilter: untyped
+
+    module GroupFilterName
+      ResourceType: ::String
+
+      ConfigurationType: ::String
+    end
+
+    GroupIdentifier: untyped
+
+    GroupQuery: untyped
+
+    GroupResourcesInput: untyped
+
+    GroupResourcesOutput: untyped
+
+    InternalServerErrorException: untyped
+
+    ListGroupResourcesInput: untyped
+
+    ListGroupResourcesItem: untyped
+
+    ListGroupResourcesOutput: untyped
+
+    ListGroupsInput: untyped
+
+    ListGroupsOutput: untyped
+
+    MethodNotAllowedException: untyped
+
+    NotFoundException: untyped
+
+    PendingResource: untyped
+
+    PutGroupConfigurationInput: untyped
+
+    PutGroupConfigurationOutput: untyped
+
+    QueryError: untyped
+
+    module QueryErrorCode
+      CLOUDFORMATION_STACK_INACTIVE: ::String
+
+      CLOUDFORMATION_STACK_NOT_EXISTING: ::String
+    end
+
+    module QueryType
+      TAG_FILTERS_1_0: ::String
+
+      CLOUDFORMATION_STACK_1_0: ::String
+    end
+
+    ResourceFilter: untyped
+
+    module ResourceFilterName
+      ResourceType: ::String
+    end
+
+    ResourceIdentifier: untyped
+
+    ResourceQuery: untyped
+
+    ResourceStatus: untyped
+
+    module ResourceStatusValue
+      Pending: ::String
+    end
+
+    SearchResourcesInput: untyped
+
+    SearchResourcesOutput: untyped
+
+    TagInput: untyped
+
+    TagOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    UnauthorizedException: untyped
+
+    UngroupResourcesInput: untyped
+
+    UngroupResourcesOutput: untyped
+
+    UntagInput: untyped
+
+    UntagOutput: untyped
+
+    UpdateGroupInput: untyped
+
+    UpdateGroupOutput: untyped
+
+    UpdateGroupQueryInput: untyped
+
+    UpdateGroupQueryOutput: untyped
+
+  end
+end

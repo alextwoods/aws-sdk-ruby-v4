@@ -1,0 +1,3 @@
+module AWS::SDK::MemoryDB
+  Config: untyped
+end

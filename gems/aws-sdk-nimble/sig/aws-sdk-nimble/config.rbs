@@ -1,0 +1,3 @@
+module AWS::SDK::Nimble
+  Config: untyped
+end

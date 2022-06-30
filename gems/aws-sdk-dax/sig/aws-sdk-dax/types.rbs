@@ -1,0 +1,228 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DAX
+  module Types
+
+    module ChangeType
+      IMMEDIATE: ::String
+
+      REQUIRES_REBOOT: ::String
+    end
+
+    Cluster: untyped
+
+    ClusterAlreadyExistsFault: untyped
+
+    module ClusterEndpointEncryptionType
+      NONE: ::String
+
+      TLS: ::String
+    end
+
+    ClusterNotFoundFault: untyped
+
+    ClusterQuotaForCustomerExceededFault: untyped
+
+    CreateClusterInput: untyped
+
+    CreateClusterOutput: untyped
+
+    CreateParameterGroupInput: untyped
+
+    CreateParameterGroupOutput: untyped
+
+    CreateSubnetGroupInput: untyped
+
+    CreateSubnetGroupOutput: untyped
+
+    DecreaseReplicationFactorInput: untyped
+
+    DecreaseReplicationFactorOutput: untyped
+
+    DeleteClusterInput: untyped
+
+    DeleteClusterOutput: untyped
+
+    DeleteParameterGroupInput: untyped
+
+    DeleteParameterGroupOutput: untyped
+
+    DeleteSubnetGroupInput: untyped
+
+    DeleteSubnetGroupOutput: untyped
+
+    DescribeClustersInput: untyped
+
+    DescribeClustersOutput: untyped
+
+    DescribeDefaultParametersInput: untyped
+
+    DescribeDefaultParametersOutput: untyped
+
+    DescribeEventsInput: untyped
+
+    DescribeEventsOutput: untyped
+
+    DescribeParameterGroupsInput: untyped
+
+    DescribeParameterGroupsOutput: untyped
+
+    DescribeParametersInput: untyped
+
+    DescribeParametersOutput: untyped
+
+    DescribeSubnetGroupsInput: untyped
+
+    DescribeSubnetGroupsOutput: untyped
+
+    Endpoint: untyped
+
+    Event: untyped
+
+    IncreaseReplicationFactorInput: untyped
+
+    IncreaseReplicationFactorOutput: untyped
+
+    InsufficientClusterCapacityFault: untyped
+
+    InvalidARNFault: untyped
+
+    InvalidClusterStateFault: untyped
+
+    InvalidParameterCombinationException: untyped
+
+    InvalidParameterGroupStateFault: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidSubnet: untyped
+
+    InvalidVPCNetworkStateFault: untyped
+
+    module IsModifiable
+      TRUE: ::String
+
+      FALSE: ::String
+
+      CONDITIONAL: ::String
+    end
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    Node: untyped
+
+    NodeNotFoundFault: untyped
+
+    NodeQuotaForClusterExceededFault: untyped
+
+    NodeQuotaForCustomerExceededFault: untyped
+
+    NodeTypeSpecificValue: untyped
+
+    NotificationConfiguration: untyped
+
+    Parameter: untyped
+
+    ParameterGroup: untyped
+
+    ParameterGroupAlreadyExistsFault: untyped
+
+    ParameterGroupNotFoundFault: untyped
+
+    ParameterGroupQuotaExceededFault: untyped
+
+    ParameterGroupStatus: untyped
+
+    ParameterNameValue: untyped
+
+    module ParameterType
+      DEFAULT: ::String
+
+      NODE_TYPE_SPECIFIC: ::String
+    end
+
+    RebootNodeInput: untyped
+
+    RebootNodeOutput: untyped
+
+    SSEDescription: untyped
+
+    SSESpecification: untyped
+
+    module SSEStatus
+      ENABLING: ::String
+
+      ENABLED: ::String
+
+      DISABLING: ::String
+
+      DISABLED: ::String
+    end
+
+    SecurityGroupMembership: untyped
+
+    ServiceLinkedRoleNotFoundFault: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module SourceType
+      CLUSTER: ::String
+
+      PARAMETER_GROUP: ::String
+
+      SUBNET_GROUP: ::String
+    end
+
+    Subnet: untyped
+
+    SubnetGroup: untyped
+
+    SubnetGroupAlreadyExistsFault: untyped
+
+    SubnetGroupInUseFault: untyped
+
+    SubnetGroupNotFoundFault: untyped
+
+    SubnetGroupQuotaExceededFault: untyped
+
+    SubnetInUse: untyped
+
+    SubnetQuotaExceededFault: untyped
+
+    Tag: untyped
+
+    TagNotFoundFault: untyped
+
+    TagQuotaPerResourceExceeded: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateClusterInput: untyped
+
+    UpdateClusterOutput: untyped
+
+    UpdateParameterGroupInput: untyped
+
+    UpdateParameterGroupOutput: untyped
+
+    UpdateSubnetGroupInput: untyped
+
+    UpdateSubnetGroupOutput: untyped
+
+  end
+end

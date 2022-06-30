@@ -1,0 +1,3 @@
+module AWS::SDK::SESv2
+  Config: untyped
+end

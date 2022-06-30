@@ -1,0 +1,196 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Fis
+  module Types
+
+    Action: untyped
+
+    ActionParameter: untyped
+
+    ActionSummary: untyped
+
+    ActionTarget: untyped
+
+    ConflictException: untyped
+
+    CreateExperimentTemplateActionInput: untyped
+
+    CreateExperimentTemplateInput: untyped
+
+    CreateExperimentTemplateLogConfigurationInput: untyped
+
+    CreateExperimentTemplateOutput: untyped
+
+    CreateExperimentTemplateStopConditionInput: untyped
+
+    CreateExperimentTemplateTargetInput: untyped
+
+    DeleteExperimentTemplateInput: untyped
+
+    DeleteExperimentTemplateOutput: untyped
+
+    Experiment: untyped
+
+    ExperimentAction: untyped
+
+    ExperimentActionState: untyped
+
+    module ExperimentActionStatus
+      pending: ::String
+
+      initiating: ::String
+
+      running: ::String
+
+      completed: ::String
+
+      cancelled: ::String
+
+      stopping: ::String
+
+      stopped: ::String
+
+      failed: ::String
+    end
+
+    ExperimentCloudWatchLogsLogConfiguration: untyped
+
+    ExperimentLogConfiguration: untyped
+
+    ExperimentS3LogConfiguration: untyped
+
+    ExperimentState: untyped
+
+    module ExperimentStatus
+      pending: ::String
+
+      initiating: ::String
+
+      running: ::String
+
+      completed: ::String
+
+      stopping: ::String
+
+      stopped: ::String
+
+      failed: ::String
+    end
+
+    ExperimentStopCondition: untyped
+
+    ExperimentSummary: untyped
+
+    ExperimentTarget: untyped
+
+    ExperimentTargetFilter: untyped
+
+    ExperimentTemplate: untyped
+
+    ExperimentTemplateAction: untyped
+
+    ExperimentTemplateCloudWatchLogsLogConfiguration: untyped
+
+    ExperimentTemplateCloudWatchLogsLogConfigurationInput: untyped
+
+    ExperimentTemplateLogConfiguration: untyped
+
+    ExperimentTemplateS3LogConfiguration: untyped
+
+    ExperimentTemplateS3LogConfigurationInput: untyped
+
+    ExperimentTemplateStopCondition: untyped
+
+    ExperimentTemplateSummary: untyped
+
+    ExperimentTemplateTarget: untyped
+
+    ExperimentTemplateTargetFilter: untyped
+
+    ExperimentTemplateTargetInputFilter: untyped
+
+    GetActionInput: untyped
+
+    GetActionOutput: untyped
+
+    GetExperimentInput: untyped
+
+    GetExperimentOutput: untyped
+
+    GetExperimentTemplateInput: untyped
+
+    GetExperimentTemplateOutput: untyped
+
+    GetTargetResourceTypeInput: untyped
+
+    GetTargetResourceTypeOutput: untyped
+
+    ListActionsInput: untyped
+
+    ListActionsOutput: untyped
+
+    ListExperimentTemplatesInput: untyped
+
+    ListExperimentTemplatesOutput: untyped
+
+    ListExperimentsInput: untyped
+
+    ListExperimentsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTargetResourceTypesInput: untyped
+
+    ListTargetResourceTypesOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    StartExperimentInput: untyped
+
+    StartExperimentOutput: untyped
+
+    StopExperimentInput: untyped
+
+    StopExperimentOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TargetResourceType: untyped
+
+    TargetResourceTypeParameter: untyped
+
+    TargetResourceTypeSummary: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateExperimentTemplateActionInputItem: untyped
+
+    UpdateExperimentTemplateInput: untyped
+
+    UpdateExperimentTemplateLogConfigurationInput: untyped
+
+    UpdateExperimentTemplateOutput: untyped
+
+    UpdateExperimentTemplateStopConditionInput: untyped
+
+    UpdateExperimentTemplateTargetInput: untyped
+
+    ValidationException: untyped
+
+  end
+end

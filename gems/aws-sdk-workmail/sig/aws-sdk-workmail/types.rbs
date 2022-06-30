@@ -1,0 +1,452 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::WorkMail
+  module Types
+
+    AccessControlRule: untyped
+
+    module AccessControlRuleEffect
+      ALLOW: ::String
+
+      DENY: ::String
+    end
+
+    AssociateDelegateToResourceInput: untyped
+
+    AssociateDelegateToResourceOutput: untyped
+
+    AssociateMemberToGroupInput: untyped
+
+    AssociateMemberToGroupOutput: untyped
+
+    BookingOptions: untyped
+
+    CancelMailboxExportJobInput: untyped
+
+    CancelMailboxExportJobOutput: untyped
+
+    CreateAliasInput: untyped
+
+    CreateAliasOutput: untyped
+
+    CreateGroupInput: untyped
+
+    CreateGroupOutput: untyped
+
+    CreateMobileDeviceAccessRuleInput: untyped
+
+    CreateMobileDeviceAccessRuleOutput: untyped
+
+    CreateOrganizationInput: untyped
+
+    CreateOrganizationOutput: untyped
+
+    CreateResourceInput: untyped
+
+    CreateResourceOutput: untyped
+
+    CreateUserInput: untyped
+
+    CreateUserOutput: untyped
+
+    Delegate: untyped
+
+    DeleteAccessControlRuleInput: untyped
+
+    DeleteAccessControlRuleOutput: untyped
+
+    DeleteAliasInput: untyped
+
+    DeleteAliasOutput: untyped
+
+    DeleteEmailMonitoringConfigurationInput: untyped
+
+    DeleteEmailMonitoringConfigurationOutput: untyped
+
+    DeleteGroupInput: untyped
+
+    DeleteGroupOutput: untyped
+
+    DeleteMailboxPermissionsInput: untyped
+
+    DeleteMailboxPermissionsOutput: untyped
+
+    DeleteMobileDeviceAccessOverrideInput: untyped
+
+    DeleteMobileDeviceAccessOverrideOutput: untyped
+
+    DeleteMobileDeviceAccessRuleInput: untyped
+
+    DeleteMobileDeviceAccessRuleOutput: untyped
+
+    DeleteOrganizationInput: untyped
+
+    DeleteOrganizationOutput: untyped
+
+    DeleteResourceInput: untyped
+
+    DeleteResourceOutput: untyped
+
+    DeleteRetentionPolicyInput: untyped
+
+    DeleteRetentionPolicyOutput: untyped
+
+    DeleteUserInput: untyped
+
+    DeleteUserOutput: untyped
+
+    DeregisterFromWorkMailInput: untyped
+
+    DeregisterFromWorkMailOutput: untyped
+
+    DeregisterMailDomainInput: untyped
+
+    DeregisterMailDomainOutput: untyped
+
+    DescribeEmailMonitoringConfigurationInput: untyped
+
+    DescribeEmailMonitoringConfigurationOutput: untyped
+
+    DescribeGroupInput: untyped
+
+    DescribeGroupOutput: untyped
+
+    DescribeInboundDmarcSettingsInput: untyped
+
+    DescribeInboundDmarcSettingsOutput: untyped
+
+    DescribeMailboxExportJobInput: untyped
+
+    DescribeMailboxExportJobOutput: untyped
+
+    DescribeOrganizationInput: untyped
+
+    DescribeOrganizationOutput: untyped
+
+    DescribeResourceInput: untyped
+
+    DescribeResourceOutput: untyped
+
+    DescribeUserInput: untyped
+
+    DescribeUserOutput: untyped
+
+    DirectoryInUseException: untyped
+
+    DirectoryServiceAuthenticationFailedException: untyped
+
+    DirectoryUnavailableException: untyped
+
+    DisassociateDelegateFromResourceInput: untyped
+
+    DisassociateDelegateFromResourceOutput: untyped
+
+    DisassociateMemberFromGroupInput: untyped
+
+    DisassociateMemberFromGroupOutput: untyped
+
+    DnsRecord: untyped
+
+    module DnsRecordVerificationStatus
+      PENDING: ::String
+
+      VERIFIED: ::String
+
+      FAILED: ::String
+    end
+
+    Domain: untyped
+
+    EmailAddressInUseException: untyped
+
+    EntityAlreadyRegisteredException: untyped
+
+    EntityNotFoundException: untyped
+
+    module EntityState
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      DELETED: ::String
+    end
+
+    EntityStateException: untyped
+
+    FolderConfiguration: untyped
+
+    module FolderName
+      INBOX: ::String
+
+      DELETED_ITEMS: ::String
+
+      SENT_ITEMS: ::String
+
+      DRAFTS: ::String
+
+      JUNK_EMAIL: ::String
+    end
+
+    GetAccessControlEffectInput: untyped
+
+    GetAccessControlEffectOutput: untyped
+
+    GetDefaultRetentionPolicyInput: untyped
+
+    GetDefaultRetentionPolicyOutput: untyped
+
+    GetMailDomainInput: untyped
+
+    GetMailDomainOutput: untyped
+
+    GetMailboxDetailsInput: untyped
+
+    GetMailboxDetailsOutput: untyped
+
+    GetMobileDeviceAccessEffectInput: untyped
+
+    GetMobileDeviceAccessEffectOutput: untyped
+
+    GetMobileDeviceAccessOverrideInput: untyped
+
+    GetMobileDeviceAccessOverrideOutput: untyped
+
+    Group: untyped
+
+    InvalidConfigurationException: untyped
+
+    InvalidCustomSesConfigurationException: untyped
+
+    InvalidParameterException: untyped
+
+    InvalidPasswordException: untyped
+
+    LimitExceededException: untyped
+
+    ListAccessControlRulesInput: untyped
+
+    ListAccessControlRulesOutput: untyped
+
+    ListAliasesInput: untyped
+
+    ListAliasesOutput: untyped
+
+    ListGroupMembersInput: untyped
+
+    ListGroupMembersOutput: untyped
+
+    ListGroupsInput: untyped
+
+    ListGroupsOutput: untyped
+
+    ListMailDomainsInput: untyped
+
+    ListMailDomainsOutput: untyped
+
+    ListMailboxExportJobsInput: untyped
+
+    ListMailboxExportJobsOutput: untyped
+
+    ListMailboxPermissionsInput: untyped
+
+    ListMailboxPermissionsOutput: untyped
+
+    ListMobileDeviceAccessOverridesInput: untyped
+
+    ListMobileDeviceAccessOverridesOutput: untyped
+
+    ListMobileDeviceAccessRulesInput: untyped
+
+    ListMobileDeviceAccessRulesOutput: untyped
+
+    ListOrganizationsInput: untyped
+
+    ListOrganizationsOutput: untyped
+
+    ListResourceDelegatesInput: untyped
+
+    ListResourceDelegatesOutput: untyped
+
+    ListResourcesInput: untyped
+
+    ListResourcesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListUsersInput: untyped
+
+    ListUsersOutput: untyped
+
+    MailDomainInUseException: untyped
+
+    MailDomainNotFoundException: untyped
+
+    MailDomainStateException: untyped
+
+    MailDomainSummary: untyped
+
+    MailboxExportJob: untyped
+
+    module MailboxExportJobState
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELLED: ::String
+    end
+
+    Member: untyped
+
+    module MemberType
+      GROUP: ::String
+
+      USER: ::String
+    end
+
+    MobileDeviceAccessMatchedRule: untyped
+
+    MobileDeviceAccessOverride: untyped
+
+    MobileDeviceAccessRule: untyped
+
+    module MobileDeviceAccessRuleEffect
+      ALLOW: ::String
+
+      DENY: ::String
+    end
+
+    NameAvailabilityException: untyped
+
+    OrganizationNotFoundException: untyped
+
+    OrganizationStateException: untyped
+
+    OrganizationSummary: untyped
+
+    Permission: untyped
+
+    module PermissionType
+      FULL_ACCESS: ::String
+
+      SEND_AS: ::String
+
+      SEND_ON_BEHALF: ::String
+    end
+
+    PutAccessControlRuleInput: untyped
+
+    PutAccessControlRuleOutput: untyped
+
+    PutEmailMonitoringConfigurationInput: untyped
+
+    PutEmailMonitoringConfigurationOutput: untyped
+
+    PutInboundDmarcSettingsInput: untyped
+
+    PutInboundDmarcSettingsOutput: untyped
+
+    PutMailboxPermissionsInput: untyped
+
+    PutMailboxPermissionsOutput: untyped
+
+    PutMobileDeviceAccessOverrideInput: untyped
+
+    PutMobileDeviceAccessOverrideOutput: untyped
+
+    PutRetentionPolicyInput: untyped
+
+    PutRetentionPolicyOutput: untyped
+
+    RegisterMailDomainInput: untyped
+
+    RegisterMailDomainOutput: untyped
+
+    RegisterToWorkMailInput: untyped
+
+    RegisterToWorkMailOutput: untyped
+
+    ReservedNameException: untyped
+
+    ResetPasswordInput: untyped
+
+    ResetPasswordOutput: untyped
+
+    Resource: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      ROOM: ::String
+
+      EQUIPMENT: ::String
+    end
+
+    module RetentionAction
+      NONE: ::String
+
+      DELETE: ::String
+
+      PERMANENTLY_DELETE: ::String
+    end
+
+    StartMailboxExportJobInput: untyped
+
+    StartMailboxExportJobOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyTagsException: untyped
+
+    UnsupportedOperationException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDefaultMailDomainInput: untyped
+
+    UpdateDefaultMailDomainOutput: untyped
+
+    UpdateMailboxQuotaInput: untyped
+
+    UpdateMailboxQuotaOutput: untyped
+
+    UpdateMobileDeviceAccessRuleInput: untyped
+
+    UpdateMobileDeviceAccessRuleOutput: untyped
+
+    UpdatePrimaryEmailAddressInput: untyped
+
+    UpdatePrimaryEmailAddressOutput: untyped
+
+    UpdateResourceInput: untyped
+
+    UpdateResourceOutput: untyped
+
+    User: untyped
+
+    module UserRole
+      USER: ::String
+
+      RESOURCE: ::String
+
+      SYSTEM_USER: ::String
+    end
+
+  end
+end

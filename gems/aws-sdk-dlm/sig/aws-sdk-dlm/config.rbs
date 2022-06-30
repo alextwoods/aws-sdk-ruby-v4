@@ -1,0 +1,3 @@
+module AWS::SDK::DLM
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::ServiceDiscovery
+  Config: untyped
+end

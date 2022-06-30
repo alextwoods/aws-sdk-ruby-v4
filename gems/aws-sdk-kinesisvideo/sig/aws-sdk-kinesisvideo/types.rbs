@@ -1,0 +1,236 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::KinesisVideo
+  module Types
+
+    module APIName
+      PUT_MEDIA: ::String
+
+      GET_MEDIA: ::String
+
+      LIST_FRAGMENTS: ::String
+
+      GET_MEDIA_FOR_FRAGMENT_LIST: ::String
+
+      GET_HLS_STREAMING_SESSION_URL: ::String
+
+      GET_DASH_STREAMING_SESSION_URL: ::String
+
+      GET_CLIP: ::String
+
+      GET_IMAGES: ::String
+    end
+
+    AccessDeniedException: untyped
+
+    AccountChannelLimitExceededException: untyped
+
+    AccountStreamLimitExceededException: untyped
+
+    ChannelInfo: untyped
+
+    ChannelNameCondition: untyped
+
+    module ChannelProtocol
+      WSS: ::String
+
+      HTTPS: ::String
+    end
+
+    module ChannelRole
+      MASTER: ::String
+
+      VIEWER: ::String
+    end
+
+    module ChannelType
+      SINGLE_MASTER: ::String
+
+      FULL_MESH: ::String
+    end
+
+    ClientLimitExceededException: untyped
+
+    module ComparisonOperator
+      BEGINS_WITH: ::String
+    end
+
+    module ConfigurationStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    CreateSignalingChannelInput: untyped
+
+    CreateSignalingChannelOutput: untyped
+
+    CreateStreamInput: untyped
+
+    CreateStreamOutput: untyped
+
+    DeleteSignalingChannelInput: untyped
+
+    DeleteSignalingChannelOutput: untyped
+
+    DeleteStreamInput: untyped
+
+    DeleteStreamOutput: untyped
+
+    DescribeImageGenerationConfigurationInput: untyped
+
+    DescribeImageGenerationConfigurationOutput: untyped
+
+    DescribeNotificationConfigurationInput: untyped
+
+    DescribeNotificationConfigurationOutput: untyped
+
+    DescribeSignalingChannelInput: untyped
+
+    DescribeSignalingChannelOutput: untyped
+
+    DescribeStreamInput: untyped
+
+    DescribeStreamOutput: untyped
+
+    DeviceStreamLimitExceededException: untyped
+
+    module Format
+      JPEG: ::String
+
+      PNG: ::String
+    end
+
+    module FormatConfigKey
+      JPEGQuality: ::String
+    end
+
+    GetDataEndpointInput: untyped
+
+    GetDataEndpointOutput: untyped
+
+    GetSignalingChannelEndpointInput: untyped
+
+    GetSignalingChannelEndpointOutput: untyped
+
+    ImageGenerationConfiguration: untyped
+
+    ImageGenerationDestinationConfig: untyped
+
+    module ImageSelectorType
+      SERVER_TIMESTAMP: ::String
+
+      PRODUCER_TIMESTAMP: ::String
+    end
+
+    InvalidArgumentException: untyped
+
+    InvalidDeviceException: untyped
+
+    InvalidResourceFormatException: untyped
+
+    ListSignalingChannelsInput: untyped
+
+    ListSignalingChannelsOutput: untyped
+
+    ListStreamsInput: untyped
+
+    ListStreamsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTagsForStreamInput: untyped
+
+    ListTagsForStreamOutput: untyped
+
+    NoDataRetentionException: untyped
+
+    NotAuthorizedException: untyped
+
+    NotificationConfiguration: untyped
+
+    NotificationDestinationConfig: untyped
+
+    ResourceEndpointListItem: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    SingleMasterChannelEndpointConfiguration: untyped
+
+    SingleMasterConfiguration: untyped
+
+    module Status
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+    end
+
+    StreamInfo: untyped
+
+    StreamNameCondition: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TagStreamInput: untyped
+
+    TagStreamOutput: untyped
+
+    TagsPerResourceExceededLimitException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UntagStreamInput: untyped
+
+    UntagStreamOutput: untyped
+
+    UpdateDataRetentionInput: untyped
+
+    module UpdateDataRetentionOperation
+      INCREASE_DATA_RETENTION: ::String
+
+      DECREASE_DATA_RETENTION: ::String
+    end
+
+    UpdateDataRetentionOutput: untyped
+
+    UpdateImageGenerationConfigurationInput: untyped
+
+    UpdateImageGenerationConfigurationOutput: untyped
+
+    UpdateNotificationConfigurationInput: untyped
+
+    UpdateNotificationConfigurationOutput: untyped
+
+    UpdateSignalingChannelInput: untyped
+
+    UpdateSignalingChannelOutput: untyped
+
+    UpdateStreamInput: untyped
+
+    UpdateStreamOutput: untyped
+
+    VersionMismatchException: untyped
+
+  end
+end

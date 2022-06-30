@@ -1,0 +1,376 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Batch
+  module Types
+
+    module ArrayJobDependency
+      N_TO_N: ::String
+
+      SEQUENTIAL: ::String
+    end
+
+    ArrayProperties: untyped
+
+    ArrayPropertiesDetail: untyped
+
+    ArrayPropertiesSummary: untyped
+
+    module AssignPublicIp
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    AttemptContainerDetail: untyped
+
+    AttemptDetail: untyped
+
+    module CEState
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module CEStatus
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      VALID: ::String
+
+      INVALID: ::String
+    end
+
+    module CEType
+      MANAGED: ::String
+
+      UNMANAGED: ::String
+    end
+
+    module CRAllocationStrategy
+      BEST_FIT: ::String
+
+      BEST_FIT_PROGRESSIVE: ::String
+
+      SPOT_CAPACITY_OPTIMIZED: ::String
+    end
+
+    module CRType
+      EC2: ::String
+
+      SPOT: ::String
+
+      FARGATE: ::String
+
+      FARGATE_SPOT: ::String
+    end
+
+    module CRUpdateAllocationStrategy
+      BEST_FIT_PROGRESSIVE: ::String
+
+      SPOT_CAPACITY_OPTIMIZED: ::String
+    end
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    ClientException: untyped
+
+    ComputeEnvironmentDetail: untyped
+
+    ComputeEnvironmentOrder: untyped
+
+    ComputeResource: untyped
+
+    ComputeResourceUpdate: untyped
+
+    ContainerDetail: untyped
+
+    ContainerOverrides: untyped
+
+    ContainerProperties: untyped
+
+    ContainerSummary: untyped
+
+    CreateComputeEnvironmentInput: untyped
+
+    CreateComputeEnvironmentOutput: untyped
+
+    CreateJobQueueInput: untyped
+
+    CreateJobQueueOutput: untyped
+
+    CreateSchedulingPolicyInput: untyped
+
+    CreateSchedulingPolicyOutput: untyped
+
+    DeleteComputeEnvironmentInput: untyped
+
+    DeleteComputeEnvironmentOutput: untyped
+
+    DeleteJobQueueInput: untyped
+
+    DeleteJobQueueOutput: untyped
+
+    DeleteSchedulingPolicyInput: untyped
+
+    DeleteSchedulingPolicyOutput: untyped
+
+    DeregisterJobDefinitionInput: untyped
+
+    DeregisterJobDefinitionOutput: untyped
+
+    DescribeComputeEnvironmentsInput: untyped
+
+    DescribeComputeEnvironmentsOutput: untyped
+
+    DescribeJobDefinitionsInput: untyped
+
+    DescribeJobDefinitionsOutput: untyped
+
+    DescribeJobQueuesInput: untyped
+
+    DescribeJobQueuesOutput: untyped
+
+    DescribeJobsInput: untyped
+
+    DescribeJobsOutput: untyped
+
+    DescribeSchedulingPoliciesInput: untyped
+
+    DescribeSchedulingPoliciesOutput: untyped
+
+    Device: untyped
+
+    module DeviceCgroupPermission
+      READ: ::String
+
+      WRITE: ::String
+
+      MKNOD: ::String
+    end
+
+    EFSAuthorizationConfig: untyped
+
+    module EFSAuthorizationConfigIAM
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module EFSTransitEncryption
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    EFSVolumeConfiguration: untyped
+
+    Ec2Configuration: untyped
+
+    EvaluateOnExit: untyped
+
+    FairsharePolicy: untyped
+
+    FargatePlatformConfiguration: untyped
+
+    Host: untyped
+
+    module JQState
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module JQStatus
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      VALID: ::String
+
+      INVALID: ::String
+    end
+
+    JobDefinition: untyped
+
+    module JobDefinitionType
+      Container: ::String
+
+      Multinode: ::String
+    end
+
+    JobDependency: untyped
+
+    JobDetail: untyped
+
+    JobQueueDetail: untyped
+
+    module JobStatus
+      SUBMITTED: ::String
+
+      PENDING: ::String
+
+      RUNNABLE: ::String
+
+      STARTING: ::String
+
+      RUNNING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    JobSummary: untyped
+
+    JobTimeout: untyped
+
+    KeyValuePair: untyped
+
+    KeyValuesPair: untyped
+
+    LaunchTemplateSpecification: untyped
+
+    LinuxParameters: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListSchedulingPoliciesInput: untyped
+
+    ListSchedulingPoliciesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LogConfiguration: untyped
+
+    module LogDriver
+      JSON_FILE: ::String
+
+      SYSLOG: ::String
+
+      JOURNALD: ::String
+
+      GELF: ::String
+
+      FLUENTD: ::String
+
+      AWSLOGS: ::String
+
+      SPLUNK: ::String
+    end
+
+    MountPoint: untyped
+
+    NetworkConfiguration: untyped
+
+    NetworkInterface: untyped
+
+    NodeDetails: untyped
+
+    NodeOverrides: untyped
+
+    NodeProperties: untyped
+
+    NodePropertiesSummary: untyped
+
+    NodePropertyOverride: untyped
+
+    NodeRangeProperty: untyped
+
+    module PlatformCapability
+      EC2: ::String
+
+      FARGATE: ::String
+    end
+
+    RegisterJobDefinitionInput: untyped
+
+    RegisterJobDefinitionOutput: untyped
+
+    ResourceRequirement: untyped
+
+    module ResourceType
+      GPU: ::String
+
+      VCPU: ::String
+
+      MEMORY: ::String
+    end
+
+    module RetryAction
+      RETRY: ::String
+
+      EXIT: ::String
+    end
+
+    RetryStrategy: untyped
+
+    SchedulingPolicyDetail: untyped
+
+    SchedulingPolicyListingDetail: untyped
+
+    Secret: untyped
+
+    ServerException: untyped
+
+    ShareAttributes: untyped
+
+    SubmitJobInput: untyped
+
+    SubmitJobOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TerminateJobInput: untyped
+
+    TerminateJobOutput: untyped
+
+    Tmpfs: untyped
+
+    Ulimit: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateComputeEnvironmentInput: untyped
+
+    UpdateComputeEnvironmentOutput: untyped
+
+    UpdateJobQueueInput: untyped
+
+    UpdateJobQueueOutput: untyped
+
+    UpdatePolicy: untyped
+
+    UpdateSchedulingPolicyInput: untyped
+
+    UpdateSchedulingPolicyOutput: untyped
+
+    Volume: untyped
+
+  end
+end

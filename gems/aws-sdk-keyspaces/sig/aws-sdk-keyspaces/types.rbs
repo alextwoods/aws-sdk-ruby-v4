@@ -1,0 +1,152 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Keyspaces
+  module Types
+
+    AccessDeniedException: untyped
+
+    CapacitySpecification: untyped
+
+    CapacitySpecificationSummary: untyped
+
+    ClusteringKey: untyped
+
+    ColumnDefinition: untyped
+
+    Comment: untyped
+
+    ConflictException: untyped
+
+    CreateKeyspaceInput: untyped
+
+    CreateKeyspaceOutput: untyped
+
+    CreateTableInput: untyped
+
+    CreateTableOutput: untyped
+
+    DeleteKeyspaceInput: untyped
+
+    DeleteKeyspaceOutput: untyped
+
+    DeleteTableInput: untyped
+
+    DeleteTableOutput: untyped
+
+    EncryptionSpecification: untyped
+
+    module EncryptionType
+      CUSTOMER_MANAGED_KMS_KEY: ::String
+
+      AWS_OWNED_KMS_KEY: ::String
+    end
+
+    GetKeyspaceInput: untyped
+
+    GetKeyspaceOutput: untyped
+
+    GetTableInput: untyped
+
+    GetTableOutput: untyped
+
+    InternalServerException: untyped
+
+    KeyspaceSummary: untyped
+
+    ListKeyspacesInput: untyped
+
+    ListKeyspacesOutput: untyped
+
+    ListTablesInput: untyped
+
+    ListTablesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    PartitionKey: untyped
+
+    PointInTimeRecovery: untyped
+
+    module PointInTimeRecoveryStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    PointInTimeRecoverySummary: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestoreTableInput: untyped
+
+    RestoreTableOutput: untyped
+
+    SchemaDefinition: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module SortOrder
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+    StaticColumn: untyped
+
+    module TableStatus
+      ACTIVE: ::String
+
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      RESTORING: ::String
+
+      INACCESSIBLE_ENCRYPTION_CREDENTIALS: ::String
+    end
+
+    TableSummary: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module ThroughputMode
+      PAY_PER_REQUEST: ::String
+
+      PROVISIONED: ::String
+    end
+
+    TimeToLive: untyped
+
+    module TimeToLiveStatus
+      ENABLED: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateTableInput: untyped
+
+    UpdateTableOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

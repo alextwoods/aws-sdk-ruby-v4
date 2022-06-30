@@ -1,0 +1,1354 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SecurityHub
+  module Types
+
+    AcceptAdministratorInvitationInput: untyped
+
+    AcceptAdministratorInvitationOutput: untyped
+
+    AcceptInvitationInput: untyped
+
+    AcceptInvitationOutput: untyped
+
+    AccessDeniedException: untyped
+
+    AccountDetails: untyped
+
+    Action: untyped
+
+    ActionLocalIpDetails: untyped
+
+    ActionLocalPortDetails: untyped
+
+    ActionRemoteIpDetails: untyped
+
+    ActionRemotePortDetails: untyped
+
+    ActionTarget: untyped
+
+    Adjustment: untyped
+
+    AdminAccount: untyped
+
+    module AdminStatus
+      ENABLED: ::String
+
+      DISABLE_IN_PROGRESS: ::String
+    end
+
+    module AutoEnableStandards
+      NONE: ::String
+
+      DEFAULT: ::String
+    end
+
+    AvailabilityZone: untyped
+
+    AwsApiCallAction: untyped
+
+    AwsApiCallActionDomainDetails: untyped
+
+    AwsApiGatewayAccessLogSettings: untyped
+
+    AwsApiGatewayCanarySettings: untyped
+
+    AwsApiGatewayEndpointConfiguration: untyped
+
+    AwsApiGatewayMethodSettings: untyped
+
+    AwsApiGatewayRestApiDetails: untyped
+
+    AwsApiGatewayStageDetails: untyped
+
+    AwsApiGatewayV2ApiDetails: untyped
+
+    AwsApiGatewayV2RouteSettings: untyped
+
+    AwsApiGatewayV2StageDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification: untyped
+
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails: untyped
+
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification: untyped
+
+    AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails: untyped
+
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails: untyped
+
+    AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails: untyped
+
+    AwsAutoScalingLaunchConfigurationDetails: untyped
+
+    AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails: untyped
+
+    AwsAutoScalingLaunchConfigurationMetadataOptions: untyped
+
+    AwsCertificateManagerCertificateDetails: untyped
+
+    AwsCertificateManagerCertificateDomainValidationOption: untyped
+
+    AwsCertificateManagerCertificateExtendedKeyUsage: untyped
+
+    AwsCertificateManagerCertificateKeyUsage: untyped
+
+    AwsCertificateManagerCertificateOptions: untyped
+
+    AwsCertificateManagerCertificateRenewalSummary: untyped
+
+    AwsCertificateManagerCertificateResourceRecord: untyped
+
+    AwsCloudFrontDistributionCacheBehavior: untyped
+
+    AwsCloudFrontDistributionCacheBehaviors: untyped
+
+    AwsCloudFrontDistributionDefaultCacheBehavior: untyped
+
+    AwsCloudFrontDistributionDetails: untyped
+
+    AwsCloudFrontDistributionLogging: untyped
+
+    AwsCloudFrontDistributionOriginGroup: untyped
+
+    AwsCloudFrontDistributionOriginGroupFailover: untyped
+
+    AwsCloudFrontDistributionOriginGroupFailoverStatusCodes: untyped
+
+    AwsCloudFrontDistributionOriginGroups: untyped
+
+    AwsCloudFrontDistributionOriginItem: untyped
+
+    AwsCloudFrontDistributionOriginS3OriginConfig: untyped
+
+    AwsCloudFrontDistributionOrigins: untyped
+
+    AwsCloudFrontDistributionViewerCertificate: untyped
+
+    AwsCloudTrailTrailDetails: untyped
+
+    AwsCodeBuildProjectArtifactsDetails: untyped
+
+    AwsCodeBuildProjectDetails: untyped
+
+    AwsCodeBuildProjectEnvironment: untyped
+
+    AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails: untyped
+
+    AwsCodeBuildProjectEnvironmentRegistryCredential: untyped
+
+    AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails: untyped
+
+    AwsCodeBuildProjectLogsConfigDetails: untyped
+
+    AwsCodeBuildProjectLogsConfigS3LogsDetails: untyped
+
+    AwsCodeBuildProjectSource: untyped
+
+    AwsCodeBuildProjectVpcConfig: untyped
+
+    AwsCorsConfiguration: untyped
+
+    AwsDynamoDbTableAttributeDefinition: untyped
+
+    AwsDynamoDbTableBillingModeSummary: untyped
+
+    AwsDynamoDbTableDetails: untyped
+
+    AwsDynamoDbTableGlobalSecondaryIndex: untyped
+
+    AwsDynamoDbTableKeySchema: untyped
+
+    AwsDynamoDbTableLocalSecondaryIndex: untyped
+
+    AwsDynamoDbTableProjection: untyped
+
+    AwsDynamoDbTableProvisionedThroughput: untyped
+
+    AwsDynamoDbTableProvisionedThroughputOverride: untyped
+
+    AwsDynamoDbTableReplica: untyped
+
+    AwsDynamoDbTableReplicaGlobalSecondaryIndex: untyped
+
+    AwsDynamoDbTableRestoreSummary: untyped
+
+    AwsDynamoDbTableSseDescription: untyped
+
+    AwsDynamoDbTableStreamSpecification: untyped
+
+    AwsEc2EipDetails: untyped
+
+    AwsEc2InstanceDetails: untyped
+
+    AwsEc2InstanceNetworkInterfacesDetails: untyped
+
+    AwsEc2NetworkAclAssociation: untyped
+
+    AwsEc2NetworkAclDetails: untyped
+
+    AwsEc2NetworkAclEntry: untyped
+
+    AwsEc2NetworkInterfaceAttachment: untyped
+
+    AwsEc2NetworkInterfaceDetails: untyped
+
+    AwsEc2NetworkInterfaceIpV6AddressDetail: untyped
+
+    AwsEc2NetworkInterfacePrivateIpAddressDetail: untyped
+
+    AwsEc2NetworkInterfaceSecurityGroup: untyped
+
+    AwsEc2SecurityGroupDetails: untyped
+
+    AwsEc2SecurityGroupIpPermission: untyped
+
+    AwsEc2SecurityGroupIpRange: untyped
+
+    AwsEc2SecurityGroupIpv6Range: untyped
+
+    AwsEc2SecurityGroupPrefixListId: untyped
+
+    AwsEc2SecurityGroupUserIdGroupPair: untyped
+
+    AwsEc2SubnetDetails: untyped
+
+    AwsEc2VolumeAttachment: untyped
+
+    AwsEc2VolumeDetails: untyped
+
+    AwsEc2VpcDetails: untyped
+
+    AwsEc2VpcEndpointServiceDetails: untyped
+
+    AwsEc2VpcEndpointServiceServiceTypeDetails: untyped
+
+    AwsEc2VpnConnectionDetails: untyped
+
+    AwsEc2VpnConnectionOptionsDetails: untyped
+
+    AwsEc2VpnConnectionOptionsTunnelOptionsDetails: untyped
+
+    AwsEc2VpnConnectionRoutesDetails: untyped
+
+    AwsEc2VpnConnectionVgwTelemetryDetails: untyped
+
+    AwsEcrContainerImageDetails: untyped
+
+    AwsEcrRepositoryDetails: untyped
+
+    AwsEcrRepositoryImageScanningConfigurationDetails: untyped
+
+    AwsEcrRepositoryLifecyclePolicyDetails: untyped
+
+    AwsEcsClusterClusterSettingsDetails: untyped
+
+    AwsEcsClusterConfigurationDetails: untyped
+
+    AwsEcsClusterConfigurationExecuteCommandConfigurationDetails: untyped
+
+    AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails: untyped
+
+    AwsEcsClusterDefaultCapacityProviderStrategyDetails: untyped
+
+    AwsEcsClusterDetails: untyped
+
+    AwsEcsServiceCapacityProviderStrategyDetails: untyped
+
+    AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails: untyped
+
+    AwsEcsServiceDeploymentConfigurationDetails: untyped
+
+    AwsEcsServiceDeploymentControllerDetails: untyped
+
+    AwsEcsServiceDetails: untyped
+
+    AwsEcsServiceLoadBalancersDetails: untyped
+
+    AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails: untyped
+
+    AwsEcsServiceNetworkConfigurationDetails: untyped
+
+    AwsEcsServicePlacementConstraintsDetails: untyped
+
+    AwsEcsServicePlacementStrategiesDetails: untyped
+
+    AwsEcsServiceServiceRegistriesDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails: untyped
+
+    AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails: untyped
+
+    AwsEcsTaskDefinitionDetails: untyped
+
+    AwsEcsTaskDefinitionInferenceAcceleratorsDetails: untyped
+
+    AwsEcsTaskDefinitionPlacementConstraintsDetails: untyped
+
+    AwsEcsTaskDefinitionProxyConfigurationDetails: untyped
+
+    AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails: untyped
+
+    AwsEcsTaskDefinitionVolumesDetails: untyped
+
+    AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails: untyped
+
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails: untyped
+
+    AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails: untyped
+
+    AwsEcsTaskDefinitionVolumesHostDetails: untyped
+
+    AwsEksClusterDetails: untyped
+
+    AwsEksClusterLoggingClusterLoggingDetails: untyped
+
+    AwsEksClusterLoggingDetails: untyped
+
+    AwsEksClusterResourcesVpcConfigDetails: untyped
+
+    AwsElasticBeanstalkEnvironmentDetails: untyped
+
+    AwsElasticBeanstalkEnvironmentEnvironmentLink: untyped
+
+    AwsElasticBeanstalkEnvironmentOptionSetting: untyped
+
+    AwsElasticBeanstalkEnvironmentTier: untyped
+
+    AwsElasticsearchDomainDetails: untyped
+
+    AwsElasticsearchDomainDomainEndpointOptions: untyped
+
+    AwsElasticsearchDomainElasticsearchClusterConfigDetails: untyped
+
+    AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails: untyped
+
+    AwsElasticsearchDomainEncryptionAtRestOptions: untyped
+
+    AwsElasticsearchDomainLogPublishingOptions: untyped
+
+    AwsElasticsearchDomainLogPublishingOptionsLogConfig: untyped
+
+    AwsElasticsearchDomainNodeToNodeEncryptionOptions: untyped
+
+    AwsElasticsearchDomainServiceSoftwareOptions: untyped
+
+    AwsElasticsearchDomainVPCOptions: untyped
+
+    AwsElbAppCookieStickinessPolicy: untyped
+
+    AwsElbLbCookieStickinessPolicy: untyped
+
+    AwsElbLoadBalancerAccessLog: untyped
+
+    AwsElbLoadBalancerAdditionalAttribute: untyped
+
+    AwsElbLoadBalancerAttributes: untyped
+
+    AwsElbLoadBalancerBackendServerDescription: untyped
+
+    AwsElbLoadBalancerConnectionDraining: untyped
+
+    AwsElbLoadBalancerConnectionSettings: untyped
+
+    AwsElbLoadBalancerCrossZoneLoadBalancing: untyped
+
+    AwsElbLoadBalancerDetails: untyped
+
+    AwsElbLoadBalancerHealthCheck: untyped
+
+    AwsElbLoadBalancerInstance: untyped
+
+    AwsElbLoadBalancerListener: untyped
+
+    AwsElbLoadBalancerListenerDescription: untyped
+
+    AwsElbLoadBalancerPolicies: untyped
+
+    AwsElbLoadBalancerSourceSecurityGroup: untyped
+
+    AwsElbv2LoadBalancerAttribute: untyped
+
+    AwsElbv2LoadBalancerDetails: untyped
+
+    AwsIamAccessKeyDetails: untyped
+
+    AwsIamAccessKeySessionContext: untyped
+
+    AwsIamAccessKeySessionContextAttributes: untyped
+
+    AwsIamAccessKeySessionContextSessionIssuer: untyped
+
+    module AwsIamAccessKeyStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    AwsIamAttachedManagedPolicy: untyped
+
+    AwsIamGroupDetails: untyped
+
+    AwsIamGroupPolicy: untyped
+
+    AwsIamInstanceProfile: untyped
+
+    AwsIamInstanceProfileRole: untyped
+
+    AwsIamPermissionsBoundary: untyped
+
+    AwsIamPolicyDetails: untyped
+
+    AwsIamPolicyVersion: untyped
+
+    AwsIamRoleDetails: untyped
+
+    AwsIamRolePolicy: untyped
+
+    AwsIamUserDetails: untyped
+
+    AwsIamUserPolicy: untyped
+
+    AwsKmsKeyDetails: untyped
+
+    AwsLambdaFunctionCode: untyped
+
+    AwsLambdaFunctionDeadLetterConfig: untyped
+
+    AwsLambdaFunctionDetails: untyped
+
+    AwsLambdaFunctionEnvironment: untyped
+
+    AwsLambdaFunctionEnvironmentError: untyped
+
+    AwsLambdaFunctionLayer: untyped
+
+    AwsLambdaFunctionTracingConfig: untyped
+
+    AwsLambdaFunctionVpcConfig: untyped
+
+    AwsLambdaLayerVersionDetails: untyped
+
+    AwsNetworkFirewallFirewallDetails: untyped
+
+    AwsNetworkFirewallFirewallPolicyDetails: untyped
+
+    AwsNetworkFirewallFirewallSubnetMappingsDetails: untyped
+
+    AwsNetworkFirewallRuleGroupDetails: untyped
+
+    AwsOpenSearchServiceDomainClusterConfigDetails: untyped
+
+    AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails: untyped
+
+    AwsOpenSearchServiceDomainDetails: untyped
+
+    AwsOpenSearchServiceDomainDomainEndpointOptionsDetails: untyped
+
+    AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails: untyped
+
+    AwsOpenSearchServiceDomainLogPublishingOption: untyped
+
+    AwsOpenSearchServiceDomainLogPublishingOptionsDetails: untyped
+
+    AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails: untyped
+
+    AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails: untyped
+
+    AwsOpenSearchServiceDomainVpcOptionsDetails: untyped
+
+    AwsRdsDbClusterAssociatedRole: untyped
+
+    AwsRdsDbClusterDetails: untyped
+
+    AwsRdsDbClusterMember: untyped
+
+    AwsRdsDbClusterOptionGroupMembership: untyped
+
+    AwsRdsDbClusterSnapshotDetails: untyped
+
+    AwsRdsDbDomainMembership: untyped
+
+    AwsRdsDbInstanceAssociatedRole: untyped
+
+    AwsRdsDbInstanceDetails: untyped
+
+    AwsRdsDbInstanceEndpoint: untyped
+
+    AwsRdsDbInstanceVpcSecurityGroup: untyped
+
+    AwsRdsDbOptionGroupMembership: untyped
+
+    AwsRdsDbParameterGroup: untyped
+
+    AwsRdsDbPendingModifiedValues: untyped
+
+    AwsRdsDbProcessorFeature: untyped
+
+    AwsRdsDbSecurityGroupDetails: untyped
+
+    AwsRdsDbSecurityGroupEc2SecurityGroup: untyped
+
+    AwsRdsDbSecurityGroupIpRange: untyped
+
+    AwsRdsDbSnapshotDetails: untyped
+
+    AwsRdsDbStatusInfo: untyped
+
+    AwsRdsDbSubnetGroup: untyped
+
+    AwsRdsDbSubnetGroupSubnet: untyped
+
+    AwsRdsDbSubnetGroupSubnetAvailabilityZone: untyped
+
+    AwsRdsEventSubscriptionDetails: untyped
+
+    AwsRdsPendingCloudWatchLogsExports: untyped
+
+    AwsRedshiftClusterClusterNode: untyped
+
+    AwsRedshiftClusterClusterParameterGroup: untyped
+
+    AwsRedshiftClusterClusterParameterStatus: untyped
+
+    AwsRedshiftClusterClusterSecurityGroup: untyped
+
+    AwsRedshiftClusterClusterSnapshotCopyStatus: untyped
+
+    AwsRedshiftClusterDeferredMaintenanceWindow: untyped
+
+    AwsRedshiftClusterDetails: untyped
+
+    AwsRedshiftClusterElasticIpStatus: untyped
+
+    AwsRedshiftClusterEndpoint: untyped
+
+    AwsRedshiftClusterHsmStatus: untyped
+
+    AwsRedshiftClusterIamRole: untyped
+
+    AwsRedshiftClusterLoggingStatus: untyped
+
+    AwsRedshiftClusterPendingModifiedValues: untyped
+
+    AwsRedshiftClusterResizeInfo: untyped
+
+    AwsRedshiftClusterRestoreStatus: untyped
+
+    AwsRedshiftClusterVpcSecurityGroup: untyped
+
+    AwsS3AccountPublicAccessBlockDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails: untyped
+
+    AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails: untyped
+
+    AwsS3BucketBucketVersioningConfiguration: untyped
+
+    AwsS3BucketDetails: untyped
+
+    AwsS3BucketLoggingConfiguration: untyped
+
+    AwsS3BucketNotificationConfiguration: untyped
+
+    AwsS3BucketNotificationConfigurationDetail: untyped
+
+    AwsS3BucketNotificationConfigurationFilter: untyped
+
+    AwsS3BucketNotificationConfigurationS3KeyFilter: untyped
+
+    AwsS3BucketNotificationConfigurationS3KeyFilterRule: untyped
+
+    module AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+      PREFIX: ::String
+
+      SUFFIX: ::String
+    end
+
+    AwsS3BucketServerSideEncryptionByDefault: untyped
+
+    AwsS3BucketServerSideEncryptionConfiguration: untyped
+
+    AwsS3BucketServerSideEncryptionRule: untyped
+
+    AwsS3BucketWebsiteConfiguration: untyped
+
+    AwsS3BucketWebsiteConfigurationRedirectTo: untyped
+
+    AwsS3BucketWebsiteConfigurationRoutingRule: untyped
+
+    AwsS3BucketWebsiteConfigurationRoutingRuleCondition: untyped
+
+    AwsS3BucketWebsiteConfigurationRoutingRuleRedirect: untyped
+
+    AwsS3ObjectDetails: untyped
+
+    AwsSecretsManagerSecretDetails: untyped
+
+    AwsSecretsManagerSecretRotationRules: untyped
+
+    AwsSecurityFinding: untyped
+
+    AwsSecurityFindingFilters: untyped
+
+    AwsSecurityFindingIdentifier: untyped
+
+    AwsSnsTopicDetails: untyped
+
+    AwsSnsTopicSubscription: untyped
+
+    AwsSqsQueueDetails: untyped
+
+    AwsSsmComplianceSummary: untyped
+
+    AwsSsmPatch: untyped
+
+    AwsSsmPatchComplianceDetails: untyped
+
+    AwsWafRateBasedRuleDetails: untyped
+
+    AwsWafRateBasedRuleMatchPredicate: untyped
+
+    AwsWafRegionalRateBasedRuleDetails: untyped
+
+    AwsWafRegionalRateBasedRuleMatchPredicate: untyped
+
+    AwsWafWebAclDetails: untyped
+
+    AwsWafWebAclRule: untyped
+
+    AwsXrayEncryptionConfigDetails: untyped
+
+    BatchDisableStandardsInput: untyped
+
+    BatchDisableStandardsOutput: untyped
+
+    BatchEnableStandardsInput: untyped
+
+    BatchEnableStandardsOutput: untyped
+
+    BatchImportFindingsInput: untyped
+
+    BatchImportFindingsOutput: untyped
+
+    BatchUpdateFindingsInput: untyped
+
+    BatchUpdateFindingsOutput: untyped
+
+    BatchUpdateFindingsUnprocessedFinding: untyped
+
+    BooleanFilter: untyped
+
+    Cell: untyped
+
+    CidrBlockAssociation: untyped
+
+    City: untyped
+
+    ClassificationResult: untyped
+
+    ClassificationStatus: untyped
+
+    Compliance: untyped
+
+    module ComplianceStatus
+      PASSED: ::String
+
+      WARNING: ::String
+
+      FAILED: ::String
+
+      NOT_AVAILABLE: ::String
+    end
+
+    ContainerDetails: untyped
+
+    module ControlStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    Country: untyped
+
+    CreateActionTargetInput: untyped
+
+    CreateActionTargetOutput: untyped
+
+    CreateFindingAggregatorInput: untyped
+
+    CreateFindingAggregatorOutput: untyped
+
+    CreateInsightInput: untyped
+
+    CreateInsightOutput: untyped
+
+    CreateMembersInput: untyped
+
+    CreateMembersOutput: untyped
+
+    CustomDataIdentifiersDetections: untyped
+
+    CustomDataIdentifiersResult: untyped
+
+    Cvss: untyped
+
+    DataClassificationDetails: untyped
+
+    DateFilter: untyped
+
+    DateRange: untyped
+
+    module DateRangeUnit
+      DAYS: ::String
+    end
+
+    DeclineInvitationsInput: untyped
+
+    DeclineInvitationsOutput: untyped
+
+    DeleteActionTargetInput: untyped
+
+    DeleteActionTargetOutput: untyped
+
+    DeleteFindingAggregatorInput: untyped
+
+    DeleteFindingAggregatorOutput: untyped
+
+    DeleteInsightInput: untyped
+
+    DeleteInsightOutput: untyped
+
+    DeleteInvitationsInput: untyped
+
+    DeleteInvitationsOutput: untyped
+
+    DeleteMembersInput: untyped
+
+    DeleteMembersOutput: untyped
+
+    DescribeActionTargetsInput: untyped
+
+    DescribeActionTargetsOutput: untyped
+
+    DescribeHubInput: untyped
+
+    DescribeHubOutput: untyped
+
+    DescribeOrganizationConfigurationInput: untyped
+
+    DescribeOrganizationConfigurationOutput: untyped
+
+    DescribeProductsInput: untyped
+
+    DescribeProductsOutput: untyped
+
+    DescribeStandardsControlsInput: untyped
+
+    DescribeStandardsControlsOutput: untyped
+
+    DescribeStandardsInput: untyped
+
+    DescribeStandardsOutput: untyped
+
+    DisableImportFindingsForProductInput: untyped
+
+    DisableImportFindingsForProductOutput: untyped
+
+    DisableOrganizationAdminAccountInput: untyped
+
+    DisableOrganizationAdminAccountOutput: untyped
+
+    DisableSecurityHubInput: untyped
+
+    DisableSecurityHubOutput: untyped
+
+    DisassociateFromAdministratorAccountInput: untyped
+
+    DisassociateFromAdministratorAccountOutput: untyped
+
+    DisassociateFromMasterAccountInput: untyped
+
+    DisassociateFromMasterAccountOutput: untyped
+
+    DisassociateMembersInput: untyped
+
+    DisassociateMembersOutput: untyped
+
+    DnsRequestAction: untyped
+
+    EnableImportFindingsForProductInput: untyped
+
+    EnableImportFindingsForProductOutput: untyped
+
+    EnableOrganizationAdminAccountInput: untyped
+
+    EnableOrganizationAdminAccountOutput: untyped
+
+    EnableSecurityHubInput: untyped
+
+    EnableSecurityHubOutput: untyped
+
+    FindingAggregator: untyped
+
+    FindingProviderFields: untyped
+
+    FindingProviderSeverity: untyped
+
+    FirewallPolicyDetails: untyped
+
+    FirewallPolicyStatefulRuleGroupReferencesDetails: untyped
+
+    FirewallPolicyStatelessCustomActionsDetails: untyped
+
+    FirewallPolicyStatelessRuleGroupReferencesDetails: untyped
+
+    GeoLocation: untyped
+
+    GetAdministratorAccountInput: untyped
+
+    GetAdministratorAccountOutput: untyped
+
+    GetEnabledStandardsInput: untyped
+
+    GetEnabledStandardsOutput: untyped
+
+    GetFindingAggregatorInput: untyped
+
+    GetFindingAggregatorOutput: untyped
+
+    GetFindingsInput: untyped
+
+    GetFindingsOutput: untyped
+
+    GetInsightResultsInput: untyped
+
+    GetInsightResultsOutput: untyped
+
+    GetInsightsInput: untyped
+
+    GetInsightsOutput: untyped
+
+    GetInvitationsCountInput: untyped
+
+    GetInvitationsCountOutput: untyped
+
+    GetMasterAccountInput: untyped
+
+    GetMasterAccountOutput: untyped
+
+    GetMembersInput: untyped
+
+    GetMembersOutput: untyped
+
+    IcmpTypeCode: untyped
+
+    ImportFindingsError: untyped
+
+    Insight: untyped
+
+    InsightResultValue: untyped
+
+    InsightResults: untyped
+
+    module IntegrationType
+      SEND_FINDINGS_TO_SECURITY_HUB: ::String
+
+      RECEIVE_FINDINGS_FROM_SECURITY_HUB: ::String
+
+      UPDATE_FINDINGS_IN_SECURITY_HUB: ::String
+    end
+
+    InternalException: untyped
+
+    InvalidAccessException: untyped
+
+    InvalidInputException: untyped
+
+    Invitation: untyped
+
+    InviteMembersInput: untyped
+
+    InviteMembersOutput: untyped
+
+    IpFilter: untyped
+
+    IpOrganizationDetails: untyped
+
+    Ipv6CidrBlockAssociation: untyped
+
+    KeywordFilter: untyped
+
+    LimitExceededException: untyped
+
+    ListEnabledProductsForImportInput: untyped
+
+    ListEnabledProductsForImportOutput: untyped
+
+    ListFindingAggregatorsInput: untyped
+
+    ListFindingAggregatorsOutput: untyped
+
+    ListInvitationsInput: untyped
+
+    ListInvitationsOutput: untyped
+
+    ListMembersInput: untyped
+
+    ListMembersOutput: untyped
+
+    ListOrganizationAdminAccountsInput: untyped
+
+    ListOrganizationAdminAccountsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LoadBalancerState: untyped
+
+    Malware: untyped
+
+    module MalwareState
+      OBSERVED: ::String
+
+      REMOVAL_FAILED: ::String
+
+      REMOVED: ::String
+    end
+
+    module MalwareType
+      ADWARE: ::String
+
+      BLENDED_THREAT: ::String
+
+      BOTNET_AGENT: ::String
+
+      COIN_MINER: ::String
+
+      EXPLOIT_KIT: ::String
+
+      KEYLOGGER: ::String
+
+      MACRO: ::String
+
+      POTENTIALLY_UNWANTED: ::String
+
+      SPYWARE: ::String
+
+      RANSOMWARE: ::String
+
+      REMOTE_ACCESS: ::String
+
+      ROOTKIT: ::String
+
+      TROJAN: ::String
+
+      VIRUS: ::String
+
+      WORM: ::String
+    end
+
+    MapFilter: untyped
+
+    module MapFilterComparison
+      EQUALS: ::String
+
+      NOT_EQUALS: ::String
+    end
+
+    Member: untyped
+
+    Network: untyped
+
+    NetworkConnectionAction: untyped
+
+    module NetworkDirection
+      IN: ::String
+
+      OUT: ::String
+    end
+
+    NetworkHeader: untyped
+
+    NetworkPathComponent: untyped
+
+    NetworkPathComponentDetails: untyped
+
+    Note: untyped
+
+    NoteUpdate: untyped
+
+    NumberFilter: untyped
+
+    Occurrences: untyped
+
+    Page: untyped
+
+    module Partition
+      AWS: ::String
+
+      AWS_CN: ::String
+
+      AWS_US_GOV: ::String
+    end
+
+    PatchSummary: untyped
+
+    PortProbeAction: untyped
+
+    PortProbeDetail: untyped
+
+    PortRange: untyped
+
+    PortRangeFromTo: untyped
+
+    ProcessDetails: untyped
+
+    Product: untyped
+
+    Range: untyped
+
+    Recommendation: untyped
+
+    Record: untyped
+
+    module RecordState
+      ACTIVE: ::String
+
+      ARCHIVED: ::String
+    end
+
+    RelatedFinding: untyped
+
+    Remediation: untyped
+
+    Resource: untyped
+
+    ResourceConflictException: untyped
+
+    ResourceDetails: untyped
+
+    ResourceNotFoundException: untyped
+
+    Result: untyped
+
+    RuleGroupDetails: untyped
+
+    RuleGroupSource: untyped
+
+    RuleGroupSourceCustomActionsDetails: untyped
+
+    RuleGroupSourceListDetails: untyped
+
+    RuleGroupSourceStatefulRulesDetails: untyped
+
+    RuleGroupSourceStatefulRulesHeaderDetails: untyped
+
+    RuleGroupSourceStatefulRulesOptionsDetails: untyped
+
+    RuleGroupSourceStatelessRuleDefinition: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributes: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributesDestinations: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributesSourcePorts: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributesSources: untyped
+
+    RuleGroupSourceStatelessRuleMatchAttributesTcpFlags: untyped
+
+    RuleGroupSourceStatelessRulesAndCustomActionsDetails: untyped
+
+    RuleGroupSourceStatelessRulesDetails: untyped
+
+    RuleGroupVariables: untyped
+
+    RuleGroupVariablesIpSetsDetails: untyped
+
+    RuleGroupVariablesPortSetsDetails: untyped
+
+    SensitiveDataDetections: untyped
+
+    SensitiveDataResult: untyped
+
+    Severity: untyped
+
+    module SeverityLabel
+      INFORMATIONAL: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      CRITICAL: ::String
+    end
+
+    module SeverityRating
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      CRITICAL: ::String
+    end
+
+    SeverityUpdate: untyped
+
+    SoftwarePackage: untyped
+
+    SortCriterion: untyped
+
+    module SortOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    Standard: untyped
+
+    StandardsControl: untyped
+
+    module StandardsStatus
+      PENDING: ::String
+
+      READY: ::String
+
+      FAILED: ::String
+
+      DELETING: ::String
+
+      INCOMPLETE: ::String
+    end
+
+    StandardsStatusReason: untyped
+
+    StandardsSubscription: untyped
+
+    StandardsSubscriptionRequest: untyped
+
+    StatelessCustomActionDefinition: untyped
+
+    StatelessCustomPublishMetricAction: untyped
+
+    StatelessCustomPublishMetricActionDimension: untyped
+
+    StatusReason: untyped
+
+    module StatusReasonCode
+      NO_AVAILABLE_CONFIGURATION_RECORDER: ::String
+
+      INTERNAL_ERROR: ::String
+    end
+
+    StringFilter: untyped
+
+    module StringFilterComparison
+      EQUALS: ::String
+
+      PREFIX: ::String
+
+      NOT_EQUALS: ::String
+
+      PREFIX_NOT_EQUALS: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThreatIntelIndicator: untyped
+
+    module ThreatIntelIndicatorCategory
+      BACKDOOR: ::String
+
+      CARD_STEALER: ::String
+
+      COMMAND_AND_CONTROL: ::String
+
+      DROP_SITE: ::String
+
+      EXPLOIT_SITE: ::String
+
+      KEYLOGGER: ::String
+    end
+
+    module ThreatIntelIndicatorType
+      DOMAIN: ::String
+
+      EMAIL_ADDRESS: ::String
+
+      HASH_MD5: ::String
+
+      HASH_SHA1: ::String
+
+      HASH_SHA256: ::String
+
+      HASH_SHA512: ::String
+
+      IPV4_ADDRESS: ::String
+
+      IPV6_ADDRESS: ::String
+
+      MUTEX: ::String
+
+      PROCESS: ::String
+
+      URL: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateActionTargetInput: untyped
+
+    UpdateActionTargetOutput: untyped
+
+    UpdateFindingAggregatorInput: untyped
+
+    UpdateFindingAggregatorOutput: untyped
+
+    UpdateFindingsInput: untyped
+
+    UpdateFindingsOutput: untyped
+
+    UpdateInsightInput: untyped
+
+    UpdateInsightOutput: untyped
+
+    UpdateOrganizationConfigurationInput: untyped
+
+    UpdateOrganizationConfigurationOutput: untyped
+
+    UpdateSecurityHubConfigurationInput: untyped
+
+    UpdateSecurityHubConfigurationOutput: untyped
+
+    UpdateStandardsControlInput: untyped
+
+    UpdateStandardsControlOutput: untyped
+
+    module VerificationState
+      UNKNOWN: ::String
+
+      TRUE_POSITIVE: ::String
+
+      FALSE_POSITIVE: ::String
+
+      BENIGN_POSITIVE: ::String
+    end
+
+    Vulnerability: untyped
+
+    VulnerabilityVendor: untyped
+
+    WafAction: untyped
+
+    WafExcludedRule: untyped
+
+    WafOverrideAction: untyped
+
+    Workflow: untyped
+
+    module WorkflowState
+      NEW: ::String
+
+      ASSIGNED: ::String
+
+      IN_PROGRESS: ::String
+
+      DEFERRED: ::String
+
+      RESOLVED: ::String
+    end
+
+    module WorkflowStatus
+      NEW: ::String
+
+      NOTIFIED: ::String
+
+      RESOLVED: ::String
+
+      SUPPRESSED: ::String
+    end
+
+    WorkflowUpdate: untyped
+
+  end
+end

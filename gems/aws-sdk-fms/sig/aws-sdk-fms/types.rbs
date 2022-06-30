@@ -1,0 +1,450 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::FMS
+  module Types
+
+    module AccountRoleStatus
+      Ready: ::String
+
+      Creating: ::String
+
+      PendingDeletion: ::String
+
+      Deleting: ::String
+
+      Deleted: ::String
+    end
+
+    ActionTarget: untyped
+
+    App: untyped
+
+    AppsListData: untyped
+
+    AppsListDataSummary: untyped
+
+    AssociateAdminAccountInput: untyped
+
+    AssociateAdminAccountOutput: untyped
+
+    AssociateThirdPartyFirewallInput: untyped
+
+    AssociateThirdPartyFirewallOutput: untyped
+
+    AwsEc2InstanceViolation: untyped
+
+    AwsEc2NetworkInterfaceViolation: untyped
+
+    AwsVPCSecurityGroupViolation: untyped
+
+    ComplianceViolator: untyped
+
+    module CustomerPolicyScopeIdType
+      ACCOUNT: ::String
+
+      ORG_UNIT: ::String
+    end
+
+    DeleteAppsListInput: untyped
+
+    DeleteAppsListOutput: untyped
+
+    DeleteNotificationChannelInput: untyped
+
+    DeleteNotificationChannelOutput: untyped
+
+    DeletePolicyInput: untyped
+
+    DeletePolicyOutput: untyped
+
+    DeleteProtocolsListInput: untyped
+
+    DeleteProtocolsListOutput: untyped
+
+    module DependentServiceName
+      AWSConfig: ::String
+
+      AWSWAF: ::String
+
+      AWSShieldAdvanced: ::String
+
+      AWSVirtualPrivateCloud: ::String
+    end
+
+    module DestinationType
+      IPV4: ::String
+
+      IPV6: ::String
+
+      PrefixList: ::String
+    end
+
+    DisassociateAdminAccountInput: untyped
+
+    DisassociateAdminAccountOutput: untyped
+
+    DisassociateThirdPartyFirewallInput: untyped
+
+    DisassociateThirdPartyFirewallOutput: untyped
+
+    DnsDuplicateRuleGroupViolation: untyped
+
+    DnsRuleGroupLimitExceededViolation: untyped
+
+    DnsRuleGroupPriorityConflictViolation: untyped
+
+    EC2AssociateRouteTableAction: untyped
+
+    EC2CopyRouteTableAction: untyped
+
+    EC2CreateRouteAction: untyped
+
+    EC2CreateRouteTableAction: untyped
+
+    EC2DeleteRouteAction: untyped
+
+    EC2ReplaceRouteAction: untyped
+
+    EC2ReplaceRouteTableAssociationAction: untyped
+
+    EvaluationResult: untyped
+
+    ExpectedRoute: untyped
+
+    FMSPolicyUpdateFirewallCreationConfigAction: untyped
+
+    module FirewallDeploymentModel
+      CENTRALIZED: ::String
+
+      DISTRIBUTED: ::String
+    end
+
+    FirewallSubnetIsOutOfScopeViolation: untyped
+
+    FirewallSubnetMissingVPCEndpointViolation: untyped
+
+    GetAdminAccountInput: untyped
+
+    GetAdminAccountOutput: untyped
+
+    GetAppsListInput: untyped
+
+    GetAppsListOutput: untyped
+
+    GetComplianceDetailInput: untyped
+
+    GetComplianceDetailOutput: untyped
+
+    GetNotificationChannelInput: untyped
+
+    GetNotificationChannelOutput: untyped
+
+    GetPolicyInput: untyped
+
+    GetPolicyOutput: untyped
+
+    GetProtectionStatusInput: untyped
+
+    GetProtectionStatusOutput: untyped
+
+    GetProtocolsListInput: untyped
+
+    GetProtocolsListOutput: untyped
+
+    GetThirdPartyFirewallAssociationStatusInput: untyped
+
+    GetThirdPartyFirewallAssociationStatusOutput: untyped
+
+    GetViolationDetailsInput: untyped
+
+    GetViolationDetailsOutput: untyped
+
+    InternalErrorException: untyped
+
+    InvalidInputException: untyped
+
+    InvalidOperationException: untyped
+
+    InvalidTypeException: untyped
+
+    LimitExceededException: untyped
+
+    ListAppsListsInput: untyped
+
+    ListAppsListsOutput: untyped
+
+    ListComplianceStatusInput: untyped
+
+    ListComplianceStatusOutput: untyped
+
+    ListMemberAccountsInput: untyped
+
+    ListMemberAccountsOutput: untyped
+
+    ListPoliciesInput: untyped
+
+    ListPoliciesOutput: untyped
+
+    ListProtocolsListsInput: untyped
+
+    ListProtocolsListsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListThirdPartyFirewallFirewallPoliciesInput: untyped
+
+    ListThirdPartyFirewallFirewallPoliciesOutput: untyped
+
+    module MarketplaceSubscriptionOnboardingStatus
+      NO_SUBSCRIPTION: ::String
+
+      NOT_COMPLETE: ::String
+
+      COMPLETE: ::String
+    end
+
+    NetworkFirewallBlackHoleRouteDetectedViolation: untyped
+
+    NetworkFirewallInternetTrafficNotInspectedViolation: untyped
+
+    NetworkFirewallInvalidRouteConfigurationViolation: untyped
+
+    NetworkFirewallMissingExpectedRTViolation: untyped
+
+    NetworkFirewallMissingExpectedRoutesViolation: untyped
+
+    NetworkFirewallMissingFirewallViolation: untyped
+
+    NetworkFirewallMissingSubnetViolation: untyped
+
+    NetworkFirewallPolicy: untyped
+
+    NetworkFirewallPolicyDescription: untyped
+
+    NetworkFirewallPolicyModifiedViolation: untyped
+
+    NetworkFirewallUnexpectedFirewallRoutesViolation: untyped
+
+    NetworkFirewallUnexpectedGatewayRoutesViolation: untyped
+
+    PartialMatch: untyped
+
+    Policy: untyped
+
+    PolicyComplianceDetail: untyped
+
+    PolicyComplianceStatus: untyped
+
+    module PolicyComplianceStatusType
+      Compliant: ::String
+
+      NonCompliant: ::String
+    end
+
+    PolicyOption: untyped
+
+    PolicySummary: untyped
+
+    PossibleRemediationAction: untyped
+
+    PossibleRemediationActions: untyped
+
+    ProtocolsListData: untyped
+
+    ProtocolsListDataSummary: untyped
+
+    PutAppsListInput: untyped
+
+    PutAppsListOutput: untyped
+
+    PutNotificationChannelInput: untyped
+
+    PutNotificationChannelOutput: untyped
+
+    PutPolicyInput: untyped
+
+    PutPolicyOutput: untyped
+
+    PutProtocolsListInput: untyped
+
+    PutProtocolsListOutput: untyped
+
+    RemediationAction: untyped
+
+    module RemediationActionType
+      Remove: ::String
+
+      Modify: ::String
+    end
+
+    RemediationActionWithOrder: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceTag: untyped
+
+    ResourceViolation: untyped
+
+    Route: untyped
+
+    RouteHasOutOfScopeEndpointViolation: untyped
+
+    SecurityGroupRemediationAction: untyped
+
+    SecurityGroupRuleDescription: untyped
+
+    SecurityServicePolicyData: untyped
+
+    module SecurityServiceType
+      WAF: ::String
+
+      WAFV2: ::String
+
+      SHIELD_ADVANCED: ::String
+
+      SECURITY_GROUPS_COMMON: ::String
+
+      SECURITY_GROUPS_CONTENT_AUDIT: ::String
+
+      SECURITY_GROUPS_USAGE_AUDIT: ::String
+
+      NETWORK_FIREWALL: ::String
+
+      DNS_FIREWALL: ::String
+
+      THIRD_PARTY_FIREWALL: ::String
+    end
+
+    StatefulRuleGroup: untyped
+
+    StatelessRuleGroup: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetType
+      Gateway: ::String
+
+      CarrierGateway: ::String
+
+      Instance: ::String
+
+      LocalGateway: ::String
+
+      NatGateway: ::String
+
+      NetworkInterface: ::String
+
+      VPCEndpoint: ::String
+
+      VPCPeeringConnection: ::String
+
+      EgressOnlyInternetGateway: ::String
+
+      TransitGateway: ::String
+    end
+
+    module ThirdPartyFirewall
+      PALO_ALTO_NETWORKS_CLOUD_NGFW: ::String
+    end
+
+    module ThirdPartyFirewallAssociationStatus
+      ONBOARDING: ::String
+
+      ONBOARD_COMPLETE: ::String
+
+      OFFBOARDING: ::String
+
+      OFFBOARD_COMPLETE: ::String
+
+      NOT_EXIST: ::String
+    end
+
+    ThirdPartyFirewallFirewallPolicy: untyped
+
+    ThirdPartyFirewallMissingExpectedRouteTableViolation: untyped
+
+    ThirdPartyFirewallMissingFirewallViolation: untyped
+
+    ThirdPartyFirewallMissingSubnetViolation: untyped
+
+    ThirdPartyFirewallPolicy: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ViolationDetail: untyped
+
+    module ViolationReason
+      WebAclMissingRuleGroup: ::String
+
+      ResourceMissingWebAcl: ::String
+
+      ResourceIncorrectWebAcl: ::String
+
+      ResourceMissingShieldProtection: ::String
+
+      ResourceMissingWebaclOrShieldProtection: ::String
+
+      ResourceMissingSecurityGroup: ::String
+
+      ResourceViolatesAuditSecurityGroup: ::String
+
+      SecurityGroupUnused: ::String
+
+      SecurityGroupRedundant: ::String
+
+      FMSCreatedSecurityGroupEdited: ::String
+
+      MissingFirewall: ::String
+
+      MissingFirewallSubnetInAZ: ::String
+
+      MissingExpectedRouteTable: ::String
+
+      NetworkFirewallPolicyModified: ::String
+
+      FirewallSubnetIsOutOfScope: ::String
+
+      InternetGatewayMissingExpectedRoute: ::String
+
+      FirewallSubnetMissingExpectedRoute: ::String
+
+      UnexpectedFirewallRoutes: ::String
+
+      UnexpectedTargetGatewayRoutes: ::String
+
+      TrafficInspectionCrossesAZBoundary: ::String
+
+      InvalidRouteConfiguration: ::String
+
+      MissingTargetGateway: ::String
+
+      InternetTrafficNotInspected: ::String
+
+      BlackHoleRouteDetected: ::String
+
+      BlackHoleRouteDetectedInFirewallSubnet: ::String
+
+      ResourceMissingDnsFirewall: ::String
+
+      RouteHasOutOfScopeEndpoint: ::String
+
+      FirewallSubnetMissingVPCEndpoint: ::String
+    end
+
+  end
+end

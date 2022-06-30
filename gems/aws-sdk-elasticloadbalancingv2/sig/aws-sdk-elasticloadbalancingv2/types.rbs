@@ -1,0 +1,434 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ElasticLoadBalancingV2
+  module Types
+
+    ALPNPolicyNotSupportedException: untyped
+
+    Action: untyped
+
+    module ActionTypeEnum
+      FORWARD: ::String
+
+      AUTHENTICATE_OIDC: ::String
+
+      AUTHENTICATE_COGNITO: ::String
+
+      REDIRECT: ::String
+
+      FIXED_RESPONSE: ::String
+    end
+
+    AddListenerCertificatesInput: untyped
+
+    AddListenerCertificatesOutput: untyped
+
+    AddTagsInput: untyped
+
+    AddTagsOutput: untyped
+
+    AllocationIdNotFoundException: untyped
+
+    module AuthenticateCognitoActionConditionalBehaviorEnum
+      DENY: ::String
+
+      ALLOW: ::String
+
+      AUTHENTICATE: ::String
+    end
+
+    AuthenticateCognitoActionConfig: untyped
+
+    module AuthenticateOidcActionConditionalBehaviorEnum
+      DENY: ::String
+
+      ALLOW: ::String
+
+      AUTHENTICATE: ::String
+    end
+
+    AuthenticateOidcActionConfig: untyped
+
+    AvailabilityZone: untyped
+
+    AvailabilityZoneNotSupportedException: untyped
+
+    Certificate: untyped
+
+    CertificateNotFoundException: untyped
+
+    Cipher: untyped
+
+    CreateListenerInput: untyped
+
+    CreateListenerOutput: untyped
+
+    CreateLoadBalancerInput: untyped
+
+    CreateLoadBalancerOutput: untyped
+
+    CreateRuleInput: untyped
+
+    CreateRuleOutput: untyped
+
+    CreateTargetGroupInput: untyped
+
+    CreateTargetGroupOutput: untyped
+
+    DeleteListenerInput: untyped
+
+    DeleteListenerOutput: untyped
+
+    DeleteLoadBalancerInput: untyped
+
+    DeleteLoadBalancerOutput: untyped
+
+    DeleteRuleInput: untyped
+
+    DeleteRuleOutput: untyped
+
+    DeleteTargetGroupInput: untyped
+
+    DeleteTargetGroupOutput: untyped
+
+    DeregisterTargetsInput: untyped
+
+    DeregisterTargetsOutput: untyped
+
+    DescribeAccountLimitsInput: untyped
+
+    DescribeAccountLimitsOutput: untyped
+
+    DescribeListenerCertificatesInput: untyped
+
+    DescribeListenerCertificatesOutput: untyped
+
+    DescribeListenersInput: untyped
+
+    DescribeListenersOutput: untyped
+
+    DescribeLoadBalancerAttributesInput: untyped
+
+    DescribeLoadBalancerAttributesOutput: untyped
+
+    DescribeLoadBalancersInput: untyped
+
+    DescribeLoadBalancersOutput: untyped
+
+    DescribeRulesInput: untyped
+
+    DescribeRulesOutput: untyped
+
+    DescribeSSLPoliciesInput: untyped
+
+    DescribeSSLPoliciesOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    DescribeTargetGroupAttributesInput: untyped
+
+    DescribeTargetGroupAttributesOutput: untyped
+
+    DescribeTargetGroupsInput: untyped
+
+    DescribeTargetGroupsOutput: untyped
+
+    DescribeTargetHealthInput: untyped
+
+    DescribeTargetHealthOutput: untyped
+
+    DuplicateListenerException: untyped
+
+    DuplicateLoadBalancerNameException: untyped
+
+    DuplicateTagKeysException: untyped
+
+    DuplicateTargetGroupNameException: untyped
+
+    FixedResponseActionConfig: untyped
+
+    ForwardActionConfig: untyped
+
+    HealthUnavailableException: untyped
+
+    HostHeaderConditionConfig: untyped
+
+    HttpHeaderConditionConfig: untyped
+
+    HttpRequestMethodConditionConfig: untyped
+
+    IncompatibleProtocolsException: untyped
+
+    InvalidConfigurationRequestException: untyped
+
+    InvalidLoadBalancerActionException: untyped
+
+    InvalidSchemeException: untyped
+
+    InvalidSecurityGroupException: untyped
+
+    InvalidSubnetException: untyped
+
+    InvalidTargetException: untyped
+
+    module IpAddressType
+      IPV4: ::String
+
+      DUALSTACK: ::String
+    end
+
+    Limit: untyped
+
+    Listener: untyped
+
+    ListenerNotFoundException: untyped
+
+    LoadBalancer: untyped
+
+    LoadBalancerAddress: untyped
+
+    LoadBalancerAttribute: untyped
+
+    LoadBalancerNotFoundException: untyped
+
+    module LoadBalancerSchemeEnum
+      INTERNET_FACING: ::String
+
+      INTERNAL: ::String
+    end
+
+    LoadBalancerState: untyped
+
+    module LoadBalancerStateEnum
+      ACTIVE: ::String
+
+      PROVISIONING: ::String
+
+      ACTIVE_IMPAIRED: ::String
+
+      FAILED: ::String
+    end
+
+    module LoadBalancerTypeEnum
+      APPLICATION: ::String
+
+      NETWORK: ::String
+
+      GATEWAY: ::String
+    end
+
+    Matcher: untyped
+
+    ModifyListenerInput: untyped
+
+    ModifyListenerOutput: untyped
+
+    ModifyLoadBalancerAttributesInput: untyped
+
+    ModifyLoadBalancerAttributesOutput: untyped
+
+    ModifyRuleInput: untyped
+
+    ModifyRuleOutput: untyped
+
+    ModifyTargetGroupAttributesInput: untyped
+
+    ModifyTargetGroupAttributesOutput: untyped
+
+    ModifyTargetGroupInput: untyped
+
+    ModifyTargetGroupOutput: untyped
+
+    OperationNotPermittedException: untyped
+
+    PathPatternConditionConfig: untyped
+
+    PriorityInUseException: untyped
+
+    module ProtocolEnum
+      HTTP: ::String
+
+      HTTPS: ::String
+
+      TCP: ::String
+
+      TLS: ::String
+
+      UDP: ::String
+
+      TCP_UDP: ::String
+
+      GENEVE: ::String
+    end
+
+    QueryStringConditionConfig: untyped
+
+    QueryStringKeyValuePair: untyped
+
+    RedirectActionConfig: untyped
+
+    module RedirectActionStatusCodeEnum
+      HTTP_301: ::String
+
+      HTTP_302: ::String
+    end
+
+    RegisterTargetsInput: untyped
+
+    RegisterTargetsOutput: untyped
+
+    RemoveListenerCertificatesInput: untyped
+
+    RemoveListenerCertificatesOutput: untyped
+
+    RemoveTagsInput: untyped
+
+    RemoveTagsOutput: untyped
+
+    ResourceInUseException: untyped
+
+    Rule: untyped
+
+    RuleCondition: untyped
+
+    RuleNotFoundException: untyped
+
+    RulePriorityPair: untyped
+
+    SSLPolicyNotFoundException: untyped
+
+    SetIpAddressTypeInput: untyped
+
+    SetIpAddressTypeOutput: untyped
+
+    SetRulePrioritiesInput: untyped
+
+    SetRulePrioritiesOutput: untyped
+
+    SetSecurityGroupsInput: untyped
+
+    SetSecurityGroupsOutput: untyped
+
+    SetSubnetsInput: untyped
+
+    SetSubnetsOutput: untyped
+
+    SourceIpConditionConfig: untyped
+
+    SslPolicy: untyped
+
+    SubnetMapping: untyped
+
+    SubnetNotFoundException: untyped
+
+    Tag: untyped
+
+    TagDescription: untyped
+
+    TargetDescription: untyped
+
+    TargetGroup: untyped
+
+    TargetGroupAssociationLimitException: untyped
+
+    TargetGroupAttribute: untyped
+
+    module TargetGroupIpAddressTypeEnum
+      IPV4: ::String
+
+      IPV6: ::String
+    end
+
+    TargetGroupNotFoundException: untyped
+
+    TargetGroupStickinessConfig: untyped
+
+    TargetGroupTuple: untyped
+
+    TargetHealth: untyped
+
+    TargetHealthDescription: untyped
+
+    module TargetHealthReasonEnum
+      REGISTRATION_IN_PROGRESS: ::String
+
+      INITIAL_HEALTH_CHECKING: ::String
+
+      RESPONSE_CODE_MISMATCH: ::String
+
+      TIMEOUT: ::String
+
+      FAILED_HEALTH_CHECKS: ::String
+
+      NOT_REGISTERED: ::String
+
+      NOT_IN_USE: ::String
+
+      DEREGISTRATION_IN_PROGRESS: ::String
+
+      INVALID_STATE: ::String
+
+      IP_UNUSABLE: ::String
+
+      HEALTH_CHECK_DISABLED: ::String
+
+      INTERNAL_ERROR: ::String
+    end
+
+    module TargetHealthStateEnum
+      INITIAL: ::String
+
+      HEALTHY: ::String
+
+      UNHEALTHY: ::String
+
+      UNUSED: ::String
+
+      DRAINING: ::String
+
+      UNAVAILABLE: ::String
+    end
+
+    module TargetTypeEnum
+      INSTANCE: ::String
+
+      IP: ::String
+
+      LAMBDA: ::String
+
+      ALB: ::String
+    end
+
+    TooManyActionsException: untyped
+
+    TooManyCertificatesException: untyped
+
+    TooManyListenersException: untyped
+
+    TooManyLoadBalancersException: untyped
+
+    TooManyRegistrationsForTargetIdException: untyped
+
+    TooManyRulesException: untyped
+
+    TooManyTagsException: untyped
+
+    TooManyTargetGroupsException: untyped
+
+    TooManyTargetsException: untyped
+
+    TooManyUniqueTargetGroupsPerLoadBalancerException: untyped
+
+    UnsupportedProtocolException: untyped
+
+  end
+end

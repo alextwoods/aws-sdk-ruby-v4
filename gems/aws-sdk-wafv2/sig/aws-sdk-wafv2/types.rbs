@@ -1,0 +1,1250 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::WAFV2
+  module Types
+
+    ActionCondition: untyped
+
+    module ActionValue
+      ALLOW: ::String
+
+      BLOCK: ::String
+
+      COUNT: ::String
+
+      CAPTCHA: ::String
+
+      EXCLUDED_AS_COUNT: ::String
+    end
+
+    All: untyped
+
+    AllQueryArguments: untyped
+
+    AllowAction: untyped
+
+    AndStatement: untyped
+
+    AssociateWebACLInput: untyped
+
+    AssociateWebACLOutput: untyped
+
+    BlockAction: untyped
+
+    Body: untyped
+
+    module BodyParsingFallbackBehavior
+      MATCH: ::String
+
+      NO_MATCH: ::String
+
+      EVALUATE_AS_STRING: ::String
+    end
+
+    ByteMatchStatement: untyped
+
+    CaptchaAction: untyped
+
+    CaptchaConfig: untyped
+
+    CaptchaResponse: untyped
+
+    CheckCapacityInput: untyped
+
+    CheckCapacityOutput: untyped
+
+    module ComparisonOperator
+      EQ: ::String
+
+      NE: ::String
+
+      LE: ::String
+
+      LT: ::String
+
+      GE: ::String
+
+      GT: ::String
+    end
+
+    Condition: untyped
+
+    CookieMatchPattern: untyped
+
+    Cookies: untyped
+
+    CountAction: untyped
+
+    module CountryCode
+      AF: ::String
+
+      AX: ::String
+
+      AL: ::String
+
+      DZ: ::String
+
+      AS: ::String
+
+      AD: ::String
+
+      AO: ::String
+
+      AI: ::String
+
+      AQ: ::String
+
+      AG: ::String
+
+      AR: ::String
+
+      AM: ::String
+
+      AW: ::String
+
+      AU: ::String
+
+      AT: ::String
+
+      AZ: ::String
+
+      BS: ::String
+
+      BH: ::String
+
+      BD: ::String
+
+      BB: ::String
+
+      BY: ::String
+
+      BE: ::String
+
+      BZ: ::String
+
+      BJ: ::String
+
+      BM: ::String
+
+      BT: ::String
+
+      BO: ::String
+
+      BQ: ::String
+
+      BA: ::String
+
+      BW: ::String
+
+      BV: ::String
+
+      BR: ::String
+
+      IO: ::String
+
+      BN: ::String
+
+      BG: ::String
+
+      BF: ::String
+
+      BI: ::String
+
+      KH: ::String
+
+      CM: ::String
+
+      CA: ::String
+
+      CV: ::String
+
+      KY: ::String
+
+      CF: ::String
+
+      TD: ::String
+
+      CL: ::String
+
+      CN: ::String
+
+      CX: ::String
+
+      CC: ::String
+
+      CO: ::String
+
+      KM: ::String
+
+      CG: ::String
+
+      CD: ::String
+
+      CK: ::String
+
+      CR: ::String
+
+      CI: ::String
+
+      HR: ::String
+
+      CU: ::String
+
+      CW: ::String
+
+      CY: ::String
+
+      CZ: ::String
+
+      DK: ::String
+
+      DJ: ::String
+
+      DM: ::String
+
+      DO: ::String
+
+      EC: ::String
+
+      EG: ::String
+
+      SV: ::String
+
+      GQ: ::String
+
+      ER: ::String
+
+      EE: ::String
+
+      ET: ::String
+
+      FK: ::String
+
+      FO: ::String
+
+      FJ: ::String
+
+      FI: ::String
+
+      FR: ::String
+
+      GF: ::String
+
+      PF: ::String
+
+      TF: ::String
+
+      GA: ::String
+
+      GM: ::String
+
+      GE: ::String
+
+      DE: ::String
+
+      GH: ::String
+
+      GI: ::String
+
+      GR: ::String
+
+      GL: ::String
+
+      GD: ::String
+
+      GP: ::String
+
+      GU: ::String
+
+      GT: ::String
+
+      GG: ::String
+
+      GN: ::String
+
+      GW: ::String
+
+      GY: ::String
+
+      HT: ::String
+
+      HM: ::String
+
+      VA: ::String
+
+      HN: ::String
+
+      HK: ::String
+
+      HU: ::String
+
+      IS: ::String
+
+      IN: ::String
+
+      ID: ::String
+
+      IR: ::String
+
+      IQ: ::String
+
+      IE: ::String
+
+      IM: ::String
+
+      IL: ::String
+
+      IT: ::String
+
+      JM: ::String
+
+      JP: ::String
+
+      JE: ::String
+
+      JO: ::String
+
+      KZ: ::String
+
+      KE: ::String
+
+      KI: ::String
+
+      KP: ::String
+
+      KR: ::String
+
+      KW: ::String
+
+      KG: ::String
+
+      LA: ::String
+
+      LV: ::String
+
+      LB: ::String
+
+      LS: ::String
+
+      LR: ::String
+
+      LY: ::String
+
+      LI: ::String
+
+      LT: ::String
+
+      LU: ::String
+
+      MO: ::String
+
+      MK: ::String
+
+      MG: ::String
+
+      MW: ::String
+
+      MY: ::String
+
+      MV: ::String
+
+      ML: ::String
+
+      MT: ::String
+
+      MH: ::String
+
+      MQ: ::String
+
+      MR: ::String
+
+      MU: ::String
+
+      YT: ::String
+
+      MX: ::String
+
+      FM: ::String
+
+      MD: ::String
+
+      MC: ::String
+
+      MN: ::String
+
+      ME: ::String
+
+      MS: ::String
+
+      MA: ::String
+
+      MZ: ::String
+
+      MM: ::String
+
+      NA: ::String
+
+      NR: ::String
+
+      NP: ::String
+
+      NL: ::String
+
+      NC: ::String
+
+      NZ: ::String
+
+      NI: ::String
+
+      NE: ::String
+
+      NG: ::String
+
+      NU: ::String
+
+      NF: ::String
+
+      MP: ::String
+
+      NO: ::String
+
+      OM: ::String
+
+      PK: ::String
+
+      PW: ::String
+
+      PS: ::String
+
+      PA: ::String
+
+      PG: ::String
+
+      PY: ::String
+
+      PE: ::String
+
+      PH: ::String
+
+      PN: ::String
+
+      PL: ::String
+
+      PT: ::String
+
+      PR: ::String
+
+      QA: ::String
+
+      RE: ::String
+
+      RO: ::String
+
+      RU: ::String
+
+      RW: ::String
+
+      BL: ::String
+
+      SH: ::String
+
+      KN: ::String
+
+      LC: ::String
+
+      MF: ::String
+
+      PM: ::String
+
+      VC: ::String
+
+      WS: ::String
+
+      SM: ::String
+
+      ST: ::String
+
+      SA: ::String
+
+      SN: ::String
+
+      RS: ::String
+
+      SC: ::String
+
+      SL: ::String
+
+      SG: ::String
+
+      SX: ::String
+
+      SK: ::String
+
+      SI: ::String
+
+      SB: ::String
+
+      SO: ::String
+
+      ZA: ::String
+
+      GS: ::String
+
+      SS: ::String
+
+      ES: ::String
+
+      LK: ::String
+
+      SD: ::String
+
+      SR: ::String
+
+      SJ: ::String
+
+      SZ: ::String
+
+      SE: ::String
+
+      CH: ::String
+
+      SY: ::String
+
+      TW: ::String
+
+      TJ: ::String
+
+      TZ: ::String
+
+      TH: ::String
+
+      TL: ::String
+
+      TG: ::String
+
+      TK: ::String
+
+      TO: ::String
+
+      TT: ::String
+
+      TN: ::String
+
+      TR: ::String
+
+      TM: ::String
+
+      TC: ::String
+
+      TV: ::String
+
+      UG: ::String
+
+      UA: ::String
+
+      AE: ::String
+
+      GB: ::String
+
+      US: ::String
+
+      UM: ::String
+
+      UY: ::String
+
+      UZ: ::String
+
+      VU: ::String
+
+      VE: ::String
+
+      VN: ::String
+
+      VG: ::String
+
+      VI: ::String
+
+      WF: ::String
+
+      EH: ::String
+
+      YE: ::String
+
+      ZM: ::String
+
+      ZW: ::String
+
+      XK: ::String
+    end
+
+    CreateIPSetInput: untyped
+
+    CreateIPSetOutput: untyped
+
+    CreateRegexPatternSetInput: untyped
+
+    CreateRegexPatternSetOutput: untyped
+
+    CreateRuleGroupInput: untyped
+
+    CreateRuleGroupOutput: untyped
+
+    CreateWebACLInput: untyped
+
+    CreateWebACLOutput: untyped
+
+    CustomHTTPHeader: untyped
+
+    CustomRequestHandling: untyped
+
+    CustomResponse: untyped
+
+    CustomResponseBody: untyped
+
+    DefaultAction: untyped
+
+    DeleteFirewallManagerRuleGroupsInput: untyped
+
+    DeleteFirewallManagerRuleGroupsOutput: untyped
+
+    DeleteIPSetInput: untyped
+
+    DeleteIPSetOutput: untyped
+
+    DeleteLoggingConfigurationInput: untyped
+
+    DeleteLoggingConfigurationOutput: untyped
+
+    DeletePermissionPolicyInput: untyped
+
+    DeletePermissionPolicyOutput: untyped
+
+    DeleteRegexPatternSetInput: untyped
+
+    DeleteRegexPatternSetOutput: untyped
+
+    DeleteRuleGroupInput: untyped
+
+    DeleteRuleGroupOutput: untyped
+
+    DeleteWebACLInput: untyped
+
+    DeleteWebACLOutput: untyped
+
+    DescribeManagedRuleGroupInput: untyped
+
+    DescribeManagedRuleGroupOutput: untyped
+
+    DisassociateWebACLInput: untyped
+
+    DisassociateWebACLOutput: untyped
+
+    ExcludedRule: untyped
+
+    module FailureReason
+      TOKEN_MISSING: ::String
+
+      TOKEN_EXPIRED: ::String
+    end
+
+    module FallbackBehavior
+      MATCH: ::String
+
+      NO_MATCH: ::String
+    end
+
+    FieldToMatch: untyped
+
+    Filter: untyped
+
+    module FilterBehavior
+      KEEP: ::String
+
+      DROP: ::String
+    end
+
+    module FilterRequirement
+      MEETS_ALL: ::String
+
+      MEETS_ANY: ::String
+    end
+
+    FirewallManagerRuleGroup: untyped
+
+    FirewallManagerStatement: untyped
+
+    ForwardedIPConfig: untyped
+
+    module ForwardedIPPosition
+      FIRST: ::String
+
+      LAST: ::String
+
+      ANY: ::String
+    end
+
+    GenerateMobileSdkReleaseUrlInput: untyped
+
+    GenerateMobileSdkReleaseUrlOutput: untyped
+
+    GeoMatchStatement: untyped
+
+    GetIPSetInput: untyped
+
+    GetIPSetOutput: untyped
+
+    GetLoggingConfigurationInput: untyped
+
+    GetLoggingConfigurationOutput: untyped
+
+    GetManagedRuleSetInput: untyped
+
+    GetManagedRuleSetOutput: untyped
+
+    GetMobileSdkReleaseInput: untyped
+
+    GetMobileSdkReleaseOutput: untyped
+
+    GetPermissionPolicyInput: untyped
+
+    GetPermissionPolicyOutput: untyped
+
+    GetRateBasedStatementManagedKeysInput: untyped
+
+    GetRateBasedStatementManagedKeysOutput: untyped
+
+    GetRegexPatternSetInput: untyped
+
+    GetRegexPatternSetOutput: untyped
+
+    GetRuleGroupInput: untyped
+
+    GetRuleGroupOutput: untyped
+
+    GetSampledRequestsInput: untyped
+
+    GetSampledRequestsOutput: untyped
+
+    GetWebACLForResourceInput: untyped
+
+    GetWebACLForResourceOutput: untyped
+
+    GetWebACLInput: untyped
+
+    GetWebACLOutput: untyped
+
+    HTTPHeader: untyped
+
+    HTTPRequest: untyped
+
+    HeaderMatchPattern: untyped
+
+    Headers: untyped
+
+    module IPAddressVersion
+      IPV4: ::String
+
+      IPV6: ::String
+    end
+
+    IPSet: untyped
+
+    IPSetForwardedIPConfig: untyped
+
+    IPSetReferenceStatement: untyped
+
+    IPSetSummary: untyped
+
+    ImmunityTimeProperty: untyped
+
+    JsonBody: untyped
+
+    JsonMatchPattern: untyped
+
+    module JsonMatchScope
+      ALL: ::String
+
+      KEY: ::String
+
+      VALUE: ::String
+    end
+
+    Label: untyped
+
+    module LabelMatchScope
+      LABEL: ::String
+
+      NAMESPACE: ::String
+    end
+
+    LabelMatchStatement: untyped
+
+    LabelNameCondition: untyped
+
+    LabelSummary: untyped
+
+    ListAvailableManagedRuleGroupVersionsInput: untyped
+
+    ListAvailableManagedRuleGroupVersionsOutput: untyped
+
+    ListAvailableManagedRuleGroupsInput: untyped
+
+    ListAvailableManagedRuleGroupsOutput: untyped
+
+    ListIPSetsInput: untyped
+
+    ListIPSetsOutput: untyped
+
+    ListLoggingConfigurationsInput: untyped
+
+    ListLoggingConfigurationsOutput: untyped
+
+    ListManagedRuleSetsInput: untyped
+
+    ListManagedRuleSetsOutput: untyped
+
+    ListMobileSdkReleasesInput: untyped
+
+    ListMobileSdkReleasesOutput: untyped
+
+    ListRegexPatternSetsInput: untyped
+
+    ListRegexPatternSetsOutput: untyped
+
+    ListResourcesForWebACLInput: untyped
+
+    ListResourcesForWebACLOutput: untyped
+
+    ListRuleGroupsInput: untyped
+
+    ListRuleGroupsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWebACLsInput: untyped
+
+    ListWebACLsOutput: untyped
+
+    LoggingConfiguration: untyped
+
+    LoggingFilter: untyped
+
+    ManagedRuleGroupConfig: untyped
+
+    ManagedRuleGroupStatement: untyped
+
+    ManagedRuleGroupSummary: untyped
+
+    ManagedRuleGroupVersion: untyped
+
+    ManagedRuleSet: untyped
+
+    ManagedRuleSetSummary: untyped
+
+    ManagedRuleSetVersion: untyped
+
+    module MapMatchScope
+      ALL: ::String
+
+      KEY: ::String
+
+      VALUE: ::String
+    end
+
+    Method: untyped
+
+    MobileSdkRelease: untyped
+
+    NoneAction: untyped
+
+    NotStatement: untyped
+
+    OrStatement: untyped
+
+    OverrideAction: untyped
+
+    module OversizeHandling
+      CONTINUE: ::String
+
+      MATCH: ::String
+
+      NO_MATCH: ::String
+    end
+
+    module ParameterExceptionField
+      WEB_ACL: ::String
+
+      RULE_GROUP: ::String
+
+      REGEX_PATTERN_SET: ::String
+
+      IP_SET: ::String
+
+      MANAGED_RULE_SET: ::String
+
+      RULE: ::String
+
+      EXCLUDED_RULE: ::String
+
+      STATEMENT: ::String
+
+      BYTE_MATCH_STATEMENT: ::String
+
+      SQLI_MATCH_STATEMENT: ::String
+
+      XSS_MATCH_STATEMENT: ::String
+
+      SIZE_CONSTRAINT_STATEMENT: ::String
+
+      GEO_MATCH_STATEMENT: ::String
+
+      RATE_BASED_STATEMENT: ::String
+
+      RULE_GROUP_REFERENCE_STATEMENT: ::String
+
+      REGEX_PATTERN_REFERENCE_STATEMENT: ::String
+
+      IP_SET_REFERENCE_STATEMENT: ::String
+
+      MANAGED_RULE_SET_STATEMENT: ::String
+
+      LABEL_MATCH_STATEMENT: ::String
+
+      AND_STATEMENT: ::String
+
+      OR_STATEMENT: ::String
+
+      NOT_STATEMENT: ::String
+
+      IP_ADDRESS: ::String
+
+      IP_ADDRESS_VERSION: ::String
+
+      FIELD_TO_MATCH: ::String
+
+      TEXT_TRANSFORMATION: ::String
+
+      SINGLE_QUERY_ARGUMENT: ::String
+
+      SINGLE_HEADER: ::String
+
+      DEFAULT_ACTION: ::String
+
+      RULE_ACTION: ::String
+
+      ENTITY_LIMIT: ::String
+
+      OVERRIDE_ACTION: ::String
+
+      SCOPE_VALUE: ::String
+
+      RESOURCE_ARN: ::String
+
+      RESOURCE_TYPE: ::String
+
+      TAGS: ::String
+
+      TAG_KEYS: ::String
+
+      METRIC_NAME: ::String
+
+      FIREWALL_MANAGER_STATEMENT: ::String
+
+      FALLBACK_BEHAVIOR: ::String
+
+      POSITION: ::String
+
+      FORWARDED_IP_CONFIG: ::String
+
+      IP_SET_FORWARDED_IP_CONFIG: ::String
+
+      HEADER_NAME: ::String
+
+      CUSTOM_REQUEST_HANDLING: ::String
+
+      RESPONSE_CONTENT_TYPE: ::String
+
+      CUSTOM_RESPONSE: ::String
+
+      CUSTOM_RESPONSE_BODY: ::String
+
+      JSON_MATCH_PATTERN: ::String
+
+      JSON_MATCH_SCOPE: ::String
+
+      BODY_PARSING_FALLBACK_BEHAVIOR: ::String
+
+      LOGGING_FILTER: ::String
+
+      FILTER_CONDITION: ::String
+
+      EXPIRE_TIMESTAMP: ::String
+
+      CHANGE_PROPAGATION_STATUS: ::String
+
+      ASSOCIABLE_RESOURCE: ::String
+
+      LOG_DESTINATION: ::String
+
+      MANAGED_RULE_GROUP_CONFIG: ::String
+
+      PAYLOAD_TYPE: ::String
+
+      HEADER_MATCH_PATTERN: ::String
+
+      COOKIE_MATCH_PATTERN: ::String
+
+      MAP_MATCH_SCOPE: ::String
+
+      OVERSIZE_HANDLING: ::String
+    end
+
+    PasswordField: untyped
+
+    module PayloadType
+      JSON: ::String
+
+      FORM_ENCODED: ::String
+    end
+
+    module Platform
+      IOS: ::String
+
+      ANDROID: ::String
+    end
+
+    module PositionalConstraint
+      EXACTLY: ::String
+
+      STARTS_WITH: ::String
+
+      ENDS_WITH: ::String
+
+      CONTAINS: ::String
+
+      CONTAINS_WORD: ::String
+    end
+
+    PutLoggingConfigurationInput: untyped
+
+    PutLoggingConfigurationOutput: untyped
+
+    PutManagedRuleSetVersionsInput: untyped
+
+    PutManagedRuleSetVersionsOutput: untyped
+
+    PutPermissionPolicyInput: untyped
+
+    PutPermissionPolicyOutput: untyped
+
+    QueryString: untyped
+
+    RateBasedStatement: untyped
+
+    module RateBasedStatementAggregateKeyType
+      IP: ::String
+
+      FORWARDED_IP: ::String
+    end
+
+    RateBasedStatementManagedKeysIPSet: untyped
+
+    Regex: untyped
+
+    RegexMatchStatement: untyped
+
+    RegexPatternSet: untyped
+
+    RegexPatternSetReferenceStatement: untyped
+
+    RegexPatternSetSummary: untyped
+
+    ReleaseSummary: untyped
+
+    module ResourceType
+      APPLICATION_LOAD_BALANCER: ::String
+
+      API_GATEWAY: ::String
+
+      APPSYNC: ::String
+    end
+
+    module ResponseContentType
+      TEXT_PLAIN: ::String
+
+      TEXT_HTML: ::String
+
+      APPLICATION_JSON: ::String
+    end
+
+    Rule: untyped
+
+    RuleAction: untyped
+
+    RuleGroup: untyped
+
+    RuleGroupReferenceStatement: untyped
+
+    RuleGroupSummary: untyped
+
+    RuleSummary: untyped
+
+    SampledHTTPRequest: untyped
+
+    module Scope
+      CLOUDFRONT: ::String
+
+      REGIONAL: ::String
+    end
+
+    SingleHeader: untyped
+
+    SingleQueryArgument: untyped
+
+    SizeConstraintStatement: untyped
+
+    SqliMatchStatement: untyped
+
+    Statement: untyped
+
+    Tag: untyped
+
+    TagInfoForResource: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TextTransformation: untyped
+
+    module TextTransformationType
+      NONE: ::String
+
+      COMPRESS_WHITE_SPACE: ::String
+
+      HTML_ENTITY_DECODE: ::String
+
+      LOWERCASE: ::String
+
+      CMD_LINE: ::String
+
+      URL_DECODE: ::String
+
+      BASE64_DECODE: ::String
+
+      HEX_DECODE: ::String
+
+      MD5: ::String
+
+      REPLACE_COMMENTS: ::String
+
+      ESCAPE_SEQ_DECODE: ::String
+
+      SQL_HEX_DECODE: ::String
+
+      CSS_DECODE: ::String
+
+      JS_DECODE: ::String
+
+      NORMALIZE_PATH: ::String
+
+      NORMALIZE_PATH_WIN: ::String
+
+      REMOVE_NULLS: ::String
+
+      REPLACE_NULLS: ::String
+
+      BASE64_DECODE_EXT: ::String
+
+      URL_DECODE_UNI: ::String
+
+      UTF8_TO_UNICODE: ::String
+    end
+
+    TimeWindow: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateIPSetInput: untyped
+
+    UpdateIPSetOutput: untyped
+
+    UpdateManagedRuleSetVersionExpiryDateInput: untyped
+
+    UpdateManagedRuleSetVersionExpiryDateOutput: untyped
+
+    UpdateRegexPatternSetInput: untyped
+
+    UpdateRegexPatternSetOutput: untyped
+
+    UpdateRuleGroupInput: untyped
+
+    UpdateRuleGroupOutput: untyped
+
+    UpdateWebACLInput: untyped
+
+    UpdateWebACLOutput: untyped
+
+    UriPath: untyped
+
+    UsernameField: untyped
+
+    VersionToPublish: untyped
+
+    VisibilityConfig: untyped
+
+    WAFAssociatedItemException: untyped
+
+    WAFConfigurationWarningException: untyped
+
+    WAFDuplicateItemException: untyped
+
+    WAFExpiredManagedRuleGroupVersionException: untyped
+
+    WAFInternalErrorException: untyped
+
+    WAFInvalidOperationException: untyped
+
+    WAFInvalidParameterException: untyped
+
+    WAFInvalidPermissionPolicyException: untyped
+
+    WAFInvalidResourceException: untyped
+
+    WAFLimitsExceededException: untyped
+
+    WAFLogDestinationPermissionIssueException: untyped
+
+    WAFNonexistentItemException: untyped
+
+    WAFOptimisticLockException: untyped
+
+    WAFServiceLinkedRoleErrorException: untyped
+
+    WAFSubscriptionNotFoundException: untyped
+
+    WAFTagOperationException: untyped
+
+    WAFTagOperationInternalErrorException: untyped
+
+    WAFUnavailableEntityException: untyped
+
+    WebACL: untyped
+
+    WebACLSummary: untyped
+
+    XssMatchStatement: untyped
+
+  end
+end

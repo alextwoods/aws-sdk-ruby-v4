@@ -1,0 +1,3 @@
+module AWS::SDK::CodePipeline
+  Config: untyped
+end

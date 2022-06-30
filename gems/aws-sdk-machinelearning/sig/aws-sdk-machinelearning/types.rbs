@@ -1,0 +1,304 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MachineLearning
+  module Types
+
+    AddTagsInput: untyped
+
+    AddTagsOutput: untyped
+
+    module Algorithm
+      SGD: ::String
+    end
+
+    BatchPrediction: untyped
+
+    module BatchPredictionFilterVariable
+      CREATED_AT: ::String
+
+      LAST_UPDATED_AT: ::String
+
+      STATUS: ::String
+
+      NAME: ::String
+
+      IAM_USER: ::String
+
+      ML_MODEL_ID: ::String
+
+      DATASOURCE_ID: ::String
+
+      DATA_URI: ::String
+    end
+
+    CreateBatchPredictionInput: untyped
+
+    CreateBatchPredictionOutput: untyped
+
+    CreateDataSourceFromRDSInput: untyped
+
+    CreateDataSourceFromRDSOutput: untyped
+
+    CreateDataSourceFromRedshiftInput: untyped
+
+    CreateDataSourceFromRedshiftOutput: untyped
+
+    CreateDataSourceFromS3Input: untyped
+
+    CreateDataSourceFromS3Output: untyped
+
+    CreateEvaluationInput: untyped
+
+    CreateEvaluationOutput: untyped
+
+    CreateMLModelInput: untyped
+
+    CreateMLModelOutput: untyped
+
+    CreateRealtimeEndpointInput: untyped
+
+    CreateRealtimeEndpointOutput: untyped
+
+    DataSource: untyped
+
+    module DataSourceFilterVariable
+      CREATED_AT: ::String
+
+      LAST_UPDATED_AT: ::String
+
+      STATUS: ::String
+
+      NAME: ::String
+
+      DATA_URI: ::String
+
+      IAM_USER: ::String
+    end
+
+    DeleteBatchPredictionInput: untyped
+
+    DeleteBatchPredictionOutput: untyped
+
+    DeleteDataSourceInput: untyped
+
+    DeleteDataSourceOutput: untyped
+
+    DeleteEvaluationInput: untyped
+
+    DeleteEvaluationOutput: untyped
+
+    DeleteMLModelInput: untyped
+
+    DeleteMLModelOutput: untyped
+
+    DeleteRealtimeEndpointInput: untyped
+
+    DeleteRealtimeEndpointOutput: untyped
+
+    DeleteTagsInput: untyped
+
+    DeleteTagsOutput: untyped
+
+    DescribeBatchPredictionsInput: untyped
+
+    DescribeBatchPredictionsOutput: untyped
+
+    DescribeDataSourcesInput: untyped
+
+    DescribeDataSourcesOutput: untyped
+
+    DescribeEvaluationsInput: untyped
+
+    DescribeEvaluationsOutput: untyped
+
+    DescribeMLModelsInput: untyped
+
+    DescribeMLModelsOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    module DetailsAttributes
+      PREDICTIVE_MODEL_TYPE: ::String
+
+      ALGORITHM: ::String
+    end
+
+    module EntityStatus
+      PENDING: ::String
+
+      INPROGRESS: ::String
+
+      FAILED: ::String
+
+      COMPLETED: ::String
+
+      DELETED: ::String
+    end
+
+    Evaluation: untyped
+
+    module EvaluationFilterVariable
+      CREATED_AT: ::String
+
+      LAST_UPDATED_AT: ::String
+
+      STATUS: ::String
+
+      NAME: ::String
+
+      IAM_USER: ::String
+
+      ML_MODEL_ID: ::String
+
+      DATASOURCE_ID: ::String
+
+      DATA_URI: ::String
+    end
+
+    GetBatchPredictionInput: untyped
+
+    GetBatchPredictionOutput: untyped
+
+    GetDataSourceInput: untyped
+
+    GetDataSourceOutput: untyped
+
+    GetEvaluationInput: untyped
+
+    GetEvaluationOutput: untyped
+
+    GetMLModelInput: untyped
+
+    GetMLModelOutput: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    InternalServerException: untyped
+
+    InvalidInputException: untyped
+
+    InvalidTagException: untyped
+
+    LimitExceededException: untyped
+
+    MLModel: untyped
+
+    module MLModelFilterVariable
+      CREATED_AT: ::String
+
+      LAST_UPDATED_AT: ::String
+
+      STATUS: ::String
+
+      NAME: ::String
+
+      IAM_USER: ::String
+
+      TRAINING_DATASOURCE_ID: ::String
+
+      REAL_TIME_ENDPOINT_STATUS: ::String
+
+      ML_MODEL_TYPE: ::String
+
+      ALGORITHM: ::String
+
+      TRAINING_DATA_URI: ::String
+    end
+
+    module MLModelType
+      REGRESSION: ::String
+
+      BINARY: ::String
+
+      MULTICLASS: ::String
+    end
+
+    PerformanceMetrics: untyped
+
+    PredictInput: untyped
+
+    PredictOutput: untyped
+
+    Prediction: untyped
+
+    PredictorNotMountedException: untyped
+
+    RDSDataSpec: untyped
+
+    RDSDatabase: untyped
+
+    RDSDatabaseCredentials: untyped
+
+    RDSMetadata: untyped
+
+    RealtimeEndpointInfo: untyped
+
+    module RealtimeEndpointStatus
+      NONE: ::String
+
+      READY: ::String
+
+      UPDATING: ::String
+
+      FAILED: ::String
+    end
+
+    RedshiftDataSpec: untyped
+
+    RedshiftDatabase: untyped
+
+    RedshiftDatabaseCredentials: untyped
+
+    RedshiftMetadata: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3DataSpec: untyped
+
+    module SortOrder
+      ASC: ::String
+
+      DSC: ::String
+    end
+
+    Tag: untyped
+
+    TagLimitExceededException: untyped
+
+    module TaggableResourceType
+      BATCH_PREDICTION: ::String
+
+      DATASOURCE: ::String
+
+      EVALUATION: ::String
+
+      ML_MODEL: ::String
+    end
+
+    UpdateBatchPredictionInput: untyped
+
+    UpdateBatchPredictionOutput: untyped
+
+    UpdateDataSourceInput: untyped
+
+    UpdateDataSourceOutput: untyped
+
+    UpdateEvaluationInput: untyped
+
+    UpdateEvaluationOutput: untyped
+
+    UpdateMLModelInput: untyped
+
+    UpdateMLModelOutput: untyped
+
+  end
+end

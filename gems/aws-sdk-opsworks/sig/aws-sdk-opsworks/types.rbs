@@ -1,0 +1,774 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::OpsWorks
+  module Types
+
+    AgentVersion: untyped
+
+    App: untyped
+
+    module AppAttributesKeys
+      DocumentRoot: ::String
+
+      RailsEnv: ::String
+
+      AutoBundleOnDeploy: ::String
+
+      AwsFlowRubySettings: ::String
+    end
+
+    module AppType
+      aws_flow_ruby: ::String
+
+      java: ::String
+
+      rails: ::String
+
+      php: ::String
+
+      nodejs: ::String
+
+      static: ::String
+
+      other: ::String
+    end
+
+    module Architecture
+      x86_64: ::String
+
+      i386: ::String
+    end
+
+    AssignInstanceInput: untyped
+
+    AssignInstanceOutput: untyped
+
+    AssignVolumeInput: untyped
+
+    AssignVolumeOutput: untyped
+
+    AssociateElasticIpInput: untyped
+
+    AssociateElasticIpOutput: untyped
+
+    AttachElasticLoadBalancerInput: untyped
+
+    AttachElasticLoadBalancerOutput: untyped
+
+    AutoScalingThresholds: untyped
+
+    module AutoScalingType
+      load: ::String
+
+      timer: ::String
+    end
+
+    BlockDeviceMapping: untyped
+
+    ChefConfiguration: untyped
+
+    CloneStackInput: untyped
+
+    CloneStackOutput: untyped
+
+    CloudWatchLogsConfiguration: untyped
+
+    module CloudWatchLogsEncoding
+      ascii: ::String
+
+      big5: ::String
+
+      big5hkscs: ::String
+
+      cp037: ::String
+
+      cp424: ::String
+
+      cp437: ::String
+
+      cp500: ::String
+
+      cp720: ::String
+
+      cp737: ::String
+
+      cp775: ::String
+
+      cp850: ::String
+
+      cp852: ::String
+
+      cp855: ::String
+
+      cp856: ::String
+
+      cp857: ::String
+
+      cp858: ::String
+
+      cp860: ::String
+
+      cp861: ::String
+
+      cp862: ::String
+
+      cp863: ::String
+
+      cp864: ::String
+
+      cp865: ::String
+
+      cp866: ::String
+
+      cp869: ::String
+
+      cp874: ::String
+
+      cp875: ::String
+
+      cp932: ::String
+
+      cp949: ::String
+
+      cp950: ::String
+
+      cp1006: ::String
+
+      cp1026: ::String
+
+      cp1140: ::String
+
+      cp1250: ::String
+
+      cp1251: ::String
+
+      cp1252: ::String
+
+      cp1253: ::String
+
+      cp1254: ::String
+
+      cp1255: ::String
+
+      cp1256: ::String
+
+      cp1257: ::String
+
+      cp1258: ::String
+
+      euc_jp: ::String
+
+      euc_jis_2004: ::String
+
+      euc_jisx0213: ::String
+
+      euc_kr: ::String
+
+      gb2312: ::String
+
+      gbk: ::String
+
+      gb18030: ::String
+
+      hz: ::String
+
+      iso2022_jp: ::String
+
+      iso2022_jp_1: ::String
+
+      iso2022_jp_2: ::String
+
+      iso2022_jp_2004: ::String
+
+      iso2022_jp_3: ::String
+
+      iso2022_jp_ext: ::String
+
+      iso2022_kr: ::String
+
+      latin_1: ::String
+
+      iso8859_2: ::String
+
+      iso8859_3: ::String
+
+      iso8859_4: ::String
+
+      iso8859_5: ::String
+
+      iso8859_6: ::String
+
+      iso8859_7: ::String
+
+      iso8859_8: ::String
+
+      iso8859_9: ::String
+
+      iso8859_10: ::String
+
+      iso8859_13: ::String
+
+      iso8859_14: ::String
+
+      iso8859_15: ::String
+
+      iso8859_16: ::String
+
+      johab: ::String
+
+      koi8_r: ::String
+
+      koi8_u: ::String
+
+      mac_cyrillic: ::String
+
+      mac_greek: ::String
+
+      mac_iceland: ::String
+
+      mac_latin2: ::String
+
+      mac_roman: ::String
+
+      mac_turkish: ::String
+
+      ptcp154: ::String
+
+      shift_jis: ::String
+
+      shift_jis_2004: ::String
+
+      shift_jisx0213: ::String
+
+      utf_32: ::String
+
+      utf_32_be: ::String
+
+      utf_32_le: ::String
+
+      utf_16: ::String
+
+      utf_16_be: ::String
+
+      utf_16_le: ::String
+
+      utf_7: ::String
+
+      utf_8: ::String
+
+      utf_8_sig: ::String
+    end
+
+    module CloudWatchLogsInitialPosition
+      start_of_file: ::String
+
+      end_of_file: ::String
+    end
+
+    CloudWatchLogsLogStream: untyped
+
+    module CloudWatchLogsTimeZone
+      LOCAL: ::String
+
+      UTC: ::String
+    end
+
+    Command: untyped
+
+    CreateAppInput: untyped
+
+    CreateAppOutput: untyped
+
+    CreateDeploymentInput: untyped
+
+    CreateDeploymentOutput: untyped
+
+    CreateInstanceInput: untyped
+
+    CreateInstanceOutput: untyped
+
+    CreateLayerInput: untyped
+
+    CreateLayerOutput: untyped
+
+    CreateStackInput: untyped
+
+    CreateStackOutput: untyped
+
+    CreateUserProfileInput: untyped
+
+    CreateUserProfileOutput: untyped
+
+    DataSource: untyped
+
+    DeleteAppInput: untyped
+
+    DeleteAppOutput: untyped
+
+    DeleteInstanceInput: untyped
+
+    DeleteInstanceOutput: untyped
+
+    DeleteLayerInput: untyped
+
+    DeleteLayerOutput: untyped
+
+    DeleteStackInput: untyped
+
+    DeleteStackOutput: untyped
+
+    DeleteUserProfileInput: untyped
+
+    DeleteUserProfileOutput: untyped
+
+    Deployment: untyped
+
+    DeploymentCommand: untyped
+
+    module DeploymentCommandName
+      install_dependencies: ::String
+
+      update_dependencies: ::String
+
+      update_custom_cookbooks: ::String
+
+      execute_recipes: ::String
+
+      configure: ::String
+
+      setup: ::String
+
+      deploy: ::String
+
+      rollback: ::String
+
+      start: ::String
+
+      stop: ::String
+
+      restart: ::String
+
+      undeploy: ::String
+    end
+
+    DeregisterEcsClusterInput: untyped
+
+    DeregisterEcsClusterOutput: untyped
+
+    DeregisterElasticIpInput: untyped
+
+    DeregisterElasticIpOutput: untyped
+
+    DeregisterInstanceInput: untyped
+
+    DeregisterInstanceOutput: untyped
+
+    DeregisterRdsDbInstanceInput: untyped
+
+    DeregisterRdsDbInstanceOutput: untyped
+
+    DeregisterVolumeInput: untyped
+
+    DeregisterVolumeOutput: untyped
+
+    DescribeAgentVersionsInput: untyped
+
+    DescribeAgentVersionsOutput: untyped
+
+    DescribeAppsInput: untyped
+
+    DescribeAppsOutput: untyped
+
+    DescribeCommandsInput: untyped
+
+    DescribeCommandsOutput: untyped
+
+    DescribeDeploymentsInput: untyped
+
+    DescribeDeploymentsOutput: untyped
+
+    DescribeEcsClustersInput: untyped
+
+    DescribeEcsClustersOutput: untyped
+
+    DescribeElasticIpsInput: untyped
+
+    DescribeElasticIpsOutput: untyped
+
+    DescribeElasticLoadBalancersInput: untyped
+
+    DescribeElasticLoadBalancersOutput: untyped
+
+    DescribeInstancesInput: untyped
+
+    DescribeInstancesOutput: untyped
+
+    DescribeLayersInput: untyped
+
+    DescribeLayersOutput: untyped
+
+    DescribeLoadBasedAutoScalingInput: untyped
+
+    DescribeLoadBasedAutoScalingOutput: untyped
+
+    DescribeMyUserProfileInput: untyped
+
+    DescribeMyUserProfileOutput: untyped
+
+    DescribeOperatingSystemsInput: untyped
+
+    DescribeOperatingSystemsOutput: untyped
+
+    DescribePermissionsInput: untyped
+
+    DescribePermissionsOutput: untyped
+
+    DescribeRaidArraysInput: untyped
+
+    DescribeRaidArraysOutput: untyped
+
+    DescribeRdsDbInstancesInput: untyped
+
+    DescribeRdsDbInstancesOutput: untyped
+
+    DescribeServiceErrorsInput: untyped
+
+    DescribeServiceErrorsOutput: untyped
+
+    DescribeStackProvisioningParametersInput: untyped
+
+    DescribeStackProvisioningParametersOutput: untyped
+
+    DescribeStackSummaryInput: untyped
+
+    DescribeStackSummaryOutput: untyped
+
+    DescribeStacksInput: untyped
+
+    DescribeStacksOutput: untyped
+
+    DescribeTimeBasedAutoScalingInput: untyped
+
+    DescribeTimeBasedAutoScalingOutput: untyped
+
+    DescribeUserProfilesInput: untyped
+
+    DescribeUserProfilesOutput: untyped
+
+    DescribeVolumesInput: untyped
+
+    DescribeVolumesOutput: untyped
+
+    DetachElasticLoadBalancerInput: untyped
+
+    DetachElasticLoadBalancerOutput: untyped
+
+    DisassociateElasticIpInput: untyped
+
+    DisassociateElasticIpOutput: untyped
+
+    EbsBlockDevice: untyped
+
+    EcsCluster: untyped
+
+    ElasticIp: untyped
+
+    ElasticLoadBalancer: untyped
+
+    EnvironmentVariable: untyped
+
+    GetHostnameSuggestionInput: untyped
+
+    GetHostnameSuggestionOutput: untyped
+
+    GrantAccessInput: untyped
+
+    GrantAccessOutput: untyped
+
+    Instance: untyped
+
+    InstanceIdentity: untyped
+
+    InstancesCount: untyped
+
+    Layer: untyped
+
+    module LayerAttributesKeys
+      EcsClusterArn: ::String
+
+      EnableHaproxyStats: ::String
+
+      HaproxyStatsUrl: ::String
+
+      HaproxyStatsUser: ::String
+
+      HaproxyStatsPassword: ::String
+
+      HaproxyHealthCheckUrl: ::String
+
+      HaproxyHealthCheckMethod: ::String
+
+      MysqlRootPassword: ::String
+
+      MysqlRootPasswordUbiquitous: ::String
+
+      GangliaUrl: ::String
+
+      GangliaUser: ::String
+
+      GangliaPassword: ::String
+
+      MemcachedMemory: ::String
+
+      NodejsVersion: ::String
+
+      RubyVersion: ::String
+
+      RubygemsVersion: ::String
+
+      ManageBundler: ::String
+
+      BundlerVersion: ::String
+
+      RailsStack: ::String
+
+      PassengerVersion: ::String
+
+      Jvm: ::String
+
+      JvmVersion: ::String
+
+      JvmOptions: ::String
+
+      JavaAppServer: ::String
+
+      JavaAppServerVersion: ::String
+    end
+
+    module LayerType
+      aws_flow_ruby: ::String
+
+      ecs_cluster: ::String
+
+      java_app: ::String
+
+      lb: ::String
+
+      web: ::String
+
+      php_app: ::String
+
+      rails_app: ::String
+
+      nodejs_app: ::String
+
+      memcached: ::String
+
+      db_master: ::String
+
+      monitoring_master: ::String
+
+      custom: ::String
+    end
+
+    LifecycleEventConfiguration: untyped
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    LoadBasedAutoScalingConfiguration: untyped
+
+    OperatingSystem: untyped
+
+    OperatingSystemConfigurationManager: untyped
+
+    Permission: untyped
+
+    RaidArray: untyped
+
+    RdsDbInstance: untyped
+
+    RebootInstanceInput: untyped
+
+    RebootInstanceOutput: untyped
+
+    Recipes: untyped
+
+    RegisterEcsClusterInput: untyped
+
+    RegisterEcsClusterOutput: untyped
+
+    RegisterElasticIpInput: untyped
+
+    RegisterElasticIpOutput: untyped
+
+    RegisterInstanceInput: untyped
+
+    RegisterInstanceOutput: untyped
+
+    RegisterRdsDbInstanceInput: untyped
+
+    RegisterRdsDbInstanceOutput: untyped
+
+    RegisterVolumeInput: untyped
+
+    RegisterVolumeOutput: untyped
+
+    ReportedOs: untyped
+
+    ResourceNotFoundException: untyped
+
+    module RootDeviceType
+      ebs: ::String
+
+      instance_store: ::String
+    end
+
+    SelfUserProfile: untyped
+
+    ServiceError: untyped
+
+    SetLoadBasedAutoScalingInput: untyped
+
+    SetLoadBasedAutoScalingOutput: untyped
+
+    SetPermissionInput: untyped
+
+    SetPermissionOutput: untyped
+
+    SetTimeBasedAutoScalingInput: untyped
+
+    SetTimeBasedAutoScalingOutput: untyped
+
+    ShutdownEventConfiguration: untyped
+
+    Source: untyped
+
+    module SourceType
+      git: ::String
+
+      svn: ::String
+
+      archive: ::String
+
+      s3: ::String
+    end
+
+    SslConfiguration: untyped
+
+    Stack: untyped
+
+    module StackAttributesKeys
+      Color: ::String
+    end
+
+    StackConfigurationManager: untyped
+
+    StackSummary: untyped
+
+    StartInstanceInput: untyped
+
+    StartInstanceOutput: untyped
+
+    StartStackInput: untyped
+
+    StartStackOutput: untyped
+
+    StopInstanceInput: untyped
+
+    StopInstanceOutput: untyped
+
+    StopStackInput: untyped
+
+    StopStackOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TemporaryCredential: untyped
+
+    TimeBasedAutoScalingConfiguration: untyped
+
+    UnassignInstanceInput: untyped
+
+    UnassignInstanceOutput: untyped
+
+    UnassignVolumeInput: untyped
+
+    UnassignVolumeOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAppInput: untyped
+
+    UpdateAppOutput: untyped
+
+    UpdateElasticIpInput: untyped
+
+    UpdateElasticIpOutput: untyped
+
+    UpdateInstanceInput: untyped
+
+    UpdateInstanceOutput: untyped
+
+    UpdateLayerInput: untyped
+
+    UpdateLayerOutput: untyped
+
+    UpdateMyUserProfileInput: untyped
+
+    UpdateMyUserProfileOutput: untyped
+
+    UpdateRdsDbInstanceInput: untyped
+
+    UpdateRdsDbInstanceOutput: untyped
+
+    UpdateStackInput: untyped
+
+    UpdateStackOutput: untyped
+
+    UpdateUserProfileInput: untyped
+
+    UpdateUserProfileOutput: untyped
+
+    UpdateVolumeInput: untyped
+
+    UpdateVolumeOutput: untyped
+
+    UserProfile: untyped
+
+    ValidationException: untyped
+
+    module VirtualizationType
+      paravirtual: ::String
+
+      hvm: ::String
+    end
+
+    Volume: untyped
+
+    VolumeConfiguration: untyped
+
+    module VolumeType
+      gp2: ::String
+
+      io1: ::String
+
+      standard: ::String
+    end
+
+    WeeklyAutoScalingSchedule: untyped
+
+  end
+end

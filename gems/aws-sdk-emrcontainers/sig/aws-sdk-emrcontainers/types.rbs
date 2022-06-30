@@ -1,0 +1,174 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::EMRContainers
+  module Types
+
+    CancelJobRunInput: untyped
+
+    CancelJobRunOutput: untyped
+
+    Certificate: untyped
+
+    CloudWatchMonitoringConfiguration: untyped
+
+    Configuration: untyped
+
+    ConfigurationOverrides: untyped
+
+    class ContainerInfo < Hearth::Union
+      class EksInfo < ContainerInfo
+        def to_h: () -> { eks_info: Hash[Symbol,ContainerInfo] }
+      end
+
+      class Unknown < ContainerInfo
+        def to_h: () -> { unknown: Hash[Symbol,ContainerInfo] }
+      end
+    end
+
+    ContainerProvider: untyped
+
+    module ContainerProviderType
+      EKS: ::String
+    end
+
+    CreateManagedEndpointInput: untyped
+
+    CreateManagedEndpointOutput: untyped
+
+    CreateVirtualClusterInput: untyped
+
+    CreateVirtualClusterOutput: untyped
+
+    DeleteManagedEndpointInput: untyped
+
+    DeleteManagedEndpointOutput: untyped
+
+    DeleteVirtualClusterInput: untyped
+
+    DeleteVirtualClusterOutput: untyped
+
+    DescribeJobRunInput: untyped
+
+    DescribeJobRunOutput: untyped
+
+    DescribeManagedEndpointInput: untyped
+
+    DescribeManagedEndpointOutput: untyped
+
+    DescribeVirtualClusterInput: untyped
+
+    DescribeVirtualClusterOutput: untyped
+
+    EksInfo: untyped
+
+    Endpoint: untyped
+
+    module EndpointState
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      TERMINATING: ::String
+
+      TERMINATED: ::String
+
+      TERMINATED_WITH_ERRORS: ::String
+    end
+
+    module FailureReason
+      INTERNAL_ERROR: ::String
+
+      USER_ERROR: ::String
+
+      VALIDATION_ERROR: ::String
+
+      CLUSTER_UNAVAILABLE: ::String
+    end
+
+    InternalServerException: untyped
+
+    JobDriver: untyped
+
+    JobRun: untyped
+
+    module JobRunState
+      PENDING: ::String
+
+      SUBMITTED: ::String
+
+      RUNNING: ::String
+
+      FAILED: ::String
+
+      CANCELLED: ::String
+
+      CANCEL_PENDING: ::String
+
+      COMPLETED: ::String
+    end
+
+    ListJobRunsInput: untyped
+
+    ListJobRunsOutput: untyped
+
+    ListManagedEndpointsInput: untyped
+
+    ListManagedEndpointsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListVirtualClustersInput: untyped
+
+    ListVirtualClustersOutput: untyped
+
+    MonitoringConfiguration: untyped
+
+    module PersistentAppUI
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    S3MonitoringConfiguration: untyped
+
+    SparkSubmitJobDriver: untyped
+
+    StartJobRunInput: untyped
+
+    StartJobRunOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+    VirtualCluster: untyped
+
+    module VirtualClusterState
+      RUNNING: ::String
+
+      TERMINATING: ::String
+
+      TERMINATED: ::String
+
+      ARRESTED: ::String
+    end
+
+  end
+end

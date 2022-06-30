@@ -1,0 +1,3 @@
+module AWS::SDK::LicenseManager
+  Config: untyped
+end

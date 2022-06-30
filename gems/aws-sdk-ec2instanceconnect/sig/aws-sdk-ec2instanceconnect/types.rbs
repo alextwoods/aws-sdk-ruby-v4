@@ -1,0 +1,42 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::EC2InstanceConnect
+  module Types
+
+    AuthException: untyped
+
+    EC2InstanceNotFoundException: untyped
+
+    EC2InstanceStateInvalidException: untyped
+
+    EC2InstanceTypeInvalidException: untyped
+
+    InvalidArgsException: untyped
+
+    SendSSHPublicKeyInput: untyped
+
+    SendSSHPublicKeyOutput: untyped
+
+    SendSerialConsoleSSHPublicKeyInput: untyped
+
+    SendSerialConsoleSSHPublicKeyOutput: untyped
+
+    SerialConsoleAccessDisabledException: untyped
+
+    SerialConsoleSessionLimitExceededException: untyped
+
+    SerialConsoleSessionUnavailableException: untyped
+
+    ServiceException: untyped
+
+    ThrottlingException: untyped
+
+  end
+end

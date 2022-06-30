@@ -1,0 +1,562 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MigrationHubStrategy
+  module Types
+
+    AccessDeniedException: untyped
+
+    module AntipatternReportStatus
+      FAILED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCESS: ::String
+    end
+
+    AntipatternSeveritySummary: untyped
+
+    module AppType
+      dotNetFramework: ::String
+
+      java: ::String
+
+      sqlServer: ::String
+
+      IIS: ::String
+
+      oracle: ::String
+
+      other: ::String
+    end
+
+    module ApplicationComponentCriteria
+      NOT_DEFINED: ::String
+
+      APP_NAME: ::String
+
+      SERVER_ID: ::String
+
+      APP_TYPE: ::String
+
+      STRATEGY: ::String
+
+      DESTINATION: ::String
+    end
+
+    ApplicationComponentDetail: untyped
+
+    ApplicationComponentStrategy: untyped
+
+    ApplicationComponentSummary: untyped
+
+    ApplicationPreferences: untyped
+
+    module AssessmentStatus
+      IN_PROGRESS: ::String
+
+      COMPLETE: ::String
+
+      FAILED: ::String
+
+      STOPPED: ::String
+    end
+
+    AssessmentSummary: untyped
+
+    AssociatedApplication: untyped
+
+    AwsManagedResources: untyped
+
+    module AwsManagedTargetDestination
+      NONE_SPECIFIED: ::String
+
+      AWS_ELASTIC_BEANSTALK: ::String
+
+      AWS_FARGATE: ::String
+    end
+
+    BusinessGoals: untyped
+
+    Collector: untyped
+
+    module CollectorHealth
+      COLLECTOR_HEALTHY: ::String
+
+      COLLECTOR_UNHEALTHY: ::String
+    end
+
+    ConflictException: untyped
+
+    DataCollectionDetails: untyped
+
+    module DataSourceType
+      ADS: ::String
+
+      MPA: ::String
+    end
+
+    DatabaseConfigDetail: untyped
+
+    module DatabaseManagementPreference
+      AWS_MANAGED: ::String
+
+      SELF_MANAGE: ::String
+
+      NO_PREFERENCE: ::String
+    end
+
+    class DatabaseMigrationPreference < Hearth::Union
+      class Heterogeneous < DatabaseMigrationPreference
+        def to_h: () -> { heterogeneous: Hash[Symbol,DatabaseMigrationPreference] }
+      end
+
+      class Homogeneous < DatabaseMigrationPreference
+        def to_h: () -> { homogeneous: Hash[Symbol,DatabaseMigrationPreference] }
+      end
+
+      class NoPreference < DatabaseMigrationPreference
+        def to_h: () -> { no_preference: Hash[Symbol,DatabaseMigrationPreference] }
+      end
+
+      class Unknown < DatabaseMigrationPreference
+        def to_h: () -> { unknown: Hash[Symbol,DatabaseMigrationPreference] }
+      end
+    end
+
+    DatabasePreferences: untyped
+
+    GetApplicationComponentDetailsInput: untyped
+
+    GetApplicationComponentDetailsOutput: untyped
+
+    GetApplicationComponentStrategiesInput: untyped
+
+    GetApplicationComponentStrategiesOutput: untyped
+
+    GetAssessmentInput: untyped
+
+    GetAssessmentOutput: untyped
+
+    GetImportFileTaskInput: untyped
+
+    GetImportFileTaskOutput: untyped
+
+    GetPortfolioPreferencesInput: untyped
+
+    GetPortfolioPreferencesOutput: untyped
+
+    GetPortfolioSummaryInput: untyped
+
+    GetPortfolioSummaryOutput: untyped
+
+    GetRecommendationReportDetailsInput: untyped
+
+    GetRecommendationReportDetailsOutput: untyped
+
+    GetServerDetailsInput: untyped
+
+    GetServerDetailsOutput: untyped
+
+    GetServerStrategiesInput: untyped
+
+    GetServerStrategiesOutput: untyped
+
+    Group: untyped
+
+    module GroupName
+      EXTERNAL_ID: ::String
+    end
+
+    Heterogeneous: untyped
+
+    module HeterogeneousTargetDatabaseEngine
+      NONE_SPECIFIED: ::String
+
+      AMAZON_AURORA: ::String
+
+      AWS_POSTGRESQL: ::String
+
+      MYSQL: ::String
+
+      MICROSOFT_SQL_SERVER: ::String
+
+      ORACLE_DATABASE: ::String
+
+      MARIA_DB: ::String
+
+      SAP: ::String
+
+      DB2_LUW: ::String
+
+      MONGO_DB: ::String
+    end
+
+    Homogeneous: untyped
+
+    module HomogeneousTargetDatabaseEngine
+      NONE_SPECIFIED: ::String
+    end
+
+    ImportFileTaskInformation: untyped
+
+    module ImportFileTaskStatus
+      IMPORT_IN_PROGRESS: ::String
+
+      IMPORT_FAILED: ::String
+
+      IMPORT_PARTIAL_SUCCESS: ::String
+
+      IMPORT_SUCCESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_PARTIAL_SUCCESS: ::String
+
+      DELETE_SUCCESS: ::String
+    end
+
+    module InclusionStatus
+      EXCLUDE_FROM_RECOMMENDATION: ::String
+
+      INCLUDE_IN_RECOMMENDATION: ::String
+    end
+
+    InternalServerException: untyped
+
+    ListApplicationComponentsInput: untyped
+
+    ListApplicationComponentsOutput: untyped
+
+    ListCollectorsInput: untyped
+
+    ListCollectorsOutput: untyped
+
+    ListImportFileTaskInput: untyped
+
+    ListImportFileTaskOutput: untyped
+
+    ListServersInput: untyped
+
+    ListServersOutput: untyped
+
+    class ManagementPreference < Hearth::Union
+      class AwsManagedResources < ManagementPreference
+        def to_h: () -> { aws_managed_resources: Hash[Symbol,ManagementPreference] }
+      end
+
+      class SelfManageResources < ManagementPreference
+        def to_h: () -> { self_manage_resources: Hash[Symbol,ManagementPreference] }
+      end
+
+      class NoPreference < ManagementPreference
+        def to_h: () -> { no_preference: Hash[Symbol,ManagementPreference] }
+      end
+
+      class Unknown < ManagementPreference
+        def to_h: () -> { unknown: Hash[Symbol,ManagementPreference] }
+      end
+    end
+
+    NetworkInfo: untyped
+
+    NoDatabaseMigrationPreference: untyped
+
+    NoManagementPreference: untyped
+
+    module NoPreferenceTargetDestination
+      NONE_SPECIFIED: ::String
+
+      AWS_ELASTIC_BEANSTALK: ::String
+
+      AWS_FARGATE: ::String
+
+      AMAZON_ELASTIC_CLOUD_COMPUTE: ::String
+
+      AMAZON_ELASTIC_CONTAINER_SERVICE: ::String
+
+      AMAZON_ELASTIC_KUBERNETES_SERVICE: ::String
+    end
+
+    OSInfo: untyped
+
+    module OSType
+      LINUX: ::String
+
+      WINDOWS: ::String
+    end
+
+    module OutputFormat
+      Excel: ::String
+
+      Json: ::String
+    end
+
+    PrioritizeBusinessGoals: untyped
+
+    PutPortfolioPreferencesInput: untyped
+
+    PutPortfolioPreferencesOutput: untyped
+
+    RecommendationReportDetails: untyped
+
+    module RecommendationReportStatus
+      FAILED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCESS: ::String
+    end
+
+    RecommendationSet: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceSubType
+      DATABASE: ::String
+
+      PROCESS: ::String
+
+      DATABASE_PROCESS: ::String
+    end
+
+    module RunTimeAssessmentStatus
+      DC_TO_BE_SCHEDULED: ::String
+
+      DC_REQ_SENT: ::String
+
+      DC_STARTED: ::String
+
+      DC_STOPPED: ::String
+
+      DC_SUCCESS: ::String
+
+      DC_FAILED: ::String
+
+      DC_PARTIAL_SUCCESS: ::String
+    end
+
+    S3Object: untyped
+
+    SelfManageResources: untyped
+
+    module SelfManageTargetDestination
+      NONE_SPECIFIED: ::String
+
+      AMAZON_ELASTIC_CLOUD_COMPUTE: ::String
+
+      AMAZON_ELASTIC_CONTAINER_SERVICE: ::String
+
+      AMAZON_ELASTIC_KUBERNETES_SERVICE: ::String
+    end
+
+    module ServerCriteria
+      NOT_DEFINED: ::String
+
+      OS_NAME: ::String
+
+      STRATEGY: ::String
+
+      DESTINATION: ::String
+
+      SERVER_ID: ::String
+    end
+
+    ServerDetail: untyped
+
+    module ServerOsType
+      windowsServer: ::String
+
+      amazonLinux: ::String
+
+      endOfSupportWindowsServer: ::String
+
+      redhat: ::String
+
+      other: ::String
+    end
+
+    ServerStrategy: untyped
+
+    ServerSummary: untyped
+
+    ServiceLinkedRoleLockClientException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module Severity
+      HIGH: ::String
+
+      MEDIUM: ::String
+
+      LOW: ::String
+    end
+
+    module SortOrder
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+    SourceCode: untyped
+
+    SourceCodeRepository: untyped
+
+    module SrcCodeOrDbAnalysisStatus
+      ANALYSIS_TO_BE_SCHEDULED: ::String
+
+      ANALYSIS_STARTED: ::String
+
+      ANALYSIS_SUCCESS: ::String
+
+      ANALYSIS_FAILED: ::String
+    end
+
+    StartAssessmentInput: untyped
+
+    StartAssessmentOutput: untyped
+
+    StartImportFileTaskInput: untyped
+
+    StartImportFileTaskOutput: untyped
+
+    StartRecommendationReportGenerationInput: untyped
+
+    StartRecommendationReportGenerationOutput: untyped
+
+    StopAssessmentInput: untyped
+
+    StopAssessmentOutput: untyped
+
+    module Strategy
+      REHOST: ::String
+
+      RETIREMENT: ::String
+
+      REFACTOR: ::String
+
+      REPLATFORM: ::String
+
+      RETAIN: ::String
+
+      RELOCATE: ::String
+
+      REPURCHASE: ::String
+    end
+
+    StrategyOption: untyped
+
+    module StrategyRecommendation
+      RECOMMENDED: ::String
+
+      VIABLE_OPTION: ::String
+
+      NOT_RECOMMENDED: ::String
+    end
+
+    StrategySummary: untyped
+
+    SystemInfo: untyped
+
+    module TargetDatabaseEngine
+      NONE_SPECIFIED: ::String
+
+      AMAZON_AURORA: ::String
+
+      AWS_POSTGRESQL: ::String
+
+      MYSQL: ::String
+
+      MICROSOFT_SQL_SERVER: ::String
+
+      ORACLE_DATABASE: ::String
+
+      MARIA_DB: ::String
+
+      SAP: ::String
+
+      DB2_LUW: ::String
+
+      MONGO_DB: ::String
+    end
+
+    module TargetDestination
+      NONE_SPECIFIED: ::String
+
+      AWS_ELASTIC_BEANSTALK: ::String
+
+      AWS_FARGATE: ::String
+
+      AMAZON_ELASTIC_CLOUD_COMPUTE: ::String
+
+      AMAZON_ELASTIC_CONTAINER_SERVICE: ::String
+
+      AMAZON_ELASTIC_KUBERNETES_SERVICE: ::String
+
+      AURORA_MYSQL: ::String
+
+      AURORA_POSTGRESQL: ::String
+
+      AMAZON_RDS_MYSQL: ::String
+
+      AMAZON_RDS_POSTGRESQL: ::String
+
+      AMAZON_DOCUMENTDB: ::String
+
+      AMAZON_DYNAMODB: ::String
+
+      AMAZON_RDS: ::String
+    end
+
+    ThrottlingException: untyped
+
+    TransformationTool: untyped
+
+    module TransformationToolName
+      APP2CONTAINER: ::String
+
+      PORTING_ASSISTANT: ::String
+
+      EMP: ::String
+
+      WWAMA: ::String
+
+      MGN: ::String
+
+      STRATEGY_RECOMMENDATION_SUPPORT: ::String
+
+      IN_PLACE_OS_UPGRADE: ::String
+
+      SCT: ::String
+
+      DMS: ::String
+
+      NATIVE_SQL: ::String
+    end
+
+    UpdateApplicationComponentConfigInput: untyped
+
+    UpdateApplicationComponentConfigOutput: untyped
+
+    UpdateServerConfigInput: untyped
+
+    UpdateServerConfigOutput: untyped
+
+    ValidationException: untyped
+
+    module VersionControl
+      GITHUB: ::String
+
+      GITHUB_ENTERPRISE: ::String
+    end
+
+  end
+end

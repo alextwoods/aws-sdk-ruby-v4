@@ -1,0 +1,3 @@
+module AWS::SDK::ChimeSDKMediaPipelines
+  Config: untyped
+end

@@ -1,0 +1,670 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::AutoScaling
+  module Types
+
+    AcceleratorCountRequest: untyped
+
+    module AcceleratorManufacturer
+      NVIDIA: ::String
+
+      AMD: ::String
+
+      AMAZON_WEB_SERVICES: ::String
+
+      XILINX: ::String
+    end
+
+    module AcceleratorName
+      A100: ::String
+
+      V100: ::String
+
+      K80: ::String
+
+      T4: ::String
+
+      M60: ::String
+
+      RADEON_PRO_V520: ::String
+
+      VU9P: ::String
+    end
+
+    AcceleratorTotalMemoryMiBRequest: untyped
+
+    module AcceleratorType
+      GPU: ::String
+
+      FPGA: ::String
+
+      INFERENCE: ::String
+    end
+
+    ActiveInstanceRefreshNotFoundFault: untyped
+
+    Activity: untyped
+
+    AdjustmentType: untyped
+
+    Alarm: untyped
+
+    AlreadyExistsFault: untyped
+
+    AttachInstancesInput: untyped
+
+    AttachInstancesOutput: untyped
+
+    AttachLoadBalancerTargetGroupsInput: untyped
+
+    AttachLoadBalancerTargetGroupsOutput: untyped
+
+    AttachLoadBalancersInput: untyped
+
+    AttachLoadBalancersOutput: untyped
+
+    AutoScalingGroup: untyped
+
+    AutoScalingInstanceDetails: untyped
+
+    module BareMetal
+      INCLUDED: ::String
+
+      EXCLUDED: ::String
+
+      REQUIRED: ::String
+    end
+
+    BaselineEbsBandwidthMbpsRequest: untyped
+
+    BatchDeleteScheduledActionInput: untyped
+
+    BatchDeleteScheduledActionOutput: untyped
+
+    BatchPutScheduledUpdateGroupActionInput: untyped
+
+    BatchPutScheduledUpdateGroupActionOutput: untyped
+
+    BlockDeviceMapping: untyped
+
+    module BurstablePerformance
+      INCLUDED: ::String
+
+      EXCLUDED: ::String
+
+      REQUIRED: ::String
+    end
+
+    CancelInstanceRefreshInput: untyped
+
+    CancelInstanceRefreshOutput: untyped
+
+    CapacityForecast: untyped
+
+    CompleteLifecycleActionInput: untyped
+
+    CompleteLifecycleActionOutput: untyped
+
+    module CpuManufacturer
+      INTEL: ::String
+
+      AMD: ::String
+
+      AMAZON_WEB_SERVICES: ::String
+    end
+
+    CreateAutoScalingGroupInput: untyped
+
+    CreateAutoScalingGroupOutput: untyped
+
+    CreateLaunchConfigurationInput: untyped
+
+    CreateLaunchConfigurationOutput: untyped
+
+    CreateOrUpdateTagsInput: untyped
+
+    CreateOrUpdateTagsOutput: untyped
+
+    CustomizedMetricSpecification: untyped
+
+    DeleteAutoScalingGroupInput: untyped
+
+    DeleteAutoScalingGroupOutput: untyped
+
+    DeleteLaunchConfigurationInput: untyped
+
+    DeleteLaunchConfigurationOutput: untyped
+
+    DeleteLifecycleHookInput: untyped
+
+    DeleteLifecycleHookOutput: untyped
+
+    DeleteNotificationConfigurationInput: untyped
+
+    DeleteNotificationConfigurationOutput: untyped
+
+    DeletePolicyInput: untyped
+
+    DeletePolicyOutput: untyped
+
+    DeleteScheduledActionInput: untyped
+
+    DeleteScheduledActionOutput: untyped
+
+    DeleteTagsInput: untyped
+
+    DeleteTagsOutput: untyped
+
+    DeleteWarmPoolInput: untyped
+
+    DeleteWarmPoolOutput: untyped
+
+    DescribeAccountLimitsInput: untyped
+
+    DescribeAccountLimitsOutput: untyped
+
+    DescribeAdjustmentTypesInput: untyped
+
+    DescribeAdjustmentTypesOutput: untyped
+
+    DescribeAutoScalingGroupsInput: untyped
+
+    DescribeAutoScalingGroupsOutput: untyped
+
+    DescribeAutoScalingInstancesInput: untyped
+
+    DescribeAutoScalingInstancesOutput: untyped
+
+    DescribeAutoScalingNotificationTypesInput: untyped
+
+    DescribeAutoScalingNotificationTypesOutput: untyped
+
+    DescribeInstanceRefreshesInput: untyped
+
+    DescribeInstanceRefreshesOutput: untyped
+
+    DescribeLaunchConfigurationsInput: untyped
+
+    DescribeLaunchConfigurationsOutput: untyped
+
+    DescribeLifecycleHookTypesInput: untyped
+
+    DescribeLifecycleHookTypesOutput: untyped
+
+    DescribeLifecycleHooksInput: untyped
+
+    DescribeLifecycleHooksOutput: untyped
+
+    DescribeLoadBalancerTargetGroupsInput: untyped
+
+    DescribeLoadBalancerTargetGroupsOutput: untyped
+
+    DescribeLoadBalancersInput: untyped
+
+    DescribeLoadBalancersOutput: untyped
+
+    DescribeMetricCollectionTypesInput: untyped
+
+    DescribeMetricCollectionTypesOutput: untyped
+
+    DescribeNotificationConfigurationsInput: untyped
+
+    DescribeNotificationConfigurationsOutput: untyped
+
+    DescribePoliciesInput: untyped
+
+    DescribePoliciesOutput: untyped
+
+    DescribeScalingActivitiesInput: untyped
+
+    DescribeScalingActivitiesOutput: untyped
+
+    DescribeScalingProcessTypesInput: untyped
+
+    DescribeScalingProcessTypesOutput: untyped
+
+    DescribeScheduledActionsInput: untyped
+
+    DescribeScheduledActionsOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    DescribeTerminationPolicyTypesInput: untyped
+
+    DescribeTerminationPolicyTypesOutput: untyped
+
+    DescribeWarmPoolInput: untyped
+
+    DescribeWarmPoolOutput: untyped
+
+    DesiredConfiguration: untyped
+
+    DetachInstancesInput: untyped
+
+    DetachInstancesOutput: untyped
+
+    DetachLoadBalancerTargetGroupsInput: untyped
+
+    DetachLoadBalancerTargetGroupsOutput: untyped
+
+    DetachLoadBalancersInput: untyped
+
+    DetachLoadBalancersOutput: untyped
+
+    DisableMetricsCollectionInput: untyped
+
+    DisableMetricsCollectionOutput: untyped
+
+    Ebs: untyped
+
+    EnableMetricsCollectionInput: untyped
+
+    EnableMetricsCollectionOutput: untyped
+
+    EnabledMetric: untyped
+
+    EnterStandbyInput: untyped
+
+    EnterStandbyOutput: untyped
+
+    ExecutePolicyInput: untyped
+
+    ExecutePolicyOutput: untyped
+
+    ExitStandbyInput: untyped
+
+    ExitStandbyOutput: untyped
+
+    FailedScheduledUpdateGroupActionRequest: untyped
+
+    Filter: untyped
+
+    GetPredictiveScalingForecastInput: untyped
+
+    GetPredictiveScalingForecastOutput: untyped
+
+    Instance: untyped
+
+    module InstanceGeneration
+      CURRENT: ::String
+
+      PREVIOUS: ::String
+    end
+
+    module InstanceMetadataEndpointState
+      Disabled: ::String
+
+      Enabled: ::String
+    end
+
+    module InstanceMetadataHttpTokensState
+      Optional: ::String
+
+      Required: ::String
+    end
+
+    InstanceMetadataOptions: untyped
+
+    InstanceMonitoring: untyped
+
+    InstanceRefresh: untyped
+
+    InstanceRefreshInProgressFault: untyped
+
+    InstanceRefreshLivePoolProgress: untyped
+
+    InstanceRefreshProgressDetails: untyped
+
+    module InstanceRefreshStatus
+      Pending: ::String
+
+      InProgress: ::String
+
+      Successful: ::String
+
+      Failed: ::String
+
+      Cancelling: ::String
+
+      Cancelled: ::String
+    end
+
+    InstanceRefreshWarmPoolProgress: untyped
+
+    InstanceRequirements: untyped
+
+    InstanceReusePolicy: untyped
+
+    InstancesDistribution: untyped
+
+    InvalidNextToken: untyped
+
+    LaunchConfiguration: untyped
+
+    LaunchTemplate: untyped
+
+    LaunchTemplateOverrides: untyped
+
+    LaunchTemplateSpecification: untyped
+
+    LifecycleHook: untyped
+
+    LifecycleHookSpecification: untyped
+
+    module LifecycleState
+      PENDING: ::String
+
+      PENDING_WAIT: ::String
+
+      PENDING_PROCEED: ::String
+
+      QUARANTINED: ::String
+
+      IN_SERVICE: ::String
+
+      TERMINATING: ::String
+
+      TERMINATING_WAIT: ::String
+
+      TERMINATING_PROCEED: ::String
+
+      TERMINATED: ::String
+
+      DETACHING: ::String
+
+      DETACHED: ::String
+
+      ENTERING_STANDBY: ::String
+
+      STANDBY: ::String
+
+      WARMED_PENDING: ::String
+
+      WARMED_PENDING_WAIT: ::String
+
+      WARMED_PENDING_PROCEED: ::String
+
+      WARMED_TERMINATING: ::String
+
+      WARMED_TERMINATING_WAIT: ::String
+
+      WARMED_TERMINATING_PROCEED: ::String
+
+      WARMED_TERMINATED: ::String
+
+      WARMED_STOPPED: ::String
+
+      WARMED_RUNNING: ::String
+
+      WARMED_HIBERNATED: ::String
+    end
+
+    LimitExceededFault: untyped
+
+    LoadBalancerState: untyped
+
+    LoadBalancerTargetGroupState: untyped
+
+    LoadForecast: untyped
+
+    module LocalStorage
+      INCLUDED: ::String
+
+      EXCLUDED: ::String
+
+      REQUIRED: ::String
+    end
+
+    module LocalStorageType
+      HDD: ::String
+
+      SSD: ::String
+    end
+
+    MemoryGiBPerVCpuRequest: untyped
+
+    MemoryMiBRequest: untyped
+
+    Metric: untyped
+
+    MetricCollectionType: untyped
+
+    MetricDataQuery: untyped
+
+    MetricDimension: untyped
+
+    MetricGranularityType: untyped
+
+    MetricStat: untyped
+
+    module MetricStatistic
+      Average: ::String
+
+      Minimum: ::String
+
+      Maximum: ::String
+
+      SampleCount: ::String
+
+      Sum: ::String
+    end
+
+    module MetricType
+      ASGAverageCPUUtilization: ::String
+
+      ASGAverageNetworkIn: ::String
+
+      ASGAverageNetworkOut: ::String
+
+      ALBRequestCountPerTarget: ::String
+    end
+
+    MixedInstancesPolicy: untyped
+
+    NetworkInterfaceCountRequest: untyped
+
+    NotificationConfiguration: untyped
+
+    module PredefinedLoadMetricType
+      ASGTotalCPUUtilization: ::String
+
+      ASGTotalNetworkIn: ::String
+
+      ASGTotalNetworkOut: ::String
+
+      ALBTargetGroupRequestCount: ::String
+    end
+
+    module PredefinedMetricPairType
+      ASGCPUUtilization: ::String
+
+      ASGNetworkIn: ::String
+
+      ASGNetworkOut: ::String
+
+      ALBRequestCount: ::String
+    end
+
+    PredefinedMetricSpecification: untyped
+
+    module PredefinedScalingMetricType
+      ASGAverageCPUUtilization: ::String
+
+      ASGAverageNetworkIn: ::String
+
+      ASGAverageNetworkOut: ::String
+
+      ALBRequestCountPerTarget: ::String
+    end
+
+    PredictiveScalingConfiguration: untyped
+
+    PredictiveScalingCustomizedCapacityMetric: untyped
+
+    PredictiveScalingCustomizedLoadMetric: untyped
+
+    PredictiveScalingCustomizedScalingMetric: untyped
+
+    module PredictiveScalingMaxCapacityBreachBehavior
+      HonorMaxCapacity: ::String
+
+      IncreaseMaxCapacity: ::String
+    end
+
+    PredictiveScalingMetricSpecification: untyped
+
+    module PredictiveScalingMode
+      ForecastAndScale: ::String
+
+      ForecastOnly: ::String
+    end
+
+    PredictiveScalingPredefinedLoadMetric: untyped
+
+    PredictiveScalingPredefinedMetricPair: untyped
+
+    PredictiveScalingPredefinedScalingMetric: untyped
+
+    ProcessType: untyped
+
+    PutLifecycleHookInput: untyped
+
+    PutLifecycleHookOutput: untyped
+
+    PutNotificationConfigurationInput: untyped
+
+    PutNotificationConfigurationOutput: untyped
+
+    PutScalingPolicyInput: untyped
+
+    PutScalingPolicyOutput: untyped
+
+    PutScheduledUpdateGroupActionInput: untyped
+
+    PutScheduledUpdateGroupActionOutput: untyped
+
+    PutWarmPoolInput: untyped
+
+    PutWarmPoolOutput: untyped
+
+    RecordLifecycleActionHeartbeatInput: untyped
+
+    RecordLifecycleActionHeartbeatOutput: untyped
+
+    RefreshPreferences: untyped
+
+    module RefreshStrategy
+      Rolling: ::String
+    end
+
+    ResourceContentionFault: untyped
+
+    ResourceInUseFault: untyped
+
+    ResumeProcessesInput: untyped
+
+    ResumeProcessesOutput: untyped
+
+    ScalingActivityInProgressFault: untyped
+
+    module ScalingActivityStatusCode
+      PendingSpotBidPlacement: ::String
+
+      WaitingForSpotInstanceRequestId: ::String
+
+      WaitingForSpotInstanceId: ::String
+
+      WaitingForInstanceId: ::String
+
+      PreInService: ::String
+
+      InProgress: ::String
+
+      WaitingForELBConnectionDraining: ::String
+
+      MidLifecycleAction: ::String
+
+      WaitingForInstanceWarmup: ::String
+
+      Successful: ::String
+
+      Failed: ::String
+
+      Cancelled: ::String
+    end
+
+    ScalingPolicy: untyped
+
+    ScheduledUpdateGroupAction: untyped
+
+    ScheduledUpdateGroupActionRequest: untyped
+
+    ServiceLinkedRoleFailure: untyped
+
+    SetDesiredCapacityInput: untyped
+
+    SetDesiredCapacityOutput: untyped
+
+    SetInstanceHealthInput: untyped
+
+    SetInstanceHealthOutput: untyped
+
+    SetInstanceProtectionInput: untyped
+
+    SetInstanceProtectionOutput: untyped
+
+    StartInstanceRefreshInput: untyped
+
+    StartInstanceRefreshOutput: untyped
+
+    StepAdjustment: untyped
+
+    SuspendProcessesInput: untyped
+
+    SuspendProcessesOutput: untyped
+
+    SuspendedProcess: untyped
+
+    Tag: untyped
+
+    TagDescription: untyped
+
+    TargetTrackingConfiguration: untyped
+
+    TerminateInstanceInAutoScalingGroupInput: untyped
+
+    TerminateInstanceInAutoScalingGroupOutput: untyped
+
+    TotalLocalStorageGBRequest: untyped
+
+    UpdateAutoScalingGroupInput: untyped
+
+    UpdateAutoScalingGroupOutput: untyped
+
+    VCpuCountRequest: untyped
+
+    WarmPoolConfiguration: untyped
+
+    module WarmPoolState
+      Stopped: ::String
+
+      Running: ::String
+
+      Hibernated: ::String
+    end
+
+    module WarmPoolStatus
+      PendingDelete: ::String
+    end
+
+  end
+end

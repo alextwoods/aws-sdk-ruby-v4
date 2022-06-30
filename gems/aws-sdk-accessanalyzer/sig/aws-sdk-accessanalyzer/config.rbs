@@ -1,0 +1,3 @@
+module AWS::SDK::AccessAnalyzer
+  Config: untyped
+end

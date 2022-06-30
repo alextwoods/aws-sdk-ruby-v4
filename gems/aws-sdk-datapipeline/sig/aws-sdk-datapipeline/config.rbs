@@ -1,0 +1,3 @@
+module AWS::SDK::DataPipeline
+  Config: untyped
+end

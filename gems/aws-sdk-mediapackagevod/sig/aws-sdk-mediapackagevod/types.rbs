@@ -1,0 +1,184 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MediaPackageVod
+  module Types
+
+    module AdMarkers
+      NONE: ::String
+
+      SCTE35_ENHANCED: ::String
+
+      PASSTHROUGH: ::String
+    end
+
+    AssetShallow: untyped
+
+    Authorization: untyped
+
+    CmafEncryption: untyped
+
+    CmafPackage: untyped
+
+    ConfigureLogsInput: untyped
+
+    ConfigureLogsOutput: untyped
+
+    CreateAssetInput: untyped
+
+    CreateAssetOutput: untyped
+
+    CreatePackagingConfigurationInput: untyped
+
+    CreatePackagingConfigurationOutput: untyped
+
+    CreatePackagingGroupInput: untyped
+
+    CreatePackagingGroupOutput: untyped
+
+    DashEncryption: untyped
+
+    DashManifest: untyped
+
+    DashPackage: untyped
+
+    DeleteAssetInput: untyped
+
+    DeleteAssetOutput: untyped
+
+    DeletePackagingConfigurationInput: untyped
+
+    DeletePackagingConfigurationOutput: untyped
+
+    DeletePackagingGroupInput: untyped
+
+    DeletePackagingGroupOutput: untyped
+
+    DescribeAssetInput: untyped
+
+    DescribeAssetOutput: untyped
+
+    DescribePackagingConfigurationInput: untyped
+
+    DescribePackagingConfigurationOutput: untyped
+
+    DescribePackagingGroupInput: untyped
+
+    DescribePackagingGroupOutput: untyped
+
+    EgressAccessLogs: untyped
+
+    EgressEndpoint: untyped
+
+    module EncryptionMethod
+      AES_128: ::String
+
+      SAMPLE_AES: ::String
+    end
+
+    ForbiddenException: untyped
+
+    HlsEncryption: untyped
+
+    HlsManifest: untyped
+
+    HlsPackage: untyped
+
+    InternalServerErrorException: untyped
+
+    ListAssetsInput: untyped
+
+    ListAssetsOutput: untyped
+
+    ListPackagingConfigurationsInput: untyped
+
+    ListPackagingConfigurationsOutput: untyped
+
+    ListPackagingGroupsInput: untyped
+
+    ListPackagingGroupsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module ManifestLayout
+      FULL: ::String
+
+      COMPACT: ::String
+    end
+
+    MssEncryption: untyped
+
+    MssManifest: untyped
+
+    MssPackage: untyped
+
+    NotFoundException: untyped
+
+    PackagingConfiguration: untyped
+
+    PackagingGroup: untyped
+
+    module Profile
+      NONE: ::String
+
+      HBBTV_1_5: ::String
+    end
+
+    module ScteMarkersSource
+      SEGMENTS: ::String
+
+      MANIFEST: ::String
+    end
+
+    module SegmentTemplateFormat
+      NUMBER_WITH_TIMELINE: ::String
+
+      TIME_WITH_TIMELINE: ::String
+
+      NUMBER_WITH_DURATION: ::String
+    end
+
+    ServiceUnavailableException: untyped
+
+    SpekeKeyProvider: untyped
+
+    module StreamOrder
+      ORIGINAL: ::String
+
+      VIDEO_BITRATE_ASCENDING: ::String
+
+      VIDEO_BITRATE_DESCENDING: ::String
+    end
+
+    StreamSelection: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    UnprocessableEntityException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdatePackagingGroupInput: untyped
+
+    UpdatePackagingGroupOutput: untyped
+
+    module String____PeriodTriggersElement
+      ADS: ::String
+    end
+
+  end
+end

@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Forecastquery
+  module Types
+
+    DataPoint: untyped
+
+    Forecast: untyped
+
+    InvalidInputException: untyped
+
+    InvalidNextTokenException: untyped
+
+    LimitExceededException: untyped
+
+    QueryForecastInput: untyped
+
+    QueryForecastOutput: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+  end
+end

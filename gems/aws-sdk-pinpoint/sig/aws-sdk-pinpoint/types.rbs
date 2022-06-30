@@ -1,0 +1,1188 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Pinpoint
+  module Types
+
+    ADMChannelRequest: untyped
+
+    ADMChannelResponse: untyped
+
+    ADMMessage: untyped
+
+    APNSChannelRequest: untyped
+
+    APNSChannelResponse: untyped
+
+    APNSMessage: untyped
+
+    APNSPushNotificationTemplate: untyped
+
+    APNSSandboxChannelRequest: untyped
+
+    APNSSandboxChannelResponse: untyped
+
+    APNSVoipChannelRequest: untyped
+
+    APNSVoipChannelResponse: untyped
+
+    APNSVoipSandboxChannelRequest: untyped
+
+    APNSVoipSandboxChannelResponse: untyped
+
+    module Action
+      OPEN_APP: ::String
+
+      DEEP_LINK: ::String
+
+      URL: ::String
+    end
+
+    ActivitiesResponse: untyped
+
+    Activity: untyped
+
+    ActivityResponse: untyped
+
+    AddressConfiguration: untyped
+
+    module Alignment
+      LEFT: ::String
+
+      CENTER: ::String
+
+      RIGHT: ::String
+    end
+
+    AndroidPushNotificationTemplate: untyped
+
+    ApplicationDateRangeKpiResponse: untyped
+
+    ApplicationResponse: untyped
+
+    ApplicationSettingsResource: untyped
+
+    ApplicationsResponse: untyped
+
+    AttributeDimension: untyped
+
+    module AttributeType
+      INCLUSIVE: ::String
+
+      EXCLUSIVE: ::String
+
+      CONTAINS: ::String
+
+      BEFORE: ::String
+
+      AFTER: ::String
+
+      ON: ::String
+
+      BETWEEN: ::String
+    end
+
+    AttributesResource: untyped
+
+    BadRequestException: untyped
+
+    BaiduChannelRequest: untyped
+
+    BaiduChannelResponse: untyped
+
+    BaiduMessage: untyped
+
+    BaseKpiResult: untyped
+
+    module ButtonAction
+      LINK: ::String
+
+      DEEP_LINK: ::String
+
+      CLOSE: ::String
+    end
+
+    CampaignCustomMessage: untyped
+
+    CampaignDateRangeKpiResponse: untyped
+
+    CampaignEmailMessage: untyped
+
+    CampaignEventFilter: untyped
+
+    CampaignHook: untyped
+
+    CampaignInAppMessage: untyped
+
+    CampaignLimits: untyped
+
+    CampaignResponse: untyped
+
+    CampaignSmsMessage: untyped
+
+    CampaignState: untyped
+
+    module CampaignStatus
+      SCHEDULED: ::String
+
+      EXECUTING: ::String
+
+      PENDING_NEXT_RUN: ::String
+
+      COMPLETED: ::String
+
+      PAUSED: ::String
+
+      DELETED: ::String
+
+      INVALID: ::String
+    end
+
+    CampaignsResponse: untyped
+
+    ChannelResponse: untyped
+
+    module ChannelType
+      PUSH: ::String
+
+      GCM: ::String
+
+      APNS: ::String
+
+      APNS_SANDBOX: ::String
+
+      APNS_VOIP: ::String
+
+      APNS_VOIP_SANDBOX: ::String
+
+      ADM: ::String
+
+      SMS: ::String
+
+      VOICE: ::String
+
+      EMAIL: ::String
+
+      BAIDU: ::String
+
+      CUSTOM: ::String
+
+      IN_APP: ::String
+    end
+
+    ChannelsResponse: untyped
+
+    Condition: untyped
+
+    ConditionalSplitActivity: untyped
+
+    ConflictException: untyped
+
+    ContactCenterActivity: untyped
+
+    CreateAppInput: untyped
+
+    CreateAppOutput: untyped
+
+    CreateApplicationRequest: untyped
+
+    CreateCampaignInput: untyped
+
+    CreateCampaignOutput: untyped
+
+    CreateEmailTemplateInput: untyped
+
+    CreateEmailTemplateOutput: untyped
+
+    CreateExportJobInput: untyped
+
+    CreateExportJobOutput: untyped
+
+    CreateImportJobInput: untyped
+
+    CreateImportJobOutput: untyped
+
+    CreateInAppTemplateInput: untyped
+
+    CreateInAppTemplateOutput: untyped
+
+    CreateJourneyInput: untyped
+
+    CreateJourneyOutput: untyped
+
+    CreatePushTemplateInput: untyped
+
+    CreatePushTemplateOutput: untyped
+
+    CreateRecommenderConfigurationInput: untyped
+
+    CreateRecommenderConfigurationOutput: untyped
+
+    CreateRecommenderConfigurationShape: untyped
+
+    CreateSegmentInput: untyped
+
+    CreateSegmentOutput: untyped
+
+    CreateSmsTemplateInput: untyped
+
+    CreateSmsTemplateOutput: untyped
+
+    CreateTemplateMessageBody: untyped
+
+    CreateVoiceTemplateInput: untyped
+
+    CreateVoiceTemplateOutput: untyped
+
+    CustomDeliveryConfiguration: untyped
+
+    CustomMessageActivity: untyped
+
+    DefaultButtonConfiguration: untyped
+
+    DefaultMessage: untyped
+
+    DefaultPushNotificationMessage: untyped
+
+    DefaultPushNotificationTemplate: untyped
+
+    DeleteAdmChannelInput: untyped
+
+    DeleteAdmChannelOutput: untyped
+
+    DeleteApnsChannelInput: untyped
+
+    DeleteApnsChannelOutput: untyped
+
+    DeleteApnsSandboxChannelInput: untyped
+
+    DeleteApnsSandboxChannelOutput: untyped
+
+    DeleteApnsVoipChannelInput: untyped
+
+    DeleteApnsVoipChannelOutput: untyped
+
+    DeleteApnsVoipSandboxChannelInput: untyped
+
+    DeleteApnsVoipSandboxChannelOutput: untyped
+
+    DeleteAppInput: untyped
+
+    DeleteAppOutput: untyped
+
+    DeleteBaiduChannelInput: untyped
+
+    DeleteBaiduChannelOutput: untyped
+
+    DeleteCampaignInput: untyped
+
+    DeleteCampaignOutput: untyped
+
+    DeleteEmailChannelInput: untyped
+
+    DeleteEmailChannelOutput: untyped
+
+    DeleteEmailTemplateInput: untyped
+
+    DeleteEmailTemplateOutput: untyped
+
+    DeleteEndpointInput: untyped
+
+    DeleteEndpointOutput: untyped
+
+    DeleteEventStreamInput: untyped
+
+    DeleteEventStreamOutput: untyped
+
+    DeleteGcmChannelInput: untyped
+
+    DeleteGcmChannelOutput: untyped
+
+    DeleteInAppTemplateInput: untyped
+
+    DeleteInAppTemplateOutput: untyped
+
+    DeleteJourneyInput: untyped
+
+    DeleteJourneyOutput: untyped
+
+    DeletePushTemplateInput: untyped
+
+    DeletePushTemplateOutput: untyped
+
+    DeleteRecommenderConfigurationInput: untyped
+
+    DeleteRecommenderConfigurationOutput: untyped
+
+    DeleteSegmentInput: untyped
+
+    DeleteSegmentOutput: untyped
+
+    DeleteSmsChannelInput: untyped
+
+    DeleteSmsChannelOutput: untyped
+
+    DeleteSmsTemplateInput: untyped
+
+    DeleteSmsTemplateOutput: untyped
+
+    DeleteUserEndpointsInput: untyped
+
+    DeleteUserEndpointsOutput: untyped
+
+    DeleteVoiceChannelInput: untyped
+
+    DeleteVoiceChannelOutput: untyped
+
+    DeleteVoiceTemplateInput: untyped
+
+    DeleteVoiceTemplateOutput: untyped
+
+    module DeliveryStatus
+      SUCCESSFUL: ::String
+
+      THROTTLED: ::String
+
+      TEMPORARY_FAILURE: ::String
+
+      PERMANENT_FAILURE: ::String
+
+      UNKNOWN_FAILURE: ::String
+
+      OPT_OUT: ::String
+
+      DUPLICATE: ::String
+    end
+
+    module DimensionType
+      INCLUSIVE: ::String
+
+      EXCLUSIVE: ::String
+    end
+
+    DirectMessageConfiguration: untyped
+
+    module Duration
+      HR_24: ::String
+
+      DAY_7: ::String
+
+      DAY_14: ::String
+
+      DAY_30: ::String
+    end
+
+    EmailChannelRequest: untyped
+
+    EmailChannelResponse: untyped
+
+    EmailMessage: untyped
+
+    EmailMessageActivity: untyped
+
+    EmailTemplateRequest: untyped
+
+    EmailTemplateResponse: untyped
+
+    EndpointBatchItem: untyped
+
+    EndpointBatchRequest: untyped
+
+    EndpointDemographic: untyped
+
+    EndpointItemResponse: untyped
+
+    EndpointLocation: untyped
+
+    EndpointMessageResult: untyped
+
+    EndpointRequest: untyped
+
+    EndpointResponse: untyped
+
+    EndpointSendConfiguration: untyped
+
+    EndpointUser: untyped
+
+    EndpointsResponse: untyped
+
+    Event: untyped
+
+    EventCondition: untyped
+
+    EventDimensions: untyped
+
+    EventFilter: untyped
+
+    EventItemResponse: untyped
+
+    EventStartCondition: untyped
+
+    EventStream: untyped
+
+    EventsBatch: untyped
+
+    EventsRequest: untyped
+
+    EventsResponse: untyped
+
+    ExportJobRequest: untyped
+
+    ExportJobResource: untyped
+
+    ExportJobResponse: untyped
+
+    ExportJobsResponse: untyped
+
+    module FilterType
+      SYSTEM: ::String
+
+      ENDPOINT: ::String
+    end
+
+    ForbiddenException: untyped
+
+    module Format
+      CSV: ::String
+
+      JSON: ::String
+    end
+
+    module Frequency
+      ONCE: ::String
+
+      HOURLY: ::String
+
+      DAILY: ::String
+
+      WEEKLY: ::String
+
+      MONTHLY: ::String
+
+      EVENT: ::String
+
+      IN_APP_EVENT: ::String
+    end
+
+    GCMChannelRequest: untyped
+
+    GCMChannelResponse: untyped
+
+    GCMMessage: untyped
+
+    GPSCoordinates: untyped
+
+    GPSPointDimension: untyped
+
+    GetAdmChannelInput: untyped
+
+    GetAdmChannelOutput: untyped
+
+    GetApnsChannelInput: untyped
+
+    GetApnsChannelOutput: untyped
+
+    GetApnsSandboxChannelInput: untyped
+
+    GetApnsSandboxChannelOutput: untyped
+
+    GetApnsVoipChannelInput: untyped
+
+    GetApnsVoipChannelOutput: untyped
+
+    GetApnsVoipSandboxChannelInput: untyped
+
+    GetApnsVoipSandboxChannelOutput: untyped
+
+    GetAppInput: untyped
+
+    GetAppOutput: untyped
+
+    GetApplicationDateRangeKpiInput: untyped
+
+    GetApplicationDateRangeKpiOutput: untyped
+
+    GetApplicationSettingsInput: untyped
+
+    GetApplicationSettingsOutput: untyped
+
+    GetAppsInput: untyped
+
+    GetAppsOutput: untyped
+
+    GetBaiduChannelInput: untyped
+
+    GetBaiduChannelOutput: untyped
+
+    GetCampaignActivitiesInput: untyped
+
+    GetCampaignActivitiesOutput: untyped
+
+    GetCampaignDateRangeKpiInput: untyped
+
+    GetCampaignDateRangeKpiOutput: untyped
+
+    GetCampaignInput: untyped
+
+    GetCampaignOutput: untyped
+
+    GetCampaignVersionInput: untyped
+
+    GetCampaignVersionOutput: untyped
+
+    GetCampaignVersionsInput: untyped
+
+    GetCampaignVersionsOutput: untyped
+
+    GetCampaignsInput: untyped
+
+    GetCampaignsOutput: untyped
+
+    GetChannelsInput: untyped
+
+    GetChannelsOutput: untyped
+
+    GetEmailChannelInput: untyped
+
+    GetEmailChannelOutput: untyped
+
+    GetEmailTemplateInput: untyped
+
+    GetEmailTemplateOutput: untyped
+
+    GetEndpointInput: untyped
+
+    GetEndpointOutput: untyped
+
+    GetEventStreamInput: untyped
+
+    GetEventStreamOutput: untyped
+
+    GetExportJobInput: untyped
+
+    GetExportJobOutput: untyped
+
+    GetExportJobsInput: untyped
+
+    GetExportJobsOutput: untyped
+
+    GetGcmChannelInput: untyped
+
+    GetGcmChannelOutput: untyped
+
+    GetImportJobInput: untyped
+
+    GetImportJobOutput: untyped
+
+    GetImportJobsInput: untyped
+
+    GetImportJobsOutput: untyped
+
+    GetInAppMessagesInput: untyped
+
+    GetInAppMessagesOutput: untyped
+
+    GetInAppTemplateInput: untyped
+
+    GetInAppTemplateOutput: untyped
+
+    GetJourneyDateRangeKpiInput: untyped
+
+    GetJourneyDateRangeKpiOutput: untyped
+
+    GetJourneyExecutionActivityMetricsInput: untyped
+
+    GetJourneyExecutionActivityMetricsOutput: untyped
+
+    GetJourneyExecutionMetricsInput: untyped
+
+    GetJourneyExecutionMetricsOutput: untyped
+
+    GetJourneyInput: untyped
+
+    GetJourneyOutput: untyped
+
+    GetPushTemplateInput: untyped
+
+    GetPushTemplateOutput: untyped
+
+    GetRecommenderConfigurationInput: untyped
+
+    GetRecommenderConfigurationOutput: untyped
+
+    GetRecommenderConfigurationsInput: untyped
+
+    GetRecommenderConfigurationsOutput: untyped
+
+    GetSegmentExportJobsInput: untyped
+
+    GetSegmentExportJobsOutput: untyped
+
+    GetSegmentImportJobsInput: untyped
+
+    GetSegmentImportJobsOutput: untyped
+
+    GetSegmentInput: untyped
+
+    GetSegmentOutput: untyped
+
+    GetSegmentVersionInput: untyped
+
+    GetSegmentVersionOutput: untyped
+
+    GetSegmentVersionsInput: untyped
+
+    GetSegmentVersionsOutput: untyped
+
+    GetSegmentsInput: untyped
+
+    GetSegmentsOutput: untyped
+
+    GetSmsChannelInput: untyped
+
+    GetSmsChannelOutput: untyped
+
+    GetSmsTemplateInput: untyped
+
+    GetSmsTemplateOutput: untyped
+
+    GetUserEndpointsInput: untyped
+
+    GetUserEndpointsOutput: untyped
+
+    GetVoiceChannelInput: untyped
+
+    GetVoiceChannelOutput: untyped
+
+    GetVoiceTemplateInput: untyped
+
+    GetVoiceTemplateOutput: untyped
+
+    HoldoutActivity: untyped
+
+    ImportJobRequest: untyped
+
+    ImportJobResource: untyped
+
+    ImportJobResponse: untyped
+
+    ImportJobsResponse: untyped
+
+    InAppCampaignSchedule: untyped
+
+    InAppMessage: untyped
+
+    InAppMessageBodyConfig: untyped
+
+    InAppMessageButton: untyped
+
+    InAppMessageCampaign: untyped
+
+    InAppMessageContent: untyped
+
+    InAppMessageHeaderConfig: untyped
+
+    InAppMessagesResponse: untyped
+
+    InAppTemplateRequest: untyped
+
+    InAppTemplateResponse: untyped
+
+    module Include
+      ALL: ::String
+
+      ANY: ::String
+
+      NONE: ::String
+    end
+
+    InternalServerErrorException: untyped
+
+    ItemResponse: untyped
+
+    module JobStatus
+      CREATED: ::String
+
+      PREPARING_FOR_INITIALIZATION: ::String
+
+      INITIALIZING: ::String
+
+      PROCESSING: ::String
+
+      PENDING_JOB: ::String
+
+      COMPLETING: ::String
+
+      COMPLETED: ::String
+
+      FAILING: ::String
+
+      FAILED: ::String
+    end
+
+    JourneyChannelSettings: untyped
+
+    JourneyCustomMessage: untyped
+
+    JourneyDateRangeKpiResponse: untyped
+
+    JourneyEmailMessage: untyped
+
+    JourneyExecutionActivityMetricsResponse: untyped
+
+    JourneyExecutionMetricsResponse: untyped
+
+    JourneyLimits: untyped
+
+    JourneyPushMessage: untyped
+
+    JourneyResponse: untyped
+
+    JourneySMSMessage: untyped
+
+    JourneySchedule: untyped
+
+    JourneyStateRequest: untyped
+
+    JourneysResponse: untyped
+
+    module Layout
+      BOTTOM_BANNER: ::String
+
+      TOP_BANNER: ::String
+
+      OVERLAYS: ::String
+
+      MOBILE_FEED: ::String
+
+      MIDDLE_BANNER: ::String
+
+      CAROUSEL: ::String
+    end
+
+    ListJourneysInput: untyped
+
+    ListJourneysOutput: untyped
+
+    ListRecommenderConfigurationsResponse: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTemplateVersionsInput: untyped
+
+    ListTemplateVersionsOutput: untyped
+
+    ListTemplatesInput: untyped
+
+    ListTemplatesOutput: untyped
+
+    Message: untyped
+
+    MessageBody: untyped
+
+    MessageConfiguration: untyped
+
+    MessageRequest: untyped
+
+    MessageResponse: untyped
+
+    MessageResult: untyped
+
+    module MessageType
+      TRANSACTIONAL: ::String
+
+      PROMOTIONAL: ::String
+    end
+
+    MethodNotAllowedException: untyped
+
+    MetricDimension: untyped
+
+    module Mode
+      DELIVERY: ::String
+
+      FILTER: ::String
+    end
+
+    MultiConditionalBranch: untyped
+
+    MultiConditionalSplitActivity: untyped
+
+    NotFoundException: untyped
+
+    NumberValidateRequest: untyped
+
+    NumberValidateResponse: untyped
+
+    module Operator
+      ALL: ::String
+
+      ANY: ::String
+    end
+
+    OverrideButtonConfiguration: untyped
+
+    PayloadTooLargeException: untyped
+
+    PhoneNumberValidateInput: untyped
+
+    PhoneNumberValidateOutput: untyped
+
+    PublicEndpoint: untyped
+
+    PushMessageActivity: untyped
+
+    PushNotificationTemplateRequest: untyped
+
+    PushNotificationTemplateResponse: untyped
+
+    PutEventStreamInput: untyped
+
+    PutEventStreamOutput: untyped
+
+    PutEventsInput: untyped
+
+    PutEventsOutput: untyped
+
+    QuietTime: untyped
+
+    RandomSplitActivity: untyped
+
+    RandomSplitEntry: untyped
+
+    RawEmail: untyped
+
+    RecencyDimension: untyped
+
+    module RecencyType
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    RecommenderConfigurationResponse: untyped
+
+    RemoveAttributesInput: untyped
+
+    RemoveAttributesOutput: untyped
+
+    ResultRow: untyped
+
+    ResultRowValue: untyped
+
+    SMSChannelRequest: untyped
+
+    SMSChannelResponse: untyped
+
+    SMSMessage: untyped
+
+    SMSMessageActivity: untyped
+
+    SMSTemplateRequest: untyped
+
+    SMSTemplateResponse: untyped
+
+    Schedule: untyped
+
+    SegmentBehaviors: untyped
+
+    SegmentCondition: untyped
+
+    SegmentDemographics: untyped
+
+    SegmentDimensions: untyped
+
+    SegmentGroup: untyped
+
+    SegmentGroupList: untyped
+
+    SegmentImportResource: untyped
+
+    SegmentLocation: untyped
+
+    SegmentReference: untyped
+
+    SegmentResponse: untyped
+
+    module SegmentType
+      DIMENSIONAL: ::String
+
+      IMPORT: ::String
+    end
+
+    SegmentsResponse: untyped
+
+    SendMessagesInput: untyped
+
+    SendMessagesOutput: untyped
+
+    SendOTPMessageInput: untyped
+
+    SendOTPMessageOutput: untyped
+
+    SendOTPMessageRequestParameters: untyped
+
+    SendUsersMessageRequest: untyped
+
+    SendUsersMessageResponse: untyped
+
+    SendUsersMessagesInput: untyped
+
+    SendUsersMessagesOutput: untyped
+
+    Session: untyped
+
+    SetDimension: untyped
+
+    SimpleCondition: untyped
+
+    SimpleEmail: untyped
+
+    SimpleEmailPart: untyped
+
+    module SourceType
+      ALL: ::String
+
+      ANY: ::String
+
+      NONE: ::String
+    end
+
+    StartCondition: untyped
+
+    module State
+      DRAFT: ::String
+
+      ACTIVE: ::String
+
+      COMPLETED: ::String
+
+      CANCELLED: ::String
+
+      CLOSED: ::String
+
+      PAUSED: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TagsModel: untyped
+
+    Template: untyped
+
+    TemplateActiveVersionRequest: untyped
+
+    TemplateConfiguration: untyped
+
+    TemplateCreateMessageBody: untyped
+
+    TemplateResponse: untyped
+
+    module TemplateType
+      EMAIL: ::String
+
+      SMS: ::String
+
+      VOICE: ::String
+
+      PUSH: ::String
+
+      INAPP: ::String
+    end
+
+    TemplateVersionResponse: untyped
+
+    TemplateVersionsResponse: untyped
+
+    TemplatesResponse: untyped
+
+    TooManyRequestsException: untyped
+
+    TreatmentResource: untyped
+
+    module Type
+      ALL: ::String
+
+      ANY: ::String
+
+      NONE: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAdmChannelInput: untyped
+
+    UpdateAdmChannelOutput: untyped
+
+    UpdateApnsChannelInput: untyped
+
+    UpdateApnsChannelOutput: untyped
+
+    UpdateApnsSandboxChannelInput: untyped
+
+    UpdateApnsSandboxChannelOutput: untyped
+
+    UpdateApnsVoipChannelInput: untyped
+
+    UpdateApnsVoipChannelOutput: untyped
+
+    UpdateApnsVoipSandboxChannelInput: untyped
+
+    UpdateApnsVoipSandboxChannelOutput: untyped
+
+    UpdateApplicationSettingsInput: untyped
+
+    UpdateApplicationSettingsOutput: untyped
+
+    UpdateAttributesRequest: untyped
+
+    UpdateBaiduChannelInput: untyped
+
+    UpdateBaiduChannelOutput: untyped
+
+    UpdateCampaignInput: untyped
+
+    UpdateCampaignOutput: untyped
+
+    UpdateEmailChannelInput: untyped
+
+    UpdateEmailChannelOutput: untyped
+
+    UpdateEmailTemplateInput: untyped
+
+    UpdateEmailTemplateOutput: untyped
+
+    UpdateEndpointInput: untyped
+
+    UpdateEndpointOutput: untyped
+
+    UpdateEndpointsBatchInput: untyped
+
+    UpdateEndpointsBatchOutput: untyped
+
+    UpdateGcmChannelInput: untyped
+
+    UpdateGcmChannelOutput: untyped
+
+    UpdateInAppTemplateInput: untyped
+
+    UpdateInAppTemplateOutput: untyped
+
+    UpdateJourneyInput: untyped
+
+    UpdateJourneyOutput: untyped
+
+    UpdateJourneyStateInput: untyped
+
+    UpdateJourneyStateOutput: untyped
+
+    UpdatePushTemplateInput: untyped
+
+    UpdatePushTemplateOutput: untyped
+
+    UpdateRecommenderConfigurationInput: untyped
+
+    UpdateRecommenderConfigurationOutput: untyped
+
+    UpdateRecommenderConfigurationShape: untyped
+
+    UpdateSegmentInput: untyped
+
+    UpdateSegmentOutput: untyped
+
+    UpdateSmsChannelInput: untyped
+
+    UpdateSmsChannelOutput: untyped
+
+    UpdateSmsTemplateInput: untyped
+
+    UpdateSmsTemplateOutput: untyped
+
+    UpdateTemplateActiveVersionInput: untyped
+
+    UpdateTemplateActiveVersionOutput: untyped
+
+    UpdateVoiceChannelInput: untyped
+
+    UpdateVoiceChannelOutput: untyped
+
+    UpdateVoiceTemplateInput: untyped
+
+    UpdateVoiceTemplateOutput: untyped
+
+    VerificationResponse: untyped
+
+    VerifyOTPMessageInput: untyped
+
+    VerifyOTPMessageOutput: untyped
+
+    VerifyOTPMessageRequestParameters: untyped
+
+    VoiceChannelRequest: untyped
+
+    VoiceChannelResponse: untyped
+
+    VoiceMessage: untyped
+
+    VoiceTemplateRequest: untyped
+
+    VoiceTemplateResponse: untyped
+
+    WaitActivity: untyped
+
+    WaitTime: untyped
+
+    WriteApplicationSettingsRequest: untyped
+
+    WriteCampaignRequest: untyped
+
+    WriteEventStream: untyped
+
+    WriteJourneyRequest: untyped
+
+    WriteSegmentRequest: untyped
+
+    WriteTreatmentResource: untyped
+
+    module String____EndpointTypesElement
+      PUSH: ::String
+
+      GCM: ::String
+
+      APNS: ::String
+
+      APNS_SANDBOX: ::String
+
+      APNS_VOIP: ::String
+
+      APNS_VOIP_SANDBOX: ::String
+
+      ADM: ::String
+
+      SMS: ::String
+
+      VOICE: ::String
+
+      EMAIL: ::String
+
+      BAIDU: ::String
+
+      CUSTOM: ::String
+
+      IN_APP: ::String
+    end
+
+  end
+end

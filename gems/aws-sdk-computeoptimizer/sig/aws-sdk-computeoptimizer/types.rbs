@@ -1,0 +1,814 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ComputeOptimizer
+  module Types
+
+    AccessDeniedException: untyped
+
+    AccountEnrollmentStatus: untyped
+
+    AutoScalingGroupConfiguration: untyped
+
+    AutoScalingGroupRecommendation: untyped
+
+    AutoScalingGroupRecommendationOption: untyped
+
+    module CpuVendorArchitecture
+      AWS_ARM64: ::String
+
+      CURRENT: ::String
+    end
+
+    module Currency
+      USD: ::String
+
+      CNY: ::String
+    end
+
+    module CurrentPerformanceRisk
+      VERY_LOW: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    CurrentPerformanceRiskRatings: untyped
+
+    DeleteRecommendationPreferencesInput: untyped
+
+    DeleteRecommendationPreferencesOutput: untyped
+
+    DescribeRecommendationExportJobsInput: untyped
+
+    DescribeRecommendationExportJobsOutput: untyped
+
+    EBSFilter: untyped
+
+    module EBSFilterName
+      FINDING: ::String
+    end
+
+    module EBSFinding
+      OPTIMIZED: ::String
+
+      NOT_OPTIMIZED: ::String
+    end
+
+    module EBSMetricName
+      VOLUME_READ_OPS_PER_SECOND: ::String
+
+      VOLUME_WRITE_OPS_PER_SECOND: ::String
+
+      VOLUME_READ_BYTES_PER_SECOND: ::String
+
+      VOLUME_WRITE_BYTES_PER_SECOND: ::String
+    end
+
+    EBSUtilizationMetric: untyped
+
+    EffectiveRecommendationPreferences: untyped
+
+    module EnhancedInfrastructureMetrics
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    EnrollmentFilter: untyped
+
+    module EnrollmentFilterName
+      STATUS: ::String
+    end
+
+    EstimatedMonthlySavings: untyped
+
+    ExportAutoScalingGroupRecommendationsInput: untyped
+
+    ExportAutoScalingGroupRecommendationsOutput: untyped
+
+    ExportDestination: untyped
+
+    ExportEBSVolumeRecommendationsInput: untyped
+
+    ExportEBSVolumeRecommendationsOutput: untyped
+
+    ExportEC2InstanceRecommendationsInput: untyped
+
+    ExportEC2InstanceRecommendationsOutput: untyped
+
+    ExportLambdaFunctionRecommendationsInput: untyped
+
+    ExportLambdaFunctionRecommendationsOutput: untyped
+
+    module ExportableAutoScalingGroupField
+      ACCOUNT_ID: ::String
+
+      AUTO_SCALING_GROUP_ARN: ::String
+
+      AUTO_SCALING_GROUP_NAME: ::String
+
+      FINDING: ::String
+
+      UTILIZATION_METRICS_CPU_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_MEMORY_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: ::String
+
+      LOOKBACK_PERIOD_IN_DAYS: ::String
+
+      CURRENT_CONFIGURATION_INSTANCE_TYPE: ::String
+
+      CURRENT_CONFIGURATION_DESIRED_CAPACITY: ::String
+
+      CURRENT_CONFIGURATION_MIN_SIZE: ::String
+
+      CURRENT_CONFIGURATION_MAX_SIZE: ::String
+
+      CURRENT_ON_DEMAND_PRICE: ::String
+
+      CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      CURRENT_VCPUS: ::String
+
+      CURRENT_MEMORY: ::String
+
+      CURRENT_STORAGE: ::String
+
+      CURRENT_NETWORK: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM: ::String
+
+      RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_VCPUS: ::String
+
+      RECOMMENDATION_OPTIONS_MEMORY: ::String
+
+      RECOMMENDATION_OPTIONS_STORAGE: ::String
+
+      RECOMMENDATION_OPTIONS_NETWORK: ::String
+
+      LAST_REFRESH_TIMESTAMP: ::String
+
+      CURRENT_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES: ::String
+
+      INFERRED_WORKLOAD_TYPES: ::String
+
+      RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: ::String
+    end
+
+    module ExportableInstanceField
+      ACCOUNT_ID: ::String
+
+      INSTANCE_ARN: ::String
+
+      INSTANCE_NAME: ::String
+
+      FINDING: ::String
+
+      Finding_Reason_Codes: ::String
+
+      LOOKBACK_PERIOD_IN_DAYS: ::String
+
+      CURRENT_INSTANCE_TYPE: ::String
+
+      UTILIZATION_METRICS_CPU_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_MEMORY_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM: ::String
+
+      CURRENT_ON_DEMAND_PRICE: ::String
+
+      CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      CURRENT_VCPUS: ::String
+
+      CURRENT_MEMORY: ::String
+
+      CURRENT_STORAGE: ::String
+
+      CURRENT_NETWORK: ::String
+
+      RECOMMENDATION_OPTIONS_INSTANCE_TYPE: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM: ::String
+
+      RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES: ::String
+
+      RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_VCPUS: ::String
+
+      RECOMMENDATION_OPTIONS_MEMORY: ::String
+
+      RECOMMENDATION_OPTIONS_STORAGE: ::String
+
+      RECOMMENDATION_OPTIONS_NETWORK: ::String
+
+      RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE: ::String
+
+      RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN: ::String
+
+      RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE: ::String
+
+      LAST_REFRESH_TIMESTAMP: ::String
+
+      CURRENT_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS: ::String
+
+      EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES: ::String
+
+      INFERRED_WORKLOAD_TYPES: ::String
+
+      RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: ::String
+    end
+
+    module ExportableLambdaFunctionField
+      ACCOUNT_ID: ::String
+
+      FUNCTION_ARN: ::String
+
+      FUNCTION_VERSION: ::String
+
+      FINDING: ::String
+
+      FINDING_REASON_CODES: ::String
+
+      NUMBER_OF_INVOCATIONS: ::String
+
+      UTILIZATION_METRICS_DURATION_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_DURATION_AVERAGE: ::String
+
+      UTILIZATION_METRICS_MEMORY_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_MEMORY_AVERAGE: ::String
+
+      LOOKBACK_PERIOD_IN_DAYS: ::String
+
+      CURRENT_CONFIGURATION_MEMORY_SIZE: ::String
+
+      CURRENT_CONFIGURATION_TIMEOUT: ::String
+
+      CURRENT_COST_TOTAL: ::String
+
+      CURRENT_COST_AVERAGE: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE: ::String
+
+      RECOMMENDATION_OPTIONS_COST_LOW: ::String
+
+      RECOMMENDATION_OPTIONS_COST_HIGH: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND: ::String
+
+      RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED: ::String
+
+      LAST_REFRESH_TIMESTAMP: ::String
+
+      CURRENT_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: ::String
+    end
+
+    module ExportableVolumeField
+      ACCOUNT_ID: ::String
+
+      VOLUME_ARN: ::String
+
+      FINDING: ::String
+
+      UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM: ::String
+
+      LOOKBACK_PERIOD_IN_DAYS: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_TYPE: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_BURST_IOPS: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT: ::String
+
+      CURRENT_CONFIGURATION_VOLUME_SIZE: ::String
+
+      CURRENT_MONTHLY_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT: ::String
+
+      RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE: ::String
+
+      RECOMMENDATION_OPTIONS_MONTHLY_PRICE: ::String
+
+      RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: ::String
+
+      LAST_REFRESH_TIMESTAMP: ::String
+
+      CURRENT_PERFORMANCE_RISK: ::String
+
+      RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: ::String
+
+      RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: ::String
+    end
+
+    module FileFormat
+      CSV: ::String
+    end
+
+    Filter: untyped
+
+    module FilterName
+      FINDING: ::String
+
+      FINDING_REASON_CODES: ::String
+
+      RECOMMENDATION_SOURCE_TYPE: ::String
+    end
+
+    module Finding
+      UNDER_PROVISIONED: ::String
+
+      OVER_PROVISIONED: ::String
+
+      OPTIMIZED: ::String
+
+      NOT_OPTIMIZED: ::String
+    end
+
+    module FindingReasonCode
+      MEMORY_OVER_PROVISIONED: ::String
+
+      MEMORY_UNDER_PROVISIONED: ::String
+    end
+
+    GetAutoScalingGroupRecommendationsInput: untyped
+
+    GetAutoScalingGroupRecommendationsOutput: untyped
+
+    GetEBSVolumeRecommendationsInput: untyped
+
+    GetEBSVolumeRecommendationsOutput: untyped
+
+    GetEC2InstanceRecommendationsInput: untyped
+
+    GetEC2InstanceRecommendationsOutput: untyped
+
+    GetEC2RecommendationProjectedMetricsInput: untyped
+
+    GetEC2RecommendationProjectedMetricsOutput: untyped
+
+    GetEffectiveRecommendationPreferencesInput: untyped
+
+    GetEffectiveRecommendationPreferencesOutput: untyped
+
+    GetEnrollmentStatusInput: untyped
+
+    GetEnrollmentStatusOutput: untyped
+
+    GetEnrollmentStatusesForOrganizationInput: untyped
+
+    GetEnrollmentStatusesForOrganizationOutput: untyped
+
+    GetLambdaFunctionRecommendationsInput: untyped
+
+    GetLambdaFunctionRecommendationsOutput: untyped
+
+    GetRecommendationError: untyped
+
+    GetRecommendationPreferencesInput: untyped
+
+    GetRecommendationPreferencesOutput: untyped
+
+    GetRecommendationSummariesInput: untyped
+
+    GetRecommendationSummariesOutput: untyped
+
+    module InferredWorkloadType
+      AMAZON_EMR: ::String
+
+      APACHE_CASSANDRA: ::String
+
+      APACHE_HADOOP: ::String
+
+      MEMCACHED: ::String
+
+      NGINX: ::String
+
+      POSTGRE_SQL: ::String
+
+      REDIS: ::String
+    end
+
+    module InferredWorkloadTypesPreference
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    InstanceRecommendation: untyped
+
+    module InstanceRecommendationFindingReasonCode
+      CPU_OVER_PROVISIONED: ::String
+
+      CPU_UNDER_PROVISIONED: ::String
+
+      MEMORY_OVER_PROVISIONED: ::String
+
+      MEMORY_UNDER_PROVISIONED: ::String
+
+      EBS_THROUGHPUT_OVER_PROVISIONED: ::String
+
+      EBS_THROUGHPUT_UNDER_PROVISIONED: ::String
+
+      EBS_IOPS_OVER_PROVISIONED: ::String
+
+      EBS_IOPS_UNDER_PROVISIONED: ::String
+
+      NETWORK_BANDWIDTH_OVER_PROVISIONED: ::String
+
+      NETWORK_BANDWIDTH_UNDER_PROVISIONED: ::String
+
+      NETWORK_PPS_OVER_PROVISIONED: ::String
+
+      NETWORK_PPS_UNDER_PROVISIONED: ::String
+
+      DISK_IOPS_OVER_PROVISIONED: ::String
+
+      DISK_IOPS_UNDER_PROVISIONED: ::String
+
+      DISK_THROUGHPUT_OVER_PROVISIONED: ::String
+
+      DISK_THROUGHPUT_UNDER_PROVISIONED: ::String
+    end
+
+    InstanceRecommendationOption: untyped
+
+    InternalServerException: untyped
+
+    InvalidParameterValueException: untyped
+
+    JobFilter: untyped
+
+    module JobFilterName
+      RESOURCE_TYPE: ::String
+
+      JOB_STATUS: ::String
+    end
+
+    module JobStatus
+      QUEUED: ::String
+
+      IN_PROGRESS: ::String
+
+      COMPLETE: ::String
+
+      FAILED: ::String
+    end
+
+    module LambdaFunctionMemoryMetricName
+      DURATION: ::String
+    end
+
+    module LambdaFunctionMemoryMetricStatistic
+      LOWER_BOUND: ::String
+
+      UPPER_BOUND: ::String
+
+      EXPECTED: ::String
+    end
+
+    LambdaFunctionMemoryProjectedMetric: untyped
+
+    LambdaFunctionMemoryRecommendationOption: untyped
+
+    module LambdaFunctionMetricName
+      DURATION: ::String
+
+      MEMORY: ::String
+    end
+
+    module LambdaFunctionMetricStatistic
+      MAXIMUM: ::String
+
+      AVERAGE: ::String
+    end
+
+    LambdaFunctionRecommendation: untyped
+
+    LambdaFunctionRecommendationFilter: untyped
+
+    module LambdaFunctionRecommendationFilterName
+      FINDING: ::String
+
+      FINDING_REASON_CODE: ::String
+    end
+
+    module LambdaFunctionRecommendationFinding
+      OPTIMIZED: ::String
+
+      NOT_OPTIMIZED: ::String
+
+      UNAVAILABLE: ::String
+    end
+
+    module LambdaFunctionRecommendationFindingReasonCode
+      MEMORY_OVER_PROVISIONED: ::String
+
+      MEMORY_UNDER_PROVISIONED: ::String
+
+      INSUFFICIENT_DATA: ::String
+
+      INCONCLUSIVE: ::String
+    end
+
+    LambdaFunctionUtilizationMetric: untyped
+
+    LimitExceededException: untyped
+
+    module MetricName
+      CPU: ::String
+
+      MEMORY: ::String
+
+      EBS_READ_OPS_PER_SECOND: ::String
+
+      EBS_WRITE_OPS_PER_SECOND: ::String
+
+      EBS_READ_BYTES_PER_SECOND: ::String
+
+      EBS_WRITE_BYTES_PER_SECOND: ::String
+
+      DISK_READ_OPS_PER_SECOND: ::String
+
+      DISK_WRITE_OPS_PER_SECOND: ::String
+
+      DISK_READ_BYTES_PER_SECOND: ::String
+
+      DISK_WRITE_BYTES_PER_SECOND: ::String
+
+      NETWORK_IN_BYTES_PER_SECOND: ::String
+
+      NETWORK_OUT_BYTES_PER_SECOND: ::String
+
+      NETWORK_PACKETS_IN_PER_SECOND: ::String
+
+      NETWORK_PACKETS_OUT_PER_SECOND: ::String
+    end
+
+    module MetricStatistic
+      MAXIMUM: ::String
+
+      AVERAGE: ::String
+    end
+
+    module MigrationEffort
+      VERY_LOW: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    MissingAuthenticationToken: untyped
+
+    OptInRequiredException: untyped
+
+    module PlatformDifference
+      HYPERVISOR: ::String
+
+      NETWORK_INTERFACE: ::String
+
+      STORAGE_INTERFACE: ::String
+
+      INSTANCE_STORE_AVAILABILITY: ::String
+
+      VIRTUALIZATION_TYPE: ::String
+
+      ARCHITECTURE: ::String
+    end
+
+    ProjectedMetric: untyped
+
+    PutRecommendationPreferencesInput: untyped
+
+    PutRecommendationPreferencesOutput: untyped
+
+    ReasonCodeSummary: untyped
+
+    RecommendationExportJob: untyped
+
+    module RecommendationPreferenceName
+      ENHANCED_INFRASTRUCTURE_METRICS: ::String
+
+      INFERRED_WORKLOAD_TYPES: ::String
+    end
+
+    RecommendationPreferences: untyped
+
+    RecommendationPreferencesDetail: untyped
+
+    RecommendationSource: untyped
+
+    module RecommendationSourceType
+      EC2_INSTANCE: ::String
+
+      AUTO_SCALING_GROUP: ::String
+
+      EBS_VOLUME: ::String
+
+      LAMBDA_FUNCTION: ::String
+    end
+
+    RecommendationSummary: untyped
+
+    RecommendedOptionProjectedMetric: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      EC2_INSTANCE: ::String
+
+      AUTO_SCALING_GROUP: ::String
+
+      EBS_VOLUME: ::String
+
+      LAMBDA_FUNCTION: ::String
+
+      NOT_APPLICABLE: ::String
+    end
+
+    S3Destination: untyped
+
+    S3DestinationConfig: untyped
+
+    SavingsOpportunity: untyped
+
+    Scope: untyped
+
+    module ScopeName
+      ORGANIZATION: ::String
+
+      ACCOUNT_ID: ::String
+
+      RESOURCE_ARN: ::String
+    end
+
+    ServiceUnavailableException: untyped
+
+    module Status
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      PENDING: ::String
+
+      FAILED: ::String
+    end
+
+    Summary: untyped
+
+    ThrottlingException: untyped
+
+    UpdateEnrollmentStatusInput: untyped
+
+    UpdateEnrollmentStatusOutput: untyped
+
+    UtilizationMetric: untyped
+
+    VolumeConfiguration: untyped
+
+    VolumeRecommendation: untyped
+
+    VolumeRecommendationOption: untyped
+
+  end
+end

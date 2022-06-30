@@ -1,0 +1,3 @@
+module AWS::SDK::DevOpsGuru
+  Config: untyped
+end

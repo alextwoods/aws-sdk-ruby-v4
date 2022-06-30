@@ -1,0 +1,3 @@
+module AWS::SDK::ECR
+  Config: untyped
+end

@@ -1,0 +1,198 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SnowDeviceManagement
+  module Types
+
+    AccessDeniedException: untyped
+
+    module AttachmentStatus
+      ATTACHING: ::String
+
+      ATTACHED: ::String
+
+      DETACHING: ::String
+
+      DETACHED: ::String
+    end
+
+    CancelTaskInput: untyped
+
+    CancelTaskOutput: untyped
+
+    Capacity: untyped
+
+    class Command < Hearth::Union
+      class Unlock < Command
+        def to_h: () -> { unlock: Hash[Symbol,Command] }
+      end
+
+      class Reboot < Command
+        def to_h: () -> { reboot: Hash[Symbol,Command] }
+      end
+
+      class Unknown < Command
+        def to_h: () -> { unknown: Hash[Symbol,Command] }
+      end
+    end
+
+    CpuOptions: untyped
+
+    CreateTaskInput: untyped
+
+    CreateTaskOutput: untyped
+
+    DescribeDeviceEc2InstancesInput: untyped
+
+    DescribeDeviceEc2InstancesOutput: untyped
+
+    DescribeDeviceInput: untyped
+
+    DescribeDeviceOutput: untyped
+
+    DescribeExecutionInput: untyped
+
+    DescribeExecutionOutput: untyped
+
+    DescribeTaskInput: untyped
+
+    DescribeTaskOutput: untyped
+
+    DeviceSummary: untyped
+
+    EbsInstanceBlockDevice: untyped
+
+    module ExecutionState
+      QUEUED: ::String
+
+      IN_PROGRESS: ::String
+
+      CANCELED: ::String
+
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+
+      REJECTED: ::String
+
+      TIMED_OUT: ::String
+    end
+
+    ExecutionSummary: untyped
+
+    Instance: untyped
+
+    InstanceBlockDeviceMapping: untyped
+
+    InstanceState: untyped
+
+    module InstanceStateName
+      PENDING: ::String
+
+      RUNNING: ::String
+
+      SHUTTING_DOWN: ::String
+
+      TERMINATED: ::String
+
+      STOPPING: ::String
+
+      STOPPED: ::String
+    end
+
+    InstanceSummary: untyped
+
+    InternalServerException: untyped
+
+    module IpAddressAssignment
+      DHCP: ::String
+
+      STATIC: ::String
+    end
+
+    ListDeviceResourcesInput: untyped
+
+    ListDeviceResourcesOutput: untyped
+
+    ListDevicesInput: untyped
+
+    ListDevicesOutput: untyped
+
+    ListExecutionsInput: untyped
+
+    ListExecutionsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTasksInput: untyped
+
+    ListTasksOutput: untyped
+
+    module PhysicalConnectorType
+      RJ45: ::String
+
+      SFP_PLUS: ::String
+
+      QSFP: ::String
+
+      RJ45_2: ::String
+
+      WIFI: ::String
+    end
+
+    PhysicalNetworkInterface: untyped
+
+    Reboot: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceSummary: untyped
+
+    SecurityGroupIdentifier: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SoftwareInformation: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TaskState
+      IN_PROGRESS: ::String
+
+      CANCELED: ::String
+
+      COMPLETED: ::String
+    end
+
+    TaskSummary: untyped
+
+    ThrottlingException: untyped
+
+    Unlock: untyped
+
+    module UnlockState
+      UNLOCKED: ::String
+
+      LOCKED: ::String
+
+      UNLOCKING: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

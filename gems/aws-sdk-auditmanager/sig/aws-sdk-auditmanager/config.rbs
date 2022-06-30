@@ -1,0 +1,3 @@
+module AWS::SDK::AuditManager
+  Config: untyped
+end

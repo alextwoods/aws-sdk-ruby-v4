@@ -1,0 +1,258 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LookoutVision
+  module Types
+
+    AccessDeniedException: untyped
+
+    ConflictException: untyped
+
+    CreateDatasetInput: untyped
+
+    CreateDatasetOutput: untyped
+
+    CreateModelInput: untyped
+
+    CreateModelOutput: untyped
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    DatasetDescription: untyped
+
+    DatasetGroundTruthManifest: untyped
+
+    DatasetImageStats: untyped
+
+    DatasetMetadata: untyped
+
+    DatasetSource: untyped
+
+    module DatasetStatus
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_COMPLETE: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_COMPLETE: ::String
+
+      UPDATE_FAILED_ROLLBACK_IN_PROGRESS: ::String
+
+      UPDATE_FAILED_ROLLBACK_COMPLETE: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_COMPLETE: ::String
+
+      DELETE_FAILED: ::String
+    end
+
+    DeleteDatasetInput: untyped
+
+    DeleteDatasetOutput: untyped
+
+    DeleteModelInput: untyped
+
+    DeleteModelOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DescribeDatasetInput: untyped
+
+    DescribeDatasetOutput: untyped
+
+    DescribeModelInput: untyped
+
+    DescribeModelOutput: untyped
+
+    DescribeModelPackagingJobInput: untyped
+
+    DescribeModelPackagingJobOutput: untyped
+
+    DescribeProjectInput: untyped
+
+    DescribeProjectOutput: untyped
+
+    DetectAnomaliesInput: untyped
+
+    DetectAnomaliesOutput: untyped
+
+    DetectAnomalyResult: untyped
+
+    GreengrassConfiguration: untyped
+
+    GreengrassOutputDetails: untyped
+
+    ImageSource: untyped
+
+    InputS3Object: untyped
+
+    InternalServerException: untyped
+
+    ListDatasetEntriesInput: untyped
+
+    ListDatasetEntriesOutput: untyped
+
+    ListModelPackagingJobsInput: untyped
+
+    ListModelPackagingJobsOutput: untyped
+
+    ListModelsInput: untyped
+
+    ListModelsOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ModelDescription: untyped
+
+    module ModelHostingStatus
+      STARTING_HOSTING: ::String
+
+      HOSTED: ::String
+
+      HOSTING_FAILED: ::String
+
+      STOPPING_HOSTING: ::String
+
+      SYSTEM_UPDATING: ::String
+    end
+
+    ModelMetadata: untyped
+
+    ModelPackagingConfiguration: untyped
+
+    ModelPackagingDescription: untyped
+
+    ModelPackagingJobMetadata: untyped
+
+    module ModelPackagingJobStatus
+      CREATED: ::String
+
+      RUNNING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    ModelPackagingOutputDetails: untyped
+
+    ModelPerformance: untyped
+
+    module ModelStatus
+      TRAINING: ::String
+
+      TRAINED: ::String
+
+      TRAINING_FAILED: ::String
+
+      STARTING_HOSTING: ::String
+
+      HOSTED: ::String
+
+      HOSTING_FAILED: ::String
+
+      STOPPING_HOSTING: ::String
+
+      SYSTEM_UPDATING: ::String
+
+      DELETING: ::String
+    end
+
+    OutputConfig: untyped
+
+    OutputS3Object: untyped
+
+    ProjectDescription: untyped
+
+    ProjectMetadata: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      PROJECT: ::String
+
+      DATASET: ::String
+
+      MODEL: ::String
+
+      TRIAL: ::String
+
+      MODEL_PACKAGE_JOB: ::String
+    end
+
+    S3Location: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    StartModelInput: untyped
+
+    StartModelOutput: untyped
+
+    StartModelPackagingJobInput: untyped
+
+    StartModelPackagingJobOutput: untyped
+
+    StopModelInput: untyped
+
+    StopModelOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetDevice
+      JETSON_XAVIER: ::String
+    end
+
+    TargetPlatform: untyped
+
+    module TargetPlatformAccelerator
+      NVIDIA: ::String
+    end
+
+    module TargetPlatformArch
+      ARM64: ::String
+
+      X86_64: ::String
+    end
+
+    module TargetPlatformOs
+      LINUX: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDatasetEntriesInput: untyped
+
+    UpdateDatasetEntriesOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

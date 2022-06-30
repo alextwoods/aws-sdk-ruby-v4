@@ -1,0 +1,3 @@
+module AWS::SDK::CodeGuruProfiler
+  Config: untyped
+end

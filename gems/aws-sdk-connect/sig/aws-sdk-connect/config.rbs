@@ -1,0 +1,3 @@
+module AWS::SDK::Connect
+  Config: untyped
+end

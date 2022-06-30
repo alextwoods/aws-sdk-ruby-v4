@@ -1,0 +1,3 @@
+module AWS::SDK::ApplicationAutoScaling
+  Config: untyped
+end

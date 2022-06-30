@@ -1,0 +1,886 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DeviceFarm
+  module Types
+
+    AccountSettings: untyped
+
+    ArgumentException: untyped
+
+    Artifact: untyped
+
+    module ArtifactCategory
+      SCREENSHOT: ::String
+
+      FILE: ::String
+
+      LOG: ::String
+    end
+
+    module ArtifactType
+      UNKNOWN: ::String
+
+      SCREENSHOT: ::String
+
+      DEVICE_LOG: ::String
+
+      MESSAGE_LOG: ::String
+
+      VIDEO_LOG: ::String
+
+      RESULT_LOG: ::String
+
+      SERVICE_LOG: ::String
+
+      WEBKIT_LOG: ::String
+
+      INSTRUMENTATION_OUTPUT: ::String
+
+      EXERCISER_MONKEY_OUTPUT: ::String
+
+      CALABASH_JSON_OUTPUT: ::String
+
+      CALABASH_PRETTY_OUTPUT: ::String
+
+      CALABASH_STANDARD_OUTPUT: ::String
+
+      CALABASH_JAVA_XML_OUTPUT: ::String
+
+      AUTOMATION_OUTPUT: ::String
+
+      APPIUM_SERVER_OUTPUT: ::String
+
+      APPIUM_JAVA_OUTPUT: ::String
+
+      APPIUM_JAVA_XML_OUTPUT: ::String
+
+      APPIUM_PYTHON_OUTPUT: ::String
+
+      APPIUM_PYTHON_XML_OUTPUT: ::String
+
+      EXPLORER_EVENT_LOG: ::String
+
+      EXPLORER_SUMMARY_LOG: ::String
+
+      APPLICATION_CRASH_REPORT: ::String
+
+      XCTEST_LOG: ::String
+
+      VIDEO: ::String
+
+      CUSTOMER_ARTIFACT: ::String
+
+      CUSTOMER_ARTIFACT_LOG: ::String
+
+      TESTSPEC_OUTPUT: ::String
+    end
+
+    module BillingMethod
+      METERED: ::String
+
+      UNMETERED: ::String
+    end
+
+    CPU: untyped
+
+    CannotDeleteException: untyped
+
+    Counters: untyped
+
+    CreateDevicePoolInput: untyped
+
+    CreateDevicePoolOutput: untyped
+
+    CreateInstanceProfileInput: untyped
+
+    CreateInstanceProfileOutput: untyped
+
+    CreateNetworkProfileInput: untyped
+
+    CreateNetworkProfileOutput: untyped
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    CreateRemoteAccessSessionConfiguration: untyped
+
+    CreateRemoteAccessSessionInput: untyped
+
+    CreateRemoteAccessSessionOutput: untyped
+
+    CreateTestGridProjectInput: untyped
+
+    CreateTestGridProjectOutput: untyped
+
+    CreateTestGridUrlInput: untyped
+
+    CreateTestGridUrlOutput: untyped
+
+    CreateUploadInput: untyped
+
+    CreateUploadOutput: untyped
+
+    CreateVPCEConfigurationInput: untyped
+
+    CreateVPCEConfigurationOutput: untyped
+
+    module CurrencyCode
+      USD: ::String
+    end
+
+    CustomerArtifactPaths: untyped
+
+    DeleteDevicePoolInput: untyped
+
+    DeleteDevicePoolOutput: untyped
+
+    DeleteInstanceProfileInput: untyped
+
+    DeleteInstanceProfileOutput: untyped
+
+    DeleteNetworkProfileInput: untyped
+
+    DeleteNetworkProfileOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DeleteRemoteAccessSessionInput: untyped
+
+    DeleteRemoteAccessSessionOutput: untyped
+
+    DeleteRunInput: untyped
+
+    DeleteRunOutput: untyped
+
+    DeleteTestGridProjectInput: untyped
+
+    DeleteTestGridProjectOutput: untyped
+
+    DeleteUploadInput: untyped
+
+    DeleteUploadOutput: untyped
+
+    DeleteVPCEConfigurationInput: untyped
+
+    DeleteVPCEConfigurationOutput: untyped
+
+    Device: untyped
+
+    module DeviceAttribute
+      ARN: ::String
+
+      PLATFORM: ::String
+
+      FORM_FACTOR: ::String
+
+      MANUFACTURER: ::String
+
+      REMOTE_ACCESS_ENABLED: ::String
+
+      REMOTE_DEBUG_ENABLED: ::String
+
+      APPIUM_VERSION: ::String
+
+      INSTANCE_ARN: ::String
+
+      INSTANCE_LABELS: ::String
+
+      FLEET_TYPE: ::String
+
+      OS_VERSION: ::String
+
+      MODEL: ::String
+
+      AVAILABILITY: ::String
+    end
+
+    module DeviceAvailability
+      TEMPORARY_NOT_AVAILABLE: ::String
+
+      BUSY: ::String
+
+      AVAILABLE: ::String
+
+      HIGHLY_AVAILABLE: ::String
+    end
+
+    DeviceFilter: untyped
+
+    module DeviceFilterAttribute
+      ARN: ::String
+
+      PLATFORM: ::String
+
+      OS_VERSION: ::String
+
+      MODEL: ::String
+
+      AVAILABILITY: ::String
+
+      FORM_FACTOR: ::String
+
+      MANUFACTURER: ::String
+
+      REMOTE_ACCESS_ENABLED: ::String
+
+      REMOTE_DEBUG_ENABLED: ::String
+
+      INSTANCE_ARN: ::String
+
+      INSTANCE_LABELS: ::String
+
+      FLEET_TYPE: ::String
+    end
+
+    module DeviceFormFactor
+      PHONE: ::String
+
+      TABLET: ::String
+    end
+
+    DeviceInstance: untyped
+
+    DeviceMinutes: untyped
+
+    module DevicePlatform
+      ANDROID: ::String
+
+      IOS: ::String
+    end
+
+    DevicePool: untyped
+
+    DevicePoolCompatibilityResult: untyped
+
+    module DevicePoolType
+      CURATED: ::String
+
+      PRIVATE: ::String
+    end
+
+    DeviceSelectionConfiguration: untyped
+
+    DeviceSelectionResult: untyped
+
+    ExecutionConfiguration: untyped
+
+    module ExecutionResult
+      PENDING: ::String
+
+      PASSED: ::String
+
+      WARNED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+
+      ERRORED: ::String
+
+      STOPPED: ::String
+    end
+
+    module ExecutionResultCode
+      PARSING_FAILED: ::String
+
+      VPC_ENDPOINT_SETUP_FAILED: ::String
+    end
+
+    module ExecutionStatus
+      PENDING: ::String
+
+      PENDING_CONCURRNECY: ::String
+
+      PENDING_DEVICE: ::String
+
+      PROCESSING: ::String
+
+      SCHEDULING: ::String
+
+      PREPARING: ::String
+
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      STOPPING: ::String
+    end
+
+    GetAccountSettingsInput: untyped
+
+    GetAccountSettingsOutput: untyped
+
+    GetDeviceInput: untyped
+
+    GetDeviceInstanceInput: untyped
+
+    GetDeviceInstanceOutput: untyped
+
+    GetDeviceOutput: untyped
+
+    GetDevicePoolCompatibilityInput: untyped
+
+    GetDevicePoolCompatibilityOutput: untyped
+
+    GetDevicePoolInput: untyped
+
+    GetDevicePoolOutput: untyped
+
+    GetInstanceProfileInput: untyped
+
+    GetInstanceProfileOutput: untyped
+
+    GetJobInput: untyped
+
+    GetJobOutput: untyped
+
+    GetNetworkProfileInput: untyped
+
+    GetNetworkProfileOutput: untyped
+
+    GetOfferingStatusInput: untyped
+
+    GetOfferingStatusOutput: untyped
+
+    GetProjectInput: untyped
+
+    GetProjectOutput: untyped
+
+    GetRemoteAccessSessionInput: untyped
+
+    GetRemoteAccessSessionOutput: untyped
+
+    GetRunInput: untyped
+
+    GetRunOutput: untyped
+
+    GetSuiteInput: untyped
+
+    GetSuiteOutput: untyped
+
+    GetTestGridProjectInput: untyped
+
+    GetTestGridProjectOutput: untyped
+
+    GetTestGridSessionInput: untyped
+
+    GetTestGridSessionOutput: untyped
+
+    GetTestInput: untyped
+
+    GetTestOutput: untyped
+
+    GetUploadInput: untyped
+
+    GetUploadOutput: untyped
+
+    GetVPCEConfigurationInput: untyped
+
+    GetVPCEConfigurationOutput: untyped
+
+    IdempotencyException: untyped
+
+    IncompatibilityMessage: untyped
+
+    InstallToRemoteAccessSessionInput: untyped
+
+    InstallToRemoteAccessSessionOutput: untyped
+
+    InstanceProfile: untyped
+
+    module InstanceStatus
+      IN_USE: ::String
+
+      PREPARING: ::String
+
+      AVAILABLE: ::String
+
+      NOT_AVAILABLE: ::String
+    end
+
+    module InteractionMode
+      INTERACTIVE: ::String
+
+      NO_VIDEO: ::String
+
+      VIDEO_ONLY: ::String
+    end
+
+    InternalServiceException: untyped
+
+    InvalidOperationException: untyped
+
+    Job: untyped
+
+    LimitExceededException: untyped
+
+    ListArtifactsInput: untyped
+
+    ListArtifactsOutput: untyped
+
+    ListDeviceInstancesInput: untyped
+
+    ListDeviceInstancesOutput: untyped
+
+    ListDevicePoolsInput: untyped
+
+    ListDevicePoolsOutput: untyped
+
+    ListDevicesInput: untyped
+
+    ListDevicesOutput: untyped
+
+    ListInstanceProfilesInput: untyped
+
+    ListInstanceProfilesOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListNetworkProfilesInput: untyped
+
+    ListNetworkProfilesOutput: untyped
+
+    ListOfferingPromotionsInput: untyped
+
+    ListOfferingPromotionsOutput: untyped
+
+    ListOfferingTransactionsInput: untyped
+
+    ListOfferingTransactionsOutput: untyped
+
+    ListOfferingsInput: untyped
+
+    ListOfferingsOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    ListRemoteAccessSessionsInput: untyped
+
+    ListRemoteAccessSessionsOutput: untyped
+
+    ListRunsInput: untyped
+
+    ListRunsOutput: untyped
+
+    ListSamplesInput: untyped
+
+    ListSamplesOutput: untyped
+
+    ListSuitesInput: untyped
+
+    ListSuitesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTestGridProjectsInput: untyped
+
+    ListTestGridProjectsOutput: untyped
+
+    ListTestGridSessionActionsInput: untyped
+
+    ListTestGridSessionActionsOutput: untyped
+
+    ListTestGridSessionArtifactsInput: untyped
+
+    ListTestGridSessionArtifactsOutput: untyped
+
+    ListTestGridSessionsInput: untyped
+
+    ListTestGridSessionsOutput: untyped
+
+    ListTestsInput: untyped
+
+    ListTestsOutput: untyped
+
+    ListUniqueProblemsInput: untyped
+
+    ListUniqueProblemsOutput: untyped
+
+    ListUploadsInput: untyped
+
+    ListUploadsOutput: untyped
+
+    ListVPCEConfigurationsInput: untyped
+
+    ListVPCEConfigurationsOutput: untyped
+
+    Location: untyped
+
+    MonetaryAmount: untyped
+
+    NetworkProfile: untyped
+
+    module NetworkProfileType
+      CURATED: ::String
+
+      PRIVATE: ::String
+    end
+
+    NotEligibleException: untyped
+
+    NotFoundException: untyped
+
+    Offering: untyped
+
+    OfferingPromotion: untyped
+
+    OfferingStatus: untyped
+
+    OfferingTransaction: untyped
+
+    module OfferingTransactionType
+      PURCHASE: ::String
+
+      RENEW: ::String
+
+      SYSTEM: ::String
+    end
+
+    module OfferingType
+      RECURRING: ::String
+    end
+
+    Problem: untyped
+
+    ProblemDetail: untyped
+
+    Project: untyped
+
+    PurchaseOfferingInput: untyped
+
+    PurchaseOfferingOutput: untyped
+
+    Radios: untyped
+
+    RecurringCharge: untyped
+
+    module RecurringChargeFrequency
+      MONTHLY: ::String
+    end
+
+    RemoteAccessSession: untyped
+
+    RenewOfferingInput: untyped
+
+    RenewOfferingOutput: untyped
+
+    Resolution: untyped
+
+    Rule: untyped
+
+    module RuleOperator
+      EQUALS: ::String
+
+      LESS_THAN: ::String
+
+      LESS_THAN_OR_EQUALS: ::String
+
+      GREATER_THAN: ::String
+
+      GREATER_THAN_OR_EQUALS: ::String
+
+      IN: ::String
+
+      NOT_IN: ::String
+
+      CONTAINS: ::String
+    end
+
+    Run: untyped
+
+    Sample: untyped
+
+    module SampleType
+      CPU: ::String
+
+      MEMORY: ::String
+
+      THREADS: ::String
+
+      RX_RATE: ::String
+
+      TX_RATE: ::String
+
+      RX: ::String
+
+      TX: ::String
+
+      NATIVE_FRAMES: ::String
+
+      NATIVE_FPS: ::String
+
+      NATIVE_MIN_DRAWTIME: ::String
+
+      NATIVE_AVG_DRAWTIME: ::String
+
+      NATIVE_MAX_DRAWTIME: ::String
+
+      OPENGL_FRAMES: ::String
+
+      OPENGL_FPS: ::String
+
+      OPENGL_MIN_DRAWTIME: ::String
+
+      OPENGL_AVG_DRAWTIME: ::String
+
+      OPENGL_MAX_DRAWTIME: ::String
+    end
+
+    ScheduleRunConfiguration: untyped
+
+    ScheduleRunInput: untyped
+
+    ScheduleRunOutput: untyped
+
+    ScheduleRunTest: untyped
+
+    ServiceAccountException: untyped
+
+    StopJobInput: untyped
+
+    StopJobOutput: untyped
+
+    StopRemoteAccessSessionInput: untyped
+
+    StopRemoteAccessSessionOutput: untyped
+
+    StopRunInput: untyped
+
+    StopRunOutput: untyped
+
+    Suite: untyped
+
+    Tag: untyped
+
+    TagOperationException: untyped
+
+    TagPolicyException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Test: untyped
+
+    TestGridProject: untyped
+
+    TestGridSession: untyped
+
+    TestGridSessionAction: untyped
+
+    TestGridSessionArtifact: untyped
+
+    module TestGridSessionArtifactCategory
+      VIDEO: ::String
+
+      LOG: ::String
+    end
+
+    module TestGridSessionArtifactType
+      UNKNOWN: ::String
+
+      VIDEO: ::String
+
+      SELENIUM_LOG: ::String
+    end
+
+    module TestGridSessionStatus
+      ACTIVE: ::String
+
+      CLOSED: ::String
+
+      ERRORED: ::String
+    end
+
+    TestGridVpcConfig: untyped
+
+    module TestType
+      BUILTIN_FUZZ: ::String
+
+      BUILTIN_EXPLORER: ::String
+
+      WEB_PERFORMANCE_PROFILE: ::String
+
+      APPIUM_JAVA_JUNIT: ::String
+
+      APPIUM_JAVA_TESTNG: ::String
+
+      APPIUM_PYTHON: ::String
+
+      APPIUM_NODE: ::String
+
+      APPIUM_RUBY: ::String
+
+      APPIUM_WEB_JAVA_JUNIT: ::String
+
+      APPIUM_WEB_JAVA_TESTNG: ::String
+
+      APPIUM_WEB_PYTHON: ::String
+
+      APPIUM_WEB_NODE: ::String
+
+      APPIUM_WEB_RUBY: ::String
+
+      CALABASH: ::String
+
+      INSTRUMENTATION: ::String
+
+      UIAUTOMATION: ::String
+
+      UIAUTOMATOR: ::String
+
+      XCTEST: ::String
+
+      XCTEST_UI: ::String
+
+      REMOTE_ACCESS_RECORD: ::String
+
+      REMOTE_ACCESS_REPLAY: ::String
+    end
+
+    TooManyTagsException: untyped
+
+    TrialMinutes: untyped
+
+    UniqueProblem: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDeviceInstanceInput: untyped
+
+    UpdateDeviceInstanceOutput: untyped
+
+    UpdateDevicePoolInput: untyped
+
+    UpdateDevicePoolOutput: untyped
+
+    UpdateInstanceProfileInput: untyped
+
+    UpdateInstanceProfileOutput: untyped
+
+    UpdateNetworkProfileInput: untyped
+
+    UpdateNetworkProfileOutput: untyped
+
+    UpdateProjectInput: untyped
+
+    UpdateProjectOutput: untyped
+
+    UpdateTestGridProjectInput: untyped
+
+    UpdateTestGridProjectOutput: untyped
+
+    UpdateUploadInput: untyped
+
+    UpdateUploadOutput: untyped
+
+    UpdateVPCEConfigurationInput: untyped
+
+    UpdateVPCEConfigurationOutput: untyped
+
+    Upload: untyped
+
+    module UploadCategory
+      CURATED: ::String
+
+      PRIVATE: ::String
+    end
+
+    module UploadStatus
+      INITIALIZED: ::String
+
+      PROCESSING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    module UploadType
+      ANDROID_APP: ::String
+
+      IOS_APP: ::String
+
+      WEB_APP: ::String
+
+      EXTERNAL_DATA: ::String
+
+      APPIUM_JAVA_JUNIT_TEST_PACKAGE: ::String
+
+      APPIUM_JAVA_TESTNG_TEST_PACKAGE: ::String
+
+      APPIUM_PYTHON_TEST_PACKAGE: ::String
+
+      APPIUM_NODE_TEST_PACKAGE: ::String
+
+      APPIUM_RUBY_TEST_PACKAGE: ::String
+
+      APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: ::String
+
+      APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: ::String
+
+      APPIUM_WEB_PYTHON_TEST_PACKAGE: ::String
+
+      APPIUM_WEB_NODE_TEST_PACKAGE: ::String
+
+      APPIUM_WEB_RUBY_TEST_PACKAGE: ::String
+
+      CALABASH_TEST_PACKAGE: ::String
+
+      INSTRUMENTATION_TEST_PACKAGE: ::String
+
+      UIAUTOMATION_TEST_PACKAGE: ::String
+
+      UIAUTOMATOR_TEST_PACKAGE: ::String
+
+      XCTEST_TEST_PACKAGE: ::String
+
+      XCTEST_UI_TEST_PACKAGE: ::String
+
+      APPIUM_JAVA_JUNIT_TEST_SPEC: ::String
+
+      APPIUM_JAVA_TESTNG_TEST_SPEC: ::String
+
+      APPIUM_PYTHON_TEST_SPEC: ::String
+
+      APPIUM_NODE_TEST_SPEC: ::String
+
+      APPIUM_RUBY_TEST_SPEC: ::String
+
+      APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: ::String
+
+      APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: ::String
+
+      APPIUM_WEB_PYTHON_TEST_SPEC: ::String
+
+      APPIUM_WEB_NODE_TEST_SPEC: ::String
+
+      APPIUM_WEB_RUBY_TEST_SPEC: ::String
+
+      INSTRUMENTATION_TEST_SPEC: ::String
+
+      XCTEST_UI_TEST_SPEC: ::String
+    end
+
+    VPCEConfiguration: untyped
+
+  end
+end

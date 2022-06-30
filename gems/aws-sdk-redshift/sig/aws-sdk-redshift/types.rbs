@@ -1,0 +1,1130 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Redshift
+  module Types
+
+    AcceptReservedNodeExchangeInput: untyped
+
+    AcceptReservedNodeExchangeOutput: untyped
+
+    AccessToClusterDeniedFault: untyped
+
+    AccessToSnapshotDeniedFault: untyped
+
+    AccountAttribute: untyped
+
+    AccountWithRestoreAccess: untyped
+
+    module ActionType
+      RESTORE_CLUSTER: ::String
+
+      RECOMMEND_NODE_CONFIG: ::String
+
+      RESIZE_CLUSTER: ::String
+    end
+
+    AddPartnerInput: untyped
+
+    AddPartnerOutput: untyped
+
+    AquaConfiguration: untyped
+
+    module AquaConfigurationStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      AUTO: ::String
+    end
+
+    module AquaStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      APPLYING: ::String
+    end
+
+    AssociateDataShareConsumerInput: untyped
+
+    AssociateDataShareConsumerOutput: untyped
+
+    AttributeValueTarget: untyped
+
+    AuthenticationProfile: untyped
+
+    AuthenticationProfileAlreadyExistsFault: untyped
+
+    AuthenticationProfileNotFoundFault: untyped
+
+    AuthenticationProfileQuotaExceededFault: untyped
+
+    AuthorizationAlreadyExistsFault: untyped
+
+    AuthorizationNotFoundFault: untyped
+
+    AuthorizationQuotaExceededFault: untyped
+
+    module AuthorizationStatus
+      AUTHORIZED: ::String
+
+      REVOKING: ::String
+    end
+
+    AuthorizeClusterSecurityGroupIngressInput: untyped
+
+    AuthorizeClusterSecurityGroupIngressOutput: untyped
+
+    AuthorizeDataShareInput: untyped
+
+    AuthorizeDataShareOutput: untyped
+
+    AuthorizeEndpointAccessInput: untyped
+
+    AuthorizeEndpointAccessOutput: untyped
+
+    AuthorizeSnapshotAccessInput: untyped
+
+    AuthorizeSnapshotAccessOutput: untyped
+
+    AvailabilityZone: untyped
+
+    BatchDeleteClusterSnapshotsInput: untyped
+
+    BatchDeleteClusterSnapshotsOutput: untyped
+
+    BatchDeleteRequestSizeExceededFault: untyped
+
+    BatchModifyClusterSnapshotsInput: untyped
+
+    BatchModifyClusterSnapshotsLimitExceededFault: untyped
+
+    BatchModifyClusterSnapshotsOutput: untyped
+
+    BucketNotFoundFault: untyped
+
+    CancelResizeInput: untyped
+
+    CancelResizeOutput: untyped
+
+    Cluster: untyped
+
+    ClusterAlreadyExistsFault: untyped
+
+    ClusterAssociatedToSchedule: untyped
+
+    ClusterDbRevision: untyped
+
+    ClusterIamRole: untyped
+
+    ClusterNode: untyped
+
+    ClusterNotFoundFault: untyped
+
+    ClusterOnLatestRevisionFault: untyped
+
+    ClusterParameterGroup: untyped
+
+    ClusterParameterGroupAlreadyExistsFault: untyped
+
+    ClusterParameterGroupNotFoundFault: untyped
+
+    ClusterParameterGroupQuotaExceededFault: untyped
+
+    ClusterParameterGroupStatus: untyped
+
+    ClusterParameterStatus: untyped
+
+    ClusterQuotaExceededFault: untyped
+
+    ClusterSecurityGroup: untyped
+
+    ClusterSecurityGroupAlreadyExistsFault: untyped
+
+    ClusterSecurityGroupMembership: untyped
+
+    ClusterSecurityGroupNotFoundFault: untyped
+
+    ClusterSecurityGroupQuotaExceededFault: untyped
+
+    ClusterSnapshotAlreadyExistsFault: untyped
+
+    ClusterSnapshotCopyStatus: untyped
+
+    ClusterSnapshotNotFoundFault: untyped
+
+    ClusterSnapshotQuotaExceededFault: untyped
+
+    ClusterSubnetGroup: untyped
+
+    ClusterSubnetGroupAlreadyExistsFault: untyped
+
+    ClusterSubnetGroupNotFoundFault: untyped
+
+    ClusterSubnetGroupQuotaExceededFault: untyped
+
+    ClusterSubnetQuotaExceededFault: untyped
+
+    ClusterVersion: untyped
+
+    CopyClusterSnapshotInput: untyped
+
+    CopyClusterSnapshotOutput: untyped
+
+    CopyToRegionDisabledFault: untyped
+
+    CreateAuthenticationProfileInput: untyped
+
+    CreateAuthenticationProfileOutput: untyped
+
+    CreateClusterInput: untyped
+
+    CreateClusterOutput: untyped
+
+    CreateClusterParameterGroupInput: untyped
+
+    CreateClusterParameterGroupOutput: untyped
+
+    CreateClusterSecurityGroupInput: untyped
+
+    CreateClusterSecurityGroupOutput: untyped
+
+    CreateClusterSnapshotInput: untyped
+
+    CreateClusterSnapshotOutput: untyped
+
+    CreateClusterSubnetGroupInput: untyped
+
+    CreateClusterSubnetGroupOutput: untyped
+
+    CreateEndpointAccessInput: untyped
+
+    CreateEndpointAccessOutput: untyped
+
+    CreateEventSubscriptionInput: untyped
+
+    CreateEventSubscriptionOutput: untyped
+
+    CreateHsmClientCertificateInput: untyped
+
+    CreateHsmClientCertificateOutput: untyped
+
+    CreateHsmConfigurationInput: untyped
+
+    CreateHsmConfigurationOutput: untyped
+
+    CreateScheduledActionInput: untyped
+
+    CreateScheduledActionOutput: untyped
+
+    CreateSnapshotCopyGrantInput: untyped
+
+    CreateSnapshotCopyGrantOutput: untyped
+
+    CreateSnapshotScheduleInput: untyped
+
+    CreateSnapshotScheduleOutput: untyped
+
+    CreateTagsInput: untyped
+
+    CreateTagsOutput: untyped
+
+    CreateUsageLimitInput: untyped
+
+    CreateUsageLimitOutput: untyped
+
+    DataShare: untyped
+
+    DataShareAssociation: untyped
+
+    module DataShareStatus
+      ACTIVE: ::String
+
+      PENDING_AUTHORIZATION: ::String
+
+      AUTHORIZED: ::String
+
+      DEAUTHORIZED: ::String
+
+      REJECTED: ::String
+
+      AVAILABLE: ::String
+    end
+
+    module DataShareStatusForConsumer
+      ACTIVE: ::String
+
+      AVAILABLE: ::String
+    end
+
+    module DataShareStatusForProducer
+      ACTIVE: ::String
+
+      AUTHORIZED: ::String
+
+      PENDING_AUTHORIZATION: ::String
+
+      DEAUTHORIZED: ::String
+
+      REJECTED: ::String
+    end
+
+    DataTransferProgress: untyped
+
+    DeauthorizeDataShareInput: untyped
+
+    DeauthorizeDataShareOutput: untyped
+
+    DefaultClusterParameters: untyped
+
+    DeferredMaintenanceWindow: untyped
+
+    DeleteAuthenticationProfileInput: untyped
+
+    DeleteAuthenticationProfileOutput: untyped
+
+    DeleteClusterInput: untyped
+
+    DeleteClusterOutput: untyped
+
+    DeleteClusterParameterGroupInput: untyped
+
+    DeleteClusterParameterGroupOutput: untyped
+
+    DeleteClusterSecurityGroupInput: untyped
+
+    DeleteClusterSecurityGroupOutput: untyped
+
+    DeleteClusterSnapshotInput: untyped
+
+    DeleteClusterSnapshotMessage: untyped
+
+    DeleteClusterSnapshotOutput: untyped
+
+    DeleteClusterSubnetGroupInput: untyped
+
+    DeleteClusterSubnetGroupOutput: untyped
+
+    DeleteEndpointAccessInput: untyped
+
+    DeleteEndpointAccessOutput: untyped
+
+    DeleteEventSubscriptionInput: untyped
+
+    DeleteEventSubscriptionOutput: untyped
+
+    DeleteHsmClientCertificateInput: untyped
+
+    DeleteHsmClientCertificateOutput: untyped
+
+    DeleteHsmConfigurationInput: untyped
+
+    DeleteHsmConfigurationOutput: untyped
+
+    DeletePartnerInput: untyped
+
+    DeletePartnerOutput: untyped
+
+    DeleteScheduledActionInput: untyped
+
+    DeleteScheduledActionOutput: untyped
+
+    DeleteSnapshotCopyGrantInput: untyped
+
+    DeleteSnapshotCopyGrantOutput: untyped
+
+    DeleteSnapshotScheduleInput: untyped
+
+    DeleteSnapshotScheduleOutput: untyped
+
+    DeleteTagsInput: untyped
+
+    DeleteTagsOutput: untyped
+
+    DeleteUsageLimitInput: untyped
+
+    DeleteUsageLimitOutput: untyped
+
+    DependentServiceRequestThrottlingFault: untyped
+
+    DependentServiceUnavailableFault: untyped
+
+    DescribeAccountAttributesInput: untyped
+
+    DescribeAccountAttributesOutput: untyped
+
+    DescribeAuthenticationProfilesInput: untyped
+
+    DescribeAuthenticationProfilesOutput: untyped
+
+    DescribeClusterDbRevisionsInput: untyped
+
+    DescribeClusterDbRevisionsOutput: untyped
+
+    DescribeClusterParameterGroupsInput: untyped
+
+    DescribeClusterParameterGroupsOutput: untyped
+
+    DescribeClusterParametersInput: untyped
+
+    DescribeClusterParametersOutput: untyped
+
+    DescribeClusterSecurityGroupsInput: untyped
+
+    DescribeClusterSecurityGroupsOutput: untyped
+
+    DescribeClusterSnapshotsInput: untyped
+
+    DescribeClusterSnapshotsOutput: untyped
+
+    DescribeClusterSubnetGroupsInput: untyped
+
+    DescribeClusterSubnetGroupsOutput: untyped
+
+    DescribeClusterTracksInput: untyped
+
+    DescribeClusterTracksOutput: untyped
+
+    DescribeClusterVersionsInput: untyped
+
+    DescribeClusterVersionsOutput: untyped
+
+    DescribeClustersInput: untyped
+
+    DescribeClustersOutput: untyped
+
+    DescribeDataSharesForConsumerInput: untyped
+
+    DescribeDataSharesForConsumerOutput: untyped
+
+    DescribeDataSharesForProducerInput: untyped
+
+    DescribeDataSharesForProducerOutput: untyped
+
+    DescribeDataSharesInput: untyped
+
+    DescribeDataSharesOutput: untyped
+
+    DescribeDefaultClusterParametersInput: untyped
+
+    DescribeDefaultClusterParametersOutput: untyped
+
+    DescribeEndpointAccessInput: untyped
+
+    DescribeEndpointAccessOutput: untyped
+
+    DescribeEndpointAuthorizationInput: untyped
+
+    DescribeEndpointAuthorizationOutput: untyped
+
+    DescribeEventCategoriesInput: untyped
+
+    DescribeEventCategoriesOutput: untyped
+
+    DescribeEventSubscriptionsInput: untyped
+
+    DescribeEventSubscriptionsOutput: untyped
+
+    DescribeEventsInput: untyped
+
+    DescribeEventsOutput: untyped
+
+    DescribeHsmClientCertificatesInput: untyped
+
+    DescribeHsmClientCertificatesOutput: untyped
+
+    DescribeHsmConfigurationsInput: untyped
+
+    DescribeHsmConfigurationsOutput: untyped
+
+    DescribeLoggingStatusInput: untyped
+
+    DescribeLoggingStatusOutput: untyped
+
+    DescribeNodeConfigurationOptionsInput: untyped
+
+    DescribeNodeConfigurationOptionsOutput: untyped
+
+    DescribeOrderableClusterOptionsInput: untyped
+
+    DescribeOrderableClusterOptionsOutput: untyped
+
+    DescribePartnersInput: untyped
+
+    DescribePartnersOutput: untyped
+
+    DescribeReservedNodeExchangeStatusInput: untyped
+
+    DescribeReservedNodeExchangeStatusOutput: untyped
+
+    DescribeReservedNodeOfferingsInput: untyped
+
+    DescribeReservedNodeOfferingsOutput: untyped
+
+    DescribeReservedNodesInput: untyped
+
+    DescribeReservedNodesOutput: untyped
+
+    DescribeResizeInput: untyped
+
+    DescribeResizeOutput: untyped
+
+    DescribeScheduledActionsInput: untyped
+
+    DescribeScheduledActionsOutput: untyped
+
+    DescribeSnapshotCopyGrantsInput: untyped
+
+    DescribeSnapshotCopyGrantsOutput: untyped
+
+    DescribeSnapshotSchedulesInput: untyped
+
+    DescribeSnapshotSchedulesOutput: untyped
+
+    DescribeStorageInput: untyped
+
+    DescribeStorageOutput: untyped
+
+    DescribeTableRestoreStatusInput: untyped
+
+    DescribeTableRestoreStatusOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    DescribeUsageLimitsInput: untyped
+
+    DescribeUsageLimitsOutput: untyped
+
+    DisableLoggingInput: untyped
+
+    DisableLoggingOutput: untyped
+
+    DisableSnapshotCopyInput: untyped
+
+    DisableSnapshotCopyOutput: untyped
+
+    DisassociateDataShareConsumerInput: untyped
+
+    DisassociateDataShareConsumerOutput: untyped
+
+    EC2SecurityGroup: untyped
+
+    ElasticIpStatus: untyped
+
+    EnableLoggingInput: untyped
+
+    EnableLoggingOutput: untyped
+
+    EnableSnapshotCopyInput: untyped
+
+    EnableSnapshotCopyOutput: untyped
+
+    Endpoint: untyped
+
+    EndpointAccess: untyped
+
+    EndpointAlreadyExistsFault: untyped
+
+    EndpointAuthorization: untyped
+
+    EndpointAuthorizationAlreadyExistsFault: untyped
+
+    EndpointAuthorizationNotFoundFault: untyped
+
+    EndpointAuthorizationsPerClusterLimitExceededFault: untyped
+
+    EndpointNotFoundFault: untyped
+
+    EndpointsPerAuthorizationLimitExceededFault: untyped
+
+    EndpointsPerClusterLimitExceededFault: untyped
+
+    Event: untyped
+
+    EventCategoriesMap: untyped
+
+    EventInfoMap: untyped
+
+    EventSubscription: untyped
+
+    EventSubscriptionQuotaExceededFault: untyped
+
+    GetClusterCredentialsInput: untyped
+
+    GetClusterCredentialsOutput: untyped
+
+    GetClusterCredentialsWithIAMInput: untyped
+
+    GetClusterCredentialsWithIAMOutput: untyped
+
+    GetReservedNodeExchangeConfigurationOptionsInput: untyped
+
+    GetReservedNodeExchangeConfigurationOptionsOutput: untyped
+
+    GetReservedNodeExchangeOfferingsInput: untyped
+
+    GetReservedNodeExchangeOfferingsOutput: untyped
+
+    HsmClientCertificate: untyped
+
+    HsmClientCertificateAlreadyExistsFault: untyped
+
+    HsmClientCertificateNotFoundFault: untyped
+
+    HsmClientCertificateQuotaExceededFault: untyped
+
+    HsmConfiguration: untyped
+
+    HsmConfigurationAlreadyExistsFault: untyped
+
+    HsmConfigurationNotFoundFault: untyped
+
+    HsmConfigurationQuotaExceededFault: untyped
+
+    HsmStatus: untyped
+
+    IPRange: untyped
+
+    InProgressTableRestoreQuotaExceededFault: untyped
+
+    IncompatibleOrderableOptions: untyped
+
+    InsufficientClusterCapacityFault: untyped
+
+    InsufficientS3BucketPolicyFault: untyped
+
+    InvalidAuthenticationProfileRequestFault: untyped
+
+    InvalidAuthorizationStateFault: untyped
+
+    InvalidClusterParameterGroupStateFault: untyped
+
+    InvalidClusterSecurityGroupStateFault: untyped
+
+    InvalidClusterSnapshotScheduleStateFault: untyped
+
+    InvalidClusterSnapshotStateFault: untyped
+
+    InvalidClusterStateFault: untyped
+
+    InvalidClusterSubnetGroupStateFault: untyped
+
+    InvalidClusterSubnetStateFault: untyped
+
+    InvalidClusterTrackFault: untyped
+
+    InvalidDataShareFault: untyped
+
+    InvalidElasticIpFault: untyped
+
+    InvalidEndpointStateFault: untyped
+
+    InvalidHsmClientCertificateStateFault: untyped
+
+    InvalidHsmConfigurationStateFault: untyped
+
+    InvalidNamespaceFault: untyped
+
+    InvalidReservedNodeStateFault: untyped
+
+    InvalidRestoreFault: untyped
+
+    InvalidRetentionPeriodFault: untyped
+
+    InvalidS3BucketNameFault: untyped
+
+    InvalidS3KeyPrefixFault: untyped
+
+    InvalidScheduleFault: untyped
+
+    InvalidScheduledActionFault: untyped
+
+    InvalidSnapshotCopyGrantStateFault: untyped
+
+    InvalidSubnet: untyped
+
+    InvalidSubscriptionStateFault: untyped
+
+    InvalidTableRestoreArgumentFault: untyped
+
+    InvalidTagFault: untyped
+
+    InvalidUsageLimitFault: untyped
+
+    InvalidVPCNetworkStateFault: untyped
+
+    LimitExceededFault: untyped
+
+    module LogDestinationType
+      S3: ::String
+
+      CLOUDWATCH: ::String
+    end
+
+    MaintenanceTrack: untyped
+
+    module Mode
+      STANDARD: ::String
+
+      HIGH_PERFORMANCE: ::String
+    end
+
+    ModifyAquaConfigurationInput: untyped
+
+    ModifyAquaConfigurationOutput: untyped
+
+    ModifyAuthenticationProfileInput: untyped
+
+    ModifyAuthenticationProfileOutput: untyped
+
+    ModifyClusterDbRevisionInput: untyped
+
+    ModifyClusterDbRevisionOutput: untyped
+
+    ModifyClusterIamRolesInput: untyped
+
+    ModifyClusterIamRolesOutput: untyped
+
+    ModifyClusterInput: untyped
+
+    ModifyClusterMaintenanceInput: untyped
+
+    ModifyClusterMaintenanceOutput: untyped
+
+    ModifyClusterOutput: untyped
+
+    ModifyClusterParameterGroupInput: untyped
+
+    ModifyClusterParameterGroupOutput: untyped
+
+    ModifyClusterSnapshotInput: untyped
+
+    ModifyClusterSnapshotOutput: untyped
+
+    ModifyClusterSnapshotScheduleInput: untyped
+
+    ModifyClusterSnapshotScheduleOutput: untyped
+
+    ModifyClusterSubnetGroupInput: untyped
+
+    ModifyClusterSubnetGroupOutput: untyped
+
+    ModifyEndpointAccessInput: untyped
+
+    ModifyEndpointAccessOutput: untyped
+
+    ModifyEventSubscriptionInput: untyped
+
+    ModifyEventSubscriptionOutput: untyped
+
+    ModifyScheduledActionInput: untyped
+
+    ModifyScheduledActionOutput: untyped
+
+    ModifySnapshotCopyRetentionPeriodInput: untyped
+
+    ModifySnapshotCopyRetentionPeriodOutput: untyped
+
+    ModifySnapshotScheduleInput: untyped
+
+    ModifySnapshotScheduleOutput: untyped
+
+    ModifyUsageLimitInput: untyped
+
+    ModifyUsageLimitOutput: untyped
+
+    NetworkInterface: untyped
+
+    NodeConfigurationOption: untyped
+
+    NodeConfigurationOptionsFilter: untyped
+
+    module NodeConfigurationOptionsFilterName
+      NODE_TYPE: ::String
+
+      NUM_NODES: ::String
+
+      ESTIMATED_DISK_UTILIZATION_PERCENT: ::String
+
+      MODE: ::String
+    end
+
+    NumberOfNodesPerClusterLimitExceededFault: untyped
+
+    NumberOfNodesQuotaExceededFault: untyped
+
+    module OperatorType
+      EQ: ::String
+
+      LT: ::String
+
+      GT: ::String
+
+      LE: ::String
+
+      GE: ::String
+
+      IN: ::String
+
+      BETWEEN: ::String
+    end
+
+    OrderableClusterOption: untyped
+
+    Parameter: untyped
+
+    module ParameterApplyType
+      static: ::String
+
+      dynamic: ::String
+    end
+
+    PartnerIntegrationInfo: untyped
+
+    module PartnerIntegrationStatus
+      Active: ::String
+
+      Inactive: ::String
+
+      RuntimeFailure: ::String
+
+      ConnectionFailure: ::String
+    end
+
+    PartnerNotFoundFault: untyped
+
+    PauseClusterInput: untyped
+
+    PauseClusterMessage: untyped
+
+    PauseClusterOutput: untyped
+
+    PendingModifiedValues: untyped
+
+    PurchaseReservedNodeOfferingInput: untyped
+
+    PurchaseReservedNodeOfferingOutput: untyped
+
+    RebootClusterInput: untyped
+
+    RebootClusterOutput: untyped
+
+    RecurringCharge: untyped
+
+    RejectDataShareInput: untyped
+
+    RejectDataShareOutput: untyped
+
+    ReservedNode: untyped
+
+    ReservedNodeAlreadyExistsFault: untyped
+
+    ReservedNodeAlreadyMigratedFault: untyped
+
+    ReservedNodeConfigurationOption: untyped
+
+    module ReservedNodeExchangeActionType
+      RESTORE_CLUSTER: ::String
+
+      RESIZE_CLUSTER: ::String
+    end
+
+    ReservedNodeExchangeNotFoundFault: untyped
+
+    ReservedNodeExchangeStatus: untyped
+
+    module ReservedNodeExchangeStatusType
+      REQUESTED: ::String
+
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      RETRYING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    ReservedNodeNotFoundFault: untyped
+
+    ReservedNodeOffering: untyped
+
+    ReservedNodeOfferingNotFoundFault: untyped
+
+    module ReservedNodeOfferingType
+      Regular: ::String
+
+      Upgradable: ::String
+    end
+
+    ReservedNodeQuotaExceededFault: untyped
+
+    ResetClusterParameterGroupInput: untyped
+
+    ResetClusterParameterGroupOutput: untyped
+
+    ResizeClusterInput: untyped
+
+    ResizeClusterMessage: untyped
+
+    ResizeClusterOutput: untyped
+
+    ResizeInfo: untyped
+
+    ResizeNotFoundFault: untyped
+
+    ResourceNotFoundFault: untyped
+
+    RestoreFromClusterSnapshotInput: untyped
+
+    RestoreFromClusterSnapshotOutput: untyped
+
+    RestoreStatus: untyped
+
+    RestoreTableFromClusterSnapshotInput: untyped
+
+    RestoreTableFromClusterSnapshotOutput: untyped
+
+    ResumeClusterInput: untyped
+
+    ResumeClusterMessage: untyped
+
+    ResumeClusterOutput: untyped
+
+    RevisionTarget: untyped
+
+    RevokeClusterSecurityGroupIngressInput: untyped
+
+    RevokeClusterSecurityGroupIngressOutput: untyped
+
+    RevokeEndpointAccessInput: untyped
+
+    RevokeEndpointAccessOutput: untyped
+
+    RevokeSnapshotAccessInput: untyped
+
+    RevokeSnapshotAccessOutput: untyped
+
+    RotateEncryptionKeyInput: untyped
+
+    RotateEncryptionKeyOutput: untyped
+
+    SNSInvalidTopicFault: untyped
+
+    SNSNoAuthorizationFault: untyped
+
+    SNSTopicArnNotFoundFault: untyped
+
+    ScheduleDefinitionTypeUnsupportedFault: untyped
+
+    module ScheduleState
+      MODIFYING: ::String
+
+      ACTIVE: ::String
+
+      FAILED: ::String
+    end
+
+    ScheduledAction: untyped
+
+    ScheduledActionAlreadyExistsFault: untyped
+
+    ScheduledActionFilter: untyped
+
+    module ScheduledActionFilterName
+      CLUSTER_IDENTIFIER: ::String
+
+      IAM_ROLE: ::String
+    end
+
+    ScheduledActionNotFoundFault: untyped
+
+    ScheduledActionQuotaExceededFault: untyped
+
+    module ScheduledActionState
+      ACTIVE: ::String
+
+      DISABLED: ::String
+    end
+
+    ScheduledActionType: untyped
+
+    ScheduledActionTypeUnsupportedFault: untyped
+
+    module ScheduledActionTypeValues
+      RESIZE_CLUSTER: ::String
+
+      PAUSE_CLUSTER: ::String
+
+      RESUME_CLUSTER: ::String
+    end
+
+    Snapshot: untyped
+
+    module SnapshotAttributeToSortBy
+      SOURCE_TYPE: ::String
+
+      TOTAL_SIZE: ::String
+
+      CREATE_TIME: ::String
+    end
+
+    SnapshotCopyAlreadyDisabledFault: untyped
+
+    SnapshotCopyAlreadyEnabledFault: untyped
+
+    SnapshotCopyDisabledFault: untyped
+
+    SnapshotCopyGrant: untyped
+
+    SnapshotCopyGrantAlreadyExistsFault: untyped
+
+    SnapshotCopyGrantNotFoundFault: untyped
+
+    SnapshotCopyGrantQuotaExceededFault: untyped
+
+    SnapshotErrorMessage: untyped
+
+    SnapshotSchedule: untyped
+
+    SnapshotScheduleAlreadyExistsFault: untyped
+
+    SnapshotScheduleNotFoundFault: untyped
+
+    SnapshotScheduleQuotaExceededFault: untyped
+
+    SnapshotScheduleUpdateInProgressFault: untyped
+
+    SnapshotSortingEntity: untyped
+
+    module SortByOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    SourceNotFoundFault: untyped
+
+    module SourceType
+      cluster: ::String
+
+      cluster_parameter_group: ::String
+
+      cluster_security_group: ::String
+
+      cluster_snapshot: ::String
+
+      scheduled_action: ::String
+    end
+
+    Subnet: untyped
+
+    SubnetAlreadyInUse: untyped
+
+    SubscriptionAlreadyExistFault: untyped
+
+    SubscriptionCategoryNotFoundFault: untyped
+
+    SubscriptionEventIdNotFoundFault: untyped
+
+    SubscriptionNotFoundFault: untyped
+
+    SubscriptionSeverityNotFoundFault: untyped
+
+    SupportedOperation: untyped
+
+    SupportedPlatform: untyped
+
+    TableLimitExceededFault: untyped
+
+    TableRestoreNotFoundFault: untyped
+
+    TableRestoreStatus: untyped
+
+    module TableRestoreStatusType
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+    end
+
+    Tag: untyped
+
+    TagLimitExceededFault: untyped
+
+    TaggedResource: untyped
+
+    UnauthorizedOperation: untyped
+
+    UnauthorizedPartnerIntegrationFault: untyped
+
+    UnknownSnapshotCopyRegionFault: untyped
+
+    UnsupportedOperationFault: untyped
+
+    UnsupportedOptionFault: untyped
+
+    UpdatePartnerStatusInput: untyped
+
+    UpdatePartnerStatusOutput: untyped
+
+    UpdateTarget: untyped
+
+    UsageLimit: untyped
+
+    UsageLimitAlreadyExistsFault: untyped
+
+    module UsageLimitBreachAction
+      LOG: ::String
+
+      EMIT_METRIC: ::String
+
+      DISABLE: ::String
+    end
+
+    module UsageLimitFeatureType
+      SPECTRUM: ::String
+
+      CONCURRENCY_SCALING: ::String
+
+      CROSS_REGION_DATASHARING: ::String
+    end
+
+    module UsageLimitLimitType
+      TIME: ::String
+
+      DATA_SCANNED: ::String
+    end
+
+    UsageLimitNotFoundFault: untyped
+
+    module UsageLimitPeriod
+      DAILY: ::String
+
+      WEEKLY: ::String
+
+      MONTHLY: ::String
+    end
+
+    VpcEndpoint: untyped
+
+    VpcSecurityGroupMembership: untyped
+
+  end
+end

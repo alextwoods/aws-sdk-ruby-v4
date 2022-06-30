@@ -1,0 +1,216 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SSOAdmin
+  module Types
+
+    AccessControlAttribute: untyped
+
+    AccessControlAttributeValue: untyped
+
+    AccessDeniedException: untyped
+
+    AccountAssignment: untyped
+
+    AccountAssignmentOperationStatus: untyped
+
+    AccountAssignmentOperationStatusMetadata: untyped
+
+    AttachManagedPolicyToPermissionSetInput: untyped
+
+    AttachManagedPolicyToPermissionSetOutput: untyped
+
+    AttachedManagedPolicy: untyped
+
+    ConflictException: untyped
+
+    CreateAccountAssignmentInput: untyped
+
+    CreateAccountAssignmentOutput: untyped
+
+    CreateInstanceAccessControlAttributeConfigurationInput: untyped
+
+    CreateInstanceAccessControlAttributeConfigurationOutput: untyped
+
+    CreatePermissionSetInput: untyped
+
+    CreatePermissionSetOutput: untyped
+
+    DeleteAccountAssignmentInput: untyped
+
+    DeleteAccountAssignmentOutput: untyped
+
+    DeleteInlinePolicyFromPermissionSetInput: untyped
+
+    DeleteInlinePolicyFromPermissionSetOutput: untyped
+
+    DeleteInstanceAccessControlAttributeConfigurationInput: untyped
+
+    DeleteInstanceAccessControlAttributeConfigurationOutput: untyped
+
+    DeletePermissionSetInput: untyped
+
+    DeletePermissionSetOutput: untyped
+
+    DescribeAccountAssignmentCreationStatusInput: untyped
+
+    DescribeAccountAssignmentCreationStatusOutput: untyped
+
+    DescribeAccountAssignmentDeletionStatusInput: untyped
+
+    DescribeAccountAssignmentDeletionStatusOutput: untyped
+
+    DescribeInstanceAccessControlAttributeConfigurationInput: untyped
+
+    DescribeInstanceAccessControlAttributeConfigurationOutput: untyped
+
+    DescribePermissionSetInput: untyped
+
+    DescribePermissionSetOutput: untyped
+
+    DescribePermissionSetProvisioningStatusInput: untyped
+
+    DescribePermissionSetProvisioningStatusOutput: untyped
+
+    DetachManagedPolicyFromPermissionSetInput: untyped
+
+    DetachManagedPolicyFromPermissionSetOutput: untyped
+
+    GetInlinePolicyForPermissionSetInput: untyped
+
+    GetInlinePolicyForPermissionSetOutput: untyped
+
+    InstanceAccessControlAttributeConfiguration: untyped
+
+    module InstanceAccessControlAttributeConfigurationStatus
+      ENABLED: ::String
+
+      CREATION_IN_PROGRESS: ::String
+
+      CREATION_FAILED: ::String
+    end
+
+    InstanceMetadata: untyped
+
+    InternalServerException: untyped
+
+    ListAccountAssignmentCreationStatusInput: untyped
+
+    ListAccountAssignmentCreationStatusOutput: untyped
+
+    ListAccountAssignmentDeletionStatusInput: untyped
+
+    ListAccountAssignmentDeletionStatusOutput: untyped
+
+    ListAccountAssignmentsInput: untyped
+
+    ListAccountAssignmentsOutput: untyped
+
+    ListAccountsForProvisionedPermissionSetInput: untyped
+
+    ListAccountsForProvisionedPermissionSetOutput: untyped
+
+    ListInstancesInput: untyped
+
+    ListInstancesOutput: untyped
+
+    ListManagedPoliciesInPermissionSetInput: untyped
+
+    ListManagedPoliciesInPermissionSetOutput: untyped
+
+    ListPermissionSetProvisioningStatusInput: untyped
+
+    ListPermissionSetProvisioningStatusOutput: untyped
+
+    ListPermissionSetsInput: untyped
+
+    ListPermissionSetsOutput: untyped
+
+    ListPermissionSetsProvisionedToAccountInput: untyped
+
+    ListPermissionSetsProvisionedToAccountOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    OperationStatusFilter: untyped
+
+    PermissionSet: untyped
+
+    PermissionSetProvisioningStatus: untyped
+
+    PermissionSetProvisioningStatusMetadata: untyped
+
+    module PrincipalType
+      USER: ::String
+
+      GROUP: ::String
+    end
+
+    ProvisionPermissionSetInput: untyped
+
+    ProvisionPermissionSetOutput: untyped
+
+    module ProvisionTargetType
+      AWS_ACCOUNT: ::String
+
+      ALL_PROVISIONED_ACCOUNTS: ::String
+    end
+
+    module ProvisioningStatus
+      LATEST_PERMISSION_SET_PROVISIONED: ::String
+
+      LATEST_PERMISSION_SET_NOT_PROVISIONED: ::String
+    end
+
+    PutInlinePolicyToPermissionSetInput: untyped
+
+    PutInlinePolicyToPermissionSetOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module StatusValues
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetType
+      AWS_ACCOUNT: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateInstanceAccessControlAttributeConfigurationInput: untyped
+
+    UpdateInstanceAccessControlAttributeConfigurationOutput: untyped
+
+    UpdatePermissionSetInput: untyped
+
+    UpdatePermissionSetOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

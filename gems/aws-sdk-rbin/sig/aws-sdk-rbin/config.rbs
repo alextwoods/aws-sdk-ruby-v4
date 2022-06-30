@@ -1,0 +1,3 @@
+module AWS::SDK::Rbin
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::ElasticTranscoder
+  Config: untyped
+end

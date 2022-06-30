@@ -1,0 +1,3 @@
+module AWS::SDK::EMR
+  Config: untyped
+end

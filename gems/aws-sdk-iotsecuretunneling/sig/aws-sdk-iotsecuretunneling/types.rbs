@@ -1,0 +1,82 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoTSecureTunneling
+  module Types
+
+    module ClientMode
+      SOURCE: ::String
+
+      DESTINATION: ::String
+
+      ALL: ::String
+    end
+
+    CloseTunnelInput: untyped
+
+    CloseTunnelOutput: untyped
+
+    ConnectionState: untyped
+
+    module ConnectionStatus
+      CONNECTED: ::String
+
+      DISCONNECTED: ::String
+    end
+
+    DescribeTunnelInput: untyped
+
+    DescribeTunnelOutput: untyped
+
+    DestinationConfig: untyped
+
+    LimitExceededException: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTunnelsInput: untyped
+
+    ListTunnelsOutput: untyped
+
+    OpenTunnelInput: untyped
+
+    OpenTunnelOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    RotateTunnelAccessTokenInput: untyped
+
+    RotateTunnelAccessTokenOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TimeoutConfig: untyped
+
+    Tunnel: untyped
+
+    module TunnelStatus
+      OPEN: ::String
+
+      CLOSED: ::String
+    end
+
+    TunnelSummary: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+  end
+end

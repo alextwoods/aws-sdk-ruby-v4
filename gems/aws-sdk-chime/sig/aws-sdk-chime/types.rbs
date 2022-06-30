@@ -1,0 +1,1422 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Chime
+  module Types
+
+    AccessDeniedException: untyped
+
+    Account: untyped
+
+    AccountSettings: untyped
+
+    module AccountStatus
+      Suspended: ::String
+
+      Active: ::String
+    end
+
+    module AccountType
+      Team: ::String
+
+      EnterpriseDirectory: ::String
+
+      EnterpriseLWA: ::String
+
+      EnterpriseOIDC: ::String
+    end
+
+    AlexaForBusinessMetadata: untyped
+
+    AppInstance: untyped
+
+    AppInstanceAdmin: untyped
+
+    AppInstanceAdminSummary: untyped
+
+    module AppInstanceDataType
+      Channel: ::String
+
+      ChannelMessage: ::String
+    end
+
+    AppInstanceRetentionSettings: untyped
+
+    AppInstanceStreamingConfiguration: untyped
+
+    AppInstanceSummary: untyped
+
+    AppInstanceUser: untyped
+
+    AppInstanceUserMembershipSummary: untyped
+
+    AppInstanceUserSummary: untyped
+
+    ArtifactsConfiguration: untyped
+
+    module ArtifactsState
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    AssociatePhoneNumberWithUserInput: untyped
+
+    AssociatePhoneNumberWithUserOutput: untyped
+
+    AssociatePhoneNumbersWithVoiceConnectorGroupInput: untyped
+
+    AssociatePhoneNumbersWithVoiceConnectorGroupOutput: untyped
+
+    AssociatePhoneNumbersWithVoiceConnectorInput: untyped
+
+    AssociatePhoneNumbersWithVoiceConnectorOutput: untyped
+
+    AssociateSigninDelegateGroupsWithAccountInput: untyped
+
+    AssociateSigninDelegateGroupsWithAccountOutput: untyped
+
+    Attendee: untyped
+
+    AudioArtifactsConfiguration: untyped
+
+    module AudioMuxType
+      AudioOnly: ::String
+
+      AudioWithActiveSpeakerVideo: ::String
+    end
+
+    BadRequestException: untyped
+
+    BatchChannelMemberships: untyped
+
+    BatchCreateAttendeeInput: untyped
+
+    BatchCreateAttendeeOutput: untyped
+
+    BatchCreateChannelMembershipError: untyped
+
+    BatchCreateChannelMembershipInput: untyped
+
+    BatchCreateChannelMembershipOutput: untyped
+
+    BatchCreateRoomMembershipInput: untyped
+
+    BatchCreateRoomMembershipOutput: untyped
+
+    BatchDeletePhoneNumberInput: untyped
+
+    BatchDeletePhoneNumberOutput: untyped
+
+    BatchSuspendUserInput: untyped
+
+    BatchSuspendUserOutput: untyped
+
+    BatchUnsuspendUserInput: untyped
+
+    BatchUnsuspendUserOutput: untyped
+
+    BatchUpdatePhoneNumberInput: untyped
+
+    BatchUpdatePhoneNumberOutput: untyped
+
+    BatchUpdateUserInput: untyped
+
+    BatchUpdateUserOutput: untyped
+
+    Bot: untyped
+
+    module BotType
+      ChatBot: ::String
+    end
+
+    BusinessCallingSettings: untyped
+
+    module CallingNameStatus
+      Unassigned: ::String
+
+      UpdateInProgress: ::String
+
+      UpdateSucceeded: ::String
+
+      UpdateFailed: ::String
+    end
+
+    module Capability
+      Voice: ::String
+
+      SMS: ::String
+    end
+
+    Channel: untyped
+
+    ChannelBan: untyped
+
+    ChannelBanSummary: untyped
+
+    ChannelMembership: untyped
+
+    ChannelMembershipForAppInstanceUserSummary: untyped
+
+    ChannelMembershipSummary: untyped
+
+    module ChannelMembershipType
+      DEFAULT: ::String
+
+      HIDDEN: ::String
+    end
+
+    ChannelMessage: untyped
+
+    module ChannelMessagePersistenceType
+      PERSISTENT: ::String
+
+      NON_PERSISTENT: ::String
+    end
+
+    ChannelMessageSummary: untyped
+
+    module ChannelMessageType
+      STANDARD: ::String
+
+      CONTROL: ::String
+    end
+
+    module ChannelMode
+      UNRESTRICTED: ::String
+
+      RESTRICTED: ::String
+    end
+
+    ChannelModeratedByAppInstanceUserSummary: untyped
+
+    ChannelModerator: untyped
+
+    ChannelModeratorSummary: untyped
+
+    module ChannelPrivacy
+      PUBLIC: ::String
+
+      PRIVATE: ::String
+    end
+
+    ChannelRetentionSettings: untyped
+
+    ChannelSummary: untyped
+
+    ChimeSdkMeetingConfiguration: untyped
+
+    ConflictException: untyped
+
+    ContentArtifactsConfiguration: untyped
+
+    module ContentMuxType
+      ContentOnly: ::String
+    end
+
+    ConversationRetentionSettings: untyped
+
+    CreateAccountInput: untyped
+
+    CreateAccountOutput: untyped
+
+    CreateAppInstanceAdminInput: untyped
+
+    CreateAppInstanceAdminOutput: untyped
+
+    CreateAppInstanceInput: untyped
+
+    CreateAppInstanceOutput: untyped
+
+    CreateAppInstanceUserInput: untyped
+
+    CreateAppInstanceUserOutput: untyped
+
+    CreateAttendeeError: untyped
+
+    CreateAttendeeInput: untyped
+
+    CreateAttendeeOutput: untyped
+
+    CreateAttendeeRequestItem: untyped
+
+    CreateBotInput: untyped
+
+    CreateBotOutput: untyped
+
+    CreateChannelBanInput: untyped
+
+    CreateChannelBanOutput: untyped
+
+    CreateChannelInput: untyped
+
+    CreateChannelMembershipInput: untyped
+
+    CreateChannelMembershipOutput: untyped
+
+    CreateChannelModeratorInput: untyped
+
+    CreateChannelModeratorOutput: untyped
+
+    CreateChannelOutput: untyped
+
+    CreateMediaCapturePipelineInput: untyped
+
+    CreateMediaCapturePipelineOutput: untyped
+
+    CreateMeetingDialOutInput: untyped
+
+    CreateMeetingDialOutOutput: untyped
+
+    CreateMeetingInput: untyped
+
+    CreateMeetingOutput: untyped
+
+    CreateMeetingWithAttendeesInput: untyped
+
+    CreateMeetingWithAttendeesOutput: untyped
+
+    CreatePhoneNumberOrderInput: untyped
+
+    CreatePhoneNumberOrderOutput: untyped
+
+    CreateProxySessionInput: untyped
+
+    CreateProxySessionOutput: untyped
+
+    CreateRoomInput: untyped
+
+    CreateRoomMembershipInput: untyped
+
+    CreateRoomMembershipOutput: untyped
+
+    CreateRoomOutput: untyped
+
+    CreateSipMediaApplicationCallInput: untyped
+
+    CreateSipMediaApplicationCallOutput: untyped
+
+    CreateSipMediaApplicationInput: untyped
+
+    CreateSipMediaApplicationOutput: untyped
+
+    CreateSipRuleInput: untyped
+
+    CreateSipRuleOutput: untyped
+
+    CreateUserInput: untyped
+
+    CreateUserOutput: untyped
+
+    CreateVoiceConnectorGroupInput: untyped
+
+    CreateVoiceConnectorGroupOutput: untyped
+
+    CreateVoiceConnectorInput: untyped
+
+    CreateVoiceConnectorOutput: untyped
+
+    Credential: untyped
+
+    DNISEmergencyCallingConfiguration: untyped
+
+    DeleteAccountInput: untyped
+
+    DeleteAccountOutput: untyped
+
+    DeleteAppInstanceAdminInput: untyped
+
+    DeleteAppInstanceAdminOutput: untyped
+
+    DeleteAppInstanceInput: untyped
+
+    DeleteAppInstanceOutput: untyped
+
+    DeleteAppInstanceStreamingConfigurationsInput: untyped
+
+    DeleteAppInstanceStreamingConfigurationsOutput: untyped
+
+    DeleteAppInstanceUserInput: untyped
+
+    DeleteAppInstanceUserOutput: untyped
+
+    DeleteAttendeeInput: untyped
+
+    DeleteAttendeeOutput: untyped
+
+    DeleteChannelBanInput: untyped
+
+    DeleteChannelBanOutput: untyped
+
+    DeleteChannelInput: untyped
+
+    DeleteChannelMembershipInput: untyped
+
+    DeleteChannelMembershipOutput: untyped
+
+    DeleteChannelMessageInput: untyped
+
+    DeleteChannelMessageOutput: untyped
+
+    DeleteChannelModeratorInput: untyped
+
+    DeleteChannelModeratorOutput: untyped
+
+    DeleteChannelOutput: untyped
+
+    DeleteEventsConfigurationInput: untyped
+
+    DeleteEventsConfigurationOutput: untyped
+
+    DeleteMediaCapturePipelineInput: untyped
+
+    DeleteMediaCapturePipelineOutput: untyped
+
+    DeleteMeetingInput: untyped
+
+    DeleteMeetingOutput: untyped
+
+    DeletePhoneNumberInput: untyped
+
+    DeletePhoneNumberOutput: untyped
+
+    DeleteProxySessionInput: untyped
+
+    DeleteProxySessionOutput: untyped
+
+    DeleteRoomInput: untyped
+
+    DeleteRoomMembershipInput: untyped
+
+    DeleteRoomMembershipOutput: untyped
+
+    DeleteRoomOutput: untyped
+
+    DeleteSipMediaApplicationInput: untyped
+
+    DeleteSipMediaApplicationOutput: untyped
+
+    DeleteSipRuleInput: untyped
+
+    DeleteSipRuleOutput: untyped
+
+    DeleteVoiceConnectorEmergencyCallingConfigurationInput: untyped
+
+    DeleteVoiceConnectorEmergencyCallingConfigurationOutput: untyped
+
+    DeleteVoiceConnectorGroupInput: untyped
+
+    DeleteVoiceConnectorGroupOutput: untyped
+
+    DeleteVoiceConnectorInput: untyped
+
+    DeleteVoiceConnectorOriginationInput: untyped
+
+    DeleteVoiceConnectorOriginationOutput: untyped
+
+    DeleteVoiceConnectorOutput: untyped
+
+    DeleteVoiceConnectorProxyInput: untyped
+
+    DeleteVoiceConnectorProxyOutput: untyped
+
+    DeleteVoiceConnectorStreamingConfigurationInput: untyped
+
+    DeleteVoiceConnectorStreamingConfigurationOutput: untyped
+
+    DeleteVoiceConnectorTerminationCredentialsInput: untyped
+
+    DeleteVoiceConnectorTerminationCredentialsOutput: untyped
+
+    DeleteVoiceConnectorTerminationInput: untyped
+
+    DeleteVoiceConnectorTerminationOutput: untyped
+
+    DescribeAppInstanceAdminInput: untyped
+
+    DescribeAppInstanceAdminOutput: untyped
+
+    DescribeAppInstanceInput: untyped
+
+    DescribeAppInstanceOutput: untyped
+
+    DescribeAppInstanceUserInput: untyped
+
+    DescribeAppInstanceUserOutput: untyped
+
+    DescribeChannelBanInput: untyped
+
+    DescribeChannelBanOutput: untyped
+
+    DescribeChannelInput: untyped
+
+    DescribeChannelMembershipForAppInstanceUserInput: untyped
+
+    DescribeChannelMembershipForAppInstanceUserOutput: untyped
+
+    DescribeChannelMembershipInput: untyped
+
+    DescribeChannelMembershipOutput: untyped
+
+    DescribeChannelModeratedByAppInstanceUserInput: untyped
+
+    DescribeChannelModeratedByAppInstanceUserOutput: untyped
+
+    DescribeChannelModeratorInput: untyped
+
+    DescribeChannelModeratorOutput: untyped
+
+    DescribeChannelOutput: untyped
+
+    DisassociatePhoneNumberFromUserInput: untyped
+
+    DisassociatePhoneNumberFromUserOutput: untyped
+
+    DisassociatePhoneNumbersFromVoiceConnectorGroupInput: untyped
+
+    DisassociatePhoneNumbersFromVoiceConnectorGroupOutput: untyped
+
+    DisassociatePhoneNumbersFromVoiceConnectorInput: untyped
+
+    DisassociatePhoneNumbersFromVoiceConnectorOutput: untyped
+
+    DisassociateSigninDelegateGroupsFromAccountInput: untyped
+
+    DisassociateSigninDelegateGroupsFromAccountOutput: untyped
+
+    module EmailStatus
+      NotSent: ::String
+
+      Sent: ::String
+
+      Failed: ::String
+    end
+
+    EmergencyCallingConfiguration: untyped
+
+    EngineTranscribeMedicalSettings: untyped
+
+    EngineTranscribeSettings: untyped
+
+    module ErrorCode
+      BadRequest: ::String
+
+      Conflict: ::String
+
+      Forbidden: ::String
+
+      NotFound: ::String
+
+      PreconditionFailed: ::String
+
+      ResourceLimitExceeded: ::String
+
+      ServiceFailure: ::String
+
+      AccessDenied: ::String
+
+      ServiceUnavailable: ::String
+
+      Throttled: ::String
+
+      Throttling: ::String
+
+      Unauthorized: ::String
+
+      Unprocessable: ::String
+
+      VoiceConnectorGroupAssociationsExist: ::String
+
+      PhoneNumberAssociationsExist: ::String
+    end
+
+    EventsConfiguration: untyped
+
+    ForbiddenException: untyped
+
+    module GeoMatchLevel
+      Country: ::String
+
+      AreaCode: ::String
+    end
+
+    GeoMatchParams: untyped
+
+    GetAccountInput: untyped
+
+    GetAccountOutput: untyped
+
+    GetAccountSettingsInput: untyped
+
+    GetAccountSettingsOutput: untyped
+
+    GetAppInstanceRetentionSettingsInput: untyped
+
+    GetAppInstanceRetentionSettingsOutput: untyped
+
+    GetAppInstanceStreamingConfigurationsInput: untyped
+
+    GetAppInstanceStreamingConfigurationsOutput: untyped
+
+    GetAttendeeInput: untyped
+
+    GetAttendeeOutput: untyped
+
+    GetBotInput: untyped
+
+    GetBotOutput: untyped
+
+    GetChannelMessageInput: untyped
+
+    GetChannelMessageOutput: untyped
+
+    GetEventsConfigurationInput: untyped
+
+    GetEventsConfigurationOutput: untyped
+
+    GetGlobalSettingsInput: untyped
+
+    GetGlobalSettingsOutput: untyped
+
+    GetMediaCapturePipelineInput: untyped
+
+    GetMediaCapturePipelineOutput: untyped
+
+    GetMeetingInput: untyped
+
+    GetMeetingOutput: untyped
+
+    GetMessagingSessionEndpointInput: untyped
+
+    GetMessagingSessionEndpointOutput: untyped
+
+    GetPhoneNumberInput: untyped
+
+    GetPhoneNumberOrderInput: untyped
+
+    GetPhoneNumberOrderOutput: untyped
+
+    GetPhoneNumberOutput: untyped
+
+    GetPhoneNumberSettingsInput: untyped
+
+    GetPhoneNumberSettingsOutput: untyped
+
+    GetProxySessionInput: untyped
+
+    GetProxySessionOutput: untyped
+
+    GetRetentionSettingsInput: untyped
+
+    GetRetentionSettingsOutput: untyped
+
+    GetRoomInput: untyped
+
+    GetRoomOutput: untyped
+
+    GetSipMediaApplicationInput: untyped
+
+    GetSipMediaApplicationLoggingConfigurationInput: untyped
+
+    GetSipMediaApplicationLoggingConfigurationOutput: untyped
+
+    GetSipMediaApplicationOutput: untyped
+
+    GetSipRuleInput: untyped
+
+    GetSipRuleOutput: untyped
+
+    GetUserInput: untyped
+
+    GetUserOutput: untyped
+
+    GetUserSettingsInput: untyped
+
+    GetUserSettingsOutput: untyped
+
+    GetVoiceConnectorEmergencyCallingConfigurationInput: untyped
+
+    GetVoiceConnectorEmergencyCallingConfigurationOutput: untyped
+
+    GetVoiceConnectorGroupInput: untyped
+
+    GetVoiceConnectorGroupOutput: untyped
+
+    GetVoiceConnectorInput: untyped
+
+    GetVoiceConnectorLoggingConfigurationInput: untyped
+
+    GetVoiceConnectorLoggingConfigurationOutput: untyped
+
+    GetVoiceConnectorOriginationInput: untyped
+
+    GetVoiceConnectorOriginationOutput: untyped
+
+    GetVoiceConnectorOutput: untyped
+
+    GetVoiceConnectorProxyInput: untyped
+
+    GetVoiceConnectorProxyOutput: untyped
+
+    GetVoiceConnectorStreamingConfigurationInput: untyped
+
+    GetVoiceConnectorStreamingConfigurationOutput: untyped
+
+    GetVoiceConnectorTerminationHealthInput: untyped
+
+    GetVoiceConnectorTerminationHealthOutput: untyped
+
+    GetVoiceConnectorTerminationInput: untyped
+
+    GetVoiceConnectorTerminationOutput: untyped
+
+    Identity: untyped
+
+    Invite: untyped
+
+    module InviteStatus
+      Pending: ::String
+
+      Accepted: ::String
+
+      Failed: ::String
+    end
+
+    InviteUsersInput: untyped
+
+    InviteUsersOutput: untyped
+
+    module License
+      Basic: ::String
+
+      Plus: ::String
+
+      Pro: ::String
+
+      ProTrial: ::String
+    end
+
+    ListAccountsInput: untyped
+
+    ListAccountsOutput: untyped
+
+    ListAppInstanceAdminsInput: untyped
+
+    ListAppInstanceAdminsOutput: untyped
+
+    ListAppInstanceUsersInput: untyped
+
+    ListAppInstanceUsersOutput: untyped
+
+    ListAppInstancesInput: untyped
+
+    ListAppInstancesOutput: untyped
+
+    ListAttendeeTagsInput: untyped
+
+    ListAttendeeTagsOutput: untyped
+
+    ListAttendeesInput: untyped
+
+    ListAttendeesOutput: untyped
+
+    ListBotsInput: untyped
+
+    ListBotsOutput: untyped
+
+    ListChannelBansInput: untyped
+
+    ListChannelBansOutput: untyped
+
+    ListChannelMembershipsForAppInstanceUserInput: untyped
+
+    ListChannelMembershipsForAppInstanceUserOutput: untyped
+
+    ListChannelMembershipsInput: untyped
+
+    ListChannelMembershipsOutput: untyped
+
+    ListChannelMessagesInput: untyped
+
+    ListChannelMessagesOutput: untyped
+
+    ListChannelModeratorsInput: untyped
+
+    ListChannelModeratorsOutput: untyped
+
+    ListChannelsInput: untyped
+
+    ListChannelsModeratedByAppInstanceUserInput: untyped
+
+    ListChannelsModeratedByAppInstanceUserOutput: untyped
+
+    ListChannelsOutput: untyped
+
+    ListMediaCapturePipelinesInput: untyped
+
+    ListMediaCapturePipelinesOutput: untyped
+
+    ListMeetingTagsInput: untyped
+
+    ListMeetingTagsOutput: untyped
+
+    ListMeetingsInput: untyped
+
+    ListMeetingsOutput: untyped
+
+    ListPhoneNumberOrdersInput: untyped
+
+    ListPhoneNumberOrdersOutput: untyped
+
+    ListPhoneNumbersInput: untyped
+
+    ListPhoneNumbersOutput: untyped
+
+    ListProxySessionsInput: untyped
+
+    ListProxySessionsOutput: untyped
+
+    ListRoomMembershipsInput: untyped
+
+    ListRoomMembershipsOutput: untyped
+
+    ListRoomsInput: untyped
+
+    ListRoomsOutput: untyped
+
+    ListSipMediaApplicationsInput: untyped
+
+    ListSipMediaApplicationsOutput: untyped
+
+    ListSipRulesInput: untyped
+
+    ListSipRulesOutput: untyped
+
+    ListSupportedPhoneNumberCountriesInput: untyped
+
+    ListSupportedPhoneNumberCountriesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListUsersInput: untyped
+
+    ListUsersOutput: untyped
+
+    ListVoiceConnectorGroupsInput: untyped
+
+    ListVoiceConnectorGroupsOutput: untyped
+
+    ListVoiceConnectorTerminationCredentialsInput: untyped
+
+    ListVoiceConnectorTerminationCredentialsOutput: untyped
+
+    ListVoiceConnectorsInput: untyped
+
+    ListVoiceConnectorsOutput: untyped
+
+    LoggingConfiguration: untyped
+
+    LogoutUserInput: untyped
+
+    LogoutUserOutput: untyped
+
+    MediaCapturePipeline: untyped
+
+    module MediaPipelineSinkType
+      S3Bucket: ::String
+    end
+
+    module MediaPipelineSourceType
+      ChimeSdkMeeting: ::String
+    end
+
+    module MediaPipelineStatus
+      Initializing: ::String
+
+      InProgress: ::String
+
+      Failed: ::String
+
+      Stopping: ::String
+
+      Stopped: ::String
+    end
+
+    MediaPlacement: untyped
+
+    Meeting: untyped
+
+    MeetingNotificationConfiguration: untyped
+
+    Member: untyped
+
+    MemberError: untyped
+
+    module MemberType
+      User: ::String
+
+      Bot: ::String
+
+      Webhook: ::String
+    end
+
+    MembershipItem: untyped
+
+    MessagingSessionEndpoint: untyped
+
+    NotFoundException: untyped
+
+    module NotificationTarget
+      EventBridge: ::String
+
+      SNS: ::String
+
+      SQS: ::String
+    end
+
+    module NumberSelectionBehavior
+      PreferSticky: ::String
+
+      AvoidSticky: ::String
+    end
+
+    OrderedPhoneNumber: untyped
+
+    module OrderedPhoneNumberStatus
+      Processing: ::String
+
+      Acquired: ::String
+
+      Failed: ::String
+    end
+
+    Origination: untyped
+
+    OriginationRoute: untyped
+
+    module OriginationRouteProtocol
+      TCP: ::String
+
+      UDP: ::String
+    end
+
+    Participant: untyped
+
+    PhoneNumber: untyped
+
+    PhoneNumberAssociation: untyped
+
+    module PhoneNumberAssociationName
+      AccountId: ::String
+
+      UserId: ::String
+
+      VoiceConnectorId: ::String
+
+      VoiceConnectorGroupId: ::String
+
+      SipRuleId: ::String
+    end
+
+    PhoneNumberCapabilities: untyped
+
+    PhoneNumberCountry: untyped
+
+    PhoneNumberError: untyped
+
+    PhoneNumberOrder: untyped
+
+    module PhoneNumberOrderStatus
+      Processing: ::String
+
+      Successful: ::String
+
+      Failed: ::String
+
+      Partial: ::String
+    end
+
+    module PhoneNumberProductType
+      BusinessCalling: ::String
+
+      VoiceConnector: ::String
+
+      SipMediaApplicationDialIn: ::String
+    end
+
+    module PhoneNumberStatus
+      AcquireInProgress: ::String
+
+      AcquireFailed: ::String
+
+      Unassigned: ::String
+
+      Assigned: ::String
+
+      ReleaseInProgress: ::String
+
+      DeleteInProgress: ::String
+
+      ReleaseFailed: ::String
+
+      DeleteFailed: ::String
+    end
+
+    module PhoneNumberType
+      Local: ::String
+
+      TollFree: ::String
+    end
+
+    Proxy: untyped
+
+    ProxySession: untyped
+
+    module ProxySessionStatus
+      Open: ::String
+
+      InProgress: ::String
+
+      Closed: ::String
+    end
+
+    PutAppInstanceRetentionSettingsInput: untyped
+
+    PutAppInstanceRetentionSettingsOutput: untyped
+
+    PutAppInstanceStreamingConfigurationsInput: untyped
+
+    PutAppInstanceStreamingConfigurationsOutput: untyped
+
+    PutEventsConfigurationInput: untyped
+
+    PutEventsConfigurationOutput: untyped
+
+    PutRetentionSettingsInput: untyped
+
+    PutRetentionSettingsOutput: untyped
+
+    PutSipMediaApplicationLoggingConfigurationInput: untyped
+
+    PutSipMediaApplicationLoggingConfigurationOutput: untyped
+
+    PutVoiceConnectorEmergencyCallingConfigurationInput: untyped
+
+    PutVoiceConnectorEmergencyCallingConfigurationOutput: untyped
+
+    PutVoiceConnectorLoggingConfigurationInput: untyped
+
+    PutVoiceConnectorLoggingConfigurationOutput: untyped
+
+    PutVoiceConnectorOriginationInput: untyped
+
+    PutVoiceConnectorOriginationOutput: untyped
+
+    PutVoiceConnectorProxyInput: untyped
+
+    PutVoiceConnectorProxyOutput: untyped
+
+    PutVoiceConnectorStreamingConfigurationInput: untyped
+
+    PutVoiceConnectorStreamingConfigurationOutput: untyped
+
+    PutVoiceConnectorTerminationCredentialsInput: untyped
+
+    PutVoiceConnectorTerminationCredentialsOutput: untyped
+
+    PutVoiceConnectorTerminationInput: untyped
+
+    PutVoiceConnectorTerminationOutput: untyped
+
+    RedactChannelMessageInput: untyped
+
+    RedactChannelMessageOutput: untyped
+
+    RedactConversationMessageInput: untyped
+
+    RedactConversationMessageOutput: untyped
+
+    RedactRoomMessageInput: untyped
+
+    RedactRoomMessageOutput: untyped
+
+    RegenerateSecurityTokenInput: untyped
+
+    RegenerateSecurityTokenOutput: untyped
+
+    module RegistrationStatus
+      Unregistered: ::String
+
+      Registered: ::String
+
+      Suspended: ::String
+    end
+
+    ResetPersonalPINInput: untyped
+
+    ResetPersonalPINOutput: untyped
+
+    ResourceLimitExceededException: untyped
+
+    RestorePhoneNumberInput: untyped
+
+    RestorePhoneNumberOutput: untyped
+
+    RetentionSettings: untyped
+
+    Room: untyped
+
+    RoomMembership: untyped
+
+    module RoomMembershipRole
+      Administrator: ::String
+
+      Member: ::String
+    end
+
+    RoomRetentionSettings: untyped
+
+    SearchAvailablePhoneNumbersInput: untyped
+
+    SearchAvailablePhoneNumbersOutput: untyped
+
+    SelectedVideoStreams: untyped
+
+    SendChannelMessageInput: untyped
+
+    SendChannelMessageOutput: untyped
+
+    ServiceFailureException: untyped
+
+    ServiceUnavailableException: untyped
+
+    SigninDelegateGroup: untyped
+
+    SipMediaApplication: untyped
+
+    SipMediaApplicationCall: untyped
+
+    SipMediaApplicationEndpoint: untyped
+
+    SipMediaApplicationLoggingConfiguration: untyped
+
+    SipRule: untyped
+
+    SipRuleTargetApplication: untyped
+
+    module SipRuleTriggerType
+      ToPhoneNumber: ::String
+
+      RequestUriHostname: ::String
+    end
+
+    module SortOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    SourceConfiguration: untyped
+
+    StartMeetingTranscriptionInput: untyped
+
+    StartMeetingTranscriptionOutput: untyped
+
+    StopMeetingTranscriptionInput: untyped
+
+    StopMeetingTranscriptionOutput: untyped
+
+    StreamingConfiguration: untyped
+
+    StreamingNotificationTarget: untyped
+
+    Tag: untyped
+
+    TagAttendeeInput: untyped
+
+    TagAttendeeOutput: untyped
+
+    TagMeetingInput: untyped
+
+    TagMeetingOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TelephonySettings: untyped
+
+    Termination: untyped
+
+    TerminationHealth: untyped
+
+    ThrottledClientException: untyped
+
+    module TranscribeContentIdentificationType
+      PII: ::String
+    end
+
+    module TranscribeContentRedactionType
+      PII: ::String
+    end
+
+    module TranscribeLanguageCode
+      EN_US: ::String
+
+      EN_GB: ::String
+
+      ES_US: ::String
+
+      FR_CA: ::String
+
+      FR_FR: ::String
+
+      EN_AU: ::String
+
+      IT_IT: ::String
+
+      DE_DE: ::String
+
+      PT_BR: ::String
+
+      JA_JP: ::String
+
+      KO_KR: ::String
+
+      ZH_CN: ::String
+    end
+
+    module TranscribeMedicalContentIdentificationType
+      PHI: ::String
+    end
+
+    module TranscribeMedicalLanguageCode
+      EN_US: ::String
+    end
+
+    module TranscribeMedicalRegion
+      US_EAST_1: ::String
+
+      US_EAST_2: ::String
+
+      US_WEST_2: ::String
+
+      AP_SOUTHEAST_2: ::String
+
+      CA_CENTRAL_1: ::String
+
+      EU_WEST_1: ::String
+
+      AUTO: ::String
+    end
+
+    module TranscribeMedicalSpecialty
+      PrimaryCare: ::String
+
+      Cardiology: ::String
+
+      Neurology: ::String
+
+      Oncology: ::String
+
+      Radiology: ::String
+
+      Urology: ::String
+    end
+
+    module TranscribeMedicalType
+      Conversation: ::String
+
+      Dictation: ::String
+    end
+
+    module TranscribePartialResultsStability
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    module TranscribeRegion
+      US_EAST_2: ::String
+
+      US_EAST_1: ::String
+
+      US_WEST_2: ::String
+
+      AP_NORTHEAST_2: ::String
+
+      AP_SOUTHEAST_2: ::String
+
+      AP_NORTHEAST_1: ::String
+
+      CA_CENTRAL_1: ::String
+
+      EU_CENTRAL_1: ::String
+
+      EU_WEST_1: ::String
+
+      EU_WEST_2: ::String
+
+      SA_EAST_1: ::String
+
+      AUTO: ::String
+    end
+
+    module TranscribeVocabularyFilterMethod
+      Remove: ::String
+
+      Mask: ::String
+
+      Tag: ::String
+    end
+
+    TranscriptionConfiguration: untyped
+
+    UnauthorizedClientException: untyped
+
+    UnprocessableEntityException: untyped
+
+    UntagAttendeeInput: untyped
+
+    UntagAttendeeOutput: untyped
+
+    UntagMeetingInput: untyped
+
+    UntagMeetingOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAccountInput: untyped
+
+    UpdateAccountOutput: untyped
+
+    UpdateAccountSettingsInput: untyped
+
+    UpdateAccountSettingsOutput: untyped
+
+    UpdateAppInstanceInput: untyped
+
+    UpdateAppInstanceOutput: untyped
+
+    UpdateAppInstanceUserInput: untyped
+
+    UpdateAppInstanceUserOutput: untyped
+
+    UpdateBotInput: untyped
+
+    UpdateBotOutput: untyped
+
+    UpdateChannelInput: untyped
+
+    UpdateChannelMessageInput: untyped
+
+    UpdateChannelMessageOutput: untyped
+
+    UpdateChannelOutput: untyped
+
+    UpdateChannelReadMarkerInput: untyped
+
+    UpdateChannelReadMarkerOutput: untyped
+
+    UpdateGlobalSettingsInput: untyped
+
+    UpdateGlobalSettingsOutput: untyped
+
+    UpdatePhoneNumberInput: untyped
+
+    UpdatePhoneNumberOutput: untyped
+
+    UpdatePhoneNumberRequestItem: untyped
+
+    UpdatePhoneNumberSettingsInput: untyped
+
+    UpdatePhoneNumberSettingsOutput: untyped
+
+    UpdateProxySessionInput: untyped
+
+    UpdateProxySessionOutput: untyped
+
+    UpdateRoomInput: untyped
+
+    UpdateRoomMembershipInput: untyped
+
+    UpdateRoomMembershipOutput: untyped
+
+    UpdateRoomOutput: untyped
+
+    UpdateSipMediaApplicationCallInput: untyped
+
+    UpdateSipMediaApplicationCallOutput: untyped
+
+    UpdateSipMediaApplicationInput: untyped
+
+    UpdateSipMediaApplicationOutput: untyped
+
+    UpdateSipRuleInput: untyped
+
+    UpdateSipRuleOutput: untyped
+
+    UpdateUserInput: untyped
+
+    UpdateUserOutput: untyped
+
+    UpdateUserRequestItem: untyped
+
+    UpdateUserSettingsInput: untyped
+
+    UpdateUserSettingsOutput: untyped
+
+    UpdateVoiceConnectorGroupInput: untyped
+
+    UpdateVoiceConnectorGroupOutput: untyped
+
+    UpdateVoiceConnectorInput: untyped
+
+    UpdateVoiceConnectorOutput: untyped
+
+    User: untyped
+
+    UserError: untyped
+
+    UserSettings: untyped
+
+    module UserType
+      PrivateUser: ::String
+
+      SharedDevice: ::String
+    end
+
+    VideoArtifactsConfiguration: untyped
+
+    module VideoMuxType
+      VideoOnly: ::String
+    end
+
+    VoiceConnector: untyped
+
+    module VoiceConnectorAwsRegion
+      US_EAST_1: ::String
+
+      US_WEST_2: ::String
+    end
+
+    VoiceConnectorGroup: untyped
+
+    VoiceConnectorItem: untyped
+
+    VoiceConnectorSettings: untyped
+
+  end
+end

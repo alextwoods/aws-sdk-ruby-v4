@@ -1,0 +1,390 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ChimeSDKMessaging
+  module Types
+
+    module AllowNotifications
+      ALL: ::String
+
+      NONE: ::String
+
+      FILTERED: ::String
+    end
+
+    AppInstanceUserMembershipSummary: untyped
+
+    AssociateChannelFlowInput: untyped
+
+    AssociateChannelFlowOutput: untyped
+
+    BadRequestException: untyped
+
+    BatchChannelMemberships: untyped
+
+    BatchCreateChannelMembershipError: untyped
+
+    BatchCreateChannelMembershipInput: untyped
+
+    BatchCreateChannelMembershipOutput: untyped
+
+    Channel: untyped
+
+    ChannelAssociatedWithFlowSummary: untyped
+
+    ChannelBan: untyped
+
+    ChannelBanSummary: untyped
+
+    ChannelFlow: untyped
+
+    ChannelFlowCallbackInput: untyped
+
+    ChannelFlowCallbackOutput: untyped
+
+    ChannelFlowSummary: untyped
+
+    ChannelMembership: untyped
+
+    ChannelMembershipForAppInstanceUserSummary: untyped
+
+    ChannelMembershipPreferences: untyped
+
+    ChannelMembershipSummary: untyped
+
+    module ChannelMembershipType
+      DEFAULT: ::String
+
+      HIDDEN: ::String
+    end
+
+    ChannelMessage: untyped
+
+    ChannelMessageCallback: untyped
+
+    module ChannelMessagePersistenceType
+      PERSISTENT: ::String
+
+      NON_PERSISTENT: ::String
+    end
+
+    module ChannelMessageStatus
+      SENT: ::String
+
+      PENDING: ::String
+
+      FAILED: ::String
+
+      DENIED: ::String
+    end
+
+    ChannelMessageStatusStructure: untyped
+
+    ChannelMessageSummary: untyped
+
+    module ChannelMessageType
+      STANDARD: ::String
+
+      CONTROL: ::String
+    end
+
+    module ChannelMode
+      UNRESTRICTED: ::String
+
+      RESTRICTED: ::String
+    end
+
+    ChannelModeratedByAppInstanceUserSummary: untyped
+
+    ChannelModerator: untyped
+
+    ChannelModeratorSummary: untyped
+
+    module ChannelPrivacy
+      PUBLIC: ::String
+
+      PRIVATE: ::String
+    end
+
+    ChannelSummary: untyped
+
+    ConflictException: untyped
+
+    CreateChannelBanInput: untyped
+
+    CreateChannelBanOutput: untyped
+
+    CreateChannelFlowInput: untyped
+
+    CreateChannelFlowOutput: untyped
+
+    CreateChannelInput: untyped
+
+    CreateChannelMembershipInput: untyped
+
+    CreateChannelMembershipOutput: untyped
+
+    CreateChannelModeratorInput: untyped
+
+    CreateChannelModeratorOutput: untyped
+
+    CreateChannelOutput: untyped
+
+    DeleteChannelBanInput: untyped
+
+    DeleteChannelBanOutput: untyped
+
+    DeleteChannelFlowInput: untyped
+
+    DeleteChannelFlowOutput: untyped
+
+    DeleteChannelInput: untyped
+
+    DeleteChannelMembershipInput: untyped
+
+    DeleteChannelMembershipOutput: untyped
+
+    DeleteChannelMessageInput: untyped
+
+    DeleteChannelMessageOutput: untyped
+
+    DeleteChannelModeratorInput: untyped
+
+    DeleteChannelModeratorOutput: untyped
+
+    DeleteChannelOutput: untyped
+
+    DescribeChannelBanInput: untyped
+
+    DescribeChannelBanOutput: untyped
+
+    DescribeChannelFlowInput: untyped
+
+    DescribeChannelFlowOutput: untyped
+
+    DescribeChannelInput: untyped
+
+    DescribeChannelMembershipForAppInstanceUserInput: untyped
+
+    DescribeChannelMembershipForAppInstanceUserOutput: untyped
+
+    DescribeChannelMembershipInput: untyped
+
+    DescribeChannelMembershipOutput: untyped
+
+    DescribeChannelModeratedByAppInstanceUserInput: untyped
+
+    DescribeChannelModeratedByAppInstanceUserOutput: untyped
+
+    DescribeChannelModeratorInput: untyped
+
+    DescribeChannelModeratorOutput: untyped
+
+    DescribeChannelOutput: untyped
+
+    DisassociateChannelFlowInput: untyped
+
+    DisassociateChannelFlowOutput: untyped
+
+    module ErrorCode
+      BadRequest: ::String
+
+      Conflict: ::String
+
+      Forbidden: ::String
+
+      NotFound: ::String
+
+      PreconditionFailed: ::String
+
+      ResourceLimitExceeded: ::String
+
+      ServiceFailure: ::String
+
+      AccessDenied: ::String
+
+      ServiceUnavailable: ::String
+
+      Throttled: ::String
+
+      Throttling: ::String
+
+      Unauthorized: ::String
+
+      Unprocessable: ::String
+
+      VoiceConnectorGroupAssociationsExist: ::String
+
+      PhoneNumberAssociationsExist: ::String
+    end
+
+    module FallbackAction
+      CONTINUE: ::String
+
+      ABORT: ::String
+    end
+
+    ForbiddenException: untyped
+
+    GetChannelMembershipPreferencesInput: untyped
+
+    GetChannelMembershipPreferencesOutput: untyped
+
+    GetChannelMessageInput: untyped
+
+    GetChannelMessageOutput: untyped
+
+    GetChannelMessageStatusInput: untyped
+
+    GetChannelMessageStatusOutput: untyped
+
+    GetMessagingSessionEndpointInput: untyped
+
+    GetMessagingSessionEndpointOutput: untyped
+
+    Identity: untyped
+
+    module InvocationType
+      ASYNC: ::String
+    end
+
+    LambdaConfiguration: untyped
+
+    ListChannelBansInput: untyped
+
+    ListChannelBansOutput: untyped
+
+    ListChannelFlowsInput: untyped
+
+    ListChannelFlowsOutput: untyped
+
+    ListChannelMembershipsForAppInstanceUserInput: untyped
+
+    ListChannelMembershipsForAppInstanceUserOutput: untyped
+
+    ListChannelMembershipsInput: untyped
+
+    ListChannelMembershipsOutput: untyped
+
+    ListChannelMessagesInput: untyped
+
+    ListChannelMessagesOutput: untyped
+
+    ListChannelModeratorsInput: untyped
+
+    ListChannelModeratorsOutput: untyped
+
+    ListChannelsAssociatedWithChannelFlowInput: untyped
+
+    ListChannelsAssociatedWithChannelFlowOutput: untyped
+
+    ListChannelsInput: untyped
+
+    ListChannelsModeratedByAppInstanceUserInput: untyped
+
+    ListChannelsModeratedByAppInstanceUserOutput: untyped
+
+    ListChannelsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    MessageAttributeValue: untyped
+
+    MessagingSessionEndpoint: untyped
+
+    NotFoundException: untyped
+
+    Processor: untyped
+
+    ProcessorConfiguration: untyped
+
+    PushNotificationConfiguration: untyped
+
+    PushNotificationPreferences: untyped
+
+    module PushNotificationType
+      DEFAULT: ::String
+
+      VOIP: ::String
+    end
+
+    PutChannelMembershipPreferencesInput: untyped
+
+    PutChannelMembershipPreferencesOutput: untyped
+
+    RedactChannelMessageInput: untyped
+
+    RedactChannelMessageOutput: untyped
+
+    ResourceLimitExceededException: untyped
+
+    SearchChannelsInput: untyped
+
+    SearchChannelsOutput: untyped
+
+    SearchField: untyped
+
+    module SearchFieldKey
+      MEMBERS: ::String
+    end
+
+    module SearchFieldOperator
+      EQUALS: ::String
+
+      INCLUDES: ::String
+    end
+
+    SendChannelMessageInput: untyped
+
+    SendChannelMessageOutput: untyped
+
+    ServiceFailureException: untyped
+
+    ServiceUnavailableException: untyped
+
+    module SortOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottledClientException: untyped
+
+    UnauthorizedClientException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateChannelFlowInput: untyped
+
+    UpdateChannelFlowOutput: untyped
+
+    UpdateChannelInput: untyped
+
+    UpdateChannelMessageInput: untyped
+
+    UpdateChannelMessageOutput: untyped
+
+    UpdateChannelOutput: untyped
+
+    UpdateChannelReadMarkerInput: untyped
+
+    UpdateChannelReadMarkerOutput: untyped
+
+  end
+end

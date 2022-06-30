@@ -1,0 +1,3 @@
+module AWS::SDK::WorkMail
+  Config: untyped
+end

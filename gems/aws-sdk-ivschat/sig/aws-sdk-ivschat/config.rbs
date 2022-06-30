@@ -1,0 +1,3 @@
+module AWS::SDK::Ivschat
+  Config: untyped
+end

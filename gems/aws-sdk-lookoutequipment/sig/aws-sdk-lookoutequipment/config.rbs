@@ -1,0 +1,3 @@
+module AWS::SDK::LookoutEquipment
+  Config: untyped
+end

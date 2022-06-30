@@ -1,0 +1,464 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Resiliencehub
+  module Types
+
+    AccessDeniedException: untyped
+
+    AddDraftAppVersionResourceMappingsInput: untyped
+
+    AddDraftAppVersionResourceMappingsOutput: untyped
+
+    AlarmRecommendation: untyped
+
+    module AlarmType
+      METRIC: ::String
+
+      COMPOSITE: ::String
+
+      CANARY: ::String
+
+      LOGS: ::String
+
+      EVENT: ::String
+    end
+
+    App: untyped
+
+    AppAssessment: untyped
+
+    module AppAssessmentScheduleType
+      DISABLED: ::String
+
+      DAILY: ::String
+    end
+
+    AppAssessmentSummary: untyped
+
+    module AppComplianceStatusType
+      POLICY_BREACHED: ::String
+
+      POLICY_MET: ::String
+
+      NOT_ASSESSED: ::String
+
+      CHANGES_DETECTED: ::String
+    end
+
+    AppComponent: untyped
+
+    AppComponentCompliance: untyped
+
+    module AppStatusType
+      ACTIVE: ::String
+
+      DELETING: ::String
+    end
+
+    AppSummary: untyped
+
+    AppVersionSummary: untyped
+
+    module AssessmentInvoker
+      USER: ::String
+
+      SYSTEM: ::String
+    end
+
+    module AssessmentStatus
+      PENDING: ::String
+
+      INPROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCESS: ::String
+    end
+
+    module ComplianceStatus
+      POLICY_BREACHED: ::String
+
+      POLICY_MET: ::String
+    end
+
+    ComponentRecommendation: untyped
+
+    ConfigRecommendation: untyped
+
+    module ConfigRecommendationOptimizationType
+      LEAST_COST: ::String
+
+      LEAST_CHANGE: ::String
+
+      BEST_AZ_RECOVERY: ::String
+
+      LEAST_ERRORS: ::String
+
+      BEST_ATTAINABLE: ::String
+    end
+
+    ConflictException: untyped
+
+    Cost: untyped
+
+    module CostFrequency
+      HOURLY: ::String
+
+      DAILY: ::String
+
+      MONTHLY: ::String
+
+      YEARLY: ::String
+    end
+
+    CreateAppInput: untyped
+
+    CreateAppOutput: untyped
+
+    CreateRecommendationTemplateInput: untyped
+
+    CreateRecommendationTemplateOutput: untyped
+
+    CreateResiliencyPolicyInput: untyped
+
+    CreateResiliencyPolicyOutput: untyped
+
+    module DataLocationConstraint
+      ANY_LOCATION: ::String
+
+      SAME_CONTINENT: ::String
+
+      SAME_COUNTRY: ::String
+    end
+
+    DeleteAppAssessmentInput: untyped
+
+    DeleteAppAssessmentOutput: untyped
+
+    DeleteAppInput: untyped
+
+    DeleteAppOutput: untyped
+
+    DeleteRecommendationTemplateInput: untyped
+
+    DeleteRecommendationTemplateOutput: untyped
+
+    DeleteResiliencyPolicyInput: untyped
+
+    DeleteResiliencyPolicyOutput: untyped
+
+    DescribeAppAssessmentInput: untyped
+
+    DescribeAppAssessmentOutput: untyped
+
+    DescribeAppInput: untyped
+
+    DescribeAppOutput: untyped
+
+    DescribeAppVersionResourcesResolutionStatusInput: untyped
+
+    DescribeAppVersionResourcesResolutionStatusOutput: untyped
+
+    DescribeAppVersionTemplateInput: untyped
+
+    DescribeAppVersionTemplateOutput: untyped
+
+    DescribeDraftAppVersionResourcesImportStatusInput: untyped
+
+    DescribeDraftAppVersionResourcesImportStatusOutput: untyped
+
+    DescribeResiliencyPolicyInput: untyped
+
+    DescribeResiliencyPolicyOutput: untyped
+
+    DisruptionCompliance: untyped
+
+    module DisruptionType
+      SOFTWARE: ::String
+
+      HARDWARE: ::String
+
+      AZ: ::String
+
+      REGION: ::String
+    end
+
+    module EstimatedCostTier
+      L1: ::String
+
+      L2: ::String
+
+      L3: ::String
+
+      L4: ::String
+    end
+
+    FailurePolicy: untyped
+
+    module HaArchitecture
+      MULTI_SITE: ::String
+
+      WARM_STANDBY: ::String
+
+      PILOT_LIGHT: ::String
+
+      BACKUP_AND_RESTORE: ::String
+
+      NO_RECOVERY_PLAN: ::String
+    end
+
+    ImportResourcesToDraftAppVersionInput: untyped
+
+    ImportResourcesToDraftAppVersionOutput: untyped
+
+    InternalServerException: untyped
+
+    ListAlarmRecommendationsInput: untyped
+
+    ListAlarmRecommendationsOutput: untyped
+
+    ListAppAssessmentsInput: untyped
+
+    ListAppAssessmentsOutput: untyped
+
+    ListAppComponentCompliancesInput: untyped
+
+    ListAppComponentCompliancesOutput: untyped
+
+    ListAppComponentRecommendationsInput: untyped
+
+    ListAppComponentRecommendationsOutput: untyped
+
+    ListAppVersionResourceMappingsInput: untyped
+
+    ListAppVersionResourceMappingsOutput: untyped
+
+    ListAppVersionResourcesInput: untyped
+
+    ListAppVersionResourcesOutput: untyped
+
+    ListAppVersionsInput: untyped
+
+    ListAppVersionsOutput: untyped
+
+    ListAppsInput: untyped
+
+    ListAppsOutput: untyped
+
+    ListRecommendationTemplatesInput: untyped
+
+    ListRecommendationTemplatesOutput: untyped
+
+    ListResiliencyPoliciesInput: untyped
+
+    ListResiliencyPoliciesOutput: untyped
+
+    ListSopRecommendationsInput: untyped
+
+    ListSopRecommendationsOutput: untyped
+
+    ListSuggestedResiliencyPoliciesInput: untyped
+
+    ListSuggestedResiliencyPoliciesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTestRecommendationsInput: untyped
+
+    ListTestRecommendationsOutput: untyped
+
+    ListUnsupportedAppVersionResourcesInput: untyped
+
+    ListUnsupportedAppVersionResourcesOutput: untyped
+
+    LogicalResourceId: untyped
+
+    module PhysicalIdentifierType
+      ARN: ::String
+
+      NATIVE: ::String
+    end
+
+    PhysicalResource: untyped
+
+    PhysicalResourceId: untyped
+
+    PublishAppVersionInput: untyped
+
+    PublishAppVersionOutput: untyped
+
+    PutDraftAppVersionTemplateInput: untyped
+
+    PutDraftAppVersionTemplateOutput: untyped
+
+    module RecommendationComplianceStatus
+      BREACHED_UNATTAINABLE: ::String
+
+      BREACHED_CAN_MEET: ::String
+
+      MET_CAN_IMPROVE: ::String
+    end
+
+    RecommendationDisruptionCompliance: untyped
+
+    RecommendationItem: untyped
+
+    RecommendationTemplate: untyped
+
+    module RecommendationTemplateStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCESS: ::String
+    end
+
+    RemoveDraftAppVersionResourceMappingsInput: untyped
+
+    RemoveDraftAppVersionResourceMappingsOutput: untyped
+
+    module RenderRecommendationType
+      ALARM: ::String
+
+      SOP: ::String
+
+      TEST: ::String
+    end
+
+    ResiliencyPolicy: untyped
+
+    module ResiliencyPolicyTier
+      MISSION_CRITICAL: ::String
+
+      CRITICAL: ::String
+
+      IMPORTANT: ::String
+
+      CORE_SERVICES: ::String
+
+      NON_CRITICAL: ::String
+    end
+
+    ResiliencyScore: untyped
+
+    ResolveAppVersionResourcesInput: untyped
+
+    ResolveAppVersionResourcesOutput: untyped
+
+    ResourceError: untyped
+
+    ResourceErrorsDetails: untyped
+
+    module ResourceImportStatusType
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCESS: ::String
+    end
+
+    ResourceMapping: untyped
+
+    module ResourceMappingType
+      CFN_STACK: ::String
+
+      RESOURCE: ::String
+
+      APP_REGISTRY_APP: ::String
+
+      RESOURCE_GROUP: ::String
+
+      TERRAFORM: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    module ResourceResolutionStatusType
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+
+      SUCCESS: ::String
+    end
+
+    S3Location: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SopRecommendation: untyped
+
+    module SopServiceType
+      SSM: ::String
+    end
+
+    StartAppAssessmentInput: untyped
+
+    StartAppAssessmentOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TemplateFormat
+      CFN_YAML: ::String
+
+      CFN_JSON: ::String
+    end
+
+    TerraformSource: untyped
+
+    TestRecommendation: untyped
+
+    module TestRisk
+      SMALL: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    module TestType
+      SOFTWARE: ::String
+
+      HARDWARE: ::String
+
+      AZ: ::String
+
+      REGION: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UnsupportedResource: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAppInput: untyped
+
+    UpdateAppOutput: untyped
+
+    UpdateResiliencyPolicyInput: untyped
+
+    UpdateResiliencyPolicyOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

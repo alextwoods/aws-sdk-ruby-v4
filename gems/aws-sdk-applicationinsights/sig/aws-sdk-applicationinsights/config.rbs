@@ -1,0 +1,3 @@
+module AWS::SDK::ApplicationInsights
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::CloudWatchLogs
+  Config: untyped
+end

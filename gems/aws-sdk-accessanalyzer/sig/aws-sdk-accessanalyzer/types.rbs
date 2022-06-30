@@ -1,0 +1,520 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::AccessAnalyzer
+  module Types
+
+    AccessDeniedException: untyped
+
+    AccessPreview: untyped
+
+    AccessPreviewFinding: untyped
+
+    module AccessPreviewStatus
+      COMPLETED: ::String
+
+      CREATING: ::String
+
+      FAILED: ::String
+    end
+
+    AccessPreviewStatusReason: untyped
+
+    module AccessPreviewStatusReasonCode
+      INTERNAL_ERROR: ::String
+
+      INVALID_CONFIGURATION: ::String
+    end
+
+    AccessPreviewSummary: untyped
+
+    class AclGrantee < Hearth::Union
+      class Id < AclGrantee
+        def to_h: () -> { id: Hash[Symbol,AclGrantee] }
+      end
+
+      class Uri < AclGrantee
+        def to_h: () -> { uri: Hash[Symbol,AclGrantee] }
+      end
+
+      class Unknown < AclGrantee
+        def to_h: () -> { unknown: Hash[Symbol,AclGrantee] }
+      end
+    end
+
+    module AclPermission
+      READ: ::String
+
+      WRITE: ::String
+
+      READ_ACP: ::String
+
+      WRITE_ACP: ::String
+
+      FULL_CONTROL: ::String
+    end
+
+    AnalyzedResource: untyped
+
+    AnalyzedResourceSummary: untyped
+
+    module AnalyzerStatus
+      ACTIVE: ::String
+
+      CREATING: ::String
+
+      DISABLED: ::String
+
+      FAILED: ::String
+    end
+
+    AnalyzerSummary: untyped
+
+    ApplyArchiveRuleInput: untyped
+
+    ApplyArchiveRuleOutput: untyped
+
+    ArchiveRuleSummary: untyped
+
+    CancelPolicyGenerationInput: untyped
+
+    CancelPolicyGenerationOutput: untyped
+
+    CloudTrailDetails: untyped
+
+    CloudTrailProperties: untyped
+
+    class Configuration < Hearth::Union
+      class IamRole < Configuration
+        def to_h: () -> { iam_role: Hash[Symbol,Configuration] }
+      end
+
+      class KmsKey < Configuration
+        def to_h: () -> { kms_key: Hash[Symbol,Configuration] }
+      end
+
+      class SecretsManagerSecret < Configuration
+        def to_h: () -> { secrets_manager_secret: Hash[Symbol,Configuration] }
+      end
+
+      class S3Bucket < Configuration
+        def to_h: () -> { s3_bucket: Hash[Symbol,Configuration] }
+      end
+
+      class SqsQueue < Configuration
+        def to_h: () -> { sqs_queue: Hash[Symbol,Configuration] }
+      end
+
+      class Unknown < Configuration
+        def to_h: () -> { unknown: Hash[Symbol,Configuration] }
+      end
+    end
+
+    ConflictException: untyped
+
+    CreateAccessPreviewInput: untyped
+
+    CreateAccessPreviewOutput: untyped
+
+    CreateAnalyzerInput: untyped
+
+    CreateAnalyzerOutput: untyped
+
+    CreateArchiveRuleInput: untyped
+
+    CreateArchiveRuleOutput: untyped
+
+    Criterion: untyped
+
+    DeleteAnalyzerInput: untyped
+
+    DeleteAnalyzerOutput: untyped
+
+    DeleteArchiveRuleInput: untyped
+
+    DeleteArchiveRuleOutput: untyped
+
+    Finding: untyped
+
+    module FindingChangeType
+      CHANGED: ::String
+
+      NEW: ::String
+
+      UNCHANGED: ::String
+    end
+
+    FindingSource: untyped
+
+    FindingSourceDetail: untyped
+
+    module FindingSourceType
+      POLICY: ::String
+
+      BUCKET_ACL: ::String
+
+      S3_ACCESS_POINT: ::String
+    end
+
+    module FindingStatus
+      ACTIVE: ::String
+
+      ARCHIVED: ::String
+
+      RESOLVED: ::String
+    end
+
+    module FindingStatusUpdate
+      ACTIVE: ::String
+
+      ARCHIVED: ::String
+    end
+
+    FindingSummary: untyped
+
+    GeneratedPolicy: untyped
+
+    GeneratedPolicyProperties: untyped
+
+    GeneratedPolicyResult: untyped
+
+    GetAccessPreviewInput: untyped
+
+    GetAccessPreviewOutput: untyped
+
+    GetAnalyzedResourceInput: untyped
+
+    GetAnalyzedResourceOutput: untyped
+
+    GetAnalyzerInput: untyped
+
+    GetAnalyzerOutput: untyped
+
+    GetArchiveRuleInput: untyped
+
+    GetArchiveRuleOutput: untyped
+
+    GetFindingInput: untyped
+
+    GetFindingOutput: untyped
+
+    GetGeneratedPolicyInput: untyped
+
+    GetGeneratedPolicyOutput: untyped
+
+    IamRoleConfiguration: untyped
+
+    InlineArchiveRule: untyped
+
+    InternalServerException: untyped
+
+    InternetConfiguration: untyped
+
+    JobDetails: untyped
+
+    JobError: untyped
+
+    module JobErrorCode
+      AUTHORIZATION_ERROR: ::String
+
+      RESOURCE_NOT_FOUND_ERROR: ::String
+
+      SERVICE_QUOTA_EXCEEDED_ERROR: ::String
+
+      SERVICE_ERROR: ::String
+    end
+
+    module JobStatus
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+    end
+
+    KmsGrantConfiguration: untyped
+
+    KmsGrantConstraints: untyped
+
+    module KmsGrantOperation
+      CREATE_GRANT: ::String
+
+      DECRYPT: ::String
+
+      DESCRIBE_KEY: ::String
+
+      ENCRYPT: ::String
+
+      GENERATE_DATA_KEY: ::String
+
+      GENERATE_DATA_KEY_PAIR: ::String
+
+      GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT: ::String
+
+      GENERATE_DATA_KEY_WITHOUT_PLAINTEXT: ::String
+
+      GET_PUBLIC_KEY: ::String
+
+      REENCRYPT_FROM: ::String
+
+      REENCRYPT_TO: ::String
+
+      RETIRE_GRANT: ::String
+
+      SIGN: ::String
+
+      VERIFY: ::String
+    end
+
+    KmsKeyConfiguration: untyped
+
+    ListAccessPreviewFindingsInput: untyped
+
+    ListAccessPreviewFindingsOutput: untyped
+
+    ListAccessPreviewsInput: untyped
+
+    ListAccessPreviewsOutput: untyped
+
+    ListAnalyzedResourcesInput: untyped
+
+    ListAnalyzedResourcesOutput: untyped
+
+    ListAnalyzersInput: untyped
+
+    ListAnalyzersOutput: untyped
+
+    ListArchiveRulesInput: untyped
+
+    ListArchiveRulesOutput: untyped
+
+    ListFindingsInput: untyped
+
+    ListFindingsOutput: untyped
+
+    ListPolicyGenerationsInput: untyped
+
+    ListPolicyGenerationsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module Locale
+      DE: ::String
+
+      EN: ::String
+
+      ES: ::String
+
+      FR: ::String
+
+      IT: ::String
+
+      JA: ::String
+
+      KO: ::String
+
+      PT_BR: ::String
+
+      ZH_CN: ::String
+
+      ZH_TW: ::String
+    end
+
+    Location: untyped
+
+    class NetworkOriginConfiguration < Hearth::Union
+      class VpcConfiguration < NetworkOriginConfiguration
+        def to_h: () -> { vpc_configuration: Hash[Symbol,NetworkOriginConfiguration] }
+      end
+
+      class InternetConfiguration < NetworkOriginConfiguration
+        def to_h: () -> { internet_configuration: Hash[Symbol,NetworkOriginConfiguration] }
+      end
+
+      class Unknown < NetworkOriginConfiguration
+        def to_h: () -> { unknown: Hash[Symbol,NetworkOriginConfiguration] }
+      end
+    end
+
+    module OrderBy
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+    class PathElement < Hearth::Union
+      class Index < PathElement
+        def to_h: () -> { index: Hash[Symbol,PathElement] }
+      end
+
+      class Key < PathElement
+        def to_h: () -> { key: Hash[Symbol,PathElement] }
+      end
+
+      class Substring < PathElement
+        def to_h: () -> { substring: Hash[Symbol,PathElement] }
+      end
+
+      class Value < PathElement
+        def to_h: () -> { value: Hash[Symbol,PathElement] }
+      end
+
+      class Unknown < PathElement
+        def to_h: () -> { unknown: Hash[Symbol,PathElement] }
+      end
+    end
+
+    PolicyGeneration: untyped
+
+    PolicyGenerationDetails: untyped
+
+    module PolicyType
+      IDENTITY_POLICY: ::String
+
+      RESOURCE_POLICY: ::String
+
+      SERVICE_CONTROL_POLICY: ::String
+    end
+
+    Position: untyped
+
+    module ReasonCode
+      AWS_SERVICE_ACCESS_DISABLED: ::String
+
+      DELEGATED_ADMINISTRATOR_DEREGISTERED: ::String
+
+      ORGANIZATION_DELETED: ::String
+
+      SERVICE_LINKED_ROLE_CREATION_FAILED: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      AWS_S3_BUCKET: ::String
+
+      AWS_IAM_ROLE: ::String
+
+      AWS_SQS_QUEUE: ::String
+
+      AWS_LAMBDA_FUNCTION: ::String
+
+      AWS_LAMBDA_LAYERVERSION: ::String
+
+      AWS_KMS_KEY: ::String
+
+      AWS_SECRETSMANAGER_SECRET: ::String
+    end
+
+    S3AccessPointConfiguration: untyped
+
+    S3BucketAclGrantConfiguration: untyped
+
+    S3BucketConfiguration: untyped
+
+    S3PublicAccessBlockConfiguration: untyped
+
+    SecretsManagerSecretConfiguration: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SortCriteria: untyped
+
+    Span: untyped
+
+    SqsQueueConfiguration: untyped
+
+    StartPolicyGenerationInput: untyped
+
+    StartPolicyGenerationOutput: untyped
+
+    StartResourceScanInput: untyped
+
+    StartResourceScanOutput: untyped
+
+    StatusReason: untyped
+
+    Substring: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    Trail: untyped
+
+    TrailProperties: untyped
+
+    module Type
+      ACCOUNT: ::String
+
+      ORGANIZATION: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateArchiveRuleInput: untyped
+
+    UpdateArchiveRuleOutput: untyped
+
+    UpdateFindingsInput: untyped
+
+    UpdateFindingsOutput: untyped
+
+    ValidatePolicyFinding: untyped
+
+    module ValidatePolicyFindingType
+      ERROR: ::String
+
+      SECURITY_WARNING: ::String
+
+      SUGGESTION: ::String
+
+      WARNING: ::String
+    end
+
+    ValidatePolicyInput: untyped
+
+    ValidatePolicyOutput: untyped
+
+    module ValidatePolicyResourceType
+      S3_BUCKET: ::String
+
+      S3_ACCESS_POINT: ::String
+
+      S3_MULTI_REGION_ACCESS_POINT: ::String
+
+      S3_OBJECT_LAMBDA_ACCESS_POINT: ::String
+    end
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+    VpcConfiguration: untyped
+
+  end
+end

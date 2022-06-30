@@ -1,0 +1,3 @@
+module AWS::SDK::CodeStarConnections
+  Config: untyped
+end

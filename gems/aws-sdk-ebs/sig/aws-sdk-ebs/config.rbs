@@ -1,0 +1,3 @@
+module AWS::SDK::EBS
+  Config: untyped
+end

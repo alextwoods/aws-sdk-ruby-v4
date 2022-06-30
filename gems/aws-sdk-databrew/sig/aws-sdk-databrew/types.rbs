@@ -1,0 +1,470 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DataBrew
+  module Types
+
+    AccessDeniedException: untyped
+
+    AllowedStatistics: untyped
+
+    module AnalyticsMode
+      ENABLE: ::String
+
+      DISABLE: ::String
+    end
+
+    BatchDeleteRecipeVersionInput: untyped
+
+    BatchDeleteRecipeVersionOutput: untyped
+
+    ColumnSelector: untyped
+
+    ColumnStatisticsConfiguration: untyped
+
+    module CompressionFormat
+      GZIP: ::String
+
+      LZ4: ::String
+
+      SNAPPY: ::String
+
+      BZIP2: ::String
+
+      DEFLATE: ::String
+
+      LZO: ::String
+
+      BROTLI: ::String
+
+      ZSTD: ::String
+
+      ZLIB: ::String
+    end
+
+    ConditionExpression: untyped
+
+    ConflictException: untyped
+
+    CreateDatasetInput: untyped
+
+    CreateDatasetOutput: untyped
+
+    CreateProfileJobInput: untyped
+
+    CreateProfileJobOutput: untyped
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    CreateRecipeInput: untyped
+
+    CreateRecipeJobInput: untyped
+
+    CreateRecipeJobOutput: untyped
+
+    CreateRecipeOutput: untyped
+
+    CreateRulesetInput: untyped
+
+    CreateRulesetOutput: untyped
+
+    CreateScheduleInput: untyped
+
+    CreateScheduleOutput: untyped
+
+    CsvOptions: untyped
+
+    CsvOutputOptions: untyped
+
+    DataCatalogInputDefinition: untyped
+
+    DataCatalogOutput: untyped
+
+    DatabaseInputDefinition: untyped
+
+    DatabaseOutput: untyped
+
+    module DatabaseOutputMode
+      NEW_TABLE: ::String
+    end
+
+    DatabaseTableOutputOptions: untyped
+
+    Dataset: untyped
+
+    DatasetParameter: untyped
+
+    DatetimeOptions: untyped
+
+    DeleteDatasetInput: untyped
+
+    DeleteDatasetOutput: untyped
+
+    DeleteJobInput: untyped
+
+    DeleteJobOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DeleteRecipeVersionInput: untyped
+
+    DeleteRecipeVersionOutput: untyped
+
+    DeleteRulesetInput: untyped
+
+    DeleteRulesetOutput: untyped
+
+    DeleteScheduleInput: untyped
+
+    DeleteScheduleOutput: untyped
+
+    DescribeDatasetInput: untyped
+
+    DescribeDatasetOutput: untyped
+
+    DescribeJobInput: untyped
+
+    DescribeJobOutput: untyped
+
+    DescribeJobRunInput: untyped
+
+    DescribeJobRunOutput: untyped
+
+    DescribeProjectInput: untyped
+
+    DescribeProjectOutput: untyped
+
+    DescribeRecipeInput: untyped
+
+    DescribeRecipeOutput: untyped
+
+    DescribeRulesetInput: untyped
+
+    DescribeRulesetOutput: untyped
+
+    DescribeScheduleInput: untyped
+
+    DescribeScheduleOutput: untyped
+
+    module EncryptionMode
+      SSEKMS: ::String
+
+      SSES3: ::String
+    end
+
+    EntityDetectorConfiguration: untyped
+
+    ExcelOptions: untyped
+
+    FilesLimit: untyped
+
+    FilterExpression: untyped
+
+    FormatOptions: untyped
+
+    Input: untyped
+
+    module InputFormat
+      CSV: ::String
+
+      JSON: ::String
+
+      PARQUET: ::String
+
+      EXCEL: ::String
+
+      ORC: ::String
+    end
+
+    InternalServerException: untyped
+
+    Job: untyped
+
+    JobRun: untyped
+
+    module JobRunState
+      STARTING: ::String
+
+      RUNNING: ::String
+
+      STOPPING: ::String
+
+      STOPPED: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      TIMEOUT: ::String
+    end
+
+    JobSample: untyped
+
+    module JobType
+      PROFILE: ::String
+
+      RECIPE: ::String
+    end
+
+    JsonOptions: untyped
+
+    ListDatasetsInput: untyped
+
+    ListDatasetsOutput: untyped
+
+    ListJobRunsInput: untyped
+
+    ListJobRunsOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    ListRecipeVersionsInput: untyped
+
+    ListRecipeVersionsOutput: untyped
+
+    ListRecipesInput: untyped
+
+    ListRecipesOutput: untyped
+
+    ListRulesetsInput: untyped
+
+    ListRulesetsOutput: untyped
+
+    ListSchedulesInput: untyped
+
+    ListSchedulesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module LogSubscription
+      ENABLE: ::String
+
+      DISABLE: ::String
+    end
+
+    Metadata: untyped
+
+    module Order
+      DESCENDING: ::String
+
+      ASCENDING: ::String
+    end
+
+    module OrderedBy
+      LAST_MODIFIED_DATE: ::String
+    end
+
+    Output: untyped
+
+    module OutputFormat
+      CSV: ::String
+
+      JSON: ::String
+
+      PARQUET: ::String
+
+      GLUEPARQUET: ::String
+
+      AVRO: ::String
+
+      ORC: ::String
+
+      XML: ::String
+
+      TABLEAUHYPER: ::String
+    end
+
+    OutputFormatOptions: untyped
+
+    module ParameterType
+      Datetime: ::String
+
+      Number: ::String
+
+      String: ::String
+    end
+
+    PathOptions: untyped
+
+    ProfileConfiguration: untyped
+
+    Project: untyped
+
+    PublishRecipeInput: untyped
+
+    PublishRecipeOutput: untyped
+
+    Recipe: untyped
+
+    RecipeAction: untyped
+
+    RecipeReference: untyped
+
+    RecipeStep: untyped
+
+    RecipeVersionErrorDetail: untyped
+
+    ResourceNotFoundException: untyped
+
+    Rule: untyped
+
+    RulesetItem: untyped
+
+    S3Location: untyped
+
+    S3TableOutputOptions: untyped
+
+    Sample: untyped
+
+    module SampleMode
+      FULL_DATASET: ::String
+
+      CUSTOM_ROWS: ::String
+    end
+
+    module SampleType
+      FIRST_N: ::String
+
+      LAST_N: ::String
+
+      RANDOM: ::String
+    end
+
+    Schedule: untyped
+
+    SendProjectSessionActionInput: untyped
+
+    SendProjectSessionActionOutput: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module SessionStatus
+      ASSIGNED: ::String
+
+      FAILED: ::String
+
+      INITIALIZING: ::String
+
+      PROVISIONING: ::String
+
+      READY: ::String
+
+      RECYCLING: ::String
+
+      ROTATING: ::String
+
+      TERMINATED: ::String
+
+      TERMINATING: ::String
+
+      UPDATING: ::String
+    end
+
+    module Source
+      S3: ::String
+
+      DATACATALOG: ::String
+
+      DATABASE: ::String
+    end
+
+    StartJobRunInput: untyped
+
+    StartJobRunOutput: untyped
+
+    StartProjectSessionInput: untyped
+
+    StartProjectSessionOutput: untyped
+
+    StatisticOverride: untyped
+
+    StatisticsConfiguration: untyped
+
+    StopJobRunInput: untyped
+
+    StopJobRunOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Threshold: untyped
+
+    module ThresholdType
+      GREATER_THAN_OR_EQUAL: ::String
+
+      LESS_THAN_OR_EQUAL: ::String
+
+      GREATER_THAN: ::String
+
+      LESS_THAN: ::String
+    end
+
+    module ThresholdUnit
+      COUNT: ::String
+
+      PERCENTAGE: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDatasetInput: untyped
+
+    UpdateDatasetOutput: untyped
+
+    UpdateProfileJobInput: untyped
+
+    UpdateProfileJobOutput: untyped
+
+    UpdateProjectInput: untyped
+
+    UpdateProjectOutput: untyped
+
+    UpdateRecipeInput: untyped
+
+    UpdateRecipeJobInput: untyped
+
+    UpdateRecipeJobOutput: untyped
+
+    UpdateRecipeOutput: untyped
+
+    UpdateRulesetInput: untyped
+
+    UpdateRulesetOutput: untyped
+
+    UpdateScheduleInput: untyped
+
+    UpdateScheduleOutput: untyped
+
+    ValidationConfiguration: untyped
+
+    ValidationException: untyped
+
+    module ValidationMode
+      CHECK_ALL: ::String
+    end
+
+    ViewFrame: untyped
+
+  end
+end

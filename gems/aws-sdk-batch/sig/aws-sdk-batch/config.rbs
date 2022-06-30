@@ -1,0 +1,3 @@
+module AWS::SDK::Batch
+  Config: untyped
+end

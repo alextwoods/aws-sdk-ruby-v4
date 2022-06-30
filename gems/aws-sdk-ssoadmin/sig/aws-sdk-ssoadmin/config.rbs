@@ -1,0 +1,3 @@
+module AWS::SDK::SSOAdmin
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::SNS
+  Config: untyped
+end

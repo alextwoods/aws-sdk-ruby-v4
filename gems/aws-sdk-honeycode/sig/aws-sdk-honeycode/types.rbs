@@ -1,0 +1,232 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Honeycode
+  module Types
+
+    AccessDeniedException: untyped
+
+    AutomationExecutionException: untyped
+
+    AutomationExecutionTimeoutException: untyped
+
+    BatchCreateTableRowsInput: untyped
+
+    BatchCreateTableRowsOutput: untyped
+
+    BatchDeleteTableRowsInput: untyped
+
+    BatchDeleteTableRowsOutput: untyped
+
+    BatchUpdateTableRowsInput: untyped
+
+    BatchUpdateTableRowsOutput: untyped
+
+    BatchUpsertTableRowsInput: untyped
+
+    BatchUpsertTableRowsOutput: untyped
+
+    Cell: untyped
+
+    CellInput: untyped
+
+    ColumnMetadata: untyped
+
+    CreateRowData: untyped
+
+    DataItem: untyped
+
+    DelimitedTextImportOptions: untyped
+
+    DescribeTableDataImportJobInput: untyped
+
+    DescribeTableDataImportJobOutput: untyped
+
+    DestinationOptions: untyped
+
+    module ErrorCode
+      AccessDenied: ::String
+
+      InvalidUrlError: ::String
+
+      InvalidImportOptionsError: ::String
+
+      InvalidTableIdError: ::String
+
+      InvalidTableColumnIdError: ::String
+
+      TableNotFoundError: ::String
+
+      FileEmptyError: ::String
+
+      InvalidFileTypeError: ::String
+
+      FileParsingError: ::String
+
+      FileSizeLimitError: ::String
+
+      FileNotFoundError: ::String
+
+      UnknownError: ::String
+
+      ResourceNotFoundError: ::String
+
+      SystemLimitError: ::String
+    end
+
+    FailedBatchItem: untyped
+
+    Filter: untyped
+
+    module Format
+      Auto: ::String
+
+      Number: ::String
+
+      Currency: ::String
+
+      Date: ::String
+
+      Time: ::String
+
+      DateTime: ::String
+
+      Percentage: ::String
+
+      Text: ::String
+
+      Accounting: ::String
+
+      Contact: ::String
+
+      Rowlink: ::String
+
+      Rowset: ::String
+    end
+
+    GetScreenDataInput: untyped
+
+    GetScreenDataOutput: untyped
+
+    module ImportDataCharacterEncoding
+      UTF_8: ::String
+
+      US_ASCII: ::String
+
+      ISO_8859_1: ::String
+
+      UTF_16BE: ::String
+
+      UTF_16LE: ::String
+
+      UTF_16: ::String
+    end
+
+    ImportDataSource: untyped
+
+    ImportDataSourceConfig: untyped
+
+    ImportJobSubmitter: untyped
+
+    ImportOptions: untyped
+
+    module ImportSourceDataFormat
+      DelimitedText: ::String
+    end
+
+    InternalServerException: untyped
+
+    InvokeScreenAutomationInput: untyped
+
+    InvokeScreenAutomationOutput: untyped
+
+    ListTableColumnsInput: untyped
+
+    ListTableColumnsOutput: untyped
+
+    ListTableRowsInput: untyped
+
+    ListTableRowsOutput: untyped
+
+    ListTablesInput: untyped
+
+    ListTablesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    QueryTableRowsInput: untyped
+
+    QueryTableRowsOutput: untyped
+
+    RequestTimeoutException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResultRow: untyped
+
+    ResultSet: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    ServiceUnavailableException: untyped
+
+    SourceDataColumnProperties: untyped
+
+    StartTableDataImportJobInput: untyped
+
+    StartTableDataImportJobOutput: untyped
+
+    Table: untyped
+
+    TableColumn: untyped
+
+    TableDataImportJobMetadata: untyped
+
+    module TableDataImportJobStatus
+      Submitted: ::String
+
+      InProgress: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+    end
+
+    TableRow: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateRowData: untyped
+
+    module UpsertAction
+      Updated: ::String
+
+      Appended: ::String
+    end
+
+    UpsertRowData: untyped
+
+    UpsertRowsResult: untyped
+
+    ValidationException: untyped
+
+    VariableValue: untyped
+
+  end
+end

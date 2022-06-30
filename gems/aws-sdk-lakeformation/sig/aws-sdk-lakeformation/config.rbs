@@ -1,0 +1,3 @@
+module AWS::SDK::LakeFormation
+  Config: untyped
+end
