@@ -24,15 +24,6 @@ import software.amazon.smithy.model.shapes.ServiceShape
 
 val smithyVersion: String by project
 
-fun toSnakeCase(s: String): String {
-    return s
-        .replace("([A-Z\\d]+)([A-Z][a-z])".toRegex(), "$1_$2")
-        .replace("([a-z\\d])([A-Z])".toRegex(), "$1_$2")
-        .replace(" ", "_")
-        .replace('-', '_')
-        .toLowerCase()
-}
-
 class ServiceDefinition(val file: File) {
     val sdkId: String
     val model: Model
