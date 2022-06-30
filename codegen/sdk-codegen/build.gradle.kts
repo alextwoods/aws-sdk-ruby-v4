@@ -13,11 +13,72 @@
  * permissions and limitations under the License.
  */
 
+// This build file has been adapted from the Go v2 SDK, here:
+// https://github.com/aws/aws-sdk-go-v2/blob/master/codegen/sdk-codegen/build.gradle.kts
+
+import software.amazon.smithy.aws.traits.ServiceTrait
+import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.model.shapes.ServiceShape
-import software.amazon.smithy.gradle.tasks.SmithyBuild
-import kotlin.streams.toList
+
+val smithyVersion: String by project
+
+class ServiceDefinition(val file: File) {
+    val sdkId: String
+    val model: Model
+    val service: ServiceShape
+    val moduleName: String
+    val gemName: String
+    val projectionName: String
+    init {
+        model = Model.assembler()
+            .addImport(file.absolutePath)
+            // Grab the result directly rather than worrying about checking for errors via unwrap.
+            // All we care about here is the service shape, any unchecked errors will be exposed
+            // as part of the actual build task done by the smithy gradle plugin.
+            .assemble().result.get();
+        val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+        if (services.size != 1) {
+            throw Exception("There must be exactly one service in each aws model file, but found " +
+                    "${services.size} in ${file.name}: ${services.map { it.id }}");
+        }
+        service = services[0]
+        val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
+        sdkId = serviceTrait.sdkId
+
+        moduleName = sdkId.split(" ").joinToString("") { it.capitalize() }
+        gemName = "aws-sdk-" + sdkId.replace(" ", "").toLowerCase()
+
+        projectionName = moduleName + "." + service.version.toLowerCase();
+    }
+}
+
+fun forEachService(task: (service: ServiceDefinition) -> Unit) {
+    val modelsDir: String by project
+    val gem: String? by project
+    val models = project.file(modelsDir);
+
+    fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
+        val service = ServiceDefinition(file)
+        if (gem == null) {
+            task(service)
+        } else if (service.gemName.equals(gem)) {
+            task(service)
+        }
+    }
+}
+
+buildscript {
+    val smithyVersion: String by project
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        "classpath"("software.amazon.smithy:smithy-cli:$smithyVersion")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    }
+}
 
 plugins {
     id("software.amazon.smithy").version("0.6.0")
@@ -44,39 +105,31 @@ tasks.create<SmithyBuild>("buildSdk") {
 tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
-        val modelsDirProp: String by project
-        val models = project.file(modelsDirProp);
+        val modelsDir: String by project
+        val models = project.file(modelsDir);
 
-        fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
-            val model = Model.assembler()
-                    .addImport(file.absolutePath)
-                    // Grab the result directly rather than worrying about checking for errors via unwrap.
-                    // All we care about here is the service shape, any unchecked errors will be exposed
-                    // as part of the actual build task done by the smithy gradle plugin.
-                    .assemble().result.get();
-            val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
-            if (services.size != 1) {
-                throw Exception("There must be exactly one service in each aws model file, but found " +
-                        "${services.size} in ${file.name}: ${services.map { it.id }}");
-            }
-            val service = services[0]
-
-            var (sdkId, version, remaining) = file.name.split(".")
-            sdkId = sdkId.replace("-", "").toLowerCase();
+        forEachService { service ->
             val projectionContents = Node.objectNodeBuilder()
-                    .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
-                    .withMember("plugins", Node.objectNode()
-                            .withMember("ruby-codegen", Node.objectNodeBuilder()
-                                    .withMember("service", service.id.toString())
-                                    .withMember("module", "AWS::SDK::" + sdkId.capitalize())
-                                    .withMember("gemspec", Node.objectNodeBuilder()
-                                        .withMember("gemName", "aws-sdk-" + sdkId.toLowerCase())
-                                        .withMember("gemVersion", "4.0.0.pre")
+                .withMember("imports", Node.fromStrings("${models.absolutePath}${File.separator}${service.file.name}"))
+                .withMember(
+                    "plugins",
+                    Node.objectNode()
+                        .withMember(
+                            "ruby-codegen",
+                            Node.objectNodeBuilder()
+                                .withMember("service", service.service.id.toString())
+                                .withMember("module", "AWS::SDK::" + service.moduleName)
+                                .withMember(
+                                    "gemspec",
+                                    Node.objectNodeBuilder()
+                                        .withMember("gemName", service.gemName)
+                                        .withMember("gemVersion", "2.0.0.pre") // TODO: Read the VERSION file
                                         .withMember("gemSummary", "TEST SERVICE")
-                                        .build())
-                                    .build()))
-                    .build()
-            projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
+                                        .build()
+                                ).build()
+                        )
+                ).build()
+            projectionsBuilder.withMember(service.projectionName, projectionContents)
         }
 
         file("smithy-build.json").writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
@@ -92,37 +145,11 @@ tasks["build"]
         .finalizedBy(tasks["buildSdk"])
 
 // ensure built artifacts are put into the SDK's folders
-tasks.register<Copy>("copyEc2Gem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/ec2.2016-09-15/ruby-codegen")
-    into("$buildDir/../../projections/")
+tasks.register<Copy>("copyGeneratedGems") {
+    forEachService { service ->
+        from("$buildDir/smithyprojections/sdk-codegen/${service.projectionName}/ruby-codegen")
+    }
+    into("$buildDir/../../../gems/")
 }
-tasks.register<Copy>("copyJsonGem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/sso.2019-06-10/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyJson10Gem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/dynamodb.2012-08-10/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyQueryGem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/sts.2011-06-15/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyRestJsonGem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyRestXmlGem") {
-    //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/cloudfront.2020-05-31/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks["buildSdk"].finalizedBy(
-  tasks["copyEc2Gem"], tasks["copyJsonGem"], tasks["copyJson10Gem"],
-  tasks["copyQueryGem"], tasks["copyRestJsonGem"], tasks["copyRestXmlGem"]
-)
+
+tasks["buildSdk"].finalizedBy(tasks["copyGeneratedGems"])
