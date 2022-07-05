@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-rootProject.name = "codegen"
+rootProject.name = "aws-sdk-ruby"
 include(":sdk-codegen")
 include(":smithy-aws-ruby-codegen")
 include(":protocol-test-codegen")
