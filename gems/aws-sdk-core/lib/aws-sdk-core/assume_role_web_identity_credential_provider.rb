@@ -98,7 +98,7 @@ module AWS::SDK::Core
       c = @client.assume_role_with_web_identity(
         @assume_role_with_web_identity_params
       ).data.credentials
-      @credentials = AWS::Sigv4::Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

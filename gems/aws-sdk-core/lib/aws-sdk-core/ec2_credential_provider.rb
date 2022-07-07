@@ -70,8 +70,7 @@ module AWS::SDK::Core
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
-
-      @credentials = AWS::Sigv4::Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: new_creds['AccessKeyId'],
         secret_access_key: new_creds['SecretAccessKey'],
         session_token: new_creds['Token'],

@@ -105,8 +105,7 @@ module AWS::SDK::Core
       c = @client.assume_role(
         @assume_role_params.merge(token_code: token_code)
       ).data.credentials
-
-      @credentials = AWS::Sigv4::Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

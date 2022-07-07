@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # A class that provides {Credentials} from a static location, either from
+  # A class that provides credentials from a static location, either from
   # shared configuration files or through code implementations.
   #     provider = AWS::SDK::Core::StaticCredentialProvider.new(
   #       access_key_id: 'ACCESS_KEY_1',
@@ -41,7 +41,7 @@ module AWS::SDK::Core
     end
 
     def initialize(options = {})
-      @credentials = AWS::Sigv4::Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: options[:access_key_id],
         secret_access_key: options[:secret_access_key],
         session_token: options[:session_token]
