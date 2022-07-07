@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
@@ -25,7 +24,6 @@ import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
@@ -96,22 +94,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
                     memberTarget.accept(new MemberSerializer(shape.getMember(), "data << ", "element",
                             !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(input)")
-                .write("data = Set.new")
-                .openBlock("input.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "data << ", "element",
-                            true));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -246,20 +228,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         @Override
         public Void listShape(ListShape shape) {
             defaultComplexSerializer(shape);
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
-            if (checkRequired) {
-                writer.write("$1LBuilders::$2L.build($3L).to_a unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
-                        inputGetter);
-            } else {
-                writer.write("$1L(Builders::$2L.build($3L).to_a unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
-                        inputGetter);
-            }
             return null;
         }
 

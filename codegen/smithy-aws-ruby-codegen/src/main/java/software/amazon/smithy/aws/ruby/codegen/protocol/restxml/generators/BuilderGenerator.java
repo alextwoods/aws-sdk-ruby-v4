@@ -128,22 +128,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(node_name, input)")
-                .write("xml = []")
-                .openBlock("input.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                            !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .write("xml")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
@@ -336,19 +320,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
-            } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
-            }
-
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
@@ -431,11 +402,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             return null;
         }
 

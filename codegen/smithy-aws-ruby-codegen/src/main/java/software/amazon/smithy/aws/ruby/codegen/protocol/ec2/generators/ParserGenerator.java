@@ -155,24 +155,6 @@ public class ParserGenerator extends ParserGeneratorBase {
     }
 
     @Override
-    protected void renderSetParseMethod(SetShape s) {
-        writer
-                .openBlock("def self.parse(xml)")
-                .write("data = Set.new")
-                .openBlock("xml.each do |node|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(s.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberDeserializer(s.getMember(),
-                                    "data << "));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderListParseMethod(ListShape s) {
         writer
                 .openBlock("def self.parse(xml)")
@@ -358,21 +340,6 @@ public class ParserGenerator extends ParserGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            MemberShape targetMember = shape.getMember();
-            String xmlName = targetMember.getMemberName();
-            if (targetMember.hasTrait(XmlNameTrait.class)) {
-                xmlName = targetMember.getTrait(XmlNameTrait.class).get().getValue();
-            }
-            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("children = node.children('$L')", xmlName);
-            }
-            writer.write("$1LParsers::$2L.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape).getName());
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             MemberShape targetMember = shape.getMember();
             String xmlName = targetMember.getMemberName();
             if (targetMember.hasTrait(XmlNameTrait.class)) {

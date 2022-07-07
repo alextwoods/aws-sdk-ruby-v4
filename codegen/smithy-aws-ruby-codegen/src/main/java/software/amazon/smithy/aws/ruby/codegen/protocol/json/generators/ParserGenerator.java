@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -24,7 +23,6 @@ import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
@@ -115,22 +113,6 @@ public class ParserGenerator extends ParserGeneratorBase {
                 })
                 .closeBlock("end")
                 .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
-    protected void renderSetParseMethod(SetShape s) {
-        writer
-                .openBlock("def self.parse(list)")
-                .openBlock("data = list.map do |value|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(s.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberDeserializer(s.getMember(), "", "value", true));
-                })
-                .closeBlock("end")
-                .write("Set.new(data)")
                 .closeBlock("end");
     }
 

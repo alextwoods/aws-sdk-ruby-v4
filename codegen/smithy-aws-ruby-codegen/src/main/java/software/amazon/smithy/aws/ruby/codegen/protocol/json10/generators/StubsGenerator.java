@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json10.generators;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
@@ -25,20 +24,14 @@ import software.amazon.smithy.model.shapes.ListShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.HttpHeaderTrait;
-import software.amazon.smithy.model.traits.HttpLabelTrait;
-import software.amazon.smithy.model.traits.HttpPayloadTrait;
-import software.amazon.smithy.model.traits.HttpQueryTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
-import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
@@ -93,24 +86,6 @@ public class StubsGenerator extends StubsGeneratorBase {
                             model.expectShape(shape.getMember().getTarget());
                     memberTarget
                             .accept(new MemberSerializer(shape.getMember(),"data << ", "element", !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
-    protected void renderSetStubMethod(SetShape shape) {
-        writer
-                .openBlock("def self.stub(stub)")
-                .write("stub ||= []")
-                .write("data = []")
-                .openBlock("stub.each do |element|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(shape.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberSerializer(shape.getMember(),"data << ", "element", true));
                 })
                 .closeBlock("end")
                 .write("data")
@@ -253,12 +228,6 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            defaultComplexSerializer(shape);
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             defaultComplexSerializer(shape);
             return null;
         }
