@@ -10,6 +10,14 @@
 require 'aws-sdk-core'
 require 'hearth'
 
+module AWS
+  module SDK
+    module S3
+      GEM_VERSION = '2.0.0.pre'
+    end
+  end
+end
+
 require_relative 'aws-sdk-s3/builders'
 require_relative 'aws-sdk-s3/client'
 require_relative 'aws-sdk-s3/config'
@@ -21,7 +29,3 @@ require_relative 'aws-sdk-s3/stubs'
 require_relative 'aws-sdk-s3/types'
 require_relative 'aws-sdk-s3/validators'
 require_relative 'aws-sdk-s3/waiters'
-
-module AWS::SDK::S3
-  GEM_VERSION = '2.0.0.pre'
-end

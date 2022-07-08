@@ -7,10 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-s3'
-
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
+# require_relative '../spec_helper'
 
 module AWS::SDK::S3
   describe Client do
