@@ -60,9 +60,9 @@ module AWS
             Credentials.new(access_key_id: '', secret_access_key: '')
           end
 
-          it 'raises a MissingCredentialsError' do
+          it 'raises an ArgumentError' do
             expect { Signer.new(options).sign_request(request: request) }
-              .to raise_error(Signer::MissingCredentialsError)
+              .to raise_error(ArgumentError, /credentials/)
           end
         end
 
@@ -295,8 +295,10 @@ module AWS
           skip("CRT does not provide canonical request") if Signer.use_crt?
 
           signature = Signer.new(options).sign_request(
-            http_method: 'GET',
-            url: 'https://domain.com/foo%bar'
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com/foo%bar'
+            }
           )
           expect(signature.metadata[:canonical_request].lines.to_a[1])
             .to eq("/foo%25bar\n")
@@ -308,8 +310,10 @@ module AWS
 
           options[:uri_escape_path] = true
           signature = Signer.new(options).sign_request(
-            http_method: 'GET',
-            url: 'https://domain.com/foo%bar'
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com/foo%bar'
+            }
           )
           expect(signature.metadata[:canonical_request].lines.to_a[1])
             .to eq("/foo%25bar\n")
@@ -321,8 +325,10 @@ module AWS
 
           options[:uri_escape_path] = false
           signature = Signer.new(options).sign_request(
-            http_method: 'GET',
-            url: 'https://domain.com/foo%bar'
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com/foo%bar'
+            }
           )
           expect(signature.metadata[:canonical_request].lines.to_a[1])
             .to eq("/foo%bar\n")
@@ -374,7 +380,7 @@ module AWS
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 
@@ -405,7 +411,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 
@@ -435,7 +441,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               body: ''
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 
@@ -463,7 +469,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               # defaults body to the empty string
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 
@@ -488,7 +494,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 
@@ -512,7 +518,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 other=&test=&x-amz-header=foo
@@ -535,7 +541,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 bar=&baz=&foo=
@@ -558,7 +564,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request])
+          expect(signature.metadata[:canonical_request])
             .to include('q=mno&q=xyz&q.options=abc')
         end
 
@@ -573,7 +579,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
               }
             }
           )
-          expect(signature[:canonical_request]).to eq(<<-EOF.strip)
+          expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
 PUT
 /
 

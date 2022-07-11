@@ -2,7 +2,7 @@
 
 module AWS::SigV4
   # A Credentials data object that stores AWS credentials. This object may be
-  # populated from various different {CredentialProvider}s.
+  # populated from various different Credential Providers.
   class Credentials
     # @param [String] access_key_id
     # @param [String] secret_access_key

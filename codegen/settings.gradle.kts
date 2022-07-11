@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-rootProject.name = "codegen"
+rootProject.name = "aws-sdk-ruby"
 include(":sdk-codegen")
 include(":smithy-aws-ruby-codegen")
 include(":protocol-test-codegen")
