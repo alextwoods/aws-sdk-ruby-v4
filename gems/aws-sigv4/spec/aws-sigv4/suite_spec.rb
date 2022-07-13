@@ -307,9 +307,6 @@ module AWS::SigV4
               it 'verifies signed request' do
                 skip_if_test_missing(path, 'header-signed-request.txt')
 
-                require 'byebug'
-                byebug
-
                 signature = signer.sign_request(
                   request: request,
                   time: request_time

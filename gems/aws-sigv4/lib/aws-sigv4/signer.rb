@@ -6,6 +6,7 @@ require 'time'
 require 'uri'
 require 'set'
 require 'cgi'
+require 'pathname'
 
 module AWS
   module SigV4
@@ -123,8 +124,8 @@ module AWS
       #   to the authorization signature.
       #
       # @option options [Boolean] :normalize_path (true)
-      #   Supported only when `aws-crt` is available. When `true`, the uri
-      #   paths will be normalized when building the canonical request.
+      #   When `true`, the uri paths will be normalized
+      #   when building the canonical request.
       def initialize(options = {})
         @service = options[:service]
         @region = options[:region]
@@ -240,6 +241,7 @@ module AWS
 
         http_method = extract_http_method(request)
         url = extract_url(request)
+        Signer.normalize_path(url) if options[:normalize_path]
         headers = downcase_headers(request[:headers])
 
         datetime = headers['x-amz-date']
@@ -446,6 +448,7 @@ module AWS
 
         http_method = extract_http_method(request)
         url = extract_url(request)
+        Signer.normalize_path(url) if options[:normalize_path]
 
         headers = downcase_headers(request[:headers])
         headers['host'] ||= host(url)
@@ -951,6 +954,16 @@ module AWS
           else
             CGI.escape(string.encode('UTF-8')).gsub('+', '%20').gsub('%7E', '~')
           end
+        end
+
+        # @api private
+        def normalize_path(uri)
+          normalized_path = Pathname.new(uri.path).cleanpath.to_s
+          # Ensure trailing slashes are correctly preserved
+          if uri.path.end_with?('/') && !normalized_path.end_with?('/')
+            normalized_path << '/'
+          end
+          uri.path = normalized_path
         end
       end
     end

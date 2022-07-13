@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'rspec'
 require 'simplecov'
 SimpleCov.start do
   add_filter %r{^/spec/}
