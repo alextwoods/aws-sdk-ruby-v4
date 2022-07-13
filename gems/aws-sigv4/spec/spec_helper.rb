@@ -91,8 +91,8 @@ module AWS::SigV4
           querystring = querystring.split('&').map do |key_value|
             key, value = key_value.split('=')
             if uri_escape
-              key = AWS::SigV4::Signer.uri_escape(key) # unless key.include? '%E1'
-              value = AWS::SigV4::Signer.uri_escape(value.to_s)
+              key = CGI.escape(CGI.unescape(key)) # unless key.include? '%E1'
+              value = CGI.escape(CGI.unescape(value.to_s))
             end
             "#{key}=#{value}"
           end.join('&')
