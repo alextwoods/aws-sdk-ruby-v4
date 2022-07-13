@@ -2,6 +2,7 @@
 
 module AWS
   module SigV4
+    # SigV4 Signature that should be applied to an HTTP request.
     class Signature
       # @api private
       def initialize(headers:, metadata: {})

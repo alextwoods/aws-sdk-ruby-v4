@@ -3,14 +3,16 @@
 require_relative '../spec_helper'
 
 module AWS::SigV4
-  describe Signature do
+  describe PresignedUrl do
     subject do
-      Signature.new(
+      PresignedUrl.new(
+        url: url,
         headers: headers,
         metadata: metadata
       )
     end
 
+    let(:url) { URI('https://example.com?key=value') }
     let(:headers) { { 'key' => 'value' } }
     let(:metadata) do
       {
@@ -23,6 +25,7 @@ module AWS::SigV4
 
     describe '#initialize' do
       it 'sets all of the attributes' do
+        expect(subject.url).to eq(url)
         expect(subject.headers).to eq(headers)
         expect(subject.metadata).to eq(metadata)
       end

@@ -144,6 +144,36 @@ module AWS
         @omit_session_token = options.fetch(:omit_session_token, false)
       end
 
+      # @return [String, nil]
+      attr_reader :service
+
+      # @return [String, nil]
+      attr_reader :region
+
+      # @return [Credentials, nil]
+      attr_reader :credentials
+
+      # @return [#credentials, nil]
+      attr_reader :credential_provider
+
+      # @return [Set<String>]
+      attr_reader :unsigned_headers
+
+      # @return [Boolean]
+      attr_reader :uri_escape_path
+
+      # @return [Boolean]
+      attr_reader :apply_checksum_header
+
+      # @return [Symbol]
+      attr_reader :signing_algorithm
+
+      # @return [Boolean]
+      attr_reader :normalize_path
+
+      # @return [Boolean]
+      attr_reader :omit_session_token
+
       # Returns the resultant {Signature} with a hash of headers to apply to
       # your HTTP request. The given request is not modified.
       #
@@ -193,6 +223,9 @@ module AWS
       #   A sha256 checksum is computed of the body unless the
       #   'X-Amz-Content-Sha256' header is set.
       #
+      # @option kwargs [Time] :time (Time.now) Time of the signature.
+      #   This value can be used as the starting time for the signed request.
+      #
       # @param kwargs Accepts additional options provided to {#initialize}.
       #
       # @return [Signature] Return an instance of {Signature} that has
@@ -210,7 +243,7 @@ module AWS
         headers = downcase_headers(request[:headers])
 
         datetime = headers['x-amz-date']
-        datetime ||= Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
@@ -258,6 +291,7 @@ module AWS
         Signature.new(
           headers: sigv4_headers,
           metadata: {
+            signature: sig,
             string_to_sign: sts,
             canonical_request: creq,
             content_sha256: content_sha256
@@ -397,9 +431,10 @@ module AWS
       #   This value can be used as the starting time for when the pre-signed
       #   URL becomes valid.
       #
-      # @param kwargs Accepts additional options provided to {#initialize}.
+      # @param kwargs Accepts additional options provided to {#initialize},
+      #   except for :apply_checksum_header.
       #
-      # @return [URI]
+      # @return [PresignedUrl]
       #
       # @see http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
       def presign_url(request:, **kwargs)
@@ -409,18 +444,18 @@ module AWS
 
         creds = options[:credentials]
 
-        http_method = extract_http_method(options)
-        url = extract_url(options)
+        http_method = extract_http_method(request)
+        url = extract_url(request)
 
-        headers = downcase_headers(options[:headers])
+        headers = downcase_headers(request[:headers])
         headers['host'] ||= host(url)
 
         datetime = headers['x-amz-date']
-        datetime ||= (kwargs[:time] || Time.now).utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
-        content_sha256 ||= kwargs[:body_digest]
+        content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
         params = {}
@@ -429,19 +464,16 @@ module AWS
           creds, date, options[:region], options[:service]
         )
         params['X-Amz-Date'] = datetime
-        params['X-Amz-Expires'] = extract_expires_in(kwargs)
+        params['X-Amz-Expires'] = options[:expires_in].to_s
         if creds.session_token
           params['X-Amz-Security-Token'] = creds.session_token
         end
         params['X-Amz-SignedHeaders'] = signed_headers(
           headers, options[:unsigned_headers]
         )
-        if options[:apply_checksum_header]
-          params['X-Amz-Content-SHA256'] = content_sha256
-        end
 
         params = params.map do |key, value|
-          "#{uri_escape(key)}=#{uri_escape(value)}"
+          "#{Signer.uri_escape(key)}=#{Signer.uri_escape(value)}"
         end.join('&')
 
         if url.query
@@ -455,14 +487,23 @@ module AWS
           options[:unsigned_headers], content_sha256
         )
         sts = string_to_sign(
-          datetime, options[:region],options[:service], creq
+          datetime, options[:region], options[:service], creq
         )
-        signature = signature(
+        sig = signature(
           creds.secret_access_key, date, options[:region],
           options[:service], sts
         )
-        url.query += "&X-Amz-Signature=#{signature}"
-        url
+        url.query += "&X-Amz-Signature=#{sig}"
+        PresignedUrl.new(
+          url: url,
+          headers: { },
+          metadata: {
+            signature: sig,
+            string_to_sign: sts,
+            canonical_request: creq,
+            content_sha256: content_sha256
+          }
+        )
       end
 
       private
@@ -472,7 +513,7 @@ module AWS
           http_method,
           path(url, uri_escape_path),
           normalized_querystring(url.query || ''),
-          canonical_headers(headers, unsigned_headers) + "\n",
+          "#{canonical_headers(headers, unsigned_headers)}\n",
           signed_headers(headers, unsigned_headers),
           content_sha256
         ].join("\n")
@@ -592,6 +633,10 @@ module AWS
         end.map(&:first).join('&')
       end
 
+      def downcase_headers(headers)
+        (headers || {}).transform_keys(&:downcase)
+      end
+
       def signed_headers(headers, unsigned_headers)
         headers.inject([]) do |signed_headers, (header, _)|
           if unsigned_headers.include?(header)
@@ -656,28 +701,33 @@ module AWS
 
       # Signing methods take options as override. This returns a hash of
       # options to use.
-      def extract_options(options)
+      def extract_options(kwargs)
         {
-          service: extract_service(options),
-          region: extract_region(options),
-          credentials: fetch_credentials(options),
-          unsigned_headers: options.fetch(:unsigned_headers, @unsigned_headers)
-                                   .map(&:downcase),
-          uri_escape_path: options.fetch(:uri_escape_path, @uri_escape_path),
-          apply_checksum_header: options.fetch(
+          # request options
+          service: extract_service(kwargs),
+          region: extract_region(kwargs),
+          credentials: fetch_credentials(kwargs),
+          unsigned_headers: kwargs.fetch(:unsigned_headers, @unsigned_headers)
+                                  .map(&:downcase),
+          uri_escape_path: kwargs.fetch(:uri_escape_path, @uri_escape_path),
+          apply_checksum_header: kwargs.fetch(
             :apply_checksum_header, @apply_checksum_header
           ),
-          signing_algorithm: extract_signing_algorithm(options),
-          normalize_path: options.fetch(:normalize_path, @normalize_path),
-          omit_session_token: options.fetch(
+          signing_algorithm: extract_signing_algorithm(kwargs),
+          # crt options
+          normalize_path: kwargs.fetch(:normalize_path, @normalize_path),
+          omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
-          )
+          ),
+          # presigner options
+          time: kwargs.fetch(:time, Time.now),
+          expires_in: extract_expires_in(kwargs)
         }
       end
 
-      def extract_service(options)
-        if options[:service]
-          options[:service]
+      def extract_service(kwargs)
+        if kwargs[:service]
+          kwargs[:service]
         elsif @service
           @service
         else
@@ -685,9 +735,9 @@ module AWS
         end
       end
 
-      def extract_region(options)
-        if options[:region]
-          options[:region]
+      def extract_region(kwargs)
+        if kwargs[:region]
+          kwargs[:region]
         elsif @region
           @region
         else
@@ -695,9 +745,9 @@ module AWS
         end
       end
 
-      def fetch_credentials(options)
-        credentials = options.fetch(:credentials, @credentials)
-        provider = options.fetch(:credential_provider, @credential_provider)
+      def fetch_credentials(kwargs)
+        credentials = kwargs.fetch(:credentials, @credentials)
+        provider = kwargs.fetch(:credential_provider, @credential_provider)
 
         if !credentials && !provider
           raise ArgumentError,
@@ -713,20 +763,18 @@ module AWS
         credentials
       end
 
-      def extract_signing_algorithm(options)
-        if options[:signing_algorithm]
-          signing_algorithm = options[:signing_algorithm]
-        elsif @signing_algorithm
-          # defaults to sigv4 in initialize
-          signing_algorithm = @signing_algorithm
+      def extract_signing_algorithm(kwargs)
+        # defaults to sigv4 in initialize
+        signing_algorithm = kwargs[:signing_algorithm] || @signing_algorithm
+
+        if signing_algorithm == :sigv4a && !Signer.use_crt?
+          raise ArgumentError,
+                'You are attempting to use a Signer for sigv4a which requires '\
+                'the `aws-crt` gem. Please install the gem or add it to your '\
+                'gemfile.'
         end
 
-        return unless signing_algorithm == :sigv4a && !Signer.use_crt?
-
-        raise ArgumentError,
-              'You are attempting to use a Signer for sigv4a which requires '\
-              'the `aws-crt` gem. Please install the gem or add it to your '\
-              'gemfile.'
+        signing_algorithm
       end
 
       def extract_http_method(request)
@@ -745,50 +793,39 @@ module AWS
         end
       end
 
-      def downcase_headers(headers)
-        (headers || {}).transform_keys(&:downcase)
-      end
-
-      def extract_expires_in(options)
-        case options[:expires_in]
-        when nil then '900'
-        when Integer then options[:expires_in].to_s
+      def extract_expires_in(kwargs)
+        case kwargs[:expires_in]
+        when nil then 900
+        when Integer then kwargs[:expires_in]
         else
           raise ArgumentError, 'expected :expires_in to be a number of seconds'
         end
-      end
-
-      def uri_escape(string)
-        self.class.uri_escape(string)
-      end
-
-      def uri_escape_path(string)
-        self.class.uri_escape_path(string)
       end
 
       ### CRT Code
 
       # the credentials used by CRT must be a
       # CRT StaticCredentialsProvider object
-      def crt_fetch_credentials(kwargs)
-        creds = fetch_credentials(kwargs)
+      def crt_fetch_credentials(options)
         Aws::Crt::Auth::StaticCredentialsProvider.new(
-          creds.access_key_id,
-          creds.secret_access_key,
-          creds.session_token
+          options[:credentials].access_key_id,
+          options[:credentials].secret_access_key,
+          options[:credentials].session_token
         )
       end
 
-      def crt_sign_request(request, kwargs)
-        creds = crt_fetch_credentials(kwargs)
+      def crt_sign_request(request, options)
+        creds = crt_fetch_credentials(options)
+
         http_method = extract_http_method(request)
         url = extract_url(request)
         headers = downcase_headers(request[:headers])
 
         datetime =
-          if headers.include? 'x-amz-date'
+          if headers.include? ('x-amz-date')
             Time.parse(headers.delete('x-amz-date'))
           end
+        datetime ||= options[:time]
 
         content_sha256 = headers.delete('x-amz-content-sha256')
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
@@ -796,31 +833,30 @@ module AWS
         sigv4_headers = {}
         sigv4_headers['host'] = headers['host'] || host(url)
 
-        signing_algorithm = kwargs.fetch(:signing_algorithm, @signing_algorithm)
-
         # Modify the user-agent to add usage of crt-signer
-        # This should be temporary during developer preview only
-        if headers.include? 'user-agent'
-          headers['user-agent'] = "#{headers['user-agent']} crt-signer/#{signing_algorithm}/#{AWS::Sigv4::VERSION}"
-          sigv4_headers['user-agent'] = headers['user-agent']
+        if headers.include? ('user-agent')
+          ua = headers['user-agent']
+          algorithm = options[:signing_algorithm]
+          version = AWS::SigV4::VERSION
+          sigv4_headers['user-agent'] =
+            "#{ua} aws-crt-signer/#{algorithm}/#{version}"
         end
 
         headers = headers.merge(sigv4_headers) # merge so we do not modify given headers hash
 
         config = Aws::Crt::Auth::SigningConfig.new(
-          algorithm: signing_algorithm,
+          algorithm: options[:signing_algorithm],
           signature_type: :http_request_headers,
-          region: @region,
-          service: @service,
+          region: options[:region],
+          service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: (kwargs[:apply_checksum_header] || @apply_checksum_header) ?
-                                     :sbht_content_sha256 : :sbht_none,
+          signed_body_header_type: options[:apply_checksum_header] ? :sbht_content_sha256 : :sbht_none,
           credentials: creds,
-          unsigned_headers: @unsigned_headers,
-          use_double_uri_encode: @uri_escape_path,
-          should_normalize_uri_path: @normalize_path,
-          omit_session_token: @omit_session_token
+          unsigned_headers: options[:unsigned_headers],
+          use_double_uri_encode: options[:uri_escape_path],
+          should_normalize_uri_path: options[:normalize_path],
+          omit_session_token: options[:omit_session_token]
         )
         http_request = Aws::Crt::Http::Message.new(
           http_method, url.to_s, headers
@@ -834,47 +870,43 @@ module AWS
             downcase_headers(signing_result[:headers])
           ),
           metadata: {
+            signature: 'CRT_INTERNAL',
             string_to_sign: 'CRT_INTERNAL',
             canonical_request: 'CRT_INTERNAL',
-            content_sha256: content_sha256,
-            config: config,
-            signable: signable
+            content_sha256: content_sha256
           }
         )
       end
 
-      def crt_presign_url(options, kwargs)
-        creds = crt_fetch_credentials(kwargs)
+      def crt_presign_url(request, options)
+        creds = crt_fetch_credentials(options)
 
-        http_method = extract_http_method(options)
-        url = extract_url(options)
-        headers = downcase_headers(options[:headers])
+        http_method = extract_http_method(request)
+        url = extract_url(request)
+        headers = downcase_headers(request[:headers])
         headers['host'] ||= host(url)
 
         datetime = headers.delete('x-amz-date')
-        datetime ||= (options[:time] || Time.now)
+        datetime ||= options[:time]
 
         content_sha256 = headers.delete('x-amz-content-sha256')
         content_sha256 ||= options[:body_digest]
-        content_sha256 ||= sha256_hexdigest(options[:body] || '')
-
-        signing_algorithm = kwargs.fetch(:signing_algorithm, @signing_algorithm)
+        content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
         config = Aws::Crt::Auth::SigningConfig.new(
-          algorithm: signing_algorithm,
+          algorithm: options[:signing_algorithm],
           signature_type: :http_request_query_params,
-          region: @region,
-          service: @service,
+          region: options[:region],
+          service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: (kwargs[:apply_checksum_header] || @apply_checksum_header) ?
-                                     :sbht_content_sha256 : :sbht_none,
+          signed_body_header_type: options[:apply_checksum_header] || @apply_checksum_header ? :sbht_content_sha256 : :sbht_none,
           credentials: creds,
-          unsigned_headers: @unsigned_headers,
-          use_double_uri_encode: @uri_escape_path,
-          should_normalize_uri_path: @normalize_path,
-          omit_session_token: @omit_session_token,
-          expiration_in_seconds: options.fetch(:expires_in, 900)
+          unsigned_headers: options[:unsigned_headers],
+          use_double_uri_encode: options[:uri_escape_path],
+          should_normalize_uri_path: options[:normalize_path],
+          omit_session_token: options[:omit_session_token],
+          expiration_in_seconds: options[:expires_in]
         )
         http_request = Aws::Crt::Http::Message.new(
           http_method, url.to_s, headers
@@ -884,11 +916,16 @@ module AWS
         signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable, http_method, url.to_s)
         url = URI.parse(signing_result[:path])
 
-        if options[:extra] && options[:extra].is_a?(Hash)
-          options[:extra][:config] = config
-          options[:extra][:signable] = signable
-        end
-        url
+        PresignedUrl.new(
+          url: url,
+          headers: {},
+          metadata: {
+            signature: 'CRT_INTERNAL',
+            string_to_sign: 'CRT_INTERNAL',
+            canonical_request: 'CRT_INTERNAL',
+            content_sha256: content_sha256
+          }
+        )
       end
 
       class << self
