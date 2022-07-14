@@ -118,8 +118,7 @@ module AWS
       #   `aws-crt` is available.
       #
       # @option options [Boolean] :omit_session_token (false)
-      #   Supported only when `aws-crt` is available. If `true`,
-      #   the security token is added to the final signing result,
+      #   If `true`, the security token is added to the final signing result,
       #   but is treated as "unsigned" and does not contribute
       #   to the authorization signature.
       #
@@ -254,7 +253,7 @@ module AWS
         sigv4_headers = {}
         sigv4_headers['host'] = headers['host'] || host(url)
         sigv4_headers['x-amz-date'] = datetime
-        if creds.session_token
+        if creds.session_token && !options[:omit_session_token]
           sigv4_headers['x-amz-security-token'] = creds.session_token
         end
         if options[:apply_checksum_header]
@@ -288,6 +287,10 @@ module AWS
           "SignedHeaders=#{signed_headers}",
           "Signature=#{sig}"
         ].join(', ')
+
+        if creds.session_token && options[:omit_session_token]
+          sigv4_headers['x-amz-security-token'] = creds.session_token
+        end
 
         # Returning the signature components.
         Signature.new(
@@ -468,7 +471,7 @@ module AWS
         )
         params['X-Amz-Date'] = datetime
         params['X-Amz-Expires'] = options[:expires_in].to_s
-        if creds.session_token
+        if creds.session_token && !options[:omit_session_token]
           params['X-Amz-Security-Token'] = creds.session_token
         end
         params['X-Amz-SignedHeaders'] = signed_headers(
@@ -497,6 +500,9 @@ module AWS
           options[:service], sts
         )
         url.query += "&X-Amz-Signature=#{sig}"
+        if creds.session_token && options[:omit_session_token]
+          url.query += "&X-Amz-Security-Token=#{CGI.escape(creds.session_token)}"
+        end
         PresignedUrl.new(
           url: url,
           headers: { },

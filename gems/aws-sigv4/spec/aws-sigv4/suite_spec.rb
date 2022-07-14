@@ -224,7 +224,7 @@ module AWS::SigV4
                 encoding: 'utf-8'
               )
               expected_url = SpecHelper2.parse_request(
-                expected_request, uri_escape: false
+                expected_request, uri_escape: true
               )[:url]
               SpecHelper2.debug("EXPECTED URL: |#{expected_url}|")
               expected_query = URI(expected_url).query
