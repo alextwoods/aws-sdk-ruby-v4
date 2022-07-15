@@ -848,7 +848,7 @@ module AWS
           algorithm = options[:signing_algorithm]
           version = AWS::SigV4::VERSION
           sigv4_headers['user-agent'] =
-            "#{ua} aws-crt-signer/#{algorithm}/#{version}"
+            "#{ua} crt-signer/#{algorithm}/#{version}"
         end
 
         headers = headers.merge(sigv4_headers) # merge so we do not modify given headers hash
@@ -879,7 +879,7 @@ module AWS
             downcase_headers(signing_result[:headers])
           ),
           metadata: {
-            signature: 'CRT_INTERNAL',
+            signature: signing_result[:signature],
             string_to_sign: 'CRT_INTERNAL',
             canonical_request: 'CRT_INTERNAL',
             content_sha256: content_sha256
@@ -929,7 +929,7 @@ module AWS
           url: url,
           headers: {},
           metadata: {
-            signature: 'CRT_INTERNAL',
+            signature: signing_result[:signature],
             string_to_sign: 'CRT_INTERNAL',
             canonical_request: 'CRT_INTERNAL',
             content_sha256: content_sha256

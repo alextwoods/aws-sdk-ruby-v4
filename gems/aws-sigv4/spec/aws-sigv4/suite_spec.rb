@@ -52,9 +52,9 @@ module AWS::SigV4
               File.join(path, 'request.txt'),
               encoding: 'utf-8'
             )
-            SpecHelper2.debug("GIVEN REQUEST: |#{raw_request}|")
-            request = SpecHelper2.parse_request(raw_request)
-            SpecHelper2.debug("PARSED REQUEST: #{request.inspect}")
+            SpecHelper.debug("GIVEN REQUEST: |#{raw_request}|")
+            request = SpecHelper.parse_request(raw_request)
+            SpecHelper.debug("PARSED REQUEST: #{request.inspect}")
             request
           end
 
@@ -74,12 +74,12 @@ module AWS::SigV4
                 )
 
                 computed = signature.metadata[:canonical_request]
-                SpecHelper2.debug("COMPUTED CANONICAL_REQUEST: |#{computed}|")
+                SpecHelper.debug("COMPUTED CANONICAL_REQUEST: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'header-canonical-request.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED CANONICAL_REQUEST: |#{expected}|")
+                SpecHelper.debug("EXPECTED CANONICAL_REQUEST: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -96,12 +96,12 @@ module AWS::SigV4
                 )
 
                 computed = signature.metadata[:signature]
-                SpecHelper2.debug("COMPUTED SIGNATURE: |#{computed}|")
+                SpecHelper.debug("COMPUTED SIGNATURE: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'header-signature.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED SIGNATURE: |#{expected}|")
+                SpecHelper.debug("EXPECTED SIGNATURE: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -121,16 +121,16 @@ module AWS::SigV4
               # Merge in test request headers (downcased) because computed
               # headers will only include sigv4 headers.
               computed = computed.merge(
-                SpecHelper2.downcase_headers(request[:headers])
+                SpecHelper.downcase_headers(request[:headers])
               )
-              SpecHelper2.debug("COMPUTED HEADERS: |#{computed}|")
+              SpecHelper.debug("COMPUTED HEADERS: |#{computed}|")
               expected_request = File.read(
                 File.join(path, 'header-signed-request.txt'),
                 encoding: 'utf-8'
               )
-              expected = SpecHelper2.parse_request(expected_request)[:headers]
-              expected = SpecHelper2.downcase_headers(expected)
-              SpecHelper2.debug("EXPECTED HEADERS: |#{expected}|")
+              expected = SpecHelper.parse_request(expected_request)[:headers]
+              expected = SpecHelper.downcase_headers(expected)
+              SpecHelper.debug("EXPECTED HEADERS: |#{expected}|")
 
               expect(computed).to eq(expected)
             end
@@ -146,12 +146,12 @@ module AWS::SigV4
                 )
 
                 computed = signature.metadata[:string_to_sign]
-                SpecHelper2.debug("COMPUTED STRING TO SIGN: |#{computed}|")
+                SpecHelper.debug("COMPUTED STRING TO SIGN: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'header-string-to-sign.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED STRING TO SIGN: |#{expected}|")
+                SpecHelper.debug("EXPECTED STRING TO SIGN: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -171,12 +171,12 @@ module AWS::SigV4
                 )
 
                 computed = presigned_url.metadata[:canonical_request]
-                SpecHelper2.debug("COMPUTED CANONICAL_REQUEST: |#{computed}|")
+                SpecHelper.debug("COMPUTED CANONICAL_REQUEST: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'query-canonical-request.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED CANONICAL_REQUEST: |#{expected}|")
+                SpecHelper.debug("EXPECTED CANONICAL_REQUEST: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -194,12 +194,12 @@ module AWS::SigV4
                 )
 
                 computed = presigned_url.metadata[:signature]
-                SpecHelper2.debug("COMPUTED SIGNATURE: |#{computed}|")
+                SpecHelper.debug("COMPUTED SIGNATURE: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'query-signature.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED SIGNATURE: |#{expected}|")
+                SpecHelper.debug("EXPECTED SIGNATURE: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -217,18 +217,16 @@ module AWS::SigV4
               # Validate the pre-signed url by splitting into parts
               # because query ordering is non-deterministic.
               computed_query = presigned_url.url.query
-              computed = SpecHelper2.split_query_to_params(computed_query)
-              SpecHelper2.debug("COMPUTED URL: |#{presigned_url.url}|")
+              computed = SpecHelper.split_query_to_params(computed_query)
+              SpecHelper.debug("COMPUTED URL: |#{presigned_url.url}|")
               expected_request = File.read(
                 File.join(path, 'query-signed-request.txt'),
                 encoding: 'utf-8'
               )
-              expected_url = SpecHelper2.parse_request(
-                expected_request, uri_escape: true
-              )[:url]
-              SpecHelper2.debug("EXPECTED URL: |#{expected_url}|")
+              expected_url = SpecHelper.parse_request(expected_request)[:url]
+              SpecHelper.debug("EXPECTED URL: |#{expected_url}|")
               expected_query = URI(expected_url).query
-              expected = SpecHelper2.split_query_to_params(expected_query)
+              expected = SpecHelper.split_query_to_params(expected_query)
 
               expect(computed).to eq(expected)
             end
@@ -245,12 +243,12 @@ module AWS::SigV4
                 )
 
                 computed = presigned_url.metadata[:string_to_sign]
-                SpecHelper2.debug("COMPUTED STRING TO SIGN: |#{computed}|")
+                SpecHelper.debug("COMPUTED STRING TO SIGN: |#{computed}|")
                 expected = File.read(
                   File.join(path, 'query-string-to-sign.txt'),
                   encoding: 'utf-8'
                 )
-                SpecHelper2.debug("EXPECTED STRING TO SIGN: |#{expected}|")
+                SpecHelper.debug("EXPECTED STRING TO SIGN: |#{expected}|")
 
                 expect(computed).to eq(expected)
               end
@@ -289,9 +287,9 @@ module AWS::SigV4
                 File.join(path, 'request.txt'),
                 encoding: 'utf-8'
               )
-              SpecHelper2.debug("GIVEN REQUEST: |#{raw_request}|")
-              request = SpecHelper2.parse_request(raw_request)
-              SpecHelper2.debug("PARSED REQUEST: #{request.inspect}")
+              SpecHelper.debug("GIVEN REQUEST: |#{raw_request}|")
+              request = SpecHelper.parse_request(raw_request)
+              SpecHelper.debug("PARSED REQUEST: #{request.inspect}")
               request
             end
 
@@ -318,18 +316,30 @@ module AWS::SigV4
                 # Merge in test request headers (downcased) because computed
                 # headers will only include sigv4 headers.
                 computed = computed.merge(
-                  SpecHelper2.downcase_headers(request[:headers])
+                  SpecHelper.downcase_headers(request[:headers])
                 )
-                SpecHelper2.debug("COMPUTED HEADERS: |#{computed}|")
+                SpecHelper.debug("COMPUTED HEADERS: |#{computed}|")
                 expected_request = File.read(
                   File.join(path, 'header-signed-request.txt'),
                   encoding: 'utf-8'
                 )
-                expected = SpecHelper2.parse_request(expected_request)[:headers]
-                expected = SpecHelper2.downcase_headers(expected)
-                SpecHelper2.debug("EXPECTED HEADERS: |#{expected}|")
+                expected = SpecHelper.parse_request(expected_request)[:headers]
+                expected = SpecHelper.downcase_headers(expected)
+                SpecHelper.debug("EXPECTED HEADERS: |#{expected}|")
 
-                expect(computed).to eq(expected)
+                expected.each do |k, v|
+                  if k == 'authorization'
+                    expected_parts = v.split
+                    actual_parts = computed['authorization'].split
+                    expected_parts.zip(actual_parts).each do |e, a|
+                      # SigV4 signatures are non-deterministic, so do not
+                      # compare them!
+                      expect(a).to eq(e) unless e.start_with?('Signature')
+                    end
+                  else
+                    expect(computed[k]).to eq(v)
+                  end
+                end
               end
 
               # CRT does not provide string to sign
@@ -352,137 +362,27 @@ module AWS::SigV4
                 # Validate the pre-signed url by splitting into parts
                 # because query ordering is non-deterministic.
                 computed_query = presigned_url.url.query
-                computed = SpecHelper2.split_query_to_params(computed_query)
-                SpecHelper2.debug("COMPUTED URL: |#{presigned_url.url}|")
+                computed = SpecHelper.split_query_to_params(computed_query)
+                SpecHelper.debug("COMPUTED URL: |#{presigned_url.url}|")
                 expected_request = File.read(
                   File.join(path, 'query-signed-request.txt'),
                   encoding: 'utf-8'
                 )
-                expected_url = SpecHelper2.parse_request(
-                  expected_request, uri_escape: false
-                )[:url]
-                SpecHelper2.debug("EXPECTED URL: |#{expected_url}|")
+                expected_url = SpecHelper.parse_request(expected_request)[:url]
+                SpecHelper.debug("EXPECTED URL: |#{expected_url}|")
                 expected_query = URI(expected_url).query
-                expected = SpecHelper2.split_query_to_params(expected_query)
+                expected = SpecHelper.split_query_to_params(expected_query)
 
-                expect(computed).to eq(expected)
+                expected.each do |k, v|
+                  expect(computed).to include(k)
+                  # SigV4 signatures are non-deterministic, so do not
+                  # compare them!
+                  expect(computed[k]).to eq(v) unless k == 'X-Amz-Signature'
+                end
               end
 
               # CRT does not provide string to sign
             end
-            #
-            # it 'computes the authorization header' do
-            #   signature = signer.sign_request(request: request)
-            #   creq = File.read(
-            #     File.join(path, 'header-canonical-request.txt'), encoding: 'utf-8'
-            #   )
-            #   expected_pk = JSON.parse(File.read(File.join(path, 'public-key.json')))
-            #
-            #   expected_req = SpecHelper2.parse_request(File.read(
-            #     File.join(path, 'header-signed-request.txt'), encoding: 'utf-8')
-            #   )
-            #   expected_req[:headers].each do |k,v|
-            #     if k == 'Authorization'
-            #       expected_parts = v.split(' ')
-            #       actual_parts = signature.headers['authorization'].split(' ')
-            #       expected_parts.zip(actual_parts).each do |e, a|
-            #         if e.start_with?('Signature')
-            #           # Both signatures should verify but wont match
-            #           # since ECCDA relies on a random k value
-            #           # config = signature.extra[:config]
-            #           # signable = signature.extra[:signable]
-            #           # Aws::Crt::Native.verify_sigv4a_signing(
-            #           #   signable.native,
-            #           #   config.native,
-            #           #   creq,
-            #           #   e.split('=')[1],
-            #           #   expected_pk['X'],
-            #           #   expected_pk['Y']
-            #           # )
-            #           #
-            #           # Aws::Crt::Native.verify_sigv4a_signing(
-            #           #   signable.native,
-            #           #   config.native,
-            #           #   creq,
-            #           #   a.split('=')[1],
-            #           #   expected_pk['X'],
-            #           #   expected_pk['Y']
-            #           # )
-            #         else
-            #           expect(a).to eq(e)
-            #         end
-            #       end
-            #     else
-            #       expect(signature.headers[k.downcase] || request[:headers][k]).to eq(v)
-            #     end
-            #   end
-            # end
-            #
-            # if File.exist?(File.join(path, 'query-signed-request.txt')) &&
-            #   !path.include?('utf8') && !path.include?('space')
-            #
-            #   it 'creates a presigned url' do
-            #     raw_expected = File.read(
-            #       File.join(path, 'query-signed-request.txt'), encoding: 'utf-8'
-            #     )
-            #     expected = URI.parse(raw_expected.lines.first.split[1]).query
-            #     creq = File.read(
-            #       File.join(path, 'query-canonical-request.txt'), encoding: 'utf-8'
-            #     )
-            #     expected_pk = JSON.parse(File.read(File.join(path, 'public-key.json')))
-            #
-            #     request[:headers].delete('x-amz-date')
-            #     options = {}
-            #     options[:time] = request_time
-            #     if context['expiration_in_seconds']
-            #       options[:expires_in] = context['expiration_in_seconds']
-            #     end
-            #
-            #     extra = {}
-            #     allow(::Aws::Crt::Auth::Signer)
-            #       .to receive(:sign_request)
-            #       .and_wrap_original do |original, config, signable, method, path|
-            #       extra[:config] = config
-            #       extra[:signable] = signable
-            #       original.call(config, signable, method, path)
-            #     end
-            #
-            #     presigned = signer.presign_url(request: request, **options)
-            #
-            #
-            #     # validate the presigned url against expected
-            #     # because signature is non-deterministic we need to break down
-            #     # and compare parameters directly
-            #     expected_params = SpecHelper2.split_query_to_params(expected)
-            #     params = SpecHelper2.split_query_to_params(presigned.url.query)
-            #     expected_params.each do |k, v|
-            #       expect(params).to include(k)
-            #       if k == 'X-Amz-Signature'
-            #         config = extra[:config]
-            #         signable = extra[:signable]
-            #         # Aws::Crt::Native.verify_sigv4a_signing(
-            #         #   signable.native,
-            #         #   config.native,
-            #         #   creq,
-            #         #   v,
-            #         #   expected_pk['X'],
-            #         #   expected_pk['Y']
-            #         # )
-            #         #
-            #         # Aws::Crt::Native.verify_sigv4a_signing(
-            #         #   signable.native,
-            #         #   config.native,
-            #         #   creq,
-            #         #   params[k],
-            #         #   expected_pk['X'],
-            #         #   expected_pk['Y']
-            #         # )
-            #       else
-            #         expect(params[k]).to eq v
-            #       end
-            #     end
-            #   end
-            # end
           end
         end
       end
