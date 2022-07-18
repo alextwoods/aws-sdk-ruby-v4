@@ -32,7 +32,7 @@ module AWS::SDK::SageMaker
     class AddTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -50,7 +50,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -106,8 +106,8 @@ module AWS::SDK::SageMaker
     class BatchDescribeModelPackage
       def self.default(visited=[])
         {
-          model_package_summaries: Stubs::ModelPackageSummaries.default(visited),
-          batch_describe_model_package_error_map: Stubs::BatchDescribeModelPackageErrorMap.default(visited),
+          model_package_summaries: ModelPackageSummaries.default(visited),
+          batch_describe_model_package_error_map: BatchDescribeModelPackageErrorMap.default(visited),
         }
       end
 
@@ -126,7 +126,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('BatchDescribeModelPackageErrorMap')
         visited = visited + ['BatchDescribeModelPackageErrorMap']
         {
-          test_key: Stubs::BatchDescribeModelPackageError.default(visited)
+          test_key: BatchDescribeModelPackageError.default(visited)
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageSummaries')
         visited = visited + ['ModelPackageSummaries']
         {
-          test_key: Stubs::BatchDescribeModelPackageSummary.default(visited)
+          test_key: BatchDescribeModelPackageSummary.default(visited)
         }
       end
 
@@ -191,7 +191,7 @@ module AWS::SDK::SageMaker
           model_package_arn: 'model_package_arn',
           model_package_description: 'model_package_description',
           creation_time: Time.now,
-          inference_specification: Stubs::InferenceSpecification.default(visited),
+          inference_specification: InferenceSpecification.default(visited),
           model_package_status: 'model_package_status',
           model_approval_status: 'model_approval_status',
         }
@@ -218,11 +218,11 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('InferenceSpecification')
         visited = visited + ['InferenceSpecification']
         {
-          containers: Stubs::ModelPackageContainerDefinitionList.default(visited),
-          supported_transform_instance_types: Stubs::TransformInstanceTypes.default(visited),
-          supported_realtime_inference_instance_types: Stubs::RealtimeInferenceInstanceTypes.default(visited),
-          supported_content_types: Stubs::ContentTypes.default(visited),
-          supported_response_mime_types: Stubs::ResponseMIMETypes.default(visited),
+          containers: ModelPackageContainerDefinitionList.default(visited),
+          supported_transform_instance_types: TransformInstanceTypes.default(visited),
+          supported_realtime_inference_instance_types: RealtimeInferenceInstanceTypes.default(visited),
+          supported_content_types: ContentTypes.default(visited),
+          supported_response_mime_types: ResponseMIMETypes.default(visited),
         }
       end
 
@@ -324,7 +324,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageContainerDefinitionList')
         visited = visited + ['ModelPackageContainerDefinitionList']
         [
-          Stubs::ModelPackageContainerDefinition.default(visited)
+          ModelPackageContainerDefinition.default(visited)
         ]
       end
 
@@ -349,8 +349,8 @@ module AWS::SDK::SageMaker
           image_digest: 'image_digest',
           model_data_url: 'model_data_url',
           product_id: 'product_id',
-          environment: Stubs::EnvironmentMap.default(visited),
-          model_input: Stubs::ModelInput.default(visited),
+          environment: EnvironmentMap.default(visited),
+          model_input: ModelInput.default(visited),
           framework: 'framework',
           framework_version: 'framework_version',
           nearest_model_name: 'nearest_model_name',
@@ -1720,16 +1720,16 @@ module AWS::SDK::SageMaker
         {
           action_name: 'action_name',
           action_arn: 'action_arn',
-          source: Stubs::ActionSource.default(visited),
+          source: ActionSource.default(visited),
           action_type: 'action_type',
           description: 'description',
           status: 'status',
-          properties: Stubs::LineageEntityParameters.default(visited),
+          properties: LineageEntityParameters.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
+          last_modified_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
           lineage_group_arn: 'lineage_group_arn',
         }
       end
@@ -1850,11 +1850,11 @@ module AWS::SDK::SageMaker
           algorithm_arn: 'algorithm_arn',
           algorithm_description: 'algorithm_description',
           creation_time: Time.now,
-          training_specification: Stubs::TrainingSpecification.default(visited),
-          inference_specification: Stubs::InferenceSpecification.default(visited),
-          validation_specification: Stubs::AlgorithmValidationSpecification.default(visited),
+          training_specification: TrainingSpecification.default(visited),
+          inference_specification: InferenceSpecification.default(visited),
+          validation_specification: AlgorithmValidationSpecification.default(visited),
           algorithm_status: 'algorithm_status',
-          algorithm_status_details: Stubs::AlgorithmStatusDetails.default(visited),
+          algorithm_status_details: AlgorithmStatusDetails.default(visited),
           product_id: 'product_id',
           certify_for_marketplace: false,
         }
@@ -1884,8 +1884,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AlgorithmStatusDetails')
         visited = visited + ['AlgorithmStatusDetails']
         {
-          validation_statuses: Stubs::AlgorithmStatusItemList.default(visited),
-          image_scan_statuses: Stubs::AlgorithmStatusItemList.default(visited),
+          validation_statuses: AlgorithmStatusItemList.default(visited),
+          image_scan_statuses: AlgorithmStatusItemList.default(visited),
         }
       end
 
@@ -1904,7 +1904,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AlgorithmStatusItemList')
         visited = visited + ['AlgorithmStatusItemList']
         [
-          Stubs::AlgorithmStatusItem.default(visited)
+          AlgorithmStatusItem.default(visited)
         ]
       end
 
@@ -1947,7 +1947,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['AlgorithmValidationSpecification']
         {
           validation_role: 'validation_role',
-          validation_profiles: Stubs::AlgorithmValidationProfiles.default(visited),
+          validation_profiles: AlgorithmValidationProfiles.default(visited),
         }
       end
 
@@ -1966,7 +1966,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AlgorithmValidationProfiles')
         visited = visited + ['AlgorithmValidationProfiles']
         [
-          Stubs::AlgorithmValidationProfile.default(visited)
+          AlgorithmValidationProfile.default(visited)
         ]
       end
 
@@ -1987,8 +1987,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['AlgorithmValidationProfile']
         {
           profile_name: 'profile_name',
-          training_job_definition: Stubs::TrainingJobDefinition.default(visited),
-          transform_job_definition: Stubs::TransformJobDefinition.default(visited),
+          training_job_definition: TrainingJobDefinition.default(visited),
+          transform_job_definition: TransformJobDefinition.default(visited),
         }
       end
 
@@ -2011,10 +2011,10 @@ module AWS::SDK::SageMaker
           max_concurrent_transforms: 1,
           max_payload_in_mb: 1,
           batch_strategy: 'batch_strategy',
-          environment: Stubs::TransformEnvironmentMap.default(visited),
-          transform_input: Stubs::TransformInput.default(visited),
-          transform_output: Stubs::TransformOutput.default(visited),
-          transform_resources: Stubs::TransformResources.default(visited),
+          environment: TransformEnvironmentMap.default(visited),
+          transform_input: TransformInput.default(visited),
+          transform_output: TransformOutput.default(visited),
+          transform_resources: TransformResources.default(visited),
         }
       end
 
@@ -2084,7 +2084,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TransformInput')
         visited = visited + ['TransformInput']
         {
-          data_source: Stubs::TransformDataSource.default(visited),
+          data_source: TransformDataSource.default(visited),
           content_type: 'content_type',
           compression_type: 'compression_type',
           split_type: 'split_type',
@@ -2108,7 +2108,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TransformDataSource')
         visited = visited + ['TransformDataSource']
         {
-          s3_data_source: Stubs::TransformS3DataSource.default(visited),
+          s3_data_source: TransformS3DataSource.default(visited),
         }
       end
 
@@ -2167,11 +2167,11 @@ module AWS::SDK::SageMaker
         visited = visited + ['TrainingJobDefinition']
         {
           training_input_mode: 'training_input_mode',
-          hyper_parameters: Stubs::HyperParameters.default(visited),
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
-          resource_config: Stubs::ResourceConfig.default(visited),
-          stopping_condition: Stubs::StoppingCondition.default(visited),
+          hyper_parameters: HyperParameters.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
+          resource_config: ResourceConfig.default(visited),
+          stopping_condition: StoppingCondition.default(visited),
         }
       end
 
@@ -2258,7 +2258,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('InputDataConfig')
         visited = visited + ['InputDataConfig']
         [
-          Stubs::Channel.default(visited)
+          Channel.default(visited)
         ]
       end
 
@@ -2279,12 +2279,12 @@ module AWS::SDK::SageMaker
         visited = visited + ['Channel']
         {
           channel_name: 'channel_name',
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
           content_type: 'content_type',
           compression_type: 'compression_type',
           record_wrapper_type: 'record_wrapper_type',
           input_mode: 'input_mode',
-          shuffle_config: Stubs::ShuffleConfig.default(visited),
+          shuffle_config: ShuffleConfig.default(visited),
         }
       end
 
@@ -2326,8 +2326,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DataSource')
         visited = visited + ['DataSource']
         {
-          s3_data_source: Stubs::S3DataSource.default(visited),
-          file_system_data_source: Stubs::FileSystemDataSource.default(visited),
+          s3_data_source: S3DataSource.default(visited),
+          file_system_data_source: FileSystemDataSource.default(visited),
         }
       end
 
@@ -2373,7 +2373,7 @@ module AWS::SDK::SageMaker
           s3_data_type: 's3_data_type',
           s3_uri: 's3_uri',
           s3_data_distribution_type: 's3_data_distribution_type',
-          attribute_names: Stubs::AttributeNames.default(visited),
+          attribute_names: AttributeNames.default(visited),
         }
       end
 
@@ -2436,12 +2436,12 @@ module AWS::SDK::SageMaker
         {
           training_image: 'training_image',
           training_image_digest: 'training_image_digest',
-          supported_hyper_parameters: Stubs::HyperParameterSpecifications.default(visited),
-          supported_training_instance_types: Stubs::TrainingInstanceTypes.default(visited),
+          supported_hyper_parameters: HyperParameterSpecifications.default(visited),
+          supported_training_instance_types: TrainingInstanceTypes.default(visited),
           supports_distributed_training: false,
-          metric_definitions: Stubs::MetricDefinitionList.default(visited),
-          training_channels: Stubs::ChannelSpecifications.default(visited),
-          supported_tuning_job_objective_metrics: Stubs::HyperParameterTuningJobObjectives.default(visited),
+          metric_definitions: MetricDefinitionList.default(visited),
+          training_channels: ChannelSpecifications.default(visited),
+          supported_tuning_job_objective_metrics: HyperParameterTuningJobObjectives.default(visited),
         }
       end
 
@@ -2466,7 +2466,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterTuningJobObjectives')
         visited = visited + ['HyperParameterTuningJobObjectives']
         [
-          Stubs::HyperParameterTuningJobObjective.default(visited)
+          HyperParameterTuningJobObjective.default(visited)
         ]
       end
 
@@ -2506,7 +2506,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ChannelSpecifications')
         visited = visited + ['ChannelSpecifications']
         [
-          Stubs::ChannelSpecification.default(visited)
+          ChannelSpecification.default(visited)
         ]
       end
 
@@ -2529,9 +2529,9 @@ module AWS::SDK::SageMaker
           name: 'name',
           description: 'description',
           is_required: false,
-          supported_content_types: Stubs::ContentTypes.default(visited),
-          supported_compression_types: Stubs::CompressionTypes.default(visited),
-          supported_input_modes: Stubs::InputModes.default(visited),
+          supported_content_types: ContentTypes.default(visited),
+          supported_compression_types: CompressionTypes.default(visited),
+          supported_input_modes: InputModes.default(visited),
         }
       end
 
@@ -2594,7 +2594,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MetricDefinitionList')
         visited = visited + ['MetricDefinitionList']
         [
-          Stubs::MetricDefinition.default(visited)
+          MetricDefinition.default(visited)
         ]
       end
 
@@ -2654,7 +2654,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterSpecifications')
         visited = visited + ['HyperParameterSpecifications']
         [
-          Stubs::HyperParameterSpecification.default(visited)
+          HyperParameterSpecification.default(visited)
         ]
       end
 
@@ -2677,7 +2677,7 @@ module AWS::SDK::SageMaker
           name: 'name',
           description: 'description',
           type: 'type',
-          range: Stubs::ParameterRange.default(visited),
+          range: ParameterRange.default(visited),
           is_tunable: false,
           is_required: false,
           default_value: 'default_value',
@@ -2704,9 +2704,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ParameterRange')
         visited = visited + ['ParameterRange']
         {
-          integer_parameter_range_specification: Stubs::IntegerParameterRangeSpecification.default(visited),
-          continuous_parameter_range_specification: Stubs::ContinuousParameterRangeSpecification.default(visited),
-          categorical_parameter_range_specification: Stubs::CategoricalParameterRangeSpecification.default(visited),
+          integer_parameter_range_specification: IntegerParameterRangeSpecification.default(visited),
+          continuous_parameter_range_specification: ContinuousParameterRangeSpecification.default(visited),
+          categorical_parameter_range_specification: CategoricalParameterRangeSpecification.default(visited),
         }
       end
 
@@ -2726,7 +2726,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CategoricalParameterRangeSpecification')
         visited = visited + ['CategoricalParameterRangeSpecification']
         {
-          values: Stubs::ParameterValues.default(visited),
+          values: ParameterValues.default(visited),
         }
       end
 
@@ -2812,7 +2812,7 @@ module AWS::SDK::SageMaker
           last_user_activity_timestamp: Time.now,
           creation_time: Time.now,
           failure_reason: 'failure_reason',
-          resource_spec: Stubs::ResourceSpec.default(visited),
+          resource_spec: ResourceSpec.default(visited),
         }
       end
 
@@ -2866,7 +2866,7 @@ module AWS::SDK::SageMaker
           app_image_config_name: 'app_image_config_name',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          kernel_gateway_image_config: Stubs::KernelGatewayImageConfig.default(visited),
+          kernel_gateway_image_config: KernelGatewayImageConfig.default(visited),
         }
       end
 
@@ -2888,8 +2888,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('KernelGatewayImageConfig')
         visited = visited + ['KernelGatewayImageConfig']
         {
-          kernel_specs: Stubs::KernelSpecs.default(visited),
-          file_system_config: Stubs::FileSystemConfig.default(visited),
+          kernel_specs: KernelSpecs.default(visited),
+          file_system_config: FileSystemConfig.default(visited),
         }
       end
 
@@ -2930,7 +2930,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('KernelSpecs')
         visited = visited + ['KernelSpecs']
         [
-          Stubs::KernelSpec.default(visited)
+          KernelSpec.default(visited)
         ]
       end
 
@@ -2970,14 +2970,14 @@ module AWS::SDK::SageMaker
         {
           artifact_name: 'artifact_name',
           artifact_arn: 'artifact_arn',
-          source: Stubs::ArtifactSource.default(visited),
+          source: ArtifactSource.default(visited),
           artifact_type: 'artifact_type',
-          properties: Stubs::LineageEntityParameters.default(visited),
+          properties: LineageEntityParameters.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
+          last_modified_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
           lineage_group_arn: 'lineage_group_arn',
         }
       end
@@ -3007,7 +3007,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ArtifactSource']
         {
           source_uri: 'source_uri',
-          source_types: Stubs::ArtifactSourceTypes.default(visited),
+          source_types: ArtifactSourceTypes.default(visited),
         }
       end
 
@@ -3026,7 +3026,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ArtifactSourceTypes')
         visited = visited + ['ArtifactSourceTypes']
         [
-          Stubs::ArtifactSourceType.default(visited)
+          ArtifactSourceType.default(visited)
         ]
       end
 
@@ -3066,25 +3066,25 @@ module AWS::SDK::SageMaker
         {
           auto_ml_job_name: 'auto_ml_job_name',
           auto_ml_job_arn: 'auto_ml_job_arn',
-          input_data_config: Stubs::AutoMLInputDataConfig.default(visited),
-          output_data_config: Stubs::AutoMLOutputDataConfig.default(visited),
+          input_data_config: AutoMLInputDataConfig.default(visited),
+          output_data_config: AutoMLOutputDataConfig.default(visited),
           role_arn: 'role_arn',
-          auto_ml_job_objective: Stubs::AutoMLJobObjective.default(visited),
+          auto_ml_job_objective: AutoMLJobObjective.default(visited),
           problem_type: 'problem_type',
-          auto_ml_job_config: Stubs::AutoMLJobConfig.default(visited),
+          auto_ml_job_config: AutoMLJobConfig.default(visited),
           creation_time: Time.now,
           end_time: Time.now,
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
-          partial_failure_reasons: Stubs::AutoMLPartialFailureReasons.default(visited),
-          best_candidate: Stubs::AutoMLCandidate.default(visited),
+          partial_failure_reasons: AutoMLPartialFailureReasons.default(visited),
+          best_candidate: AutoMLCandidate.default(visited),
           auto_ml_job_status: 'auto_ml_job_status',
           auto_ml_job_secondary_status: 'auto_ml_job_secondary_status',
           generate_candidate_definitions_only: false,
-          auto_ml_job_artifacts: Stubs::AutoMLJobArtifacts.default(visited),
-          resolved_attributes: Stubs::ResolvedAttributes.default(visited),
-          model_deploy_config: Stubs::ModelDeployConfig.default(visited),
-          model_deploy_result: Stubs::ModelDeployResult.default(visited),
+          auto_ml_job_artifacts: AutoMLJobArtifacts.default(visited),
+          resolved_attributes: ResolvedAttributes.default(visited),
+          model_deploy_config: ModelDeployConfig.default(visited),
+          model_deploy_result: ModelDeployResult.default(visited),
         }
       end
 
@@ -3160,9 +3160,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ResolvedAttributes')
         visited = visited + ['ResolvedAttributes']
         {
-          auto_ml_job_objective: Stubs::AutoMLJobObjective.default(visited),
+          auto_ml_job_objective: AutoMLJobObjective.default(visited),
           problem_type: 'problem_type',
-          completion_criteria: Stubs::AutoMLJobCompletionCriteria.default(visited),
+          completion_criteria: AutoMLJobCompletionCriteria.default(visited),
         }
       end
 
@@ -3243,16 +3243,16 @@ module AWS::SDK::SageMaker
         visited = visited + ['AutoMLCandidate']
         {
           candidate_name: 'candidate_name',
-          final_auto_ml_job_objective_metric: Stubs::FinalAutoMLJobObjectiveMetric.default(visited),
+          final_auto_ml_job_objective_metric: FinalAutoMLJobObjectiveMetric.default(visited),
           objective_status: 'objective_status',
-          candidate_steps: Stubs::CandidateSteps.default(visited),
+          candidate_steps: CandidateSteps.default(visited),
           candidate_status: 'candidate_status',
-          inference_containers: Stubs::AutoMLContainerDefinitions.default(visited),
+          inference_containers: AutoMLContainerDefinitions.default(visited),
           creation_time: Time.now,
           end_time: Time.now,
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
-          candidate_properties: Stubs::CandidateProperties.default(visited),
+          candidate_properties: CandidateProperties.default(visited),
         }
       end
 
@@ -3280,8 +3280,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CandidateProperties')
         visited = visited + ['CandidateProperties']
         {
-          candidate_artifact_locations: Stubs::CandidateArtifactLocations.default(visited),
-          candidate_metrics: Stubs::MetricDataList.default(visited),
+          candidate_artifact_locations: CandidateArtifactLocations.default(visited),
+          candidate_metrics: MetricDataList.default(visited),
         }
       end
 
@@ -3300,7 +3300,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MetricDataList')
         visited = visited + ['MetricDataList']
         [
-          Stubs::MetricDatum.default(visited)
+          MetricDatum.default(visited)
         ]
       end
 
@@ -3364,7 +3364,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLContainerDefinitions')
         visited = visited + ['AutoMLContainerDefinitions']
         [
-          Stubs::AutoMLContainerDefinition.default(visited)
+          AutoMLContainerDefinition.default(visited)
         ]
       end
 
@@ -3386,7 +3386,7 @@ module AWS::SDK::SageMaker
         {
           image: 'image',
           model_data_url: 'model_data_url',
-          environment: Stubs::EnvironmentMap.default(visited),
+          environment: EnvironmentMap.default(visited),
         }
       end
 
@@ -3406,7 +3406,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CandidateSteps')
         visited = visited + ['CandidateSteps']
         [
-          Stubs::AutoMLCandidateStep.default(visited)
+          AutoMLCandidateStep.default(visited)
         ]
       end
 
@@ -3470,7 +3470,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLPartialFailureReasons')
         visited = visited + ['AutoMLPartialFailureReasons']
         [
-          Stubs::AutoMLPartialFailureReason.default(visited)
+          AutoMLPartialFailureReason.default(visited)
         ]
       end
 
@@ -3508,10 +3508,10 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLJobConfig')
         visited = visited + ['AutoMLJobConfig']
         {
-          completion_criteria: Stubs::AutoMLJobCompletionCriteria.default(visited),
-          security_config: Stubs::AutoMLSecurityConfig.default(visited),
-          data_split_config: Stubs::AutoMLDataSplitConfig.default(visited),
-          candidate_generation_config: Stubs::AutoMLCandidateGenerationConfig.default(visited),
+          completion_criteria: AutoMLJobCompletionCriteria.default(visited),
+          security_config: AutoMLSecurityConfig.default(visited),
+          data_split_config: AutoMLDataSplitConfig.default(visited),
+          candidate_generation_config: AutoMLCandidateGenerationConfig.default(visited),
         }
       end
 
@@ -3570,7 +3570,7 @@ module AWS::SDK::SageMaker
         {
           volume_kms_key_id: 'volume_kms_key_id',
           enable_inter_container_traffic_encryption: false,
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -3590,8 +3590,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('VpcConfig')
         visited = visited + ['VpcConfig']
         {
-          security_group_ids: Stubs::VpcSecurityGroupIds.default(visited),
-          subnets: Stubs::Subnets.default(visited),
+          security_group_ids: VpcSecurityGroupIds.default(visited),
+          subnets: Subnets.default(visited),
         }
       end
 
@@ -3670,7 +3670,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLInputDataConfig')
         visited = visited + ['AutoMLInputDataConfig']
         [
-          Stubs::AutoMLChannel.default(visited)
+          AutoMLChannel.default(visited)
         ]
       end
 
@@ -3690,7 +3690,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLChannel')
         visited = visited + ['AutoMLChannel']
         {
-          data_source: Stubs::AutoMLDataSource.default(visited),
+          data_source: AutoMLDataSource.default(visited),
           compression_type: 'compression_type',
           target_attribute_name: 'target_attribute_name',
           content_type: 'content_type',
@@ -3716,7 +3716,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLDataSource')
         visited = visited + ['AutoMLDataSource']
         {
-          s3_data_source: Stubs::AutoMLS3DataSource.default(visited),
+          s3_data_source: AutoMLS3DataSource.default(visited),
         }
       end
 
@@ -3756,7 +3756,7 @@ module AWS::SDK::SageMaker
           code_repository_arn: 'code_repository_arn',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          git_config: Stubs::GitConfig.default(visited),
+          git_config: GitConfig.default(visited),
         }
       end
 
@@ -3803,18 +3803,18 @@ module AWS::SDK::SageMaker
           compilation_job_status: 'compilation_job_status',
           compilation_start_time: Time.now,
           compilation_end_time: Time.now,
-          stopping_condition: Stubs::StoppingCondition.default(visited),
+          stopping_condition: StoppingCondition.default(visited),
           inference_image: 'inference_image',
           model_package_version_arn: 'model_package_version_arn',
           creation_time: Time.now,
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
-          model_artifacts: Stubs::ModelArtifacts.default(visited),
-          model_digests: Stubs::ModelDigests.default(visited),
+          model_artifacts: ModelArtifacts.default(visited),
+          model_digests: ModelDigests.default(visited),
           role_arn: 'role_arn',
-          input_config: Stubs::InputConfig.default(visited),
-          output_config: Stubs::OutputConfig.default(visited),
-          vpc_config: Stubs::NeoVpcConfig.default(visited),
+          input_config: InputConfig.default(visited),
+          output_config: OutputConfig.default(visited),
+          vpc_config: NeoVpcConfig.default(visited),
         }
       end
 
@@ -3848,8 +3848,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('NeoVpcConfig')
         visited = visited + ['NeoVpcConfig']
         {
-          security_group_ids: Stubs::NeoVpcSecurityGroupIds.default(visited),
-          subnets: Stubs::NeoVpcSubnets.default(visited),
+          security_group_ids: NeoVpcSecurityGroupIds.default(visited),
+          subnets: NeoVpcSubnets.default(visited),
         }
       end
 
@@ -3910,7 +3910,7 @@ module AWS::SDK::SageMaker
         {
           s3_output_location: 's3_output_location',
           target_device: 'target_device',
-          target_platform: Stubs::TargetPlatform.default(visited),
+          target_platform: TargetPlatform.default(visited),
           compiler_options: 'compiler_options',
           kms_key_id: 'kms_key_id',
         }
@@ -4016,14 +4016,14 @@ module AWS::SDK::SageMaker
         {
           context_name: 'context_name',
           context_arn: 'context_arn',
-          source: Stubs::ContextSource.default(visited),
+          source: ContextSource.default(visited),
           context_type: 'context_type',
           description: 'description',
-          properties: Stubs::LineageEntityParameters.default(visited),
+          properties: LineageEntityParameters.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
           lineage_group_arn: 'lineage_group_arn',
         }
       end
@@ -4075,14 +4075,14 @@ module AWS::SDK::SageMaker
           job_definition_arn: 'job_definition_arn',
           job_definition_name: 'job_definition_name',
           creation_time: Time.now,
-          data_quality_baseline_config: Stubs::DataQualityBaselineConfig.default(visited),
-          data_quality_app_specification: Stubs::DataQualityAppSpecification.default(visited),
-          data_quality_job_input: Stubs::DataQualityJobInput.default(visited),
-          data_quality_job_output_config: Stubs::MonitoringOutputConfig.default(visited),
-          job_resources: Stubs::MonitoringResources.default(visited),
-          network_config: Stubs::MonitoringNetworkConfig.default(visited),
+          data_quality_baseline_config: DataQualityBaselineConfig.default(visited),
+          data_quality_app_specification: DataQualityAppSpecification.default(visited),
+          data_quality_job_input: DataQualityJobInput.default(visited),
+          data_quality_job_output_config: MonitoringOutputConfig.default(visited),
+          job_resources: MonitoringResources.default(visited),
+          network_config: MonitoringNetworkConfig.default(visited),
           role_arn: 'role_arn',
-          stopping_condition: Stubs::MonitoringStoppingCondition.default(visited),
+          stopping_condition: MonitoringStoppingCondition.default(visited),
         }
       end
 
@@ -4130,7 +4130,7 @@ module AWS::SDK::SageMaker
         {
           enable_inter_container_traffic_encryption: false,
           enable_network_isolation: false,
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -4150,7 +4150,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringResources')
         visited = visited + ['MonitoringResources']
         {
-          cluster_config: Stubs::MonitoringClusterConfig.default(visited),
+          cluster_config: MonitoringClusterConfig.default(visited),
         }
       end
 
@@ -4192,7 +4192,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringOutputConfig')
         visited = visited + ['MonitoringOutputConfig']
         {
-          monitoring_outputs: Stubs::MonitoringOutputs.default(visited),
+          monitoring_outputs: MonitoringOutputs.default(visited),
           kms_key_id: 'kms_key_id',
         }
       end
@@ -4212,7 +4212,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringOutputs')
         visited = visited + ['MonitoringOutputs']
         [
-          Stubs::MonitoringOutput.default(visited)
+          MonitoringOutput.default(visited)
         ]
       end
 
@@ -4232,7 +4232,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringOutput')
         visited = visited + ['MonitoringOutput']
         {
-          s3_output: Stubs::MonitoringS3Output.default(visited),
+          s3_output: MonitoringS3Output.default(visited),
         }
       end
 
@@ -4272,7 +4272,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DataQualityJobInput')
         visited = visited + ['DataQualityJobInput']
         {
-          endpoint_input: Stubs::EndpointInput.default(visited),
+          endpoint_input: EndpointInput.default(visited),
         }
       end
 
@@ -4327,11 +4327,11 @@ module AWS::SDK::SageMaker
         visited = visited + ['DataQualityAppSpecification']
         {
           image_uri: 'image_uri',
-          container_entrypoint: Stubs::ContainerEntrypoint.default(visited),
-          container_arguments: Stubs::MonitoringContainerArguments.default(visited),
+          container_entrypoint: ContainerEntrypoint.default(visited),
+          container_arguments: MonitoringContainerArguments.default(visited),
           record_preprocessor_source_uri: 'record_preprocessor_source_uri',
           post_analytics_processor_source_uri: 'post_analytics_processor_source_uri',
-          environment: Stubs::MonitoringEnvironmentMap.default(visited),
+          environment: MonitoringEnvironmentMap.default(visited),
         }
       end
 
@@ -4415,8 +4415,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['DataQualityBaselineConfig']
         {
           baselining_job_name: 'baselining_job_name',
-          constraints_resource: Stubs::MonitoringConstraintsResource.default(visited),
-          statistics_resource: Stubs::MonitoringStatisticsResource.default(visited),
+          constraints_resource: MonitoringConstraintsResource.default(visited),
+          statistics_resource: MonitoringStatisticsResource.default(visited),
         }
       end
 
@@ -4477,7 +4477,7 @@ module AWS::SDK::SageMaker
           iot_thing_name: 'iot_thing_name',
           registration_time: Time.now,
           latest_heartbeat: Time.now,
-          models: Stubs::EdgeModels.default(visited),
+          models: EdgeModels.default(visited),
           max_models: 1,
           next_token: 'next_token',
           agent_version: 'agent_version',
@@ -4508,7 +4508,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EdgeModels')
         visited = visited + ['EdgeModels']
         [
-          Stubs::EdgeModel.default(visited)
+          EdgeModel.default(visited)
         ]
       end
 
@@ -4552,7 +4552,7 @@ module AWS::SDK::SageMaker
         {
           device_fleet_name: 'device_fleet_name',
           device_fleet_arn: 'device_fleet_arn',
-          output_config: Stubs::EdgeOutputConfig.default(visited),
+          output_config: EdgeOutputConfig.default(visited),
           description: 'description',
           creation_time: Time.now,
           last_modified_time: Time.now,
@@ -4614,14 +4614,14 @@ module AWS::SDK::SageMaker
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
           auth_mode: 'auth_mode',
-          default_user_settings: Stubs::UserSettings.default(visited),
+          default_user_settings: UserSettings.default(visited),
           app_network_access_type: 'app_network_access_type',
           home_efs_file_system_kms_key_id: 'home_efs_file_system_kms_key_id',
-          subnet_ids: Stubs::Subnets.default(visited),
+          subnet_ids: Subnets.default(visited),
           url: 'url',
           vpc_id: 'vpc_id',
           kms_key_id: 'kms_key_id',
-          domain_settings: Stubs::DomainSettings.default(visited),
+          domain_settings: DomainSettings.default(visited),
           app_security_group_management: 'app_security_group_management',
           security_group_id_for_domain_boundary: 'security_group_id_for_domain_boundary',
         }
@@ -4660,8 +4660,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DomainSettings')
         visited = visited + ['DomainSettings']
         {
-          security_group_ids: Stubs::DomainSecurityGroupIds.default(visited),
-          r_studio_server_pro_domain_settings: Stubs::RStudioServerProDomainSettings.default(visited),
+          security_group_ids: DomainSecurityGroupIds.default(visited),
+          r_studio_server_pro_domain_settings: RStudioServerProDomainSettings.default(visited),
         }
       end
 
@@ -4683,7 +4683,7 @@ module AWS::SDK::SageMaker
           domain_execution_role_arn: 'domain_execution_role_arn',
           r_studio_connect_url: 'r_studio_connect_url',
           r_studio_package_manager_url: 'r_studio_package_manager_url',
-          default_resource_spec: Stubs::ResourceSpec.default(visited),
+          default_resource_spec: ResourceSpec.default(visited),
         }
       end
 
@@ -4725,13 +4725,13 @@ module AWS::SDK::SageMaker
         visited = visited + ['UserSettings']
         {
           execution_role: 'execution_role',
-          security_groups: Stubs::SecurityGroupIds.default(visited),
-          sharing_settings: Stubs::SharingSettings.default(visited),
-          jupyter_server_app_settings: Stubs::JupyterServerAppSettings.default(visited),
-          kernel_gateway_app_settings: Stubs::KernelGatewayAppSettings.default(visited),
-          tensor_board_app_settings: Stubs::TensorBoardAppSettings.default(visited),
-          r_studio_server_pro_app_settings: Stubs::RStudioServerProAppSettings.default(visited),
-          r_session_app_settings: Stubs::RSessionAppSettings.default(visited),
+          security_groups: SecurityGroupIds.default(visited),
+          sharing_settings: SharingSettings.default(visited),
+          jupyter_server_app_settings: JupyterServerAppSettings.default(visited),
+          kernel_gateway_app_settings: KernelGatewayAppSettings.default(visited),
+          tensor_board_app_settings: TensorBoardAppSettings.default(visited),
+          r_studio_server_pro_app_settings: RStudioServerProAppSettings.default(visited),
+          r_session_app_settings: RSessionAppSettings.default(visited),
         }
       end
 
@@ -4756,8 +4756,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('RSessionAppSettings')
         visited = visited + ['RSessionAppSettings']
         {
-          default_resource_spec: Stubs::ResourceSpec.default(visited),
-          custom_images: Stubs::CustomImages.default(visited),
+          default_resource_spec: ResourceSpec.default(visited),
+          custom_images: CustomImages.default(visited),
         }
       end
 
@@ -4776,7 +4776,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CustomImages')
         visited = visited + ['CustomImages']
         [
-          Stubs::CustomImage.default(visited)
+          CustomImage.default(visited)
         ]
       end
 
@@ -4838,7 +4838,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TensorBoardAppSettings')
         visited = visited + ['TensorBoardAppSettings']
         {
-          default_resource_spec: Stubs::ResourceSpec.default(visited),
+          default_resource_spec: ResourceSpec.default(visited),
         }
       end
 
@@ -4856,9 +4856,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('KernelGatewayAppSettings')
         visited = visited + ['KernelGatewayAppSettings']
         {
-          default_resource_spec: Stubs::ResourceSpec.default(visited),
-          custom_images: Stubs::CustomImages.default(visited),
-          lifecycle_config_arns: Stubs::LifecycleConfigArns.default(visited),
+          default_resource_spec: ResourceSpec.default(visited),
+          custom_images: CustomImages.default(visited),
+          lifecycle_config_arns: LifecycleConfigArns.default(visited),
         }
       end
 
@@ -4898,8 +4898,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('JupyterServerAppSettings')
         visited = visited + ['JupyterServerAppSettings']
         {
-          default_resource_spec: Stubs::ResourceSpec.default(visited),
-          lifecycle_config_arns: Stubs::LifecycleConfigArns.default(visited),
+          default_resource_spec: ResourceSpec.default(visited),
+          lifecycle_config_arns: LifecycleConfigArns.default(visited),
         }
       end
 
@@ -4964,7 +4964,7 @@ module AWS::SDK::SageMaker
           model_name: 'model_name',
           model_version: 'model_version',
           role_arn: 'role_arn',
-          output_config: Stubs::EdgeOutputConfig.default(visited),
+          output_config: EdgeOutputConfig.default(visited),
           resource_key: 'resource_key',
           edge_packaging_job_status: 'edge_packaging_job_status',
           edge_packaging_job_status_message: 'edge_packaging_job_status_message',
@@ -4972,7 +4972,7 @@ module AWS::SDK::SageMaker
           last_modified_time: Time.now,
           model_artifact: 'model_artifact',
           model_signature: 'model_signature',
-          preset_deployment_output: Stubs::EdgePresetDeploymentOutput.default(visited),
+          preset_deployment_output: EdgePresetDeploymentOutput.default(visited),
         }
       end
 
@@ -5029,15 +5029,15 @@ module AWS::SDK::SageMaker
           endpoint_name: 'endpoint_name',
           endpoint_arn: 'endpoint_arn',
           endpoint_config_name: 'endpoint_config_name',
-          production_variants: Stubs::ProductionVariantSummaryList.default(visited),
-          data_capture_config: Stubs::DataCaptureConfigSummary.default(visited),
+          production_variants: ProductionVariantSummaryList.default(visited),
+          data_capture_config: DataCaptureConfigSummary.default(visited),
           endpoint_status: 'endpoint_status',
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          last_deployment_config: Stubs::DeploymentConfig.default(visited),
-          async_inference_config: Stubs::AsyncInferenceConfig.default(visited),
-          pending_deployment_summary: Stubs::PendingDeploymentSummary.default(visited),
+          last_deployment_config: DeploymentConfig.default(visited),
+          async_inference_config: AsyncInferenceConfig.default(visited),
+          pending_deployment_summary: PendingDeploymentSummary.default(visited),
         }
       end
 
@@ -5067,7 +5067,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['PendingDeploymentSummary']
         {
           endpoint_config_name: 'endpoint_config_name',
-          production_variants: Stubs::PendingProductionVariantSummaryList.default(visited),
+          production_variants: PendingProductionVariantSummaryList.default(visited),
           start_time: Time.now,
         }
       end
@@ -5088,7 +5088,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PendingProductionVariantSummaryList')
         visited = visited + ['PendingProductionVariantSummaryList']
         [
-          Stubs::PendingProductionVariantSummary.default(visited)
+          PendingProductionVariantSummary.default(visited)
         ]
       end
 
@@ -5109,16 +5109,16 @@ module AWS::SDK::SageMaker
         visited = visited + ['PendingProductionVariantSummary']
         {
           variant_name: 'variant_name',
-          deployed_images: Stubs::DeployedImages.default(visited),
+          deployed_images: DeployedImages.default(visited),
           current_weight: 1.0,
           desired_weight: 1.0,
           current_instance_count: 1,
           desired_instance_count: 1,
           instance_type: 'instance_type',
           accelerator_type: 'accelerator_type',
-          variant_status: Stubs::ProductionVariantStatusList.default(visited),
-          current_serverless_config: Stubs::ProductionVariantServerlessConfig.default(visited),
-          desired_serverless_config: Stubs::ProductionVariantServerlessConfig.default(visited),
+          variant_status: ProductionVariantStatusList.default(visited),
+          current_serverless_config: ProductionVariantServerlessConfig.default(visited),
+          desired_serverless_config: ProductionVariantServerlessConfig.default(visited),
         }
       end
 
@@ -5166,7 +5166,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProductionVariantStatusList')
         visited = visited + ['ProductionVariantStatusList']
         [
-          Stubs::ProductionVariantStatus.default(visited)
+          ProductionVariantStatus.default(visited)
         ]
       end
 
@@ -5208,7 +5208,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DeployedImages')
         visited = visited + ['DeployedImages']
         [
-          Stubs::DeployedImage.default(visited)
+          DeployedImage.default(visited)
         ]
       end
 
@@ -5250,8 +5250,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AsyncInferenceConfig')
         visited = visited + ['AsyncInferenceConfig']
         {
-          client_config: Stubs::AsyncInferenceClientConfig.default(visited),
-          output_config: Stubs::AsyncInferenceOutputConfig.default(visited),
+          client_config: AsyncInferenceClientConfig.default(visited),
+          output_config: AsyncInferenceOutputConfig.default(visited),
         }
       end
 
@@ -5272,7 +5272,7 @@ module AWS::SDK::SageMaker
         {
           kms_key_id: 'kms_key_id',
           s3_output_path: 's3_output_path',
-          notification_config: Stubs::AsyncInferenceNotificationConfig.default(visited),
+          notification_config: AsyncInferenceNotificationConfig.default(visited),
         }
       end
 
@@ -5330,8 +5330,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DeploymentConfig')
         visited = visited + ['DeploymentConfig']
         {
-          blue_green_update_policy: Stubs::BlueGreenUpdatePolicy.default(visited),
-          auto_rollback_configuration: Stubs::AutoRollbackConfig.default(visited),
+          blue_green_update_policy: BlueGreenUpdatePolicy.default(visited),
+          auto_rollback_configuration: AutoRollbackConfig.default(visited),
         }
       end
 
@@ -5350,7 +5350,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoRollbackConfig')
         visited = visited + ['AutoRollbackConfig']
         {
-          alarms: Stubs::AlarmList.default(visited),
+          alarms: AlarmList.default(visited),
         }
       end
 
@@ -5368,7 +5368,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AlarmList')
         visited = visited + ['AlarmList']
         [
-          Stubs::Alarm.default(visited)
+          Alarm.default(visited)
         ]
       end
 
@@ -5406,7 +5406,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('BlueGreenUpdatePolicy')
         visited = visited + ['BlueGreenUpdatePolicy']
         {
-          traffic_routing_configuration: Stubs::TrafficRoutingConfig.default(visited),
+          traffic_routing_configuration: TrafficRoutingConfig.default(visited),
           termination_wait_in_seconds: 1,
           maximum_execution_timeout_in_seconds: 1,
         }
@@ -5430,8 +5430,8 @@ module AWS::SDK::SageMaker
         {
           type: 'type',
           wait_interval_in_seconds: 1,
-          canary_size: Stubs::CapacitySize.default(visited),
-          linear_step_size: Stubs::CapacitySize.default(visited),
+          canary_size: CapacitySize.default(visited),
+          linear_step_size: CapacitySize.default(visited),
         }
       end
 
@@ -5498,7 +5498,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProductionVariantSummaryList')
         visited = visited + ['ProductionVariantSummaryList']
         [
-          Stubs::ProductionVariantSummary.default(visited)
+          ProductionVariantSummary.default(visited)
         ]
       end
 
@@ -5519,14 +5519,14 @@ module AWS::SDK::SageMaker
         visited = visited + ['ProductionVariantSummary']
         {
           variant_name: 'variant_name',
-          deployed_images: Stubs::DeployedImages.default(visited),
+          deployed_images: DeployedImages.default(visited),
           current_weight: 1.0,
           desired_weight: 1.0,
           current_instance_count: 1,
           desired_instance_count: 1,
-          variant_status: Stubs::ProductionVariantStatusList.default(visited),
-          current_serverless_config: Stubs::ProductionVariantServerlessConfig.default(visited),
-          desired_serverless_config: Stubs::ProductionVariantServerlessConfig.default(visited),
+          variant_status: ProductionVariantStatusList.default(visited),
+          current_serverless_config: ProductionVariantServerlessConfig.default(visited),
+          desired_serverless_config: ProductionVariantServerlessConfig.default(visited),
         }
       end
 
@@ -5552,11 +5552,11 @@ module AWS::SDK::SageMaker
         {
           endpoint_config_name: 'endpoint_config_name',
           endpoint_config_arn: 'endpoint_config_arn',
-          production_variants: Stubs::ProductionVariantList.default(visited),
-          data_capture_config: Stubs::DataCaptureConfig.default(visited),
+          production_variants: ProductionVariantList.default(visited),
+          data_capture_config: DataCaptureConfig.default(visited),
           kms_key_id: 'kms_key_id',
           creation_time: Time.now,
-          async_inference_config: Stubs::AsyncInferenceConfig.default(visited),
+          async_inference_config: AsyncInferenceConfig.default(visited),
         }
       end
 
@@ -5584,8 +5584,8 @@ module AWS::SDK::SageMaker
           initial_sampling_percentage: 1,
           destination_s3_uri: 'destination_s3_uri',
           kms_key_id: 'kms_key_id',
-          capture_options: Stubs::CaptureOptionList.default(visited),
-          capture_content_type_header: Stubs::CaptureContentTypeHeader.default(visited),
+          capture_options: CaptureOptionList.default(visited),
+          capture_content_type_header: CaptureContentTypeHeader.default(visited),
         }
       end
 
@@ -5608,8 +5608,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CaptureContentTypeHeader')
         visited = visited + ['CaptureContentTypeHeader']
         {
-          csv_content_types: Stubs::CsvContentTypes.default(visited),
-          json_content_types: Stubs::JsonContentTypes.default(visited),
+          csv_content_types: CsvContentTypes.default(visited),
+          json_content_types: JsonContentTypes.default(visited),
         }
       end
 
@@ -5668,7 +5668,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CaptureOptionList')
         visited = visited + ['CaptureOptionList']
         [
-          Stubs::CaptureOption.default(visited)
+          CaptureOption.default(visited)
         ]
       end
 
@@ -5706,7 +5706,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProductionVariantList')
         visited = visited + ['ProductionVariantList']
         [
-          Stubs::ProductionVariant.default(visited)
+          ProductionVariant.default(visited)
         ]
       end
 
@@ -5732,8 +5732,8 @@ module AWS::SDK::SageMaker
           instance_type: 'instance_type',
           initial_variant_weight: 1.0,
           accelerator_type: 'accelerator_type',
-          core_dump_config: Stubs::ProductionVariantCoreDumpConfig.default(visited),
-          serverless_config: Stubs::ProductionVariantServerlessConfig.default(visited),
+          core_dump_config: ProductionVariantCoreDumpConfig.default(visited),
+          serverless_config: ProductionVariantServerlessConfig.default(visited),
         }
       end
 
@@ -5779,12 +5779,12 @@ module AWS::SDK::SageMaker
           experiment_name: 'experiment_name',
           experiment_arn: 'experiment_arn',
           display_name: 'display_name',
-          source: Stubs::ExperimentSource.default(visited),
+          source: ExperimentSource.default(visited),
           description: 'description',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
         }
       end
 
@@ -5832,13 +5832,13 @@ module AWS::SDK::SageMaker
           feature_group_name: 'feature_group_name',
           record_identifier_feature_name: 'record_identifier_feature_name',
           event_time_feature_name: 'event_time_feature_name',
-          feature_definitions: Stubs::FeatureDefinitions.default(visited),
+          feature_definitions: FeatureDefinitions.default(visited),
           creation_time: Time.now,
-          online_store_config: Stubs::OnlineStoreConfig.default(visited),
-          offline_store_config: Stubs::OfflineStoreConfig.default(visited),
+          online_store_config: OnlineStoreConfig.default(visited),
+          offline_store_config: OfflineStoreConfig.default(visited),
           role_arn: 'role_arn',
           feature_group_status: 'feature_group_status',
-          offline_store_status: Stubs::OfflineStoreStatus.default(visited),
+          offline_store_status: OfflineStoreStatus.default(visited),
           failure_reason: 'failure_reason',
           description: 'description',
           next_token: 'next_token',
@@ -5892,9 +5892,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('OfflineStoreConfig')
         visited = visited + ['OfflineStoreConfig']
         {
-          s3_storage_config: Stubs::S3StorageConfig.default(visited),
+          s3_storage_config: S3StorageConfig.default(visited),
           disable_glue_table_creation: false,
-          data_catalog_config: Stubs::DataCatalogConfig.default(visited),
+          data_catalog_config: DataCatalogConfig.default(visited),
         }
       end
 
@@ -5958,7 +5958,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('OnlineStoreConfig')
         visited = visited + ['OnlineStoreConfig']
         {
-          security_config: Stubs::OnlineStoreSecurityConfig.default(visited),
+          security_config: OnlineStoreSecurityConfig.default(visited),
           enable_online_store: false,
         }
       end
@@ -5996,7 +5996,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('FeatureDefinitions')
         visited = visited + ['FeatureDefinitions']
         [
-          Stubs::FeatureDefinition.default(visited)
+          FeatureDefinition.default(visited)
         ]
       end
 
@@ -6038,10 +6038,10 @@ module AWS::SDK::SageMaker
           flow_definition_name: 'flow_definition_name',
           flow_definition_status: 'flow_definition_status',
           creation_time: Time.now,
-          human_loop_request_source: Stubs::HumanLoopRequestSource.default(visited),
-          human_loop_activation_config: Stubs::HumanLoopActivationConfig.default(visited),
-          human_loop_config: Stubs::HumanLoopConfig.default(visited),
-          output_config: Stubs::FlowDefinitionOutputConfig.default(visited),
+          human_loop_request_source: HumanLoopRequestSource.default(visited),
+          human_loop_activation_config: HumanLoopActivationConfig.default(visited),
+          human_loop_config: HumanLoopConfig.default(visited),
+          output_config: FlowDefinitionOutputConfig.default(visited),
           role_arn: 'role_arn',
           failure_reason: 'failure_reason',
         }
@@ -6097,8 +6097,8 @@ module AWS::SDK::SageMaker
           task_count: 1,
           task_availability_lifetime_in_seconds: 1,
           task_time_limit_in_seconds: 1,
-          task_keywords: Stubs::FlowDefinitionTaskKeywords.default(visited),
-          public_workforce_task_price: Stubs::PublicWorkforceTaskPrice.default(visited),
+          task_keywords: FlowDefinitionTaskKeywords.default(visited),
+          public_workforce_task_price: PublicWorkforceTaskPrice.default(visited),
         }
       end
 
@@ -6124,7 +6124,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PublicWorkforceTaskPrice')
         visited = visited + ['PublicWorkforceTaskPrice']
         {
-          amount_in_usd: Stubs::USD.default(visited),
+          amount_in_usd: USD.default(visited),
         }
       end
 
@@ -6184,7 +6184,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HumanLoopActivationConfig')
         visited = visited + ['HumanLoopActivationConfig']
         {
-          human_loop_activation_conditions_config: Stubs::HumanLoopActivationConditionsConfig.default(visited),
+          human_loop_activation_conditions_config: HumanLoopActivationConditionsConfig.default(visited),
         }
       end
 
@@ -6240,7 +6240,7 @@ module AWS::SDK::SageMaker
           human_task_ui_name: 'human_task_ui_name',
           human_task_ui_status: 'human_task_ui_status',
           creation_time: Time.now,
-          ui_template: Stubs::UiTemplateInfo.default(visited),
+          ui_template: UiTemplateInfo.default(visited),
         }
       end
 
@@ -6282,18 +6282,18 @@ module AWS::SDK::SageMaker
         {
           hyper_parameter_tuning_job_name: 'hyper_parameter_tuning_job_name',
           hyper_parameter_tuning_job_arn: 'hyper_parameter_tuning_job_arn',
-          hyper_parameter_tuning_job_config: Stubs::HyperParameterTuningJobConfig.default(visited),
-          training_job_definition: Stubs::HyperParameterTrainingJobDefinition.default(visited),
-          training_job_definitions: Stubs::HyperParameterTrainingJobDefinitions.default(visited),
+          hyper_parameter_tuning_job_config: HyperParameterTuningJobConfig.default(visited),
+          training_job_definition: HyperParameterTrainingJobDefinition.default(visited),
+          training_job_definitions: HyperParameterTrainingJobDefinitions.default(visited),
           hyper_parameter_tuning_job_status: 'hyper_parameter_tuning_job_status',
           creation_time: Time.now,
           hyper_parameter_tuning_end_time: Time.now,
           last_modified_time: Time.now,
-          training_job_status_counters: Stubs::TrainingJobStatusCounters.default(visited),
-          objective_status_counters: Stubs::ObjectiveStatusCounters.default(visited),
-          best_training_job: Stubs::HyperParameterTrainingJobSummary.default(visited),
-          overall_best_training_job: Stubs::HyperParameterTrainingJobSummary.default(visited),
-          warm_start_config: Stubs::HyperParameterTuningJobWarmStartConfig.default(visited),
+          training_job_status_counters: TrainingJobStatusCounters.default(visited),
+          objective_status_counters: ObjectiveStatusCounters.default(visited),
+          best_training_job: HyperParameterTrainingJobSummary.default(visited),
+          overall_best_training_job: HyperParameterTrainingJobSummary.default(visited),
+          warm_start_config: HyperParameterTuningJobWarmStartConfig.default(visited),
           failure_reason: 'failure_reason',
         }
       end
@@ -6326,7 +6326,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterTuningJobWarmStartConfig')
         visited = visited + ['HyperParameterTuningJobWarmStartConfig']
         {
-          parent_hyper_parameter_tuning_jobs: Stubs::ParentHyperParameterTuningJobs.default(visited),
+          parent_hyper_parameter_tuning_jobs: ParentHyperParameterTuningJobs.default(visited),
           warm_start_type: 'warm_start_type',
         }
       end
@@ -6346,7 +6346,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ParentHyperParameterTuningJobs')
         visited = visited + ['ParentHyperParameterTuningJobs']
         [
-          Stubs::ParentHyperParameterTuningJob.default(visited)
+          ParentHyperParameterTuningJob.default(visited)
         ]
       end
 
@@ -6392,9 +6392,9 @@ module AWS::SDK::SageMaker
           training_start_time: Time.now,
           training_end_time: Time.now,
           training_job_status: 'training_job_status',
-          tuned_hyper_parameters: Stubs::HyperParameters.default(visited),
+          tuned_hyper_parameters: HyperParameters.default(visited),
           failure_reason: 'failure_reason',
-          final_hyper_parameter_tuning_job_objective_metric: Stubs::FinalHyperParameterTuningJobObjectiveMetric.default(visited),
+          final_hyper_parameter_tuning_job_objective_metric: FinalHyperParameterTuningJobObjectiveMetric.default(visited),
           objective_status: 'objective_status',
         }
       end
@@ -6494,7 +6494,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterTrainingJobDefinitions')
         visited = visited + ['HyperParameterTrainingJobDefinitions']
         [
-          Stubs::HyperParameterTrainingJobDefinition.default(visited)
+          HyperParameterTrainingJobDefinition.default(visited)
         ]
       end
 
@@ -6515,21 +6515,21 @@ module AWS::SDK::SageMaker
         visited = visited + ['HyperParameterTrainingJobDefinition']
         {
           definition_name: 'definition_name',
-          tuning_objective: Stubs::HyperParameterTuningJobObjective.default(visited),
-          hyper_parameter_ranges: Stubs::ParameterRanges.default(visited),
-          static_hyper_parameters: Stubs::HyperParameters.default(visited),
-          algorithm_specification: Stubs::HyperParameterAlgorithmSpecification.default(visited),
+          tuning_objective: HyperParameterTuningJobObjective.default(visited),
+          hyper_parameter_ranges: ParameterRanges.default(visited),
+          static_hyper_parameters: HyperParameters.default(visited),
+          algorithm_specification: HyperParameterAlgorithmSpecification.default(visited),
           role_arn: 'role_arn',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          vpc_config: Stubs::VpcConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
-          resource_config: Stubs::ResourceConfig.default(visited),
-          stopping_condition: Stubs::StoppingCondition.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
+          resource_config: ResourceConfig.default(visited),
+          stopping_condition: StoppingCondition.default(visited),
           enable_network_isolation: false,
           enable_inter_container_traffic_encryption: false,
           enable_managed_spot_training: false,
-          checkpoint_config: Stubs::CheckpointConfig.default(visited),
-          retry_strategy: Stubs::RetryStrategy.default(visited),
+          checkpoint_config: CheckpointConfig.default(visited),
+          retry_strategy: RetryStrategy.default(visited),
         }
       end
 
@@ -6603,7 +6603,7 @@ module AWS::SDK::SageMaker
           training_image: 'training_image',
           training_input_mode: 'training_input_mode',
           algorithm_name: 'algorithm_name',
-          metric_definitions: Stubs::MetricDefinitionList.default(visited),
+          metric_definitions: MetricDefinitionList.default(visited),
         }
       end
 
@@ -6624,9 +6624,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ParameterRanges')
         visited = visited + ['ParameterRanges']
         {
-          integer_parameter_ranges: Stubs::IntegerParameterRanges.default(visited),
-          continuous_parameter_ranges: Stubs::ContinuousParameterRanges.default(visited),
-          categorical_parameter_ranges: Stubs::CategoricalParameterRanges.default(visited),
+          integer_parameter_ranges: IntegerParameterRanges.default(visited),
+          continuous_parameter_ranges: ContinuousParameterRanges.default(visited),
+          categorical_parameter_ranges: CategoricalParameterRanges.default(visited),
         }
       end
 
@@ -6646,7 +6646,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CategoricalParameterRanges')
         visited = visited + ['CategoricalParameterRanges']
         [
-          Stubs::CategoricalParameterRange.default(visited)
+          CategoricalParameterRange.default(visited)
         ]
       end
 
@@ -6667,7 +6667,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['CategoricalParameterRange']
         {
           name: 'name',
-          values: Stubs::ParameterValues.default(visited),
+          values: ParameterValues.default(visited),
         }
       end
 
@@ -6686,7 +6686,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ContinuousParameterRanges')
         visited = visited + ['ContinuousParameterRanges']
         [
-          Stubs::ContinuousParameterRange.default(visited)
+          ContinuousParameterRange.default(visited)
         ]
       end
 
@@ -6730,7 +6730,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('IntegerParameterRanges')
         visited = visited + ['IntegerParameterRanges']
         [
-          Stubs::IntegerParameterRange.default(visited)
+          IntegerParameterRange.default(visited)
         ]
       end
 
@@ -6775,11 +6775,11 @@ module AWS::SDK::SageMaker
         visited = visited + ['HyperParameterTuningJobConfig']
         {
           strategy: 'strategy',
-          hyper_parameter_tuning_job_objective: Stubs::HyperParameterTuningJobObjective.default(visited),
-          resource_limits: Stubs::ResourceLimits.default(visited),
-          parameter_ranges: Stubs::ParameterRanges.default(visited),
+          hyper_parameter_tuning_job_objective: HyperParameterTuningJobObjective.default(visited),
+          resource_limits: ResourceLimits.default(visited),
+          parameter_ranges: ParameterRanges.default(visited),
           training_job_early_stopping_type: 'training_job_early_stopping_type',
-          tuning_job_completion_criteria: Stubs::TuningJobCompletionCriteria.default(visited),
+          tuning_job_completion_criteria: TuningJobCompletionCriteria.default(visited),
         }
       end
 
@@ -6912,9 +6912,9 @@ module AWS::SDK::SageMaker
           completion_time: Time.now,
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
-          input_config: Stubs::RecommendationJobInputConfig.default(visited),
-          stopping_conditions: Stubs::RecommendationJobStoppingConditions.default(visited),
-          inference_recommendations: Stubs::InferenceRecommendations.default(visited),
+          input_config: RecommendationJobInputConfig.default(visited),
+          stopping_conditions: RecommendationJobStoppingConditions.default(visited),
+          inference_recommendations: InferenceRecommendations.default(visited),
         }
       end
 
@@ -6944,7 +6944,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('InferenceRecommendations')
         visited = visited + ['InferenceRecommendations']
         [
-          Stubs::InferenceRecommendation.default(visited)
+          InferenceRecommendation.default(visited)
         ]
       end
 
@@ -6964,9 +6964,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('InferenceRecommendation')
         visited = visited + ['InferenceRecommendation']
         {
-          metrics: Stubs::RecommendationMetrics.default(visited),
-          endpoint_configuration: Stubs::EndpointOutputConfiguration.default(visited),
-          model_configuration: Stubs::ModelConfiguration.default(visited),
+          metrics: RecommendationMetrics.default(visited),
+          endpoint_configuration: EndpointOutputConfiguration.default(visited),
+          model_configuration: ModelConfiguration.default(visited),
         }
       end
 
@@ -6987,7 +6987,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelConfiguration']
         {
           inference_specification_name: 'inference_specification_name',
-          environment_parameters: Stubs::EnvironmentParameters.default(visited),
+          environment_parameters: EnvironmentParameters.default(visited),
         }
       end
 
@@ -7006,7 +7006,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EnvironmentParameters')
         visited = visited + ['EnvironmentParameters']
         [
-          Stubs::EnvironmentParameter.default(visited)
+          EnvironmentParameter.default(visited)
         ]
       end
 
@@ -7097,7 +7097,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['RecommendationJobStoppingConditions']
         {
           max_invocations: 1,
-          model_latency_thresholds: Stubs::ModelLatencyThresholds.default(visited),
+          model_latency_thresholds: ModelLatencyThresholds.default(visited),
         }
       end
 
@@ -7116,7 +7116,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelLatencyThresholds')
         visited = visited + ['ModelLatencyThresholds']
         [
-          Stubs::ModelLatencyThreshold.default(visited)
+          ModelLatencyThreshold.default(visited)
         ]
       end
 
@@ -7158,9 +7158,9 @@ module AWS::SDK::SageMaker
         {
           model_package_version_arn: 'model_package_version_arn',
           job_duration_in_seconds: 1,
-          traffic_pattern: Stubs::TrafficPattern.default(visited),
-          resource_limit: Stubs::RecommendationJobResourceLimit.default(visited),
-          endpoint_configurations: Stubs::EndpointInputConfigurations.default(visited),
+          traffic_pattern: TrafficPattern.default(visited),
+          resource_limit: RecommendationJobResourceLimit.default(visited),
+          endpoint_configurations: EndpointInputConfigurations.default(visited),
           volume_kms_key_id: 'volume_kms_key_id',
         }
       end
@@ -7184,7 +7184,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EndpointInputConfigurations')
         visited = visited + ['EndpointInputConfigurations']
         [
-          Stubs::EndpointInputConfiguration.default(visited)
+          EndpointInputConfiguration.default(visited)
         ]
       end
 
@@ -7206,7 +7206,7 @@ module AWS::SDK::SageMaker
         {
           instance_type: 'instance_type',
           inference_specification_name: 'inference_specification_name',
-          environment_parameter_ranges: Stubs::EnvironmentParameterRanges.default(visited),
+          environment_parameter_ranges: EnvironmentParameterRanges.default(visited),
         }
       end
 
@@ -7226,7 +7226,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EnvironmentParameterRanges')
         visited = visited + ['EnvironmentParameterRanges']
         {
-          categorical_parameter_ranges: Stubs::CategoricalParameters.default(visited),
+          categorical_parameter_ranges: CategoricalParameters.default(visited),
         }
       end
 
@@ -7244,7 +7244,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CategoricalParameters')
         visited = visited + ['CategoricalParameters']
         [
-          Stubs::CategoricalParameter.default(visited)
+          CategoricalParameter.default(visited)
         ]
       end
 
@@ -7265,7 +7265,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['CategoricalParameter']
         {
           name: 'name',
-          value: Stubs::CategoricalParameterRangeValues.default(visited),
+          value: CategoricalParameterRangeValues.default(visited),
         }
       end
 
@@ -7325,7 +7325,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['TrafficPattern']
         {
           traffic_type: 'traffic_type',
-          phases: Stubs::Phases.default(visited),
+          phases: Phases.default(visited),
         }
       end
 
@@ -7344,7 +7344,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Phases')
         visited = visited + ['Phases']
         [
-          Stubs::Phase.default(visited)
+          Phase.default(visited)
         ]
       end
 
@@ -7385,7 +7385,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           labeling_job_status: 'labeling_job_status',
-          label_counters: Stubs::LabelCounters.default(visited),
+          label_counters: LabelCounters.default(visited),
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
@@ -7393,15 +7393,15 @@ module AWS::SDK::SageMaker
           labeling_job_name: 'labeling_job_name',
           labeling_job_arn: 'labeling_job_arn',
           label_attribute_name: 'label_attribute_name',
-          input_config: Stubs::LabelingJobInputConfig.default(visited),
-          output_config: Stubs::LabelingJobOutputConfig.default(visited),
+          input_config: LabelingJobInputConfig.default(visited),
+          output_config: LabelingJobOutputConfig.default(visited),
           role_arn: 'role_arn',
           label_category_config_s3_uri: 'label_category_config_s3_uri',
-          stopping_conditions: Stubs::LabelingJobStoppingConditions.default(visited),
-          labeling_job_algorithms_config: Stubs::LabelingJobAlgorithmsConfig.default(visited),
-          human_task_config: Stubs::HumanTaskConfig.default(visited),
-          tags: Stubs::TagList.default(visited),
-          labeling_job_output: Stubs::LabelingJobOutput.default(visited),
+          stopping_conditions: LabelingJobStoppingConditions.default(visited),
+          labeling_job_algorithms_config: LabelingJobAlgorithmsConfig.default(visited),
+          human_task_config: HumanTaskConfig.default(visited),
+          tags: TagList.default(visited),
+          labeling_job_output: LabelingJobOutput.default(visited),
         }
       end
 
@@ -7457,17 +7457,17 @@ module AWS::SDK::SageMaker
         visited = visited + ['HumanTaskConfig']
         {
           workteam_arn: 'workteam_arn',
-          ui_config: Stubs::UiConfig.default(visited),
+          ui_config: UiConfig.default(visited),
           pre_human_task_lambda_arn: 'pre_human_task_lambda_arn',
-          task_keywords: Stubs::TaskKeywords.default(visited),
+          task_keywords: TaskKeywords.default(visited),
           task_title: 'task_title',
           task_description: 'task_description',
           number_of_human_workers_per_data_object: 1,
           task_time_limit_in_seconds: 1,
           task_availability_lifetime_in_seconds: 1,
           max_concurrent_task_count: 1,
-          annotation_consolidation_config: Stubs::AnnotationConsolidationConfig.default(visited),
-          public_workforce_task_price: Stubs::PublicWorkforceTaskPrice.default(visited),
+          annotation_consolidation_config: AnnotationConsolidationConfig.default(visited),
+          public_workforce_task_price: PublicWorkforceTaskPrice.default(visited),
         }
       end
 
@@ -7556,7 +7556,7 @@ module AWS::SDK::SageMaker
         {
           labeling_job_algorithm_specification_arn: 'labeling_job_algorithm_specification_arn',
           initial_active_learning_model_arn: 'initial_active_learning_model_arn',
-          labeling_job_resource_config: Stubs::LabelingJobResourceConfig.default(visited),
+          labeling_job_resource_config: LabelingJobResourceConfig.default(visited),
         }
       end
 
@@ -7636,8 +7636,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LabelingJobInputConfig')
         visited = visited + ['LabelingJobInputConfig']
         {
-          data_source: Stubs::LabelingJobDataSource.default(visited),
-          data_attributes: Stubs::LabelingJobDataAttributes.default(visited),
+          data_source: LabelingJobDataSource.default(visited),
+          data_attributes: LabelingJobDataAttributes.default(visited),
         }
       end
 
@@ -7656,7 +7656,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LabelingJobDataAttributes')
         visited = visited + ['LabelingJobDataAttributes']
         {
-          content_classifiers: Stubs::ContentClassifiers.default(visited),
+          content_classifiers: ContentClassifiers.default(visited),
         }
       end
 
@@ -7694,8 +7694,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LabelingJobDataSource')
         visited = visited + ['LabelingJobDataSource']
         {
-          s3_data_source: Stubs::LabelingJobS3DataSource.default(visited),
-          sns_data_source: Stubs::LabelingJobSnsDataSource.default(visited),
+          s3_data_source: LabelingJobS3DataSource.default(visited),
+          sns_data_source: LabelingJobSnsDataSource.default(visited),
         }
       end
 
@@ -7779,9 +7779,9 @@ module AWS::SDK::SageMaker
           display_name: 'display_name',
           description: 'description',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
         }
       end
 
@@ -7805,11 +7805,11 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           model_name: 'model_name',
-          primary_container: Stubs::ContainerDefinition.default(visited),
-          containers: Stubs::ContainerDefinitionList.default(visited),
-          inference_execution_config: Stubs::InferenceExecutionConfig.default(visited),
+          primary_container: ContainerDefinition.default(visited),
+          containers: ContainerDefinitionList.default(visited),
+          inference_execution_config: InferenceExecutionConfig.default(visited),
           execution_role_arn: 'execution_role_arn',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           creation_time: Time.now,
           model_arn: 'model_arn',
           enable_network_isolation: false,
@@ -7856,7 +7856,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ContainerDefinitionList')
         visited = visited + ['ContainerDefinitionList']
         [
-          Stubs::ContainerDefinition.default(visited)
+          ContainerDefinition.default(visited)
         ]
       end
 
@@ -7878,13 +7878,13 @@ module AWS::SDK::SageMaker
         {
           container_hostname: 'container_hostname',
           image: 'image',
-          image_config: Stubs::ImageConfig.default(visited),
+          image_config: ImageConfig.default(visited),
           mode: 'mode',
           model_data_url: 'model_data_url',
-          environment: Stubs::EnvironmentMap.default(visited),
+          environment: EnvironmentMap.default(visited),
           model_package_name: 'model_package_name',
           inference_specification_name: 'inference_specification_name',
-          multi_model_config: Stubs::MultiModelConfig.default(visited),
+          multi_model_config: MultiModelConfig.default(visited),
         }
       end
 
@@ -7929,7 +7929,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ImageConfig']
         {
           repository_access_mode: 'repository_access_mode',
-          repository_auth_config: Stubs::RepositoryAuthConfig.default(visited),
+          repository_auth_config: RepositoryAuthConfig.default(visited),
         }
       end
 
@@ -7967,14 +7967,14 @@ module AWS::SDK::SageMaker
           job_definition_arn: 'job_definition_arn',
           job_definition_name: 'job_definition_name',
           creation_time: Time.now,
-          model_bias_baseline_config: Stubs::ModelBiasBaselineConfig.default(visited),
-          model_bias_app_specification: Stubs::ModelBiasAppSpecification.default(visited),
-          model_bias_job_input: Stubs::ModelBiasJobInput.default(visited),
-          model_bias_job_output_config: Stubs::MonitoringOutputConfig.default(visited),
-          job_resources: Stubs::MonitoringResources.default(visited),
-          network_config: Stubs::MonitoringNetworkConfig.default(visited),
+          model_bias_baseline_config: ModelBiasBaselineConfig.default(visited),
+          model_bias_app_specification: ModelBiasAppSpecification.default(visited),
+          model_bias_job_input: ModelBiasJobInput.default(visited),
+          model_bias_job_output_config: MonitoringOutputConfig.default(visited),
+          job_resources: MonitoringResources.default(visited),
+          network_config: MonitoringNetworkConfig.default(visited),
           role_arn: 'role_arn',
-          stopping_condition: Stubs::MonitoringStoppingCondition.default(visited),
+          stopping_condition: MonitoringStoppingCondition.default(visited),
         }
       end
 
@@ -8002,8 +8002,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelBiasJobInput')
         visited = visited + ['ModelBiasJobInput']
         {
-          endpoint_input: Stubs::EndpointInput.default(visited),
-          ground_truth_s3_input: Stubs::MonitoringGroundTruthS3Input.default(visited),
+          endpoint_input: EndpointInput.default(visited),
+          ground_truth_s3_input: MonitoringGroundTruthS3Input.default(visited),
         }
       end
 
@@ -8042,7 +8042,7 @@ module AWS::SDK::SageMaker
         {
           image_uri: 'image_uri',
           config_uri: 'config_uri',
-          environment: Stubs::MonitoringEnvironmentMap.default(visited),
+          environment: MonitoringEnvironmentMap.default(visited),
         }
       end
 
@@ -8063,7 +8063,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelBiasBaselineConfig']
         {
           baselining_job_name: 'baselining_job_name',
-          constraints_resource: Stubs::MonitoringConstraintsResource.default(visited),
+          constraints_resource: MonitoringConstraintsResource.default(visited),
         }
       end
 
@@ -8083,14 +8083,14 @@ module AWS::SDK::SageMaker
           job_definition_arn: 'job_definition_arn',
           job_definition_name: 'job_definition_name',
           creation_time: Time.now,
-          model_explainability_baseline_config: Stubs::ModelExplainabilityBaselineConfig.default(visited),
-          model_explainability_app_specification: Stubs::ModelExplainabilityAppSpecification.default(visited),
-          model_explainability_job_input: Stubs::ModelExplainabilityJobInput.default(visited),
-          model_explainability_job_output_config: Stubs::MonitoringOutputConfig.default(visited),
-          job_resources: Stubs::MonitoringResources.default(visited),
-          network_config: Stubs::MonitoringNetworkConfig.default(visited),
+          model_explainability_baseline_config: ModelExplainabilityBaselineConfig.default(visited),
+          model_explainability_app_specification: ModelExplainabilityAppSpecification.default(visited),
+          model_explainability_job_input: ModelExplainabilityJobInput.default(visited),
+          model_explainability_job_output_config: MonitoringOutputConfig.default(visited),
+          job_resources: MonitoringResources.default(visited),
+          network_config: MonitoringNetworkConfig.default(visited),
           role_arn: 'role_arn',
-          stopping_condition: Stubs::MonitoringStoppingCondition.default(visited),
+          stopping_condition: MonitoringStoppingCondition.default(visited),
         }
       end
 
@@ -8118,7 +8118,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelExplainabilityJobInput')
         visited = visited + ['ModelExplainabilityJobInput']
         {
-          endpoint_input: Stubs::EndpointInput.default(visited),
+          endpoint_input: EndpointInput.default(visited),
         }
       end
 
@@ -8138,7 +8138,7 @@ module AWS::SDK::SageMaker
         {
           image_uri: 'image_uri',
           config_uri: 'config_uri',
-          environment: Stubs::MonitoringEnvironmentMap.default(visited),
+          environment: MonitoringEnvironmentMap.default(visited),
         }
       end
 
@@ -8159,7 +8159,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelExplainabilityBaselineConfig']
         {
           baselining_job_name: 'baselining_job_name',
-          constraints_resource: Stubs::MonitoringConstraintsResource.default(visited),
+          constraints_resource: MonitoringConstraintsResource.default(visited),
         }
       end
 
@@ -8182,25 +8182,25 @@ module AWS::SDK::SageMaker
           model_package_arn: 'model_package_arn',
           model_package_description: 'model_package_description',
           creation_time: Time.now,
-          inference_specification: Stubs::InferenceSpecification.default(visited),
-          source_algorithm_specification: Stubs::SourceAlgorithmSpecification.default(visited),
-          validation_specification: Stubs::ModelPackageValidationSpecification.default(visited),
+          inference_specification: InferenceSpecification.default(visited),
+          source_algorithm_specification: SourceAlgorithmSpecification.default(visited),
+          validation_specification: ModelPackageValidationSpecification.default(visited),
           model_package_status: 'model_package_status',
-          model_package_status_details: Stubs::ModelPackageStatusDetails.default(visited),
+          model_package_status_details: ModelPackageStatusDetails.default(visited),
           certify_for_marketplace: false,
           model_approval_status: 'model_approval_status',
-          created_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
-          model_metrics: Stubs::ModelMetrics.default(visited),
+          created_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
+          model_metrics: ModelMetrics.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
           approval_description: 'approval_description',
-          customer_metadata_properties: Stubs::CustomerMetadataMap.default(visited),
-          drift_check_baselines: Stubs::DriftCheckBaselines.default(visited),
+          customer_metadata_properties: CustomerMetadataMap.default(visited),
+          drift_check_baselines: DriftCheckBaselines.default(visited),
           domain: 'domain',
           task: 'task',
           sample_payload_url: 'sample_payload_url',
-          additional_inference_specifications: Stubs::AdditionalInferenceSpecifications.default(visited),
+          additional_inference_specifications: AdditionalInferenceSpecifications.default(visited),
         }
       end
 
@@ -8242,7 +8242,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AdditionalInferenceSpecifications')
         visited = visited + ['AdditionalInferenceSpecifications']
         [
-          Stubs::AdditionalInferenceSpecificationDefinition.default(visited)
+          AdditionalInferenceSpecificationDefinition.default(visited)
         ]
       end
 
@@ -8264,11 +8264,11 @@ module AWS::SDK::SageMaker
         {
           name: 'name',
           description: 'description',
-          containers: Stubs::ModelPackageContainerDefinitionList.default(visited),
-          supported_transform_instance_types: Stubs::TransformInstanceTypes.default(visited),
-          supported_realtime_inference_instance_types: Stubs::RealtimeInferenceInstanceTypes.default(visited),
-          supported_content_types: Stubs::ContentTypes.default(visited),
-          supported_response_mime_types: Stubs::ResponseMIMETypes.default(visited),
+          containers: ModelPackageContainerDefinitionList.default(visited),
+          supported_transform_instance_types: TransformInstanceTypes.default(visited),
+          supported_realtime_inference_instance_types: RealtimeInferenceInstanceTypes.default(visited),
+          supported_content_types: ContentTypes.default(visited),
+          supported_response_mime_types: ResponseMIMETypes.default(visited),
         }
       end
 
@@ -8292,10 +8292,10 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DriftCheckBaselines')
         visited = visited + ['DriftCheckBaselines']
         {
-          bias: Stubs::DriftCheckBias.default(visited),
-          explainability: Stubs::DriftCheckExplainability.default(visited),
-          model_quality: Stubs::DriftCheckModelQuality.default(visited),
-          model_data_quality: Stubs::DriftCheckModelDataQuality.default(visited),
+          bias: DriftCheckBias.default(visited),
+          explainability: DriftCheckExplainability.default(visited),
+          model_quality: DriftCheckModelQuality.default(visited),
+          model_data_quality: DriftCheckModelDataQuality.default(visited),
         }
       end
 
@@ -8316,8 +8316,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DriftCheckModelDataQuality')
         visited = visited + ['DriftCheckModelDataQuality']
         {
-          statistics: Stubs::MetricsSource.default(visited),
-          constraints: Stubs::MetricsSource.default(visited),
+          statistics: MetricsSource.default(visited),
+          constraints: MetricsSource.default(visited),
         }
       end
 
@@ -8358,8 +8358,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DriftCheckModelQuality')
         visited = visited + ['DriftCheckModelQuality']
         {
-          statistics: Stubs::MetricsSource.default(visited),
-          constraints: Stubs::MetricsSource.default(visited),
+          statistics: MetricsSource.default(visited),
+          constraints: MetricsSource.default(visited),
         }
       end
 
@@ -8378,8 +8378,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DriftCheckExplainability')
         visited = visited + ['DriftCheckExplainability']
         {
-          constraints: Stubs::MetricsSource.default(visited),
-          config_file: Stubs::FileSource.default(visited),
+          constraints: MetricsSource.default(visited),
+          config_file: FileSource.default(visited),
         }
       end
 
@@ -8420,9 +8420,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DriftCheckBias')
         visited = visited + ['DriftCheckBias']
         {
-          config_file: Stubs::FileSource.default(visited),
-          pre_training_constraints: Stubs::MetricsSource.default(visited),
-          post_training_constraints: Stubs::MetricsSource.default(visited),
+          config_file: FileSource.default(visited),
+          pre_training_constraints: MetricsSource.default(visited),
+          post_training_constraints: MetricsSource.default(visited),
         }
       end
 
@@ -8462,10 +8462,10 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelMetrics')
         visited = visited + ['ModelMetrics']
         {
-          model_quality: Stubs::ModelQuality.default(visited),
-          model_data_quality: Stubs::ModelDataQuality.default(visited),
-          bias: Stubs::Bias.default(visited),
-          explainability: Stubs::Explainability.default(visited),
+          model_quality: ModelQuality.default(visited),
+          model_data_quality: ModelDataQuality.default(visited),
+          bias: Bias.default(visited),
+          explainability: Explainability.default(visited),
         }
       end
 
@@ -8486,7 +8486,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Explainability')
         visited = visited + ['Explainability']
         {
-          report: Stubs::MetricsSource.default(visited),
+          report: MetricsSource.default(visited),
         }
       end
 
@@ -8504,9 +8504,9 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Bias')
         visited = visited + ['Bias']
         {
-          report: Stubs::MetricsSource.default(visited),
-          pre_training_report: Stubs::MetricsSource.default(visited),
-          post_training_report: Stubs::MetricsSource.default(visited),
+          report: MetricsSource.default(visited),
+          pre_training_report: MetricsSource.default(visited),
+          post_training_report: MetricsSource.default(visited),
         }
       end
 
@@ -8526,8 +8526,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelDataQuality')
         visited = visited + ['ModelDataQuality']
         {
-          statistics: Stubs::MetricsSource.default(visited),
-          constraints: Stubs::MetricsSource.default(visited),
+          statistics: MetricsSource.default(visited),
+          constraints: MetricsSource.default(visited),
         }
       end
 
@@ -8546,8 +8546,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelQuality')
         visited = visited + ['ModelQuality']
         {
-          statistics: Stubs::MetricsSource.default(visited),
-          constraints: Stubs::MetricsSource.default(visited),
+          statistics: MetricsSource.default(visited),
+          constraints: MetricsSource.default(visited),
         }
       end
 
@@ -8566,8 +8566,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageStatusDetails')
         visited = visited + ['ModelPackageStatusDetails']
         {
-          validation_statuses: Stubs::ModelPackageStatusItemList.default(visited),
-          image_scan_statuses: Stubs::ModelPackageStatusItemList.default(visited),
+          validation_statuses: ModelPackageStatusItemList.default(visited),
+          image_scan_statuses: ModelPackageStatusItemList.default(visited),
         }
       end
 
@@ -8586,7 +8586,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageStatusItemList')
         visited = visited + ['ModelPackageStatusItemList']
         [
-          Stubs::ModelPackageStatusItem.default(visited)
+          ModelPackageStatusItem.default(visited)
         ]
       end
 
@@ -8629,7 +8629,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelPackageValidationSpecification']
         {
           validation_role: 'validation_role',
-          validation_profiles: Stubs::ModelPackageValidationProfiles.default(visited),
+          validation_profiles: ModelPackageValidationProfiles.default(visited),
         }
       end
 
@@ -8648,7 +8648,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageValidationProfiles')
         visited = visited + ['ModelPackageValidationProfiles']
         [
-          Stubs::ModelPackageValidationProfile.default(visited)
+          ModelPackageValidationProfile.default(visited)
         ]
       end
 
@@ -8669,7 +8669,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelPackageValidationProfile']
         {
           profile_name: 'profile_name',
-          transform_job_definition: Stubs::TransformJobDefinition.default(visited),
+          transform_job_definition: TransformJobDefinition.default(visited),
         }
       end
 
@@ -8688,7 +8688,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SourceAlgorithmSpecification')
         visited = visited + ['SourceAlgorithmSpecification']
         {
-          source_algorithms: Stubs::SourceAlgorithmList.default(visited),
+          source_algorithms: SourceAlgorithmList.default(visited),
         }
       end
 
@@ -8706,7 +8706,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SourceAlgorithmList')
         visited = visited + ['SourceAlgorithmList']
         [
-          Stubs::SourceAlgorithm.default(visited)
+          SourceAlgorithm.default(visited)
         ]
       end
 
@@ -8748,7 +8748,7 @@ module AWS::SDK::SageMaker
           model_package_group_arn: 'model_package_group_arn',
           model_package_group_description: 'model_package_group_description',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           model_package_group_status: 'model_package_group_status',
         }
       end
@@ -8773,14 +8773,14 @@ module AWS::SDK::SageMaker
           job_definition_arn: 'job_definition_arn',
           job_definition_name: 'job_definition_name',
           creation_time: Time.now,
-          model_quality_baseline_config: Stubs::ModelQualityBaselineConfig.default(visited),
-          model_quality_app_specification: Stubs::ModelQualityAppSpecification.default(visited),
-          model_quality_job_input: Stubs::ModelQualityJobInput.default(visited),
-          model_quality_job_output_config: Stubs::MonitoringOutputConfig.default(visited),
-          job_resources: Stubs::MonitoringResources.default(visited),
-          network_config: Stubs::MonitoringNetworkConfig.default(visited),
+          model_quality_baseline_config: ModelQualityBaselineConfig.default(visited),
+          model_quality_app_specification: ModelQualityAppSpecification.default(visited),
+          model_quality_job_input: ModelQualityJobInput.default(visited),
+          model_quality_job_output_config: MonitoringOutputConfig.default(visited),
+          job_resources: MonitoringResources.default(visited),
+          network_config: MonitoringNetworkConfig.default(visited),
           role_arn: 'role_arn',
-          stopping_condition: Stubs::MonitoringStoppingCondition.default(visited),
+          stopping_condition: MonitoringStoppingCondition.default(visited),
         }
       end
 
@@ -8808,8 +8808,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelQualityJobInput')
         visited = visited + ['ModelQualityJobInput']
         {
-          endpoint_input: Stubs::EndpointInput.default(visited),
-          ground_truth_s3_input: Stubs::MonitoringGroundTruthS3Input.default(visited),
+          endpoint_input: EndpointInput.default(visited),
+          ground_truth_s3_input: MonitoringGroundTruthS3Input.default(visited),
         }
       end
 
@@ -8829,12 +8829,12 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelQualityAppSpecification']
         {
           image_uri: 'image_uri',
-          container_entrypoint: Stubs::ContainerEntrypoint.default(visited),
-          container_arguments: Stubs::MonitoringContainerArguments.default(visited),
+          container_entrypoint: ContainerEntrypoint.default(visited),
+          container_arguments: MonitoringContainerArguments.default(visited),
           record_preprocessor_source_uri: 'record_preprocessor_source_uri',
           post_analytics_processor_source_uri: 'post_analytics_processor_source_uri',
           problem_type: 'problem_type',
-          environment: Stubs::MonitoringEnvironmentMap.default(visited),
+          environment: MonitoringEnvironmentMap.default(visited),
         }
       end
 
@@ -8859,7 +8859,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['ModelQualityBaselineConfig']
         {
           baselining_job_name: 'baselining_job_name',
-          constraints_resource: Stubs::MonitoringConstraintsResource.default(visited),
+          constraints_resource: MonitoringConstraintsResource.default(visited),
         }
       end
 
@@ -8883,9 +8883,9 @@ module AWS::SDK::SageMaker
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          monitoring_schedule_config: Stubs::MonitoringScheduleConfig.default(visited),
+          monitoring_schedule_config: MonitoringScheduleConfig.default(visited),
           endpoint_name: 'endpoint_name',
-          last_monitoring_execution_summary: Stubs::MonitoringExecutionSummary.default(visited),
+          last_monitoring_execution_summary: MonitoringExecutionSummary.default(visited),
         }
       end
 
@@ -8948,8 +8948,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringScheduleConfig')
         visited = visited + ['MonitoringScheduleConfig']
         {
-          schedule_config: Stubs::ScheduleConfig.default(visited),
-          monitoring_job_definition: Stubs::MonitoringJobDefinition.default(visited),
+          schedule_config: ScheduleConfig.default(visited),
+          monitoring_job_definition: MonitoringJobDefinition.default(visited),
           monitoring_job_definition_name: 'monitoring_job_definition_name',
           monitoring_type: 'monitoring_type',
         }
@@ -8972,14 +8972,14 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringJobDefinition')
         visited = visited + ['MonitoringJobDefinition']
         {
-          baseline_config: Stubs::MonitoringBaselineConfig.default(visited),
-          monitoring_inputs: Stubs::MonitoringInputs.default(visited),
-          monitoring_output_config: Stubs::MonitoringOutputConfig.default(visited),
-          monitoring_resources: Stubs::MonitoringResources.default(visited),
-          monitoring_app_specification: Stubs::MonitoringAppSpecification.default(visited),
-          stopping_condition: Stubs::MonitoringStoppingCondition.default(visited),
-          environment: Stubs::MonitoringEnvironmentMap.default(visited),
-          network_config: Stubs::NetworkConfig.default(visited),
+          baseline_config: MonitoringBaselineConfig.default(visited),
+          monitoring_inputs: MonitoringInputs.default(visited),
+          monitoring_output_config: MonitoringOutputConfig.default(visited),
+          monitoring_resources: MonitoringResources.default(visited),
+          monitoring_app_specification: MonitoringAppSpecification.default(visited),
+          stopping_condition: MonitoringStoppingCondition.default(visited),
+          environment: MonitoringEnvironmentMap.default(visited),
+          network_config: NetworkConfig.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -9008,7 +9008,7 @@ module AWS::SDK::SageMaker
         {
           enable_inter_container_traffic_encryption: false,
           enable_network_isolation: false,
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -9029,8 +9029,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['MonitoringAppSpecification']
         {
           image_uri: 'image_uri',
-          container_entrypoint: Stubs::ContainerEntrypoint.default(visited),
-          container_arguments: Stubs::MonitoringContainerArguments.default(visited),
+          container_entrypoint: ContainerEntrypoint.default(visited),
+          container_arguments: MonitoringContainerArguments.default(visited),
           record_preprocessor_source_uri: 'record_preprocessor_source_uri',
           post_analytics_processor_source_uri: 'post_analytics_processor_source_uri',
         }
@@ -9054,7 +9054,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringInputs')
         visited = visited + ['MonitoringInputs']
         [
-          Stubs::MonitoringInput.default(visited)
+          MonitoringInput.default(visited)
         ]
       end
 
@@ -9074,7 +9074,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringInput')
         visited = visited + ['MonitoringInput']
         {
-          endpoint_input: Stubs::EndpointInput.default(visited),
+          endpoint_input: EndpointInput.default(visited),
         }
       end
 
@@ -9093,8 +9093,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['MonitoringBaselineConfig']
         {
           baselining_job_name: 'baselining_job_name',
-          constraints_resource: Stubs::MonitoringConstraintsResource.default(visited),
-          statistics_resource: Stubs::MonitoringStatisticsResource.default(visited),
+          constraints_resource: MonitoringConstraintsResource.default(visited),
+          statistics_resource: MonitoringStatisticsResource.default(visited),
         }
       end
 
@@ -9137,7 +9137,7 @@ module AWS::SDK::SageMaker
           url: 'url',
           instance_type: 'instance_type',
           subnet_id: 'subnet_id',
-          security_groups: Stubs::SecurityGroupIds.default(visited),
+          security_groups: SecurityGroupIds.default(visited),
           role_arn: 'role_arn',
           kms_key_id: 'kms_key_id',
           network_interface_id: 'network_interface_id',
@@ -9146,12 +9146,12 @@ module AWS::SDK::SageMaker
           notebook_instance_lifecycle_config_name: 'notebook_instance_lifecycle_config_name',
           direct_internet_access: 'direct_internet_access',
           volume_size_in_gb: 1,
-          accelerator_types: Stubs::NotebookInstanceAcceleratorTypes.default(visited),
+          accelerator_types: NotebookInstanceAcceleratorTypes.default(visited),
           default_code_repository: 'default_code_repository',
-          additional_code_repositories: Stubs::AdditionalCodeRepositoryNamesOrUrls.default(visited),
+          additional_code_repositories: AdditionalCodeRepositoryNamesOrUrls.default(visited),
           root_access: 'root_access',
           platform_identifier: 'platform_identifier',
-          instance_metadata_service_configuration: Stubs::InstanceMetadataServiceConfiguration.default(visited),
+          instance_metadata_service_configuration: InstanceMetadataServiceConfiguration.default(visited),
         }
       end
 
@@ -9248,8 +9248,8 @@ module AWS::SDK::SageMaker
         {
           notebook_instance_lifecycle_config_arn: 'notebook_instance_lifecycle_config_arn',
           notebook_instance_lifecycle_config_name: 'notebook_instance_lifecycle_config_name',
-          on_create: Stubs::NotebookInstanceLifecycleConfigList.default(visited),
-          on_start: Stubs::NotebookInstanceLifecycleConfigList.default(visited),
+          on_create: NotebookInstanceLifecycleConfigList.default(visited),
+          on_start: NotebookInstanceLifecycleConfigList.default(visited),
           last_modified_time: Time.now,
           creation_time: Time.now,
         }
@@ -9274,7 +9274,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('NotebookInstanceLifecycleConfigList')
         visited = visited + ['NotebookInstanceLifecycleConfigList']
         [
-          Stubs::NotebookInstanceLifecycleHook.default(visited)
+          NotebookInstanceLifecycleHook.default(visited)
         ]
       end
 
@@ -9320,9 +9320,9 @@ module AWS::SDK::SageMaker
           creation_time: Time.now,
           last_modified_time: Time.now,
           last_run_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
-          last_modified_by: Stubs::UserContext.default(visited),
-          parallelism_configuration: Stubs::ParallelismConfiguration.default(visited),
+          created_by: UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parallelism_configuration: ParallelismConfiguration.default(visited),
         }
       end
 
@@ -9391,13 +9391,13 @@ module AWS::SDK::SageMaker
           pipeline_execution_display_name: 'pipeline_execution_display_name',
           pipeline_execution_status: 'pipeline_execution_status',
           pipeline_execution_description: 'pipeline_execution_description',
-          pipeline_experiment_config: Stubs::PipelineExperimentConfig.default(visited),
+          pipeline_experiment_config: PipelineExperimentConfig.default(visited),
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
-          last_modified_by: Stubs::UserContext.default(visited),
-          parallelism_configuration: Stubs::ParallelismConfiguration.default(visited),
+          created_by: UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parallelism_configuration: ParallelismConfiguration.default(visited),
         }
       end
 
@@ -9444,16 +9444,16 @@ module AWS::SDK::SageMaker
     class DescribeProcessingJob
       def self.default(visited=[])
         {
-          processing_inputs: Stubs::ProcessingInputs.default(visited),
-          processing_output_config: Stubs::ProcessingOutputConfig.default(visited),
+          processing_inputs: ProcessingInputs.default(visited),
+          processing_output_config: ProcessingOutputConfig.default(visited),
           processing_job_name: 'processing_job_name',
-          processing_resources: Stubs::ProcessingResources.default(visited),
-          stopping_condition: Stubs::ProcessingStoppingCondition.default(visited),
-          app_specification: Stubs::AppSpecification.default(visited),
-          environment: Stubs::ProcessingEnvironmentMap.default(visited),
-          network_config: Stubs::NetworkConfig.default(visited),
+          processing_resources: ProcessingResources.default(visited),
+          stopping_condition: ProcessingStoppingCondition.default(visited),
+          app_specification: AppSpecification.default(visited),
+          environment: ProcessingEnvironmentMap.default(visited),
+          network_config: NetworkConfig.default(visited),
           role_arn: 'role_arn',
-          experiment_config: Stubs::ExperimentConfig.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
           processing_job_arn: 'processing_job_arn',
           processing_job_status: 'processing_job_status',
           exit_message: 'exit_message',
@@ -9545,8 +9545,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['AppSpecification']
         {
           image_uri: 'image_uri',
-          container_entrypoint: Stubs::ContainerEntrypoint.default(visited),
-          container_arguments: Stubs::ContainerArguments.default(visited),
+          container_entrypoint: ContainerEntrypoint.default(visited),
+          container_arguments: ContainerArguments.default(visited),
         }
       end
 
@@ -9604,7 +9604,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingResources')
         visited = visited + ['ProcessingResources']
         {
-          cluster_config: Stubs::ProcessingClusterConfig.default(visited),
+          cluster_config: ProcessingClusterConfig.default(visited),
         }
       end
 
@@ -9646,7 +9646,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingOutputConfig')
         visited = visited + ['ProcessingOutputConfig']
         {
-          outputs: Stubs::ProcessingOutputs.default(visited),
+          outputs: ProcessingOutputs.default(visited),
           kms_key_id: 'kms_key_id',
         }
       end
@@ -9666,7 +9666,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingOutputs')
         visited = visited + ['ProcessingOutputs']
         [
-          Stubs::ProcessingOutput.default(visited)
+          ProcessingOutput.default(visited)
         ]
       end
 
@@ -9687,8 +9687,8 @@ module AWS::SDK::SageMaker
         visited = visited + ['ProcessingOutput']
         {
           output_name: 'output_name',
-          s3_output: Stubs::ProcessingS3Output.default(visited),
-          feature_store_output: Stubs::ProcessingFeatureStoreOutput.default(visited),
+          s3_output: ProcessingS3Output.default(visited),
+          feature_store_output: ProcessingFeatureStoreOutput.default(visited),
           app_managed: false,
         }
       end
@@ -9750,7 +9750,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingInputs')
         visited = visited + ['ProcessingInputs']
         [
-          Stubs::ProcessingInput.default(visited)
+          ProcessingInput.default(visited)
         ]
       end
 
@@ -9772,8 +9772,8 @@ module AWS::SDK::SageMaker
         {
           input_name: 'input_name',
           app_managed: false,
-          s3_input: Stubs::ProcessingS3Input.default(visited),
-          dataset_definition: Stubs::DatasetDefinition.default(visited),
+          s3_input: ProcessingS3Input.default(visited),
+          dataset_definition: DatasetDefinition.default(visited),
         }
       end
 
@@ -9794,8 +9794,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DatasetDefinition')
         visited = visited + ['DatasetDefinition']
         {
-          athena_dataset_definition: Stubs::AthenaDatasetDefinition.default(visited),
-          redshift_dataset_definition: Stubs::RedshiftDatasetDefinition.default(visited),
+          athena_dataset_definition: AthenaDatasetDefinition.default(visited),
+          redshift_dataset_definition: RedshiftDatasetDefinition.default(visited),
           local_path: 'local_path',
           data_distribution_type: 'data_distribution_type',
           input_mode: 'input_mode',
@@ -9916,13 +9916,13 @@ module AWS::SDK::SageMaker
           project_name: 'project_name',
           project_id: 'project_id',
           project_description: 'project_description',
-          service_catalog_provisioning_details: Stubs::ServiceCatalogProvisioningDetails.default(visited),
-          service_catalog_provisioned_product_details: Stubs::ServiceCatalogProvisionedProductDetails.default(visited),
+          service_catalog_provisioning_details: ServiceCatalogProvisioningDetails.default(visited),
+          service_catalog_provisioned_product_details: ServiceCatalogProvisionedProductDetails.default(visited),
           project_status: 'project_status',
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           creation_time: Time.now,
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
         }
       end
 
@@ -9973,7 +9973,7 @@ module AWS::SDK::SageMaker
           product_id: 'product_id',
           provisioning_artifact_id: 'provisioning_artifact_id',
           path_id: 'path_id',
-          provisioning_parameters: Stubs::ProvisioningParameters.default(visited),
+          provisioning_parameters: ProvisioningParameters.default(visited),
         }
       end
 
@@ -9994,7 +9994,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProvisioningParameters')
         visited = visited + ['ProvisioningParameters']
         [
-          Stubs::ProvisioningParameter.default(visited)
+          ProvisioningParameter.default(visited)
         ]
       end
 
@@ -10058,7 +10058,7 @@ module AWS::SDK::SageMaker
     class DescribeSubscribedWorkteam
       def self.default(visited=[])
         {
-          subscribed_workteam: Stubs::SubscribedWorkteam.default(visited),
+          subscribed_workteam: SubscribedWorkteam.default(visited),
         }
       end
 
@@ -10105,41 +10105,41 @@ module AWS::SDK::SageMaker
           tuning_job_arn: 'tuning_job_arn',
           labeling_job_arn: 'labeling_job_arn',
           auto_ml_job_arn: 'auto_ml_job_arn',
-          model_artifacts: Stubs::ModelArtifacts.default(visited),
+          model_artifacts: ModelArtifacts.default(visited),
           training_job_status: 'training_job_status',
           secondary_status: 'secondary_status',
           failure_reason: 'failure_reason',
-          hyper_parameters: Stubs::HyperParameters.default(visited),
-          algorithm_specification: Stubs::AlgorithmSpecification.default(visited),
+          hyper_parameters: HyperParameters.default(visited),
+          algorithm_specification: AlgorithmSpecification.default(visited),
           role_arn: 'role_arn',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
-          resource_config: Stubs::ResourceConfig.default(visited),
-          vpc_config: Stubs::VpcConfig.default(visited),
-          stopping_condition: Stubs::StoppingCondition.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
+          resource_config: ResourceConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
+          stopping_condition: StoppingCondition.default(visited),
           creation_time: Time.now,
           training_start_time: Time.now,
           training_end_time: Time.now,
           last_modified_time: Time.now,
-          secondary_status_transitions: Stubs::SecondaryStatusTransitions.default(visited),
-          final_metric_data_list: Stubs::FinalMetricDataList.default(visited),
+          secondary_status_transitions: SecondaryStatusTransitions.default(visited),
+          final_metric_data_list: FinalMetricDataList.default(visited),
           enable_network_isolation: false,
           enable_inter_container_traffic_encryption: false,
           enable_managed_spot_training: false,
-          checkpoint_config: Stubs::CheckpointConfig.default(visited),
+          checkpoint_config: CheckpointConfig.default(visited),
           training_time_in_seconds: 1,
           billable_time_in_seconds: 1,
-          debug_hook_config: Stubs::DebugHookConfig.default(visited),
-          experiment_config: Stubs::ExperimentConfig.default(visited),
-          debug_rule_configurations: Stubs::DebugRuleConfigurations.default(visited),
-          tensor_board_output_config: Stubs::TensorBoardOutputConfig.default(visited),
-          debug_rule_evaluation_statuses: Stubs::DebugRuleEvaluationStatuses.default(visited),
-          profiler_config: Stubs::ProfilerConfig.default(visited),
-          profiler_rule_configurations: Stubs::ProfilerRuleConfigurations.default(visited),
-          profiler_rule_evaluation_statuses: Stubs::ProfilerRuleEvaluationStatuses.default(visited),
+          debug_hook_config: DebugHookConfig.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
+          debug_rule_configurations: DebugRuleConfigurations.default(visited),
+          tensor_board_output_config: TensorBoardOutputConfig.default(visited),
+          debug_rule_evaluation_statuses: DebugRuleEvaluationStatuses.default(visited),
+          profiler_config: ProfilerConfig.default(visited),
+          profiler_rule_configurations: ProfilerRuleConfigurations.default(visited),
+          profiler_rule_evaluation_statuses: ProfilerRuleEvaluationStatuses.default(visited),
           profiling_status: 'profiling_status',
-          retry_strategy: Stubs::RetryStrategy.default(visited),
-          environment: Stubs::TrainingEnvironmentMap.default(visited),
+          retry_strategy: RetryStrategy.default(visited),
+          environment: TrainingEnvironmentMap.default(visited),
         }
       end
 
@@ -10216,7 +10216,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProfilerRuleEvaluationStatuses')
         visited = visited + ['ProfilerRuleEvaluationStatuses']
         [
-          Stubs::ProfilerRuleEvaluationStatus.default(visited)
+          ProfilerRuleEvaluationStatus.default(visited)
         ]
       end
 
@@ -10262,7 +10262,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProfilerRuleConfigurations')
         visited = visited + ['ProfilerRuleConfigurations']
         [
-          Stubs::ProfilerRuleConfiguration.default(visited)
+          ProfilerRuleConfiguration.default(visited)
         ]
       end
 
@@ -10288,7 +10288,7 @@ module AWS::SDK::SageMaker
           rule_evaluator_image: 'rule_evaluator_image',
           instance_type: 'instance_type',
           volume_size_in_gb: 1,
-          rule_parameters: Stubs::RuleParameters.default(visited),
+          rule_parameters: RuleParameters.default(visited),
         }
       end
 
@@ -10334,7 +10334,7 @@ module AWS::SDK::SageMaker
         {
           s3_output_path: 's3_output_path',
           profiling_interval_in_milliseconds: 1,
-          profiling_parameters: Stubs::ProfilingParameters.default(visited),
+          profiling_parameters: ProfilingParameters.default(visited),
         }
       end
 
@@ -10374,7 +10374,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DebugRuleEvaluationStatuses')
         visited = visited + ['DebugRuleEvaluationStatuses']
         [
-          Stubs::DebugRuleEvaluationStatus.default(visited)
+          DebugRuleEvaluationStatus.default(visited)
         ]
       end
 
@@ -10440,7 +10440,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DebugRuleConfigurations')
         visited = visited + ['DebugRuleConfigurations']
         [
-          Stubs::DebugRuleConfiguration.default(visited)
+          DebugRuleConfiguration.default(visited)
         ]
       end
 
@@ -10466,7 +10466,7 @@ module AWS::SDK::SageMaker
           rule_evaluator_image: 'rule_evaluator_image',
           instance_type: 'instance_type',
           volume_size_in_gb: 1,
-          rule_parameters: Stubs::RuleParameters.default(visited),
+          rule_parameters: RuleParameters.default(visited),
         }
       end
 
@@ -10492,8 +10492,8 @@ module AWS::SDK::SageMaker
         {
           local_path: 'local_path',
           s3_output_path: 's3_output_path',
-          hook_parameters: Stubs::HookParameters.default(visited),
-          collection_configurations: Stubs::CollectionConfigurations.default(visited),
+          hook_parameters: HookParameters.default(visited),
+          collection_configurations: CollectionConfigurations.default(visited),
         }
       end
 
@@ -10514,7 +10514,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CollectionConfigurations')
         visited = visited + ['CollectionConfigurations']
         [
-          Stubs::CollectionConfiguration.default(visited)
+          CollectionConfiguration.default(visited)
         ]
       end
 
@@ -10535,7 +10535,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['CollectionConfiguration']
         {
           collection_name: 'collection_name',
-          collection_parameters: Stubs::CollectionParameters.default(visited),
+          collection_parameters: CollectionParameters.default(visited),
         }
       end
 
@@ -10594,7 +10594,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('FinalMetricDataList')
         visited = visited + ['FinalMetricDataList']
         [
-          Stubs::MetricData.default(visited)
+          MetricData.default(visited)
         ]
       end
 
@@ -10636,7 +10636,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SecondaryStatusTransitions')
         visited = visited + ['SecondaryStatusTransitions']
         [
-          Stubs::SecondaryStatusTransition.default(visited)
+          SecondaryStatusTransition.default(visited)
         ]
       end
 
@@ -10683,7 +10683,7 @@ module AWS::SDK::SageMaker
           training_image: 'training_image',
           algorithm_name: 'algorithm_name',
           training_input_mode: 'training_input_mode',
-          metric_definitions: Stubs::MetricDefinitionList.default(visited),
+          metric_definitions: MetricDefinitionList.default(visited),
           enable_sage_maker_metrics_time_series: false,
         }
       end
@@ -10710,20 +10710,20 @@ module AWS::SDK::SageMaker
           failure_reason: 'failure_reason',
           model_name: 'model_name',
           max_concurrent_transforms: 1,
-          model_client_config: Stubs::ModelClientConfig.default(visited),
+          model_client_config: ModelClientConfig.default(visited),
           max_payload_in_mb: 1,
           batch_strategy: 'batch_strategy',
-          environment: Stubs::TransformEnvironmentMap.default(visited),
-          transform_input: Stubs::TransformInput.default(visited),
-          transform_output: Stubs::TransformOutput.default(visited),
-          transform_resources: Stubs::TransformResources.default(visited),
+          environment: TransformEnvironmentMap.default(visited),
+          transform_input: TransformInput.default(visited),
+          transform_output: TransformOutput.default(visited),
+          transform_resources: TransformResources.default(visited),
           creation_time: Time.now,
           transform_start_time: Time.now,
           transform_end_time: Time.now,
           labeling_job_arn: 'labeling_job_arn',
           auto_ml_job_arn: 'auto_ml_job_arn',
-          data_processing: Stubs::DataProcessing.default(visited),
-          experiment_config: Stubs::ExperimentConfig.default(visited),
+          data_processing: DataProcessing.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
         }
       end
 
@@ -10804,12 +10804,12 @@ module AWS::SDK::SageMaker
           trial_arn: 'trial_arn',
           display_name: 'display_name',
           experiment_name: 'experiment_name',
-          source: Stubs::TrialSource.default(visited),
+          source: TrialSource.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
+          last_modified_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
         }
       end
 
@@ -10857,19 +10857,19 @@ module AWS::SDK::SageMaker
           trial_component_name: 'trial_component_name',
           trial_component_arn: 'trial_component_arn',
           display_name: 'display_name',
-          source: Stubs::TrialComponentSource.default(visited),
-          status: Stubs::TrialComponentStatus.default(visited),
+          source: TrialComponentSource.default(visited),
+          status: TrialComponentStatus.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          parameters: Stubs::TrialComponentParameters.default(visited),
-          input_artifacts: Stubs::TrialComponentArtifacts.default(visited),
-          output_artifacts: Stubs::TrialComponentArtifacts.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
-          metrics: Stubs::TrialComponentMetricSummaries.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parameters: TrialComponentParameters.default(visited),
+          input_artifacts: TrialComponentArtifacts.default(visited),
+          output_artifacts: TrialComponentArtifacts.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
+          metrics: TrialComponentMetricSummaries.default(visited),
           lineage_group_arn: 'lineage_group_arn',
         }
       end
@@ -10904,7 +10904,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialComponentMetricSummaries')
         visited = visited + ['TrialComponentMetricSummaries']
         [
-          Stubs::TrialComponentMetricSummary.default(visited)
+          TrialComponentMetricSummary.default(visited)
         ]
       end
 
@@ -10958,7 +10958,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialComponentArtifacts')
         visited = visited + ['TrialComponentArtifacts']
         {
-          test_key: Stubs::TrialComponentArtifact.default(visited)
+          test_key: TrialComponentArtifact.default(visited)
         }
       end
 
@@ -10998,7 +10998,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialComponentParameters')
         visited = visited + ['TrialComponentParameters']
         {
-          test_key: Stubs::TrialComponentParameterValue.default(visited)
+          test_key: TrialComponentParameterValue.default(visited)
         }
       end
 
@@ -11092,7 +11092,7 @@ module AWS::SDK::SageMaker
           failure_reason: 'failure_reason',
           single_sign_on_user_identifier: 'single_sign_on_user_identifier',
           single_sign_on_user_value: 'single_sign_on_user_value',
-          user_settings: Stubs::UserSettings.default(visited),
+          user_settings: UserSettings.default(visited),
         }
       end
 
@@ -11118,7 +11118,7 @@ module AWS::SDK::SageMaker
     class DescribeWorkforce
       def self.default(visited=[])
         {
-          workforce: Stubs::Workforce.default(visited),
+          workforce: Workforce.default(visited),
         }
       end
 
@@ -11139,10 +11139,10 @@ module AWS::SDK::SageMaker
           workforce_name: 'workforce_name',
           workforce_arn: 'workforce_arn',
           last_updated_date: Time.now,
-          source_ip_config: Stubs::SourceIpConfig.default(visited),
+          source_ip_config: SourceIpConfig.default(visited),
           sub_domain: 'sub_domain',
-          cognito_config: Stubs::CognitoConfig.default(visited),
-          oidc_config: Stubs::OidcConfigForResponse.default(visited),
+          cognito_config: CognitoConfig.default(visited),
+          oidc_config: OidcConfigForResponse.default(visited),
           create_date: Time.now,
         }
       end
@@ -11218,7 +11218,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SourceIpConfig')
         visited = visited + ['SourceIpConfig']
         {
-          cidrs: Stubs::Cidrs.default(visited),
+          cidrs: Cidrs.default(visited),
         }
       end
 
@@ -11254,7 +11254,7 @@ module AWS::SDK::SageMaker
     class DescribeWorkteam
       def self.default(visited=[])
         {
-          workteam: Stubs::Workteam.default(visited),
+          workteam: Workteam.default(visited),
         }
       end
 
@@ -11273,15 +11273,15 @@ module AWS::SDK::SageMaker
         visited = visited + ['Workteam']
         {
           workteam_name: 'workteam_name',
-          member_definitions: Stubs::MemberDefinitions.default(visited),
+          member_definitions: MemberDefinitions.default(visited),
           workteam_arn: 'workteam_arn',
           workforce_arn: 'workforce_arn',
-          product_listing_ids: Stubs::ProductListings.default(visited),
+          product_listing_ids: ProductListings.default(visited),
           description: 'description',
           sub_domain: 'sub_domain',
           create_date: Time.now,
           last_updated_date: Time.now,
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
         }
       end
 
@@ -11346,7 +11346,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MemberDefinitions')
         visited = visited + ['MemberDefinitions']
         [
-          Stubs::MemberDefinition.default(visited)
+          MemberDefinition.default(visited)
         ]
       end
 
@@ -11366,8 +11366,8 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MemberDefinition')
         visited = visited + ['MemberDefinition']
         {
-          cognito_member_definition: Stubs::CognitoMemberDefinition.default(visited),
-          oidc_member_definition: Stubs::OidcMemberDefinition.default(visited),
+          cognito_member_definition: CognitoMemberDefinition.default(visited),
+          oidc_member_definition: OidcMemberDefinition.default(visited),
         }
       end
 
@@ -11386,7 +11386,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('OidcMemberDefinition')
         visited = visited + ['OidcMemberDefinition']
         {
-          groups: Stubs::Groups.default(visited),
+          groups: Groups.default(visited),
         }
       end
 
@@ -11492,12 +11492,12 @@ module AWS::SDK::SageMaker
         {
           device_fleet_arn: 'device_fleet_arn',
           device_fleet_name: 'device_fleet_name',
-          output_config: Stubs::EdgeOutputConfig.default(visited),
+          output_config: EdgeOutputConfig.default(visited),
           description: 'description',
           report_generated: Time.now,
-          device_stats: Stubs::DeviceStats.default(visited),
-          agent_versions: Stubs::AgentVersions.default(visited),
-          model_stats: Stubs::EdgeModelStats.default(visited),
+          device_stats: DeviceStats.default(visited),
+          agent_versions: AgentVersions.default(visited),
+          model_stats: EdgeModelStats.default(visited),
         }
       end
 
@@ -11522,7 +11522,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EdgeModelStats')
         visited = visited + ['EdgeModelStats']
         [
-          Stubs::EdgeModelStat.default(visited)
+          EdgeModelStat.default(visited)
         ]
       end
 
@@ -11570,7 +11570,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AgentVersions')
         visited = visited + ['AgentVersions']
         [
-          Stubs::AgentVersion.default(visited)
+          AgentVersion.default(visited)
         ]
       end
 
@@ -11678,7 +11678,7 @@ module AWS::SDK::SageMaker
     class GetSearchSuggestions
       def self.default(visited=[])
         {
-          property_name_suggestions: Stubs::PropertyNameSuggestionList.default(visited),
+          property_name_suggestions: PropertyNameSuggestionList.default(visited),
         }
       end
 
@@ -11696,7 +11696,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PropertyNameSuggestionList')
         visited = visited + ['PropertyNameSuggestionList']
         [
-          Stubs::PropertyNameSuggestion.default(visited)
+          PropertyNameSuggestion.default(visited)
         ]
       end
 
@@ -11732,7 +11732,7 @@ module AWS::SDK::SageMaker
     class ListActions
       def self.default(visited=[])
         {
-          action_summaries: Stubs::ActionSummaries.default(visited),
+          action_summaries: ActionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11752,7 +11752,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ActionSummaries')
         visited = visited + ['ActionSummaries']
         [
-          Stubs::ActionSummary.default(visited)
+          ActionSummary.default(visited)
         ]
       end
 
@@ -11774,7 +11774,7 @@ module AWS::SDK::SageMaker
         {
           action_arn: 'action_arn',
           action_name: 'action_name',
-          source: Stubs::ActionSource.default(visited),
+          source: ActionSource.default(visited),
           action_type: 'action_type',
           status: 'status',
           creation_time: Time.now,
@@ -11800,7 +11800,7 @@ module AWS::SDK::SageMaker
     class ListAlgorithms
       def self.default(visited=[])
         {
-          algorithm_summary_list: Stubs::AlgorithmSummaryList.default(visited),
+          algorithm_summary_list: AlgorithmSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11820,7 +11820,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AlgorithmSummaryList')
         visited = visited + ['AlgorithmSummaryList']
         [
-          Stubs::AlgorithmSummary.default(visited)
+          AlgorithmSummary.default(visited)
         ]
       end
 
@@ -11865,7 +11865,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          app_image_configs: Stubs::AppImageConfigList.default(visited),
+          app_image_configs: AppImageConfigList.default(visited),
         }
       end
 
@@ -11884,7 +11884,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AppImageConfigList')
         visited = visited + ['AppImageConfigList']
         [
-          Stubs::AppImageConfigDetails.default(visited)
+          AppImageConfigDetails.default(visited)
         ]
       end
 
@@ -11908,7 +11908,7 @@ module AWS::SDK::SageMaker
           app_image_config_name: 'app_image_config_name',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          kernel_gateway_image_config: Stubs::KernelGatewayImageConfig.default(visited),
+          kernel_gateway_image_config: KernelGatewayImageConfig.default(visited),
         }
       end
 
@@ -11928,7 +11928,7 @@ module AWS::SDK::SageMaker
     class ListApps
       def self.default(visited=[])
         {
-          apps: Stubs::AppList.default(visited),
+          apps: AppList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11948,7 +11948,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AppList')
         visited = visited + ['AppList']
         [
-          Stubs::AppDetails.default(visited)
+          AppDetails.default(visited)
         ]
       end
 
@@ -11994,7 +11994,7 @@ module AWS::SDK::SageMaker
     class ListArtifacts
       def self.default(visited=[])
         {
-          artifact_summaries: Stubs::ArtifactSummaries.default(visited),
+          artifact_summaries: ArtifactSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12014,7 +12014,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ArtifactSummaries')
         visited = visited + ['ArtifactSummaries']
         [
-          Stubs::ArtifactSummary.default(visited)
+          ArtifactSummary.default(visited)
         ]
       end
 
@@ -12036,7 +12036,7 @@ module AWS::SDK::SageMaker
         {
           artifact_arn: 'artifact_arn',
           artifact_name: 'artifact_name',
-          source: Stubs::ArtifactSource.default(visited),
+          source: ArtifactSource.default(visited),
           artifact_type: 'artifact_type',
           creation_time: Time.now,
           last_modified_time: Time.now,
@@ -12060,7 +12060,7 @@ module AWS::SDK::SageMaker
     class ListAssociations
       def self.default(visited=[])
         {
-          association_summaries: Stubs::AssociationSummaries.default(visited),
+          association_summaries: AssociationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12080,7 +12080,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AssociationSummaries')
         visited = visited + ['AssociationSummaries']
         [
-          Stubs::AssociationSummary.default(visited)
+          AssociationSummary.default(visited)
         ]
       end
 
@@ -12108,7 +12108,7 @@ module AWS::SDK::SageMaker
           source_name: 'source_name',
           destination_name: 'destination_name',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
         }
       end
 
@@ -12132,7 +12132,7 @@ module AWS::SDK::SageMaker
     class ListAutoMLJobs
       def self.default(visited=[])
         {
-          auto_ml_job_summaries: Stubs::AutoMLJobSummaries.default(visited),
+          auto_ml_job_summaries: AutoMLJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12152,7 +12152,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLJobSummaries')
         visited = visited + ['AutoMLJobSummaries']
         [
-          Stubs::AutoMLJobSummary.default(visited)
+          AutoMLJobSummary.default(visited)
         ]
       end
 
@@ -12180,7 +12180,7 @@ module AWS::SDK::SageMaker
           end_time: Time.now,
           last_modified_time: Time.now,
           failure_reason: 'failure_reason',
-          partial_failure_reasons: Stubs::AutoMLPartialFailureReasons.default(visited),
+          partial_failure_reasons: AutoMLPartialFailureReasons.default(visited),
         }
       end
 
@@ -12204,7 +12204,7 @@ module AWS::SDK::SageMaker
     class ListCandidatesForAutoMLJob
       def self.default(visited=[])
         {
-          candidates: Stubs::AutoMLCandidates.default(visited),
+          candidates: AutoMLCandidates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12224,7 +12224,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('AutoMLCandidates')
         visited = visited + ['AutoMLCandidates']
         [
-          Stubs::AutoMLCandidate.default(visited)
+          AutoMLCandidate.default(visited)
         ]
       end
 
@@ -12242,7 +12242,7 @@ module AWS::SDK::SageMaker
     class ListCodeRepositories
       def self.default(visited=[])
         {
-          code_repository_summary_list: Stubs::CodeRepositorySummaryList.default(visited),
+          code_repository_summary_list: CodeRepositorySummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12262,7 +12262,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CodeRepositorySummaryList')
         visited = visited + ['CodeRepositorySummaryList']
         [
-          Stubs::CodeRepositorySummary.default(visited)
+          CodeRepositorySummary.default(visited)
         ]
       end
 
@@ -12286,7 +12286,7 @@ module AWS::SDK::SageMaker
           code_repository_arn: 'code_repository_arn',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          git_config: Stubs::GitConfig.default(visited),
+          git_config: GitConfig.default(visited),
         }
       end
 
@@ -12306,7 +12306,7 @@ module AWS::SDK::SageMaker
     class ListCompilationJobs
       def self.default(visited=[])
         {
-          compilation_job_summaries: Stubs::CompilationJobSummaries.default(visited),
+          compilation_job_summaries: CompilationJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12326,7 +12326,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('CompilationJobSummaries')
         visited = visited + ['CompilationJobSummaries']
         [
-          Stubs::CompilationJobSummary.default(visited)
+          CompilationJobSummary.default(visited)
         ]
       end
 
@@ -12382,7 +12382,7 @@ module AWS::SDK::SageMaker
     class ListContexts
       def self.default(visited=[])
         {
-          context_summaries: Stubs::ContextSummaries.default(visited),
+          context_summaries: ContextSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12402,7 +12402,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ContextSummaries')
         visited = visited + ['ContextSummaries']
         [
-          Stubs::ContextSummary.default(visited)
+          ContextSummary.default(visited)
         ]
       end
 
@@ -12424,7 +12424,7 @@ module AWS::SDK::SageMaker
         {
           context_arn: 'context_arn',
           context_name: 'context_name',
-          source: Stubs::ContextSource.default(visited),
+          source: ContextSource.default(visited),
           context_type: 'context_type',
           creation_time: Time.now,
           last_modified_time: Time.now,
@@ -12448,7 +12448,7 @@ module AWS::SDK::SageMaker
     class ListDataQualityJobDefinitions
       def self.default(visited=[])
         {
-          job_definition_summaries: Stubs::MonitoringJobDefinitionSummaryList.default(visited),
+          job_definition_summaries: MonitoringJobDefinitionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12468,7 +12468,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringJobDefinitionSummaryList')
         visited = visited + ['MonitoringJobDefinitionSummaryList']
         [
-          Stubs::MonitoringJobDefinitionSummary.default(visited)
+          MonitoringJobDefinitionSummary.default(visited)
         ]
       end
 
@@ -12510,7 +12510,7 @@ module AWS::SDK::SageMaker
     class ListDeviceFleets
       def self.default(visited=[])
         {
-          device_fleet_summaries: Stubs::DeviceFleetSummaries.default(visited),
+          device_fleet_summaries: DeviceFleetSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12530,7 +12530,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DeviceFleetSummaries')
         visited = visited + ['DeviceFleetSummaries']
         [
-          Stubs::DeviceFleetSummary.default(visited)
+          DeviceFleetSummary.default(visited)
         ]
       end
 
@@ -12572,7 +12572,7 @@ module AWS::SDK::SageMaker
     class ListDevices
       def self.default(visited=[])
         {
-          device_summaries: Stubs::DeviceSummaries.default(visited),
+          device_summaries: DeviceSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12592,7 +12592,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DeviceSummaries')
         visited = visited + ['DeviceSummaries']
         [
-          Stubs::DeviceSummary.default(visited)
+          DeviceSummary.default(visited)
         ]
       end
 
@@ -12619,7 +12619,7 @@ module AWS::SDK::SageMaker
           iot_thing_name: 'iot_thing_name',
           registration_time: Time.now,
           latest_heartbeat: Time.now,
-          models: Stubs::EdgeModelSummaries.default(visited),
+          models: EdgeModelSummaries.default(visited),
           agent_version: 'agent_version',
         }
       end
@@ -12646,7 +12646,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EdgeModelSummaries')
         visited = visited + ['EdgeModelSummaries']
         [
-          Stubs::EdgeModelSummary.default(visited)
+          EdgeModelSummary.default(visited)
         ]
       end
 
@@ -12684,7 +12684,7 @@ module AWS::SDK::SageMaker
     class ListDomains
       def self.default(visited=[])
         {
-          domains: Stubs::DomainList.default(visited),
+          domains: DomainList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12704,7 +12704,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('DomainList')
         visited = visited + ['DomainList']
         [
-          Stubs::DomainDetails.default(visited)
+          DomainDetails.default(visited)
         ]
       end
 
@@ -12752,7 +12752,7 @@ module AWS::SDK::SageMaker
     class ListEdgePackagingJobs
       def self.default(visited=[])
         {
-          edge_packaging_job_summaries: Stubs::EdgePackagingJobSummaries.default(visited),
+          edge_packaging_job_summaries: EdgePackagingJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12772,7 +12772,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EdgePackagingJobSummaries')
         visited = visited + ['EdgePackagingJobSummaries']
         [
-          Stubs::EdgePackagingJobSummary.default(visited)
+          EdgePackagingJobSummary.default(visited)
         ]
       end
 
@@ -12822,7 +12822,7 @@ module AWS::SDK::SageMaker
     class ListEndpointConfigs
       def self.default(visited=[])
         {
-          endpoint_configs: Stubs::EndpointConfigSummaryList.default(visited),
+          endpoint_configs: EndpointConfigSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12842,7 +12842,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EndpointConfigSummaryList')
         visited = visited + ['EndpointConfigSummaryList']
         [
-          Stubs::EndpointConfigSummary.default(visited)
+          EndpointConfigSummary.default(visited)
         ]
       end
 
@@ -12882,7 +12882,7 @@ module AWS::SDK::SageMaker
     class ListEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::EndpointSummaryList.default(visited),
+          endpoints: EndpointSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12902,7 +12902,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('EndpointSummaryList')
         visited = visited + ['EndpointSummaryList']
         [
-          Stubs::EndpointSummary.default(visited)
+          EndpointSummary.default(visited)
         ]
       end
 
@@ -12946,7 +12946,7 @@ module AWS::SDK::SageMaker
     class ListExperiments
       def self.default(visited=[])
         {
-          experiment_summaries: Stubs::ExperimentSummaries.default(visited),
+          experiment_summaries: ExperimentSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12966,7 +12966,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ExperimentSummaries')
         visited = visited + ['ExperimentSummaries']
         [
-          Stubs::ExperimentSummary.default(visited)
+          ExperimentSummary.default(visited)
         ]
       end
 
@@ -12989,7 +12989,7 @@ module AWS::SDK::SageMaker
           experiment_arn: 'experiment_arn',
           experiment_name: 'experiment_name',
           display_name: 'display_name',
-          experiment_source: Stubs::ExperimentSource.default(visited),
+          experiment_source: ExperimentSource.default(visited),
           creation_time: Time.now,
           last_modified_time: Time.now,
         }
@@ -13012,7 +13012,7 @@ module AWS::SDK::SageMaker
     class ListFeatureGroups
       def self.default(visited=[])
         {
-          feature_group_summaries: Stubs::FeatureGroupSummaries.default(visited),
+          feature_group_summaries: FeatureGroupSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13032,7 +13032,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('FeatureGroupSummaries')
         visited = visited + ['FeatureGroupSummaries']
         [
-          Stubs::FeatureGroupSummary.default(visited)
+          FeatureGroupSummary.default(visited)
         ]
       end
 
@@ -13056,7 +13056,7 @@ module AWS::SDK::SageMaker
           feature_group_arn: 'feature_group_arn',
           creation_time: Time.now,
           feature_group_status: 'feature_group_status',
-          offline_store_status: Stubs::OfflineStoreStatus.default(visited),
+          offline_store_status: OfflineStoreStatus.default(visited),
         }
       end
 
@@ -13076,7 +13076,7 @@ module AWS::SDK::SageMaker
     class ListFlowDefinitions
       def self.default(visited=[])
         {
-          flow_definition_summaries: Stubs::FlowDefinitionSummaries.default(visited),
+          flow_definition_summaries: FlowDefinitionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13096,7 +13096,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('FlowDefinitionSummaries')
         visited = visited + ['FlowDefinitionSummaries']
         [
-          Stubs::FlowDefinitionSummary.default(visited)
+          FlowDefinitionSummary.default(visited)
         ]
       end
 
@@ -13140,7 +13140,7 @@ module AWS::SDK::SageMaker
     class ListHumanTaskUis
       def self.default(visited=[])
         {
-          human_task_ui_summaries: Stubs::HumanTaskUiSummaries.default(visited),
+          human_task_ui_summaries: HumanTaskUiSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13160,7 +13160,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HumanTaskUiSummaries')
         visited = visited + ['HumanTaskUiSummaries']
         [
-          Stubs::HumanTaskUiSummary.default(visited)
+          HumanTaskUiSummary.default(visited)
         ]
       end
 
@@ -13200,7 +13200,7 @@ module AWS::SDK::SageMaker
     class ListHyperParameterTuningJobs
       def self.default(visited=[])
         {
-          hyper_parameter_tuning_job_summaries: Stubs::HyperParameterTuningJobSummaries.default(visited),
+          hyper_parameter_tuning_job_summaries: HyperParameterTuningJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13220,7 +13220,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterTuningJobSummaries')
         visited = visited + ['HyperParameterTuningJobSummaries']
         [
-          Stubs::HyperParameterTuningJobSummary.default(visited)
+          HyperParameterTuningJobSummary.default(visited)
         ]
       end
 
@@ -13247,9 +13247,9 @@ module AWS::SDK::SageMaker
           creation_time: Time.now,
           hyper_parameter_tuning_end_time: Time.now,
           last_modified_time: Time.now,
-          training_job_status_counters: Stubs::TrainingJobStatusCounters.default(visited),
-          objective_status_counters: Stubs::ObjectiveStatusCounters.default(visited),
-          resource_limits: Stubs::ResourceLimits.default(visited),
+          training_job_status_counters: TrainingJobStatusCounters.default(visited),
+          objective_status_counters: ObjectiveStatusCounters.default(visited),
+          resource_limits: ResourceLimits.default(visited),
         }
       end
 
@@ -13274,7 +13274,7 @@ module AWS::SDK::SageMaker
     class ListImageVersions
       def self.default(visited=[])
         {
-          image_versions: Stubs::ImageVersions.default(visited),
+          image_versions: ImageVersions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13294,7 +13294,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ImageVersions')
         visited = visited + ['ImageVersions']
         [
-          Stubs::ImageVersion.default(visited)
+          ImageVersion.default(visited)
         ]
       end
 
@@ -13342,7 +13342,7 @@ module AWS::SDK::SageMaker
     class ListImages
       def self.default(visited=[])
         {
-          images: Stubs::Images.default(visited),
+          images: Images.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13362,7 +13362,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Images')
         visited = visited + ['Images']
         [
-          Stubs::Image.default(visited)
+          Image.default(visited)
         ]
       end
 
@@ -13412,7 +13412,7 @@ module AWS::SDK::SageMaker
     class ListInferenceRecommendationsJobs
       def self.default(visited=[])
         {
-          inference_recommendations_jobs: Stubs::InferenceRecommendationsJobs.default(visited),
+          inference_recommendations_jobs: InferenceRecommendationsJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13432,7 +13432,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('InferenceRecommendationsJobs')
         visited = visited + ['InferenceRecommendationsJobs']
         [
-          Stubs::InferenceRecommendationsJob.default(visited)
+          InferenceRecommendationsJob.default(visited)
         ]
       end
 
@@ -13486,7 +13486,7 @@ module AWS::SDK::SageMaker
     class ListLabelingJobs
       def self.default(visited=[])
         {
-          labeling_job_summary_list: Stubs::LabelingJobSummaryList.default(visited),
+          labeling_job_summary_list: LabelingJobSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13506,7 +13506,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LabelingJobSummaryList')
         visited = visited + ['LabelingJobSummaryList']
         [
-          Stubs::LabelingJobSummary.default(visited)
+          LabelingJobSummary.default(visited)
         ]
       end
 
@@ -13531,13 +13531,13 @@ module AWS::SDK::SageMaker
           creation_time: Time.now,
           last_modified_time: Time.now,
           labeling_job_status: 'labeling_job_status',
-          label_counters: Stubs::LabelCounters.default(visited),
+          label_counters: LabelCounters.default(visited),
           workteam_arn: 'workteam_arn',
           pre_human_task_lambda_arn: 'pre_human_task_lambda_arn',
           annotation_consolidation_lambda_arn: 'annotation_consolidation_lambda_arn',
           failure_reason: 'failure_reason',
-          labeling_job_output: Stubs::LabelingJobOutput.default(visited),
-          input_config: Stubs::LabelingJobInputConfig.default(visited),
+          labeling_job_output: LabelingJobOutput.default(visited),
+          input_config: LabelingJobInputConfig.default(visited),
         }
       end
 
@@ -13564,7 +13564,7 @@ module AWS::SDK::SageMaker
     class ListLabelingJobsForWorkteam
       def self.default(visited=[])
         {
-          labeling_job_summary_list: Stubs::LabelingJobForWorkteamSummaryList.default(visited),
+          labeling_job_summary_list: LabelingJobForWorkteamSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13584,7 +13584,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LabelingJobForWorkteamSummaryList')
         visited = visited + ['LabelingJobForWorkteamSummaryList']
         [
-          Stubs::LabelingJobForWorkteamSummary.default(visited)
+          LabelingJobForWorkteamSummary.default(visited)
         ]
       end
 
@@ -13608,7 +13608,7 @@ module AWS::SDK::SageMaker
           job_reference_code: 'job_reference_code',
           work_requester_account_id: 'work_requester_account_id',
           creation_time: Time.now,
-          label_counters: Stubs::LabelCountersForWorkteam.default(visited),
+          label_counters: LabelCountersForWorkteam.default(visited),
           number_of_human_workers_per_data_object: 1,
         }
       end
@@ -13652,7 +13652,7 @@ module AWS::SDK::SageMaker
     class ListLineageGroups
       def self.default(visited=[])
         {
-          lineage_group_summaries: Stubs::LineageGroupSummaries.default(visited),
+          lineage_group_summaries: LineageGroupSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13672,7 +13672,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('LineageGroupSummaries')
         visited = visited + ['LineageGroupSummaries']
         [
-          Stubs::LineageGroupSummary.default(visited)
+          LineageGroupSummary.default(visited)
         ]
       end
 
@@ -13716,7 +13716,7 @@ module AWS::SDK::SageMaker
     class ListModelBiasJobDefinitions
       def self.default(visited=[])
         {
-          job_definition_summaries: Stubs::MonitoringJobDefinitionSummaryList.default(visited),
+          job_definition_summaries: MonitoringJobDefinitionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13734,7 +13734,7 @@ module AWS::SDK::SageMaker
     class ListModelExplainabilityJobDefinitions
       def self.default(visited=[])
         {
-          job_definition_summaries: Stubs::MonitoringJobDefinitionSummaryList.default(visited),
+          job_definition_summaries: MonitoringJobDefinitionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13752,7 +13752,7 @@ module AWS::SDK::SageMaker
     class ListModelMetadata
       def self.default(visited=[])
         {
-          model_metadata_summaries: Stubs::ModelMetadataSummaries.default(visited),
+          model_metadata_summaries: ModelMetadataSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13772,7 +13772,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelMetadataSummaries')
         visited = visited + ['ModelMetadataSummaries']
         [
-          Stubs::ModelMetadataSummary.default(visited)
+          ModelMetadataSummary.default(visited)
         ]
       end
 
@@ -13816,7 +13816,7 @@ module AWS::SDK::SageMaker
     class ListModelPackageGroups
       def self.default(visited=[])
         {
-          model_package_group_summary_list: Stubs::ModelPackageGroupSummaryList.default(visited),
+          model_package_group_summary_list: ModelPackageGroupSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13836,7 +13836,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageGroupSummaryList')
         visited = visited + ['ModelPackageGroupSummaryList']
         [
-          Stubs::ModelPackageGroupSummary.default(visited)
+          ModelPackageGroupSummary.default(visited)
         ]
       end
 
@@ -13880,7 +13880,7 @@ module AWS::SDK::SageMaker
     class ListModelPackages
       def self.default(visited=[])
         {
-          model_package_summary_list: Stubs::ModelPackageSummaryList.default(visited),
+          model_package_summary_list: ModelPackageSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13900,7 +13900,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelPackageSummaryList')
         visited = visited + ['ModelPackageSummaryList']
         [
-          Stubs::ModelPackageSummary.default(visited)
+          ModelPackageSummary.default(visited)
         ]
       end
 
@@ -13950,7 +13950,7 @@ module AWS::SDK::SageMaker
     class ListModelQualityJobDefinitions
       def self.default(visited=[])
         {
-          job_definition_summaries: Stubs::MonitoringJobDefinitionSummaryList.default(visited),
+          job_definition_summaries: MonitoringJobDefinitionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13968,7 +13968,7 @@ module AWS::SDK::SageMaker
     class ListModels
       def self.default(visited=[])
         {
-          models: Stubs::ModelSummaryList.default(visited),
+          models: ModelSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13988,7 +13988,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ModelSummaryList')
         visited = visited + ['ModelSummaryList']
         [
-          Stubs::ModelSummary.default(visited)
+          ModelSummary.default(visited)
         ]
       end
 
@@ -14028,7 +14028,7 @@ module AWS::SDK::SageMaker
     class ListMonitoringExecutions
       def self.default(visited=[])
         {
-          monitoring_execution_summaries: Stubs::MonitoringExecutionSummaryList.default(visited),
+          monitoring_execution_summaries: MonitoringExecutionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14048,7 +14048,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringExecutionSummaryList')
         visited = visited + ['MonitoringExecutionSummaryList']
         [
-          Stubs::MonitoringExecutionSummary.default(visited)
+          MonitoringExecutionSummary.default(visited)
         ]
       end
 
@@ -14066,7 +14066,7 @@ module AWS::SDK::SageMaker
     class ListMonitoringSchedules
       def self.default(visited=[])
         {
-          monitoring_schedule_summaries: Stubs::MonitoringScheduleSummaryList.default(visited),
+          monitoring_schedule_summaries: MonitoringScheduleSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14086,7 +14086,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringScheduleSummaryList')
         visited = visited + ['MonitoringScheduleSummaryList']
         [
-          Stubs::MonitoringScheduleSummary.default(visited)
+          MonitoringScheduleSummary.default(visited)
         ]
       end
 
@@ -14137,7 +14137,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          notebook_instance_lifecycle_configs: Stubs::NotebookInstanceLifecycleConfigSummaryList.default(visited),
+          notebook_instance_lifecycle_configs: NotebookInstanceLifecycleConfigSummaryList.default(visited),
         }
       end
 
@@ -14156,7 +14156,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('NotebookInstanceLifecycleConfigSummaryList')
         visited = visited + ['NotebookInstanceLifecycleConfigSummaryList']
         [
-          Stubs::NotebookInstanceLifecycleConfigSummary.default(visited)
+          NotebookInstanceLifecycleConfigSummary.default(visited)
         ]
       end
 
@@ -14199,7 +14199,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          notebook_instances: Stubs::NotebookInstanceSummaryList.default(visited),
+          notebook_instances: NotebookInstanceSummaryList.default(visited),
         }
       end
 
@@ -14218,7 +14218,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('NotebookInstanceSummaryList')
         visited = visited + ['NotebookInstanceSummaryList']
         [
-          Stubs::NotebookInstanceSummary.default(visited)
+          NotebookInstanceSummary.default(visited)
         ]
       end
 
@@ -14247,7 +14247,7 @@ module AWS::SDK::SageMaker
           last_modified_time: Time.now,
           notebook_instance_lifecycle_config_name: 'notebook_instance_lifecycle_config_name',
           default_code_repository: 'default_code_repository',
-          additional_code_repositories: Stubs::AdditionalCodeRepositoryNamesOrUrls.default(visited),
+          additional_code_repositories: AdditionalCodeRepositoryNamesOrUrls.default(visited),
         }
       end
 
@@ -14272,7 +14272,7 @@ module AWS::SDK::SageMaker
     class ListPipelineExecutionSteps
       def self.default(visited=[])
         {
-          pipeline_execution_steps: Stubs::PipelineExecutionStepList.default(visited),
+          pipeline_execution_steps: PipelineExecutionStepList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14292,7 +14292,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PipelineExecutionStepList')
         visited = visited + ['PipelineExecutionStepList']
         [
-          Stubs::PipelineExecutionStep.default(visited)
+          PipelineExecutionStep.default(visited)
         ]
       end
 
@@ -14318,10 +14318,10 @@ module AWS::SDK::SageMaker
           start_time: Time.now,
           end_time: Time.now,
           step_status: 'step_status',
-          cache_hit_result: Stubs::CacheHitResult.default(visited),
+          cache_hit_result: CacheHitResult.default(visited),
           attempt_count: 1,
           failure_reason: 'failure_reason',
-          metadata: Stubs::PipelineExecutionStepMetadata.default(visited),
+          metadata: PipelineExecutionStepMetadata.default(visited),
         }
       end
 
@@ -14348,19 +14348,19 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PipelineExecutionStepMetadata')
         visited = visited + ['PipelineExecutionStepMetadata']
         {
-          training_job: Stubs::TrainingJobStepMetadata.default(visited),
-          processing_job: Stubs::ProcessingJobStepMetadata.default(visited),
-          transform_job: Stubs::TransformJobStepMetadata.default(visited),
-          tuning_job: Stubs::TuningJobStepMetaData.default(visited),
-          model: Stubs::ModelStepMetadata.default(visited),
-          register_model: Stubs::RegisterModelStepMetadata.default(visited),
-          condition: Stubs::ConditionStepMetadata.default(visited),
-          callback: Stubs::CallbackStepMetadata.default(visited),
-          lambda: Stubs::LambdaStepMetadata.default(visited),
-          quality_check: Stubs::QualityCheckStepMetadata.default(visited),
-          clarify_check: Stubs::ClarifyCheckStepMetadata.default(visited),
-          emr: Stubs::EMRStepMetadata.default(visited),
-          fail: Stubs::FailStepMetadata.default(visited),
+          training_job: TrainingJobStepMetadata.default(visited),
+          processing_job: ProcessingJobStepMetadata.default(visited),
+          transform_job: TransformJobStepMetadata.default(visited),
+          tuning_job: TuningJobStepMetaData.default(visited),
+          model: ModelStepMetadata.default(visited),
+          register_model: RegisterModelStepMetadata.default(visited),
+          condition: ConditionStepMetadata.default(visited),
+          callback: CallbackStepMetadata.default(visited),
+          lambda: LambdaStepMetadata.default(visited),
+          quality_check: QualityCheckStepMetadata.default(visited),
+          clarify_check: ClarifyCheckStepMetadata.default(visited),
+          emr: EMRStepMetadata.default(visited),
+          fail: FailStepMetadata.default(visited),
         }
       end
 
@@ -14501,7 +14501,7 @@ module AWS::SDK::SageMaker
         visited = visited + ['LambdaStepMetadata']
         {
           arn: 'arn',
-          output_parameters: Stubs::OutputParameterList.default(visited),
+          output_parameters: OutputParameterList.default(visited),
         }
       end
 
@@ -14520,7 +14520,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('OutputParameterList')
         visited = visited + ['OutputParameterList']
         [
-          Stubs::OutputParameter.default(visited)
+          OutputParameter.default(visited)
         ]
       end
 
@@ -14562,7 +14562,7 @@ module AWS::SDK::SageMaker
         {
           callback_token: 'callback_token',
           sqs_queue_url: 'sqs_queue_url',
-          output_parameters: Stubs::OutputParameterList.default(visited),
+          output_parameters: OutputParameterList.default(visited),
         }
       end
 
@@ -14724,7 +14724,7 @@ module AWS::SDK::SageMaker
     class ListPipelineExecutions
       def self.default(visited=[])
         {
-          pipeline_execution_summaries: Stubs::PipelineExecutionSummaryList.default(visited),
+          pipeline_execution_summaries: PipelineExecutionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14744,7 +14744,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PipelineExecutionSummaryList')
         visited = visited + ['PipelineExecutionSummaryList']
         [
-          Stubs::PipelineExecutionSummary.default(visited)
+          PipelineExecutionSummary.default(visited)
         ]
       end
 
@@ -14790,7 +14790,7 @@ module AWS::SDK::SageMaker
     class ListPipelineParametersForExecution
       def self.default(visited=[])
         {
-          pipeline_parameters: Stubs::ParameterList.default(visited),
+          pipeline_parameters: ParameterList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14810,7 +14810,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ParameterList')
         visited = visited + ['ParameterList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -14848,7 +14848,7 @@ module AWS::SDK::SageMaker
     class ListPipelines
       def self.default(visited=[])
         {
-          pipeline_summaries: Stubs::PipelineSummaryList.default(visited),
+          pipeline_summaries: PipelineSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14868,7 +14868,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('PipelineSummaryList')
         visited = visited + ['PipelineSummaryList']
         [
-          Stubs::PipelineSummary.default(visited)
+          PipelineSummary.default(visited)
         ]
       end
 
@@ -14918,7 +14918,7 @@ module AWS::SDK::SageMaker
     class ListProcessingJobs
       def self.default(visited=[])
         {
-          processing_job_summaries: Stubs::ProcessingJobSummaries.default(visited),
+          processing_job_summaries: ProcessingJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14938,7 +14938,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingJobSummaries')
         visited = visited + ['ProcessingJobSummaries']
         [
-          Stubs::ProcessingJobSummary.default(visited)
+          ProcessingJobSummary.default(visited)
         ]
       end
 
@@ -14988,7 +14988,7 @@ module AWS::SDK::SageMaker
     class ListProjects
       def self.default(visited=[])
         {
-          project_summary_list: Stubs::ProjectSummaryList.default(visited),
+          project_summary_list: ProjectSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15008,7 +15008,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProjectSummaryList')
         visited = visited + ['ProjectSummaryList']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -15055,7 +15055,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          studio_lifecycle_configs: Stubs::StudioLifecycleConfigsList.default(visited),
+          studio_lifecycle_configs: StudioLifecycleConfigsList.default(visited),
         }
       end
 
@@ -15074,7 +15074,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('StudioLifecycleConfigsList')
         visited = visited + ['StudioLifecycleConfigsList']
         [
-          Stubs::StudioLifecycleConfigDetails.default(visited)
+          StudioLifecycleConfigDetails.default(visited)
         ]
       end
 
@@ -15118,7 +15118,7 @@ module AWS::SDK::SageMaker
     class ListSubscribedWorkteams
       def self.default(visited=[])
         {
-          subscribed_workteams: Stubs::SubscribedWorkteams.default(visited),
+          subscribed_workteams: SubscribedWorkteams.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15138,7 +15138,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SubscribedWorkteams')
         visited = visited + ['SubscribedWorkteams']
         [
-          Stubs::SubscribedWorkteam.default(visited)
+          SubscribedWorkteam.default(visited)
         ]
       end
 
@@ -15156,7 +15156,7 @@ module AWS::SDK::SageMaker
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15174,7 +15174,7 @@ module AWS::SDK::SageMaker
     class ListTrainingJobs
       def self.default(visited=[])
         {
-          training_job_summaries: Stubs::TrainingJobSummaries.default(visited),
+          training_job_summaries: TrainingJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15194,7 +15194,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrainingJobSummaries')
         visited = visited + ['TrainingJobSummaries']
         [
-          Stubs::TrainingJobSummary.default(visited)
+          TrainingJobSummary.default(visited)
         ]
       end
 
@@ -15240,7 +15240,7 @@ module AWS::SDK::SageMaker
     class ListTrainingJobsForHyperParameterTuningJob
       def self.default(visited=[])
         {
-          training_job_summaries: Stubs::HyperParameterTrainingJobSummaries.default(visited),
+          training_job_summaries: HyperParameterTrainingJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15260,7 +15260,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('HyperParameterTrainingJobSummaries')
         visited = visited + ['HyperParameterTrainingJobSummaries']
         [
-          Stubs::HyperParameterTrainingJobSummary.default(visited)
+          HyperParameterTrainingJobSummary.default(visited)
         ]
       end
 
@@ -15278,7 +15278,7 @@ module AWS::SDK::SageMaker
     class ListTransformJobs
       def self.default(visited=[])
         {
-          transform_job_summaries: Stubs::TransformJobSummaries.default(visited),
+          transform_job_summaries: TransformJobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15298,7 +15298,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TransformJobSummaries')
         visited = visited + ['TransformJobSummaries']
         [
-          Stubs::TransformJobSummary.default(visited)
+          TransformJobSummary.default(visited)
         ]
       end
 
@@ -15346,7 +15346,7 @@ module AWS::SDK::SageMaker
     class ListTrialComponents
       def self.default(visited=[])
         {
-          trial_component_summaries: Stubs::TrialComponentSummaries.default(visited),
+          trial_component_summaries: TrialComponentSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15366,7 +15366,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialComponentSummaries')
         visited = visited + ['TrialComponentSummaries']
         [
-          Stubs::TrialComponentSummary.default(visited)
+          TrialComponentSummary.default(visited)
         ]
       end
 
@@ -15389,14 +15389,14 @@ module AWS::SDK::SageMaker
           trial_component_name: 'trial_component_name',
           trial_component_arn: 'trial_component_arn',
           display_name: 'display_name',
-          trial_component_source: Stubs::TrialComponentSource.default(visited),
-          status: Stubs::TrialComponentStatus.default(visited),
+          trial_component_source: TrialComponentSource.default(visited),
+          status: TrialComponentStatus.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
         }
       end
 
@@ -15422,7 +15422,7 @@ module AWS::SDK::SageMaker
     class ListTrials
       def self.default(visited=[])
         {
-          trial_summaries: Stubs::TrialSummaries.default(visited),
+          trial_summaries: TrialSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15442,7 +15442,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialSummaries')
         visited = visited + ['TrialSummaries']
         [
-          Stubs::TrialSummary.default(visited)
+          TrialSummary.default(visited)
         ]
       end
 
@@ -15465,7 +15465,7 @@ module AWS::SDK::SageMaker
           trial_arn: 'trial_arn',
           trial_name: 'trial_name',
           display_name: 'display_name',
-          trial_source: Stubs::TrialSource.default(visited),
+          trial_source: TrialSource.default(visited),
           creation_time: Time.now,
           last_modified_time: Time.now,
         }
@@ -15488,7 +15488,7 @@ module AWS::SDK::SageMaker
     class ListUserProfiles
       def self.default(visited=[])
         {
-          user_profiles: Stubs::UserProfileList.default(visited),
+          user_profiles: UserProfileList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15508,7 +15508,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('UserProfileList')
         visited = visited + ['UserProfileList']
         [
-          Stubs::UserProfileDetails.default(visited)
+          UserProfileDetails.default(visited)
         ]
       end
 
@@ -15552,7 +15552,7 @@ module AWS::SDK::SageMaker
     class ListWorkforces
       def self.default(visited=[])
         {
-          workforces: Stubs::Workforces.default(visited),
+          workforces: Workforces.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15572,7 +15572,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Workforces')
         visited = visited + ['Workforces']
         [
-          Stubs::Workforce.default(visited)
+          Workforce.default(visited)
         ]
       end
 
@@ -15590,7 +15590,7 @@ module AWS::SDK::SageMaker
     class ListWorkteams
       def self.default(visited=[])
         {
-          workteams: Stubs::Workteams.default(visited),
+          workteams: Workteams.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15610,7 +15610,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Workteams')
         visited = visited + ['Workteams']
         [
-          Stubs::Workteam.default(visited)
+          Workteam.default(visited)
         ]
       end
 
@@ -15644,8 +15644,8 @@ module AWS::SDK::SageMaker
     class QueryLineage
       def self.default(visited=[])
         {
-          vertices: Stubs::Vertices.default(visited),
-          edges: Stubs::Edges.default(visited),
+          vertices: Vertices.default(visited),
+          edges: Edges.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15666,7 +15666,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Edges')
         visited = visited + ['Edges']
         [
-          Stubs::Edge.default(visited)
+          Edge.default(visited)
         ]
       end
 
@@ -15708,7 +15708,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Vertices')
         visited = visited + ['Vertices']
         [
-          Stubs::Vertex.default(visited)
+          Vertex.default(visited)
         ]
       end
 
@@ -15763,7 +15763,7 @@ module AWS::SDK::SageMaker
       def self.default(visited=[])
         {
           rendered_content: 'rendered_content',
-          errors: Stubs::RenderingErrorList.default(visited),
+          errors: RenderingErrorList.default(visited),
         }
       end
 
@@ -15782,7 +15782,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('RenderingErrorList')
         visited = visited + ['RenderingErrorList']
         [
-          Stubs::RenderingError.default(visited)
+          RenderingError.default(visited)
         ]
       end
 
@@ -15836,7 +15836,7 @@ module AWS::SDK::SageMaker
     class Search
       def self.default(visited=[])
         {
-          results: Stubs::SearchResultsList.default(visited),
+          results: SearchResultsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15856,7 +15856,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SearchResultsList')
         visited = visited + ['SearchResultsList']
         [
-          Stubs::SearchRecord.default(visited)
+          SearchRecord.default(visited)
         ]
       end
 
@@ -15876,17 +15876,17 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('SearchRecord')
         visited = visited + ['SearchRecord']
         {
-          training_job: Stubs::TrainingJob.default(visited),
-          experiment: Stubs::Experiment.default(visited),
-          trial: Stubs::Trial.default(visited),
-          trial_component: Stubs::TrialComponent.default(visited),
-          endpoint: Stubs::Endpoint.default(visited),
-          model_package: Stubs::ModelPackage.default(visited),
-          model_package_group: Stubs::ModelPackageGroup.default(visited),
-          pipeline: Stubs::Pipeline.default(visited),
-          pipeline_execution: Stubs::PipelineExecution.default(visited),
-          feature_group: Stubs::FeatureGroup.default(visited),
-          project: Stubs::Project.default(visited),
+          training_job: TrainingJob.default(visited),
+          experiment: Experiment.default(visited),
+          trial: Trial.default(visited),
+          trial_component: TrialComponent.default(visited),
+          endpoint: Endpoint.default(visited),
+          model_package: ModelPackage.default(visited),
+          model_package_group: ModelPackageGroup.default(visited),
+          pipeline: Pipeline.default(visited),
+          pipeline_execution: PipelineExecution.default(visited),
+          feature_group: FeatureGroup.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -15918,14 +15918,14 @@ module AWS::SDK::SageMaker
           project_name: 'project_name',
           project_id: 'project_id',
           project_description: 'project_description',
-          service_catalog_provisioning_details: Stubs::ServiceCatalogProvisioningDetails.default(visited),
-          service_catalog_provisioned_product_details: Stubs::ServiceCatalogProvisionedProductDetails.default(visited),
+          service_catalog_provisioning_details: ServiceCatalogProvisioningDetails.default(visited),
+          service_catalog_provisioned_product_details: ServiceCatalogProvisionedProductDetails.default(visited),
           project_status: 'project_status',
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           creation_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
         }
       end
 
@@ -15958,16 +15958,16 @@ module AWS::SDK::SageMaker
           feature_group_name: 'feature_group_name',
           record_identifier_feature_name: 'record_identifier_feature_name',
           event_time_feature_name: 'event_time_feature_name',
-          feature_definitions: Stubs::FeatureDefinitions.default(visited),
+          feature_definitions: FeatureDefinitions.default(visited),
           creation_time: Time.now,
-          online_store_config: Stubs::OnlineStoreConfig.default(visited),
-          offline_store_config: Stubs::OfflineStoreConfig.default(visited),
+          online_store_config: OnlineStoreConfig.default(visited),
+          offline_store_config: OfflineStoreConfig.default(visited),
           role_arn: 'role_arn',
           feature_group_status: 'feature_group_status',
-          offline_store_status: Stubs::OfflineStoreStatus.default(visited),
+          offline_store_status: OfflineStoreStatus.default(visited),
           failure_reason: 'failure_reason',
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16003,14 +16003,14 @@ module AWS::SDK::SageMaker
           pipeline_execution_display_name: 'pipeline_execution_display_name',
           pipeline_execution_status: 'pipeline_execution_status',
           pipeline_execution_description: 'pipeline_execution_description',
-          pipeline_experiment_config: Stubs::PipelineExperimentConfig.default(visited),
+          pipeline_experiment_config: PipelineExperimentConfig.default(visited),
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
-          last_modified_by: Stubs::UserContext.default(visited),
-          parallelism_configuration: Stubs::ParallelismConfiguration.default(visited),
-          pipeline_parameters: Stubs::ParameterList.default(visited),
+          created_by: UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parallelism_configuration: ParallelismConfiguration.default(visited),
+          pipeline_parameters: ParameterList.default(visited),
         }
       end
 
@@ -16049,10 +16049,10 @@ module AWS::SDK::SageMaker
           creation_time: Time.now,
           last_modified_time: Time.now,
           last_run_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
-          last_modified_by: Stubs::UserContext.default(visited),
-          parallelism_configuration: Stubs::ParallelismConfiguration.default(visited),
-          tags: Stubs::TagList.default(visited),
+          created_by: UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parallelism_configuration: ParallelismConfiguration.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16086,9 +16086,9 @@ module AWS::SDK::SageMaker
           model_package_group_arn: 'model_package_group_arn',
           model_package_group_description: 'model_package_group_description',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           model_package_group_status: 'model_package_group_status',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16118,26 +16118,26 @@ module AWS::SDK::SageMaker
           model_package_arn: 'model_package_arn',
           model_package_description: 'model_package_description',
           creation_time: Time.now,
-          inference_specification: Stubs::InferenceSpecification.default(visited),
-          source_algorithm_specification: Stubs::SourceAlgorithmSpecification.default(visited),
-          validation_specification: Stubs::ModelPackageValidationSpecification.default(visited),
+          inference_specification: InferenceSpecification.default(visited),
+          source_algorithm_specification: SourceAlgorithmSpecification.default(visited),
+          validation_specification: ModelPackageValidationSpecification.default(visited),
           model_package_status: 'model_package_status',
-          model_package_status_details: Stubs::ModelPackageStatusDetails.default(visited),
+          model_package_status_details: ModelPackageStatusDetails.default(visited),
           certify_for_marketplace: false,
           model_approval_status: 'model_approval_status',
-          created_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
-          model_metrics: Stubs::ModelMetrics.default(visited),
+          created_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
+          model_metrics: ModelMetrics.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
+          last_modified_by: UserContext.default(visited),
           approval_description: 'approval_description',
           domain: 'domain',
           task: 'task',
           sample_payload_url: 'sample_payload_url',
-          additional_inference_specifications: Stubs::AdditionalInferenceSpecifications.default(visited),
-          tags: Stubs::TagList.default(visited),
-          customer_metadata_properties: Stubs::CustomerMetadataMap.default(visited),
-          drift_check_baselines: Stubs::DriftCheckBaselines.default(visited),
+          additional_inference_specifications: AdditionalInferenceSpecifications.default(visited),
+          tags: TagList.default(visited),
+          customer_metadata_properties: CustomerMetadataMap.default(visited),
+          drift_check_baselines: DriftCheckBaselines.default(visited),
         }
       end
 
@@ -16183,14 +16183,14 @@ module AWS::SDK::SageMaker
           endpoint_name: 'endpoint_name',
           endpoint_arn: 'endpoint_arn',
           endpoint_config_name: 'endpoint_config_name',
-          production_variants: Stubs::ProductionVariantSummaryList.default(visited),
-          data_capture_config: Stubs::DataCaptureConfigSummary.default(visited),
+          production_variants: ProductionVariantSummaryList.default(visited),
+          data_capture_config: DataCaptureConfigSummary.default(visited),
           endpoint_status: 'endpoint_status',
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          monitoring_schedules: Stubs::MonitoringScheduleList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          monitoring_schedules: MonitoringScheduleList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16218,7 +16218,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('MonitoringScheduleList')
         visited = visited + ['MonitoringScheduleList']
         [
-          Stubs::MonitoringSchedule.default(visited)
+          MonitoringSchedule.default(visited)
         ]
       end
 
@@ -16245,10 +16245,10 @@ module AWS::SDK::SageMaker
           failure_reason: 'failure_reason',
           creation_time: Time.now,
           last_modified_time: Time.now,
-          monitoring_schedule_config: Stubs::MonitoringScheduleConfig.default(visited),
+          monitoring_schedule_config: MonitoringScheduleConfig.default(visited),
           endpoint_name: 'endpoint_name',
-          last_monitoring_execution_summary: Stubs::MonitoringExecutionSummary.default(visited),
-          tags: Stubs::TagList.default(visited),
+          last_monitoring_execution_summary: MonitoringExecutionSummary.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16279,23 +16279,23 @@ module AWS::SDK::SageMaker
           trial_component_name: 'trial_component_name',
           display_name: 'display_name',
           trial_component_arn: 'trial_component_arn',
-          source: Stubs::TrialComponentSource.default(visited),
-          status: Stubs::TrialComponentStatus.default(visited),
+          source: TrialComponentSource.default(visited),
+          status: TrialComponentStatus.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          parameters: Stubs::TrialComponentParameters.default(visited),
-          input_artifacts: Stubs::TrialComponentArtifacts.default(visited),
-          output_artifacts: Stubs::TrialComponentArtifacts.default(visited),
-          metrics: Stubs::TrialComponentMetricSummaries.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
-          source_detail: Stubs::TrialComponentSourceDetail.default(visited),
+          last_modified_by: UserContext.default(visited),
+          parameters: TrialComponentParameters.default(visited),
+          input_artifacts: TrialComponentArtifacts.default(visited),
+          output_artifacts: TrialComponentArtifacts.default(visited),
+          metrics: TrialComponentMetricSummaries.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
+          source_detail: TrialComponentSourceDetail.default(visited),
           lineage_group_arn: 'lineage_group_arn',
-          tags: Stubs::TagList.default(visited),
-          parents: Stubs::Parents.default(visited),
+          tags: TagList.default(visited),
+          parents: Parents.default(visited),
         }
       end
 
@@ -16332,7 +16332,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('Parents')
         visited = visited + ['Parents']
         [
-          Stubs::Parent.default(visited)
+          Parent.default(visited)
         ]
       end
 
@@ -16373,9 +16373,9 @@ module AWS::SDK::SageMaker
         visited = visited + ['TrialComponentSourceDetail']
         {
           source_arn: 'source_arn',
-          training_job: Stubs::TrainingJob.default(visited),
-          processing_job: Stubs::ProcessingJob.default(visited),
-          transform_job: Stubs::TransformJob.default(visited),
+          training_job: TrainingJob.default(visited),
+          processing_job: ProcessingJob.default(visited),
+          transform_job: TransformJob.default(visited),
         }
       end
 
@@ -16402,21 +16402,21 @@ module AWS::SDK::SageMaker
           failure_reason: 'failure_reason',
           model_name: 'model_name',
           max_concurrent_transforms: 1,
-          model_client_config: Stubs::ModelClientConfig.default(visited),
+          model_client_config: ModelClientConfig.default(visited),
           max_payload_in_mb: 1,
           batch_strategy: 'batch_strategy',
-          environment: Stubs::TransformEnvironmentMap.default(visited),
-          transform_input: Stubs::TransformInput.default(visited),
-          transform_output: Stubs::TransformOutput.default(visited),
-          transform_resources: Stubs::TransformResources.default(visited),
+          environment: TransformEnvironmentMap.default(visited),
+          transform_input: TransformInput.default(visited),
+          transform_output: TransformOutput.default(visited),
+          transform_resources: TransformResources.default(visited),
           creation_time: Time.now,
           transform_start_time: Time.now,
           transform_end_time: Time.now,
           labeling_job_arn: 'labeling_job_arn',
           auto_ml_job_arn: 'auto_ml_job_arn',
-          data_processing: Stubs::DataProcessing.default(visited),
-          experiment_config: Stubs::ExperimentConfig.default(visited),
-          tags: Stubs::TagList.default(visited),
+          data_processing: DataProcessing.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16454,16 +16454,16 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('ProcessingJob')
         visited = visited + ['ProcessingJob']
         {
-          processing_inputs: Stubs::ProcessingInputs.default(visited),
-          processing_output_config: Stubs::ProcessingOutputConfig.default(visited),
+          processing_inputs: ProcessingInputs.default(visited),
+          processing_output_config: ProcessingOutputConfig.default(visited),
           processing_job_name: 'processing_job_name',
-          processing_resources: Stubs::ProcessingResources.default(visited),
-          stopping_condition: Stubs::ProcessingStoppingCondition.default(visited),
-          app_specification: Stubs::AppSpecification.default(visited),
-          environment: Stubs::ProcessingEnvironmentMap.default(visited),
-          network_config: Stubs::NetworkConfig.default(visited),
+          processing_resources: ProcessingResources.default(visited),
+          stopping_condition: ProcessingStoppingCondition.default(visited),
+          app_specification: AppSpecification.default(visited),
+          environment: ProcessingEnvironmentMap.default(visited),
+          network_config: NetworkConfig.default(visited),
           role_arn: 'role_arn',
-          experiment_config: Stubs::ExperimentConfig.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
           processing_job_arn: 'processing_job_arn',
           processing_job_status: 'processing_job_status',
           exit_message: 'exit_message',
@@ -16475,7 +16475,7 @@ module AWS::SDK::SageMaker
           monitoring_schedule_arn: 'monitoring_schedule_arn',
           auto_ml_job_arn: 'auto_ml_job_arn',
           training_job_arn: 'training_job_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16519,38 +16519,38 @@ module AWS::SDK::SageMaker
           tuning_job_arn: 'tuning_job_arn',
           labeling_job_arn: 'labeling_job_arn',
           auto_ml_job_arn: 'auto_ml_job_arn',
-          model_artifacts: Stubs::ModelArtifacts.default(visited),
+          model_artifacts: ModelArtifacts.default(visited),
           training_job_status: 'training_job_status',
           secondary_status: 'secondary_status',
           failure_reason: 'failure_reason',
-          hyper_parameters: Stubs::HyperParameters.default(visited),
-          algorithm_specification: Stubs::AlgorithmSpecification.default(visited),
+          hyper_parameters: HyperParameters.default(visited),
+          algorithm_specification: AlgorithmSpecification.default(visited),
           role_arn: 'role_arn',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
-          resource_config: Stubs::ResourceConfig.default(visited),
-          vpc_config: Stubs::VpcConfig.default(visited),
-          stopping_condition: Stubs::StoppingCondition.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
+          resource_config: ResourceConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
+          stopping_condition: StoppingCondition.default(visited),
           creation_time: Time.now,
           training_start_time: Time.now,
           training_end_time: Time.now,
           last_modified_time: Time.now,
-          secondary_status_transitions: Stubs::SecondaryStatusTransitions.default(visited),
-          final_metric_data_list: Stubs::FinalMetricDataList.default(visited),
+          secondary_status_transitions: SecondaryStatusTransitions.default(visited),
+          final_metric_data_list: FinalMetricDataList.default(visited),
           enable_network_isolation: false,
           enable_inter_container_traffic_encryption: false,
           enable_managed_spot_training: false,
-          checkpoint_config: Stubs::CheckpointConfig.default(visited),
+          checkpoint_config: CheckpointConfig.default(visited),
           training_time_in_seconds: 1,
           billable_time_in_seconds: 1,
-          debug_hook_config: Stubs::DebugHookConfig.default(visited),
-          experiment_config: Stubs::ExperimentConfig.default(visited),
-          debug_rule_configurations: Stubs::DebugRuleConfigurations.default(visited),
-          tensor_board_output_config: Stubs::TensorBoardOutputConfig.default(visited),
-          debug_rule_evaluation_statuses: Stubs::DebugRuleEvaluationStatuses.default(visited),
-          environment: Stubs::TrainingEnvironmentMap.default(visited),
-          retry_strategy: Stubs::RetryStrategy.default(visited),
-          tags: Stubs::TagList.default(visited),
+          debug_hook_config: DebugHookConfig.default(visited),
+          experiment_config: ExperimentConfig.default(visited),
+          debug_rule_configurations: DebugRuleConfigurations.default(visited),
+          tensor_board_output_config: TensorBoardOutputConfig.default(visited),
+          debug_rule_evaluation_statuses: DebugRuleEvaluationStatuses.default(visited),
+          environment: TrainingEnvironmentMap.default(visited),
+          retry_strategy: RetryStrategy.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16608,14 +16608,14 @@ module AWS::SDK::SageMaker
           trial_arn: 'trial_arn',
           display_name: 'display_name',
           experiment_name: 'experiment_name',
-          source: Stubs::TrialSource.default(visited),
+          source: TrialSource.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          metadata_properties: Stubs::MetadataProperties.default(visited),
-          tags: Stubs::TagList.default(visited),
-          trial_component_summaries: Stubs::TrialComponentSimpleSummaries.default(visited),
+          last_modified_by: UserContext.default(visited),
+          metadata_properties: MetadataProperties.default(visited),
+          tags: TagList.default(visited),
+          trial_component_summaries: TrialComponentSimpleSummaries.default(visited),
         }
       end
 
@@ -16644,7 +16644,7 @@ module AWS::SDK::SageMaker
         return nil if visited.include?('TrialComponentSimpleSummaries')
         visited = visited + ['TrialComponentSimpleSummaries']
         [
-          Stubs::TrialComponentSimpleSummary.default(visited)
+          TrialComponentSimpleSummary.default(visited)
         ]
       end
 
@@ -16666,9 +16666,9 @@ module AWS::SDK::SageMaker
         {
           trial_component_name: 'trial_component_name',
           trial_component_arn: 'trial_component_arn',
-          trial_component_source: Stubs::TrialComponentSource.default(visited),
+          trial_component_source: TrialComponentSource.default(visited),
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
         }
       end
 
@@ -16693,13 +16693,13 @@ module AWS::SDK::SageMaker
           experiment_name: 'experiment_name',
           experiment_arn: 'experiment_arn',
           display_name: 'display_name',
-          source: Stubs::ExperimentSource.default(visited),
+          source: ExperimentSource.default(visited),
           description: 'description',
           creation_time: Time.now,
-          created_by: Stubs::UserContext.default(visited),
+          created_by: UserContext.default(visited),
           last_modified_time: Time.now,
-          last_modified_by: Stubs::UserContext.default(visited),
-          tags: Stubs::TagList.default(visited),
+          last_modified_by: UserContext.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17330,7 +17330,7 @@ module AWS::SDK::SageMaker
     class UpdateWorkforce
       def self.default(visited=[])
         {
-          workforce: Stubs::Workforce.default(visited),
+          workforce: Workforce.default(visited),
         }
       end
 
@@ -17346,7 +17346,7 @@ module AWS::SDK::SageMaker
     class UpdateWorkteam
       def self.default(visited=[])
         {
-          workteam: Stubs::Workteam.default(visited),
+          workteam: Workteam.default(visited),
         }
       end
 

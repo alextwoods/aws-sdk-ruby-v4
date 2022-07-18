@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::EBS
   module Validators
 
@@ -30,7 +32,7 @@ module AWS::SDK::EBS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Block.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Block.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::EBS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangedBlock.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangedBlock.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::EBS
     class ListChangedBlocksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChangedBlocksOutput, context: context)
-        Validators::ChangedBlocks.validate!(input[:changed_blocks], context: "#{context}[:changed_blocks]") unless input[:changed_blocks].nil?
+        ChangedBlocks.validate!(input[:changed_blocks], context: "#{context}[:changed_blocks]") unless input[:changed_blocks].nil?
         Hearth::Validator.validate!(input[:expiry_time], ::Time, context: "#{context}[:expiry_time]")
         Hearth::Validator.validate!(input[:volume_size], ::Integer, context: "#{context}[:volume_size]")
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
@@ -148,7 +150,7 @@ module AWS::SDK::EBS
     class ListSnapshotBlocksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSnapshotBlocksOutput, context: context)
-        Validators::Blocks.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
+        Blocks.validate!(input[:blocks], context: "#{context}[:blocks]") unless input[:blocks].nil?
         Hearth::Validator.validate!(input[:expiry_time], ::Time, context: "#{context}[:expiry_time]")
         Hearth::Validator.validate!(input[:volume_size], ::Integer, context: "#{context}[:volume_size]")
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
@@ -208,7 +210,7 @@ module AWS::SDK::EBS
         Hearth::Validator.validate!(input, Types::StartSnapshotInput, context: context)
         Hearth::Validator.validate!(input[:volume_size], ::Integer, context: "#{context}[:volume_size]")
         Hearth::Validator.validate!(input[:parent_snapshot_id], ::String, context: "#{context}[:parent_snapshot_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
@@ -227,7 +229,7 @@ module AWS::SDK::EBS
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:volume_size], ::Integer, context: "#{context}[:volume_size]")
         Hearth::Validator.validate!(input[:block_size], ::Integer, context: "#{context}[:block_size]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:parent_snapshot_id], ::String, context: "#{context}[:parent_snapshot_id]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
       end
@@ -245,7 +247,7 @@ module AWS::SDK::EBS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

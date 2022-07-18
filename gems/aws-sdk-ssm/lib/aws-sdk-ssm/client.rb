@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSM
@@ -191,7 +193,7 @@ module AWS::SDK::SSM
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -281,7 +283,7 @@ module AWS::SDK::SSM
     def associate_ops_item_related_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateOpsItemRelatedItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateOpsItemRelatedItemInput,
         validate_input: @config.validate_input
@@ -357,7 +359,7 @@ module AWS::SDK::SSM
     def cancel_command(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelCommandInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelCommandInput,
         validate_input: @config.validate_input
@@ -428,7 +430,7 @@ module AWS::SDK::SSM
     def cancel_maintenance_window_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelMaintenanceWindowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelMaintenanceWindowExecutionInput,
         validate_input: @config.validate_input
@@ -580,7 +582,7 @@ module AWS::SDK::SSM
     def create_activation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateActivationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateActivationInput,
         validate_input: @config.validate_input
@@ -902,7 +904,7 @@ module AWS::SDK::SSM
     def create_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssociationInput,
         validate_input: @config.validate_input
@@ -1115,7 +1117,7 @@ module AWS::SDK::SSM
     def create_association_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAssociationBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAssociationBatchInput,
         validate_input: @config.validate_input
@@ -1371,7 +1373,7 @@ module AWS::SDK::SSM
     def create_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDocumentInput,
         validate_input: @config.validate_input
@@ -1542,7 +1544,7 @@ module AWS::SDK::SSM
     def create_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -1730,7 +1732,7 @@ module AWS::SDK::SSM
     def create_ops_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOpsItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOpsItemInput,
         validate_input: @config.validate_input
@@ -1833,7 +1835,7 @@ module AWS::SDK::SSM
     def create_ops_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOpsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOpsMetadataInput,
         validate_input: @config.validate_input
@@ -2039,7 +2041,7 @@ module AWS::SDK::SSM
     def create_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePatchBaselineInput,
         validate_input: @config.validate_input
@@ -2170,7 +2172,7 @@ module AWS::SDK::SSM
     def create_resource_data_sync(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceDataSyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceDataSyncInput,
         validate_input: @config.validate_input
@@ -2240,7 +2242,7 @@ module AWS::SDK::SSM
     def delete_activation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteActivationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteActivationInput,
         validate_input: @config.validate_input
@@ -2333,7 +2335,7 @@ module AWS::SDK::SSM
     def delete_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssociationInput,
         validate_input: @config.validate_input
@@ -2420,7 +2422,7 @@ module AWS::SDK::SSM
     def delete_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDocumentInput,
         validate_input: @config.validate_input
@@ -2522,7 +2524,7 @@ module AWS::SDK::SSM
     def delete_inventory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInventoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInventoryInput,
         validate_input: @config.validate_input
@@ -2591,7 +2593,7 @@ module AWS::SDK::SSM
     def delete_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -2659,7 +2661,7 @@ module AWS::SDK::SSM
     def delete_ops_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOpsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOpsMetadataInput,
         validate_input: @config.validate_input
@@ -2728,7 +2730,7 @@ module AWS::SDK::SSM
     def delete_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteParameterInput,
         validate_input: @config.validate_input
@@ -2803,7 +2805,7 @@ module AWS::SDK::SSM
     def delete_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteParametersInput,
         validate_input: @config.validate_input
@@ -2872,7 +2874,7 @@ module AWS::SDK::SSM
     def delete_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePatchBaselineInput,
         validate_input: @config.validate_input
@@ -2946,7 +2948,7 @@ module AWS::SDK::SSM
     def delete_resource_data_sync(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceDataSyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceDataSyncInput,
         validate_input: @config.validate_input
@@ -3017,7 +3019,7 @@ module AWS::SDK::SSM
     def deregister_managed_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterManagedInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterManagedInstanceInput,
         validate_input: @config.validate_input
@@ -3091,7 +3093,7 @@ module AWS::SDK::SSM
     def deregister_patch_baseline_for_patch_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterPatchBaselineForPatchGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterPatchBaselineForPatchGroupInput,
         validate_input: @config.validate_input
@@ -3171,7 +3173,7 @@ module AWS::SDK::SSM
     def deregister_target_from_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTargetFromMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTargetFromMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -3245,7 +3247,7 @@ module AWS::SDK::SSM
     def deregister_task_from_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTaskFromMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTaskFromMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -3348,7 +3350,7 @@ module AWS::SDK::SSM
     def describe_activations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActivationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActivationsInput,
         validate_input: @config.validate_input
@@ -3490,7 +3492,7 @@ module AWS::SDK::SSM
     def describe_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssociationInput,
         validate_input: @config.validate_input
@@ -3597,7 +3599,7 @@ module AWS::SDK::SSM
     def describe_association_execution_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssociationExecutionTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssociationExecutionTargetsInput,
         validate_input: @config.validate_input
@@ -3698,7 +3700,7 @@ module AWS::SDK::SSM
     def describe_association_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAssociationExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAssociationExecutionsInput,
         validate_input: @config.validate_input
@@ -3844,7 +3846,7 @@ module AWS::SDK::SSM
     def describe_automation_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutomationExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutomationExecutionsInput,
         validate_input: @config.validate_input
@@ -3982,7 +3984,7 @@ module AWS::SDK::SSM
     def describe_automation_step_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutomationStepExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutomationStepExecutionsInput,
         validate_input: @config.validate_input
@@ -4277,7 +4279,7 @@ module AWS::SDK::SSM
     def describe_available_patches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAvailablePatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAvailablePatchesInput,
         validate_input: @config.validate_input
@@ -4407,7 +4409,7 @@ module AWS::SDK::SSM
     def describe_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDocumentInput,
         validate_input: @config.validate_input
@@ -4499,7 +4501,7 @@ module AWS::SDK::SSM
     def describe_document_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDocumentPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDocumentPermissionInput,
         validate_input: @config.validate_input
@@ -4584,7 +4586,7 @@ module AWS::SDK::SSM
     def describe_effective_instance_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEffectiveInstanceAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEffectiveInstanceAssociationsInput,
         validate_input: @config.validate_input
@@ -4696,7 +4698,7 @@ module AWS::SDK::SSM
     def describe_effective_patches_for_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEffectivePatchesForPatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEffectivePatchesForPatchBaselineInput,
         validate_input: @config.validate_input
@@ -4791,7 +4793,7 @@ module AWS::SDK::SSM
     def describe_instance_associations_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceAssociationsStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceAssociationsStatusInput,
         validate_input: @config.validate_input
@@ -4929,7 +4931,7 @@ module AWS::SDK::SSM
     def describe_instance_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceInformationInput,
         validate_input: @config.validate_input
@@ -5033,7 +5035,7 @@ module AWS::SDK::SSM
     def describe_instance_patch_states(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancePatchStatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancePatchStatesInput,
         validate_input: @config.validate_input
@@ -5160,7 +5162,7 @@ module AWS::SDK::SSM
     def describe_instance_patch_states_for_patch_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancePatchStatesForPatchGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancePatchStatesForPatchGroupInput,
         validate_input: @config.validate_input
@@ -5299,7 +5301,7 @@ module AWS::SDK::SSM
     def describe_instance_patches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancePatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancePatchesInput,
         validate_input: @config.validate_input
@@ -5394,7 +5396,7 @@ module AWS::SDK::SSM
     def describe_inventory_deletions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInventoryDeletionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInventoryDeletionsInput,
         validate_input: @config.validate_input
@@ -5506,7 +5508,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_execution_task_invocations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowExecutionTaskInvocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowExecutionTaskInvocationsInput,
         validate_input: @config.validate_input
@@ -5609,7 +5611,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_execution_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowExecutionTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowExecutionTasksInput,
         validate_input: @config.validate_input
@@ -5720,7 +5722,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowExecutionsInput,
         validate_input: @config.validate_input
@@ -5832,7 +5834,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowScheduleInput,
         validate_input: @config.validate_input
@@ -5937,7 +5939,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowTargetsInput,
         validate_input: @config.validate_input
@@ -6061,7 +6063,7 @@ module AWS::SDK::SSM
     def describe_maintenance_window_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowTasksInput,
         validate_input: @config.validate_input
@@ -6163,7 +6165,7 @@ module AWS::SDK::SSM
     def describe_maintenance_windows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowsInput,
         validate_input: @config.validate_input
@@ -6259,7 +6261,7 @@ module AWS::SDK::SSM
     def describe_maintenance_windows_for_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceWindowsForTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceWindowsForTargetInput,
         validate_input: @config.validate_input
@@ -6431,7 +6433,7 @@ module AWS::SDK::SSM
     def describe_ops_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOpsItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOpsItemsInput,
         validate_input: @config.validate_input
@@ -6558,7 +6560,7 @@ module AWS::SDK::SSM
     def describe_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeParametersInput,
         validate_input: @config.validate_input
@@ -6680,7 +6682,7 @@ module AWS::SDK::SSM
     def describe_patch_baselines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePatchBaselinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePatchBaselinesInput,
         validate_input: @config.validate_input
@@ -6760,7 +6762,7 @@ module AWS::SDK::SSM
     def describe_patch_group_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePatchGroupStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePatchGroupStateInput,
         validate_input: @config.validate_input
@@ -6874,7 +6876,7 @@ module AWS::SDK::SSM
     def describe_patch_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePatchGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePatchGroupsInput,
         validate_input: @config.validate_input
@@ -7028,7 +7030,7 @@ module AWS::SDK::SSM
     def describe_patch_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePatchPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePatchPropertiesInput,
         validate_input: @config.validate_input
@@ -7132,7 +7134,7 @@ module AWS::SDK::SSM
     def describe_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSessionsInput,
         validate_input: @config.validate_input
@@ -7208,7 +7210,7 @@ module AWS::SDK::SSM
     def disassociate_ops_item_related_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateOpsItemRelatedItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateOpsItemRelatedItemInput,
         validate_input: @config.validate_input
@@ -7372,7 +7374,7 @@ module AWS::SDK::SSM
     def get_automation_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAutomationExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAutomationExecutionInput,
         validate_input: @config.validate_input
@@ -7459,7 +7461,7 @@ module AWS::SDK::SSM
     def get_calendar_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCalendarStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCalendarStateInput,
         validate_input: @config.validate_input
@@ -7569,7 +7571,7 @@ module AWS::SDK::SSM
     def get_command_invocation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommandInvocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommandInvocationInput,
         validate_input: @config.validate_input
@@ -7640,7 +7642,7 @@ module AWS::SDK::SSM
     def get_connection_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionStatusInput,
         validate_input: @config.validate_input
@@ -7713,7 +7715,7 @@ module AWS::SDK::SSM
     def get_default_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDefaultPatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDefaultPatchBaselineInput,
         validate_input: @config.validate_input
@@ -7839,7 +7841,7 @@ module AWS::SDK::SSM
     def get_deployable_patch_snapshot_for_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeployablePatchSnapshotForInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeployablePatchSnapshotForInstanceInput,
         validate_input: @config.validate_input
@@ -7944,7 +7946,7 @@ module AWS::SDK::SSM
     def get_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDocumentInput,
         validate_input: @config.validate_input
@@ -8068,7 +8070,7 @@ module AWS::SDK::SSM
     def get_inventory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInventoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInventoryInput,
         validate_input: @config.validate_input
@@ -8168,7 +8170,7 @@ module AWS::SDK::SSM
     def get_inventory_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInventorySchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInventorySchemaInput,
         validate_input: @config.validate_input
@@ -8251,7 +8253,7 @@ module AWS::SDK::SSM
     def get_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -8326,7 +8328,7 @@ module AWS::SDK::SSM
     def get_maintenance_window_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMaintenanceWindowExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMaintenanceWindowExecutionInput,
         validate_input: @config.validate_input
@@ -8417,7 +8419,7 @@ module AWS::SDK::SSM
     def get_maintenance_window_execution_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMaintenanceWindowExecutionTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMaintenanceWindowExecutionTaskInput,
         validate_input: @config.validate_input
@@ -8505,7 +8507,7 @@ module AWS::SDK::SSM
     def get_maintenance_window_execution_task_invocation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMaintenanceWindowExecutionTaskInvocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMaintenanceWindowExecutionTaskInvocationInput,
         validate_input: @config.validate_input
@@ -8641,7 +8643,7 @@ module AWS::SDK::SSM
     def get_maintenance_window_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMaintenanceWindowTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMaintenanceWindowTaskInput,
         validate_input: @config.validate_input
@@ -8744,7 +8746,7 @@ module AWS::SDK::SSM
     def get_ops_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpsItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpsItemInput,
         validate_input: @config.validate_input
@@ -8826,7 +8828,7 @@ module AWS::SDK::SSM
     def get_ops_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpsMetadataInput,
         validate_input: @config.validate_input
@@ -8949,7 +8951,7 @@ module AWS::SDK::SSM
     def get_ops_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOpsSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOpsSummaryInput,
         validate_input: @config.validate_input
@@ -9037,7 +9039,7 @@ module AWS::SDK::SSM
     def get_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParameterInput,
         validate_input: @config.validate_input
@@ -9147,7 +9149,7 @@ module AWS::SDK::SSM
     def get_parameter_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParameterHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParameterHistoryInput,
         validate_input: @config.validate_input
@@ -9241,7 +9243,7 @@ module AWS::SDK::SSM
     def get_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParametersInput,
         validate_input: @config.validate_input
@@ -9375,7 +9377,7 @@ module AWS::SDK::SSM
     def get_parameters_by_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParametersByPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParametersByPathInput,
         validate_input: @config.validate_input
@@ -9484,7 +9486,7 @@ module AWS::SDK::SSM
     def get_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPatchBaselineInput,
         validate_input: @config.validate_input
@@ -9560,7 +9562,7 @@ module AWS::SDK::SSM
     def get_patch_baseline_for_patch_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPatchBaselineForPatchGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPatchBaselineForPatchGroupInput,
         validate_input: @config.validate_input
@@ -9680,7 +9682,7 @@ module AWS::SDK::SSM
     def get_service_setting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceSettingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceSettingInput,
         validate_input: @config.validate_input
@@ -9798,7 +9800,7 @@ module AWS::SDK::SSM
     def label_parameter_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LabelParameterVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LabelParameterVersionInput,
         validate_input: @config.validate_input
@@ -9919,7 +9921,7 @@ module AWS::SDK::SSM
     def list_association_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociationVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociationVersionsInput,
         validate_input: @config.validate_input
@@ -10036,7 +10038,7 @@ module AWS::SDK::SSM
     def list_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociationsInput,
         validate_input: @config.validate_input
@@ -10175,7 +10177,7 @@ module AWS::SDK::SSM
     def list_command_invocations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCommandInvocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCommandInvocationsInput,
         validate_input: @config.validate_input
@@ -10312,7 +10314,7 @@ module AWS::SDK::SSM
     def list_commands(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCommandsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCommandsInput,
         validate_input: @config.validate_input
@@ -10430,7 +10432,7 @@ module AWS::SDK::SSM
     def list_compliance_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComplianceItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComplianceItemsInput,
         validate_input: @config.validate_input
@@ -10535,7 +10537,7 @@ module AWS::SDK::SSM
     def list_compliance_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComplianceSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComplianceSummariesInput,
         validate_input: @config.validate_input
@@ -10637,7 +10639,7 @@ module AWS::SDK::SSM
     def list_document_metadata_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentMetadataHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentMetadataHistoryInput,
         validate_input: @config.validate_input
@@ -10728,7 +10730,7 @@ module AWS::SDK::SSM
     def list_document_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentVersionsInput,
         validate_input: @config.validate_input
@@ -10858,7 +10860,7 @@ module AWS::SDK::SSM
     def list_documents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentsInput,
         validate_input: @config.validate_input
@@ -10960,7 +10962,7 @@ module AWS::SDK::SSM
     def list_inventory_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInventoryEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInventoryEntriesInput,
         validate_input: @config.validate_input
@@ -11057,7 +11059,7 @@ module AWS::SDK::SSM
     def list_ops_item_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpsItemEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpsItemEventsInput,
         validate_input: @config.validate_input
@@ -11161,7 +11163,7 @@ module AWS::SDK::SSM
     def list_ops_item_related_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpsItemRelatedItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpsItemRelatedItemsInput,
         validate_input: @config.validate_input
@@ -11254,7 +11256,7 @@ module AWS::SDK::SSM
     def list_ops_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOpsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOpsMetadataInput,
         validate_input: @config.validate_input
@@ -11365,7 +11367,7 @@ module AWS::SDK::SSM
     def list_resource_compliance_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceComplianceSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceComplianceSummariesInput,
         validate_input: @config.validate_input
@@ -11483,7 +11485,7 @@ module AWS::SDK::SSM
     def list_resource_data_sync(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceDataSyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceDataSyncInput,
         validate_input: @config.validate_input
@@ -11560,7 +11562,7 @@ module AWS::SDK::SSM
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -11654,7 +11656,7 @@ module AWS::SDK::SSM
     def modify_document_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDocumentPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDocumentPermissionInput,
         validate_input: @config.validate_input
@@ -11832,7 +11834,7 @@ module AWS::SDK::SSM
     def put_compliance_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutComplianceItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutComplianceItemsInput,
         validate_input: @config.validate_input
@@ -11922,7 +11924,7 @@ module AWS::SDK::SSM
     def put_inventory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInventoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInventoryInput,
         validate_input: @config.validate_input
@@ -12234,7 +12236,7 @@ module AWS::SDK::SSM
     def put_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutParameterInput,
         validate_input: @config.validate_input
@@ -12307,7 +12309,7 @@ module AWS::SDK::SSM
     def register_default_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDefaultPatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDefaultPatchBaselineInput,
         validate_input: @config.validate_input
@@ -12381,7 +12383,7 @@ module AWS::SDK::SSM
     def register_patch_baseline_for_patch_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterPatchBaselineForPatchGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterPatchBaselineForPatchGroupInput,
         validate_input: @config.validate_input
@@ -12529,7 +12531,7 @@ module AWS::SDK::SSM
     def register_target_with_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTargetWithMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTargetWithMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -12808,7 +12810,7 @@ module AWS::SDK::SSM
     def register_task_with_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTaskWithMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTaskWithMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -12911,7 +12913,7 @@ module AWS::SDK::SSM
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -13033,7 +13035,7 @@ module AWS::SDK::SSM
     def reset_service_setting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetServiceSettingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetServiceSettingInput,
         validate_input: @config.validate_input
@@ -13109,7 +13111,7 @@ module AWS::SDK::SSM
     def resume_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeSessionInput,
         validate_input: @config.validate_input
@@ -13207,7 +13209,7 @@ module AWS::SDK::SSM
     def send_automation_signal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendAutomationSignalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendAutomationSignalInput,
         validate_input: @config.validate_input
@@ -13446,7 +13448,7 @@ module AWS::SDK::SSM
     def send_command(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendCommandInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendCommandInput,
         validate_input: @config.validate_input
@@ -13517,7 +13519,7 @@ module AWS::SDK::SSM
     def start_associations_once(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAssociationsOnceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAssociationsOnceInput,
         validate_input: @config.validate_input
@@ -13706,7 +13708,7 @@ module AWS::SDK::SSM
     def start_automation_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAutomationExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAutomationExecutionInput,
         validate_input: @config.validate_input
@@ -13901,7 +13903,7 @@ module AWS::SDK::SSM
     def start_change_request_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartChangeRequestExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartChangeRequestExecutionInput,
         validate_input: @config.validate_input
@@ -14001,7 +14003,7 @@ module AWS::SDK::SSM
     def start_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSessionInput,
         validate_input: @config.validate_input
@@ -14074,7 +14076,7 @@ module AWS::SDK::SSM
     def stop_automation_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopAutomationExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopAutomationExecutionInput,
         validate_input: @config.validate_input
@@ -14144,7 +14146,7 @@ module AWS::SDK::SSM
     def terminate_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateSessionInput,
         validate_input: @config.validate_input
@@ -14226,7 +14228,7 @@ module AWS::SDK::SSM
     def unlabel_parameter_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnlabelParameterVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnlabelParameterVersionInput,
         validate_input: @config.validate_input
@@ -14563,7 +14565,7 @@ module AWS::SDK::SSM
     def update_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssociationInput,
         validate_input: @config.validate_input
@@ -14706,7 +14708,7 @@ module AWS::SDK::SSM
     def update_association_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssociationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssociationStatusInput,
         validate_input: @config.validate_input
@@ -14873,7 +14875,7 @@ module AWS::SDK::SSM
     def update_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDocumentInput,
         validate_input: @config.validate_input
@@ -14954,7 +14956,7 @@ module AWS::SDK::SSM
     def update_document_default_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDocumentDefaultVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDocumentDefaultVersionInput,
         validate_input: @config.validate_input
@@ -15039,7 +15041,7 @@ module AWS::SDK::SSM
     def update_document_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDocumentMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDocumentMetadataInput,
         validate_input: @config.validate_input
@@ -15193,7 +15195,7 @@ module AWS::SDK::SSM
     def update_maintenance_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMaintenanceWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMaintenanceWindowInput,
         validate_input: @config.validate_input
@@ -15330,7 +15332,7 @@ module AWS::SDK::SSM
     def update_maintenance_window_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMaintenanceWindowTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMaintenanceWindowTargetInput,
         validate_input: @config.validate_input
@@ -15727,7 +15729,7 @@ module AWS::SDK::SSM
     def update_maintenance_window_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMaintenanceWindowTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMaintenanceWindowTaskInput,
         validate_input: @config.validate_input
@@ -15801,7 +15803,7 @@ module AWS::SDK::SSM
     def update_managed_instance_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateManagedInstanceRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateManagedInstanceRoleInput,
         validate_input: @config.validate_input
@@ -15973,7 +15975,7 @@ module AWS::SDK::SSM
     def update_ops_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOpsItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOpsItemInput,
         validate_input: @config.validate_input
@@ -16056,7 +16058,7 @@ module AWS::SDK::SSM
     def update_ops_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOpsMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOpsMetadataInput,
         validate_input: @config.validate_input
@@ -16265,7 +16267,7 @@ module AWS::SDK::SSM
     def update_patch_baseline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePatchBaselineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePatchBaselineInput,
         validate_input: @config.validate_input
@@ -16366,7 +16368,7 @@ module AWS::SDK::SSM
     def update_resource_data_sync(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceDataSyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceDataSyncInput,
         validate_input: @config.validate_input
@@ -16527,7 +16529,7 @@ module AWS::SDK::SSM
     def update_service_setting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceSettingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceSettingInput,
         validate_input: @config.validate_input

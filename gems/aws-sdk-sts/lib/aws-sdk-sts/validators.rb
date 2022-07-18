@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::STS
   module Validators
 
@@ -15,11 +17,11 @@ module AWS::SDK::STS
         Hearth::Validator.validate!(input, Types::AssumeRoleInput, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:role_session_name], ::String, context: "#{context}[:role_session_name]")
-        Validators::PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
+        PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagKeyListType.validate!(input[:transitive_tag_keys], context: "#{context}[:transitive_tag_keys]") unless input[:transitive_tag_keys].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagKeyListType.validate!(input[:transitive_tag_keys], context: "#{context}[:transitive_tag_keys]") unless input[:transitive_tag_keys].nil?
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate!(input[:token_code], ::String, context: "#{context}[:token_code]")
@@ -30,8 +32,8 @@ module AWS::SDK::STS
     class AssumeRoleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssumeRoleOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
-        Validators::AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
         Hearth::Validator.validate!(input[:packed_policy_size], ::Integer, context: "#{context}[:packed_policy_size]")
         Hearth::Validator.validate!(input[:source_identity], ::String, context: "#{context}[:source_identity]")
       end
@@ -43,7 +45,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:principal_arn], ::String, context: "#{context}[:principal_arn]")
         Hearth::Validator.validate!(input[:saml_assertion], ::String, context: "#{context}[:saml_assertion]")
-        Validators::PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
+        PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
       end
@@ -52,8 +54,8 @@ module AWS::SDK::STS
     class AssumeRoleWithSAMLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssumeRoleWithSAMLOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
-        Validators::AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
         Hearth::Validator.validate!(input[:packed_policy_size], ::Integer, context: "#{context}[:packed_policy_size]")
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
         Hearth::Validator.validate!(input[:subject_type], ::String, context: "#{context}[:subject_type]")
@@ -71,7 +73,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate!(input[:role_session_name], ::String, context: "#{context}[:role_session_name]")
         Hearth::Validator.validate!(input[:web_identity_token], ::String, context: "#{context}[:web_identity_token]")
         Hearth::Validator.validate!(input[:provider_id], ::String, context: "#{context}[:provider_id]")
-        Validators::PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
+        PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
       end
@@ -80,9 +82,9 @@ module AWS::SDK::STS
     class AssumeRoleWithWebIdentityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssumeRoleWithWebIdentityOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
         Hearth::Validator.validate!(input[:subject_from_web_identity_token], ::String, context: "#{context}[:subject_from_web_identity_token]")
-        Validators::AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
+        AssumedRoleUser.validate!(input[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless input[:assumed_role_user].nil?
         Hearth::Validator.validate!(input[:packed_policy_size], ::Integer, context: "#{context}[:packed_policy_size]")
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
         Hearth::Validator.validate!(input[:audience], ::String, context: "#{context}[:audience]")
@@ -171,17 +173,17 @@ module AWS::SDK::STS
         Hearth::Validator.validate!(input, Types::GetFederationTokenInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
+        PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class GetFederationTokenOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFederationTokenOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
-        Validators::FederatedUser.validate!(input[:federated_user], context: "#{context}[:federated_user]") unless input[:federated_user].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        FederatedUser.validate!(input[:federated_user], context: "#{context}[:federated_user]") unless input[:federated_user].nil?
         Hearth::Validator.validate!(input[:packed_policy_size], ::Integer, context: "#{context}[:packed_policy_size]")
       end
     end
@@ -198,7 +200,7 @@ module AWS::SDK::STS
     class GetSessionTokenOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSessionTokenOutput, context: context)
-        Validators::Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        Credentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
       end
     end
 
@@ -270,7 +272,7 @@ module AWS::SDK::STS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyDescriptorType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyDescriptorType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -288,7 +290,7 @@ module AWS::SDK::STS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

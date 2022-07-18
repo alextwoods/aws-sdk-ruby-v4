@@ -678,12 +678,12 @@ module AWS::SDK::Greengrass
     class GetBulkDeploymentStatus
       def self.default(visited=[])
         {
-          bulk_deployment_metrics: Stubs::BulkDeploymentMetrics.default(visited),
+          bulk_deployment_metrics: BulkDeploymentMetrics.default(visited),
           bulk_deployment_status: 'bulk_deployment_status',
           created_at: 'created_at',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
           error_message: 'error_message',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -727,7 +727,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('ErrorDetails')
         visited = visited + ['ErrorDetails']
         [
-          Stubs::ErrorDetail.default(visited)
+          ErrorDetail.default(visited)
         ]
       end
 
@@ -787,7 +787,7 @@ module AWS::SDK::Greengrass
     class GetConnectivityInfo
       def self.default(visited=[])
         {
-          connectivity_info: Stubs::List____listOfConnectivityInfo.default(visited),
+          connectivity_info: List____listOfConnectivityInfo.default(visited),
           message: 'message',
         }
       end
@@ -808,7 +808,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfConnectivityInfo')
         visited = visited + ['List____listOfConnectivityInfo']
         [
-          Stubs::ConnectivityInfo.default(visited)
+          ConnectivityInfo.default(visited)
         ]
       end
 
@@ -857,7 +857,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::ConnectorDefinitionVersion.default(visited),
+          definition: ConnectorDefinitionVersion.default(visited),
           id: 'id',
           next_token: 'next_token',
           version: 'version',
@@ -910,7 +910,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('ConnectorDefinitionVersion')
         visited = visited + ['ConnectorDefinitionVersion']
         {
-          connectors: Stubs::List____listOfConnector.default(visited),
+          connectors: List____listOfConnector.default(visited),
         }
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfConnector')
         visited = visited + ['List____listOfConnector']
         [
-          Stubs::Connector.default(visited)
+          Connector.default(visited)
         ]
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::Greengrass
         {
           connector_arn: 'connector_arn',
           id: 'id',
-          parameters: Stubs::Map____mapOf__string.default(visited),
+          parameters: Map____mapOf__string.default(visited),
         }
       end
 
@@ -995,7 +995,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1021,7 +1021,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::CoreDefinitionVersion.default(visited),
+          definition: CoreDefinitionVersion.default(visited),
           id: 'id',
           next_token: 'next_token',
           version: 'version',
@@ -1048,7 +1048,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('CoreDefinitionVersion')
         visited = visited + ['CoreDefinitionVersion']
         {
-          cores: Stubs::List____listOfCore.default(visited),
+          cores: List____listOfCore.default(visited),
         }
       end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfCore')
         visited = visited + ['List____listOfCore']
         [
-          Stubs::Core.default(visited)
+          Core.default(visited)
         ]
       end
 
@@ -1110,7 +1110,7 @@ module AWS::SDK::Greengrass
         {
           deployment_status: 'deployment_status',
           deployment_type: 'deployment_type',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
           error_message: 'error_message',
           updated_at: 'updated_at',
         }
@@ -1140,7 +1140,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1166,7 +1166,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::DeviceDefinitionVersion.default(visited),
+          definition: DeviceDefinitionVersion.default(visited),
           id: 'id',
           next_token: 'next_token',
           version: 'version',
@@ -1193,7 +1193,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('DeviceDefinitionVersion')
         visited = visited + ['DeviceDefinitionVersion']
         {
-          devices: Stubs::List____listOfDevice.default(visited),
+          devices: List____listOfDevice.default(visited),
         }
       end
 
@@ -1211,7 +1211,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfDevice')
         visited = visited + ['List____listOfDevice']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -1260,7 +1260,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1286,7 +1286,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::FunctionDefinitionVersion.default(visited),
+          definition: FunctionDefinitionVersion.default(visited),
           id: 'id',
           next_token: 'next_token',
           version: 'version',
@@ -1313,8 +1313,8 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('FunctionDefinitionVersion')
         visited = visited + ['FunctionDefinitionVersion']
         {
-          default_config: Stubs::FunctionDefaultConfig.default(visited),
-          functions: Stubs::List____listOfFunction.default(visited),
+          default_config: FunctionDefaultConfig.default(visited),
+          functions: List____listOfFunction.default(visited),
         }
       end
 
@@ -1333,7 +1333,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfFunction')
         visited = visited + ['List____listOfFunction']
         [
-          Stubs::Function.default(visited)
+          Function.default(visited)
         ]
       end
 
@@ -1354,7 +1354,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['Function']
         {
           function_arn: 'function_arn',
-          function_configuration: Stubs::FunctionConfiguration.default(visited),
+          function_configuration: FunctionConfiguration.default(visited),
           id: 'id',
         }
       end
@@ -1376,7 +1376,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['FunctionConfiguration']
         {
           encoding_type: 'encoding_type',
-          environment: Stubs::FunctionConfigurationEnvironment.default(visited),
+          environment: FunctionConfigurationEnvironment.default(visited),
           exec_args: 'exec_args',
           executable: 'executable',
           memory_size: 1,
@@ -1406,9 +1406,9 @@ module AWS::SDK::Greengrass
         visited = visited + ['FunctionConfigurationEnvironment']
         {
           access_sysfs: false,
-          execution: Stubs::FunctionExecutionConfig.default(visited),
-          resource_access_policies: Stubs::List____listOfResourceAccessPolicy.default(visited),
-          variables: Stubs::Map____mapOf__string.default(visited),
+          execution: FunctionExecutionConfig.default(visited),
+          resource_access_policies: List____listOfResourceAccessPolicy.default(visited),
+          variables: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1429,7 +1429,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfResourceAccessPolicy')
         visited = visited + ['List____listOfResourceAccessPolicy']
         [
-          Stubs::ResourceAccessPolicy.default(visited)
+          ResourceAccessPolicy.default(visited)
         ]
       end
 
@@ -1470,7 +1470,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['FunctionExecutionConfig']
         {
           isolation_mode: 'isolation_mode',
-          run_as: Stubs::FunctionRunAsConfig.default(visited),
+          run_as: FunctionRunAsConfig.default(visited),
         }
       end
 
@@ -1509,7 +1509,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('FunctionDefaultConfig')
         visited = visited + ['FunctionDefaultConfig']
         {
-          execution: Stubs::FunctionDefaultExecutionConfig.default(visited),
+          execution: FunctionDefaultExecutionConfig.default(visited),
         }
       end
 
@@ -1528,7 +1528,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['FunctionDefaultExecutionConfig']
         {
           isolation_mode: 'isolation_mode',
-          run_as: Stubs::FunctionRunAsConfig.default(visited),
+          run_as: FunctionRunAsConfig.default(visited),
         }
       end
 
@@ -1552,7 +1552,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1620,7 +1620,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::GroupVersion.default(visited),
+          definition: GroupVersion.default(visited),
           id: 'id',
           version: 'version',
         }
@@ -1680,7 +1680,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1706,7 +1706,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::LoggerDefinitionVersion.default(visited),
+          definition: LoggerDefinitionVersion.default(visited),
           id: 'id',
           version: 'version',
         }
@@ -1731,7 +1731,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('LoggerDefinitionVersion')
         visited = visited + ['LoggerDefinitionVersion']
         {
-          loggers: Stubs::List____listOfLogger.default(visited),
+          loggers: List____listOfLogger.default(visited),
         }
       end
 
@@ -1749,7 +1749,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfLogger')
         visited = visited + ['List____listOfLogger']
         [
-          Stubs::Logger.default(visited)
+          Logger.default(visited)
         ]
       end
 
@@ -1800,7 +1800,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::ResourceDefinitionVersion.default(visited),
+          definition: ResourceDefinitionVersion.default(visited),
           id: 'id',
           version: 'version',
         }
@@ -1851,7 +1851,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('ResourceDefinitionVersion')
         visited = visited + ['ResourceDefinitionVersion']
         {
-          resources: Stubs::List____listOfResource.default(visited),
+          resources: List____listOfResource.default(visited),
         }
       end
 
@@ -1869,7 +1869,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfResource')
         visited = visited + ['List____listOfResource']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -1891,7 +1891,7 @@ module AWS::SDK::Greengrass
         {
           id: 'id',
           name: 'name',
-          resource_data_container: Stubs::ResourceDataContainer.default(visited),
+          resource_data_container: ResourceDataContainer.default(visited),
         }
       end
 
@@ -1911,11 +1911,11 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('ResourceDataContainer')
         visited = visited + ['ResourceDataContainer']
         {
-          local_device_resource_data: Stubs::LocalDeviceResourceData.default(visited),
-          local_volume_resource_data: Stubs::LocalVolumeResourceData.default(visited),
-          s3_machine_learning_model_resource_data: Stubs::S3MachineLearningModelResourceData.default(visited),
-          sage_maker_machine_learning_model_resource_data: Stubs::SageMakerMachineLearningModelResourceData.default(visited),
-          secrets_manager_secret_resource_data: Stubs::SecretsManagerSecretResourceData.default(visited),
+          local_device_resource_data: LocalDeviceResourceData.default(visited),
+          local_volume_resource_data: LocalVolumeResourceData.default(visited),
+          s3_machine_learning_model_resource_data: S3MachineLearningModelResourceData.default(visited),
+          sage_maker_machine_learning_model_resource_data: SageMakerMachineLearningModelResourceData.default(visited),
+          secrets_manager_secret_resource_data: SecretsManagerSecretResourceData.default(visited),
         }
       end
 
@@ -1938,7 +1938,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['SecretsManagerSecretResourceData']
         {
           arn: 'arn',
-          additional_staging_labels_to_download: Stubs::List____listOf__string.default(visited),
+          additional_staging_labels_to_download: List____listOf__string.default(visited),
         }
       end
 
@@ -1978,7 +1978,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['SageMakerMachineLearningModelResourceData']
         {
           destination_path: 'destination_path',
-          owner_setting: Stubs::ResourceDownloadOwnerSetting.default(visited),
+          owner_setting: ResourceDownloadOwnerSetting.default(visited),
           sage_maker_job_arn: 'sage_maker_job_arn',
         }
       end
@@ -2020,7 +2020,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['S3MachineLearningModelResourceData']
         {
           destination_path: 'destination_path',
-          owner_setting: Stubs::ResourceDownloadOwnerSetting.default(visited),
+          owner_setting: ResourceDownloadOwnerSetting.default(visited),
           s3_uri: 's3_uri',
         }
       end
@@ -2042,7 +2042,7 @@ module AWS::SDK::Greengrass
         visited = visited + ['LocalVolumeResourceData']
         {
           destination_path: 'destination_path',
-          group_owner_setting: Stubs::GroupOwnerSetting.default(visited),
+          group_owner_setting: GroupOwnerSetting.default(visited),
           source_path: 'source_path',
         }
       end
@@ -2083,7 +2083,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('LocalDeviceResourceData')
         visited = visited + ['LocalDeviceResourceData']
         {
-          group_owner_setting: Stubs::GroupOwnerSetting.default(visited),
+          group_owner_setting: GroupOwnerSetting.default(visited),
           source_path: 'source_path',
         }
       end
@@ -2127,7 +2127,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2153,7 +2153,7 @@ module AWS::SDK::Greengrass
         {
           arn: 'arn',
           creation_timestamp: 'creation_timestamp',
-          definition: Stubs::SubscriptionDefinitionVersion.default(visited),
+          definition: SubscriptionDefinitionVersion.default(visited),
           id: 'id',
           next_token: 'next_token',
           version: 'version',
@@ -2180,7 +2180,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('SubscriptionDefinitionVersion')
         visited = visited + ['SubscriptionDefinitionVersion']
         {
-          subscriptions: Stubs::List____listOfSubscription.default(visited),
+          subscriptions: List____listOfSubscription.default(visited),
         }
       end
 
@@ -2198,7 +2198,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfSubscription')
         visited = visited + ['List____listOfSubscription']
         [
-          Stubs::Subscription.default(visited)
+          Subscription.default(visited)
         ]
       end
 
@@ -2240,7 +2240,7 @@ module AWS::SDK::Greengrass
     class GetThingRuntimeConfiguration
       def self.default(visited=[])
         {
-          runtime_configuration: Stubs::RuntimeConfiguration.default(visited),
+          runtime_configuration: RuntimeConfiguration.default(visited),
         }
       end
 
@@ -2259,7 +2259,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('RuntimeConfiguration')
         visited = visited + ['RuntimeConfiguration']
         {
-          telemetry_configuration: Stubs::TelemetryConfiguration.default(visited),
+          telemetry_configuration: TelemetryConfiguration.default(visited),
         }
       end
 
@@ -2295,7 +2295,7 @@ module AWS::SDK::Greengrass
     class ListBulkDeploymentDetailedReports
       def self.default(visited=[])
         {
-          deployments: Stubs::BulkDeploymentResults.default(visited),
+          deployments: BulkDeploymentResults.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2316,7 +2316,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('BulkDeploymentResults')
         visited = visited + ['BulkDeploymentResults']
         [
-          Stubs::BulkDeploymentResult.default(visited)
+          BulkDeploymentResult.default(visited)
         ]
       end
 
@@ -2341,7 +2341,7 @@ module AWS::SDK::Greengrass
           deployment_id: 'deployment_id',
           deployment_status: 'deployment_status',
           deployment_type: 'deployment_type',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
           error_message: 'error_message',
           group_arn: 'group_arn',
         }
@@ -2366,7 +2366,7 @@ module AWS::SDK::Greengrass
     class ListBulkDeployments
       def self.default(visited=[])
         {
-          bulk_deployments: Stubs::BulkDeployments.default(visited),
+          bulk_deployments: BulkDeployments.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2387,7 +2387,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('BulkDeployments')
         visited = visited + ['BulkDeployments']
         [
-          Stubs::BulkDeployment.default(visited)
+          BulkDeployment.default(visited)
         ]
       end
 
@@ -2428,7 +2428,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2448,7 +2448,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfVersionInformation')
         visited = visited + ['List____listOfVersionInformation']
         [
-          Stubs::VersionInformation.default(visited)
+          VersionInformation.default(visited)
         ]
       end
 
@@ -2490,7 +2490,7 @@ module AWS::SDK::Greengrass
     class ListConnectorDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2511,7 +2511,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfDefinitionInformation')
         visited = visited + ['List____listOfDefinitionInformation']
         [
-          Stubs::DefinitionInformation.default(visited)
+          DefinitionInformation.default(visited)
         ]
       end
 
@@ -2538,7 +2538,7 @@ module AWS::SDK::Greengrass
           latest_version: 'latest_version',
           latest_version_arn: 'latest_version_arn',
           name: 'name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2562,7 +2562,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2580,7 +2580,7 @@ module AWS::SDK::Greengrass
     class ListCoreDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2599,7 +2599,7 @@ module AWS::SDK::Greengrass
     class ListDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::Deployments.default(visited),
+          deployments: Deployments.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2620,7 +2620,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('Deployments')
         visited = visited + ['Deployments']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -2665,7 +2665,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2683,7 +2683,7 @@ module AWS::SDK::Greengrass
     class ListDeviceDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2703,7 +2703,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2721,7 +2721,7 @@ module AWS::SDK::Greengrass
     class ListFunctionDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2740,7 +2740,7 @@ module AWS::SDK::Greengrass
     class ListGroupCertificateAuthorities
       def self.default(visited=[])
         {
-          group_certificate_authorities: Stubs::List____listOfGroupCertificateAuthorityProperties.default(visited),
+          group_certificate_authorities: List____listOfGroupCertificateAuthorityProperties.default(visited),
         }
       end
 
@@ -2759,7 +2759,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfGroupCertificateAuthorityProperties')
         visited = visited + ['List____listOfGroupCertificateAuthorityProperties']
         [
-          Stubs::GroupCertificateAuthorityProperties.default(visited)
+          GroupCertificateAuthorityProperties.default(visited)
         ]
       end
 
@@ -2798,7 +2798,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2816,7 +2816,7 @@ module AWS::SDK::Greengrass
     class ListGroups
       def self.default(visited=[])
         {
-          groups: Stubs::List____listOfGroupInformation.default(visited),
+          groups: List____listOfGroupInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2837,7 +2837,7 @@ module AWS::SDK::Greengrass
         return nil if visited.include?('List____listOfGroupInformation')
         visited = visited + ['List____listOfGroupInformation']
         [
-          Stubs::GroupInformation.default(visited)
+          GroupInformation.default(visited)
         ]
       end
 
@@ -2886,7 +2886,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2904,7 +2904,7 @@ module AWS::SDK::Greengrass
     class ListLoggerDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2924,7 +2924,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2942,7 +2942,7 @@ module AWS::SDK::Greengrass
     class ListResourceDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2962,7 +2962,7 @@ module AWS::SDK::Greengrass
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionInformation.default(visited),
+          versions: List____listOfVersionInformation.default(visited),
         }
       end
 
@@ -2980,7 +2980,7 @@ module AWS::SDK::Greengrass
     class ListSubscriptionDefinitions
       def self.default(visited=[])
         {
-          definitions: Stubs::List____listOfDefinitionInformation.default(visited),
+          definitions: List____listOfDefinitionInformation.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2999,7 +2999,7 @@ module AWS::SDK::Greengrass
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

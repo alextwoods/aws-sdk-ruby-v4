@@ -105,7 +105,7 @@ module AWS::SDK::EFS
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateAccessPointInput, context: context)
         type = Types::CreateAccessPointInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.file_system_id = params[:file_system_id]
         type.posix_user = PosixUser.build(params[:posix_user], context: "#{context}[:posix_user]") unless params[:posix_user].nil?
@@ -136,7 +136,7 @@ module AWS::SDK::EFS
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFileSystemInput, context: context)
         type = Types::CreateFileSystemInput.new
-        type.creation_token = params[:creation_token] || SecureRandom.uuid
+        type.creation_token = params[:creation_token] || ::SecureRandom.uuid
         type.performance_mode = params[:performance_mode]
         type.encrypted = params[:encrypted]
         type.kms_key_id = params[:kms_key_id]

@@ -73,26 +73,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     @Override
-    protected void renderSetStubMethod(SetShape shape) {
-        writer
-                .openBlock("def self.stub(stub)")
-                .write("stub ||= []")
-                .write("data = Set.new")
-                .openBlock("stub.each do |element|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(shape.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberSerializer(shape.getMember(),
-                                    "data << ", "element", true));
-                })
-                .closeBlock("end")
-                .write("data.to_a")
-                .closeBlock("end");
-
-    }
-
-    @Override
     protected void renderMapStubMethod(MapShape shape) {
         writer
                 .openBlock("def self.stub(stub)")
@@ -150,8 +130,11 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     private void renderUnionMemberStubber(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
-        String symbolName = "'" + member.getMemberName() + "'";
-        String dataSetter = "data[" + symbolName + "] = ";
+        String symbolName = member.getMemberName();
+        if (member.hasTrait(JsonNameTrait.class)) {
+            symbolName = member.expectTrait(JsonNameTrait.class).getValue();
+        }
+        String dataSetter = "data['" + symbolName + "'] = ";
         target.accept(new MemberSerializer(member, dataSetter, "stub.__getobj__", false));
     }
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WAFV2
@@ -145,7 +147,7 @@ module AWS::SDK::WAFV2
     def associate_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWebACLInput,
         validate_input: @config.validate_input
@@ -410,7 +412,7 @@ module AWS::SDK::WAFV2
     def check_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckCapacityInput,
         validate_input: @config.validate_input
@@ -558,7 +560,7 @@ module AWS::SDK::WAFV2
     def create_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIPSetInput,
         validate_input: @config.validate_input
@@ -667,7 +669,7 @@ module AWS::SDK::WAFV2
     def create_regex_pattern_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRegexPatternSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRegexPatternSetInput,
         validate_input: @config.validate_input
@@ -977,7 +979,7 @@ module AWS::SDK::WAFV2
     def create_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRuleGroupInput,
         validate_input: @config.validate_input
@@ -1280,7 +1282,7 @@ module AWS::SDK::WAFV2
     def create_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWebACLInput,
         validate_input: @config.validate_input
@@ -1355,7 +1357,7 @@ module AWS::SDK::WAFV2
     def delete_firewall_manager_rule_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallManagerRuleGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallManagerRuleGroupsInput,
         validate_input: @config.validate_input
@@ -1444,7 +1446,7 @@ module AWS::SDK::WAFV2
     def delete_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIPSetInput,
         validate_input: @config.validate_input
@@ -1513,7 +1515,7 @@ module AWS::SDK::WAFV2
     def delete_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -1584,7 +1586,7 @@ module AWS::SDK::WAFV2
     def delete_permission_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePermissionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePermissionPolicyInput,
         validate_input: @config.validate_input
@@ -1673,7 +1675,7 @@ module AWS::SDK::WAFV2
     def delete_regex_pattern_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRegexPatternSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRegexPatternSetInput,
         validate_input: @config.validate_input
@@ -1762,7 +1764,7 @@ module AWS::SDK::WAFV2
     def delete_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleGroupInput,
         validate_input: @config.validate_input
@@ -1882,7 +1884,7 @@ module AWS::SDK::WAFV2
     def delete_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWebACLInput,
         validate_input: @config.validate_input
@@ -2001,7 +2003,7 @@ module AWS::SDK::WAFV2
     def describe_managed_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeManagedRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeManagedRuleGroupInput,
         validate_input: @config.validate_input
@@ -2092,7 +2094,7 @@ module AWS::SDK::WAFV2
     def disassociate_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWebACLInput,
         validate_input: @config.validate_input
@@ -2167,7 +2169,7 @@ module AWS::SDK::WAFV2
     def generate_mobile_sdk_release_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateMobileSdkReleaseUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateMobileSdkReleaseUrlInput,
         validate_input: @config.validate_input
@@ -2261,7 +2263,7 @@ module AWS::SDK::WAFV2
     def get_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIPSetInput,
         validate_input: @config.validate_input
@@ -2383,7 +2385,7 @@ module AWS::SDK::WAFV2
     def get_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -2489,7 +2491,7 @@ module AWS::SDK::WAFV2
     def get_managed_rule_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetManagedRuleSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetManagedRuleSetInput,
         validate_input: @config.validate_input
@@ -2571,7 +2573,7 @@ module AWS::SDK::WAFV2
     def get_mobile_sdk_release(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMobileSdkReleaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMobileSdkReleaseInput,
         validate_input: @config.validate_input
@@ -2642,7 +2644,7 @@ module AWS::SDK::WAFV2
     def get_permission_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPermissionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPermissionPolicyInput,
         validate_input: @config.validate_input
@@ -2743,7 +2745,7 @@ module AWS::SDK::WAFV2
     def get_rate_based_statement_managed_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRateBasedStatementManagedKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRateBasedStatementManagedKeysInput,
         validate_input: @config.validate_input
@@ -2837,7 +2839,7 @@ module AWS::SDK::WAFV2
     def get_regex_pattern_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegexPatternSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegexPatternSetInput,
         validate_input: @config.validate_input
@@ -3083,7 +3085,7 @@ module AWS::SDK::WAFV2
     def get_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRuleGroupInput,
         validate_input: @config.validate_input
@@ -3227,7 +3229,7 @@ module AWS::SDK::WAFV2
     def get_sampled_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSampledRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSampledRequestsInput,
         validate_input: @config.validate_input
@@ -3481,7 +3483,7 @@ module AWS::SDK::WAFV2
     def get_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWebACLInput,
         validate_input: @config.validate_input
@@ -3716,7 +3718,7 @@ module AWS::SDK::WAFV2
     def get_web_acl_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWebACLForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWebACLForResourceInput,
         validate_input: @config.validate_input
@@ -3819,7 +3821,7 @@ module AWS::SDK::WAFV2
     def list_available_managed_rule_group_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableManagedRuleGroupVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableManagedRuleGroupVersionsInput,
         validate_input: @config.validate_input
@@ -3917,7 +3919,7 @@ module AWS::SDK::WAFV2
     def list_available_managed_rule_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableManagedRuleGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableManagedRuleGroupsInput,
         validate_input: @config.validate_input
@@ -4015,7 +4017,7 @@ module AWS::SDK::WAFV2
     def list_ip_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIPSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIPSetsInput,
         validate_input: @config.validate_input
@@ -4159,7 +4161,7 @@ module AWS::SDK::WAFV2
     def list_logging_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLoggingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLoggingConfigurationsInput,
         validate_input: @config.validate_input
@@ -4261,7 +4263,7 @@ module AWS::SDK::WAFV2
     def list_managed_rule_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedRuleSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedRuleSetsInput,
         validate_input: @config.validate_input
@@ -4348,7 +4350,7 @@ module AWS::SDK::WAFV2
     def list_mobile_sdk_releases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMobileSdkReleasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMobileSdkReleasesInput,
         validate_input: @config.validate_input
@@ -4446,7 +4448,7 @@ module AWS::SDK::WAFV2
     def list_regex_pattern_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRegexPatternSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRegexPatternSetsInput,
         validate_input: @config.validate_input
@@ -4523,7 +4525,7 @@ module AWS::SDK::WAFV2
     def list_resources_for_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesForWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesForWebACLInput,
         validate_input: @config.validate_input
@@ -4621,7 +4623,7 @@ module AWS::SDK::WAFV2
     def list_rule_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRuleGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRuleGroupsInput,
         validate_input: @config.validate_input
@@ -4715,7 +4717,7 @@ module AWS::SDK::WAFV2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4813,7 +4815,7 @@ module AWS::SDK::WAFV2
     def list_web_ac_ls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWebACLsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWebACLsInput,
         validate_input: @config.validate_input
@@ -5033,7 +5035,7 @@ module AWS::SDK::WAFV2
     def put_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -5150,7 +5152,7 @@ module AWS::SDK::WAFV2
     def put_managed_rule_set_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutManagedRuleSetVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutManagedRuleSetVersionsInput,
         validate_input: @config.validate_input
@@ -5263,7 +5265,7 @@ module AWS::SDK::WAFV2
     def put_permission_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPermissionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPermissionPolicyInput,
         validate_input: @config.validate_input
@@ -5347,7 +5349,7 @@ module AWS::SDK::WAFV2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5424,7 +5426,7 @@ module AWS::SDK::WAFV2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5564,7 +5566,7 @@ module AWS::SDK::WAFV2
     def update_ip_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIPSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIPSetInput,
         validate_input: @config.validate_input
@@ -5673,7 +5675,7 @@ module AWS::SDK::WAFV2
     def update_managed_rule_set_version_expiry_date(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateManagedRuleSetVersionExpiryDateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateManagedRuleSetVersionExpiryDateInput,
         validate_input: @config.validate_input
@@ -5780,7 +5782,7 @@ module AWS::SDK::WAFV2
     def update_regex_pattern_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRegexPatternSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRegexPatternSetInput,
         validate_input: @config.validate_input
@@ -6074,7 +6076,7 @@ module AWS::SDK::WAFV2
     def update_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRuleGroupInput,
         validate_input: @config.validate_input
@@ -6376,7 +6378,7 @@ module AWS::SDK::WAFV2
     def update_web_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWebACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWebACLInput,
         validate_input: @config.validate_input

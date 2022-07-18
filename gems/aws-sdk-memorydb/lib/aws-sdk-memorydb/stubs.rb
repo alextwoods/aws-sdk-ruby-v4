@@ -14,8 +14,8 @@ module AWS::SDK::MemoryDB
     class BatchUpdateCluster
       def self.default(visited=[])
         {
-          processed_clusters: Stubs::ClusterList.default(visited),
-          unprocessed_clusters: Stubs::UnprocessedClusterList.default(visited),
+          processed_clusters: ClusterList.default(visited),
+          unprocessed_clusters: UnprocessedClusterList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('UnprocessedClusterList')
         visited = visited + ['UnprocessedClusterList']
         [
-          Stubs::UnprocessedCluster.default(visited)
+          UnprocessedCluster.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ClusterList')
         visited = visited + ['ClusterList']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -99,17 +99,17 @@ module AWS::SDK::MemoryDB
           name: 'name',
           description: 'description',
           status: 'status',
-          pending_updates: Stubs::ClusterPendingUpdates.default(visited),
+          pending_updates: ClusterPendingUpdates.default(visited),
           number_of_shards: 1,
-          shards: Stubs::ShardList.default(visited),
+          shards: ShardList.default(visited),
           availability_mode: 'availability_mode',
-          cluster_endpoint: Stubs::Endpoint.default(visited),
+          cluster_endpoint: Endpoint.default(visited),
           node_type: 'node_type',
           engine_version: 'engine_version',
           engine_patch_version: 'engine_patch_version',
           parameter_group_name: 'parameter_group_name',
           parameter_group_status: 'parameter_group_status',
-          security_groups: Stubs::SecurityGroupMembershipList.default(visited),
+          security_groups: SecurityGroupMembershipList.default(visited),
           subnet_group_name: 'subnet_group_name',
           tls_enabled: false,
           kms_key_id: 'kms_key_id',
@@ -162,7 +162,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('SecurityGroupMembershipList')
         visited = visited + ['SecurityGroupMembershipList']
         [
-          Stubs::SecurityGroupMembership.default(visited)
+          SecurityGroupMembership.default(visited)
         ]
       end
 
@@ -222,7 +222,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ShardList')
         visited = visited + ['ShardList']
         [
-          Stubs::Shard.default(visited)
+          Shard.default(visited)
         ]
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::MemoryDB
           name: 'name',
           status: 'status',
           slots: 'slots',
-          nodes: Stubs::NodeList.default(visited),
+          nodes: NodeList.default(visited),
           number_of_nodes: 1,
         }
       end
@@ -268,7 +268,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('NodeList')
         visited = visited + ['NodeList']
         [
-          Stubs::Node.default(visited)
+          Node.default(visited)
         ]
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::MemoryDB
           status: 'status',
           availability_zone: 'availability_zone',
           create_time: Time.now,
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
         }
       end
 
@@ -314,9 +314,9 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ClusterPendingUpdates')
         visited = visited + ['ClusterPendingUpdates']
         {
-          resharding: Stubs::ReshardingStatus.default(visited),
-          ac_ls: Stubs::ACLsUpdateStatus.default(visited),
-          service_updates: Stubs::PendingModifiedServiceUpdateList.default(visited),
+          resharding: ReshardingStatus.default(visited),
+          ac_ls: ACLsUpdateStatus.default(visited),
+          service_updates: PendingModifiedServiceUpdateList.default(visited),
         }
       end
 
@@ -336,7 +336,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('PendingModifiedServiceUpdateList')
         visited = visited + ['PendingModifiedServiceUpdateList']
         [
-          Stubs::PendingModifiedServiceUpdate.default(visited)
+          PendingModifiedServiceUpdate.default(visited)
         ]
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ReshardingStatus')
         visited = visited + ['ReshardingStatus']
         {
-          slot_migration: Stubs::SlotMigration.default(visited),
+          slot_migration: SlotMigration.default(visited),
         }
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::MemoryDB
     class CopySnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -451,7 +451,7 @@ module AWS::SDK::MemoryDB
           source: 'source',
           kms_key_id: 'kms_key_id',
           arn: 'arn',
-          cluster_configuration: Stubs::ClusterConfiguration.default(visited),
+          cluster_configuration: ClusterConfiguration.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::MemoryDB
           snapshot_retention_limit: 1,
           snapshot_window: 'snapshot_window',
           num_shards: 1,
-          shards: Stubs::ShardDetails.default(visited),
+          shards: ShardDetails.default(visited),
         }
       end
 
@@ -518,7 +518,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ShardDetails')
         visited = visited + ['ShardDetails']
         [
-          Stubs::ShardDetail.default(visited)
+          ShardDetail.default(visited)
         ]
       end
 
@@ -539,7 +539,7 @@ module AWS::SDK::MemoryDB
         visited = visited + ['ShardDetail']
         {
           name: 'name',
-          configuration: Stubs::ShardConfiguration.default(visited),
+          configuration: ShardConfiguration.default(visited),
           size: 'size',
           snapshot_creation_time: Time.now,
         }
@@ -580,7 +580,7 @@ module AWS::SDK::MemoryDB
     class CreateACL
       def self.default(visited=[])
         {
-          acl: Stubs::ACL.default(visited),
+          acl: ACL.default(visited),
         }
       end
 
@@ -600,10 +600,10 @@ module AWS::SDK::MemoryDB
         {
           name: 'name',
           status: 'status',
-          user_names: Stubs::UserNameList.default(visited),
+          user_names: UserNameList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          pending_changes: Stubs::ACLPendingChanges.default(visited),
-          clusters: Stubs::ACLClusterNameList.default(visited),
+          pending_changes: ACLPendingChanges.default(visited),
+          clusters: ACLClusterNameList.default(visited),
           arn: 'arn',
         }
       end
@@ -648,8 +648,8 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ACLPendingChanges')
         visited = visited + ['ACLPendingChanges']
         {
-          user_names_to_remove: Stubs::UserNameList.default(visited),
-          user_names_to_add: Stubs::UserNameList.default(visited),
+          user_names_to_remove: UserNameList.default(visited),
+          user_names_to_add: UserNameList.default(visited),
         }
       end
 
@@ -686,7 +686,7 @@ module AWS::SDK::MemoryDB
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -702,7 +702,7 @@ module AWS::SDK::MemoryDB
     class CreateParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -742,7 +742,7 @@ module AWS::SDK::MemoryDB
     class CreateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -758,7 +758,7 @@ module AWS::SDK::MemoryDB
     class CreateSubnetGroup
       def self.default(visited=[])
         {
-          subnet_group: Stubs::SubnetGroup.default(visited),
+          subnet_group: SubnetGroup.default(visited),
         }
       end
 
@@ -779,7 +779,7 @@ module AWS::SDK::MemoryDB
           name: 'name',
           description: 'description',
           vpc_id: 'vpc_id',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
           arn: 'arn',
         }
       end
@@ -802,7 +802,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -823,7 +823,7 @@ module AWS::SDK::MemoryDB
         visited = visited + ['Subnet']
         {
           identifier: 'identifier',
-          availability_zone: Stubs::AvailabilityZone.default(visited),
+          availability_zone: AvailabilityZone.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::MemoryDB
     class CreateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -879,9 +879,9 @@ module AWS::SDK::MemoryDB
           name: 'name',
           status: 'status',
           access_string: 'access_string',
-          acl_names: Stubs::ACLNameList.default(visited),
+          acl_names: ACLNameList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          authentication: Stubs::Authentication.default(visited),
+          authentication: Authentication.default(visited),
           arn: 'arn',
         }
       end
@@ -944,7 +944,7 @@ module AWS::SDK::MemoryDB
     class DeleteACL
       def self.default(visited=[])
         {
-          acl: Stubs::ACL.default(visited),
+          acl: ACL.default(visited),
         }
       end
 
@@ -960,7 +960,7 @@ module AWS::SDK::MemoryDB
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -976,7 +976,7 @@ module AWS::SDK::MemoryDB
     class DeleteParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::MemoryDB
     class DeleteSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::MemoryDB
     class DeleteSubnetGroup
       def self.default(visited=[])
         {
-          subnet_group: Stubs::SubnetGroup.default(visited),
+          subnet_group: SubnetGroup.default(visited),
         }
       end
 
@@ -1024,7 +1024,7 @@ module AWS::SDK::MemoryDB
     class DeleteUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -1040,7 +1040,7 @@ module AWS::SDK::MemoryDB
     class DescribeACLs
       def self.default(visited=[])
         {
-          ac_ls: Stubs::ACLList.default(visited),
+          ac_ls: ACLList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ACLList')
         visited = visited + ['ACLList']
         [
-          Stubs::ACL.default(visited)
+          ACL.default(visited)
         ]
       end
 
@@ -1079,7 +1079,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          clusters: Stubs::ClusterList.default(visited),
+          clusters: ClusterList.default(visited),
         }
       end
 
@@ -1097,7 +1097,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          engine_versions: Stubs::EngineVersionInfoList.default(visited),
+          engine_versions: EngineVersionInfoList.default(visited),
         }
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('EngineVersionInfoList')
         visited = visited + ['EngineVersionInfoList']
         [
-          Stubs::EngineVersionInfo.default(visited)
+          EngineVersionInfo.default(visited)
         ]
       end
 
@@ -1157,7 +1157,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -1176,7 +1176,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -1219,7 +1219,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          parameter_groups: Stubs::ParameterGroupList.default(visited),
+          parameter_groups: ParameterGroupList.default(visited),
         }
       end
 
@@ -1238,7 +1238,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ParameterGroupList')
         visited = visited + ['ParameterGroupList']
         [
-          Stubs::ParameterGroup.default(visited)
+          ParameterGroup.default(visited)
         ]
       end
 
@@ -1257,7 +1257,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          parameters: Stubs::ParametersList.default(visited),
+          parameters: ParametersList.default(visited),
         }
       end
 
@@ -1276,7 +1276,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ParametersList')
         visited = visited + ['ParametersList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -1323,7 +1323,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          service_updates: Stubs::ServiceUpdateList.default(visited),
+          service_updates: ServiceUpdateList.default(visited),
         }
       end
 
@@ -1342,7 +1342,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('ServiceUpdateList')
         visited = visited + ['ServiceUpdateList']
         [
-          Stubs::ServiceUpdate.default(visited)
+          ServiceUpdate.default(visited)
         ]
       end
 
@@ -1393,7 +1393,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          snapshots: Stubs::SnapshotList.default(visited),
+          snapshots: SnapshotList.default(visited),
         }
       end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('SnapshotList')
         visited = visited + ['SnapshotList']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -1431,7 +1431,7 @@ module AWS::SDK::MemoryDB
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          subnet_groups: Stubs::SubnetGroupList.default(visited),
+          subnet_groups: SubnetGroupList.default(visited),
         }
       end
 
@@ -1450,7 +1450,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('SubnetGroupList')
         visited = visited + ['SubnetGroupList']
         [
-          Stubs::SubnetGroup.default(visited)
+          SubnetGroup.default(visited)
         ]
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::MemoryDB
     class DescribeUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1488,7 +1488,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -1506,7 +1506,7 @@ module AWS::SDK::MemoryDB
     class FailoverShard
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1522,8 +1522,8 @@ module AWS::SDK::MemoryDB
     class ListAllowedNodeTypeUpdates
       def self.default(visited=[])
         {
-          scale_up_node_types: Stubs::NodeTypeList.default(visited),
-          scale_down_node_types: Stubs::NodeTypeList.default(visited),
+          scale_up_node_types: NodeTypeList.default(visited),
+          scale_down_node_types: NodeTypeList.default(visited),
         }
       end
 
@@ -1560,7 +1560,7 @@ module AWS::SDK::MemoryDB
     class ListTags
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -1578,7 +1578,7 @@ module AWS::SDK::MemoryDB
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1616,7 +1616,7 @@ module AWS::SDK::MemoryDB
     class ResetParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -1632,7 +1632,7 @@ module AWS::SDK::MemoryDB
     class TagResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -1648,7 +1648,7 @@ module AWS::SDK::MemoryDB
     class UntagResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -1664,7 +1664,7 @@ module AWS::SDK::MemoryDB
     class UpdateACL
       def self.default(visited=[])
         {
-          acl: Stubs::ACL.default(visited),
+          acl: ACL.default(visited),
         }
       end
 
@@ -1680,7 +1680,7 @@ module AWS::SDK::MemoryDB
     class UpdateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1696,7 +1696,7 @@ module AWS::SDK::MemoryDB
     class UpdateParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -1712,7 +1712,7 @@ module AWS::SDK::MemoryDB
     class UpdateSubnetGroup
       def self.default(visited=[])
         {
-          subnet_group: Stubs::SubnetGroup.default(visited),
+          subnet_group: SubnetGroup.default(visited),
         }
       end
 
@@ -1728,7 +1728,7 @@ module AWS::SDK::MemoryDB
     class UpdateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 

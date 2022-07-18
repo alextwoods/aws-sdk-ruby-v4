@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Glacier
@@ -123,7 +125,7 @@ module AWS::SDK::Glacier
     def abort_multipart_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AbortMultipartUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AbortMultipartUploadInput,
         validate_input: @config.validate_input
@@ -211,7 +213,7 @@ module AWS::SDK::Glacier
     def abort_vault_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AbortVaultLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AbortVaultLockInput,
         validate_input: @config.validate_input
@@ -298,7 +300,7 @@ module AWS::SDK::Glacier
     def add_tags_to_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToVaultInput,
         validate_input: @config.validate_input
@@ -430,7 +432,7 @@ module AWS::SDK::Glacier
     def complete_multipart_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteMultipartUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteMultipartUploadInput,
         validate_input: @config.validate_input
@@ -522,7 +524,7 @@ module AWS::SDK::Glacier
     def complete_vault_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteVaultLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteVaultLockInput,
         validate_input: @config.validate_input
@@ -621,7 +623,7 @@ module AWS::SDK::Glacier
     def create_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVaultInput,
         validate_input: @config.validate_input
@@ -726,7 +728,7 @@ module AWS::SDK::Glacier
     def delete_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteArchiveInput,
         validate_input: @config.validate_input
@@ -820,7 +822,7 @@ module AWS::SDK::Glacier
     def delete_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVaultInput,
         validate_input: @config.validate_input
@@ -901,7 +903,7 @@ module AWS::SDK::Glacier
     def delete_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -988,7 +990,7 @@ module AWS::SDK::Glacier
     def delete_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -1154,7 +1156,7 @@ module AWS::SDK::Glacier
     def describe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobInput,
         validate_input: @config.validate_input
@@ -1252,7 +1254,7 @@ module AWS::SDK::Glacier
     def describe_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVaultInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::Glacier
     def get_data_retrieval_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataRetrievalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataRetrievalPolicyInput,
         validate_input: @config.validate_input
@@ -1573,7 +1575,7 @@ module AWS::SDK::Glacier
     def get_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -1679,7 +1681,7 @@ module AWS::SDK::Glacier
     def get_vault_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVaultLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVaultLockInput,
         validate_input: @config.validate_input
@@ -1773,7 +1775,7 @@ module AWS::SDK::Glacier
     def get_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -1924,7 +1926,7 @@ module AWS::SDK::Glacier
     def initiate_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateJobInput,
         validate_input: @config.validate_input
@@ -2047,7 +2049,7 @@ module AWS::SDK::Glacier
     def initiate_multipart_upload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateMultipartUploadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateMultipartUploadInput,
         validate_input: @config.validate_input
@@ -2164,7 +2166,7 @@ module AWS::SDK::Glacier
     def initiate_vault_lock(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateVaultLockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateVaultLockInput,
         validate_input: @config.validate_input
@@ -2365,7 +2367,7 @@ module AWS::SDK::Glacier
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -2485,7 +2487,7 @@ module AWS::SDK::Glacier
     def list_multipart_uploads(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMultipartUploadsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMultipartUploadsInput,
         validate_input: @config.validate_input
@@ -2608,7 +2610,7 @@ module AWS::SDK::Glacier
     def list_parts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPartsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPartsInput,
         validate_input: @config.validate_input
@@ -2684,7 +2686,7 @@ module AWS::SDK::Glacier
     def list_provisioned_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisionedCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedCapacityInput,
         validate_input: @config.validate_input
@@ -2763,7 +2765,7 @@ module AWS::SDK::Glacier
     def list_tags_for_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForVaultInput,
         validate_input: @config.validate_input
@@ -2872,7 +2874,7 @@ module AWS::SDK::Glacier
     def list_vaults(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVaultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVaultsInput,
         validate_input: @config.validate_input
@@ -2943,7 +2945,7 @@ module AWS::SDK::Glacier
     def purchase_provisioned_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseProvisionedCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseProvisionedCapacityInput,
         validate_input: @config.validate_input
@@ -3027,7 +3029,7 @@ module AWS::SDK::Glacier
     def remove_tags_from_vault(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromVaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromVaultInput,
         validate_input: @config.validate_input
@@ -3115,7 +3117,7 @@ module AWS::SDK::Glacier
     def set_data_retrieval_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDataRetrievalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDataRetrievalPolicyInput,
         validate_input: @config.validate_input
@@ -3202,7 +3204,7 @@ module AWS::SDK::Glacier
     def set_vault_access_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetVaultAccessPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetVaultAccessPolicyInput,
         validate_input: @config.validate_input
@@ -3324,7 +3326,7 @@ module AWS::SDK::Glacier
     def set_vault_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetVaultNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetVaultNotificationsInput,
         validate_input: @config.validate_input
@@ -3446,7 +3448,7 @@ module AWS::SDK::Glacier
     def upload_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadArchiveInput,
         validate_input: @config.validate_input
@@ -3592,7 +3594,7 @@ module AWS::SDK::Glacier
     def upload_multipart_part(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadMultipartPartInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadMultipartPartInput,
         validate_input: @config.validate_input
@@ -3649,7 +3651,7 @@ module AWS::SDK::Glacier
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

@@ -88,8 +88,8 @@ module AWS::SDK::DevOpsGuru
     class DescribeAnomaly
       def self.default(visited=[])
         {
-          proactive_anomaly: Stubs::ProactiveAnomaly.default(visited),
-          reactive_anomaly: Stubs::ReactiveAnomaly.default(visited),
+          proactive_anomaly: ProactiveAnomaly.default(visited),
+          reactive_anomaly: ReactiveAnomaly.default(visited),
         }
       end
 
@@ -112,16 +112,16 @@ module AWS::SDK::DevOpsGuru
           id: 'id',
           severity: 'severity',
           status: 'status',
-          anomaly_time_range: Stubs::AnomalyTimeRange.default(visited),
-          anomaly_reported_time_range: Stubs::AnomalyReportedTimeRange.default(visited),
-          source_details: Stubs::AnomalySourceDetails.default(visited),
+          anomaly_time_range: AnomalyTimeRange.default(visited),
+          anomaly_reported_time_range: AnomalyReportedTimeRange.default(visited),
+          source_details: AnomalySourceDetails.default(visited),
           associated_insight_id: 'associated_insight_id',
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           type: 'type',
           name: 'name',
           description: 'description',
           causal_anomaly_id: 'causal_anomaly_id',
-          anomaly_resources: Stubs::AnomalyResources.default(visited),
+          anomaly_resources: AnomalyResources.default(visited),
         }
       end
 
@@ -151,7 +151,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('AnomalyResources')
         visited = visited + ['AnomalyResources']
         [
-          Stubs::AnomalyResource.default(visited)
+          AnomalyResource.default(visited)
         ]
       end
 
@@ -191,8 +191,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ResourceCollection')
         visited = visited + ['ResourceCollection']
         {
-          cloud_formation: Stubs::CloudFormationCollection.default(visited),
-          tags: Stubs::TagCollections.default(visited),
+          cloud_formation: CloudFormationCollection.default(visited),
+          tags: TagCollections.default(visited),
         }
       end
 
@@ -211,7 +211,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('TagCollections')
         visited = visited + ['TagCollections']
         [
-          Stubs::TagCollection.default(visited)
+          TagCollection.default(visited)
         ]
       end
 
@@ -232,7 +232,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['TagCollection']
         {
           app_boundary_key: 'app_boundary_key',
-          tag_values: Stubs::TagValues.default(visited),
+          tag_values: TagValues.default(visited),
         }
       end
 
@@ -271,7 +271,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudFormationCollection')
         visited = visited + ['CloudFormationCollection']
         {
-          stack_names: Stubs::StackNames.default(visited),
+          stack_names: StackNames.default(visited),
         }
       end
 
@@ -309,8 +309,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('AnomalySourceDetails')
         visited = visited + ['AnomalySourceDetails']
         {
-          cloud_watch_metrics: Stubs::CloudWatchMetricsDetails.default(visited),
-          performance_insights_metrics: Stubs::PerformanceInsightsMetricsDetails.default(visited),
+          cloud_watch_metrics: CloudWatchMetricsDetails.default(visited),
+          performance_insights_metrics: PerformanceInsightsMetricsDetails.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('PerformanceInsightsMetricsDetails')
         visited = visited + ['PerformanceInsightsMetricsDetails']
         [
-          Stubs::PerformanceInsightsMetricsDetail.default(visited)
+          PerformanceInsightsMetricsDetail.default(visited)
         ]
       end
 
@@ -351,10 +351,10 @@ module AWS::SDK::DevOpsGuru
         {
           metric_display_name: 'metric_display_name',
           unit: 'unit',
-          metric_query: Stubs::PerformanceInsightsMetricQuery.default(visited),
-          reference_data: Stubs::PerformanceInsightsReferenceDataList.default(visited),
-          stats_at_anomaly: Stubs::PerformanceInsightsStats.default(visited),
-          stats_at_baseline: Stubs::PerformanceInsightsStats.default(visited),
+          metric_query: PerformanceInsightsMetricQuery.default(visited),
+          reference_data: PerformanceInsightsReferenceDataList.default(visited),
+          stats_at_anomaly: PerformanceInsightsStats.default(visited),
+          stats_at_baseline: PerformanceInsightsStats.default(visited),
         }
       end
 
@@ -377,7 +377,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('PerformanceInsightsStats')
         visited = visited + ['PerformanceInsightsStats']
         [
-          Stubs::PerformanceInsightsStat.default(visited)
+          PerformanceInsightsStat.default(visited)
         ]
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('PerformanceInsightsReferenceDataList')
         visited = visited + ['PerformanceInsightsReferenceDataList']
         [
-          Stubs::PerformanceInsightsReferenceData.default(visited)
+          PerformanceInsightsReferenceData.default(visited)
         ]
       end
 
@@ -438,7 +438,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['PerformanceInsightsReferenceData']
         {
           name: 'name',
-          comparison_values: Stubs::PerformanceInsightsReferenceComparisonValues.default(visited),
+          comparison_values: PerformanceInsightsReferenceComparisonValues.default(visited),
         }
       end
 
@@ -457,8 +457,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('PerformanceInsightsReferenceComparisonValues')
         visited = visited + ['PerformanceInsightsReferenceComparisonValues']
         {
-          reference_scalar: Stubs::PerformanceInsightsReferenceScalar.default(visited),
-          reference_metric: Stubs::PerformanceInsightsReferenceMetric.default(visited),
+          reference_scalar: PerformanceInsightsReferenceScalar.default(visited),
+          reference_metric: PerformanceInsightsReferenceMetric.default(visited),
         }
       end
 
@@ -477,7 +477,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('PerformanceInsightsReferenceMetric')
         visited = visited + ['PerformanceInsightsReferenceMetric']
         {
-          metric_query: Stubs::PerformanceInsightsMetricQuery.default(visited),
+          metric_query: PerformanceInsightsMetricQuery.default(visited),
         }
       end
 
@@ -496,8 +496,8 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['PerformanceInsightsMetricQuery']
         {
           metric: 'metric',
-          group_by: Stubs::PerformanceInsightsMetricDimensionGroup.default(visited),
-          filter: Stubs::PerformanceInsightsMetricFilterMap.default(visited),
+          group_by: PerformanceInsightsMetricDimensionGroup.default(visited),
+          filter: PerformanceInsightsMetricFilterMap.default(visited),
         }
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['PerformanceInsightsMetricDimensionGroup']
         {
           group: 'group',
-          dimensions: Stubs::PerformanceInsightsMetricDimensions.default(visited),
+          dimensions: PerformanceInsightsMetricDimensions.default(visited),
           limit: 1,
         }
       end
@@ -597,7 +597,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudWatchMetricsDetails')
         visited = visited + ['CloudWatchMetricsDetails']
         [
-          Stubs::CloudWatchMetricsDetail.default(visited)
+          CloudWatchMetricsDetail.default(visited)
         ]
       end
 
@@ -619,11 +619,11 @@ module AWS::SDK::DevOpsGuru
         {
           metric_name: 'metric_name',
           namespace: 'namespace',
-          dimensions: Stubs::CloudWatchMetricsDimensions.default(visited),
+          dimensions: CloudWatchMetricsDimensions.default(visited),
           stat: 'stat',
           unit: 'unit',
           period: 1,
-          metric_data_summary: Stubs::CloudWatchMetricsDataSummary.default(visited),
+          metric_data_summary: CloudWatchMetricsDataSummary.default(visited),
         }
       end
 
@@ -647,7 +647,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudWatchMetricsDataSummary')
         visited = visited + ['CloudWatchMetricsDataSummary']
         {
-          timestamp_metric_value_pair_list: Stubs::TimestampMetricValuePairList.default(visited),
+          timestamp_metric_value_pair_list: TimestampMetricValuePairList.default(visited),
           status_code: 'status_code',
         }
       end
@@ -667,7 +667,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('TimestampMetricValuePairList')
         visited = visited + ['TimestampMetricValuePairList']
         [
-          Stubs::TimestampMetricValuePair.default(visited)
+          TimestampMetricValuePair.default(visited)
         ]
       end
 
@@ -707,7 +707,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudWatchMetricsDimensions')
         visited = visited + ['CloudWatchMetricsDimensions']
         [
-          Stubs::CloudWatchMetricsDimension.default(visited)
+          CloudWatchMetricsDimension.default(visited)
         ]
       end
 
@@ -791,15 +791,15 @@ module AWS::SDK::DevOpsGuru
           severity: 'severity',
           status: 'status',
           update_time: Time.now,
-          anomaly_time_range: Stubs::AnomalyTimeRange.default(visited),
-          anomaly_reported_time_range: Stubs::AnomalyReportedTimeRange.default(visited),
-          prediction_time_range: Stubs::PredictionTimeRange.default(visited),
-          source_details: Stubs::AnomalySourceDetails.default(visited),
+          anomaly_time_range: AnomalyTimeRange.default(visited),
+          anomaly_reported_time_range: AnomalyReportedTimeRange.default(visited),
+          prediction_time_range: PredictionTimeRange.default(visited),
+          source_details: AnomalySourceDetails.default(visited),
           associated_insight_id: 'associated_insight_id',
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           limit: 1.0,
-          source_metadata: Stubs::AnomalySourceMetadata.default(visited),
-          anomaly_resources: Stubs::AnomalyResources.default(visited),
+          source_metadata: AnomalySourceMetadata.default(visited),
+          anomaly_resources: AnomalyResources.default(visited),
         }
       end
 
@@ -869,7 +869,7 @@ module AWS::SDK::DevOpsGuru
     class DescribeEventSourcesConfig
       def self.default(visited=[])
         {
-          event_sources: Stubs::EventSourcesConfig.default(visited),
+          event_sources: EventSourcesConfig.default(visited),
         }
       end
 
@@ -888,7 +888,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('EventSourcesConfig')
         visited = visited + ['EventSourcesConfig']
         {
-          amazon_code_guru_profiler: Stubs::AmazonCodeGuruProfilerIntegration.default(visited),
+          amazon_code_guru_profiler: AmazonCodeGuruProfilerIntegration.default(visited),
         }
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::DevOpsGuru
     class DescribeFeedback
       def self.default(visited=[])
         {
-          insight_feedback: Stubs::InsightFeedback.default(visited),
+          insight_feedback: InsightFeedback.default(visited),
         }
       end
 
@@ -959,8 +959,8 @@ module AWS::SDK::DevOpsGuru
     class DescribeInsight
       def self.default(visited=[])
         {
-          proactive_insight: Stubs::ProactiveInsight.default(visited),
-          reactive_insight: Stubs::ReactiveInsight.default(visited),
+          proactive_insight: ProactiveInsight.default(visited),
+          reactive_insight: ReactiveInsight.default(visited),
         }
       end
 
@@ -984,8 +984,8 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           ssm_ops_item_id: 'ssm_ops_item_id',
           description: 'description',
         }
@@ -1036,9 +1036,9 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          prediction_time_range: Stubs::PredictionTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          prediction_time_range: PredictionTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           ssm_ops_item_id: 'ssm_ops_item_id',
           description: 'description',
         }
@@ -1106,11 +1106,11 @@ module AWS::SDK::DevOpsGuru
     class DescribeOrganizationResourceCollectionHealth
       def self.default(visited=[])
         {
-          cloud_formation: Stubs::CloudFormationHealths.default(visited),
-          service: Stubs::ServiceHealths.default(visited),
-          account: Stubs::AccountHealths.default(visited),
+          cloud_formation: CloudFormationHealths.default(visited),
+          service: ServiceHealths.default(visited),
+          account: AccountHealths.default(visited),
           next_token: 'next_token',
-          tags: Stubs::TagHealths.default(visited),
+          tags: TagHealths.default(visited),
         }
       end
 
@@ -1133,7 +1133,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('TagHealths')
         visited = visited + ['TagHealths']
         [
-          Stubs::TagHealth.default(visited)
+          TagHealth.default(visited)
         ]
       end
 
@@ -1155,7 +1155,7 @@ module AWS::SDK::DevOpsGuru
         {
           app_boundary_key: 'app_boundary_key',
           tag_value: 'tag_value',
-          insight: Stubs::InsightHealth.default(visited),
+          insight: InsightHealth.default(visited),
         }
       end
 
@@ -1197,7 +1197,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('AccountHealths')
         visited = visited + ['AccountHealths']
         [
-          Stubs::AccountHealth.default(visited)
+          AccountHealth.default(visited)
         ]
       end
 
@@ -1218,7 +1218,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['AccountHealth']
         {
           account_id: 'account_id',
-          insight: Stubs::AccountInsightHealth.default(visited),
+          insight: AccountInsightHealth.default(visited),
         }
       end
 
@@ -1257,7 +1257,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ServiceHealths')
         visited = visited + ['ServiceHealths']
         [
-          Stubs::ServiceHealth.default(visited)
+          ServiceHealth.default(visited)
         ]
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['ServiceHealth']
         {
           service_name: 'service_name',
-          insight: Stubs::ServiceInsightHealth.default(visited),
+          insight: ServiceInsightHealth.default(visited),
         }
       end
 
@@ -1317,7 +1317,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudFormationHealths')
         visited = visited + ['CloudFormationHealths']
         [
-          Stubs::CloudFormationHealth.default(visited)
+          CloudFormationHealth.default(visited)
         ]
       end
 
@@ -1338,7 +1338,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['CloudFormationHealth']
         {
           stack_name: 'stack_name',
-          insight: Stubs::InsightHealth.default(visited),
+          insight: InsightHealth.default(visited),
         }
       end
 
@@ -1355,10 +1355,10 @@ module AWS::SDK::DevOpsGuru
     class DescribeResourceCollectionHealth
       def self.default(visited=[])
         {
-          cloud_formation: Stubs::CloudFormationHealths.default(visited),
-          service: Stubs::ServiceHealths.default(visited),
+          cloud_formation: CloudFormationHealths.default(visited),
+          service: ServiceHealths.default(visited),
           next_token: 'next_token',
-          tags: Stubs::TagHealths.default(visited),
+          tags: TagHealths.default(visited),
         }
       end
 
@@ -1378,7 +1378,7 @@ module AWS::SDK::DevOpsGuru
     class DescribeServiceIntegration
       def self.default(visited=[])
         {
-          service_integration: Stubs::ServiceIntegrationConfig.default(visited),
+          service_integration: ServiceIntegrationConfig.default(visited),
         }
       end
 
@@ -1397,7 +1397,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ServiceIntegrationConfig')
         visited = visited + ['ServiceIntegrationConfig']
         {
-          ops_center: Stubs::OpsCenterIntegration.default(visited),
+          ops_center: OpsCenterIntegration.default(visited),
         }
       end
 
@@ -1431,10 +1431,10 @@ module AWS::SDK::DevOpsGuru
     class GetCostEstimation
       def self.default(visited=[])
         {
-          resource_collection: Stubs::CostEstimationResourceCollectionFilter.default(visited),
+          resource_collection: CostEstimationResourceCollectionFilter.default(visited),
           status: 'status',
-          costs: Stubs::ServiceResourceCosts.default(visited),
-          time_range: Stubs::CostEstimationTimeRange.default(visited),
+          costs: ServiceResourceCosts.default(visited),
+          time_range: CostEstimationTimeRange.default(visited),
           total_cost: 1.0,
           next_token: 'next_token',
         }
@@ -1480,7 +1480,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ServiceResourceCosts')
         visited = visited + ['ServiceResourceCosts']
         [
-          Stubs::ServiceResourceCost.default(visited)
+          ServiceResourceCost.default(visited)
         ]
       end
 
@@ -1526,8 +1526,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CostEstimationResourceCollectionFilter')
         visited = visited + ['CostEstimationResourceCollectionFilter']
         {
-          cloud_formation: Stubs::CloudFormationCostEstimationResourceCollectionFilter.default(visited),
-          tags: Stubs::TagCostEstimationResourceCollectionFilters.default(visited),
+          cloud_formation: CloudFormationCostEstimationResourceCollectionFilter.default(visited),
+          tags: TagCostEstimationResourceCollectionFilters.default(visited),
         }
       end
 
@@ -1546,7 +1546,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('TagCostEstimationResourceCollectionFilters')
         visited = visited + ['TagCostEstimationResourceCollectionFilters']
         [
-          Stubs::TagCostEstimationResourceCollectionFilter.default(visited)
+          TagCostEstimationResourceCollectionFilter.default(visited)
         ]
       end
 
@@ -1567,7 +1567,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['TagCostEstimationResourceCollectionFilter']
         {
           app_boundary_key: 'app_boundary_key',
-          tag_values: Stubs::CostEstimationTagValues.default(visited),
+          tag_values: CostEstimationTagValues.default(visited),
         }
       end
 
@@ -1606,7 +1606,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudFormationCostEstimationResourceCollectionFilter')
         visited = visited + ['CloudFormationCostEstimationResourceCollectionFilter']
         {
-          stack_names: Stubs::CostEstimationStackNames.default(visited),
+          stack_names: CostEstimationStackNames.default(visited),
         }
       end
 
@@ -1642,7 +1642,7 @@ module AWS::SDK::DevOpsGuru
     class GetResourceCollection
       def self.default(visited=[])
         {
-          resource_collection: Stubs::ResourceCollectionFilter.default(visited),
+          resource_collection: ResourceCollectionFilter.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1663,8 +1663,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ResourceCollectionFilter')
         visited = visited + ['ResourceCollectionFilter']
         {
-          cloud_formation: Stubs::CloudFormationCollectionFilter.default(visited),
-          tags: Stubs::TagCollectionFilters.default(visited),
+          cloud_formation: CloudFormationCollectionFilter.default(visited),
+          tags: TagCollectionFilters.default(visited),
         }
       end
 
@@ -1683,7 +1683,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('TagCollectionFilters')
         visited = visited + ['TagCollectionFilters']
         [
-          Stubs::TagCollectionFilter.default(visited)
+          TagCollectionFilter.default(visited)
         ]
       end
 
@@ -1704,7 +1704,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['TagCollectionFilter']
         {
           app_boundary_key: 'app_boundary_key',
-          tag_values: Stubs::TagValues.default(visited),
+          tag_values: TagValues.default(visited),
         }
       end
 
@@ -1723,7 +1723,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('CloudFormationCollectionFilter')
         visited = visited + ['CloudFormationCollectionFilter']
         {
-          stack_names: Stubs::StackNames.default(visited),
+          stack_names: StackNames.default(visited),
         }
       end
 
@@ -1739,8 +1739,8 @@ module AWS::SDK::DevOpsGuru
     class ListAnomaliesForInsight
       def self.default(visited=[])
         {
-          proactive_anomalies: Stubs::ProactiveAnomalies.default(visited),
-          reactive_anomalies: Stubs::ReactiveAnomalies.default(visited),
+          proactive_anomalies: ProactiveAnomalies.default(visited),
+          reactive_anomalies: ReactiveAnomalies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1762,7 +1762,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ReactiveAnomalies')
         visited = visited + ['ReactiveAnomalies']
         [
-          Stubs::ReactiveAnomalySummary.default(visited)
+          ReactiveAnomalySummary.default(visited)
         ]
       end
 
@@ -1785,16 +1785,16 @@ module AWS::SDK::DevOpsGuru
           id: 'id',
           severity: 'severity',
           status: 'status',
-          anomaly_time_range: Stubs::AnomalyTimeRange.default(visited),
-          anomaly_reported_time_range: Stubs::AnomalyReportedTimeRange.default(visited),
-          source_details: Stubs::AnomalySourceDetails.default(visited),
+          anomaly_time_range: AnomalyTimeRange.default(visited),
+          anomaly_reported_time_range: AnomalyReportedTimeRange.default(visited),
+          source_details: AnomalySourceDetails.default(visited),
           associated_insight_id: 'associated_insight_id',
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           type: 'type',
           name: 'name',
           description: 'description',
           causal_anomaly_id: 'causal_anomaly_id',
-          anomaly_resources: Stubs::AnomalyResources.default(visited),
+          anomaly_resources: AnomalyResources.default(visited),
         }
       end
 
@@ -1824,7 +1824,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ProactiveAnomalies')
         visited = visited + ['ProactiveAnomalies']
         [
-          Stubs::ProactiveAnomalySummary.default(visited)
+          ProactiveAnomalySummary.default(visited)
         ]
       end
 
@@ -1848,15 +1848,15 @@ module AWS::SDK::DevOpsGuru
           severity: 'severity',
           status: 'status',
           update_time: Time.now,
-          anomaly_time_range: Stubs::AnomalyTimeRange.default(visited),
-          anomaly_reported_time_range: Stubs::AnomalyReportedTimeRange.default(visited),
-          prediction_time_range: Stubs::PredictionTimeRange.default(visited),
-          source_details: Stubs::AnomalySourceDetails.default(visited),
+          anomaly_time_range: AnomalyTimeRange.default(visited),
+          anomaly_reported_time_range: AnomalyReportedTimeRange.default(visited),
+          prediction_time_range: PredictionTimeRange.default(visited),
+          source_details: AnomalySourceDetails.default(visited),
           associated_insight_id: 'associated_insight_id',
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           limit: 1.0,
-          source_metadata: Stubs::AnomalySourceMetadata.default(visited),
-          anomaly_resources: Stubs::AnomalyResources.default(visited),
+          source_metadata: AnomalySourceMetadata.default(visited),
+          anomaly_resources: AnomalyResources.default(visited),
         }
       end
 
@@ -1884,7 +1884,7 @@ module AWS::SDK::DevOpsGuru
     class ListEvents
       def self.default(visited=[])
         {
-          events: Stubs::Events.default(visited),
+          events: Events.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1905,7 +1905,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('Events')
         visited = visited + ['Events']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -1925,14 +1925,14 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('Event')
         visited = visited + ['Event']
         {
-          resource_collection: Stubs::ResourceCollection.default(visited),
+          resource_collection: ResourceCollection.default(visited),
           id: 'id',
           time: Time.now,
           event_source: 'event_source',
           name: 'name',
           data_source: 'data_source',
           event_class: 'event_class',
-          resources: Stubs::EventResources.default(visited),
+          resources: EventResources.default(visited),
         }
       end
 
@@ -1957,7 +1957,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('EventResources')
         visited = visited + ['EventResources']
         [
-          Stubs::EventResource.default(visited)
+          EventResource.default(visited)
         ]
       end
 
@@ -1997,8 +1997,8 @@ module AWS::SDK::DevOpsGuru
     class ListInsights
       def self.default(visited=[])
         {
-          proactive_insights: Stubs::ProactiveInsights.default(visited),
-          reactive_insights: Stubs::ReactiveInsights.default(visited),
+          proactive_insights: ProactiveInsights.default(visited),
+          reactive_insights: ReactiveInsights.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2020,7 +2020,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ReactiveInsights')
         visited = visited + ['ReactiveInsights']
         [
-          Stubs::ReactiveInsightSummary.default(visited)
+          ReactiveInsightSummary.default(visited)
         ]
       end
 
@@ -2044,10 +2044,10 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
-          service_collection: Stubs::ServiceCollection.default(visited),
-          associated_resource_arns: Stubs::AssociatedResourceArns.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
+          service_collection: ServiceCollection.default(visited),
+          associated_resource_arns: AssociatedResourceArns.default(visited),
         }
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ServiceCollection')
         visited = visited + ['ServiceCollection']
         {
-          service_names: Stubs::ServiceNames.default(visited),
+          service_names: ServiceNames.default(visited),
         }
       end
 
@@ -2130,7 +2130,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ProactiveInsights')
         visited = visited + ['ProactiveInsights']
         [
-          Stubs::ProactiveInsightSummary.default(visited)
+          ProactiveInsightSummary.default(visited)
         ]
       end
 
@@ -2154,11 +2154,11 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          prediction_time_range: Stubs::PredictionTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
-          service_collection: Stubs::ServiceCollection.default(visited),
-          associated_resource_arns: Stubs::AssociatedResourceArns.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          prediction_time_range: PredictionTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
+          service_collection: ServiceCollection.default(visited),
+          associated_resource_arns: AssociatedResourceArns.default(visited),
         }
       end
 
@@ -2182,7 +2182,7 @@ module AWS::SDK::DevOpsGuru
     class ListNotificationChannels
       def self.default(visited=[])
         {
-          channels: Stubs::Channels.default(visited),
+          channels: Channels.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2203,7 +2203,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('Channels')
         visited = visited + ['Channels']
         [
-          Stubs::NotificationChannel.default(visited)
+          NotificationChannel.default(visited)
         ]
       end
 
@@ -2224,7 +2224,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['NotificationChannel']
         {
           id: 'id',
-          config: Stubs::NotificationChannelConfig.default(visited),
+          config: NotificationChannelConfig.default(visited),
         }
       end
 
@@ -2243,7 +2243,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('NotificationChannelConfig')
         visited = visited + ['NotificationChannelConfig']
         {
-          sns: Stubs::SnsChannelConfig.default(visited),
+          sns: SnsChannelConfig.default(visited),
         }
       end
 
@@ -2277,8 +2277,8 @@ module AWS::SDK::DevOpsGuru
     class ListOrganizationInsights
       def self.default(visited=[])
         {
-          proactive_insights: Stubs::ProactiveOrganizationInsights.default(visited),
-          reactive_insights: Stubs::ReactiveOrganizationInsights.default(visited),
+          proactive_insights: ProactiveOrganizationInsights.default(visited),
+          reactive_insights: ReactiveOrganizationInsights.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2300,7 +2300,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ReactiveOrganizationInsights')
         visited = visited + ['ReactiveOrganizationInsights']
         [
-          Stubs::ReactiveOrganizationInsightSummary.default(visited)
+          ReactiveOrganizationInsightSummary.default(visited)
         ]
       end
 
@@ -2326,9 +2326,9 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
-          service_collection: Stubs::ServiceCollection.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
+          service_collection: ServiceCollection.default(visited),
         }
       end
 
@@ -2354,7 +2354,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('ProactiveOrganizationInsights')
         visited = visited + ['ProactiveOrganizationInsights']
         [
-          Stubs::ProactiveOrganizationInsightSummary.default(visited)
+          ProactiveOrganizationInsightSummary.default(visited)
         ]
       end
 
@@ -2380,10 +2380,10 @@ module AWS::SDK::DevOpsGuru
           name: 'name',
           severity: 'severity',
           status: 'status',
-          insight_time_range: Stubs::InsightTimeRange.default(visited),
-          prediction_time_range: Stubs::PredictionTimeRange.default(visited),
-          resource_collection: Stubs::ResourceCollection.default(visited),
-          service_collection: Stubs::ServiceCollection.default(visited),
+          insight_time_range: InsightTimeRange.default(visited),
+          prediction_time_range: PredictionTimeRange.default(visited),
+          resource_collection: ResourceCollection.default(visited),
+          service_collection: ServiceCollection.default(visited),
         }
       end
 
@@ -2408,7 +2408,7 @@ module AWS::SDK::DevOpsGuru
     class ListRecommendations
       def self.default(visited=[])
         {
-          recommendations: Stubs::Recommendations.default(visited),
+          recommendations: Recommendations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2429,7 +2429,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('Recommendations')
         visited = visited + ['Recommendations']
         [
-          Stubs::Recommendation.default(visited)
+          Recommendation.default(visited)
         ]
       end
 
@@ -2453,8 +2453,8 @@ module AWS::SDK::DevOpsGuru
           link: 'link',
           name: 'name',
           reason: 'reason',
-          related_events: Stubs::RecommendationRelatedEvents.default(visited),
-          related_anomalies: Stubs::RecommendationRelatedAnomalies.default(visited),
+          related_events: RecommendationRelatedEvents.default(visited),
+          related_anomalies: RecommendationRelatedAnomalies.default(visited),
           category: 'category',
         }
       end
@@ -2479,7 +2479,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedAnomalies')
         visited = visited + ['RecommendationRelatedAnomalies']
         [
-          Stubs::RecommendationRelatedAnomaly.default(visited)
+          RecommendationRelatedAnomaly.default(visited)
         ]
       end
 
@@ -2499,8 +2499,8 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedAnomaly')
         visited = visited + ['RecommendationRelatedAnomaly']
         {
-          resources: Stubs::RecommendationRelatedAnomalyResources.default(visited),
-          source_details: Stubs::RelatedAnomalySourceDetails.default(visited),
+          resources: RecommendationRelatedAnomalyResources.default(visited),
+          source_details: RelatedAnomalySourceDetails.default(visited),
           anomaly_id: 'anomaly_id',
         }
       end
@@ -2521,7 +2521,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RelatedAnomalySourceDetails')
         visited = visited + ['RelatedAnomalySourceDetails']
         [
-          Stubs::RecommendationRelatedAnomalySourceDetail.default(visited)
+          RecommendationRelatedAnomalySourceDetail.default(visited)
         ]
       end
 
@@ -2541,7 +2541,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedAnomalySourceDetail')
         visited = visited + ['RecommendationRelatedAnomalySourceDetail']
         {
-          cloud_watch_metrics: Stubs::RecommendationRelatedCloudWatchMetricsSourceDetails.default(visited),
+          cloud_watch_metrics: RecommendationRelatedCloudWatchMetricsSourceDetails.default(visited),
         }
       end
 
@@ -2559,7 +2559,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedCloudWatchMetricsSourceDetails')
         visited = visited + ['RecommendationRelatedCloudWatchMetricsSourceDetails']
         [
-          Stubs::RecommendationRelatedCloudWatchMetricsSourceDetail.default(visited)
+          RecommendationRelatedCloudWatchMetricsSourceDetail.default(visited)
         ]
       end
 
@@ -2599,7 +2599,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedAnomalyResources')
         visited = visited + ['RecommendationRelatedAnomalyResources']
         [
-          Stubs::RecommendationRelatedAnomalyResource.default(visited)
+          RecommendationRelatedAnomalyResource.default(visited)
         ]
       end
 
@@ -2639,7 +2639,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedEvents')
         visited = visited + ['RecommendationRelatedEvents']
         [
-          Stubs::RecommendationRelatedEvent.default(visited)
+          RecommendationRelatedEvent.default(visited)
         ]
       end
 
@@ -2660,7 +2660,7 @@ module AWS::SDK::DevOpsGuru
         visited = visited + ['RecommendationRelatedEvent']
         {
           name: 'name',
-          resources: Stubs::RecommendationRelatedEventResources.default(visited),
+          resources: RecommendationRelatedEventResources.default(visited),
         }
       end
 
@@ -2679,7 +2679,7 @@ module AWS::SDK::DevOpsGuru
         return nil if visited.include?('RecommendationRelatedEventResources')
         visited = visited + ['RecommendationRelatedEventResources']
         [
-          Stubs::RecommendationRelatedEventResource.default(visited)
+          RecommendationRelatedEventResource.default(visited)
         ]
       end
 
@@ -2743,8 +2743,8 @@ module AWS::SDK::DevOpsGuru
     class SearchInsights
       def self.default(visited=[])
         {
-          proactive_insights: Stubs::ProactiveInsights.default(visited),
-          reactive_insights: Stubs::ReactiveInsights.default(visited),
+          proactive_insights: ProactiveInsights.default(visited),
+          reactive_insights: ReactiveInsights.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2764,8 +2764,8 @@ module AWS::SDK::DevOpsGuru
     class SearchOrganizationInsights
       def self.default(visited=[])
         {
-          proactive_insights: Stubs::ProactiveInsights.default(visited),
-          reactive_insights: Stubs::ReactiveInsights.default(visited),
+          proactive_insights: ProactiveInsights.default(visited),
+          reactive_insights: ReactiveInsights.default(visited),
           next_token: 'next_token',
         }
       end

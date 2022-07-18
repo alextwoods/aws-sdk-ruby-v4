@@ -685,11 +685,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # Includes enum constants for AlarmState
@@ -2026,11 +2026,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.in_use_resource_count ||= 0
       end
-
     end
 
     # Includes enum constants for CertificateStatus
@@ -4653,11 +4653,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_port ||= 0
       end
-
     end
 
     # @!attribute operations
@@ -7195,11 +7195,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -7361,11 +7361,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_certificate_details ||= false
       end
-
     end
 
     # @!attribute certificates
@@ -7742,11 +7742,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -8175,11 +8175,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -8596,11 +8596,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -9111,11 +9111,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -9907,11 +9907,11 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute metric_name
@@ -11232,12 +11232,12 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes open ports on an instance, the IP addresses allowed to connect to the instance
@@ -11384,12 +11384,12 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes an instance snapshot.</p>
@@ -14010,12 +14010,12 @@ module AWS::SDK::Lightsail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # Includes enum constants for PortInfoSourceType

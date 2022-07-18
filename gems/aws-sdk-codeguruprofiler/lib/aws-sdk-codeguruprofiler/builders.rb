@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::CodeGuruProfiler
   module Builders
 
@@ -34,10 +32,10 @@ module AWS::SDK::CodeGuruProfiler
       end
     end
 
-    # Set Builder for Channels
+    # List Builder for Channels
     class Channels
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << Builders::Channel.build(element) unless element.nil?
         end
@@ -56,10 +54,10 @@ module AWS::SDK::CodeGuruProfiler
       end
     end
 
-    # Set Builder for EventPublishers
+    # List Builder for EventPublishers
     class EventPublishers
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

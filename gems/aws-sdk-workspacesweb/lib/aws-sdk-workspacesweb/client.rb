@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkSpacesWeb
@@ -68,7 +70,7 @@ module AWS::SDK::WorkSpacesWeb
     def associate_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -141,7 +143,7 @@ module AWS::SDK::WorkSpacesWeb
     def associate_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -214,7 +216,7 @@ module AWS::SDK::WorkSpacesWeb
     def associate_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTrustStoreInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::WorkSpacesWeb
     def associate_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateUserSettingsInput,
         validate_input: @config.validate_input
@@ -385,7 +387,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -629,7 +631,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIdentityProviderInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -828,7 +830,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePortalInput,
         validate_input: @config.validate_input
@@ -921,7 +923,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrustStoreInput,
         validate_input: @config.validate_input
@@ -1038,7 +1040,7 @@ module AWS::SDK::WorkSpacesWeb
     def create_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserSettingsInput,
         validate_input: @config.validate_input
@@ -1106,7 +1108,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -1173,7 +1175,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentityProviderInput,
         validate_input: @config.validate_input
@@ -1240,7 +1242,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -1307,7 +1309,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePortalInput,
         validate_input: @config.validate_input
@@ -1374,7 +1376,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrustStoreInput,
         validate_input: @config.validate_input
@@ -1441,7 +1443,7 @@ module AWS::SDK::WorkSpacesWeb
     def delete_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserSettingsInput,
         validate_input: @config.validate_input
@@ -1508,7 +1510,7 @@ module AWS::SDK::WorkSpacesWeb
     def disassociate_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -1575,7 +1577,7 @@ module AWS::SDK::WorkSpacesWeb
     def disassociate_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -1642,7 +1644,7 @@ module AWS::SDK::WorkSpacesWeb
     def disassociate_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTrustStoreInput,
         validate_input: @config.validate_input
@@ -1709,7 +1711,7 @@ module AWS::SDK::WorkSpacesWeb
     def disassociate_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateUserSettingsInput,
         validate_input: @config.validate_input
@@ -1781,7 +1783,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -1854,7 +1856,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityProviderInput,
         validate_input: @config.validate_input
@@ -1930,7 +1932,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -2010,7 +2012,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPortalInput,
         validate_input: @config.validate_input
@@ -2079,7 +2081,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_portal_service_provider_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPortalServiceProviderMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPortalServiceProviderMetadataInput,
         validate_input: @config.validate_input
@@ -2150,7 +2152,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrustStoreInput,
         validate_input: @config.validate_input
@@ -2229,7 +2231,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_trust_store_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTrustStoreCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTrustStoreCertificateInput,
         validate_input: @config.validate_input
@@ -2307,7 +2309,7 @@ module AWS::SDK::WorkSpacesWeb
     def get_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserSettingsInput,
         validate_input: @config.validate_input
@@ -2382,7 +2384,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -2463,7 +2465,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_identity_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityProvidersInput,
         validate_input: @config.validate_input
@@ -2539,7 +2541,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -2624,7 +2626,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_portals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPortalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPortalsInput,
         validate_input: @config.validate_input
@@ -2695,7 +2697,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2779,7 +2781,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_trust_store_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrustStoreCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrustStoreCertificatesInput,
         validate_input: @config.validate_input
@@ -2854,7 +2856,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_trust_stores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrustStoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrustStoresInput,
         validate_input: @config.validate_input
@@ -2936,7 +2938,7 @@ module AWS::SDK::WorkSpacesWeb
     def list_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserSettingsInput,
         validate_input: @config.validate_input
@@ -3021,7 +3023,7 @@ module AWS::SDK::WorkSpacesWeb
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3095,7 +3097,7 @@ module AWS::SDK::WorkSpacesWeb
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3181,7 +3183,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_browser_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBrowserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBrowserSettingsInput,
         validate_input: @config.validate_input
@@ -3430,7 +3432,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIdentityProviderInput,
         validate_input: @config.validate_input
@@ -3532,7 +3534,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_network_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNetworkSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNetworkSettingsInput,
         validate_input: @config.validate_input
@@ -3617,7 +3619,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_portal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePortalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePortalInput,
         validate_input: @config.validate_input
@@ -3707,7 +3709,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_trust_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrustStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrustStoreInput,
         validate_input: @config.validate_input
@@ -3827,7 +3829,7 @@ module AWS::SDK::WorkSpacesWeb
     def update_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserSettingsInput,
         validate_input: @config.validate_input

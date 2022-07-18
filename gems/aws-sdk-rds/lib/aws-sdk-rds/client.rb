@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::RDS
@@ -120,7 +122,7 @@ module AWS::SDK::RDS
     def add_role_to_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddRoleToDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddRoleToDBClusterInput,
         validate_input: @config.validate_input
@@ -202,7 +204,7 @@ module AWS::SDK::RDS
     def add_role_to_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddRoleToDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddRoleToDBInstanceInput,
         validate_input: @config.validate_input
@@ -311,7 +313,7 @@ module AWS::SDK::RDS
     def add_source_identifier_to_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddSourceIdentifierToSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddSourceIdentifierToSubscriptionInput,
         validate_input: @config.validate_input
@@ -393,7 +395,7 @@ module AWS::SDK::RDS
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -504,7 +506,7 @@ module AWS::SDK::RDS
     def apply_pending_maintenance_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplyPendingMaintenanceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplyPendingMaintenanceActionInput,
         validate_input: @config.validate_input
@@ -623,7 +625,7 @@ module AWS::SDK::RDS
     def authorize_db_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeDBSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeDBSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -753,7 +755,7 @@ module AWS::SDK::RDS
     def backtrack_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BacktrackDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BacktrackDBClusterInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::RDS
     def cancel_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelExportTaskInput,
         validate_input: @config.validate_input
@@ -957,7 +959,7 @@ module AWS::SDK::RDS
     def copy_db_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyDBClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyDBClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -1226,7 +1228,7 @@ module AWS::SDK::RDS
     def copy_db_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyDBClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyDBClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -1345,7 +1347,7 @@ module AWS::SDK::RDS
     def copy_db_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyDBParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyDBParameterGroupInput,
         validate_input: @config.validate_input
@@ -1592,7 +1594,7 @@ module AWS::SDK::RDS
     def copy_db_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyDBSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyDBSnapshotInput,
         validate_input: @config.validate_input
@@ -1737,7 +1739,7 @@ module AWS::SDK::RDS
     def copy_option_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyOptionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyOptionGroupInput,
         validate_input: @config.validate_input
@@ -1957,7 +1959,7 @@ module AWS::SDK::RDS
     def create_custom_db_engine_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomDBEngineVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomDBEngineVersionInput,
         validate_input: @config.validate_input
@@ -2751,7 +2753,7 @@ module AWS::SDK::RDS
     def create_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBClusterInput,
         validate_input: @config.validate_input
@@ -2862,7 +2864,7 @@ module AWS::SDK::RDS
     def create_db_cluster_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBClusterEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBClusterEndpointInput,
         validate_input: @config.validate_input
@@ -3048,7 +3050,7 @@ module AWS::SDK::RDS
     def create_db_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -3183,7 +3185,7 @@ module AWS::SDK::RDS
     def create_db_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -4423,7 +4425,7 @@ module AWS::SDK::RDS
     def create_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBInstanceInput,
         validate_input: @config.validate_input
@@ -5089,7 +5091,7 @@ module AWS::SDK::RDS
     def create_db_instance_read_replica(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBInstanceReadReplicaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBInstanceReadReplicaInput,
         validate_input: @config.validate_input
@@ -5295,7 +5297,7 @@ module AWS::SDK::RDS
     def create_db_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBParameterGroupInput,
         validate_input: @config.validate_input
@@ -5446,7 +5448,7 @@ module AWS::SDK::RDS
     def create_db_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBProxyInput,
         validate_input: @config.validate_input
@@ -5561,7 +5563,7 @@ module AWS::SDK::RDS
     def create_db_proxy_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBProxyEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBProxyEndpointInput,
         validate_input: @config.validate_input
@@ -5678,7 +5680,7 @@ module AWS::SDK::RDS
     def create_db_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBSecurityGroupInput,
         validate_input: @config.validate_input
@@ -5823,7 +5825,7 @@ module AWS::SDK::RDS
     def create_db_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBSnapshotInput,
         validate_input: @config.validate_input
@@ -5940,7 +5942,7 @@ module AWS::SDK::RDS
     def create_db_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDBSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDBSubnetGroupInput,
         validate_input: @config.validate_input
@@ -6118,7 +6120,7 @@ module AWS::SDK::RDS
     def create_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -6246,7 +6248,7 @@ module AWS::SDK::RDS
     def create_global_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalClusterInput,
         validate_input: @config.validate_input
@@ -6443,7 +6445,7 @@ module AWS::SDK::RDS
     def create_option_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOptionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOptionGroupInput,
         validate_input: @config.validate_input
@@ -6583,7 +6585,7 @@ module AWS::SDK::RDS
     def delete_custom_db_engine_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomDBEngineVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomDBEngineVersionInput,
         validate_input: @config.validate_input
@@ -6807,7 +6809,7 @@ module AWS::SDK::RDS
     def delete_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBClusterInput,
         validate_input: @config.validate_input
@@ -6889,7 +6891,7 @@ module AWS::SDK::RDS
     def delete_db_cluster_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBClusterEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBClusterEndpointInput,
         validate_input: @config.validate_input
@@ -6975,7 +6977,7 @@ module AWS::SDK::RDS
     def delete_db_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -7081,7 +7083,7 @@ module AWS::SDK::RDS
     def delete_db_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -7372,7 +7374,7 @@ module AWS::SDK::RDS
     def delete_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBInstanceInput,
         validate_input: @config.validate_input
@@ -7478,7 +7480,7 @@ module AWS::SDK::RDS
     def delete_db_instance_automated_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBInstanceAutomatedBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBInstanceAutomatedBackupInput,
         validate_input: @config.validate_input
@@ -7558,7 +7560,7 @@ module AWS::SDK::RDS
     def delete_db_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBParameterGroupInput,
         validate_input: @config.validate_input
@@ -7649,7 +7651,7 @@ module AWS::SDK::RDS
     def delete_db_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBProxyInput,
         validate_input: @config.validate_input
@@ -7732,7 +7734,7 @@ module AWS::SDK::RDS
     def delete_db_proxy_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBProxyEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBProxyEndpointInput,
         validate_input: @config.validate_input
@@ -7821,7 +7823,7 @@ module AWS::SDK::RDS
     def delete_db_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBSecurityGroupInput,
         validate_input: @config.validate_input
@@ -7932,7 +7934,7 @@ module AWS::SDK::RDS
     def delete_db_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBSnapshotInput,
         validate_input: @config.validate_input
@@ -8009,7 +8011,7 @@ module AWS::SDK::RDS
     def delete_db_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDBSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDBSubnetGroupInput,
         validate_input: @config.validate_input
@@ -8090,7 +8092,7 @@ module AWS::SDK::RDS
     def delete_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -8183,7 +8185,7 @@ module AWS::SDK::RDS
     def delete_global_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGlobalClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGlobalClusterInput,
         validate_input: @config.validate_input
@@ -8254,7 +8256,7 @@ module AWS::SDK::RDS
     def delete_option_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOptionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOptionGroupInput,
         validate_input: @config.validate_input
@@ -8335,7 +8337,7 @@ module AWS::SDK::RDS
     def deregister_db_proxy_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterDBProxyTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterDBProxyTargetsInput,
         validate_input: @config.validate_input
@@ -8404,7 +8406,7 @@ module AWS::SDK::RDS
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -8516,7 +8518,7 @@ module AWS::SDK::RDS
     def describe_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificatesInput,
         validate_input: @config.validate_input
@@ -8693,7 +8695,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_backtracks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterBacktracksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterBacktracksInput,
         validate_input: @config.validate_input
@@ -8816,7 +8818,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterEndpointsInput,
         validate_input: @config.validate_input
@@ -8932,7 +8934,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterParameterGroupsInput,
         validate_input: @config.validate_input
@@ -9060,7 +9062,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterParametersInput,
         validate_input: @config.validate_input
@@ -9142,7 +9144,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_snapshot_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterSnapshotAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterSnapshotAttributesInput,
         validate_input: @config.validate_input
@@ -9362,7 +9364,7 @@ module AWS::SDK::RDS
     def describe_db_cluster_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClusterSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClusterSnapshotsInput,
         validate_input: @config.validate_input
@@ -9615,7 +9617,7 @@ module AWS::SDK::RDS
     def describe_db_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBClustersInput,
         validate_input: @config.validate_input
@@ -9944,7 +9946,7 @@ module AWS::SDK::RDS
     def describe_db_engine_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBEngineVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBEngineVersionsInput,
         validate_input: @config.validate_input
@@ -10120,7 +10122,7 @@ module AWS::SDK::RDS
     def describe_db_instance_automated_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBInstanceAutomatedBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBInstanceAutomatedBackupsInput,
         validate_input: @config.validate_input
@@ -10408,7 +10410,7 @@ module AWS::SDK::RDS
     def describe_db_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBInstancesInput,
         validate_input: @config.validate_input
@@ -10520,7 +10522,7 @@ module AWS::SDK::RDS
     def describe_db_log_files(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBLogFilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBLogFilesInput,
         validate_input: @config.validate_input
@@ -10630,7 +10632,7 @@ module AWS::SDK::RDS
     def describe_db_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBParameterGroupsInput,
         validate_input: @config.validate_input
@@ -10754,7 +10756,7 @@ module AWS::SDK::RDS
     def describe_db_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBParametersInput,
         validate_input: @config.validate_input
@@ -10874,7 +10876,7 @@ module AWS::SDK::RDS
     def describe_db_proxies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBProxiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBProxiesInput,
         validate_input: @config.validate_input
@@ -10990,7 +10992,7 @@ module AWS::SDK::RDS
     def describe_db_proxy_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBProxyEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBProxyEndpointsInput,
         validate_input: @config.validate_input
@@ -11105,7 +11107,7 @@ module AWS::SDK::RDS
     def describe_db_proxy_target_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBProxyTargetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBProxyTargetGroupsInput,
         validate_input: @config.validate_input
@@ -11217,7 +11219,7 @@ module AWS::SDK::RDS
     def describe_db_proxy_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBProxyTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBProxyTargetsInput,
         validate_input: @config.validate_input
@@ -11332,7 +11334,7 @@ module AWS::SDK::RDS
     def describe_db_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -11414,7 +11416,7 @@ module AWS::SDK::RDS
     def describe_db_snapshot_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBSnapshotAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBSnapshotAttributesInput,
         validate_input: @config.validate_input
@@ -11658,7 +11660,7 @@ module AWS::SDK::RDS
     def describe_db_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBSnapshotsInput,
         validate_input: @config.validate_input
@@ -11773,7 +11775,7 @@ module AWS::SDK::RDS
     def describe_db_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDBSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDBSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -11888,7 +11890,7 @@ module AWS::SDK::RDS
     def describe_engine_default_cluster_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEngineDefaultClusterParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEngineDefaultClusterParametersInput,
         validate_input: @config.validate_input
@@ -12198,7 +12200,7 @@ module AWS::SDK::RDS
     def describe_engine_default_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEngineDefaultParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEngineDefaultParametersInput,
         validate_input: @config.validate_input
@@ -12290,7 +12292,7 @@ module AWS::SDK::RDS
     def describe_event_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventCategoriesInput,
         validate_input: @config.validate_input
@@ -12403,7 +12405,7 @@ module AWS::SDK::RDS
     def describe_event_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventSubscriptionsInput,
         validate_input: @config.validate_input
@@ -12575,7 +12577,7 @@ module AWS::SDK::RDS
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -12745,7 +12747,7 @@ module AWS::SDK::RDS
     def describe_export_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportTasksInput,
         validate_input: @config.validate_input
@@ -12872,7 +12874,7 @@ module AWS::SDK::RDS
     def describe_global_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalClustersInput,
         validate_input: @config.validate_input
@@ -13065,7 +13067,7 @@ module AWS::SDK::RDS
     def describe_option_group_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOptionGroupOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOptionGroupOptionsInput,
         validate_input: @config.validate_input
@@ -13263,7 +13265,7 @@ module AWS::SDK::RDS
     def describe_option_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOptionGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOptionGroupsInput,
         validate_input: @config.validate_input
@@ -13499,7 +13501,7 @@ module AWS::SDK::RDS
     def describe_orderable_db_instance_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrderableDBInstanceOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrderableDBInstanceOptionsInput,
         validate_input: @config.validate_input
@@ -13622,7 +13624,7 @@ module AWS::SDK::RDS
     def describe_pending_maintenance_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePendingMaintenanceActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePendingMaintenanceActionsInput,
         validate_input: @config.validate_input
@@ -13773,7 +13775,7 @@ module AWS::SDK::RDS
     def describe_reserved_db_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedDBInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedDBInstancesInput,
         validate_input: @config.validate_input
@@ -13912,7 +13914,7 @@ module AWS::SDK::RDS
     def describe_reserved_db_instances_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedDBInstancesOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedDBInstancesOfferingsInput,
         validate_input: @config.validate_input
@@ -14019,7 +14021,7 @@ module AWS::SDK::RDS
     def describe_source_regions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSourceRegionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSourceRegionsInput,
         validate_input: @config.validate_input
@@ -14109,7 +14111,7 @@ module AWS::SDK::RDS
     def describe_valid_db_instance_modifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeValidDBInstanceModificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeValidDBInstanceModificationsInput,
         validate_input: @config.validate_input
@@ -14223,7 +14225,7 @@ module AWS::SDK::RDS
     def download_db_log_file_portion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DownloadDBLogFilePortionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DownloadDBLogFilePortionInput,
         validate_input: @config.validate_input
@@ -14431,7 +14433,7 @@ module AWS::SDK::RDS
     def failover_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FailoverDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FailoverDBClusterInput,
         validate_input: @config.validate_input
@@ -14548,7 +14550,7 @@ module AWS::SDK::RDS
     def failover_global_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FailoverGlobalClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FailoverGlobalClusterInput,
         validate_input: @config.validate_input
@@ -14637,7 +14639,7 @@ module AWS::SDK::RDS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -14746,7 +14748,7 @@ module AWS::SDK::RDS
     def modify_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCertificatesInput,
         validate_input: @config.validate_input
@@ -14871,7 +14873,7 @@ module AWS::SDK::RDS
     def modify_current_db_cluster_capacity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCurrentDBClusterCapacityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCurrentDBClusterCapacityInput,
         validate_input: @config.validate_input
@@ -15025,7 +15027,7 @@ module AWS::SDK::RDS
     def modify_custom_db_engine_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCustomDBEngineVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCustomDBEngineVersionInput,
         validate_input: @config.validate_input
@@ -15591,7 +15593,7 @@ module AWS::SDK::RDS
     def modify_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBClusterInput,
         validate_input: @config.validate_input
@@ -15688,7 +15690,7 @@ module AWS::SDK::RDS
     def modify_db_cluster_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBClusterEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBClusterEndpointInput,
         validate_input: @config.validate_input
@@ -15812,7 +15814,7 @@ module AWS::SDK::RDS
     def modify_db_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -15935,7 +15937,7 @@ module AWS::SDK::RDS
     def modify_db_cluster_snapshot_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBClusterSnapshotAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBClusterSnapshotAttributeInput,
         validate_input: @config.validate_input
@@ -16830,7 +16832,7 @@ module AWS::SDK::RDS
     def modify_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBInstanceInput,
         validate_input: @config.validate_input
@@ -16952,7 +16954,7 @@ module AWS::SDK::RDS
     def modify_db_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBParameterGroupInput,
         validate_input: @config.validate_input
@@ -17089,7 +17091,7 @@ module AWS::SDK::RDS
     def modify_db_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBProxyInput,
         validate_input: @config.validate_input
@@ -17184,7 +17186,7 @@ module AWS::SDK::RDS
     def modify_db_proxy_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBProxyEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBProxyEndpointInput,
         validate_input: @config.validate_input
@@ -17287,7 +17289,7 @@ module AWS::SDK::RDS
     def modify_db_proxy_target_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBProxyTargetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBProxyTargetGroupInput,
         validate_input: @config.validate_input
@@ -17444,7 +17446,7 @@ module AWS::SDK::RDS
     def modify_db_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBSnapshotInput,
         validate_input: @config.validate_input
@@ -17565,7 +17567,7 @@ module AWS::SDK::RDS
     def modify_db_snapshot_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBSnapshotAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBSnapshotAttributeInput,
         validate_input: @config.validate_input
@@ -17663,7 +17665,7 @@ module AWS::SDK::RDS
     def modify_db_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDBSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDBSubnetGroupInput,
         validate_input: @config.validate_input
@@ -17771,7 +17773,7 @@ module AWS::SDK::RDS
     def modify_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -17924,7 +17926,7 @@ module AWS::SDK::RDS
     def modify_global_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyGlobalClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyGlobalClusterInput,
         validate_input: @config.validate_input
@@ -18067,7 +18069,7 @@ module AWS::SDK::RDS
     def modify_option_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyOptionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyOptionGroupInput,
         validate_input: @config.validate_input
@@ -18352,7 +18354,7 @@ module AWS::SDK::RDS
     def promote_read_replica(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PromoteReadReplicaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PromoteReadReplicaInput,
         validate_input: @config.validate_input
@@ -18540,7 +18542,7 @@ module AWS::SDK::RDS
     def promote_read_replica_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PromoteReadReplicaDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PromoteReadReplicaDBClusterInput,
         validate_input: @config.validate_input
@@ -18651,7 +18653,7 @@ module AWS::SDK::RDS
     def purchase_reserved_db_instances_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedDBInstancesOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedDBInstancesOfferingInput,
         validate_input: @config.validate_input
@@ -18847,7 +18849,7 @@ module AWS::SDK::RDS
     def reboot_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootDBClusterInput,
         validate_input: @config.validate_input
@@ -19085,7 +19087,7 @@ module AWS::SDK::RDS
     def reboot_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootDBInstanceInput,
         validate_input: @config.validate_input
@@ -19179,7 +19181,7 @@ module AWS::SDK::RDS
     def register_db_proxy_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDBProxyTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDBProxyTargetsInput,
         validate_input: @config.validate_input
@@ -19277,7 +19279,7 @@ module AWS::SDK::RDS
     def remove_from_global_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFromGlobalClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFromGlobalClusterInput,
         validate_input: @config.validate_input
@@ -19363,7 +19365,7 @@ module AWS::SDK::RDS
     def remove_role_from_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveRoleFromDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveRoleFromDBClusterInput,
         validate_input: @config.validate_input
@@ -19441,7 +19443,7 @@ module AWS::SDK::RDS
     def remove_role_from_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveRoleFromDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveRoleFromDBInstanceInput,
         validate_input: @config.validate_input
@@ -19527,7 +19529,7 @@ module AWS::SDK::RDS
     def remove_source_identifier_from_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveSourceIdentifierFromSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveSourceIdentifierFromSubscriptionInput,
         validate_input: @config.validate_input
@@ -19609,7 +19611,7 @@ module AWS::SDK::RDS
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -19720,7 +19722,7 @@ module AWS::SDK::RDS
     def reset_db_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetDBClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetDBClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -19852,7 +19854,7 @@ module AWS::SDK::RDS
     def reset_db_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetDBParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetDBParameterGroupInput,
         validate_input: @config.validate_input
@@ -20342,7 +20344,7 @@ module AWS::SDK::RDS
     def restore_db_cluster_from_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBClusterFromS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBClusterFromS3Input,
         validate_input: @config.validate_input
@@ -20881,7 +20883,7 @@ module AWS::SDK::RDS
     def restore_db_cluster_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBClusterFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBClusterFromSnapshotInput,
         validate_input: @config.validate_input
@@ -21397,7 +21399,7 @@ module AWS::SDK::RDS
     def restore_db_cluster_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBClusterToPointInTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBClusterToPointInTimeInput,
         validate_input: @config.validate_input
@@ -22003,7 +22005,7 @@ module AWS::SDK::RDS
     def restore_db_instance_from_db_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBInstanceFromDBSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBInstanceFromDBSnapshotInput,
         validate_input: @config.validate_input
@@ -22625,7 +22627,7 @@ module AWS::SDK::RDS
     def restore_db_instance_from_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBInstanceFromS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBInstanceFromS3Input,
         validate_input: @config.validate_input
@@ -23255,7 +23257,7 @@ module AWS::SDK::RDS
     def restore_db_instance_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreDBInstanceToPointInTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreDBInstanceToPointInTimeInput,
         validate_input: @config.validate_input
@@ -23366,7 +23368,7 @@ module AWS::SDK::RDS
     def revoke_db_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeDBSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeDBSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -23464,7 +23466,7 @@ module AWS::SDK::RDS
     def start_activity_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartActivityStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartActivityStreamInput,
         validate_input: @config.validate_input
@@ -23651,7 +23653,7 @@ module AWS::SDK::RDS
     def start_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDBClusterInput,
         validate_input: @config.validate_input
@@ -23879,7 +23881,7 @@ module AWS::SDK::RDS
     def start_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDBInstanceInput,
         validate_input: @config.validate_input
@@ -24001,7 +24003,7 @@ module AWS::SDK::RDS
     def start_db_instance_automated_backups_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDBInstanceAutomatedBackupsReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDBInstanceAutomatedBackupsReplicationInput,
         validate_input: @config.validate_input
@@ -24173,7 +24175,7 @@ module AWS::SDK::RDS
     def start_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExportTaskInput,
         validate_input: @config.validate_input
@@ -24254,7 +24256,7 @@ module AWS::SDK::RDS
     def stop_activity_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopActivityStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopActivityStreamInput,
         validate_input: @config.validate_input
@@ -24442,7 +24444,7 @@ module AWS::SDK::RDS
     def stop_db_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDBClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDBClusterInput,
         validate_input: @config.validate_input
@@ -24676,7 +24678,7 @@ module AWS::SDK::RDS
     def stop_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDBInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDBInstanceInput,
         validate_input: @config.validate_input
@@ -24781,7 +24783,7 @@ module AWS::SDK::RDS
     def stop_db_instance_automated_backups_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDBInstanceAutomatedBackupsReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDBInstanceAutomatedBackupsReplicationInput,
         validate_input: @config.validate_input

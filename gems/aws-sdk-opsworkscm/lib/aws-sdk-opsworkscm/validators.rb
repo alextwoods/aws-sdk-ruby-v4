@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::OpsWorksCM
   module Validators
 
@@ -23,7 +25,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input, Types::AssociateNodeInput, context: context)
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:node_name], ::String, context: "#{context}[:node_name]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
       end
     end
 
@@ -63,12 +65,12 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input[:s3_data_size], ::Integer, context: "#{context}[:s3_data_size]")
         Hearth::Validator.validate!(input[:s3_data_url], ::String, context: "#{context}[:s3_data_url]")
         Hearth::Validator.validate!(input[:s3_log_url], ::String, context: "#{context}[:s3_log_url]")
-        Validators::Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_description], ::String, context: "#{context}[:status_description]")
-        Validators::Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:tools_version], ::String, context: "#{context}[:tools_version]")
         Hearth::Validator.validate!(input[:user_arn], ::String, context: "#{context}[:user_arn]")
       end
@@ -78,7 +80,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -88,14 +90,14 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input, Types::CreateBackupInput, context: context)
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_model], ::String, context: "#{context}[:engine_model]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
         Hearth::Validator.validate!(input[:backup_retention_count], ::Integer, context: "#{context}[:backup_retention_count]")
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:instance_profile_arn], ::String, context: "#{context}[:instance_profile_arn]")
@@ -118,10 +120,10 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input[:key_pair], ::String, context: "#{context}[:key_pair]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:preferred_backup_window], ::String, context: "#{context}[:preferred_backup_window]")
-        Validators::Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:backup_id], ::String, context: "#{context}[:backup_id]")
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::OpsWorksCM
     class CreateServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServerOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
@@ -168,7 +170,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeAccountAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesOutput, context: context)
-        Validators::AccountAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AccountAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBackupsOutput, context: context)
-        Validators::Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
+        Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
-        Validators::ServerEvents.validate!(input[:server_events], context: "#{context}[:server_events]") unless input[:server_events].nil?
+        ServerEvents.validate!(input[:server_events], context: "#{context}[:server_events]") unless input[:server_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNodeAssociationStatusOutput, context: context)
         Hearth::Validator.validate!(input[:node_association_status], ::String, context: "#{context}[:node_association_status]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::OpsWorksCM
     class DescribeServersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServersOutput, context: context)
-        Validators::Servers.validate!(input[:servers], context: "#{context}[:servers]") unless input[:servers].nil?
+        Servers.validate!(input[:servers], context: "#{context}[:servers]") unless input[:servers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -245,7 +247,7 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input, Types::DisassociateNodeInput, context: context)
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
         Hearth::Validator.validate!(input[:node_name], ::String, context: "#{context}[:node_name]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EngineAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EngineAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -278,14 +280,14 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input, Types::ExportServerEngineAttributeInput, context: context)
         Hearth::Validator.validate!(input[:export_attribute_name], ::String, context: "#{context}[:export_attribute_name]")
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
-        Validators::EngineAttributes.validate!(input[:input_attributes], context: "#{context}[:input_attributes]") unless input[:input_attributes].nil?
+        EngineAttributes.validate!(input[:input_attributes], context: "#{context}[:input_attributes]") unless input[:input_attributes].nil?
       end
     end
 
     class ExportServerEngineAttributeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportServerEngineAttributeOutput, context: context)
-        Validators::EngineAttribute.validate!(input[:engine_attribute], context: "#{context}[:engine_attribute]") unless input[:engine_attribute].nil?
+        EngineAttribute.validate!(input[:engine_attribute], context: "#{context}[:engine_attribute]") unless input[:engine_attribute].nil?
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
       end
     end
@@ -323,7 +325,7 @@ module AWS::SDK::OpsWorksCM
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::OpsWorksCM
     class RestoreServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreServerOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input[:endpoint], ::String, context: "#{context}[:endpoint]")
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_model], ::String, context: "#{context}[:engine_model]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:instance_profile_arn], ::String, context: "#{context}[:instance_profile_arn]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
@@ -380,11 +382,11 @@ module AWS::SDK::OpsWorksCM
         Hearth::Validator.validate!(input[:maintenance_status], ::String, context: "#{context}[:maintenance_status]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:preferred_backup_window], ::String, context: "#{context}[:preferred_backup_window]")
-        Validators::Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Strings.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Strings.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:server_arn], ::String, context: "#{context}[:server_arn]")
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Server.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Server.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -421,14 +423,14 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMaintenanceInput, context: context)
         Hearth::Validator.validate!(input[:server_name], ::String, context: "#{context}[:server_name]")
-        Validators::EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
+        EngineAttributes.validate!(input[:engine_attributes], context: "#{context}[:engine_attributes]") unless input[:engine_attributes].nil?
       end
     end
 
     class StartMaintenanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMaintenanceOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::OpsWorksCM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -507,7 +509,7 @@ module AWS::SDK::OpsWorksCM
     class UpdateServerEngineAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServerEngineAttributesOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
@@ -525,7 +527,7 @@ module AWS::SDK::OpsWorksCM
     class UpdateServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServerOutput, context: context)
-        Validators::Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        Server.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 

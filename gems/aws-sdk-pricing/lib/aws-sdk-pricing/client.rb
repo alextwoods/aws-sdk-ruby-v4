@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Pricing
@@ -110,7 +112,7 @@ module AWS::SDK::Pricing
     def describe_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServicesInput,
         validate_input: @config.validate_input
@@ -198,7 +200,7 @@ module AWS::SDK::Pricing
     def get_attribute_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAttributeValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAttributeValuesInput,
         validate_input: @config.validate_input
@@ -295,7 +297,7 @@ module AWS::SDK::Pricing
     def get_products(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProductsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProductsInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SageMakerRuntime
@@ -139,7 +141,7 @@ module AWS::SDK::SageMakerRuntime
     def invoke_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeEndpointInput,
         validate_input: @config.validate_input
@@ -267,7 +269,7 @@ module AWS::SDK::SageMakerRuntime
     def invoke_endpoint_async(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeEndpointAsyncInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeEndpointAsyncInput,
         validate_input: @config.validate_input

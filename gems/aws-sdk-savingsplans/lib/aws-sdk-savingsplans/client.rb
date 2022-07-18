@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Savingsplans
@@ -85,7 +87,7 @@ module AWS::SDK::Savingsplans
     def create_savings_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSavingsPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSavingsPlanInput,
         validate_input: @config.validate_input
@@ -153,7 +155,7 @@ module AWS::SDK::Savingsplans
     def delete_queued_savings_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueuedSavingsPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueuedSavingsPlanInput,
         validate_input: @config.validate_input
@@ -256,7 +258,7 @@ module AWS::SDK::Savingsplans
     def describe_savings_plan_rates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSavingsPlanRatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSavingsPlanRatesInput,
         validate_input: @config.validate_input
@@ -381,7 +383,7 @@ module AWS::SDK::Savingsplans
     def describe_savings_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSavingsPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSavingsPlansInput,
         validate_input: @config.validate_input
@@ -527,7 +529,7 @@ module AWS::SDK::Savingsplans
     def describe_savings_plans_offering_rates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSavingsPlansOfferingRatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSavingsPlansOfferingRatesInput,
         validate_input: @config.validate_input
@@ -687,7 +689,7 @@ module AWS::SDK::Savingsplans
     def describe_savings_plans_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSavingsPlansOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSavingsPlansOfferingsInput,
         validate_input: @config.validate_input
@@ -757,7 +759,7 @@ module AWS::SDK::Savingsplans
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -831,7 +833,7 @@ module AWS::SDK::Savingsplans
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -905,7 +907,7 @@ module AWS::SDK::Savingsplans
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

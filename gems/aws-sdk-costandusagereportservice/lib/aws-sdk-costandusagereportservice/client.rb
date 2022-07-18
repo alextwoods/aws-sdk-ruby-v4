@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CostAndUsageReportService
@@ -75,7 +77,7 @@ module AWS::SDK::CostAndUsageReportService
     def delete_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReportDefinitionInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::CostAndUsageReportService
     def describe_report_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReportDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReportDefinitionsInput,
         validate_input: @config.validate_input
@@ -257,7 +259,7 @@ module AWS::SDK::CostAndUsageReportService
     def modify_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReportDefinitionInput,
         validate_input: @config.validate_input
@@ -343,7 +345,7 @@ module AWS::SDK::CostAndUsageReportService
     def put_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutReportDefinitionInput,
         validate_input: @config.validate_input

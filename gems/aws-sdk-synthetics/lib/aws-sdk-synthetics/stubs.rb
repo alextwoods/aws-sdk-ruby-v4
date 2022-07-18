@@ -14,7 +14,7 @@ module AWS::SDK::Synthetics
     class CreateCanary
       def self.default(visited=[])
         {
-          canary: Stubs::Canary.default(visited),
+          canary: Canary.default(visited),
         }
       end
 
@@ -35,21 +35,21 @@ module AWS::SDK::Synthetics
         {
           id: 'id',
           name: 'name',
-          code: Stubs::CanaryCodeOutput.default(visited),
+          code: CanaryCodeOutput.default(visited),
           execution_role_arn: 'execution_role_arn',
-          schedule: Stubs::CanaryScheduleOutput.default(visited),
-          run_config: Stubs::CanaryRunConfigOutput.default(visited),
+          schedule: CanaryScheduleOutput.default(visited),
+          run_config: CanaryRunConfigOutput.default(visited),
           success_retention_period_in_days: 1,
           failure_retention_period_in_days: 1,
-          status: Stubs::CanaryStatus.default(visited),
-          timeline: Stubs::CanaryTimeline.default(visited),
+          status: CanaryStatus.default(visited),
+          timeline: CanaryTimeline.default(visited),
           artifact_s3_location: 'artifact_s3_location',
           engine_arn: 'engine_arn',
           runtime_version: 'runtime_version',
-          vpc_config: Stubs::VpcConfigOutput.default(visited),
-          visual_reference: Stubs::VisualReferenceOutput.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          artifact_config: Stubs::ArtifactConfigOutput.default(visited),
+          vpc_config: VpcConfigOutput.default(visited),
+          visual_reference: VisualReferenceOutput.default(visited),
+          tags: TagMap.default(visited),
+          artifact_config: ArtifactConfigOutput.default(visited),
         }
       end
 
@@ -83,7 +83,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('ArtifactConfigOutput')
         visited = visited + ['ArtifactConfigOutput']
         {
-          s3_encryption: Stubs::S3EncryptionConfig.default(visited),
+          s3_encryption: S3EncryptionConfig.default(visited),
         }
       end
 
@@ -141,7 +141,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('VisualReferenceOutput')
         visited = visited + ['VisualReferenceOutput']
         {
-          base_screenshots: Stubs::BaseScreenshots.default(visited),
+          base_screenshots: BaseScreenshots.default(visited),
           base_canary_run_id: 'base_canary_run_id',
         }
       end
@@ -161,7 +161,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('BaseScreenshots')
         visited = visited + ['BaseScreenshots']
         [
-          Stubs::BaseScreenshot.default(visited)
+          BaseScreenshot.default(visited)
         ]
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::Synthetics
         visited = visited + ['BaseScreenshot']
         {
           screenshot_name: 'screenshot_name',
-          ignore_coordinates: Stubs::BaseScreenshotIgnoreCoordinates.default(visited),
+          ignore_coordinates: BaseScreenshotIgnoreCoordinates.default(visited),
         }
       end
 
@@ -222,8 +222,8 @@ module AWS::SDK::Synthetics
         visited = visited + ['VpcConfigOutput']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -402,7 +402,7 @@ module AWS::SDK::Synthetics
     class DescribeCanaries
       def self.default(visited=[])
         {
-          canaries: Stubs::Canaries.default(visited),
+          canaries: Canaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -423,7 +423,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('Canaries')
         visited = visited + ['Canaries']
         [
-          Stubs::Canary.default(visited)
+          Canary.default(visited)
         ]
       end
 
@@ -441,7 +441,7 @@ module AWS::SDK::Synthetics
     class DescribeCanariesLastRun
       def self.default(visited=[])
         {
-          canaries_last_run: Stubs::CanariesLastRun.default(visited),
+          canaries_last_run: CanariesLastRun.default(visited),
           next_token: 'next_token',
         }
       end
@@ -462,7 +462,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('CanariesLastRun')
         visited = visited + ['CanariesLastRun']
         [
-          Stubs::CanaryLastRun.default(visited)
+          CanaryLastRun.default(visited)
         ]
       end
 
@@ -483,7 +483,7 @@ module AWS::SDK::Synthetics
         visited = visited + ['CanaryLastRun']
         {
           canary_name: 'canary_name',
-          last_run: Stubs::CanaryRun.default(visited),
+          last_run: CanaryRun.default(visited),
         }
       end
 
@@ -504,8 +504,8 @@ module AWS::SDK::Synthetics
         {
           id: 'id',
           name: 'name',
-          status: Stubs::CanaryRunStatus.default(visited),
-          timeline: Stubs::CanaryRunTimeline.default(visited),
+          status: CanaryRunStatus.default(visited),
+          timeline: CanaryRunTimeline.default(visited),
           artifact_s3_location: 'artifact_s3_location',
         }
       end
@@ -568,7 +568,7 @@ module AWS::SDK::Synthetics
     class DescribeRuntimeVersions
       def self.default(visited=[])
         {
-          runtime_versions: Stubs::RuntimeVersionList.default(visited),
+          runtime_versions: RuntimeVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -589,7 +589,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('RuntimeVersionList')
         visited = visited + ['RuntimeVersionList']
         [
-          Stubs::RuntimeVersion.default(visited)
+          RuntimeVersion.default(visited)
         ]
       end
 
@@ -631,7 +631,7 @@ module AWS::SDK::Synthetics
     class GetCanary
       def self.default(visited=[])
         {
-          canary: Stubs::Canary.default(visited),
+          canary: Canary.default(visited),
         }
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::Synthetics
     class GetCanaryRuns
       def self.default(visited=[])
         {
-          canary_runs: Stubs::CanaryRuns.default(visited),
+          canary_runs: CanaryRuns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -669,7 +669,7 @@ module AWS::SDK::Synthetics
         return nil if visited.include?('CanaryRuns')
         visited = visited + ['CanaryRuns']
         [
-          Stubs::CanaryRun.default(visited)
+          CanaryRun.default(visited)
         ]
       end
 
@@ -687,7 +687,7 @@ module AWS::SDK::Synthetics
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

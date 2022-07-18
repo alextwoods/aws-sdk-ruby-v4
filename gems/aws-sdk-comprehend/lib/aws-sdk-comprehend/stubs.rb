@@ -14,8 +14,8 @@ module AWS::SDK::Comprehend
     class BatchDetectDominantLanguage
       def self.default(visited=[])
         {
-          result_list: Stubs::ListOfDetectDominantLanguageResult.default(visited),
-          error_list: Stubs::BatchItemErrorList.default(visited),
+          result_list: ListOfDetectDominantLanguageResult.default(visited),
+          error_list: BatchItemErrorList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('BatchItemErrorList')
         visited = visited + ['BatchItemErrorList']
         [
-          Stubs::BatchItemError.default(visited)
+          BatchItemError.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDetectDominantLanguageResult')
         visited = visited + ['ListOfDetectDominantLanguageResult']
         [
-          Stubs::BatchDetectDominantLanguageItemResult.default(visited)
+          BatchDetectDominantLanguageItemResult.default(visited)
         ]
       end
 
@@ -97,7 +97,7 @@ module AWS::SDK::Comprehend
         visited = visited + ['BatchDetectDominantLanguageItemResult']
         {
           index: 1,
-          languages: Stubs::ListOfDominantLanguages.default(visited),
+          languages: ListOfDominantLanguages.default(visited),
         }
       end
 
@@ -116,7 +116,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDominantLanguages')
         visited = visited + ['ListOfDominantLanguages']
         [
-          Stubs::DominantLanguage.default(visited)
+          DominantLanguage.default(visited)
         ]
       end
 
@@ -154,8 +154,8 @@ module AWS::SDK::Comprehend
     class BatchDetectEntities
       def self.default(visited=[])
         {
-          result_list: Stubs::ListOfDetectEntitiesResult.default(visited),
-          error_list: Stubs::BatchItemErrorList.default(visited),
+          result_list: ListOfDetectEntitiesResult.default(visited),
+          error_list: BatchItemErrorList.default(visited),
         }
       end
 
@@ -174,7 +174,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDetectEntitiesResult')
         visited = visited + ['ListOfDetectEntitiesResult']
         [
-          Stubs::BatchDetectEntitiesItemResult.default(visited)
+          BatchDetectEntitiesItemResult.default(visited)
         ]
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::Comprehend
         visited = visited + ['BatchDetectEntitiesItemResult']
         {
           index: 1,
-          entities: Stubs::ListOfEntities.default(visited),
+          entities: ListOfEntities.default(visited),
         }
       end
 
@@ -214,7 +214,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfEntities')
         visited = visited + ['ListOfEntities']
         [
-          Stubs::Entity.default(visited)
+          Entity.default(visited)
         ]
       end
 
@@ -258,8 +258,8 @@ module AWS::SDK::Comprehend
     class BatchDetectKeyPhrases
       def self.default(visited=[])
         {
-          result_list: Stubs::ListOfDetectKeyPhrasesResult.default(visited),
-          error_list: Stubs::BatchItemErrorList.default(visited),
+          result_list: ListOfDetectKeyPhrasesResult.default(visited),
+          error_list: BatchItemErrorList.default(visited),
         }
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDetectKeyPhrasesResult')
         visited = visited + ['ListOfDetectKeyPhrasesResult']
         [
-          Stubs::BatchDetectKeyPhrasesItemResult.default(visited)
+          BatchDetectKeyPhrasesItemResult.default(visited)
         ]
       end
 
@@ -299,7 +299,7 @@ module AWS::SDK::Comprehend
         visited = visited + ['BatchDetectKeyPhrasesItemResult']
         {
           index: 1,
-          key_phrases: Stubs::ListOfKeyPhrases.default(visited),
+          key_phrases: ListOfKeyPhrases.default(visited),
         }
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfKeyPhrases')
         visited = visited + ['ListOfKeyPhrases']
         [
-          Stubs::KeyPhrase.default(visited)
+          KeyPhrase.default(visited)
         ]
       end
 
@@ -360,8 +360,8 @@ module AWS::SDK::Comprehend
     class BatchDetectSentiment
       def self.default(visited=[])
         {
-          result_list: Stubs::ListOfDetectSentimentResult.default(visited),
-          error_list: Stubs::BatchItemErrorList.default(visited),
+          result_list: ListOfDetectSentimentResult.default(visited),
+          error_list: BatchItemErrorList.default(visited),
         }
       end
 
@@ -380,7 +380,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDetectSentimentResult')
         visited = visited + ['ListOfDetectSentimentResult']
         [
-          Stubs::BatchDetectSentimentItemResult.default(visited)
+          BatchDetectSentimentItemResult.default(visited)
         ]
       end
 
@@ -402,7 +402,7 @@ module AWS::SDK::Comprehend
         {
           index: 1,
           sentiment: 'sentiment',
-          sentiment_score: Stubs::SentimentScore.default(visited),
+          sentiment_score: SentimentScore.default(visited),
         }
       end
 
@@ -444,8 +444,8 @@ module AWS::SDK::Comprehend
     class BatchDetectSyntax
       def self.default(visited=[])
         {
-          result_list: Stubs::ListOfDetectSyntaxResult.default(visited),
-          error_list: Stubs::BatchItemErrorList.default(visited),
+          result_list: ListOfDetectSyntaxResult.default(visited),
+          error_list: BatchItemErrorList.default(visited),
         }
       end
 
@@ -464,7 +464,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfDetectSyntaxResult')
         visited = visited + ['ListOfDetectSyntaxResult']
         [
-          Stubs::BatchDetectSyntaxItemResult.default(visited)
+          BatchDetectSyntaxItemResult.default(visited)
         ]
       end
 
@@ -485,7 +485,7 @@ module AWS::SDK::Comprehend
         visited = visited + ['BatchDetectSyntaxItemResult']
         {
           index: 1,
-          syntax_tokens: Stubs::ListOfSyntaxTokens.default(visited),
+          syntax_tokens: ListOfSyntaxTokens.default(visited),
         }
       end
 
@@ -504,7 +504,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfSyntaxTokens')
         visited = visited + ['ListOfSyntaxTokens']
         [
-          Stubs::SyntaxToken.default(visited)
+          SyntaxToken.default(visited)
         ]
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::Comprehend
           text: 'text',
           begin_offset: 1,
           end_offset: 1,
-          part_of_speech: Stubs::PartOfSpeechTag.default(visited),
+          part_of_speech: PartOfSpeechTag.default(visited),
         }
       end
 
@@ -568,8 +568,8 @@ module AWS::SDK::Comprehend
     class ClassifyDocument
       def self.default(visited=[])
         {
-          classes: Stubs::ListOfClasses.default(visited),
-          labels: Stubs::ListOfLabels.default(visited),
+          classes: ListOfClasses.default(visited),
+          labels: ListOfLabels.default(visited),
         }
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfLabels')
         visited = visited + ['ListOfLabels']
         [
-          Stubs::DocumentLabel.default(visited)
+          DocumentLabel.default(visited)
         ]
       end
 
@@ -628,7 +628,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfClasses')
         visited = visited + ['ListOfClasses']
         [
-          Stubs::DocumentClass.default(visited)
+          DocumentClass.default(visited)
         ]
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::Comprehend
     class ContainsPiiEntities
       def self.default(visited=[])
         {
-          labels: Stubs::ListOfEntityLabels.default(visited),
+          labels: ListOfEntityLabels.default(visited),
         }
       end
 
@@ -684,7 +684,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfEntityLabels')
         visited = visited + ['ListOfEntityLabels']
         [
-          Stubs::EntityLabel.default(visited)
+          EntityLabel.default(visited)
         ]
       end
 
@@ -826,7 +826,7 @@ module AWS::SDK::Comprehend
     class DescribeDocumentClassificationJob
       def self.default(visited=[])
         {
-          document_classification_job_properties: Stubs::DocumentClassificationJobProperties.default(visited),
+          document_classification_job_properties: DocumentClassificationJobProperties.default(visited),
         }
       end
 
@@ -852,11 +852,11 @@ module AWS::SDK::Comprehend
           submit_time: Time.now,
           end_time: Time.now,
           document_classifier_arn: 'document_classifier_arn',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -886,8 +886,8 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('VpcConfig')
         visited = visited + ['VpcConfig']
         {
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
-          subnets: Stubs::Subnets.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
+          subnets: Subnets.default(visited),
         }
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::Comprehend
         {
           s3_uri: 's3_uri',
           input_format: 'input_format',
-          document_reader_config: Stubs::DocumentReaderConfig.default(visited),
+          document_reader_config: DocumentReaderConfig.default(visited),
         }
       end
 
@@ -990,7 +990,7 @@ module AWS::SDK::Comprehend
         {
           document_read_action: 'document_read_action',
           document_read_mode: 'document_read_mode',
-          feature_types: Stubs::ListOfDocumentReadFeatureTypes.default(visited),
+          feature_types: ListOfDocumentReadFeatureTypes.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::Comprehend
     class DescribeDocumentClassifier
       def self.default(visited=[])
         {
-          document_classifier_properties: Stubs::DocumentClassifierProperties.default(visited),
+          document_classifier_properties: DocumentClassifierProperties.default(visited),
         }
       end
 
@@ -1054,12 +1054,12 @@ module AWS::SDK::Comprehend
           end_time: Time.now,
           training_start_time: Time.now,
           training_end_time: Time.now,
-          input_data_config: Stubs::DocumentClassifierInputDataConfig.default(visited),
-          output_data_config: Stubs::DocumentClassifierOutputDataConfig.default(visited),
-          classifier_metadata: Stubs::ClassifierMetadata.default(visited),
+          input_data_config: DocumentClassifierInputDataConfig.default(visited),
+          output_data_config: DocumentClassifierOutputDataConfig.default(visited),
+          classifier_metadata: ClassifierMetadata.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           mode: 'mode',
           model_kms_key_id: 'model_kms_key_id',
           version_name: 'version_name',
@@ -1101,7 +1101,7 @@ module AWS::SDK::Comprehend
           number_of_labels: 1,
           number_of_trained_documents: 1,
           number_of_test_documents: 1,
-          evaluation_metrics: Stubs::ClassifierEvaluationMetrics.default(visited),
+          evaluation_metrics: ClassifierEvaluationMetrics.default(visited),
         }
       end
 
@@ -1178,7 +1178,7 @@ module AWS::SDK::Comprehend
           s3_uri: 's3_uri',
           test_s3_uri: 'test_s3_uri',
           label_delimiter: 'label_delimiter',
-          augmented_manifests: Stubs::DocumentClassifierAugmentedManifestsList.default(visited),
+          augmented_manifests: DocumentClassifierAugmentedManifestsList.default(visited),
         }
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('DocumentClassifierAugmentedManifestsList')
         visited = visited + ['DocumentClassifierAugmentedManifestsList']
         [
-          Stubs::AugmentedManifestsListItem.default(visited)
+          AugmentedManifestsListItem.default(visited)
         ]
       end
 
@@ -1222,7 +1222,7 @@ module AWS::SDK::Comprehend
         {
           s3_uri: 's3_uri',
           split: 'split',
-          attribute_names: Stubs::AttributeNamesList.default(visited),
+          attribute_names: AttributeNamesList.default(visited),
           annotation_data_s3_uri: 'annotation_data_s3_uri',
           source_documents_s3_uri: 'source_documents_s3_uri',
           document_type: 'document_type',
@@ -1266,7 +1266,7 @@ module AWS::SDK::Comprehend
     class DescribeDominantLanguageDetectionJob
       def self.default(visited=[])
         {
-          dominant_language_detection_job_properties: Stubs::DominantLanguageDetectionJobProperties.default(visited),
+          dominant_language_detection_job_properties: DominantLanguageDetectionJobProperties.default(visited),
         }
       end
 
@@ -1291,11 +1291,11 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -1322,7 +1322,7 @@ module AWS::SDK::Comprehend
     class DescribeEndpoint
       def self.default(visited=[])
         {
-          endpoint_properties: Stubs::EndpointProperties.default(visited),
+          endpoint_properties: EndpointProperties.default(visited),
         }
       end
 
@@ -1376,7 +1376,7 @@ module AWS::SDK::Comprehend
     class DescribeEntitiesDetectionJob
       def self.default(visited=[])
         {
-          entities_detection_job_properties: Stubs::EntitiesDetectionJobProperties.default(visited),
+          entities_detection_job_properties: EntitiesDetectionJobProperties.default(visited),
         }
       end
 
@@ -1402,12 +1402,12 @@ module AWS::SDK::Comprehend
           submit_time: Time.now,
           end_time: Time.now,
           entity_recognizer_arn: 'entity_recognizer_arn',
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -1436,7 +1436,7 @@ module AWS::SDK::Comprehend
     class DescribeEntityRecognizer
       def self.default(visited=[])
         {
-          entity_recognizer_properties: Stubs::EntityRecognizerProperties.default(visited),
+          entity_recognizer_properties: EntityRecognizerProperties.default(visited),
         }
       end
 
@@ -1462,11 +1462,11 @@ module AWS::SDK::Comprehend
           end_time: Time.now,
           training_start_time: Time.now,
           training_end_time: Time.now,
-          input_data_config: Stubs::EntityRecognizerInputDataConfig.default(visited),
-          recognizer_metadata: Stubs::EntityRecognizerMetadata.default(visited),
+          input_data_config: EntityRecognizerInputDataConfig.default(visited),
+          recognizer_metadata: EntityRecognizerMetadata.default(visited),
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
           model_kms_key_id: 'model_kms_key_id',
           version_name: 'version_name',
           source_model_arn: 'source_model_arn',
@@ -1504,8 +1504,8 @@ module AWS::SDK::Comprehend
         {
           number_of_trained_documents: 1,
           number_of_test_documents: 1,
-          evaluation_metrics: Stubs::EntityRecognizerEvaluationMetrics.default(visited),
-          entity_types: Stubs::EntityRecognizerMetadataEntityTypesList.default(visited),
+          evaluation_metrics: EntityRecognizerEvaluationMetrics.default(visited),
+          entity_types: EntityRecognizerMetadataEntityTypesList.default(visited),
         }
       end
 
@@ -1526,7 +1526,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntityRecognizerMetadataEntityTypesList')
         visited = visited + ['EntityRecognizerMetadataEntityTypesList']
         [
-          Stubs::EntityRecognizerMetadataEntityTypesListItem.default(visited)
+          EntityRecognizerMetadataEntityTypesListItem.default(visited)
         ]
       end
 
@@ -1547,7 +1547,7 @@ module AWS::SDK::Comprehend
         visited = visited + ['EntityRecognizerMetadataEntityTypesListItem']
         {
           type: 'type',
-          evaluation_metrics: Stubs::EntityTypesEvaluationMetrics.default(visited),
+          evaluation_metrics: EntityTypesEvaluationMetrics.default(visited),
           number_of_train_mentions: 1,
         }
       end
@@ -1613,11 +1613,11 @@ module AWS::SDK::Comprehend
         visited = visited + ['EntityRecognizerInputDataConfig']
         {
           data_format: 'data_format',
-          entity_types: Stubs::EntityTypesList.default(visited),
-          documents: Stubs::EntityRecognizerDocuments.default(visited),
-          annotations: Stubs::EntityRecognizerAnnotations.default(visited),
-          entity_list: Stubs::EntityRecognizerEntityList.default(visited),
-          augmented_manifests: Stubs::EntityRecognizerAugmentedManifestsList.default(visited),
+          entity_types: EntityTypesList.default(visited),
+          documents: EntityRecognizerDocuments.default(visited),
+          annotations: EntityRecognizerAnnotations.default(visited),
+          entity_list: EntityRecognizerEntityList.default(visited),
+          augmented_manifests: EntityRecognizerAugmentedManifestsList.default(visited),
         }
       end
 
@@ -1640,7 +1640,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntityRecognizerAugmentedManifestsList')
         visited = visited + ['EntityRecognizerAugmentedManifestsList']
         [
-          Stubs::AugmentedManifestsListItem.default(visited)
+          AugmentedManifestsListItem.default(visited)
         ]
       end
 
@@ -1720,7 +1720,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntityTypesList')
         visited = visited + ['EntityTypesList']
         [
-          Stubs::EntityTypesListItem.default(visited)
+          EntityTypesListItem.default(visited)
         ]
       end
 
@@ -1756,7 +1756,7 @@ module AWS::SDK::Comprehend
     class DescribeEventsDetectionJob
       def self.default(visited=[])
         {
-          events_detection_job_properties: Stubs::EventsDetectionJobProperties.default(visited),
+          events_detection_job_properties: EventsDetectionJobProperties.default(visited),
         }
       end
 
@@ -1781,11 +1781,11 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
-          target_event_types: Stubs::TargetEventTypes.default(visited),
+          target_event_types: TargetEventTypes.default(visited),
         }
       end
 
@@ -1832,7 +1832,7 @@ module AWS::SDK::Comprehend
     class DescribeKeyPhrasesDetectionJob
       def self.default(visited=[])
         {
-          key_phrases_detection_job_properties: Stubs::KeyPhrasesDetectionJobProperties.default(visited),
+          key_phrases_detection_job_properties: KeyPhrasesDetectionJobProperties.default(visited),
         }
       end
 
@@ -1857,12 +1857,12 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -1890,7 +1890,7 @@ module AWS::SDK::Comprehend
     class DescribePiiEntitiesDetectionJob
       def self.default(visited=[])
         {
-          pii_entities_detection_job_properties: Stubs::PiiEntitiesDetectionJobProperties.default(visited),
+          pii_entities_detection_job_properties: PiiEntitiesDetectionJobProperties.default(visited),
         }
       end
 
@@ -1915,9 +1915,9 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::PiiOutputDataConfig.default(visited),
-          redaction_config: Stubs::RedactionConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: PiiOutputDataConfig.default(visited),
+          redaction_config: RedactionConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           mode: 'mode',
@@ -1950,7 +1950,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('RedactionConfig')
         visited = visited + ['RedactionConfig']
         {
-          pii_entity_types: Stubs::ListOfPiiEntityTypes.default(visited),
+          pii_entity_types: ListOfPiiEntityTypes.default(visited),
           mask_mode: 'mask_mode',
           mask_character: 'mask_character',
         }
@@ -2032,7 +2032,7 @@ module AWS::SDK::Comprehend
     class DescribeSentimentDetectionJob
       def self.default(visited=[])
         {
-          sentiment_detection_job_properties: Stubs::SentimentDetectionJobProperties.default(visited),
+          sentiment_detection_job_properties: SentimentDetectionJobProperties.default(visited),
         }
       end
 
@@ -2057,12 +2057,12 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -2090,7 +2090,7 @@ module AWS::SDK::Comprehend
     class DescribeTargetedSentimentDetectionJob
       def self.default(visited=[])
         {
-          targeted_sentiment_detection_job_properties: Stubs::TargetedSentimentDetectionJobProperties.default(visited),
+          targeted_sentiment_detection_job_properties: TargetedSentimentDetectionJobProperties.default(visited),
         }
       end
 
@@ -2115,12 +2115,12 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           language_code: 'language_code',
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -2148,7 +2148,7 @@ module AWS::SDK::Comprehend
     class DescribeTopicsDetectionJob
       def self.default(visited=[])
         {
-          topics_detection_job_properties: Stubs::TopicsDetectionJobProperties.default(visited),
+          topics_detection_job_properties: TopicsDetectionJobProperties.default(visited),
         }
       end
 
@@ -2173,12 +2173,12 @@ module AWS::SDK::Comprehend
           message: 'message',
           submit_time: Time.now,
           end_time: Time.now,
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          output_data_config: Stubs::OutputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          output_data_config: OutputDataConfig.default(visited),
           number_of_topics: 1,
           data_access_role_arn: 'data_access_role_arn',
           volume_kms_key_id: 'volume_kms_key_id',
-          vpc_config: Stubs::VpcConfig.default(visited),
+          vpc_config: VpcConfig.default(visited),
         }
       end
 
@@ -2206,7 +2206,7 @@ module AWS::SDK::Comprehend
     class DetectDominantLanguage
       def self.default(visited=[])
         {
-          languages: Stubs::ListOfDominantLanguages.default(visited),
+          languages: ListOfDominantLanguages.default(visited),
         }
       end
 
@@ -2222,7 +2222,7 @@ module AWS::SDK::Comprehend
     class DetectEntities
       def self.default(visited=[])
         {
-          entities: Stubs::ListOfEntities.default(visited),
+          entities: ListOfEntities.default(visited),
         }
       end
 
@@ -2238,7 +2238,7 @@ module AWS::SDK::Comprehend
     class DetectKeyPhrases
       def self.default(visited=[])
         {
-          key_phrases: Stubs::ListOfKeyPhrases.default(visited),
+          key_phrases: ListOfKeyPhrases.default(visited),
         }
       end
 
@@ -2254,7 +2254,7 @@ module AWS::SDK::Comprehend
     class DetectPiiEntities
       def self.default(visited=[])
         {
-          entities: Stubs::ListOfPiiEntities.default(visited),
+          entities: ListOfPiiEntities.default(visited),
         }
       end
 
@@ -2272,7 +2272,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('ListOfPiiEntities')
         visited = visited + ['ListOfPiiEntities']
         [
-          Stubs::PiiEntity.default(visited)
+          PiiEntity.default(visited)
         ]
       end
 
@@ -2315,7 +2315,7 @@ module AWS::SDK::Comprehend
       def self.default(visited=[])
         {
           sentiment: 'sentiment',
-          sentiment_score: Stubs::SentimentScore.default(visited),
+          sentiment_score: SentimentScore.default(visited),
         }
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::Comprehend
     class DetectSyntax
       def self.default(visited=[])
         {
-          syntax_tokens: Stubs::ListOfSyntaxTokens.default(visited),
+          syntax_tokens: ListOfSyntaxTokens.default(visited),
         }
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::Comprehend
     class ListDocumentClassificationJobs
       def self.default(visited=[])
         {
-          document_classification_job_properties_list: Stubs::DocumentClassificationJobPropertiesList.default(visited),
+          document_classification_job_properties_list: DocumentClassificationJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2384,7 +2384,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('DocumentClassificationJobPropertiesList')
         visited = visited + ['DocumentClassificationJobPropertiesList']
         [
-          Stubs::DocumentClassificationJobProperties.default(visited)
+          DocumentClassificationJobProperties.default(visited)
         ]
       end
 
@@ -2402,7 +2402,7 @@ module AWS::SDK::Comprehend
     class ListDocumentClassifierSummaries
       def self.default(visited=[])
         {
-          document_classifier_summaries_list: Stubs::DocumentClassifierSummariesList.default(visited),
+          document_classifier_summaries_list: DocumentClassifierSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2422,7 +2422,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('DocumentClassifierSummariesList')
         visited = visited + ['DocumentClassifierSummariesList']
         [
-          Stubs::DocumentClassifierSummary.default(visited)
+          DocumentClassifierSummary.default(visited)
         ]
       end
 
@@ -2466,7 +2466,7 @@ module AWS::SDK::Comprehend
     class ListDocumentClassifiers
       def self.default(visited=[])
         {
-          document_classifier_properties_list: Stubs::DocumentClassifierPropertiesList.default(visited),
+          document_classifier_properties_list: DocumentClassifierPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2486,7 +2486,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('DocumentClassifierPropertiesList')
         visited = visited + ['DocumentClassifierPropertiesList']
         [
-          Stubs::DocumentClassifierProperties.default(visited)
+          DocumentClassifierProperties.default(visited)
         ]
       end
 
@@ -2504,7 +2504,7 @@ module AWS::SDK::Comprehend
     class ListDominantLanguageDetectionJobs
       def self.default(visited=[])
         {
-          dominant_language_detection_job_properties_list: Stubs::DominantLanguageDetectionJobPropertiesList.default(visited),
+          dominant_language_detection_job_properties_list: DominantLanguageDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2524,7 +2524,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('DominantLanguageDetectionJobPropertiesList')
         visited = visited + ['DominantLanguageDetectionJobPropertiesList']
         [
-          Stubs::DominantLanguageDetectionJobProperties.default(visited)
+          DominantLanguageDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2542,7 +2542,7 @@ module AWS::SDK::Comprehend
     class ListEndpoints
       def self.default(visited=[])
         {
-          endpoint_properties_list: Stubs::EndpointPropertiesList.default(visited),
+          endpoint_properties_list: EndpointPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2562,7 +2562,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EndpointPropertiesList')
         visited = visited + ['EndpointPropertiesList']
         [
-          Stubs::EndpointProperties.default(visited)
+          EndpointProperties.default(visited)
         ]
       end
 
@@ -2580,7 +2580,7 @@ module AWS::SDK::Comprehend
     class ListEntitiesDetectionJobs
       def self.default(visited=[])
         {
-          entities_detection_job_properties_list: Stubs::EntitiesDetectionJobPropertiesList.default(visited),
+          entities_detection_job_properties_list: EntitiesDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2600,7 +2600,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntitiesDetectionJobPropertiesList')
         visited = visited + ['EntitiesDetectionJobPropertiesList']
         [
-          Stubs::EntitiesDetectionJobProperties.default(visited)
+          EntitiesDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2618,7 +2618,7 @@ module AWS::SDK::Comprehend
     class ListEntityRecognizerSummaries
       def self.default(visited=[])
         {
-          entity_recognizer_summaries_list: Stubs::EntityRecognizerSummariesList.default(visited),
+          entity_recognizer_summaries_list: EntityRecognizerSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2638,7 +2638,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntityRecognizerSummariesList')
         visited = visited + ['EntityRecognizerSummariesList']
         [
-          Stubs::EntityRecognizerSummary.default(visited)
+          EntityRecognizerSummary.default(visited)
         ]
       end
 
@@ -2682,7 +2682,7 @@ module AWS::SDK::Comprehend
     class ListEntityRecognizers
       def self.default(visited=[])
         {
-          entity_recognizer_properties_list: Stubs::EntityRecognizerPropertiesList.default(visited),
+          entity_recognizer_properties_list: EntityRecognizerPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2702,7 +2702,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EntityRecognizerPropertiesList')
         visited = visited + ['EntityRecognizerPropertiesList']
         [
-          Stubs::EntityRecognizerProperties.default(visited)
+          EntityRecognizerProperties.default(visited)
         ]
       end
 
@@ -2720,7 +2720,7 @@ module AWS::SDK::Comprehend
     class ListEventsDetectionJobs
       def self.default(visited=[])
         {
-          events_detection_job_properties_list: Stubs::EventsDetectionJobPropertiesList.default(visited),
+          events_detection_job_properties_list: EventsDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2740,7 +2740,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('EventsDetectionJobPropertiesList')
         visited = visited + ['EventsDetectionJobPropertiesList']
         [
-          Stubs::EventsDetectionJobProperties.default(visited)
+          EventsDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2758,7 +2758,7 @@ module AWS::SDK::Comprehend
     class ListKeyPhrasesDetectionJobs
       def self.default(visited=[])
         {
-          key_phrases_detection_job_properties_list: Stubs::KeyPhrasesDetectionJobPropertiesList.default(visited),
+          key_phrases_detection_job_properties_list: KeyPhrasesDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2778,7 +2778,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('KeyPhrasesDetectionJobPropertiesList')
         visited = visited + ['KeyPhrasesDetectionJobPropertiesList']
         [
-          Stubs::KeyPhrasesDetectionJobProperties.default(visited)
+          KeyPhrasesDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2796,7 +2796,7 @@ module AWS::SDK::Comprehend
     class ListPiiEntitiesDetectionJobs
       def self.default(visited=[])
         {
-          pii_entities_detection_job_properties_list: Stubs::PiiEntitiesDetectionJobPropertiesList.default(visited),
+          pii_entities_detection_job_properties_list: PiiEntitiesDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2816,7 +2816,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('PiiEntitiesDetectionJobPropertiesList')
         visited = visited + ['PiiEntitiesDetectionJobPropertiesList']
         [
-          Stubs::PiiEntitiesDetectionJobProperties.default(visited)
+          PiiEntitiesDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2834,7 +2834,7 @@ module AWS::SDK::Comprehend
     class ListSentimentDetectionJobs
       def self.default(visited=[])
         {
-          sentiment_detection_job_properties_list: Stubs::SentimentDetectionJobPropertiesList.default(visited),
+          sentiment_detection_job_properties_list: SentimentDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2854,7 +2854,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('SentimentDetectionJobPropertiesList')
         visited = visited + ['SentimentDetectionJobPropertiesList']
         [
-          Stubs::SentimentDetectionJobProperties.default(visited)
+          SentimentDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2873,7 +2873,7 @@ module AWS::SDK::Comprehend
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2892,7 +2892,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2930,7 +2930,7 @@ module AWS::SDK::Comprehend
     class ListTargetedSentimentDetectionJobs
       def self.default(visited=[])
         {
-          targeted_sentiment_detection_job_properties_list: Stubs::TargetedSentimentDetectionJobPropertiesList.default(visited),
+          targeted_sentiment_detection_job_properties_list: TargetedSentimentDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2950,7 +2950,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('TargetedSentimentDetectionJobPropertiesList')
         visited = visited + ['TargetedSentimentDetectionJobPropertiesList']
         [
-          Stubs::TargetedSentimentDetectionJobProperties.default(visited)
+          TargetedSentimentDetectionJobProperties.default(visited)
         ]
       end
 
@@ -2968,7 +2968,7 @@ module AWS::SDK::Comprehend
     class ListTopicsDetectionJobs
       def self.default(visited=[])
         {
-          topics_detection_job_properties_list: Stubs::TopicsDetectionJobPropertiesList.default(visited),
+          topics_detection_job_properties_list: TopicsDetectionJobPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2988,7 +2988,7 @@ module AWS::SDK::Comprehend
         return nil if visited.include?('TopicsDetectionJobPropertiesList')
         visited = visited + ['TopicsDetectionJobPropertiesList']
         [
-          Stubs::TopicsDetectionJobProperties.default(visited)
+          TopicsDetectionJobProperties.default(visited)
         ]
       end
 

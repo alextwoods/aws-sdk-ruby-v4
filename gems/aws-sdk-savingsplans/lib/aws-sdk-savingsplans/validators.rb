@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Savingsplans
   module Validators
 
@@ -18,7 +20,7 @@ module AWS::SDK::Savingsplans
         Hearth::Validator.validate!(input[:upfront_payment_amount], ::String, context: "#{context}[:upfront_payment_amount]")
         Hearth::Validator.validate!(input[:purchase_time], ::Time, context: "#{context}[:purchase_time]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -55,7 +57,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlanRatesInput, context: context)
         Hearth::Validator.validate!(input[:savings_plan_id], ::String, context: "#{context}[:savings_plan_id]")
-        Validators::SavingsPlanRateFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SavingsPlanRateFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -65,7 +67,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlanRatesOutput, context: context)
         Hearth::Validator.validate!(input[:savings_plan_id], ::String, context: "#{context}[:savings_plan_id]")
-        Validators::SavingsPlanRateList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
+        SavingsPlanRateList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -73,26 +75,26 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansInput, context: context)
-        Validators::SavingsPlanArnList.validate!(input[:savings_plan_arns], context: "#{context}[:savings_plan_arns]") unless input[:savings_plan_arns].nil?
-        Validators::SavingsPlanIdList.validate!(input[:savings_plan_ids], context: "#{context}[:savings_plan_ids]") unless input[:savings_plan_ids].nil?
+        SavingsPlanArnList.validate!(input[:savings_plan_arns], context: "#{context}[:savings_plan_arns]") unless input[:savings_plan_arns].nil?
+        SavingsPlanIdList.validate!(input[:savings_plan_ids], context: "#{context}[:savings_plan_ids]") unless input[:savings_plan_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SavingsPlanStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
-        Validators::SavingsPlanFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SavingsPlanStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        SavingsPlanFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class DescribeSavingsPlansOfferingRatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansOfferingRatesInput, context: context)
-        Validators::UUIDs.validate!(input[:savings_plan_offering_ids], context: "#{context}[:savings_plan_offering_ids]") unless input[:savings_plan_offering_ids].nil?
-        Validators::SavingsPlanPaymentOptionList.validate!(input[:savings_plan_payment_options], context: "#{context}[:savings_plan_payment_options]") unless input[:savings_plan_payment_options].nil?
-        Validators::SavingsPlanTypeList.validate!(input[:savings_plan_types], context: "#{context}[:savings_plan_types]") unless input[:savings_plan_types].nil?
-        Validators::SavingsPlanProductTypeList.validate!(input[:products], context: "#{context}[:products]") unless input[:products].nil?
-        Validators::SavingsPlanRateServiceCodeList.validate!(input[:service_codes], context: "#{context}[:service_codes]") unless input[:service_codes].nil?
-        Validators::SavingsPlanRateUsageTypeList.validate!(input[:usage_types], context: "#{context}[:usage_types]") unless input[:usage_types].nil?
-        Validators::SavingsPlanRateOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
-        Validators::SavingsPlanOfferingRateFiltersList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        UUIDs.validate!(input[:savings_plan_offering_ids], context: "#{context}[:savings_plan_offering_ids]") unless input[:savings_plan_offering_ids].nil?
+        SavingsPlanPaymentOptionList.validate!(input[:savings_plan_payment_options], context: "#{context}[:savings_plan_payment_options]") unless input[:savings_plan_payment_options].nil?
+        SavingsPlanTypeList.validate!(input[:savings_plan_types], context: "#{context}[:savings_plan_types]") unless input[:savings_plan_types].nil?
+        SavingsPlanProductTypeList.validate!(input[:products], context: "#{context}[:products]") unless input[:products].nil?
+        SavingsPlanRateServiceCodeList.validate!(input[:service_codes], context: "#{context}[:service_codes]") unless input[:service_codes].nil?
+        SavingsPlanRateUsageTypeList.validate!(input[:usage_types], context: "#{context}[:usage_types]") unless input[:usage_types].nil?
+        SavingsPlanRateOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        SavingsPlanOfferingRateFiltersList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -101,7 +103,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOfferingRatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansOfferingRatesOutput, context: context)
-        Validators::SavingsPlanOfferingRatesList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
+        SavingsPlanOfferingRatesList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -109,17 +111,17 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOfferingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansOfferingsInput, context: context)
-        Validators::UUIDs.validate!(input[:offering_ids], context: "#{context}[:offering_ids]") unless input[:offering_ids].nil?
-        Validators::SavingsPlanPaymentOptionList.validate!(input[:payment_options], context: "#{context}[:payment_options]") unless input[:payment_options].nil?
+        UUIDs.validate!(input[:offering_ids], context: "#{context}[:offering_ids]") unless input[:offering_ids].nil?
+        SavingsPlanPaymentOptionList.validate!(input[:payment_options], context: "#{context}[:payment_options]") unless input[:payment_options].nil?
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
-        Validators::SavingsPlanTypeList.validate!(input[:plan_types], context: "#{context}[:plan_types]") unless input[:plan_types].nil?
-        Validators::DurationsList.validate!(input[:durations], context: "#{context}[:durations]") unless input[:durations].nil?
-        Validators::CurrencyList.validate!(input[:currencies], context: "#{context}[:currencies]") unless input[:currencies].nil?
-        Validators::SavingsPlanDescriptionsList.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
-        Validators::SavingsPlanServiceCodeList.validate!(input[:service_codes], context: "#{context}[:service_codes]") unless input[:service_codes].nil?
-        Validators::SavingsPlanUsageTypeList.validate!(input[:usage_types], context: "#{context}[:usage_types]") unless input[:usage_types].nil?
-        Validators::SavingsPlanOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
-        Validators::SavingsPlanOfferingFiltersList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SavingsPlanTypeList.validate!(input[:plan_types], context: "#{context}[:plan_types]") unless input[:plan_types].nil?
+        DurationsList.validate!(input[:durations], context: "#{context}[:durations]") unless input[:durations].nil?
+        CurrencyList.validate!(input[:currencies], context: "#{context}[:currencies]") unless input[:currencies].nil?
+        SavingsPlanDescriptionsList.validate!(input[:descriptions], context: "#{context}[:descriptions]") unless input[:descriptions].nil?
+        SavingsPlanServiceCodeList.validate!(input[:service_codes], context: "#{context}[:service_codes]") unless input[:service_codes].nil?
+        SavingsPlanUsageTypeList.validate!(input[:usage_types], context: "#{context}[:usage_types]") unless input[:usage_types].nil?
+        SavingsPlanOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        SavingsPlanOfferingFiltersList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -128,7 +130,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOfferingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansOfferingsOutput, context: context)
-        Validators::SavingsPlanOfferingsList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
+        SavingsPlanOfferingsList.validate!(input[:search_results], context: "#{context}[:search_results]") unless input[:search_results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSavingsPlansOutput, context: context)
-        Validators::SavingsPlanList.validate!(input[:savings_plans], context: "#{context}[:savings_plans]") unless input[:savings_plans].nil?
+        SavingsPlanList.validate!(input[:savings_plans], context: "#{context}[:savings_plans]") unless input[:savings_plans].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::Savingsplans
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -222,13 +224,13 @@ module AWS::SDK::Savingsplans
         Hearth::Validator.validate!(input[:ec2_instance_family], ::String, context: "#{context}[:ec2_instance_family]")
         Hearth::Validator.validate!(input[:savings_plan_type], ::String, context: "#{context}[:savings_plan_type]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
-        Validators::SavingsPlanProductTypeList.validate!(input[:product_types], context: "#{context}[:product_types]") unless input[:product_types].nil?
+        SavingsPlanProductTypeList.validate!(input[:product_types], context: "#{context}[:product_types]") unless input[:product_types].nil?
         Hearth::Validator.validate!(input[:currency], ::String, context: "#{context}[:currency]")
         Hearth::Validator.validate!(input[:commitment], ::String, context: "#{context}[:commitment]")
         Hearth::Validator.validate!(input[:upfront_payment_amount], ::String, context: "#{context}[:upfront_payment_amount]")
         Hearth::Validator.validate!(input[:recurring_payment_amount], ::String, context: "#{context}[:recurring_payment_amount]")
         Hearth::Validator.validate!(input[:term_duration_in_seconds], ::Integer, context: "#{context}[:term_duration_in_seconds]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ListOfStrings.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfStrings.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -262,7 +264,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -280,7 +282,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanOffering, context: context)
         Hearth::Validator.validate!(input[:offering_id], ::String, context: "#{context}[:offering_id]")
-        Validators::SavingsPlanProductTypeList.validate!(input[:product_types], context: "#{context}[:product_types]") unless input[:product_types].nil?
+        SavingsPlanProductTypeList.validate!(input[:product_types], context: "#{context}[:product_types]") unless input[:product_types].nil?
         Hearth::Validator.validate!(input[:plan_type], ::String, context: "#{context}[:plan_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
@@ -298,7 +300,7 @@ module AWS::SDK::Savingsplans
         Hearth::Validator.validate!(input[:service_code], ::String, context: "#{context}[:service_code]")
         Hearth::Validator.validate!(input[:usage_type], ::String, context: "#{context}[:usage_type]")
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::SavingsPlanOfferingPropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        SavingsPlanOfferingPropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanOfferingFilterElement, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOfferingFilterElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOfferingFilterElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOfferingProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOfferingProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -339,14 +341,14 @@ module AWS::SDK::Savingsplans
     class SavingsPlanOfferingRate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanOfferingRate, context: context)
-        Validators::ParentSavingsPlanOffering.validate!(input[:savings_plan_offering], context: "#{context}[:savings_plan_offering]") unless input[:savings_plan_offering].nil?
+        ParentSavingsPlanOffering.validate!(input[:savings_plan_offering], context: "#{context}[:savings_plan_offering]") unless input[:savings_plan_offering].nil?
         Hearth::Validator.validate!(input[:rate], ::String, context: "#{context}[:rate]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
         Hearth::Validator.validate!(input[:service_code], ::String, context: "#{context}[:service_code]")
         Hearth::Validator.validate!(input[:usage_type], ::String, context: "#{context}[:usage_type]")
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::SavingsPlanOfferingRatePropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        SavingsPlanOfferingRatePropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanOfferingRateFilterElement, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOfferingRateFilterElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOfferingRateFilterElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOfferingRateProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOfferingRateProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -388,7 +390,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOfferingRate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOfferingRate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::Savingsplans
         Hearth::Validator.validate!(input[:service_code], ::String, context: "#{context}[:service_code]")
         Hearth::Validator.validate!(input[:usage_type], ::String, context: "#{context}[:usage_type]")
         Hearth::Validator.validate!(input[:operation], ::String, context: "#{context}[:operation]")
-        Validators::SavingsPlanRatePropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        SavingsPlanRatePropertyList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -447,7 +449,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlanRateFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ListOfStrings.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ListOfStrings.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanRateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanRateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -464,7 +466,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanRate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanRate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlanRateProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlanRateProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::Savingsplans
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

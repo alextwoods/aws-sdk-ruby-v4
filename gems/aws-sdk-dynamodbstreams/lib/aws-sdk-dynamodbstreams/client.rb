@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DynamoDBStreams
@@ -98,7 +100,7 @@ module AWS::SDK::DynamoDBStreams
     def describe_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamInput,
         validate_input: @config.validate_input
@@ -186,7 +188,20 @@ module AWS::SDK::DynamoDBStreams
     #   resp.data.records[0].dynamodb #=> Types::StreamRecord
     #   resp.data.records[0].dynamodb.approximate_creation_date_time #=> Time
     #   resp.data.records[0].dynamodb.keys #=> Hash<String, AttributeValue>
-    #   resp.data.records[0].dynamodb.keys['key'] #=> AttributeValue
+    #   resp.data.records[0].dynamodb.keys['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.records[0].dynamodb.keys['key'].s #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].n #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].b #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].ss #=> Array<String>
+    #   resp.data.records[0].dynamodb.keys['key'].ss[0] #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].ns #=> Array<String>
+    #   resp.data.records[0].dynamodb.keys['key'].ns[0] #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].bs #=> Array<String>
+    #   resp.data.records[0].dynamodb.keys['key'].bs[0] #=> String
+    #   resp.data.records[0].dynamodb.keys['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.records[0].dynamodb.keys['key'].l #=> Array<AttributeValue>
+    #   resp.data.records[0].dynamodb.keys['key'].null #=> Boolean
+    #   resp.data.records[0].dynamodb.keys['key'].bool #=> Boolean
     #   resp.data.records[0].dynamodb.new_image #=> Hash<String, AttributeValue>
     #   resp.data.records[0].dynamodb.old_image #=> Hash<String, AttributeValue>
     #   resp.data.records[0].dynamodb.sequence_number #=> String
@@ -200,7 +215,7 @@ module AWS::SDK::DynamoDBStreams
     def get_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecordsInput,
         validate_input: @config.validate_input
@@ -312,7 +327,7 @@ module AWS::SDK::DynamoDBStreams
     def get_shard_iterator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetShardIteratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetShardIteratorInput,
         validate_input: @config.validate_input
@@ -401,7 +416,7 @@ module AWS::SDK::DynamoDBStreams
     def list_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamsInput,
         validate_input: @config.validate_input

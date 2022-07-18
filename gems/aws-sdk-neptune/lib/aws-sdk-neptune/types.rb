@@ -2019,13 +2019,13 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.multi_az ||= false
         self.storage_encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>User already has a DB cluster with the given identifier.</p>
@@ -2215,11 +2215,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_cluster_writer ||= false
       end
-
     end
 
     # <p>
@@ -2559,6 +2559,7 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -2567,7 +2568,6 @@ module AWS::SDK::Neptune
         self.storage_encrypted ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>User already has a DB cluster snapshot with the given identifier.</p>
@@ -2742,13 +2742,13 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_log_exports_to_cloudwatch_logs ||= false
         self.supports_read_replica ||= false
         self.supports_global_databases ||= false
       end
-
     end
 
     # <p>Contains the details of an Amazon Neptune DB instance.</p>
@@ -3111,6 +3111,7 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allocated_storage ||= 0
@@ -3123,7 +3124,6 @@ module AWS::SDK::Neptune
         self.copy_tags_to_snapshot ||= false
         self.iam_database_authentication_enabled ||= false
       end
-
     end
 
     # <p>User already has a DB instance with the given identifier.</p>
@@ -3188,11 +3188,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.normal ||= false
       end
-
     end
 
     # <p>Contains the details of an Amazon Neptune DB parameter group.</p>
@@ -3680,11 +3680,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_snapshot ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -3819,11 +3819,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_snapshot ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -4309,12 +4309,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_shared ||= false
         self.include_public ||= false
       end
-
     end
 
     # @!attribute marker
@@ -4492,11 +4492,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_only ||= false
       end
-
     end
 
     # @!attribute marker
@@ -5405,12 +5405,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # <p>Specifies a connection endpoint.</p>
@@ -5440,11 +5440,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p> Contains the result of a successful invocation of the <a>DescribeEngineDefaultParameters</a> action.</p>
@@ -5616,11 +5616,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>You have exceeded the number of events you can subscribe to.</p>
@@ -5864,11 +5864,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_writer ||= false
       end
-
     end
 
     # <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
@@ -6549,12 +6549,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
         self.allow_major_version_upgrade ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -7048,12 +7048,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
         self.allow_major_version_upgrade ||= false
       end
-
     end
 
     # @!attribute db_instance
@@ -7464,6 +7464,7 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.multi_az_capable ||= false
@@ -7476,7 +7477,6 @@ module AWS::SDK::Neptune
         self.supports_performance_insights ||= false
         self.supports_global_databases ||= false
       end
-
     end
 
     # <p>Specifies a parameter.</p>
@@ -7549,11 +7549,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # <p>A list of the log types whose configuration is still pending. In other
@@ -7795,12 +7795,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # @!attribute db_instance_identifier
@@ -8000,11 +8000,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # @!attribute db_cluster_parameter_group_name
@@ -8070,11 +8070,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # @!attribute db_parameter_group_name
@@ -8506,11 +8506,11 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_latest_restorable_time ||= false
       end
-
     end
 
     # @!attribute db_cluster
@@ -8885,12 +8885,12 @@ module AWS::SDK::Neptune
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_upgrade ||= false
         self.is_major_version_upgrade ||= false
       end
-
     end
 
     # <p>Information about valid modifications that you can make to your DB instance. Contains the

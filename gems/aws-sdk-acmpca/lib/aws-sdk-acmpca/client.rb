@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ACMPCA
@@ -212,7 +214,7 @@ module AWS::SDK::ACMPCA
     def create_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -308,7 +310,7 @@ module AWS::SDK::ACMPCA
     def create_certificate_authority_audit_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCertificateAuthorityAuditReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCertificateAuthorityAuditReportInput,
         validate_input: @config.validate_input
@@ -424,7 +426,7 @@ module AWS::SDK::ACMPCA
     def create_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePermissionInput,
         validate_input: @config.validate_input
@@ -520,7 +522,7 @@ module AWS::SDK::ACMPCA
     def delete_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -631,7 +633,7 @@ module AWS::SDK::ACMPCA
     def delete_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePermissionInput,
         validate_input: @config.validate_input
@@ -736,7 +738,7 @@ module AWS::SDK::ACMPCA
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -922,7 +924,7 @@ module AWS::SDK::ACMPCA
     def describe_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -1005,7 +1007,7 @@ module AWS::SDK::ACMPCA
     def describe_certificate_authority_audit_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificateAuthorityAuditReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificateAuthorityAuditReportInput,
         validate_input: @config.validate_input
@@ -1095,7 +1097,7 @@ module AWS::SDK::ACMPCA
     def get_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCertificateInput,
         validate_input: @config.validate_input
@@ -1172,7 +1174,7 @@ module AWS::SDK::ACMPCA
     def get_certificate_authority_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCertificateAuthorityCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCertificateAuthorityCertificateInput,
         validate_input: @config.validate_input
@@ -1249,7 +1251,7 @@ module AWS::SDK::ACMPCA
     def get_certificate_authority_csr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCertificateAuthorityCsrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCertificateAuthorityCsrInput,
         validate_input: @config.validate_input
@@ -1351,7 +1353,7 @@ module AWS::SDK::ACMPCA
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -1564,7 +1566,7 @@ module AWS::SDK::ACMPCA
     def import_certificate_authority_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportCertificateAuthorityCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportCertificateAuthorityCertificateInput,
         validate_input: @config.validate_input
@@ -1819,7 +1821,7 @@ module AWS::SDK::ACMPCA
     def issue_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IssueCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IssueCertificateInput,
         validate_input: @config.validate_input
@@ -1978,7 +1980,7 @@ module AWS::SDK::ACMPCA
     def list_certificate_authorities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCertificateAuthoritiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCertificateAuthoritiesInput,
         validate_input: @config.validate_input
@@ -2099,7 +2101,7 @@ module AWS::SDK::ACMPCA
     def list_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionsInput,
         validate_input: @config.validate_input
@@ -2192,7 +2194,7 @@ module AWS::SDK::ACMPCA
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -2301,7 +2303,7 @@ module AWS::SDK::ACMPCA
     def put_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPolicyInput,
         validate_input: @config.validate_input
@@ -2383,7 +2385,7 @@ module AWS::SDK::ACMPCA
     def restore_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -2493,7 +2495,7 @@ module AWS::SDK::ACMPCA
     def revoke_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeCertificateInput,
         validate_input: @config.validate_input
@@ -2581,7 +2583,7 @@ module AWS::SDK::ACMPCA
     def tag_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -2666,7 +2668,7 @@ module AWS::SDK::ACMPCA
     def untag_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -2772,7 +2774,7 @@ module AWS::SDK::ACMPCA
     def update_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCertificateAuthorityInput,
         validate_input: @config.validate_input

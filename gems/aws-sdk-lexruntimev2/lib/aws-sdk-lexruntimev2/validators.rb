@@ -21,8 +21,8 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActiveContext, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ActiveContextTimeToLive.validate!(input[:time_to_live], context: "#{context}[:time_to_live]") unless input[:time_to_live].nil?
-        Validators::ActiveContextParametersMap.validate!(input[:context_attributes], context: "#{context}[:context_attributes]") unless input[:context_attributes].nil?
+        ActiveContextTimeToLive.validate!(input[:time_to_live], context: "#{context}[:time_to_live]") unless input[:time_to_live].nil?
+        ActiveContextParametersMap.validate!(input[:context_attributes], context: "#{context}[:context_attributes]") unless input[:context_attributes].nil?
       end
     end
 
@@ -48,7 +48,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActiveContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActiveContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -91,7 +91,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Button.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Button.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,10 +106,10 @@ module AWS::SDK::LexRuntimeV2
     class ConfigurationEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigurationEvent, context: context)
-        Validators::StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
+        StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
         Hearth::Validator.validate!(input[:response_content_type], ::String, context: "#{context}[:response_content_type]")
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
-        Validators::Messages.validate!(input[:welcome_messages], context: "#{context}[:welcome_messages]") unless input[:welcome_messages].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        Messages.validate!(input[:welcome_messages], context: "#{context}[:welcome_messages]") unless input[:welcome_messages].nil?
         Hearth::Validator.validate!(input[:disable_playback], ::TrueClass, ::FalseClass, context: "#{context}[:disable_playback]")
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
         Hearth::Validator.validate!(input[:client_timestamp_millis], ::Integer, context: "#{context}[:client_timestamp_millis]")
@@ -190,9 +190,9 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSessionOutput, context: context)
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
-        Validators::Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
       end
     end
 
@@ -209,7 +209,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:subtitle], ::String, context: "#{context}[:subtitle]")
         Hearth::Validator.validate!(input[:image_url], ::String, context: "#{context}[:image_url]")
-        Validators::ButtonsList.validate!(input[:buttons], context: "#{context}[:buttons]") unless input[:buttons].nil?
+        ButtonsList.validate!(input[:buttons], context: "#{context}[:buttons]") unless input[:buttons].nil?
       end
     end
 
@@ -217,7 +217,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Intent, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Slots.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        Slots.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:confirmation_state], ::String, context: "#{context}[:confirmation_state]")
       end
@@ -227,9 +227,9 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IntentResultEvent, context: context)
         Hearth::Validator.validate!(input[:input_mode], ::String, context: "#{context}[:input_mode]")
-        Validators::Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
-        Validators::StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
+        Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
       end
@@ -245,9 +245,9 @@ module AWS::SDK::LexRuntimeV2
     class Interpretation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Interpretation, context: context)
-        Validators::ConfidenceScore.validate!(input[:nlu_confidence], context: "#{context}[:nlu_confidence]") unless input[:nlu_confidence].nil?
-        Validators::SentimentResponse.validate!(input[:sentiment_response], context: "#{context}[:sentiment_response]") unless input[:sentiment_response].nil?
-        Validators::Intent.validate!(input[:intent], context: "#{context}[:intent]") unless input[:intent].nil?
+        ConfidenceScore.validate!(input[:nlu_confidence], context: "#{context}[:nlu_confidence]") unless input[:nlu_confidence].nil?
+        SentimentResponse.validate!(input[:sentiment_response], context: "#{context}[:sentiment_response]") unless input[:sentiment_response].nil?
+        Intent.validate!(input[:intent], context: "#{context}[:intent]") unless input[:intent].nil?
       end
     end
 
@@ -255,7 +255,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Interpretation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Interpretation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -265,7 +265,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input, Types::Message, context: context)
         Hearth::Validator.validate!(input[:content], ::String, context: "#{context}[:content]")
         Hearth::Validator.validate!(input[:content_type], ::String, context: "#{context}[:content_type]")
-        Validators::ImageResponseCard.validate!(input[:image_response_card], context: "#{context}[:image_response_card]") unless input[:image_response_card].nil?
+        ImageResponseCard.validate!(input[:image_response_card], context: "#{context}[:image_response_card]") unless input[:image_response_card].nil?
       end
     end
 
@@ -273,7 +273,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -302,9 +302,9 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input[:bot_alias_id], ::String, context: "#{context}[:bot_alias_id]")
         Hearth::Validator.validate!(input[:locale_id], ::String, context: "#{context}[:locale_id]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
-        Validators::StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
         Hearth::Validator.validate!(input[:response_content_type], ::String, context: "#{context}[:response_content_type]")
       end
     end
@@ -331,18 +331,18 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input[:locale_id], ::String, context: "#{context}[:locale_id]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
-        Validators::StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
       end
     end
 
     class RecognizeTextOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecognizeTextOutput, context: context)
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
-        Validators::SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
-        Validators::Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
-        Validators::StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        SessionState.validate!(input[:session_state], context: "#{context}[:session_state]") unless input[:session_state].nil?
+        Interpretations.validate!(input[:interpretations], context: "#{context}[:interpretations]") unless input[:interpretations].nil?
+        StringMap.validate!(input[:request_attributes], context: "#{context}[:request_attributes]") unless input[:request_attributes].nil?
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
       end
     end
@@ -391,7 +391,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHintDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuntimeHintDetails, context: context)
-        Validators::RuntimeHintValuesList.validate!(input[:runtime_hint_values], context: "#{context}[:runtime_hint_values]") unless input[:runtime_hint_values].nil?
+        RuntimeHintValuesList.validate!(input[:runtime_hint_values], context: "#{context}[:runtime_hint_values]") unless input[:runtime_hint_values].nil?
       end
     end
 
@@ -406,7 +406,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuntimeHintValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuntimeHintValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -414,7 +414,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuntimeHints, context: context)
-        Validators::SlotHintsIntentMap.validate!(input[:slot_hints], context: "#{context}[:slot_hints]") unless input[:slot_hints].nil?
+        SlotHintsIntentMap.validate!(input[:slot_hints], context: "#{context}[:slot_hints]") unless input[:slot_hints].nil?
       end
     end
 
@@ -422,7 +422,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SentimentResponse, context: context)
         Hearth::Validator.validate!(input[:sentiment], ::String, context: "#{context}[:sentiment]")
-        Validators::SentimentScore.validate!(input[:sentiment_score], context: "#{context}[:sentiment_score]") unless input[:sentiment_score].nil?
+        SentimentScore.validate!(input[:sentiment_score], context: "#{context}[:sentiment_score]") unless input[:sentiment_score].nil?
       end
     end
 
@@ -439,21 +439,21 @@ module AWS::SDK::LexRuntimeV2
     class SessionState
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SessionState, context: context)
-        Validators::DialogAction.validate!(input[:dialog_action], context: "#{context}[:dialog_action]") unless input[:dialog_action].nil?
-        Validators::Intent.validate!(input[:intent], context: "#{context}[:intent]") unless input[:intent].nil?
-        Validators::ActiveContextsList.validate!(input[:active_contexts], context: "#{context}[:active_contexts]") unless input[:active_contexts].nil?
-        Validators::StringMap.validate!(input[:session_attributes], context: "#{context}[:session_attributes]") unless input[:session_attributes].nil?
+        DialogAction.validate!(input[:dialog_action], context: "#{context}[:dialog_action]") unless input[:dialog_action].nil?
+        Intent.validate!(input[:intent], context: "#{context}[:intent]") unless input[:intent].nil?
+        ActiveContextsList.validate!(input[:active_contexts], context: "#{context}[:active_contexts]") unless input[:active_contexts].nil?
+        StringMap.validate!(input[:session_attributes], context: "#{context}[:session_attributes]") unless input[:session_attributes].nil?
         Hearth::Validator.validate!(input[:originating_request_id], ::String, context: "#{context}[:originating_request_id]")
-        Validators::RuntimeHints.validate!(input[:runtime_hints], context: "#{context}[:runtime_hints]") unless input[:runtime_hints].nil?
+        RuntimeHints.validate!(input[:runtime_hints], context: "#{context}[:runtime_hints]") unless input[:runtime_hints].nil?
       end
     end
 
     class Slot
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Slot, context: context)
-        Validators::Value.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        Value.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:shape], ::String, context: "#{context}[:shape]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -462,7 +462,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::SlotHintsSlotMap.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          SlotHintsSlotMap.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -472,7 +472,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::RuntimeHintDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          RuntimeHintDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Slot.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Slot.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -495,14 +495,14 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input[:locale_id], ::String, context: "#{context}[:locale_id]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
         Hearth::Validator.validate!(input[:conversation_mode], ::String, context: "#{context}[:conversation_mode]")
-        Validators::StartConversationRequestEventStream.validate!(input[:request_event_stream], context: "#{context}[:request_event_stream]") unless input[:request_event_stream].nil?
+        StartConversationRequestEventStream.validate!(input[:request_event_stream], context: "#{context}[:request_event_stream]") unless input[:request_event_stream].nil?
       end
     end
 
     class StartConversationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartConversationOutput, context: context)
-        Validators::StartConversationResponseEventStream.validate!(input[:response_event_stream], context: "#{context}[:response_event_stream]") unless input[:response_event_stream].nil?
+        StartConversationResponseEventStream.validate!(input[:response_event_stream], context: "#{context}[:response_event_stream]") unless input[:response_event_stream].nil?
       end
     end
 
@@ -510,17 +510,17 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         case input
         when Types::StartConversationRequestEventStream::ConfigurationEvent
-          Validators::ConfigurationEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ConfigurationEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationRequestEventStream::AudioInputEvent
-          Validators::AudioInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AudioInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationRequestEventStream::DtmfInputEvent
-          Validators::DTMFInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DTMFInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationRequestEventStream::TextInputEvent
-          Validators::TextInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TextInputEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationRequestEventStream::PlaybackCompletionEvent
-          Validators::PlaybackCompletionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PlaybackCompletionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationRequestEventStream::DisconnectionEvent
-          Validators::DisconnectionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DisconnectionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -569,33 +569,33 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         case input
         when Types::StartConversationResponseEventStream::PlaybackInterruptionEvent
-          Validators::PlaybackInterruptionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PlaybackInterruptionEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::TranscriptEvent
-          Validators::TranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::IntentResultEvent
-          Validators::IntentResultEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          IntentResultEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::TextResponseEvent
-          Validators::TextResponseEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TextResponseEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::AudioResponseEvent
-          Validators::AudioResponseEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AudioResponseEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::HeartbeatEvent
-          Validators::HeartbeatEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          HeartbeatEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::AccessDeniedException
-          Validators::AccessDeniedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AccessDeniedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::ResourceNotFoundException
-          Validators::ResourceNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ResourceNotFoundException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::ValidationException
-          Validators::ValidationException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ValidationException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::ThrottlingException
-          Validators::ThrottlingException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ThrottlingException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::InternalServerException
-          Validators::InternalServerException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InternalServerException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::ConflictException
-          Validators::ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::DependencyFailedException
-          Validators::DependencyFailedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DependencyFailedException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StartConversationResponseEventStream::BadGatewayException
-          Validators::BadGatewayException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BadGatewayException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -719,7 +719,7 @@ module AWS::SDK::LexRuntimeV2
     class TextResponseEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TextResponseEvent, context: context)
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::LexRuntimeV2
         Hearth::Validator.validate!(input, Types::Value, context: context)
         Hearth::Validator.validate!(input[:original_value], ::String, context: "#{context}[:original_value]")
         Hearth::Validator.validate!(input[:interpreted_value], ::String, context: "#{context}[:interpreted_value]")
-        Validators::StringList.validate!(input[:resolved_values], context: "#{context}[:resolved_values]") unless input[:resolved_values].nil?
+        StringList.validate!(input[:resolved_values], context: "#{context}[:resolved_values]") unless input[:resolved_values].nil?
       end
     end
 
@@ -759,7 +759,7 @@ module AWS::SDK::LexRuntimeV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Slot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Slot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

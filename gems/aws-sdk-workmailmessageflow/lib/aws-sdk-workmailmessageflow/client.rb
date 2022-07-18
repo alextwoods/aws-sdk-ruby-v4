@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WorkMailMessageFlow
@@ -152,7 +154,7 @@ module AWS::SDK::WorkMailMessageFlow
     def put_raw_message_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRawMessageContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRawMessageContentInput,
         validate_input: @config.validate_input
@@ -209,7 +211,7 @@ module AWS::SDK::WorkMailMessageFlow
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

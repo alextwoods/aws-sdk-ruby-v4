@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MediaStore
   module Validators
 
@@ -60,7 +62,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Container.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Container.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -76,7 +78,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CorsRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CorsRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -91,11 +93,11 @@ module AWS::SDK::MediaStore
     class CorsRule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CorsRule, context: context)
-        Validators::AllowedOrigins.validate!(input[:allowed_origins], context: "#{context}[:allowed_origins]") unless input[:allowed_origins].nil?
-        Validators::AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
-        Validators::AllowedHeaders.validate!(input[:allowed_headers], context: "#{context}[:allowed_headers]") unless input[:allowed_headers].nil?
+        AllowedOrigins.validate!(input[:allowed_origins], context: "#{context}[:allowed_origins]") unless input[:allowed_origins].nil?
+        AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
+        AllowedHeaders.validate!(input[:allowed_headers], context: "#{context}[:allowed_headers]") unless input[:allowed_headers].nil?
         Hearth::Validator.validate!(input[:max_age_seconds], ::Integer, context: "#{context}[:max_age_seconds]")
-        Validators::ExposeHeaders.validate!(input[:expose_headers], context: "#{context}[:expose_headers]") unless input[:expose_headers].nil?
+        ExposeHeaders.validate!(input[:expose_headers], context: "#{context}[:expose_headers]") unless input[:expose_headers].nil?
       end
     end
 
@@ -103,14 +105,14 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerInput, context: context)
         Hearth::Validator.validate!(input[:container_name], ::String, context: "#{context}[:container_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateContainerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerOutput, context: context)
-        Validators::Container.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        Container.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
       end
     end
 
@@ -189,7 +191,7 @@ module AWS::SDK::MediaStore
     class DescribeContainerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeContainerOutput, context: context)
-        Validators::Container.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        Container.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::MediaStore
     class GetCorsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCorsPolicyOutput, context: context)
-        Validators::CorsPolicy.validate!(input[:cors_policy], context: "#{context}[:cors_policy]") unless input[:cors_policy].nil?
+        CorsPolicy.validate!(input[:cors_policy], context: "#{context}[:cors_policy]") unless input[:cors_policy].nil?
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::MediaStore
     class GetMetricPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMetricPolicyOutput, context: context)
-        Validators::MetricPolicy.validate!(input[:metric_policy], context: "#{context}[:metric_policy]") unless input[:metric_policy].nil?
+        MetricPolicy.validate!(input[:metric_policy], context: "#{context}[:metric_policy]") unless input[:metric_policy].nil?
       end
     end
 
@@ -283,7 +285,7 @@ module AWS::SDK::MediaStore
     class ListContainersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContainersOutput, context: context)
-        Validators::ContainerList.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
+        ContainerList.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -298,7 +300,7 @@ module AWS::SDK::MediaStore
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricPolicy, context: context)
         Hearth::Validator.validate!(input[:container_level_metrics], ::String, context: "#{context}[:container_level_metrics]")
-        Validators::MetricPolicyRules.validate!(input[:metric_policy_rules], context: "#{context}[:metric_policy_rules]") unless input[:metric_policy_rules].nil?
+        MetricPolicyRules.validate!(input[:metric_policy_rules], context: "#{context}[:metric_policy_rules]") unless input[:metric_policy_rules].nil?
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricPolicyRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricPolicyRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -352,7 +354,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutCorsPolicyInput, context: context)
         Hearth::Validator.validate!(input[:container_name], ::String, context: "#{context}[:container_name]")
-        Validators::CorsPolicy.validate!(input[:cors_policy], context: "#{context}[:cors_policy]") unless input[:cors_policy].nil?
+        CorsPolicy.validate!(input[:cors_policy], context: "#{context}[:cors_policy]") unless input[:cors_policy].nil?
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutMetricPolicyInput, context: context)
         Hearth::Validator.validate!(input[:container_name], ::String, context: "#{context}[:container_name]")
-        Validators::MetricPolicy.validate!(input[:metric_policy], context: "#{context}[:metric_policy]") unless input[:metric_policy].nil?
+        MetricPolicy.validate!(input[:metric_policy], context: "#{context}[:metric_policy]") unless input[:metric_policy].nil?
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -446,7 +448,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::MediaStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

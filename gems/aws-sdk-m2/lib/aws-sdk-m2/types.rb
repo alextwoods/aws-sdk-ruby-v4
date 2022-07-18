@@ -57,13 +57,13 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.offset ||= 0
         self.length ||= 0
         self.allow_duplicates ||= false
       end
-
     end
 
     # Includes enum constants for ApplicationDeploymentLifecycle
@@ -756,11 +756,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publicly_accessible ||= false
       end
-
     end
 
     # @!attribute environment_id
@@ -912,6 +912,7 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total ||= 0
@@ -920,7 +921,6 @@ module AWS::SDK::M2
         self.pending ||= 0
         self.in_progress ||= 0
       end
-
     end
 
     # <p>Contains information about a data set import task.</p>
@@ -1541,11 +1541,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p>The required attributes for a generation data group data set. A generation data set is
@@ -1570,11 +1570,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -2210,11 +2210,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publicly_accessible ||= false
       end
-
     end
 
     # <p>Defines the details of a high availability configuration.</p>
@@ -2248,11 +2248,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2831,12 +2831,12 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.offset ||= 0
         self.length ||= 0
       end
-
     end
 
     # <p>The length of the records in the data set.</p>
@@ -2858,12 +2858,12 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The specified resource was not found.</p>
@@ -3031,11 +3031,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_stop ||= false
       end
-
     end
 
     StopApplicationOutput = ::Struct.new(
@@ -3139,11 +3139,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -3259,11 +3259,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_during_maintenance_window ||= false
       end
-
     end
 
     # @!attribute environment_id
@@ -3384,11 +3384,11 @@ module AWS::SDK::M2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compressed ||= false
       end
-
     end
 
     # <p>The attributes of a VSAM type data set.</p>

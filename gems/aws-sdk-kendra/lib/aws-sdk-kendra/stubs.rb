@@ -14,7 +14,7 @@ module AWS::SDK::Kendra
     class AssociateEntitiesToExperience
       def self.default(visited=[])
         {
-          failed_entity_list: Stubs::AssociateEntitiesToExperienceFailedEntityList.default(visited),
+          failed_entity_list: AssociateEntitiesToExperienceFailedEntityList.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('AssociateEntitiesToExperienceFailedEntityList')
         visited = visited + ['AssociateEntitiesToExperienceFailedEntityList']
         [
-          Stubs::FailedEntity.default(visited)
+          FailedEntity.default(visited)
         ]
       end
 
@@ -70,7 +70,7 @@ module AWS::SDK::Kendra
     class AssociatePersonasToEntities
       def self.default(visited=[])
         {
-          failed_entity_list: Stubs::FailedEntityList.default(visited),
+          failed_entity_list: FailedEntityList.default(visited),
         }
       end
 
@@ -88,7 +88,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('FailedEntityList')
         visited = visited + ['FailedEntityList']
         [
-          Stubs::FailedEntity.default(visited)
+          FailedEntity.default(visited)
         ]
       end
 
@@ -106,7 +106,7 @@ module AWS::SDK::Kendra
     class BatchDeleteDocument
       def self.default(visited=[])
         {
-          failed_documents: Stubs::BatchDeleteDocumentResponseFailedDocuments.default(visited),
+          failed_documents: BatchDeleteDocumentResponseFailedDocuments.default(visited),
         }
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('BatchDeleteDocumentResponseFailedDocuments')
         visited = visited + ['BatchDeleteDocumentResponseFailedDocuments']
         [
-          Stubs::BatchDeleteDocumentResponseFailedDocument.default(visited)
+          BatchDeleteDocumentResponseFailedDocument.default(visited)
         ]
       end
 
@@ -164,8 +164,8 @@ module AWS::SDK::Kendra
     class BatchGetDocumentStatus
       def self.default(visited=[])
         {
-          errors: Stubs::BatchGetDocumentStatusResponseErrors.default(visited),
-          document_status_list: Stubs::DocumentStatusList.default(visited),
+          errors: BatchGetDocumentStatusResponseErrors.default(visited),
+          document_status_list: DocumentStatusList.default(visited),
         }
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DocumentStatusList')
         visited = visited + ['DocumentStatusList']
         [
-          Stubs::Status.default(visited)
+          Status.default(visited)
         ]
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('BatchGetDocumentStatusResponseErrors')
         visited = visited + ['BatchGetDocumentStatusResponseErrors']
         [
-          Stubs::BatchGetDocumentStatusResponseError.default(visited)
+          BatchGetDocumentStatusResponseError.default(visited)
         ]
       end
 
@@ -268,7 +268,7 @@ module AWS::SDK::Kendra
     class BatchPutDocument
       def self.default(visited=[])
         {
-          failed_documents: Stubs::BatchPutDocumentResponseFailedDocuments.default(visited),
+          failed_documents: BatchPutDocumentResponseFailedDocuments.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('BatchPutDocumentResponseFailedDocuments')
         visited = visited + ['BatchPutDocumentResponseFailedDocuments']
         [
-          Stubs::BatchPutDocumentResponseFailedDocument.default(visited)
+          BatchPutDocumentResponseFailedDocument.default(visited)
         ]
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::Kendra
           index_id: 'index_id',
           name: 'name',
           type: 'type',
-          configuration: Stubs::DataSourceConfiguration.default(visited),
+          configuration: DataSourceConfiguration.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
           description: 'description',
@@ -547,7 +547,7 @@ module AWS::SDK::Kendra
           role_arn: 'role_arn',
           error_message: 'error_message',
           language_code: 'language_code',
-          custom_document_enrichment_configuration: Stubs::CustomDocumentEnrichmentConfiguration.default(visited),
+          custom_document_enrichment_configuration: CustomDocumentEnrichmentConfiguration.default(visited),
         }
       end
 
@@ -578,9 +578,9 @@ module AWS::SDK::Kendra
         return nil if visited.include?('CustomDocumentEnrichmentConfiguration')
         visited = visited + ['CustomDocumentEnrichmentConfiguration']
         {
-          inline_configurations: Stubs::InlineCustomDocumentEnrichmentConfigurationList.default(visited),
-          pre_extraction_hook_configuration: Stubs::HookConfiguration.default(visited),
-          post_extraction_hook_configuration: Stubs::HookConfiguration.default(visited),
+          inline_configurations: InlineCustomDocumentEnrichmentConfigurationList.default(visited),
+          pre_extraction_hook_configuration: HookConfiguration.default(visited),
+          post_extraction_hook_configuration: HookConfiguration.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -602,7 +602,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('HookConfiguration')
         visited = visited + ['HookConfiguration']
         {
-          invocation_condition: Stubs::DocumentAttributeCondition.default(visited),
+          invocation_condition: DocumentAttributeCondition.default(visited),
           lambda_arn: 'lambda_arn',
           s3_bucket: 's3_bucket',
         }
@@ -626,7 +626,7 @@ module AWS::SDK::Kendra
         {
           condition_document_attribute_key: 'condition_document_attribute_key',
           operator: 'operator',
-          condition_on_value: Stubs::DocumentAttributeValue.default(visited),
+          condition_on_value: DocumentAttributeValue.default(visited),
         }
       end
 
@@ -647,7 +647,7 @@ module AWS::SDK::Kendra
         visited = visited + ['DocumentAttributeValue']
         {
           string_value: 'string_value',
-          string_list_value: Stubs::DocumentAttributeStringListValue.default(visited),
+          string_list_value: DocumentAttributeStringListValue.default(visited),
           long_value: 1,
           date_value: Time.now,
         }
@@ -690,7 +690,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('InlineCustomDocumentEnrichmentConfigurationList')
         visited = visited + ['InlineCustomDocumentEnrichmentConfigurationList']
         [
-          Stubs::InlineCustomDocumentEnrichmentConfiguration.default(visited)
+          InlineCustomDocumentEnrichmentConfiguration.default(visited)
         ]
       end
 
@@ -710,8 +710,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('InlineCustomDocumentEnrichmentConfiguration')
         visited = visited + ['InlineCustomDocumentEnrichmentConfiguration']
         {
-          condition: Stubs::DocumentAttributeCondition.default(visited),
-          target: Stubs::DocumentAttributeTarget.default(visited),
+          condition: DocumentAttributeCondition.default(visited),
+          target: DocumentAttributeTarget.default(visited),
           document_content_deletion: false,
         }
       end
@@ -734,7 +734,7 @@ module AWS::SDK::Kendra
         {
           target_document_attribute_key: 'target_document_attribute_key',
           target_document_attribute_value_deletion: false,
-          target_document_attribute_value: Stubs::DocumentAttributeValue.default(visited),
+          target_document_attribute_value: DocumentAttributeValue.default(visited),
         }
       end
 
@@ -754,22 +754,22 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DataSourceConfiguration')
         visited = visited + ['DataSourceConfiguration']
         {
-          s3_configuration: Stubs::S3DataSourceConfiguration.default(visited),
-          share_point_configuration: Stubs::SharePointConfiguration.default(visited),
-          database_configuration: Stubs::DatabaseConfiguration.default(visited),
-          salesforce_configuration: Stubs::SalesforceConfiguration.default(visited),
-          one_drive_configuration: Stubs::OneDriveConfiguration.default(visited),
-          service_now_configuration: Stubs::ServiceNowConfiguration.default(visited),
-          confluence_configuration: Stubs::ConfluenceConfiguration.default(visited),
-          google_drive_configuration: Stubs::GoogleDriveConfiguration.default(visited),
-          web_crawler_configuration: Stubs::WebCrawlerConfiguration.default(visited),
-          work_docs_configuration: Stubs::WorkDocsConfiguration.default(visited),
-          fsx_configuration: Stubs::FsxConfiguration.default(visited),
-          slack_configuration: Stubs::SlackConfiguration.default(visited),
-          box_configuration: Stubs::BoxConfiguration.default(visited),
-          quip_configuration: Stubs::QuipConfiguration.default(visited),
-          jira_configuration: Stubs::JiraConfiguration.default(visited),
-          git_hub_configuration: Stubs::GitHubConfiguration.default(visited),
+          s3_configuration: S3DataSourceConfiguration.default(visited),
+          share_point_configuration: SharePointConfiguration.default(visited),
+          database_configuration: DatabaseConfiguration.default(visited),
+          salesforce_configuration: SalesforceConfiguration.default(visited),
+          one_drive_configuration: OneDriveConfiguration.default(visited),
+          service_now_configuration: ServiceNowConfiguration.default(visited),
+          confluence_configuration: ConfluenceConfiguration.default(visited),
+          google_drive_configuration: GoogleDriveConfiguration.default(visited),
+          web_crawler_configuration: WebCrawlerConfiguration.default(visited),
+          work_docs_configuration: WorkDocsConfiguration.default(visited),
+          fsx_configuration: FsxConfiguration.default(visited),
+          slack_configuration: SlackConfiguration.default(visited),
+          box_configuration: BoxConfiguration.default(visited),
+          quip_configuration: QuipConfiguration.default(visited),
+          jira_configuration: JiraConfiguration.default(visited),
+          git_hub_configuration: GitHubConfiguration.default(visited),
         }
       end
 
@@ -802,28 +802,28 @@ module AWS::SDK::Kendra
         return nil if visited.include?('GitHubConfiguration')
         visited = visited + ['GitHubConfiguration']
         {
-          saa_s_configuration: Stubs::SaaSConfiguration.default(visited),
-          on_premise_configuration: Stubs::OnPremiseConfiguration.default(visited),
+          saa_s_configuration: SaaSConfiguration.default(visited),
+          on_premise_configuration: OnPremiseConfiguration.default(visited),
           type: 'type',
           secret_arn: 'secret_arn',
           use_change_log: false,
-          git_hub_document_crawl_properties: Stubs::GitHubDocumentCrawlProperties.default(visited),
-          repository_filter: Stubs::RepositoryNames.default(visited),
-          inclusion_folder_name_patterns: Stubs::StringList.default(visited),
-          inclusion_file_type_patterns: Stubs::StringList.default(visited),
-          inclusion_file_name_patterns: Stubs::StringList.default(visited),
-          exclusion_folder_name_patterns: Stubs::StringList.default(visited),
-          exclusion_file_type_patterns: Stubs::StringList.default(visited),
-          exclusion_file_name_patterns: Stubs::StringList.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
-          git_hub_repository_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_commit_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_issue_document_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_issue_comment_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_issue_attachment_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_pull_request_comment_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_pull_request_document_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          git_hub_pull_request_document_attachment_configuration_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_document_crawl_properties: GitHubDocumentCrawlProperties.default(visited),
+          repository_filter: RepositoryNames.default(visited),
+          inclusion_folder_name_patterns: StringList.default(visited),
+          inclusion_file_type_patterns: StringList.default(visited),
+          inclusion_file_name_patterns: StringList.default(visited),
+          exclusion_folder_name_patterns: StringList.default(visited),
+          exclusion_file_type_patterns: StringList.default(visited),
+          exclusion_file_name_patterns: StringList.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
+          git_hub_repository_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_commit_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_issue_document_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_issue_comment_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_issue_attachment_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_pull_request_comment_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_pull_request_document_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          git_hub_pull_request_document_attachment_configuration_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -862,7 +862,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DataSourceToIndexFieldMappingList')
         visited = visited + ['DataSourceToIndexFieldMappingList']
         [
-          Stubs::DataSourceToIndexFieldMapping.default(visited)
+          DataSourceToIndexFieldMapping.default(visited)
         ]
       end
 
@@ -904,8 +904,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DataSourceVpcConfiguration')
         visited = visited + ['DataSourceVpcConfiguration']
         {
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
         }
       end
 
@@ -1036,7 +1036,7 @@ module AWS::SDK::Kendra
         {
           host_url: 'host_url',
           organization_name: 'organization_name',
-          ssl_certificate_s3_path: Stubs::S3Path.default(visited),
+          ssl_certificate_s3_path: S3Path.default(visited),
         }
       end
 
@@ -1099,18 +1099,18 @@ module AWS::SDK::Kendra
           jira_account_url: 'jira_account_url',
           secret_arn: 'secret_arn',
           use_change_log: false,
-          project: Stubs::Project.default(visited),
-          issue_type: Stubs::IssueType.default(visited),
-          status: Stubs::JiraStatus.default(visited),
-          issue_sub_entity_filter: Stubs::IssueSubEntityFilter.default(visited),
-          attachment_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          comment_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          issue_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          project_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          work_log_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
+          project: Project.default(visited),
+          issue_type: IssueType.default(visited),
+          status: JiraStatus.default(visited),
+          issue_sub_entity_filter: IssueSubEntityFilter.default(visited),
+          attachment_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          comment_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          issue_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          project_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          work_log_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
         }
       end
 
@@ -1247,13 +1247,13 @@ module AWS::SDK::Kendra
           crawl_file_comments: false,
           crawl_chat_rooms: false,
           crawl_attachments: false,
-          folder_ids: Stubs::FolderIdList.default(visited),
-          thread_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          message_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          attachment_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
+          folder_ids: FolderIdList.default(visited),
+          thread_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          message_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          attachment_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
         }
       end
 
@@ -1308,13 +1308,13 @@ module AWS::SDK::Kendra
           crawl_comments: false,
           crawl_tasks: false,
           crawl_web_links: false,
-          file_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          task_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          comment_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          web_link_field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
+          file_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          task_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          comment_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          web_link_field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
         }
       end
 
@@ -1346,18 +1346,18 @@ module AWS::SDK::Kendra
         {
           team_id: 'team_id',
           secret_arn: 'secret_arn',
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
-          slack_entity_list: Stubs::SlackEntityList.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
+          slack_entity_list: SlackEntityList.default(visited),
           use_change_log: false,
           crawl_bot_message: false,
           exclude_archived: false,
           since_crawl_date: 'since_crawl_date',
           look_back_period: 1,
-          private_channel_filter: Stubs::PrivateChannelFilter.default(visited),
-          public_channel_filter: Stubs::PublicChannelFilter.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          private_channel_filter: PrivateChannelFilter.default(visited),
+          public_channel_filter: PublicChannelFilter.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -1450,11 +1450,11 @@ module AWS::SDK::Kendra
         {
           file_system_id: 'file_system_id',
           file_system_type: 'file_system_type',
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
           secret_arn: 'secret_arn',
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -1481,9 +1481,9 @@ module AWS::SDK::Kendra
           organization_id: 'organization_id',
           crawl_comments: false,
           use_change_log: false,
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -1506,15 +1506,15 @@ module AWS::SDK::Kendra
         return nil if visited.include?('WebCrawlerConfiguration')
         visited = visited + ['WebCrawlerConfiguration']
         {
-          urls: Stubs::Urls.default(visited),
+          urls: Urls.default(visited),
           crawl_depth: 1,
           max_links_per_page: 1,
           max_content_size_per_page_in_mega_bytes: 1.0,
           max_urls_per_minute_crawl_rate: 1,
-          url_inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          url_exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          proxy_configuration: Stubs::ProxyConfiguration.default(visited),
-          authentication_configuration: Stubs::AuthenticationConfiguration.default(visited),
+          url_inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          url_exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          proxy_configuration: ProxyConfiguration.default(visited),
+          authentication_configuration: AuthenticationConfiguration.default(visited),
         }
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('AuthenticationConfiguration')
         visited = visited + ['AuthenticationConfiguration']
         {
-          basic_authentication: Stubs::BasicAuthenticationConfigurationList.default(visited),
+          basic_authentication: BasicAuthenticationConfigurationList.default(visited),
         }
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('BasicAuthenticationConfigurationList')
         visited = visited + ['BasicAuthenticationConfigurationList']
         [
-          Stubs::BasicAuthenticationConfiguration.default(visited)
+          BasicAuthenticationConfiguration.default(visited)
         ]
       end
 
@@ -1622,8 +1622,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('Urls')
         visited = visited + ['Urls']
         {
-          seed_url_configuration: Stubs::SeedUrlConfiguration.default(visited),
-          site_maps_configuration: Stubs::SiteMapsConfiguration.default(visited),
+          seed_url_configuration: SeedUrlConfiguration.default(visited),
+          site_maps_configuration: SiteMapsConfiguration.default(visited),
         }
       end
 
@@ -1642,7 +1642,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SiteMapsConfiguration')
         visited = visited + ['SiteMapsConfiguration']
         {
-          site_maps: Stubs::SiteMapsList.default(visited),
+          site_maps: SiteMapsList.default(visited),
         }
       end
 
@@ -1680,7 +1680,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SeedUrlConfiguration')
         visited = visited + ['SeedUrlConfiguration']
         {
-          seed_urls: Stubs::SeedUrlList.default(visited),
+          seed_urls: SeedUrlList.default(visited),
           web_crawler_mode: 'web_crawler_mode',
         }
       end
@@ -1721,12 +1721,12 @@ module AWS::SDK::Kendra
         visited = visited + ['GoogleDriveConfiguration']
         {
           secret_arn: 'secret_arn',
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          exclude_mime_types: Stubs::ExcludeMimeTypesList.default(visited),
-          exclude_user_accounts: Stubs::ExcludeUserAccountsList.default(visited),
-          exclude_shared_drives: Stubs::ExcludeSharedDrivesList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          exclude_mime_types: ExcludeMimeTypesList.default(visited),
+          exclude_user_accounts: ExcludeUserAccountsList.default(visited),
+          exclude_shared_drives: ExcludeSharedDrivesList.default(visited),
         }
       end
 
@@ -1813,13 +1813,13 @@ module AWS::SDK::Kendra
           server_url: 'server_url',
           secret_arn: 'secret_arn',
           version: 'version',
-          space_configuration: Stubs::ConfluenceSpaceConfiguration.default(visited),
-          page_configuration: Stubs::ConfluencePageConfiguration.default(visited),
-          blog_configuration: Stubs::ConfluenceBlogConfiguration.default(visited),
-          attachment_configuration: Stubs::ConfluenceAttachmentConfiguration.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
+          space_configuration: ConfluenceSpaceConfiguration.default(visited),
+          page_configuration: ConfluencePageConfiguration.default(visited),
+          blog_configuration: ConfluenceBlogConfiguration.default(visited),
+          attachment_configuration: ConfluenceAttachmentConfiguration.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
         }
       end
 
@@ -1847,7 +1847,7 @@ module AWS::SDK::Kendra
         visited = visited + ['ConfluenceAttachmentConfiguration']
         {
           crawl_attachments: false,
-          attachment_field_mappings: Stubs::ConfluenceAttachmentFieldMappingsList.default(visited),
+          attachment_field_mappings: ConfluenceAttachmentFieldMappingsList.default(visited),
         }
       end
 
@@ -1866,7 +1866,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluenceAttachmentFieldMappingsList')
         visited = visited + ['ConfluenceAttachmentFieldMappingsList']
         [
-          Stubs::ConfluenceAttachmentToIndexFieldMapping.default(visited)
+          ConfluenceAttachmentToIndexFieldMapping.default(visited)
         ]
       end
 
@@ -1908,7 +1908,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluenceBlogConfiguration')
         visited = visited + ['ConfluenceBlogConfiguration']
         {
-          blog_field_mappings: Stubs::ConfluenceBlogFieldMappingsList.default(visited),
+          blog_field_mappings: ConfluenceBlogFieldMappingsList.default(visited),
         }
       end
 
@@ -1926,7 +1926,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluenceBlogFieldMappingsList')
         visited = visited + ['ConfluenceBlogFieldMappingsList']
         [
-          Stubs::ConfluenceBlogToIndexFieldMapping.default(visited)
+          ConfluenceBlogToIndexFieldMapping.default(visited)
         ]
       end
 
@@ -1968,7 +1968,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluencePageConfiguration')
         visited = visited + ['ConfluencePageConfiguration']
         {
-          page_field_mappings: Stubs::ConfluencePageFieldMappingsList.default(visited),
+          page_field_mappings: ConfluencePageFieldMappingsList.default(visited),
         }
       end
 
@@ -1986,7 +1986,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluencePageFieldMappingsList')
         visited = visited + ['ConfluencePageFieldMappingsList']
         [
-          Stubs::ConfluencePageToIndexFieldMapping.default(visited)
+          ConfluencePageToIndexFieldMapping.default(visited)
         ]
       end
 
@@ -2030,9 +2030,9 @@ module AWS::SDK::Kendra
         {
           crawl_personal_spaces: false,
           crawl_archived_spaces: false,
-          include_spaces: Stubs::ConfluenceSpaceList.default(visited),
-          exclude_spaces: Stubs::ConfluenceSpaceList.default(visited),
-          space_field_mappings: Stubs::ConfluenceSpaceFieldMappingsList.default(visited),
+          include_spaces: ConfluenceSpaceList.default(visited),
+          exclude_spaces: ConfluenceSpaceList.default(visited),
+          space_field_mappings: ConfluenceSpaceFieldMappingsList.default(visited),
         }
       end
 
@@ -2054,7 +2054,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ConfluenceSpaceFieldMappingsList')
         visited = visited + ['ConfluenceSpaceFieldMappingsList']
         [
-          Stubs::ConfluenceSpaceToIndexFieldMapping.default(visited)
+          ConfluenceSpaceToIndexFieldMapping.default(visited)
         ]
       end
 
@@ -2119,8 +2119,8 @@ module AWS::SDK::Kendra
           host_url: 'host_url',
           secret_arn: 'secret_arn',
           service_now_build_version: 'service_now_build_version',
-          knowledge_article_configuration: Stubs::ServiceNowKnowledgeArticleConfiguration.default(visited),
-          service_catalog_configuration: Stubs::ServiceNowServiceCatalogConfiguration.default(visited),
+          knowledge_article_configuration: ServiceNowKnowledgeArticleConfiguration.default(visited),
+          service_catalog_configuration: ServiceNowServiceCatalogConfiguration.default(visited),
           authentication_type: 'authentication_type',
         }
       end
@@ -2145,11 +2145,11 @@ module AWS::SDK::Kendra
         visited = visited + ['ServiceNowServiceCatalogConfiguration']
         {
           crawl_attachments: false,
-          include_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclude_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
+          include_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclude_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -2173,11 +2173,11 @@ module AWS::SDK::Kendra
         visited = visited + ['ServiceNowKnowledgeArticleConfiguration']
         {
           crawl_attachments: false,
-          include_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclude_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
+          include_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclude_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
           filter_query: 'filter_query',
         }
       end
@@ -2204,10 +2204,10 @@ module AWS::SDK::Kendra
         {
           tenant_domain: 'tenant_domain',
           secret_arn: 'secret_arn',
-          one_drive_users: Stubs::OneDriveUsers.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          one_drive_users: OneDriveUsers.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
           disable_local_groups: false,
         }
       end
@@ -2232,8 +2232,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('OneDriveUsers')
         visited = visited + ['OneDriveUsers']
         {
-          one_drive_user_list: Stubs::OneDriveUserList.default(visited),
-          one_drive_user_s3_path: Stubs::S3Path.default(visited),
+          one_drive_user_list: OneDriveUserList.default(visited),
+          one_drive_user_s3_path: S3Path.default(visited),
         }
       end
 
@@ -2274,13 +2274,13 @@ module AWS::SDK::Kendra
         {
           server_url: 'server_url',
           secret_arn: 'secret_arn',
-          standard_object_configurations: Stubs::SalesforceStandardObjectConfigurationList.default(visited),
-          knowledge_article_configuration: Stubs::SalesforceKnowledgeArticleConfiguration.default(visited),
-          chatter_feed_configuration: Stubs::SalesforceChatterFeedConfiguration.default(visited),
+          standard_object_configurations: SalesforceStandardObjectConfigurationList.default(visited),
+          knowledge_article_configuration: SalesforceKnowledgeArticleConfiguration.default(visited),
+          chatter_feed_configuration: SalesforceChatterFeedConfiguration.default(visited),
           crawl_attachments: false,
-          standard_object_attachment_configuration: Stubs::SalesforceStandardObjectAttachmentConfiguration.default(visited),
-          include_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclude_attachment_file_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
+          standard_object_attachment_configuration: SalesforceStandardObjectAttachmentConfiguration.default(visited),
+          include_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclude_attachment_file_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
         }
       end
 
@@ -2307,7 +2307,7 @@ module AWS::SDK::Kendra
         visited = visited + ['SalesforceStandardObjectAttachmentConfiguration']
         {
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -2328,8 +2328,8 @@ module AWS::SDK::Kendra
         {
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          include_filter_types: Stubs::SalesforceChatterFeedIncludeFilterTypes.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          include_filter_types: SalesforceChatterFeedIncludeFilterTypes.default(visited),
         }
       end
 
@@ -2370,9 +2370,9 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SalesforceKnowledgeArticleConfiguration')
         visited = visited + ['SalesforceKnowledgeArticleConfiguration']
         {
-          included_states: Stubs::SalesforceKnowledgeArticleStateList.default(visited),
-          standard_knowledge_article_type_configuration: Stubs::SalesforceStandardKnowledgeArticleTypeConfiguration.default(visited),
-          custom_knowledge_article_type_configurations: Stubs::SalesforceCustomKnowledgeArticleTypeConfigurationList.default(visited),
+          included_states: SalesforceKnowledgeArticleStateList.default(visited),
+          standard_knowledge_article_type_configuration: SalesforceStandardKnowledgeArticleTypeConfiguration.default(visited),
+          custom_knowledge_article_type_configurations: SalesforceCustomKnowledgeArticleTypeConfigurationList.default(visited),
         }
       end
 
@@ -2392,7 +2392,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SalesforceCustomKnowledgeArticleTypeConfigurationList')
         visited = visited + ['SalesforceCustomKnowledgeArticleTypeConfigurationList']
         [
-          Stubs::SalesforceCustomKnowledgeArticleTypeConfiguration.default(visited)
+          SalesforceCustomKnowledgeArticleTypeConfiguration.default(visited)
         ]
       end
 
@@ -2415,7 +2415,7 @@ module AWS::SDK::Kendra
           name: 'name',
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -2438,7 +2438,7 @@ module AWS::SDK::Kendra
         {
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -2478,7 +2478,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SalesforceStandardObjectConfigurationList')
         visited = visited + ['SalesforceStandardObjectConfigurationList']
         [
-          Stubs::SalesforceStandardObjectConfiguration.default(visited)
+          SalesforceStandardObjectConfiguration.default(visited)
         ]
       end
 
@@ -2501,7 +2501,7 @@ module AWS::SDK::Kendra
           name: 'name',
           document_data_field_name: 'document_data_field_name',
           document_title_field_name: 'document_title_field_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
         }
       end
 
@@ -2523,11 +2523,11 @@ module AWS::SDK::Kendra
         visited = visited + ['DatabaseConfiguration']
         {
           database_engine_type: 'database_engine_type',
-          connection_configuration: Stubs::ConnectionConfiguration.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
-          column_configuration: Stubs::ColumnConfiguration.default(visited),
-          acl_configuration: Stubs::AclConfiguration.default(visited),
-          sql_configuration: Stubs::SqlConfiguration.default(visited),
+          connection_configuration: ConnectionConfiguration.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
+          column_configuration: ColumnConfiguration.default(visited),
+          acl_configuration: AclConfiguration.default(visited),
+          sql_configuration: SqlConfiguration.default(visited),
         }
       end
 
@@ -2589,8 +2589,8 @@ module AWS::SDK::Kendra
           document_id_column_name: 'document_id_column_name',
           document_data_column_name: 'document_data_column_name',
           document_title_column_name: 'document_title_column_name',
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
-          change_detecting_columns: Stubs::ChangeDetectingColumns.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
+          change_detecting_columns: ChangeDetectingColumns.default(visited),
         }
       end
 
@@ -2659,17 +2659,17 @@ module AWS::SDK::Kendra
         visited = visited + ['SharePointConfiguration']
         {
           share_point_version: 'share_point_version',
-          urls: Stubs::SharePointUrlList.default(visited),
+          urls: SharePointUrlList.default(visited),
           secret_arn: 'secret_arn',
           crawl_attachments: false,
           use_change_log: false,
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          vpc_configuration: Stubs::DataSourceVpcConfiguration.default(visited),
-          field_mappings: Stubs::DataSourceToIndexFieldMappingList.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          vpc_configuration: DataSourceVpcConfiguration.default(visited),
+          field_mappings: DataSourceToIndexFieldMappingList.default(visited),
           document_title_field_name: 'document_title_field_name',
           disable_local_groups: false,
-          ssl_certificate_s3_path: Stubs::S3Path.default(visited),
+          ssl_certificate_s3_path: S3Path.default(visited),
         }
       end
 
@@ -2719,11 +2719,11 @@ module AWS::SDK::Kendra
         visited = visited + ['S3DataSourceConfiguration']
         {
           bucket_name: 'bucket_name',
-          inclusion_prefixes: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          inclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          exclusion_patterns: Stubs::DataSourceInclusionsExclusionsStrings.default(visited),
-          documents_metadata_configuration: Stubs::DocumentsMetadataConfiguration.default(visited),
-          access_control_list_configuration: Stubs::AccessControlListConfiguration.default(visited),
+          inclusion_prefixes: DataSourceInclusionsExclusionsStrings.default(visited),
+          inclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          exclusion_patterns: DataSourceInclusionsExclusionsStrings.default(visited),
+          documents_metadata_configuration: DocumentsMetadataConfiguration.default(visited),
+          access_control_list_configuration: AccessControlListConfiguration.default(visited),
         }
       end
 
@@ -2783,8 +2783,8 @@ module AWS::SDK::Kendra
           id: 'id',
           index_id: 'index_id',
           name: 'name',
-          endpoints: Stubs::ExperienceEndpoints.default(visited),
-          configuration: Stubs::ExperienceConfiguration.default(visited),
+          endpoints: ExperienceEndpoints.default(visited),
+          configuration: ExperienceConfiguration.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
           description: 'description',
@@ -2818,8 +2818,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ExperienceConfiguration')
         visited = visited + ['ExperienceConfiguration']
         {
-          content_source_configuration: Stubs::ContentSourceConfiguration.default(visited),
-          user_identity_configuration: Stubs::UserIdentityConfiguration.default(visited),
+          content_source_configuration: ContentSourceConfiguration.default(visited),
+          user_identity_configuration: UserIdentityConfiguration.default(visited),
         }
       end
 
@@ -2856,8 +2856,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ContentSourceConfiguration')
         visited = visited + ['ContentSourceConfiguration']
         {
-          data_source_ids: Stubs::DataSourceIdList.default(visited),
-          faq_ids: Stubs::FaqIdsList.default(visited),
+          data_source_ids: DataSourceIdList.default(visited),
+          faq_ids: FaqIdsList.default(visited),
           direct_put_content: false,
         }
       end
@@ -2918,7 +2918,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ExperienceEndpoints')
         visited = visited + ['ExperienceEndpoints']
         [
-          Stubs::ExperienceEndpoint.default(visited)
+          ExperienceEndpoint.default(visited)
         ]
       end
 
@@ -2962,7 +2962,7 @@ module AWS::SDK::Kendra
           description: 'description',
           created_at: Time.now,
           updated_at: Time.now,
-          s3_path: Stubs::S3Path.default(visited),
+          s3_path: S3Path.default(visited),
           status: 'status',
           role_arn: 'role_arn',
           error_message: 'error_message',
@@ -2998,18 +2998,18 @@ module AWS::SDK::Kendra
           id: 'id',
           edition: 'edition',
           role_arn: 'role_arn',
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
           status: 'status',
           description: 'description',
           created_at: Time.now,
           updated_at: Time.now,
-          document_metadata_configurations: Stubs::DocumentMetadataConfigurationList.default(visited),
-          index_statistics: Stubs::IndexStatistics.default(visited),
+          document_metadata_configurations: DocumentMetadataConfigurationList.default(visited),
+          index_statistics: IndexStatistics.default(visited),
           error_message: 'error_message',
-          capacity_units: Stubs::CapacityUnitsConfiguration.default(visited),
-          user_token_configurations: Stubs::UserTokenConfigurationList.default(visited),
+          capacity_units: CapacityUnitsConfiguration.default(visited),
+          user_token_configurations: UserTokenConfigurationList.default(visited),
           user_context_policy: 'user_context_policy',
-          user_group_resolution_configuration: Stubs::UserGroupResolutionConfiguration.default(visited),
+          user_group_resolution_configuration: UserGroupResolutionConfiguration.default(visited),
         }
       end
 
@@ -3060,7 +3060,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('UserTokenConfigurationList')
         visited = visited + ['UserTokenConfigurationList']
         [
-          Stubs::UserTokenConfiguration.default(visited)
+          UserTokenConfiguration.default(visited)
         ]
       end
 
@@ -3080,8 +3080,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('UserTokenConfiguration')
         visited = visited + ['UserTokenConfiguration']
         {
-          jwt_token_type_configuration: Stubs::JwtTokenTypeConfiguration.default(visited),
-          json_token_type_configuration: Stubs::JsonTokenTypeConfiguration.default(visited),
+          jwt_token_type_configuration: JwtTokenTypeConfiguration.default(visited),
+          json_token_type_configuration: JsonTokenTypeConfiguration.default(visited),
         }
       end
 
@@ -3170,8 +3170,8 @@ module AWS::SDK::Kendra
         return nil if visited.include?('IndexStatistics')
         visited = visited + ['IndexStatistics']
         {
-          faq_statistics: Stubs::FaqStatistics.default(visited),
-          text_document_statistics: Stubs::TextDocumentStatistics.default(visited),
+          faq_statistics: FaqStatistics.default(visited),
+          text_document_statistics: TextDocumentStatistics.default(visited),
         }
       end
 
@@ -3228,7 +3228,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DocumentMetadataConfigurationList')
         visited = visited + ['DocumentMetadataConfigurationList']
         [
-          Stubs::DocumentMetadataConfiguration.default(visited)
+          DocumentMetadataConfiguration.default(visited)
         ]
       end
 
@@ -3250,8 +3250,8 @@ module AWS::SDK::Kendra
         {
           name: 'name',
           type: 'type',
-          relevance: Stubs::Relevance.default(visited),
-          search: Stubs::Search.default(visited),
+          relevance: Relevance.default(visited),
+          search: Search.default(visited),
         }
       end
 
@@ -3300,7 +3300,7 @@ module AWS::SDK::Kendra
           importance: 1,
           duration: 'duration',
           rank_order: 'rank_order',
-          value_importance_map: Stubs::ValueImportanceMap.default(visited),
+          value_importance_map: ValueImportanceMap.default(visited),
         }
       end
 
@@ -3361,7 +3361,7 @@ module AWS::SDK::Kendra
           index_id: 'index_id',
           data_source_id: 'data_source_id',
           group_id: 'group_id',
-          group_ordering_id_summaries: Stubs::GroupOrderingIdSummaries.default(visited),
+          group_ordering_id_summaries: GroupOrderingIdSummaries.default(visited),
         }
       end
 
@@ -3382,7 +3382,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('GroupOrderingIdSummaries')
         visited = visited + ['GroupOrderingIdSummaries']
         [
-          Stubs::GroupOrderingIdSummary.default(visited)
+          GroupOrderingIdSummary.default(visited)
         ]
       end
 
@@ -3434,7 +3434,7 @@ module AWS::SDK::Kendra
           error_message: 'error_message',
           created_at: Time.now,
           updated_at: Time.now,
-          source_s3_path: Stubs::S3Path.default(visited),
+          source_s3_path: S3Path.default(visited),
           item_count: 1,
           file_size_bytes: 1,
           role_arn: 'role_arn',
@@ -3505,7 +3505,7 @@ module AWS::SDK::Kendra
           created_at: Time.now,
           updated_at: Time.now,
           role_arn: 'role_arn',
-          source_s3_path: Stubs::S3Path.default(visited),
+          source_s3_path: S3Path.default(visited),
           file_size_bytes: 1,
           term_count: 1,
           synonym_rule_count: 1,
@@ -3536,7 +3536,7 @@ module AWS::SDK::Kendra
     class DisassociateEntitiesFromExperience
       def self.default(visited=[])
         {
-          failed_entity_list: Stubs::FailedEntityList.default(visited),
+          failed_entity_list: FailedEntityList.default(visited),
         }
       end
 
@@ -3552,7 +3552,7 @@ module AWS::SDK::Kendra
     class DisassociatePersonasFromEntities
       def self.default(visited=[])
         {
-          failed_entity_list: Stubs::FailedEntityList.default(visited),
+          failed_entity_list: FailedEntityList.default(visited),
         }
       end
 
@@ -3569,7 +3569,7 @@ module AWS::SDK::Kendra
       def self.default(visited=[])
         {
           query_suggestions_id: 'query_suggestions_id',
-          suggestions: Stubs::SuggestionList.default(visited),
+          suggestions: SuggestionList.default(visited),
         }
       end
 
@@ -3588,7 +3588,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SuggestionList')
         visited = visited + ['SuggestionList']
         [
-          Stubs::Suggestion.default(visited)
+          Suggestion.default(visited)
         ]
       end
 
@@ -3609,7 +3609,7 @@ module AWS::SDK::Kendra
         visited = visited + ['Suggestion']
         {
           id: 'id',
-          value: Stubs::SuggestionValue.default(visited),
+          value: SuggestionValue.default(visited),
         }
       end
 
@@ -3628,7 +3628,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SuggestionValue')
         visited = visited + ['SuggestionValue']
         {
-          text: Stubs::SuggestionTextWithHighlights.default(visited),
+          text: SuggestionTextWithHighlights.default(visited),
         }
       end
 
@@ -3647,7 +3647,7 @@ module AWS::SDK::Kendra
         visited = visited + ['SuggestionTextWithHighlights']
         {
           text: 'text',
-          highlights: Stubs::SuggestionHighlightList.default(visited),
+          highlights: SuggestionHighlightList.default(visited),
         }
       end
 
@@ -3666,7 +3666,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SuggestionHighlightList')
         visited = visited + ['SuggestionHighlightList']
         [
-          Stubs::SuggestionHighlight.default(visited)
+          SuggestionHighlight.default(visited)
         ]
       end
 
@@ -3704,9 +3704,9 @@ module AWS::SDK::Kendra
     class GetSnapshots
       def self.default(visited=[])
         {
-          snap_shot_time_filter: Stubs::TimeRange.default(visited),
-          snapshots_data_header: Stubs::SnapshotsDataHeaderFields.default(visited),
-          snapshots_data: Stubs::SnapshotsDataRecords.default(visited),
+          snap_shot_time_filter: TimeRange.default(visited),
+          snapshots_data_header: SnapshotsDataHeaderFields.default(visited),
+          snapshots_data: SnapshotsDataRecords.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3728,7 +3728,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SnapshotsDataRecords')
         visited = visited + ['SnapshotsDataRecords']
         [
-          Stubs::SnapshotsDataRecord.default(visited)
+          SnapshotsDataRecord.default(visited)
         ]
       end
 
@@ -3806,7 +3806,7 @@ module AWS::SDK::Kendra
     class ListDataSourceSyncJobs
       def self.default(visited=[])
         {
-          history: Stubs::DataSourceSyncJobHistoryList.default(visited),
+          history: DataSourceSyncJobHistoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3826,7 +3826,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DataSourceSyncJobHistoryList')
         visited = visited + ['DataSourceSyncJobHistoryList']
         [
-          Stubs::DataSourceSyncJob.default(visited)
+          DataSourceSyncJob.default(visited)
         ]
       end
 
@@ -3853,7 +3853,7 @@ module AWS::SDK::Kendra
           error_message: 'error_message',
           error_code: 'error_code',
           data_source_error_code: 'data_source_error_code',
-          metrics: Stubs::DataSourceSyncJobMetrics.default(visited),
+          metrics: DataSourceSyncJobMetrics.default(visited),
         }
       end
 
@@ -3902,7 +3902,7 @@ module AWS::SDK::Kendra
     class ListDataSources
       def self.default(visited=[])
         {
-          summary_items: Stubs::DataSourceSummaryList.default(visited),
+          summary_items: DataSourceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3922,7 +3922,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DataSourceSummaryList')
         visited = visited + ['DataSourceSummaryList']
         [
-          Stubs::DataSourceSummary.default(visited)
+          DataSourceSummary.default(visited)
         ]
       end
 
@@ -3970,7 +3970,7 @@ module AWS::SDK::Kendra
     class ListEntityPersonas
       def self.default(visited=[])
         {
-          summary_items: Stubs::PersonasSummaryList.default(visited),
+          summary_items: PersonasSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3990,7 +3990,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('PersonasSummaryList')
         visited = visited + ['PersonasSummaryList']
         [
-          Stubs::PersonasSummary.default(visited)
+          PersonasSummary.default(visited)
         ]
       end
 
@@ -4032,7 +4032,7 @@ module AWS::SDK::Kendra
     class ListExperienceEntities
       def self.default(visited=[])
         {
-          summary_items: Stubs::ExperienceEntitiesSummaryList.default(visited),
+          summary_items: ExperienceEntitiesSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4052,7 +4052,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ExperienceEntitiesSummaryList')
         visited = visited + ['ExperienceEntitiesSummaryList']
         [
-          Stubs::ExperienceEntitiesSummary.default(visited)
+          ExperienceEntitiesSummary.default(visited)
         ]
       end
 
@@ -4074,7 +4074,7 @@ module AWS::SDK::Kendra
         {
           entity_id: 'entity_id',
           entity_type: 'entity_type',
-          display_data: Stubs::EntityDisplayData.default(visited),
+          display_data: EntityDisplayData.default(visited),
         }
       end
 
@@ -4118,7 +4118,7 @@ module AWS::SDK::Kendra
     class ListExperiences
       def self.default(visited=[])
         {
-          summary_items: Stubs::ExperiencesSummaryList.default(visited),
+          summary_items: ExperiencesSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4138,7 +4138,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ExperiencesSummaryList')
         visited = visited + ['ExperiencesSummaryList']
         [
-          Stubs::ExperiencesSummary.default(visited)
+          ExperiencesSummary.default(visited)
         ]
       end
 
@@ -4162,7 +4162,7 @@ module AWS::SDK::Kendra
           id: 'id',
           created_at: Time.now,
           status: 'status',
-          endpoints: Stubs::ExperienceEndpoints.default(visited),
+          endpoints: ExperienceEndpoints.default(visited),
         }
       end
 
@@ -4183,7 +4183,7 @@ module AWS::SDK::Kendra
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          faq_summary_items: Stubs::FaqSummaryItems.default(visited),
+          faq_summary_items: FaqSummaryItems.default(visited),
         }
       end
 
@@ -4202,7 +4202,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('FaqSummaryItems')
         visited = visited + ['FaqSummaryItems']
         [
-          Stubs::FaqSummary.default(visited)
+          FaqSummary.default(visited)
         ]
       end
 
@@ -4250,7 +4250,7 @@ module AWS::SDK::Kendra
     class ListGroupsOlderThanOrderingId
       def self.default(visited=[])
         {
-          groups_summaries: Stubs::ListOfGroupSummaries.default(visited),
+          groups_summaries: ListOfGroupSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4270,7 +4270,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ListOfGroupSummaries')
         visited = visited + ['ListOfGroupSummaries']
         [
-          Stubs::GroupSummary.default(visited)
+          GroupSummary.default(visited)
         ]
       end
 
@@ -4308,7 +4308,7 @@ module AWS::SDK::Kendra
     class ListIndices
       def self.default(visited=[])
         {
-          index_configuration_summary_items: Stubs::IndexConfigurationSummaryList.default(visited),
+          index_configuration_summary_items: IndexConfigurationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4328,7 +4328,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('IndexConfigurationSummaryList')
         visited = visited + ['IndexConfigurationSummaryList']
         [
-          Stubs::IndexConfigurationSummary.default(visited)
+          IndexConfigurationSummary.default(visited)
         ]
       end
 
@@ -4374,7 +4374,7 @@ module AWS::SDK::Kendra
     class ListQuerySuggestionsBlockLists
       def self.default(visited=[])
         {
-          block_list_summary_items: Stubs::QuerySuggestionsBlockListSummaryItems.default(visited),
+          block_list_summary_items: QuerySuggestionsBlockListSummaryItems.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4394,7 +4394,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('QuerySuggestionsBlockListSummaryItems')
         visited = visited + ['QuerySuggestionsBlockListSummaryItems']
         [
-          Stubs::QuerySuggestionsBlockListSummary.default(visited)
+          QuerySuggestionsBlockListSummary.default(visited)
         ]
       end
 
@@ -4440,7 +4440,7 @@ module AWS::SDK::Kendra
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4458,7 +4458,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -4497,7 +4497,7 @@ module AWS::SDK::Kendra
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          thesaurus_summary_items: Stubs::ThesaurusSummaryItems.default(visited),
+          thesaurus_summary_items: ThesaurusSummaryItems.default(visited),
         }
       end
 
@@ -4516,7 +4516,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('ThesaurusSummaryItems')
         visited = visited + ['ThesaurusSummaryItems']
         [
-          Stubs::ThesaurusSummary.default(visited)
+          ThesaurusSummary.default(visited)
         ]
       end
 
@@ -4575,11 +4575,11 @@ module AWS::SDK::Kendra
       def self.default(visited=[])
         {
           query_id: 'query_id',
-          result_items: Stubs::QueryResultItemList.default(visited),
-          facet_results: Stubs::FacetResultList.default(visited),
+          result_items: QueryResultItemList.default(visited),
+          facet_results: FacetResultList.default(visited),
           total_number_of_results: 1,
-          warnings: Stubs::WarningList.default(visited),
-          spell_corrected_queries: Stubs::SpellCorrectedQueryList.default(visited),
+          warnings: WarningList.default(visited),
+          spell_corrected_queries: SpellCorrectedQueryList.default(visited),
         }
       end
 
@@ -4602,7 +4602,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('SpellCorrectedQueryList')
         visited = visited + ['SpellCorrectedQueryList']
         [
-          Stubs::SpellCorrectedQuery.default(visited)
+          SpellCorrectedQuery.default(visited)
         ]
       end
 
@@ -4623,7 +4623,7 @@ module AWS::SDK::Kendra
         visited = visited + ['SpellCorrectedQuery']
         {
           suggested_query_text: 'suggested_query_text',
-          corrections: Stubs::CorrectionList.default(visited),
+          corrections: CorrectionList.default(visited),
         }
       end
 
@@ -4642,7 +4642,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('CorrectionList')
         visited = visited + ['CorrectionList']
         [
-          Stubs::Correction.default(visited)
+          Correction.default(visited)
         ]
       end
 
@@ -4686,7 +4686,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('WarningList')
         visited = visited + ['WarningList']
         [
-          Stubs::Warning.default(visited)
+          Warning.default(visited)
         ]
       end
 
@@ -4726,7 +4726,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('FacetResultList')
         visited = visited + ['FacetResultList']
         [
-          Stubs::FacetResult.default(visited)
+          FacetResult.default(visited)
         ]
       end
 
@@ -4748,7 +4748,7 @@ module AWS::SDK::Kendra
         {
           document_attribute_key: 'document_attribute_key',
           document_attribute_value_type: 'document_attribute_value_type',
-          document_attribute_value_count_pairs: Stubs::DocumentAttributeValueCountPairList.default(visited),
+          document_attribute_value_count_pairs: DocumentAttributeValueCountPairList.default(visited),
         }
       end
 
@@ -4768,7 +4768,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DocumentAttributeValueCountPairList')
         visited = visited + ['DocumentAttributeValueCountPairList']
         [
-          Stubs::DocumentAttributeValueCountPair.default(visited)
+          DocumentAttributeValueCountPair.default(visited)
         ]
       end
 
@@ -4788,9 +4788,9 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DocumentAttributeValueCountPair')
         visited = visited + ['DocumentAttributeValueCountPair']
         {
-          document_attribute_value: Stubs::DocumentAttributeValue.default(visited),
+          document_attribute_value: DocumentAttributeValue.default(visited),
           count: 1,
-          facet_results: Stubs::FacetResultList.default(visited),
+          facet_results: FacetResultList.default(visited),
         }
       end
 
@@ -4810,7 +4810,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('QueryResultItemList')
         visited = visited + ['QueryResultItemList']
         [
-          Stubs::QueryResultItem.default(visited)
+          QueryResultItem.default(visited)
         ]
       end
 
@@ -4832,13 +4832,13 @@ module AWS::SDK::Kendra
         {
           id: 'id',
           type: 'type',
-          additional_attributes: Stubs::AdditionalResultAttributeList.default(visited),
+          additional_attributes: AdditionalResultAttributeList.default(visited),
           document_id: 'document_id',
-          document_title: Stubs::TextWithHighlights.default(visited),
-          document_excerpt: Stubs::TextWithHighlights.default(visited),
+          document_title: TextWithHighlights.default(visited),
+          document_excerpt: TextWithHighlights.default(visited),
           document_uri: 'document_uri',
-          document_attributes: Stubs::DocumentAttributeList.default(visited),
-          score_attributes: Stubs::ScoreAttributes.default(visited),
+          document_attributes: DocumentAttributeList.default(visited),
+          score_attributes: ScoreAttributes.default(visited),
           feedback_token: 'feedback_token',
         }
       end
@@ -4884,7 +4884,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('DocumentAttributeList')
         visited = visited + ['DocumentAttributeList']
         [
-          Stubs::DocumentAttribute.default(visited)
+          DocumentAttribute.default(visited)
         ]
       end
 
@@ -4905,7 +4905,7 @@ module AWS::SDK::Kendra
         visited = visited + ['DocumentAttribute']
         {
           key: 'key',
-          value: Stubs::DocumentAttributeValue.default(visited),
+          value: DocumentAttributeValue.default(visited),
         }
       end
 
@@ -4925,7 +4925,7 @@ module AWS::SDK::Kendra
         visited = visited + ['TextWithHighlights']
         {
           text: 'text',
-          highlights: Stubs::HighlightList.default(visited),
+          highlights: HighlightList.default(visited),
         }
       end
 
@@ -4944,7 +4944,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('HighlightList')
         visited = visited + ['HighlightList']
         [
-          Stubs::Highlight.default(visited)
+          Highlight.default(visited)
         ]
       end
 
@@ -4988,7 +4988,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('AdditionalResultAttributeList')
         visited = visited + ['AdditionalResultAttributeList']
         [
-          Stubs::AdditionalResultAttribute.default(visited)
+          AdditionalResultAttribute.default(visited)
         ]
       end
 
@@ -5010,7 +5010,7 @@ module AWS::SDK::Kendra
         {
           key: 'key',
           value_type: 'value_type',
-          value: Stubs::AdditionalResultAttributeValue.default(visited),
+          value: AdditionalResultAttributeValue.default(visited),
         }
       end
 
@@ -5030,7 +5030,7 @@ module AWS::SDK::Kendra
         return nil if visited.include?('AdditionalResultAttributeValue')
         visited = visited + ['AdditionalResultAttributeValue']
         {
-          text_with_highlights_value: Stubs::TextWithHighlights.default(visited),
+          text_with_highlights_value: TextWithHighlights.default(visited),
         }
       end
 

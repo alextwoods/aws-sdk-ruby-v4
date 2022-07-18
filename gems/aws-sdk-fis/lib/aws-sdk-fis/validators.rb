@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Fis
   module Validators
 
@@ -15,9 +17,9 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::Action, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ActionParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ActionParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -44,8 +46,8 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::ActionSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -70,7 +72,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ActionTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ActionTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -87,9 +89,9 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::CreateExperimentTemplateActionInput, context: context)
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
+        ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::CreateExperimentTemplateActionInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          CreateExperimentTemplateActionInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -108,20 +110,20 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::CreateExperimentTemplateInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::CreateExperimentTemplateStopConditionInputList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
-        Validators::CreateExperimentTemplateTargetInputMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::CreateExperimentTemplateActionInputMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        CreateExperimentTemplateStopConditionInputList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
+        CreateExperimentTemplateTargetInputMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        CreateExperimentTemplateActionInputMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CreateExperimentTemplateLogConfigurationInput.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateExperimentTemplateLogConfigurationInput.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
       end
     end
 
     class CreateExperimentTemplateLogConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateExperimentTemplateLogConfigurationInput, context: context)
-        Validators::ExperimentTemplateCloudWatchLogsLogConfigurationInput.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
-        Validators::ExperimentTemplateS3LogConfigurationInput.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ExperimentTemplateCloudWatchLogsLogConfigurationInput.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
+        ExperimentTemplateS3LogConfigurationInput.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
         Hearth::Validator.validate!(input[:log_schema_version], ::Integer, context: "#{context}[:log_schema_version]")
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::Fis
     class CreateExperimentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateExperimentTemplateOutput, context: context)
-        Validators::ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
+        ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateExperimentTemplateStopConditionInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateExperimentTemplateStopConditionInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -154,11 +156,11 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateExperimentTemplateTargetInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::ExperimentTemplateTargetFilterInputList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ExperimentTemplateTargetFilterInputList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:selection_mode], ::String, context: "#{context}[:selection_mode]")
-        Validators::ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::CreateExperimentTemplateTargetInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          CreateExperimentTemplateTargetInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -182,7 +184,7 @@ module AWS::SDK::Fis
     class DeleteExperimentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteExperimentTemplateOutput, context: context)
-        Validators::ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
+        ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
       end
     end
 
@@ -192,15 +194,15 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:experiment_template_id], ::String, context: "#{context}[:experiment_template_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ExperimentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
-        Validators::ExperimentTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentActionMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::ExperimentStopConditionList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
+        ExperimentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ExperimentTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentActionMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ExperimentStopConditionList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ExperimentLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ExperimentLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
       end
     end
 
@@ -209,10 +211,10 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::ExperimentAction, context: context)
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ExperimentActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ExperimentActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
-        Validators::ExperimentActionState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ExperimentActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
+        ExperimentActionState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -223,7 +225,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExperimentAction.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExperimentAction.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -275,8 +277,8 @@ module AWS::SDK::Fis
     class ExperimentLogConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentLogConfiguration, context: context)
-        Validators::ExperimentCloudWatchLogsLogConfiguration.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
-        Validators::ExperimentS3LogConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ExperimentCloudWatchLogsLogConfiguration.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
+        ExperimentS3LogConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
         Hearth::Validator.validate!(input[:log_schema_version], ::Integer, context: "#{context}[:log_schema_version]")
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentStopCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentStopCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -319,9 +321,9 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::ExperimentSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:experiment_template_id], ::String, context: "#{context}[:experiment_template_id]")
-        Validators::ExperimentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ExperimentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -338,11 +340,11 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTarget, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::ExperimentTargetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ExperimentTargetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:selection_mode], ::String, context: "#{context}[:selection_mode]")
-        Validators::ExperimentTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTargetFilter, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::ExperimentTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ExperimentTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentTargetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentTargetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExperimentTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExperimentTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -397,14 +399,14 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::ExperimentTemplate, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ExperimentTemplateTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentTemplateActionMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::ExperimentTemplateStopConditionList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
+        ExperimentTemplateTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentTemplateActionMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ExperimentTemplateStopConditionList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ExperimentTemplateLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ExperimentTemplateLogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
       end
     end
 
@@ -413,9 +415,9 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::ExperimentTemplateAction, context: context)
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
+        ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
       end
     end
 
@@ -424,7 +426,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExperimentTemplateAction.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExperimentTemplateAction.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -475,8 +477,8 @@ module AWS::SDK::Fis
     class ExperimentTemplateLogConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTemplateLogConfiguration, context: context)
-        Validators::ExperimentTemplateCloudWatchLogsLogConfiguration.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
-        Validators::ExperimentTemplateS3LogConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ExperimentTemplateCloudWatchLogsLogConfiguration.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
+        ExperimentTemplateS3LogConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
         Hearth::Validator.validate!(input[:log_schema_version], ::Integer, context: "#{context}[:log_schema_version]")
       end
     end
@@ -509,7 +511,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentTemplateStopCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentTemplateStopCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -521,7 +523,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -538,11 +540,11 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTemplateTarget, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::ExperimentTemplateTargetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ExperimentTemplateTargetFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:selection_mode], ::String, context: "#{context}[:selection_mode]")
-        Validators::ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTemplateTargetFilter, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::ExperimentTemplateTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ExperimentTemplateTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -558,7 +560,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentTemplateTargetInputFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentTemplateTargetInputFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -567,7 +569,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExperimentTemplateTargetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExperimentTemplateTargetFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExperimentTemplateTargetInputFilter, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::ExperimentTemplateTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ExperimentTemplateTargetFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -594,7 +596,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExperimentTemplateTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExperimentTemplateTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -619,7 +621,7 @@ module AWS::SDK::Fis
     class GetActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetActionOutput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::Fis
     class GetExperimentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExperimentOutput, context: context)
-        Validators::Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
+        Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
       end
     end
 
@@ -647,7 +649,7 @@ module AWS::SDK::Fis
     class GetExperimentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExperimentTemplateOutput, context: context)
-        Validators::ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
+        ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
       end
     end
 
@@ -661,7 +663,7 @@ module AWS::SDK::Fis
     class GetTargetResourceTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTargetResourceTypeOutput, context: context)
-        Validators::TargetResourceType.validate!(input[:target_resource_type], context: "#{context}[:target_resource_type]") unless input[:target_resource_type].nil?
+        TargetResourceType.validate!(input[:target_resource_type], context: "#{context}[:target_resource_type]") unless input[:target_resource_type].nil?
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::Fis
     class ListActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActionsOutput, context: context)
-        Validators::ActionSummaryList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionSummaryList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::Fis
     class ListExperimentTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExperimentTemplatesOutput, context: context)
-        Validators::ExperimentTemplateSummaryList.validate!(input[:experiment_templates], context: "#{context}[:experiment_templates]") unless input[:experiment_templates].nil?
+        ExperimentTemplateSummaryList.validate!(input[:experiment_templates], context: "#{context}[:experiment_templates]") unless input[:experiment_templates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::Fis
     class ListExperimentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExperimentsOutput, context: context)
-        Validators::ExperimentSummaryList.validate!(input[:experiments], context: "#{context}[:experiments]") unless input[:experiments].nil?
+        ExperimentSummaryList.validate!(input[:experiments], context: "#{context}[:experiments]") unless input[:experiments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::Fis
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::Fis
     class ListTargetResourceTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetResourceTypesOutput, context: context)
-        Validators::TargetResourceTypeSummaryList.validate!(input[:target_resource_types], context: "#{context}[:target_resource_types]") unless input[:target_resource_types].nil?
+        TargetResourceTypeSummaryList.validate!(input[:target_resource_types], context: "#{context}[:target_resource_types]") unless input[:target_resource_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -771,14 +773,14 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::StartExperimentInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:experiment_template_id], ::String, context: "#{context}[:experiment_template_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class StartExperimentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartExperimentOutput, context: context)
-        Validators::Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
+        Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::Fis
     class StopExperimentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopExperimentOutput, context: context)
-        Validators::Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
+        Experiment.validate!(input[:experiment], context: "#{context}[:experiment]") unless input[:experiment].nil?
       end
     end
 
@@ -819,7 +821,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -834,7 +836,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::TargetResourceType, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TargetResourceTypeParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        TargetResourceTypeParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -851,7 +853,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::TargetResourceTypeParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          TargetResourceTypeParameter.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -868,7 +870,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetResourceTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetResourceTypeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -877,7 +879,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -892,9 +894,9 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::UpdateExperimentTemplateActionInputItem, context: context)
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
+        ExperimentTemplateActionParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateActionTargetMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        ExperimentTemplateActionStartAfterList.validate!(input[:start_after], context: "#{context}[:start_after]") unless input[:start_after].nil?
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::UpdateExperimentTemplateActionInputItem.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          UpdateExperimentTemplateActionInputItem.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -913,19 +915,19 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, Types::UpdateExperimentTemplateInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::UpdateExperimentTemplateStopConditionInputList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
-        Validators::UpdateExperimentTemplateTargetInputMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::UpdateExperimentTemplateActionInputMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        UpdateExperimentTemplateStopConditionInputList.validate!(input[:stop_conditions], context: "#{context}[:stop_conditions]") unless input[:stop_conditions].nil?
+        UpdateExperimentTemplateTargetInputMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        UpdateExperimentTemplateActionInputMap.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::UpdateExperimentTemplateLogConfigurationInput.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        UpdateExperimentTemplateLogConfigurationInput.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
       end
     end
 
     class UpdateExperimentTemplateLogConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateExperimentTemplateLogConfigurationInput, context: context)
-        Validators::ExperimentTemplateCloudWatchLogsLogConfigurationInput.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
-        Validators::ExperimentTemplateS3LogConfigurationInput.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ExperimentTemplateCloudWatchLogsLogConfigurationInput.validate!(input[:cloud_watch_logs_configuration], context: "#{context}[:cloud_watch_logs_configuration]") unless input[:cloud_watch_logs_configuration].nil?
+        ExperimentTemplateS3LogConfigurationInput.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
         Hearth::Validator.validate!(input[:log_schema_version], ::Integer, context: "#{context}[:log_schema_version]")
       end
     end
@@ -933,7 +935,7 @@ module AWS::SDK::Fis
     class UpdateExperimentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateExperimentTemplateOutput, context: context)
-        Validators::ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
+        ExperimentTemplate.validate!(input[:experiment_template], context: "#{context}[:experiment_template]") unless input[:experiment_template].nil?
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateExperimentTemplateStopConditionInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateExperimentTemplateStopConditionInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -958,11 +960,11 @@ module AWS::SDK::Fis
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateExperimentTemplateTargetInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
-        Validators::TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::ExperimentTemplateTargetFilterInputList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        TagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ExperimentTemplateTargetFilterInputList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:selection_mode], ::String, context: "#{context}[:selection_mode]")
-        Validators::ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ExperimentTemplateTargetParameterMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::Fis
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::UpdateExperimentTemplateTargetInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          UpdateExperimentTemplateTargetInput.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end

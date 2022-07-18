@@ -22,19 +22,19 @@ module AWS::SDK::ResourceGroups
         Hearth::Validator.validate!(input, Types::CreateGroupInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
     class CreateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
-        Validators::ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::GroupConfiguration.validate!(input[:group_configuration], context: "#{context}[:group_configuration]") unless input[:group_configuration].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        GroupConfiguration.validate!(input[:group_configuration], context: "#{context}[:group_configuration]") unless input[:group_configuration].nil?
       end
     end
 
@@ -49,7 +49,7 @@ module AWS::SDK::ResourceGroups
     class DeleteGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -66,7 +66,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -88,7 +88,7 @@ module AWS::SDK::ResourceGroups
     class GetGroupConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupConfigurationOutput, context: context)
-        Validators::GroupConfiguration.validate!(input[:group_configuration], context: "#{context}[:group_configuration]") unless input[:group_configuration].nil?
+        GroupConfiguration.validate!(input[:group_configuration], context: "#{context}[:group_configuration]") unless input[:group_configuration].nil?
       end
     end
 
@@ -103,7 +103,7 @@ module AWS::SDK::ResourceGroups
     class GetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -118,7 +118,7 @@ module AWS::SDK::ResourceGroups
     class GetGroupQueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupQueryOutput, context: context)
-        Validators::GroupQuery.validate!(input[:group_query], context: "#{context}[:group_query]") unless input[:group_query].nil?
+        GroupQuery.validate!(input[:group_query], context: "#{context}[:group_query]") unless input[:group_query].nil?
       end
     end
 
@@ -133,7 +133,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagsOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -149,8 +149,8 @@ module AWS::SDK::ResourceGroups
     class GroupConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupConfiguration, context: context)
-        Validators::GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::GroupConfigurationList.validate!(input[:proposed_configuration], context: "#{context}[:proposed_configuration]") unless input[:proposed_configuration].nil?
+        GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        GroupConfigurationList.validate!(input[:proposed_configuration], context: "#{context}[:proposed_configuration]") unless input[:proposed_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
       end
@@ -160,7 +160,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupConfigurationItem, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::GroupParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        GroupParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -168,7 +168,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupConfigurationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupConfigurationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -177,7 +177,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupConfigurationParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::GroupConfigurationParameterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        GroupConfigurationParameterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -194,7 +194,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::GroupFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        GroupFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -202,7 +202,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -228,7 +228,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -237,7 +237,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupConfigurationParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupConfigurationParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -255,7 +255,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupQuery, context: context)
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
-        Validators::ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
+        ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
       end
     end
 
@@ -263,16 +263,16 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupResourcesInput, context: context)
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
     class GroupResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GroupResourcesOutput, context: context)
-        Validators::ResourceArnList.validate!(input[:succeeded], context: "#{context}[:succeeded]") unless input[:succeeded].nil?
-        Validators::FailedResourceList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
-        Validators::PendingResourceList.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
+        ResourceArnList.validate!(input[:succeeded], context: "#{context}[:succeeded]") unless input[:succeeded].nil?
+        FailedResourceList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        PendingResourceList.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
       end
     end
 
@@ -288,7 +288,7 @@ module AWS::SDK::ResourceGroups
         Hearth::Validator.validate!(input, Types::ListGroupResourcesInput, context: context)
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::ResourceFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ResourceFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -297,8 +297,8 @@ module AWS::SDK::ResourceGroups
     class ListGroupResourcesItem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupResourcesItem, context: context)
-        Validators::ResourceIdentifier.validate!(input[:identifier], context: "#{context}[:identifier]") unless input[:identifier].nil?
-        Validators::ResourceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ResourceIdentifier.validate!(input[:identifier], context: "#{context}[:identifier]") unless input[:identifier].nil?
+        ResourceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -306,7 +306,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListGroupResourcesItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListGroupResourcesItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -314,17 +314,17 @@ module AWS::SDK::ResourceGroups
     class ListGroupResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupResourcesOutput, context: context)
-        Validators::ListGroupResourcesItemList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::ResourceIdentifierList.validate!(input[:resource_identifiers], context: "#{context}[:resource_identifiers]") unless input[:resource_identifiers].nil?
+        ListGroupResourcesItemList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ResourceIdentifierList.validate!(input[:resource_identifiers], context: "#{context}[:resource_identifiers]") unless input[:resource_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::QueryErrorList.validate!(input[:query_errors], context: "#{context}[:query_errors]") unless input[:query_errors].nil?
+        QueryErrorList.validate!(input[:query_errors], context: "#{context}[:query_errors]") unless input[:query_errors].nil?
       end
     end
 
     class ListGroupsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsInput, context: context)
-        Validators::GroupFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        GroupFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -333,8 +333,8 @@ module AWS::SDK::ResourceGroups
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::GroupIdentifierList.validate!(input[:group_identifiers], context: "#{context}[:group_identifiers]") unless input[:group_identifiers].nil?
-        Validators::GroupList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupIdentifierList.validate!(input[:group_identifiers], context: "#{context}[:group_identifiers]") unless input[:group_identifiers].nil?
+        GroupList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PendingResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PendingResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutGroupConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        GroupConfigurationList.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -395,7 +395,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourceFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ResourceFilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -421,7 +421,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -447,7 +447,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -470,7 +470,7 @@ module AWS::SDK::ResourceGroups
     class SearchResourcesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchResourcesInput, context: context)
-        Validators::ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
+        ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -479,9 +479,9 @@ module AWS::SDK::ResourceGroups
     class SearchResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchResourcesOutput, context: context)
-        Validators::ResourceIdentifierList.validate!(input[:resource_identifiers], context: "#{context}[:resource_identifiers]") unless input[:resource_identifiers].nil?
+        ResourceIdentifierList.validate!(input[:resource_identifiers], context: "#{context}[:resource_identifiers]") unless input[:resource_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::QueryErrorList.validate!(input[:query_errors], context: "#{context}[:query_errors]") unless input[:query_errors].nil?
+        QueryErrorList.validate!(input[:query_errors], context: "#{context}[:query_errors]") unless input[:query_errors].nil?
       end
     end
 
@@ -489,7 +489,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -506,7 +506,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -538,16 +538,16 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UngroupResourcesInput, context: context)
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArnList.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
     class UngroupResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UngroupResourcesOutput, context: context)
-        Validators::ResourceArnList.validate!(input[:succeeded], context: "#{context}[:succeeded]") unless input[:succeeded].nil?
-        Validators::FailedResourceList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
-        Validators::PendingResourceList.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
+        ResourceArnList.validate!(input[:succeeded], context: "#{context}[:succeeded]") unless input[:succeeded].nil?
+        FailedResourceList.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        PendingResourceList.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
       end
     end
 
@@ -555,7 +555,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
       end
     end
 
@@ -563,7 +563,7 @@ module AWS::SDK::ResourceGroups
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        TagKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
       end
     end
 
@@ -579,7 +579,7 @@ module AWS::SDK::ResourceGroups
     class UpdateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -588,14 +588,14 @@ module AWS::SDK::ResourceGroups
         Hearth::Validator.validate!(input, Types::UpdateGroupQueryInput, context: context)
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
+        ResourceQuery.validate!(input[:resource_query], context: "#{context}[:resource_query]") unless input[:resource_query].nil?
       end
     end
 
     class UpdateGroupQueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGroupQueryOutput, context: context)
-        Validators::GroupQuery.validate!(input[:group_query], context: "#{context}[:group_query]") unless input[:group_query].nil?
+        GroupQuery.validate!(input[:group_query], context: "#{context}[:group_query]") unless input[:group_query].nil?
       end
     end
 

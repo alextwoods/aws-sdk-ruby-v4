@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Chime
@@ -103,7 +105,7 @@ module AWS::SDK::Chime
     def associate_phone_number_with_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePhoneNumberWithUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePhoneNumberWithUserInput,
         validate_input: @config.validate_input
@@ -186,7 +188,7 @@ module AWS::SDK::Chime
     def associate_phone_numbers_with_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePhoneNumbersWithVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePhoneNumbersWithVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -269,7 +271,7 @@ module AWS::SDK::Chime
     def associate_phone_numbers_with_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePhoneNumbersWithVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePhoneNumbersWithVoiceConnectorGroupInput,
         validate_input: @config.validate_input
@@ -345,7 +347,7 @@ module AWS::SDK::Chime
     def associate_signin_delegate_groups_with_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSigninDelegateGroupsWithAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSigninDelegateGroupsWithAccountInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::Chime
     def batch_create_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateAttendeeInput,
         validate_input: @config.validate_input
@@ -540,7 +542,7 @@ module AWS::SDK::Chime
     def batch_create_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateChannelMembershipInput,
         validate_input: @config.validate_input
@@ -630,7 +632,7 @@ module AWS::SDK::Chime
     def batch_create_room_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateRoomMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateRoomMembershipInput,
         validate_input: @config.validate_input
@@ -713,7 +715,7 @@ module AWS::SDK::Chime
     def batch_delete_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeletePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeletePhoneNumberInput,
         validate_input: @config.validate_input
@@ -808,7 +810,7 @@ module AWS::SDK::Chime
     def batch_suspend_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchSuspendUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchSuspendUserInput,
         validate_input: @config.validate_input
@@ -899,7 +901,7 @@ module AWS::SDK::Chime
     def batch_unsuspend_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUnsuspendUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUnsuspendUserInput,
         validate_input: @config.validate_input
@@ -980,7 +982,7 @@ module AWS::SDK::Chime
     def batch_update_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdatePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdatePhoneNumberInput,
         validate_input: @config.validate_input
@@ -1067,7 +1069,7 @@ module AWS::SDK::Chime
     def batch_update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateUserInput,
         validate_input: @config.validate_input
@@ -1150,7 +1152,7 @@ module AWS::SDK::Chime
     def create_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccountInput,
         validate_input: @config.validate_input
@@ -1237,7 +1239,7 @@ module AWS::SDK::Chime
     def create_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceInput,
         validate_input: @config.validate_input
@@ -1331,7 +1333,7 @@ module AWS::SDK::Chime
     def create_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -1430,7 +1432,7 @@ module AWS::SDK::Chime
     def create_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -1524,7 +1526,7 @@ module AWS::SDK::Chime
     def create_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAttendeeInput,
         validate_input: @config.validate_input
@@ -1610,7 +1612,7 @@ module AWS::SDK::Chime
     def create_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBotInput,
         validate_input: @config.validate_input
@@ -1726,7 +1728,7 @@ module AWS::SDK::Chime
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -1821,7 +1823,7 @@ module AWS::SDK::Chime
     def create_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelBanInput,
         validate_input: @config.validate_input
@@ -1950,7 +1952,7 @@ module AWS::SDK::Chime
     def create_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelMembershipInput,
         validate_input: @config.validate_input
@@ -2058,7 +2060,7 @@ module AWS::SDK::Chime
     def create_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelModeratorInput,
         validate_input: @config.validate_input
@@ -2200,7 +2202,7 @@ module AWS::SDK::Chime
     def create_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -2361,7 +2363,7 @@ module AWS::SDK::Chime
     def create_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeetingInput,
         validate_input: @config.validate_input
@@ -2446,7 +2448,7 @@ module AWS::SDK::Chime
     def create_meeting_dial_out(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeetingDialOutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeetingDialOutInput,
         validate_input: @config.validate_input
@@ -2628,7 +2630,7 @@ module AWS::SDK::Chime
     def create_meeting_with_attendees(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeetingWithAttendeesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeetingWithAttendeesInput,
         validate_input: @config.validate_input
@@ -2713,7 +2715,7 @@ module AWS::SDK::Chime
     def create_phone_number_order(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePhoneNumberOrderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePhoneNumberOrderInput,
         validate_input: @config.validate_input
@@ -2836,7 +2838,7 @@ module AWS::SDK::Chime
     def create_proxy_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProxySessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProxySessionInput,
         validate_input: @config.validate_input
@@ -2919,7 +2921,7 @@ module AWS::SDK::Chime
     def create_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoomInput,
         validate_input: @config.validate_input
@@ -3010,7 +3012,7 @@ module AWS::SDK::Chime
     def create_room_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoomMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoomMembershipInput,
         validate_input: @config.validate_input
@@ -3099,7 +3101,7 @@ module AWS::SDK::Chime
     def create_sip_media_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSipMediaApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSipMediaApplicationInput,
         validate_input: @config.validate_input
@@ -3184,7 +3186,7 @@ module AWS::SDK::Chime
     def create_sip_media_application_call(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSipMediaApplicationCallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSipMediaApplicationCallInput,
         validate_input: @config.validate_input
@@ -3292,7 +3294,7 @@ module AWS::SDK::Chime
     def create_sip_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSipRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSipRuleInput,
         validate_input: @config.validate_input
@@ -3388,7 +3390,7 @@ module AWS::SDK::Chime
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -3483,7 +3485,7 @@ module AWS::SDK::Chime
     def create_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -3574,7 +3576,7 @@ module AWS::SDK::Chime
     def create_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVoiceConnectorGroupInput,
         validate_input: @config.validate_input
@@ -3655,7 +3657,7 @@ module AWS::SDK::Chime
     def delete_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountInput,
         validate_input: @config.validate_input
@@ -3722,7 +3724,7 @@ module AWS::SDK::Chime
     def delete_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceInput,
         validate_input: @config.validate_input
@@ -3797,7 +3799,7 @@ module AWS::SDK::Chime
     def delete_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -3868,7 +3870,7 @@ module AWS::SDK::Chime
     def delete_app_instance_streaming_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceStreamingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceStreamingConfigurationsInput,
         validate_input: @config.validate_input
@@ -3935,7 +3937,7 @@ module AWS::SDK::Chime
     def delete_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -4013,7 +4015,7 @@ module AWS::SDK::Chime
     def delete_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAttendeeInput,
         validate_input: @config.validate_input
@@ -4091,7 +4093,7 @@ module AWS::SDK::Chime
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -4176,7 +4178,7 @@ module AWS::SDK::Chime
     def delete_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelBanInput,
         validate_input: @config.validate_input
@@ -4261,7 +4263,7 @@ module AWS::SDK::Chime
     def delete_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelMembershipInput,
         validate_input: @config.validate_input
@@ -4348,7 +4350,7 @@ module AWS::SDK::Chime
     def delete_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelMessageInput,
         validate_input: @config.validate_input
@@ -4433,7 +4435,7 @@ module AWS::SDK::Chime
     def delete_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelModeratorInput,
         validate_input: @config.validate_input
@@ -4508,7 +4510,7 @@ module AWS::SDK::Chime
     def delete_events_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventsConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventsConfigurationInput,
         validate_input: @config.validate_input
@@ -4575,7 +4577,7 @@ module AWS::SDK::Chime
     def delete_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -4645,7 +4647,7 @@ module AWS::SDK::Chime
     def delete_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMeetingInput,
         validate_input: @config.validate_input
@@ -4718,7 +4720,7 @@ module AWS::SDK::Chime
     def delete_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePhoneNumberInput,
         validate_input: @config.validate_input
@@ -4789,7 +4791,7 @@ module AWS::SDK::Chime
     def delete_proxy_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProxySessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProxySessionInput,
         validate_input: @config.validate_input
@@ -4860,7 +4862,7 @@ module AWS::SDK::Chime
     def delete_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoomInput,
         validate_input: @config.validate_input
@@ -4935,7 +4937,7 @@ module AWS::SDK::Chime
     def delete_room_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoomMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoomMembershipInput,
         validate_input: @config.validate_input
@@ -5002,7 +5004,7 @@ module AWS::SDK::Chime
     def delete_sip_media_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSipMediaApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSipMediaApplicationInput,
         validate_input: @config.validate_input
@@ -5069,7 +5071,7 @@ module AWS::SDK::Chime
     def delete_sip_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSipRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSipRuleInput,
         validate_input: @config.validate_input
@@ -5138,7 +5140,7 @@ module AWS::SDK::Chime
     def delete_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -5205,7 +5207,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_emergency_calling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorEmergencyCallingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorEmergencyCallingConfigurationInput,
         validate_input: @config.validate_input
@@ -5274,7 +5276,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorGroupInput,
         validate_input: @config.validate_input
@@ -5345,7 +5347,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_origination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorOriginationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorOriginationInput,
         validate_input: @config.validate_input
@@ -5412,7 +5414,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorProxyInput,
         validate_input: @config.validate_input
@@ -5479,7 +5481,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_streaming_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorStreamingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorStreamingConfigurationInput,
         validate_input: @config.validate_input
@@ -5550,7 +5552,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_termination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorTerminationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorTerminationInput,
         validate_input: @config.validate_input
@@ -5623,7 +5625,7 @@ module AWS::SDK::Chime
     def delete_voice_connector_termination_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceConnectorTerminationCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceConnectorTerminationCredentialsInput,
         validate_input: @config.validate_input
@@ -5697,7 +5699,7 @@ module AWS::SDK::Chime
     def describe_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceInput,
         validate_input: @config.validate_input
@@ -5778,7 +5780,7 @@ module AWS::SDK::Chime
     def describe_app_instance_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceAdminInput,
         validate_input: @config.validate_input
@@ -5855,7 +5857,7 @@ module AWS::SDK::Chime
     def describe_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -5950,7 +5952,7 @@ module AWS::SDK::Chime
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -6043,7 +6045,7 @@ module AWS::SDK::Chime
     def describe_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelBanInput,
         validate_input: @config.validate_input
@@ -6136,7 +6138,7 @@ module AWS::SDK::Chime
     def describe_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelMembershipInput,
         validate_input: @config.validate_input
@@ -6233,7 +6235,7 @@ module AWS::SDK::Chime
     def describe_channel_membership_for_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelMembershipForAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelMembershipForAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -6327,7 +6329,7 @@ module AWS::SDK::Chime
     def describe_channel_moderated_by_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelModeratedByAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelModeratedByAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -6418,7 +6420,7 @@ module AWS::SDK::Chime
     def describe_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelModeratorInput,
         validate_input: @config.validate_input
@@ -6493,7 +6495,7 @@ module AWS::SDK::Chime
     def disassociate_phone_number_from_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePhoneNumberFromUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePhoneNumberFromUserInput,
         validate_input: @config.validate_input
@@ -6571,7 +6573,7 @@ module AWS::SDK::Chime
     def disassociate_phone_numbers_from_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePhoneNumbersFromVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePhoneNumbersFromVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -6650,7 +6652,7 @@ module AWS::SDK::Chime
     def disassociate_phone_numbers_from_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePhoneNumbersFromVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePhoneNumbersFromVoiceConnectorGroupInput,
         validate_input: @config.validate_input
@@ -6724,7 +6726,7 @@ module AWS::SDK::Chime
     def disassociate_signin_delegate_groups_from_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSigninDelegateGroupsFromAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSigninDelegateGroupsFromAccountInput,
         validate_input: @config.validate_input
@@ -6806,7 +6808,7 @@ module AWS::SDK::Chime
     def get_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountInput,
         validate_input: @config.validate_input
@@ -6879,7 +6881,7 @@ module AWS::SDK::Chime
     def get_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: @config.validate_input
@@ -6950,7 +6952,7 @@ module AWS::SDK::Chime
     def get_app_instance_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInstanceRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInstanceRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -7025,7 +7027,7 @@ module AWS::SDK::Chime
     def get_app_instance_streaming_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInstanceStreamingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInstanceStreamingConfigurationsInput,
         validate_input: @config.validate_input
@@ -7106,7 +7108,7 @@ module AWS::SDK::Chime
     def get_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAttendeeInput,
         validate_input: @config.validate_input
@@ -7187,7 +7189,7 @@ module AWS::SDK::Chime
     def get_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBotInput,
         validate_input: @config.validate_input
@@ -7282,7 +7284,7 @@ module AWS::SDK::Chime
     def get_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelMessageInput,
         validate_input: @config.validate_input
@@ -7361,7 +7363,7 @@ module AWS::SDK::Chime
     def get_events_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventsConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventsConfigurationInput,
         validate_input: @config.validate_input
@@ -7428,7 +7430,7 @@ module AWS::SDK::Chime
     def get_global_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGlobalSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGlobalSettingsInput,
         validate_input: @config.validate_input
@@ -7520,7 +7522,7 @@ module AWS::SDK::Chime
     def get_media_capture_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMediaCapturePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMediaCapturePipelineInput,
         validate_input: @config.validate_input
@@ -7606,7 +7608,7 @@ module AWS::SDK::Chime
     def get_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMeetingInput,
         validate_input: @config.validate_input
@@ -7670,7 +7672,7 @@ module AWS::SDK::Chime
     def get_messaging_session_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMessagingSessionEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMessagingSessionEndpointInput,
         validate_input: @config.validate_input
@@ -7765,7 +7767,7 @@ module AWS::SDK::Chime
     def get_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPhoneNumberInput,
         validate_input: @config.validate_input
@@ -7843,7 +7845,7 @@ module AWS::SDK::Chime
     def get_phone_number_order(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPhoneNumberOrderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPhoneNumberOrderInput,
         validate_input: @config.validate_input
@@ -7907,7 +7909,7 @@ module AWS::SDK::Chime
     def get_phone_number_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPhoneNumberSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPhoneNumberSettingsInput,
         validate_input: @config.validate_input
@@ -7998,7 +8000,7 @@ module AWS::SDK::Chime
     def get_proxy_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProxySessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProxySessionInput,
         validate_input: @config.validate_input
@@ -8074,7 +8076,7 @@ module AWS::SDK::Chime
     def get_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -8152,7 +8154,7 @@ module AWS::SDK::Chime
     def get_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoomInput,
         validate_input: @config.validate_input
@@ -8228,7 +8230,7 @@ module AWS::SDK::Chime
     def get_sip_media_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSipMediaApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSipMediaApplicationInput,
         validate_input: @config.validate_input
@@ -8297,7 +8299,7 @@ module AWS::SDK::Chime
     def get_sip_media_application_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSipMediaApplicationLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSipMediaApplicationLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -8377,7 +8379,7 @@ module AWS::SDK::Chime
     def get_sip_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSipRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSipRuleInput,
         validate_input: @config.validate_input
@@ -8469,7 +8471,7 @@ module AWS::SDK::Chime
     def get_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserInput,
         validate_input: @config.validate_input
@@ -8545,7 +8547,7 @@ module AWS::SDK::Chime
     def get_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserSettingsInput,
         validate_input: @config.validate_input
@@ -8621,7 +8623,7 @@ module AWS::SDK::Chime
     def get_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -8694,7 +8696,7 @@ module AWS::SDK::Chime
     def get_voice_connector_emergency_calling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorEmergencyCallingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorEmergencyCallingConfigurationInput,
         validate_input: @config.validate_input
@@ -8772,7 +8774,7 @@ module AWS::SDK::Chime
     def get_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorGroupInput,
         validate_input: @config.validate_input
@@ -8842,7 +8844,7 @@ module AWS::SDK::Chime
     def get_voice_connector_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -8918,7 +8920,7 @@ module AWS::SDK::Chime
     def get_voice_connector_origination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorOriginationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorOriginationInput,
         validate_input: @config.validate_input
@@ -8991,7 +8993,7 @@ module AWS::SDK::Chime
     def get_voice_connector_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorProxyInput,
         validate_input: @config.validate_input
@@ -9066,7 +9068,7 @@ module AWS::SDK::Chime
     def get_voice_connector_streaming_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorStreamingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorStreamingConfigurationInput,
         validate_input: @config.validate_input
@@ -9141,7 +9143,7 @@ module AWS::SDK::Chime
     def get_voice_connector_termination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorTerminationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorTerminationInput,
         validate_input: @config.validate_input
@@ -9212,7 +9214,7 @@ module AWS::SDK::Chime
     def get_voice_connector_termination_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVoiceConnectorTerminationHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVoiceConnectorTerminationHealthInput,
         validate_input: @config.validate_input
@@ -9297,7 +9299,7 @@ module AWS::SDK::Chime
     def invite_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InviteUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InviteUsersInput,
         validate_input: @config.validate_input
@@ -9394,7 +9396,7 @@ module AWS::SDK::Chime
     def list_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsInput,
         validate_input: @config.validate_input
@@ -9476,7 +9478,7 @@ module AWS::SDK::Chime
     def list_app_instance_admins(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstanceAdminsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstanceAdminsInput,
         validate_input: @config.validate_input
@@ -9564,7 +9566,7 @@ module AWS::SDK::Chime
     def list_app_instance_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstanceUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstanceUsersInput,
         validate_input: @config.validate_input
@@ -9645,7 +9647,7 @@ module AWS::SDK::Chime
     def list_app_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppInstancesInput,
         validate_input: @config.validate_input
@@ -9724,7 +9726,7 @@ module AWS::SDK::Chime
     def list_attendee_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttendeeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttendeeTagsInput,
         validate_input: @config.validate_input
@@ -9809,7 +9811,7 @@ module AWS::SDK::Chime
     def list_attendees(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttendeesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttendeesInput,
         validate_input: @config.validate_input
@@ -9896,7 +9898,7 @@ module AWS::SDK::Chime
     def list_bots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotsInput,
         validate_input: @config.validate_input
@@ -9989,7 +9991,7 @@ module AWS::SDK::Chime
     def list_channel_bans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelBansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelBansInput,
         validate_input: @config.validate_input
@@ -10094,7 +10096,7 @@ module AWS::SDK::Chime
     def list_channel_memberships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMembershipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMembershipsInput,
         validate_input: @config.validate_input
@@ -10197,7 +10199,7 @@ module AWS::SDK::Chime
     def list_channel_memberships_for_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMembershipsForAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMembershipsForAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -10318,7 +10320,7 @@ module AWS::SDK::Chime
     def list_channel_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMessagesInput,
         validate_input: @config.validate_input
@@ -10414,7 +10416,7 @@ module AWS::SDK::Chime
     def list_channel_moderators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelModeratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelModeratorsInput,
         validate_input: @config.validate_input
@@ -10533,7 +10535,7 @@ module AWS::SDK::Chime
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -10633,7 +10635,7 @@ module AWS::SDK::Chime
     def list_channels_moderated_by_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsModeratedByAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsModeratedByAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -10735,7 +10737,7 @@ module AWS::SDK::Chime
     def list_media_capture_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMediaCapturePipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMediaCapturePipelinesInput,
         validate_input: @config.validate_input
@@ -10806,7 +10808,7 @@ module AWS::SDK::Chime
     def list_meeting_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMeetingTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMeetingTagsInput,
         validate_input: @config.validate_input
@@ -10895,7 +10897,7 @@ module AWS::SDK::Chime
     def list_meetings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMeetingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMeetingsInput,
         validate_input: @config.validate_input
@@ -10978,7 +10980,7 @@ module AWS::SDK::Chime
     def list_phone_number_orders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPhoneNumberOrdersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPhoneNumberOrdersInput,
         validate_input: @config.validate_input
@@ -11091,7 +11093,7 @@ module AWS::SDK::Chime
     def list_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPhoneNumbersInput,
         validate_input: @config.validate_input
@@ -11192,7 +11194,7 @@ module AWS::SDK::Chime
     def list_proxy_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProxySessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProxySessionsInput,
         validate_input: @config.validate_input
@@ -11285,7 +11287,7 @@ module AWS::SDK::Chime
     def list_room_memberships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoomMembershipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoomMembershipsInput,
         validate_input: @config.validate_input
@@ -11373,7 +11375,7 @@ module AWS::SDK::Chime
     def list_rooms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoomsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoomsInput,
         validate_input: @config.validate_input
@@ -11455,7 +11457,7 @@ module AWS::SDK::Chime
     def list_sip_media_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSipMediaApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSipMediaApplicationsInput,
         validate_input: @config.validate_input
@@ -11545,7 +11547,7 @@ module AWS::SDK::Chime
     def list_sip_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSipRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSipRulesInput,
         validate_input: @config.validate_input
@@ -11617,7 +11619,7 @@ module AWS::SDK::Chime
     def list_supported_phone_number_countries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSupportedPhoneNumberCountriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSupportedPhoneNumberCountriesInput,
         validate_input: @config.validate_input
@@ -11688,7 +11690,7 @@ module AWS::SDK::Chime
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -11790,7 +11792,7 @@ module AWS::SDK::Chime
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -11873,7 +11875,7 @@ module AWS::SDK::Chime
     def list_voice_connector_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVoiceConnectorGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVoiceConnectorGroupsInput,
         validate_input: @config.validate_input
@@ -11942,7 +11944,7 @@ module AWS::SDK::Chime
     def list_voice_connector_termination_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVoiceConnectorTerminationCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVoiceConnectorTerminationCredentialsInput,
         validate_input: @config.validate_input
@@ -12024,7 +12026,7 @@ module AWS::SDK::Chime
     def list_voice_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVoiceConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVoiceConnectorsInput,
         validate_input: @config.validate_input
@@ -12095,7 +12097,7 @@ module AWS::SDK::Chime
     def logout_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LogoutUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LogoutUserInput,
         validate_input: @config.validate_input
@@ -12174,7 +12176,7 @@ module AWS::SDK::Chime
     def put_app_instance_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppInstanceRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppInstanceRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -12259,7 +12261,7 @@ module AWS::SDK::Chime
     def put_app_instance_streaming_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppInstanceStreamingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppInstanceStreamingConfigurationsInput,
         validate_input: @config.validate_input
@@ -12345,7 +12347,7 @@ module AWS::SDK::Chime
     def put_events_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventsConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventsConfigurationInput,
         validate_input: @config.validate_input
@@ -12442,7 +12444,7 @@ module AWS::SDK::Chime
     def put_retention_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRetentionSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRetentionSettingsInput,
         validate_input: @config.validate_input
@@ -12518,7 +12520,7 @@ module AWS::SDK::Chime
     def put_sip_media_application_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSipMediaApplicationLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSipMediaApplicationLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -12605,7 +12607,7 @@ module AWS::SDK::Chime
     def put_voice_connector_emergency_calling_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorEmergencyCallingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorEmergencyCallingConfigurationInput,
         validate_input: @config.validate_input
@@ -12683,7 +12685,7 @@ module AWS::SDK::Chime
     def put_voice_connector_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -12779,7 +12781,7 @@ module AWS::SDK::Chime
     def put_voice_connector_origination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorOriginationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorOriginationInput,
         validate_input: @config.validate_input
@@ -12871,7 +12873,7 @@ module AWS::SDK::Chime
     def put_voice_connector_proxy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorProxyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorProxyInput,
         validate_input: @config.validate_input
@@ -12959,7 +12961,7 @@ module AWS::SDK::Chime
     def put_voice_connector_streaming_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorStreamingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorStreamingConfigurationInput,
         validate_input: @config.validate_input
@@ -13053,7 +13055,7 @@ module AWS::SDK::Chime
     def put_voice_connector_termination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorTerminationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorTerminationInput,
         validate_input: @config.validate_input
@@ -13130,7 +13132,7 @@ module AWS::SDK::Chime
     def put_voice_connector_termination_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVoiceConnectorTerminationCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVoiceConnectorTerminationCredentialsInput,
         validate_input: @config.validate_input
@@ -13215,7 +13217,7 @@ module AWS::SDK::Chime
     def redact_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RedactChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RedactChannelMessageInput,
         validate_input: @config.validate_input
@@ -13294,7 +13296,7 @@ module AWS::SDK::Chime
     def redact_conversation_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RedactConversationMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RedactConversationMessageInput,
         validate_input: @config.validate_input
@@ -13369,7 +13371,7 @@ module AWS::SDK::Chime
     def redact_room_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RedactRoomMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RedactRoomMessageInput,
         validate_input: @config.validate_input
@@ -13450,7 +13452,7 @@ module AWS::SDK::Chime
     def regenerate_security_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegenerateSecurityTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegenerateSecurityTokenInput,
         validate_input: @config.validate_input
@@ -13538,7 +13540,7 @@ module AWS::SDK::Chime
     def reset_personal_pin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetPersonalPINInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetPersonalPINInput,
         validate_input: @config.validate_input
@@ -13630,7 +13632,7 @@ module AWS::SDK::Chime
     def restore_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestorePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestorePhoneNumberInput,
         validate_input: @config.validate_input
@@ -13732,7 +13734,7 @@ module AWS::SDK::Chime
     def search_available_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchAvailablePhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchAvailablePhoneNumbersInput,
         validate_input: @config.validate_input
@@ -13834,7 +13836,7 @@ module AWS::SDK::Chime
     def send_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendChannelMessageInput,
         validate_input: @config.validate_input
@@ -13932,7 +13934,7 @@ module AWS::SDK::Chime
     def start_meeting_transcription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMeetingTranscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMeetingTranscriptionInput,
         validate_input: @config.validate_input
@@ -14000,7 +14002,7 @@ module AWS::SDK::Chime
     def stop_meeting_transcription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMeetingTranscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMeetingTranscriptionInput,
         validate_input: @config.validate_input
@@ -14080,7 +14082,7 @@ module AWS::SDK::Chime
     def tag_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagAttendeeInput,
         validate_input: @config.validate_input
@@ -14157,7 +14159,7 @@ module AWS::SDK::Chime
     def tag_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagMeetingInput,
         validate_input: @config.validate_input
@@ -14234,7 +14236,7 @@ module AWS::SDK::Chime
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -14312,7 +14314,7 @@ module AWS::SDK::Chime
     def untag_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagAttendeeInput,
         validate_input: @config.validate_input
@@ -14386,7 +14388,7 @@ module AWS::SDK::Chime
     def untag_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagMeetingInput,
         validate_input: @config.validate_input
@@ -14460,7 +14462,7 @@ module AWS::SDK::Chime
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -14549,7 +14551,7 @@ module AWS::SDK::Chime
     def update_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountInput,
         validate_input: @config.validate_input
@@ -14628,7 +14630,7 @@ module AWS::SDK::Chime
     def update_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountSettingsInput,
         validate_input: @config.validate_input
@@ -14705,7 +14707,7 @@ module AWS::SDK::Chime
     def update_app_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInstanceInput,
         validate_input: @config.validate_input
@@ -14786,7 +14788,7 @@ module AWS::SDK::Chime
     def update_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -14876,7 +14878,7 @@ module AWS::SDK::Chime
     def update_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBotInput,
         validate_input: @config.validate_input
@@ -14968,7 +14970,7 @@ module AWS::SDK::Chime
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -15064,7 +15066,7 @@ module AWS::SDK::Chime
     def update_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelMessageInput,
         validate_input: @config.validate_input
@@ -15147,7 +15149,7 @@ module AWS::SDK::Chime
     def update_channel_read_marker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelReadMarkerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelReadMarkerInput,
         validate_input: @config.validate_input
@@ -15226,7 +15228,7 @@ module AWS::SDK::Chime
     def update_global_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalSettingsInput,
         validate_input: @config.validate_input
@@ -15328,7 +15330,7 @@ module AWS::SDK::Chime
     def update_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePhoneNumberInput,
         validate_input: @config.validate_input
@@ -15398,7 +15400,7 @@ module AWS::SDK::Chime
     def update_phone_number_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePhoneNumberSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePhoneNumberSettingsInput,
         validate_input: @config.validate_input
@@ -15500,7 +15502,7 @@ module AWS::SDK::Chime
     def update_proxy_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProxySessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProxySessionInput,
         validate_input: @config.validate_input
@@ -15583,7 +15585,7 @@ module AWS::SDK::Chime
     def update_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoomInput,
         validate_input: @config.validate_input
@@ -15677,7 +15679,7 @@ module AWS::SDK::Chime
     def update_room_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoomMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoomMembershipInput,
         validate_input: @config.validate_input
@@ -15766,7 +15768,7 @@ module AWS::SDK::Chime
     def update_sip_media_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSipMediaApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSipMediaApplicationInput,
         validate_input: @config.validate_input
@@ -15846,7 +15848,7 @@ module AWS::SDK::Chime
     def update_sip_media_application_call(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSipMediaApplicationCallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSipMediaApplicationCallInput,
         validate_input: @config.validate_input
@@ -15945,7 +15947,7 @@ module AWS::SDK::Chime
     def update_sip_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSipRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSipRuleInput,
         validate_input: @config.validate_input
@@ -16049,7 +16051,7 @@ module AWS::SDK::Chime
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input
@@ -16131,7 +16133,7 @@ module AWS::SDK::Chime
     def update_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserSettingsInput,
         validate_input: @config.validate_input
@@ -16216,7 +16218,7 @@ module AWS::SDK::Chime
     def update_voice_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVoiceConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVoiceConnectorInput,
         validate_input: @config.validate_input
@@ -16308,7 +16310,7 @@ module AWS::SDK::Chime
     def update_voice_connector_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVoiceConnectorGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVoiceConnectorGroupInput,
         validate_input: @config.validate_input

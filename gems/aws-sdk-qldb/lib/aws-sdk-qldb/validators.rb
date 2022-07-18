@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::QLDB
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLedgerInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:permissions_mode], ::String, context: "#{context}[:permissions_mode]")
         Hearth::Validator.validate!(input[:deletion_protection], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection]")
         Hearth::Validator.validate!(input[:kms_key], ::String, context: "#{context}[:kms_key]")
@@ -73,7 +75,7 @@ module AWS::SDK::QLDB
     class DescribeJournalKinesisStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJournalKinesisStreamOutput, context: context)
-        Validators::JournalKinesisStreamDescription.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
+        JournalKinesisStreamDescription.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
       end
     end
 
@@ -88,7 +90,7 @@ module AWS::SDK::QLDB
     class DescribeJournalS3ExportOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJournalS3ExportOutput, context: context)
-        Validators::JournalS3ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
+        JournalS3ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:permissions_mode], ::String, context: "#{context}[:permissions_mode]")
         Hearth::Validator.validate!(input[:deletion_protection], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection]")
-        Validators::LedgerEncryptionDescription.validate!(input[:encryption_description], context: "#{context}[:encryption_description]") unless input[:encryption_description].nil?
+        LedgerEncryptionDescription.validate!(input[:encryption_description], context: "#{context}[:encryption_description]") unless input[:encryption_description].nil?
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:inclusive_start_time], ::Time, context: "#{context}[:inclusive_start_time]")
         Hearth::Validator.validate!(input[:exclusive_end_time], ::Time, context: "#{context}[:exclusive_end_time]")
-        Validators::S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
+        S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
       end
@@ -135,16 +137,16 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBlockInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueHolder.validate!(input[:block_address], context: "#{context}[:block_address]") unless input[:block_address].nil?
-        Validators::ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
+        ValueHolder.validate!(input[:block_address], context: "#{context}[:block_address]") unless input[:block_address].nil?
+        ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
       end
     end
 
     class GetBlockOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBlockOutput, context: context)
-        Validators::ValueHolder.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
-        Validators::ValueHolder.validate!(input[:proof], context: "#{context}[:proof]") unless input[:proof].nil?
+        ValueHolder.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
+        ValueHolder.validate!(input[:proof], context: "#{context}[:proof]") unless input[:proof].nil?
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDigestOutput, context: context)
         Hearth::Validator.validate!(input[:digest], ::String, context: "#{context}[:digest]")
-        Validators::ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
+        ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
       end
     end
 
@@ -167,17 +169,17 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRevisionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueHolder.validate!(input[:block_address], context: "#{context}[:block_address]") unless input[:block_address].nil?
+        ValueHolder.validate!(input[:block_address], context: "#{context}[:block_address]") unless input[:block_address].nil?
         Hearth::Validator.validate!(input[:document_id], ::String, context: "#{context}[:document_id]")
-        Validators::ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
+        ValueHolder.validate!(input[:digest_tip_address], context: "#{context}[:digest_tip_address]") unless input[:digest_tip_address].nil?
       end
     end
 
     class GetRevisionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRevisionOutput, context: context)
-        Validators::ValueHolder.validate!(input[:proof], context: "#{context}[:proof]") unless input[:proof].nil?
-        Validators::ValueHolder.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
+        ValueHolder.validate!(input[:proof], context: "#{context}[:proof]") unless input[:proof].nil?
+        ValueHolder.validate!(input[:revision], context: "#{context}[:revision]") unless input[:revision].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::KinesisConfiguration.validate!(input[:kinesis_configuration], context: "#{context}[:kinesis_configuration]") unless input[:kinesis_configuration].nil?
+        KinesisConfiguration.validate!(input[:kinesis_configuration], context: "#{context}[:kinesis_configuration]") unless input[:kinesis_configuration].nil?
         Hearth::Validator.validate!(input[:error_cause], ::String, context: "#{context}[:error_cause]")
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
       end
@@ -210,7 +212,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JournalKinesisStreamDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JournalKinesisStreamDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -224,7 +226,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:inclusive_start_time], ::Time, context: "#{context}[:inclusive_start_time]")
         Hearth::Validator.validate!(input[:exclusive_end_time], ::Time, context: "#{context}[:exclusive_end_time]")
-        Validators::S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
+        S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
       end
@@ -234,7 +236,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JournalS3ExportDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JournalS3ExportDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -260,7 +262,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LedgerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LedgerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::QLDB
     class ListJournalKinesisStreamsForLedgerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJournalKinesisStreamsForLedgerOutput, context: context)
-        Validators::JournalKinesisStreamDescriptionList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
+        JournalKinesisStreamDescriptionList.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::QLDB
     class ListJournalS3ExportsForLedgerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJournalS3ExportsForLedgerOutput, context: context)
-        Validators::JournalS3ExportList.validate!(input[:journal_s3_exports], context: "#{context}[:journal_s3_exports]") unless input[:journal_s3_exports].nil?
+        JournalS3ExportList.validate!(input[:journal_s3_exports], context: "#{context}[:journal_s3_exports]") unless input[:journal_s3_exports].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::QLDB
     class ListJournalS3ExportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJournalS3ExportsOutput, context: context)
-        Validators::JournalS3ExportList.validate!(input[:journal_s3_exports], context: "#{context}[:journal_s3_exports]") unless input[:journal_s3_exports].nil?
+        JournalS3ExportList.validate!(input[:journal_s3_exports], context: "#{context}[:journal_s3_exports]") unless input[:journal_s3_exports].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::QLDB
     class ListLedgersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLedgersOutput, context: context)
-        Validators::LedgerList.validate!(input[:ledgers], context: "#{context}[:ledgers]") unless input[:ledgers].nil?
+        LedgerList.validate!(input[:ledgers], context: "#{context}[:ledgers]") unless input[:ledgers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -358,7 +360,7 @@ module AWS::SDK::QLDB
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input, Types::S3ExportConfiguration, context: context)
         Hearth::Validator.validate!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::S3EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        S3EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
       end
     end
 
@@ -420,10 +422,10 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input, Types::StreamJournalToKinesisInput, context: context)
         Hearth::Validator.validate!(input[:ledger_name], ::String, context: "#{context}[:ledger_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:inclusive_start_time], ::Time, context: "#{context}[:inclusive_start_time]")
         Hearth::Validator.validate!(input[:exclusive_end_time], ::Time, context: "#{context}[:exclusive_end_time]")
-        Validators::KinesisConfiguration.validate!(input[:kinesis_configuration], context: "#{context}[:kinesis_configuration]") unless input[:kinesis_configuration].nil?
+        KinesisConfiguration.validate!(input[:kinesis_configuration], context: "#{context}[:kinesis_configuration]") unless input[:kinesis_configuration].nil?
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
       end
     end
@@ -448,7 +450,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::QLDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -499,7 +501,7 @@ module AWS::SDK::QLDB
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:deletion_protection], ::TrueClass, ::FalseClass, context: "#{context}[:deletion_protection]")
-        Validators::LedgerEncryptionDescription.validate!(input[:encryption_description], context: "#{context}[:encryption_description]") unless input[:encryption_description].nil?
+        LedgerEncryptionDescription.validate!(input[:encryption_description], context: "#{context}[:encryption_description]") unless input[:encryption_description].nil?
       end
     end
 

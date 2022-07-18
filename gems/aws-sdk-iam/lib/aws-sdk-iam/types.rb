@@ -792,6 +792,7 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.password_reset_required ||= false
@@ -1062,11 +1063,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.set_as_default ||= false
       end
-
     end
 
     # <p>Contains the response to a successful <a>CreatePolicyVersion</a> request.
@@ -2796,11 +2797,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     GetAccountPasswordPolicyInput = ::Struct.new(
@@ -3057,11 +3058,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute group_name
@@ -3354,11 +3355,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute policy_arn
@@ -3739,11 +3740,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -3855,11 +3856,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute deletion_task_id
@@ -4353,11 +4354,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute marker
@@ -4421,11 +4422,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute group_name
@@ -4507,11 +4508,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute role_name
@@ -4593,11 +4594,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -4679,11 +4680,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute policy_arn
@@ -4802,11 +4803,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute group_name
@@ -4879,11 +4880,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -4954,11 +4955,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute path_prefix
@@ -5033,11 +5034,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute instance_profile_name
@@ -5105,11 +5106,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute role_name
@@ -5180,11 +5181,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute path_prefix
@@ -5260,11 +5261,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute serial_number
@@ -5333,11 +5334,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -5408,11 +5409,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute open_id_connect_provider_arn
@@ -5482,11 +5483,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     ListOpenIDConnectProvidersInput = ::Struct.new(
@@ -5604,11 +5605,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute scope
@@ -5683,11 +5684,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.only_attached ||= false
       end
-
     end
 
     # <p>Contains the response to a successful <a>ListPolicies</a> request.
@@ -5722,11 +5723,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute policy_arn
@@ -5795,11 +5796,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute policy_arn
@@ -5872,11 +5873,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute role_name
@@ -5947,11 +5948,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute role_name
@@ -6019,11 +6020,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute path_prefix
@@ -6098,11 +6099,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute saml_provider_arn
@@ -6172,11 +6173,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     ListSAMLProvidersInput = ::Struct.new(
@@ -6272,11 +6273,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute server_certificate_name
@@ -6345,11 +6346,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute path_prefix
@@ -6425,11 +6426,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -6536,11 +6537,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -6611,11 +6612,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute user_name
@@ -6683,11 +6684,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute path_prefix
@@ -6762,11 +6763,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute assignment_status
@@ -6841,11 +6842,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>Contains the user name and password create date for a user.</p>
@@ -6873,11 +6874,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.password_reset_required ||= false
       end
-
     end
 
     # <p>Contains information about an MFA device.</p>
@@ -7038,11 +7039,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_attachable ||= false
       end
-
     end
 
     # <p>The request was rejected because it referenced a resource entity that does not exist. The
@@ -7088,11 +7089,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_by_organizations ||= false
       end
-
     end
 
     # <p>Contains information about the account password policy.</p>
@@ -7178,6 +7179,7 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.require_symbols ||= false
@@ -7187,7 +7189,6 @@ module AWS::SDK::IAM
         self.allow_users_to_change_password ||= false
         self.expire_passwords ||= false
       end
-
     end
 
     # <p>The request was rejected because the provided password did not meet the requirements
@@ -7232,11 +7233,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_by_permissions_boundary ||= false
       end
-
     end
 
     # <p>Contains information about a managed policy.</p>
@@ -7338,11 +7339,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_attachable ||= false
       end
-
     end
 
     # <p>Contains information about an IAM policy, including the policy document.</p>
@@ -7626,11 +7627,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_version ||= false
       end
-
     end
 
     # <p>Contains the row and column of a location of a <code>Statement</code> element in a
@@ -7655,12 +7656,12 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.line ||= 0
         self.column ||= 0
       end
-
     end
 
     # @!attribute group_name
@@ -9179,11 +9180,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute policy_source_arn
@@ -9463,11 +9464,11 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>Contains a reference to a <code>Statement</code> element in a policy document that
@@ -10209,6 +10210,7 @@ module AWS::SDK::IAM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.require_symbols ||= false
@@ -10217,7 +10219,6 @@ module AWS::SDK::IAM
         self.require_lowercase_characters ||= false
         self.allow_users_to_change_password ||= false
       end
-
     end
 
     UpdateAccountPasswordPolicyOutput = ::Struct.new(

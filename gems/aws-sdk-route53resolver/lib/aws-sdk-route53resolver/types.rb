@@ -3190,12 +3190,12 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
         self.total_filtered_count ||= 0
       end
-
     end
 
     # @!attribute max_results
@@ -3361,12 +3361,12 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
         self.total_filtered_count ||= 0
       end
-
     end
 
     # @!attribute max_results
@@ -3571,11 +3571,11 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # @!attribute arn
@@ -3635,11 +3635,11 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # @!attribute arn
@@ -3703,11 +3703,11 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # Includes enum constants for ResolverAutodefinedReverseStatus
@@ -4160,11 +4160,11 @@ module AWS::SDK::Route53Resolver
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.association_count ||= 0
       end
-
     end
 
     # <p>In the response to an

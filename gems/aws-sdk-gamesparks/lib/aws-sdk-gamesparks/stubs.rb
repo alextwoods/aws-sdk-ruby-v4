@@ -14,7 +14,7 @@ module AWS::SDK::GameSparks
     class CreateGame
       def self.default(visited=[])
         {
-          game: Stubs::GameDetails.default(visited),
+          game: GameDetails.default(visited),
         }
       end
 
@@ -40,7 +40,7 @@ module AWS::SDK::GameSparks
           last_updated: Time.now,
           state: 'state',
           enable_termination_protection: false,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -83,7 +83,7 @@ module AWS::SDK::GameSparks
     class CreateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::SnapshotDetails.default(visited),
+          snapshot: SnapshotDetails.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::GameSparks
         {
           id: 'id',
           description: 'description',
-          sections: Stubs::Sections.default(visited),
+          sections: Sections.default(visited),
           created: Time.now,
           last_updated: Time.now,
         }
@@ -128,7 +128,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('Sections')
         visited = visited + ['Sections']
         {
-          test_key: Stubs::Section.default(visited)
+          test_key: Section.default(visited)
         }
       end
 
@@ -181,7 +181,7 @@ module AWS::SDK::GameSparks
     class CreateStage
       def self.default(visited=[])
         {
-          stage: Stubs::StageDetails.default(visited),
+          stage: StageDetails.default(visited),
         }
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::GameSparks
           created: Time.now,
           last_updated: Time.now,
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           log_group: 'log_group',
         }
       end
@@ -260,8 +260,8 @@ module AWS::SDK::GameSparks
     class DisconnectPlayer
       def self.default(visited=[])
         {
-          disconnect_successes: Stubs::ConnectionIdList.default(visited),
-          disconnect_failures: Stubs::ConnectionIdList.default(visited),
+          disconnect_successes: ConnectionIdList.default(visited),
+          disconnect_failures: ConnectionIdList.default(visited),
         }
       end
 
@@ -316,7 +316,7 @@ module AWS::SDK::GameSparks
     class GetExtension
       def self.default(visited=[])
         {
-          extension: Stubs::ExtensionDetails.default(visited),
+          extension: ExtensionDetails.default(visited),
         }
       end
 
@@ -355,7 +355,7 @@ module AWS::SDK::GameSparks
     class GetExtensionVersion
       def self.default(visited=[])
         {
-          extension_version: Stubs::ExtensionVersionDetails.default(visited),
+          extension_version: ExtensionVersionDetails.default(visited),
         }
       end
 
@@ -396,7 +396,7 @@ module AWS::SDK::GameSparks
     class GetGame
       def self.default(visited=[])
         {
-          game: Stubs::GameDetails.default(visited),
+          game: GameDetails.default(visited),
         }
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::GameSparks
     class GetGameConfiguration
       def self.default(visited=[])
         {
-          game_configuration: Stubs::GameConfigurationDetails.default(visited),
+          game_configuration: GameConfigurationDetails.default(visited),
         }
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('GameConfigurationDetails')
         visited = visited + ['GameConfigurationDetails']
         {
-          sections: Stubs::Sections.default(visited),
+          sections: Sections.default(visited),
           created: Time.now,
           last_updated: Time.now,
         }
@@ -452,7 +452,7 @@ module AWS::SDK::GameSparks
     class GetGeneratedCodeJob
       def self.default(visited=[])
         {
-          generated_code_job: Stubs::GeneratedCodeJobDetails.default(visited),
+          generated_code_job: GeneratedCodeJobDetails.default(visited),
         }
       end
 
@@ -495,7 +495,7 @@ module AWS::SDK::GameSparks
     class GetPlayerConnectionStatus
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
         }
       end
 
@@ -514,7 +514,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -552,7 +552,7 @@ module AWS::SDK::GameSparks
     class GetSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::SnapshotDetails.default(visited),
+          snapshot: SnapshotDetails.default(visited),
         }
       end
 
@@ -569,7 +569,7 @@ module AWS::SDK::GameSparks
     class GetStage
       def self.default(visited=[])
         {
-          stage: Stubs::StageDetails.default(visited),
+          stage: StageDetails.default(visited),
         }
       end
 
@@ -586,7 +586,7 @@ module AWS::SDK::GameSparks
     class GetStageDeployment
       def self.default(visited=[])
         {
-          stage_deployment: Stubs::StageDeploymentDetails.default(visited),
+          stage_deployment: StageDeploymentDetails.default(visited),
         }
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::GameSparks
           deployment_state: 'deployment_state',
           created: Time.now,
           last_updated: Time.now,
-          deployment_result: Stubs::DeploymentResult.default(visited),
+          deployment_result: DeploymentResult.default(visited),
         }
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::GameSparks
     class ImportGameConfiguration
       def self.default(visited=[])
         {
-          game_configuration: Stubs::GameConfigurationDetails.default(visited),
+          game_configuration: GameConfigurationDetails.default(visited),
         }
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::GameSparks
     class ListExtensionVersions
       def self.default(visited=[])
         {
-          extension_versions: Stubs::ExtensionVersionDetailsList.default(visited),
+          extension_versions: ExtensionVersionDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -691,7 +691,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('ExtensionVersionDetailsList')
         visited = visited + ['ExtensionVersionDetailsList']
         [
-          Stubs::ExtensionVersionDetails.default(visited)
+          ExtensionVersionDetails.default(visited)
         ]
       end
 
@@ -709,7 +709,7 @@ module AWS::SDK::GameSparks
     class ListExtensions
       def self.default(visited=[])
         {
-          extensions: Stubs::ExtensionDetailsList.default(visited),
+          extensions: ExtensionDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -730,7 +730,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('ExtensionDetailsList')
         visited = visited + ['ExtensionDetailsList']
         [
-          Stubs::ExtensionDetails.default(visited)
+          ExtensionDetails.default(visited)
         ]
       end
 
@@ -748,7 +748,7 @@ module AWS::SDK::GameSparks
     class ListGames
       def self.default(visited=[])
         {
-          games: Stubs::GameSummaryList.default(visited),
+          games: GameSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -769,7 +769,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('GameSummaryList')
         visited = visited + ['GameSummaryList']
         [
-          Stubs::GameSummary.default(visited)
+          GameSummary.default(visited)
         ]
       end
 
@@ -792,7 +792,7 @@ module AWS::SDK::GameSparks
           name: 'name',
           description: 'description',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -811,7 +811,7 @@ module AWS::SDK::GameSparks
     class ListGeneratedCodeJobs
       def self.default(visited=[])
         {
-          generated_code_jobs: Stubs::GeneratedCodeJobDetailsList.default(visited),
+          generated_code_jobs: GeneratedCodeJobDetailsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -832,7 +832,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('GeneratedCodeJobDetailsList')
         visited = visited + ['GeneratedCodeJobDetailsList']
         [
-          Stubs::GeneratedCodeJobDetails.default(visited)
+          GeneratedCodeJobDetails.default(visited)
         ]
       end
 
@@ -850,7 +850,7 @@ module AWS::SDK::GameSparks
     class ListSnapshots
       def self.default(visited=[])
         {
-          snapshots: Stubs::SnapshotSummaryList.default(visited),
+          snapshots: SnapshotSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -871,7 +871,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('SnapshotSummaryList')
         visited = visited + ['SnapshotSummaryList']
         [
-          Stubs::SnapshotSummary.default(visited)
+          SnapshotSummary.default(visited)
         ]
       end
 
@@ -913,7 +913,7 @@ module AWS::SDK::GameSparks
     class ListStageDeployments
       def self.default(visited=[])
         {
-          stage_deployments: Stubs::StageDeploymentList.default(visited),
+          stage_deployments: StageDeploymentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -934,7 +934,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('StageDeploymentList')
         visited = visited + ['StageDeploymentList']
         [
-          Stubs::StageDeploymentSummary.default(visited)
+          StageDeploymentSummary.default(visited)
         ]
       end
 
@@ -959,7 +959,7 @@ module AWS::SDK::GameSparks
           deployment_action: 'deployment_action',
           deployment_state: 'deployment_state',
           last_updated: Time.now,
-          deployment_result: Stubs::DeploymentResult.default(visited),
+          deployment_result: DeploymentResult.default(visited),
         }
       end
 
@@ -980,7 +980,7 @@ module AWS::SDK::GameSparks
     class ListStages
       def self.default(visited=[])
         {
-          stages: Stubs::StageSummaryList.default(visited),
+          stages: StageSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1001,7 +1001,7 @@ module AWS::SDK::GameSparks
         return nil if visited.include?('StageSummaryList')
         visited = visited + ['StageSummaryList']
         [
-          Stubs::StageSummary.default(visited)
+          StageSummary.default(visited)
         ]
       end
 
@@ -1025,7 +1025,7 @@ module AWS::SDK::GameSparks
           game_key: 'game_key',
           description: 'description',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1045,7 +1045,7 @@ module AWS::SDK::GameSparks
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1079,7 +1079,7 @@ module AWS::SDK::GameSparks
     class StartStageDeployment
       def self.default(visited=[])
         {
-          stage_deployment: Stubs::StageDeploymentDetails.default(visited),
+          stage_deployment: StageDeploymentDetails.default(visited),
         }
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::GameSparks
     class UpdateGame
       def self.default(visited=[])
         {
-          game: Stubs::GameDetails.default(visited),
+          game: GameDetails.default(visited),
         }
       end
 
@@ -1139,7 +1139,7 @@ module AWS::SDK::GameSparks
     class UpdateGameConfiguration
       def self.default(visited=[])
         {
-          game_configuration: Stubs::GameConfigurationDetails.default(visited),
+          game_configuration: GameConfigurationDetails.default(visited),
         }
       end
 
@@ -1156,7 +1156,7 @@ module AWS::SDK::GameSparks
     class UpdateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::SnapshotDetails.default(visited),
+          snapshot: SnapshotDetails.default(visited),
         }
       end
 
@@ -1173,7 +1173,7 @@ module AWS::SDK::GameSparks
     class UpdateStage
       def self.default(visited=[])
         {
-          stage: Stubs::StageDetails.default(visited),
+          stage: StageDetails.default(visited),
         }
       end
 

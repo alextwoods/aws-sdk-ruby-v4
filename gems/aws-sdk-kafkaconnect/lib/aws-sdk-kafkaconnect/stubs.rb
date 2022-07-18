@@ -59,7 +59,7 @@ module AWS::SDK::KafkaConnect
       def self.default(visited=[])
         {
           creation_time: Time.now,
-          latest_revision: Stubs::WorkerConfigurationRevisionSummary.default(visited),
+          latest_revision: WorkerConfigurationRevisionSummary.default(visited),
           name: 'name',
           worker_configuration_arn: 'worker_configuration_arn',
         }
@@ -141,23 +141,23 @@ module AWS::SDK::KafkaConnect
     class DescribeConnector
       def self.default(visited=[])
         {
-          capacity: Stubs::CapacityDescription.default(visited),
+          capacity: CapacityDescription.default(visited),
           connector_arn: 'connector_arn',
-          connector_configuration: Stubs::Map____mapOf__string.default(visited),
+          connector_configuration: Map____sensitive__mapOf__string.default(visited),
           connector_description: 'connector_description',
           connector_name: 'connector_name',
           connector_state: 'connector_state',
           creation_time: Time.now,
           current_version: 'current_version',
-          kafka_cluster: Stubs::KafkaClusterDescription.default(visited),
-          kafka_cluster_client_authentication: Stubs::KafkaClusterClientAuthenticationDescription.default(visited),
-          kafka_cluster_encryption_in_transit: Stubs::KafkaClusterEncryptionInTransitDescription.default(visited),
+          kafka_cluster: KafkaClusterDescription.default(visited),
+          kafka_cluster_client_authentication: KafkaClusterClientAuthenticationDescription.default(visited),
+          kafka_cluster_encryption_in_transit: KafkaClusterEncryptionInTransitDescription.default(visited),
           kafka_connect_version: 'kafka_connect_version',
-          log_delivery: Stubs::LogDeliveryDescription.default(visited),
-          plugins: Stubs::List____listOfPluginDescription.default(visited),
+          log_delivery: LogDeliveryDescription.default(visited),
+          plugins: List____listOfPluginDescription.default(visited),
           service_execution_role_arn: 'service_execution_role_arn',
-          worker_configuration: Stubs::WorkerConfigurationDescription.default(visited),
-          state_description: Stubs::StateDescription.default(visited),
+          worker_configuration: WorkerConfigurationDescription.default(visited),
+          state_description: StateDescription.default(visited),
         }
       end
 
@@ -167,7 +167,7 @@ module AWS::SDK::KafkaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['capacity'] = Stubs::CapacityDescription.stub(stub[:capacity]) unless stub[:capacity].nil?
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
-        data['connectorConfiguration'] = Stubs::Map____mapOf__string.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
+        data['connectorConfiguration'] = Stubs::Map____sensitive__mapOf__string.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
         data['connectorDescription'] = stub[:connector_description] unless stub[:connector_description].nil?
         data['connectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
@@ -232,7 +232,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('List____listOfPluginDescription')
         visited = visited + ['List____listOfPluginDescription']
         [
-          Stubs::PluginDescription.default(visited)
+          PluginDescription.default(visited)
         ]
       end
 
@@ -252,7 +252,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('PluginDescription')
         visited = visited + ['PluginDescription']
         {
-          custom_plugin: Stubs::CustomPluginDescription.default(visited),
+          custom_plugin: CustomPluginDescription.default(visited),
         }
       end
 
@@ -290,7 +290,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('LogDeliveryDescription')
         visited = visited + ['LogDeliveryDescription']
         {
-          worker_log_delivery: Stubs::WorkerLogDeliveryDescription.default(visited),
+          worker_log_delivery: WorkerLogDeliveryDescription.default(visited),
         }
       end
 
@@ -308,9 +308,9 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('WorkerLogDeliveryDescription')
         visited = visited + ['WorkerLogDeliveryDescription']
         {
-          cloud_watch_logs: Stubs::CloudWatchLogsLogDeliveryDescription.default(visited),
-          firehose: Stubs::FirehoseLogDeliveryDescription.default(visited),
-          s3: Stubs::S3LogDeliveryDescription.default(visited),
+          cloud_watch_logs: CloudWatchLogsLogDeliveryDescription.default(visited),
+          firehose: FirehoseLogDeliveryDescription.default(visited),
+          s3: S3LogDeliveryDescription.default(visited),
         }
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('KafkaClusterDescription')
         visited = visited + ['KafkaClusterDescription']
         {
-          apache_kafka_cluster: Stubs::ApacheKafkaClusterDescription.default(visited),
+          apache_kafka_cluster: ApacheKafkaClusterDescription.default(visited),
         }
       end
 
@@ -447,7 +447,7 @@ module AWS::SDK::KafkaConnect
         visited = visited + ['ApacheKafkaClusterDescription']
         {
           bootstrap_servers: 'bootstrap_servers',
-          vpc: Stubs::VpcDescription.default(visited),
+          vpc: VpcDescription.default(visited),
         }
       end
 
@@ -466,8 +466,8 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('VpcDescription')
         visited = visited + ['VpcDescription']
         {
-          security_groups: Stubs::List____listOf__string.default(visited),
-          subnets: Stubs::List____listOf__string.default(visited),
+          security_groups: List____listOf__string.default(visited),
+          subnets: List____listOf__string.default(visited),
         }
       end
 
@@ -500,11 +500,11 @@ module AWS::SDK::KafkaConnect
       end
     end
 
-    # Map Stubber for __mapOf__string
-    class Map____mapOf__string
+    # Map Stubber for __sensitive__mapOf__string
+    class Map____sensitive__mapOf__string
       def self.default(visited=[])
-        return nil if visited.include?('Map____mapOf__string')
-        visited = visited + ['Map____mapOf__string']
+        return nil if visited.include?('Map____sensitive__mapOf__string')
+        visited = visited + ['Map____sensitive__mapOf__string']
         {
           test_key: 'value'
         }
@@ -526,8 +526,8 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('CapacityDescription')
         visited = visited + ['CapacityDescription']
         {
-          auto_scaling: Stubs::AutoScalingDescription.default(visited),
-          provisioned_capacity: Stubs::ProvisionedCapacityDescription.default(visited),
+          auto_scaling: AutoScalingDescription.default(visited),
+          provisioned_capacity: ProvisionedCapacityDescription.default(visited),
         }
       end
 
@@ -569,8 +569,8 @@ module AWS::SDK::KafkaConnect
           max_worker_count: 1,
           mcu_count: 1,
           min_worker_count: 1,
-          scale_in_policy: Stubs::ScaleInPolicyDescription.default(visited),
-          scale_out_policy: Stubs::ScaleOutPolicyDescription.default(visited),
+          scale_in_policy: ScaleInPolicyDescription.default(visited),
+          scale_out_policy: ScaleOutPolicyDescription.default(visited),
         }
       end
 
@@ -630,9 +630,9 @@ module AWS::SDK::KafkaConnect
           custom_plugin_arn: 'custom_plugin_arn',
           custom_plugin_state: 'custom_plugin_state',
           description: 'description',
-          latest_revision: Stubs::CustomPluginRevisionSummary.default(visited),
+          latest_revision: CustomPluginRevisionSummary.default(visited),
           name: 'name',
-          state_description: Stubs::StateDescription.default(visited),
+          state_description: StateDescription.default(visited),
         }
       end
 
@@ -660,8 +660,8 @@ module AWS::SDK::KafkaConnect
           content_type: 'content_type',
           creation_time: Time.now,
           description: 'description',
-          file_description: Stubs::CustomPluginFileDescription.default(visited),
-          location: Stubs::CustomPluginLocationDescription.default(visited),
+          file_description: CustomPluginFileDescription.default(visited),
+          location: CustomPluginLocationDescription.default(visited),
           revision: 1,
         }
       end
@@ -685,7 +685,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('CustomPluginLocationDescription')
         visited = visited + ['CustomPluginLocationDescription']
         {
-          s3_location: Stubs::S3LocationDescription.default(visited),
+          s3_location: S3LocationDescription.default(visited),
         }
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::KafkaConnect
         {
           creation_time: Time.now,
           description: 'description',
-          latest_revision: Stubs::WorkerConfigurationRevisionDescription.default(visited),
+          latest_revision: WorkerConfigurationRevisionDescription.default(visited),
           name: 'name',
           worker_configuration_arn: 'worker_configuration_arn',
         }
@@ -792,7 +792,7 @@ module AWS::SDK::KafkaConnect
     class ListConnectors
       def self.default(visited=[])
         {
-          connectors: Stubs::List____listOfConnectorSummary.default(visited),
+          connectors: List____listOfConnectorSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -813,7 +813,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('List____listOfConnectorSummary')
         visited = visited + ['List____listOfConnectorSummary']
         [
-          Stubs::ConnectorSummary.default(visited)
+          ConnectorSummary.default(visited)
         ]
       end
 
@@ -833,21 +833,21 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('ConnectorSummary')
         visited = visited + ['ConnectorSummary']
         {
-          capacity: Stubs::CapacityDescription.default(visited),
+          capacity: CapacityDescription.default(visited),
           connector_arn: 'connector_arn',
           connector_description: 'connector_description',
           connector_name: 'connector_name',
           connector_state: 'connector_state',
           creation_time: Time.now,
           current_version: 'current_version',
-          kafka_cluster: Stubs::KafkaClusterDescription.default(visited),
-          kafka_cluster_client_authentication: Stubs::KafkaClusterClientAuthenticationDescription.default(visited),
-          kafka_cluster_encryption_in_transit: Stubs::KafkaClusterEncryptionInTransitDescription.default(visited),
+          kafka_cluster: KafkaClusterDescription.default(visited),
+          kafka_cluster_client_authentication: KafkaClusterClientAuthenticationDescription.default(visited),
+          kafka_cluster_encryption_in_transit: KafkaClusterEncryptionInTransitDescription.default(visited),
           kafka_connect_version: 'kafka_connect_version',
-          log_delivery: Stubs::LogDeliveryDescription.default(visited),
-          plugins: Stubs::List____listOfPluginDescription.default(visited),
+          log_delivery: LogDeliveryDescription.default(visited),
+          plugins: List____listOfPluginDescription.default(visited),
           service_execution_role_arn: 'service_execution_role_arn',
-          worker_configuration: Stubs::WorkerConfigurationDescription.default(visited),
+          worker_configuration: WorkerConfigurationDescription.default(visited),
         }
       end
 
@@ -877,7 +877,7 @@ module AWS::SDK::KafkaConnect
     class ListCustomPlugins
       def self.default(visited=[])
         {
-          custom_plugins: Stubs::List____listOfCustomPluginSummary.default(visited),
+          custom_plugins: List____listOfCustomPluginSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -898,7 +898,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('List____listOfCustomPluginSummary')
         visited = visited + ['List____listOfCustomPluginSummary']
         [
-          Stubs::CustomPluginSummary.default(visited)
+          CustomPluginSummary.default(visited)
         ]
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::KafkaConnect
           custom_plugin_arn: 'custom_plugin_arn',
           custom_plugin_state: 'custom_plugin_state',
           description: 'description',
-          latest_revision: Stubs::CustomPluginRevisionSummary.default(visited),
+          latest_revision: CustomPluginRevisionSummary.default(visited),
           name: 'name',
         }
       end
@@ -945,7 +945,7 @@ module AWS::SDK::KafkaConnect
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          worker_configurations: Stubs::List____listOfWorkerConfigurationSummary.default(visited),
+          worker_configurations: List____listOfWorkerConfigurationSummary.default(visited),
         }
       end
 
@@ -965,7 +965,7 @@ module AWS::SDK::KafkaConnect
         return nil if visited.include?('List____listOfWorkerConfigurationSummary')
         visited = visited + ['List____listOfWorkerConfigurationSummary']
         [
-          Stubs::WorkerConfigurationSummary.default(visited)
+          WorkerConfigurationSummary.default(visited)
         ]
       end
 
@@ -987,7 +987,7 @@ module AWS::SDK::KafkaConnect
         {
           creation_time: Time.now,
           description: 'description',
-          latest_revision: Stubs::WorkerConfigurationRevisionSummary.default(visited),
+          latest_revision: WorkerConfigurationRevisionSummary.default(visited),
           name: 'name',
           worker_configuration_arn: 'worker_configuration_arn',
         }

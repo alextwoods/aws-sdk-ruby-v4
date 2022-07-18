@@ -1280,11 +1280,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_only ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -1696,11 +1696,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Provides details of the Redis engine version</p>
@@ -2305,11 +2305,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replica_count ||= 0
       end
-
     end
 
     # @!attribute parameter_group_name
@@ -2334,11 +2334,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.all_parameters ||= false
       end
-
     end
 
     # @!attribute parameter_group
@@ -2585,11 +2585,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.shard_count ||= 0
       end
-
     end
 
     # <p>Provides details of a shard in a snapshot</p>
@@ -2662,11 +2662,11 @@ module AWS::SDK::MemoryDB
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress_percentage ||= 0
       end
-
     end
 
     # <p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>

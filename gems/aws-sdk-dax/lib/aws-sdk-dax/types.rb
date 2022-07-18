@@ -397,11 +397,11 @@ module AWS::SDK::DAX
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.replication_factor ||= 0
       end
-
     end
 
     # @!attribute cluster
@@ -513,11 +513,11 @@ module AWS::SDK::DAX
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.new_replication_factor ||= 0
       end
-
     end
 
     # @!attribute cluster
@@ -953,11 +953,11 @@ module AWS::SDK::DAX
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Represents a single occurrence of something interesting within the system. Some
@@ -1022,11 +1022,11 @@ module AWS::SDK::DAX
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.new_replication_factor ||= 0
       end
-
     end
 
     # @!attribute cluster

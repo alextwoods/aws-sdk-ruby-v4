@@ -5364,11 +5364,11 @@ module AWS::SDK::AlexaForBusiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_linking ||= false
       end
-
     end
 
     # Includes enum constants for SkillType
@@ -5447,11 +5447,11 @@ module AWS::SDK::AlexaForBusiness
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_linking ||= false
       end
-
     end
 
     # <p>A smart home appliance that can connect to a central system. Any domestic device can be

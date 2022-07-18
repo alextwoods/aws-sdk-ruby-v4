@@ -106,7 +106,7 @@ module AWS::SDK::SnowDeviceManagement
         type.command = Command.build(params[:command], context: "#{context}[:command]") unless params[:command].nil?
         type.description = params[:description]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaStore
@@ -80,7 +82,7 @@ module AWS::SDK::MediaStore
     def create_container(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContainerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContainerInput,
         validate_input: @config.validate_input
@@ -150,7 +152,7 @@ module AWS::SDK::MediaStore
     def delete_container(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContainerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContainerInput,
         validate_input: @config.validate_input
@@ -218,7 +220,7 @@ module AWS::SDK::MediaStore
     def delete_container_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContainerPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContainerPolicyInput,
         validate_input: @config.validate_input
@@ -290,7 +292,7 @@ module AWS::SDK::MediaStore
     def delete_cors_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCorsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCorsPolicyInput,
         validate_input: @config.validate_input
@@ -358,7 +360,7 @@ module AWS::SDK::MediaStore
     def delete_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -426,7 +428,7 @@ module AWS::SDK::MediaStore
     def delete_metric_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMetricPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMetricPolicyInput,
         validate_input: @config.validate_input
@@ -507,7 +509,7 @@ module AWS::SDK::MediaStore
     def describe_container(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContainerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContainerInput,
         validate_input: @config.validate_input
@@ -578,7 +580,7 @@ module AWS::SDK::MediaStore
     def get_container_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerPolicyInput,
         validate_input: @config.validate_input
@@ -661,7 +663,7 @@ module AWS::SDK::MediaStore
     def get_cors_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCorsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCorsPolicyInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::MediaStore
     def get_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -804,7 +806,7 @@ module AWS::SDK::MediaStore
     def get_metric_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricPolicyInput,
         validate_input: @config.validate_input
@@ -896,7 +898,7 @@ module AWS::SDK::MediaStore
     def list_containers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContainersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContainersInput,
         validate_input: @config.validate_input
@@ -968,7 +970,7 @@ module AWS::SDK::MediaStore
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1055,7 +1057,7 @@ module AWS::SDK::MediaStore
     def put_container_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutContainerPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutContainerPolicyInput,
         validate_input: @config.validate_input
@@ -1153,7 +1155,7 @@ module AWS::SDK::MediaStore
     def put_cors_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutCorsPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutCorsPolicyInput,
         validate_input: @config.validate_input
@@ -1226,7 +1228,7 @@ module AWS::SDK::MediaStore
     def put_lifecycle_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLifecyclePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLifecyclePolicyInput,
         validate_input: @config.validate_input
@@ -1314,7 +1316,7 @@ module AWS::SDK::MediaStore
     def put_metric_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetricPolicyInput,
         validate_input: @config.validate_input
@@ -1382,7 +1384,7 @@ module AWS::SDK::MediaStore
     def start_access_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAccessLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAccessLoggingInput,
         validate_input: @config.validate_input
@@ -1450,7 +1452,7 @@ module AWS::SDK::MediaStore
     def stop_access_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopAccessLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopAccessLoggingInput,
         validate_input: @config.validate_input
@@ -1532,7 +1534,7 @@ module AWS::SDK::MediaStore
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1608,7 +1610,7 @@ module AWS::SDK::MediaStore
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

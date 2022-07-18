@@ -129,7 +129,11 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     private void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
-        String dataSetter = "data['" + member.getMemberName() + "'] = ";
+        String dataName = member.getMemberName();
+        if (member.hasTrait(JsonNameTrait.class)) {
+            dataName = member.expectTrait(JsonNameTrait.class).getValue();
+        }
+        String dataSetter = "data['" + dataName + "'] = ";
         if (target.isUnionShape()) {
             writer.write("input = input.__getobj__"); // need to avoid infinite recursion
         }
@@ -151,22 +155,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("data")
                 .closeBlock("end");
 
-    }
-
-    @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(input)")
-                .write("data = Set.new")
-                .openBlock("input.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "data << ", "element",
-                            true));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
     }
 
     private class MemberSerializer extends ShapeVisitor.Default<Void> {

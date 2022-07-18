@@ -259,7 +259,7 @@ module AWS::SDK::EBS
         type.parent_snapshot_id = params[:parent_snapshot_id]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.encrypted = params[:encrypted]
         type.kms_key_arn = params[:kms_key_arn]
         type.timeout = params[:timeout]

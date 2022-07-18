@@ -129,7 +129,7 @@ module AWS::SDK::MachineLearning
       def self.default(visited=[])
         {
           ml_model_id: 'ml_model_id',
-          realtime_endpoint_info: Stubs::RealtimeEndpointInfo.default(visited),
+          realtime_endpoint_info: RealtimeEndpointInfo.default(visited),
         }
       end
 
@@ -235,7 +235,7 @@ module AWS::SDK::MachineLearning
       def self.default(visited=[])
         {
           ml_model_id: 'ml_model_id',
-          realtime_endpoint_info: Stubs::RealtimeEndpointInfo.default(visited),
+          realtime_endpoint_info: RealtimeEndpointInfo.default(visited),
         }
       end
 
@@ -270,7 +270,7 @@ module AWS::SDK::MachineLearning
     class DescribeBatchPredictions
       def self.default(visited=[])
         {
-          results: Stubs::BatchPredictions.default(visited),
+          results: BatchPredictions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -290,7 +290,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('BatchPredictions')
         visited = visited + ['BatchPredictions']
         [
-          Stubs::BatchPrediction.default(visited)
+          BatchPrediction.default(visited)
         ]
       end
 
@@ -356,7 +356,7 @@ module AWS::SDK::MachineLearning
     class DescribeDataSources
       def self.default(visited=[])
         {
-          results: Stubs::DataSources.default(visited),
+          results: DataSources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -376,7 +376,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('DataSources')
         visited = visited + ['DataSources']
         [
-          Stubs::DataSource.default(visited)
+          DataSource.default(visited)
         ]
       end
 
@@ -407,8 +407,8 @@ module AWS::SDK::MachineLearning
           name: 'name',
           status: 'status',
           message: 'message',
-          redshift_metadata: Stubs::RedshiftMetadata.default(visited),
-          rds_metadata: Stubs::RDSMetadata.default(visited),
+          redshift_metadata: RedshiftMetadata.default(visited),
+          rds_metadata: RDSMetadata.default(visited),
           role_arn: 'role_arn',
           compute_statistics: false,
           compute_time: 1,
@@ -448,7 +448,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('RDSMetadata')
         visited = visited + ['RDSMetadata']
         {
-          database: Stubs::RDSDatabase.default(visited),
+          database: RDSDatabase.default(visited),
           database_user_name: 'database_user_name',
           select_sql_query: 'select_sql_query',
           resource_role: 'resource_role',
@@ -496,7 +496,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('RedshiftMetadata')
         visited = visited + ['RedshiftMetadata']
         {
-          redshift_database: Stubs::RedshiftDatabase.default(visited),
+          redshift_database: RedshiftDatabase.default(visited),
           database_user_name: 'database_user_name',
           select_sql_query: 'select_sql_query',
         }
@@ -536,7 +536,7 @@ module AWS::SDK::MachineLearning
     class DescribeEvaluations
       def self.default(visited=[])
         {
-          results: Stubs::Evaluations.default(visited),
+          results: Evaluations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -556,7 +556,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('Evaluations')
         visited = visited + ['Evaluations']
         [
-          Stubs::Evaluation.default(visited)
+          Evaluation.default(visited)
         ]
       end
 
@@ -585,7 +585,7 @@ module AWS::SDK::MachineLearning
           last_updated_at: Time.now,
           name: 'name',
           status: 'status',
-          performance_metrics: Stubs::PerformanceMetrics.default(visited),
+          performance_metrics: PerformanceMetrics.default(visited),
           message: 'message',
           compute_time: 1,
           finished_at: Time.now,
@@ -620,7 +620,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('PerformanceMetrics')
         visited = visited + ['PerformanceMetrics']
         {
-          properties: Stubs::PerformanceMetricsProperties.default(visited),
+          properties: PerformanceMetricsProperties.default(visited),
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::MachineLearning
     class DescribeMLModels
       def self.default(visited=[])
         {
-          results: Stubs::MLModels.default(visited),
+          results: MLModels.default(visited),
           next_token: 'next_token',
         }
       end
@@ -676,7 +676,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('MLModels')
         visited = visited + ['MLModels']
         [
-          Stubs::MLModel.default(visited)
+          MLModel.default(visited)
         ]
       end
 
@@ -704,8 +704,8 @@ module AWS::SDK::MachineLearning
           name: 'name',
           status: 'status',
           size_in_bytes: 1,
-          endpoint_info: Stubs::RealtimeEndpointInfo.default(visited),
-          training_parameters: Stubs::TrainingParameters.default(visited),
+          endpoint_info: RealtimeEndpointInfo.default(visited),
+          training_parameters: TrainingParameters.default(visited),
           input_data_location_s3: 'input_data_location_s3',
           algorithm: 'algorithm',
           ml_model_type: 'ml_model_type',
@@ -770,7 +770,7 @@ module AWS::SDK::MachineLearning
         {
           resource_id: 'resource_id',
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -790,7 +790,7 @@ module AWS::SDK::MachineLearning
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -888,8 +888,8 @@ module AWS::SDK::MachineLearning
           status: 'status',
           log_uri: 'log_uri',
           message: 'message',
-          redshift_metadata: Stubs::RedshiftMetadata.default(visited),
-          rds_metadata: Stubs::RDSMetadata.default(visited),
+          redshift_metadata: RedshiftMetadata.default(visited),
+          rds_metadata: RDSMetadata.default(visited),
           role_arn: 'role_arn',
           compute_statistics: false,
           compute_time: 1,
@@ -939,7 +939,7 @@ module AWS::SDK::MachineLearning
           last_updated_at: Time.now,
           name: 'name',
           status: 'status',
-          performance_metrics: Stubs::PerformanceMetrics.default(visited),
+          performance_metrics: PerformanceMetrics.default(visited),
           log_uri: 'log_uri',
           message: 'message',
           compute_time: 1,
@@ -982,8 +982,8 @@ module AWS::SDK::MachineLearning
           name: 'name',
           status: 'status',
           size_in_bytes: 1,
-          endpoint_info: Stubs::RealtimeEndpointInfo.default(visited),
-          training_parameters: Stubs::TrainingParameters.default(visited),
+          endpoint_info: RealtimeEndpointInfo.default(visited),
+          training_parameters: TrainingParameters.default(visited),
           input_data_location_s3: 'input_data_location_s3',
           ml_model_type: 'ml_model_type',
           score_threshold: 1.0,
@@ -1030,7 +1030,7 @@ module AWS::SDK::MachineLearning
     class Predict
       def self.default(visited=[])
         {
-          prediction: Stubs::Prediction.default(visited),
+          prediction: Prediction.default(visited),
         }
       end
 
@@ -1050,8 +1050,8 @@ module AWS::SDK::MachineLearning
         {
           predicted_label: 'predicted_label',
           predicted_value: 1.0,
-          predicted_scores: Stubs::ScoreValuePerLabelMap.default(visited),
-          details: Stubs::DetailsMap.default(visited),
+          predicted_scores: ScoreValuePerLabelMap.default(visited),
+          details: DetailsMap.default(visited),
         }
       end
 

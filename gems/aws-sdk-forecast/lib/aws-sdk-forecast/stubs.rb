@@ -347,22 +347,22 @@ module AWS::SDK::Forecast
           predictor_arn: 'predictor_arn',
           predictor_name: 'predictor_name',
           forecast_horizon: 1,
-          forecast_types: Stubs::ForecastTypes.default(visited),
+          forecast_types: ForecastTypes.default(visited),
           forecast_frequency: 'forecast_frequency',
-          forecast_dimensions: Stubs::ForecastDimensions.default(visited),
-          dataset_import_job_arns: Stubs::ArnList.default(visited),
-          data_config: Stubs::DataConfig.default(visited),
-          encryption_config: Stubs::EncryptionConfig.default(visited),
-          reference_predictor_summary: Stubs::ReferencePredictorSummary.default(visited),
+          forecast_dimensions: ForecastDimensions.default(visited),
+          dataset_import_job_arns: ArnList.default(visited),
+          data_config: DataConfig.default(visited),
+          encryption_config: EncryptionConfig.default(visited),
+          reference_predictor_summary: ReferencePredictorSummary.default(visited),
           estimated_time_remaining_in_minutes: 1,
           status: 'status',
           message: 'message',
           creation_time: Time.now,
           last_modification_time: Time.now,
           optimization_metric: 'optimization_metric',
-          explainability_info: Stubs::ExplainabilityInfo.default(visited),
-          monitor_info: Stubs::MonitorInfo.default(visited),
-          time_alignment_boundary: Stubs::TimeAlignmentBoundary.default(visited),
+          explainability_info: ExplainabilityInfo.default(visited),
+          monitor_info: MonitorInfo.default(visited),
+          time_alignment_boundary: TimeAlignmentBoundary.default(visited),
         }
       end
 
@@ -503,8 +503,8 @@ module AWS::SDK::Forecast
         visited = visited + ['DataConfig']
         {
           dataset_group_arn: 'dataset_group_arn',
-          attribute_configs: Stubs::AttributeConfigs.default(visited),
-          additional_datasets: Stubs::AdditionalDatasets.default(visited),
+          attribute_configs: AttributeConfigs.default(visited),
+          additional_datasets: AdditionalDatasets.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('AdditionalDatasets')
         visited = visited + ['AdditionalDatasets']
         [
-          Stubs::AdditionalDataset.default(visited)
+          AdditionalDataset.default(visited)
         ]
       end
 
@@ -545,7 +545,7 @@ module AWS::SDK::Forecast
         visited = visited + ['AdditionalDataset']
         {
           name: 'name',
-          configuration: Stubs::Configuration.default(visited),
+          configuration: Configuration.default(visited),
         }
       end
 
@@ -564,7 +564,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Configuration')
         visited = visited + ['Configuration']
         {
-          test_key: Stubs::Values.default(visited)
+          test_key: Values.default(visited)
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('AttributeConfigs')
         visited = visited + ['AttributeConfigs']
         [
-          Stubs::AttributeConfig.default(visited)
+          AttributeConfig.default(visited)
         ]
       end
 
@@ -625,7 +625,7 @@ module AWS::SDK::Forecast
         visited = visited + ['AttributeConfig']
         {
           attribute_name: 'attribute_name',
-          transformations: Stubs::Transformations.default(visited),
+          transformations: Transformations.default(visited),
         }
       end
 
@@ -727,8 +727,8 @@ module AWS::SDK::Forecast
           domain: 'domain',
           dataset_type: 'dataset_type',
           data_frequency: 'data_frequency',
-          schema: Stubs::Schema.default(visited),
-          encryption_config: Stubs::EncryptionConfig.default(visited),
+          schema: Schema.default(visited),
+          encryption_config: EncryptionConfig.default(visited),
           status: 'status',
           creation_time: Time.now,
           last_modification_time: Time.now,
@@ -758,7 +758,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Schema')
         visited = visited + ['Schema']
         {
-          attributes: Stubs::SchemaAttributes.default(visited),
+          attributes: SchemaAttributes.default(visited),
         }
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('SchemaAttributes')
         visited = visited + ['SchemaAttributes']
         [
-          Stubs::SchemaAttribute.default(visited)
+          SchemaAttribute.default(visited)
         ]
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::Forecast
         {
           dataset_group_name: 'dataset_group_name',
           dataset_group_arn: 'dataset_group_arn',
-          dataset_arns: Stubs::ArnList.default(visited),
+          dataset_arns: ArnList.default(visited),
           domain: 'domain',
           status: 'status',
           creation_time: Time.now,
@@ -849,9 +849,9 @@ module AWS::SDK::Forecast
           time_zone: 'time_zone',
           use_geolocation_for_time_zone: false,
           geolocation_format: 'geolocation_format',
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
           estimated_time_remaining_in_minutes: 1,
-          field_statistics: Stubs::FieldStatistics.default(visited),
+          field_statistics: FieldStatistics.default(visited),
           data_size: 1.0,
           status: 'status',
           message: 'message',
@@ -890,7 +890,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('FieldStatistics')
         visited = visited + ['FieldStatistics']
         {
-          test_key: Stubs::Statistics.default(visited)
+          test_key: Statistics.default(visited)
         }
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('DataSource')
         visited = visited + ['DataSource']
         {
-          s3_config: Stubs::S3Config.default(visited),
+          s3_config: S3Config.default(visited),
         }
       end
 
@@ -991,10 +991,10 @@ module AWS::SDK::Forecast
           explainability_arn: 'explainability_arn',
           explainability_name: 'explainability_name',
           resource_arn: 'resource_arn',
-          explainability_config: Stubs::ExplainabilityConfig.default(visited),
+          explainability_config: ExplainabilityConfig.default(visited),
           enable_visualization: false,
-          data_source: Stubs::DataSource.default(visited),
-          schema: Stubs::Schema.default(visited),
+          data_source: DataSource.default(visited),
+          schema: Schema.default(visited),
           start_date_time: 'start_date_time',
           end_date_time: 'end_date_time',
           estimated_time_remaining_in_minutes: 1,
@@ -1053,7 +1053,7 @@ module AWS::SDK::Forecast
           explainability_export_arn: 'explainability_export_arn',
           explainability_export_name: 'explainability_export_name',
           explainability_arn: 'explainability_arn',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           message: 'message',
           status: 'status',
           creation_time: Time.now,
@@ -1084,7 +1084,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('DataDestination')
         visited = visited + ['DataDestination']
         {
-          s3_config: Stubs::S3Config.default(visited),
+          s3_config: S3Config.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::Forecast
         {
           forecast_arn: 'forecast_arn',
           forecast_name: 'forecast_name',
-          forecast_types: Stubs::ForecastTypes.default(visited),
+          forecast_types: ForecastTypes.default(visited),
           predictor_arn: 'predictor_arn',
           dataset_group_arn: 'dataset_group_arn',
           estimated_time_remaining_in_minutes: 1,
@@ -1110,7 +1110,7 @@ module AWS::SDK::Forecast
           message: 'message',
           creation_time: Time.now,
           last_modification_time: Time.now,
-          time_series_selector: Stubs::TimeSeriesSelector.default(visited),
+          time_series_selector: TimeSeriesSelector.default(visited),
         }
       end
 
@@ -1138,7 +1138,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('TimeSeriesSelector')
         visited = visited + ['TimeSeriesSelector']
         {
-          time_series_identifiers: Stubs::TimeSeriesIdentifiers.default(visited),
+          time_series_identifiers: TimeSeriesIdentifiers.default(visited),
         }
       end
 
@@ -1156,8 +1156,8 @@ module AWS::SDK::Forecast
         return nil if visited.include?('TimeSeriesIdentifiers')
         visited = visited + ['TimeSeriesIdentifiers']
         {
-          data_source: Stubs::DataSource.default(visited),
-          schema: Stubs::Schema.default(visited),
+          data_source: DataSource.default(visited),
+          schema: Schema.default(visited),
           format: 'format',
         }
       end
@@ -1179,7 +1179,7 @@ module AWS::SDK::Forecast
           forecast_export_job_arn: 'forecast_export_job_arn',
           forecast_export_job_name: 'forecast_export_job_name',
           forecast_arn: 'forecast_arn',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           message: 'message',
           status: 'status',
           creation_time: Time.now,
@@ -1214,7 +1214,7 @@ module AWS::SDK::Forecast
           status: 'status',
           last_evaluation_time: Time.now,
           last_evaluation_state: 'last_evaluation_state',
-          baseline: Stubs::Baseline.default(visited),
+          baseline: Baseline.default(visited),
           message: 'message',
           creation_time: Time.now,
           last_modification_time: Time.now,
@@ -1246,7 +1246,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Baseline')
         visited = visited + ['Baseline']
         {
-          predictor_baseline: Stubs::PredictorBaseline.default(visited),
+          predictor_baseline: PredictorBaseline.default(visited),
         }
       end
 
@@ -1264,7 +1264,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorBaseline')
         visited = visited + ['PredictorBaseline']
         {
-          baseline_metrics: Stubs::BaselineMetrics.default(visited),
+          baseline_metrics: BaselineMetrics.default(visited),
         }
       end
 
@@ -1282,7 +1282,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('BaselineMetrics')
         visited = visited + ['BaselineMetrics']
         [
-          Stubs::BaselineMetric.default(visited)
+          BaselineMetric.default(visited)
         ]
       end
 
@@ -1323,22 +1323,22 @@ module AWS::SDK::Forecast
           predictor_arn: 'predictor_arn',
           predictor_name: 'predictor_name',
           algorithm_arn: 'algorithm_arn',
-          auto_ml_algorithm_arns: Stubs::ArnList.default(visited),
+          auto_ml_algorithm_arns: ArnList.default(visited),
           forecast_horizon: 1,
-          forecast_types: Stubs::ForecastTypes.default(visited),
+          forecast_types: ForecastTypes.default(visited),
           perform_auto_ml: false,
           auto_ml_override_strategy: 'auto_ml_override_strategy',
           perform_hpo: false,
-          training_parameters: Stubs::TrainingParameters.default(visited),
-          evaluation_parameters: Stubs::EvaluationParameters.default(visited),
-          hpo_config: Stubs::HyperParameterTuningJobConfig.default(visited),
-          input_data_config: Stubs::InputDataConfig.default(visited),
-          featurization_config: Stubs::FeaturizationConfig.default(visited),
-          encryption_config: Stubs::EncryptionConfig.default(visited),
-          predictor_execution_details: Stubs::PredictorExecutionDetails.default(visited),
+          training_parameters: TrainingParameters.default(visited),
+          evaluation_parameters: EvaluationParameters.default(visited),
+          hpo_config: HyperParameterTuningJobConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
+          featurization_config: FeaturizationConfig.default(visited),
+          encryption_config: EncryptionConfig.default(visited),
+          predictor_execution_details: PredictorExecutionDetails.default(visited),
           estimated_time_remaining_in_minutes: 1,
           is_auto_predictor: false,
-          dataset_import_job_arns: Stubs::ArnList.default(visited),
+          dataset_import_job_arns: ArnList.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -1384,7 +1384,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorExecutionDetails')
         visited = visited + ['PredictorExecutionDetails']
         {
-          predictor_executions: Stubs::PredictorExecutions.default(visited),
+          predictor_executions: PredictorExecutions.default(visited),
         }
       end
 
@@ -1402,7 +1402,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorExecutions')
         visited = visited + ['PredictorExecutions']
         [
-          Stubs::PredictorExecution.default(visited)
+          PredictorExecution.default(visited)
         ]
       end
 
@@ -1423,7 +1423,7 @@ module AWS::SDK::Forecast
         visited = visited + ['PredictorExecution']
         {
           algorithm_arn: 'algorithm_arn',
-          test_windows: Stubs::TestWindowDetails.default(visited),
+          test_windows: TestWindowDetails.default(visited),
         }
       end
 
@@ -1442,7 +1442,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('TestWindowDetails')
         visited = visited + ['TestWindowDetails']
         [
-          Stubs::TestWindowSummary.default(visited)
+          TestWindowSummary.default(visited)
         ]
       end
 
@@ -1487,8 +1487,8 @@ module AWS::SDK::Forecast
         visited = visited + ['FeaturizationConfig']
         {
           forecast_frequency: 'forecast_frequency',
-          forecast_dimensions: Stubs::ForecastDimensions.default(visited),
-          featurizations: Stubs::Featurizations.default(visited),
+          forecast_dimensions: ForecastDimensions.default(visited),
+          featurizations: Featurizations.default(visited),
         }
       end
 
@@ -1508,7 +1508,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Featurizations')
         visited = visited + ['Featurizations']
         [
-          Stubs::Featurization.default(visited)
+          Featurization.default(visited)
         ]
       end
 
@@ -1529,7 +1529,7 @@ module AWS::SDK::Forecast
         visited = visited + ['Featurization']
         {
           attribute_name: 'attribute_name',
-          featurization_pipeline: Stubs::FeaturizationPipeline.default(visited),
+          featurization_pipeline: FeaturizationPipeline.default(visited),
         }
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('FeaturizationPipeline')
         visited = visited + ['FeaturizationPipeline']
         [
-          Stubs::FeaturizationMethod.default(visited)
+          FeaturizationMethod.default(visited)
         ]
       end
 
@@ -1569,7 +1569,7 @@ module AWS::SDK::Forecast
         visited = visited + ['FeaturizationMethod']
         {
           featurization_method_name: 'featurization_method_name',
-          featurization_method_parameters: Stubs::FeaturizationMethodParameters.default(visited),
+          featurization_method_parameters: FeaturizationMethodParameters.default(visited),
         }
       end
 
@@ -1609,7 +1609,7 @@ module AWS::SDK::Forecast
         visited = visited + ['InputDataConfig']
         {
           dataset_group_arn: 'dataset_group_arn',
-          supplementary_features: Stubs::SupplementaryFeatures.default(visited),
+          supplementary_features: SupplementaryFeatures.default(visited),
         }
       end
 
@@ -1628,7 +1628,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('SupplementaryFeatures')
         visited = visited + ['SupplementaryFeatures']
         [
-          Stubs::SupplementaryFeature.default(visited)
+          SupplementaryFeature.default(visited)
         ]
       end
 
@@ -1668,7 +1668,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('HyperParameterTuningJobConfig')
         visited = visited + ['HyperParameterTuningJobConfig']
         {
-          parameter_ranges: Stubs::ParameterRanges.default(visited),
+          parameter_ranges: ParameterRanges.default(visited),
         }
       end
 
@@ -1686,9 +1686,9 @@ module AWS::SDK::Forecast
         return nil if visited.include?('ParameterRanges')
         visited = visited + ['ParameterRanges']
         {
-          categorical_parameter_ranges: Stubs::CategoricalParameterRanges.default(visited),
-          continuous_parameter_ranges: Stubs::ContinuousParameterRanges.default(visited),
-          integer_parameter_ranges: Stubs::IntegerParameterRanges.default(visited),
+          categorical_parameter_ranges: CategoricalParameterRanges.default(visited),
+          continuous_parameter_ranges: ContinuousParameterRanges.default(visited),
+          integer_parameter_ranges: IntegerParameterRanges.default(visited),
         }
       end
 
@@ -1708,7 +1708,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('IntegerParameterRanges')
         visited = visited + ['IntegerParameterRanges']
         [
-          Stubs::IntegerParameterRange.default(visited)
+          IntegerParameterRange.default(visited)
         ]
       end
 
@@ -1752,7 +1752,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('ContinuousParameterRanges')
         visited = visited + ['ContinuousParameterRanges']
         [
-          Stubs::ContinuousParameterRange.default(visited)
+          ContinuousParameterRange.default(visited)
         ]
       end
 
@@ -1796,7 +1796,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('CategoricalParameterRanges')
         visited = visited + ['CategoricalParameterRanges']
         [
-          Stubs::CategoricalParameterRange.default(visited)
+          CategoricalParameterRange.default(visited)
         ]
       end
 
@@ -1817,7 +1817,7 @@ module AWS::SDK::Forecast
         visited = visited + ['CategoricalParameterRange']
         {
           name: 'name',
-          values: Stubs::Values.default(visited),
+          values: Values.default(visited),
         }
       end
 
@@ -1877,7 +1877,7 @@ module AWS::SDK::Forecast
           predictor_backtest_export_job_arn: 'predictor_backtest_export_job_arn',
           predictor_backtest_export_job_name: 'predictor_backtest_export_job_name',
           predictor_arn: 'predictor_arn',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           message: 'message',
           status: 'status',
           creation_time: Time.now,
@@ -1906,7 +1906,7 @@ module AWS::SDK::Forecast
     class GetAccuracyMetrics
       def self.default(visited=[])
         {
-          predictor_evaluation_results: Stubs::PredictorEvaluationResults.default(visited),
+          predictor_evaluation_results: PredictorEvaluationResults.default(visited),
           is_auto_predictor: false,
           auto_ml_override_strategy: 'auto_ml_override_strategy',
           optimization_metric: 'optimization_metric',
@@ -1930,7 +1930,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorEvaluationResults')
         visited = visited + ['PredictorEvaluationResults']
         [
-          Stubs::EvaluationResult.default(visited)
+          EvaluationResult.default(visited)
         ]
       end
 
@@ -1951,7 +1951,7 @@ module AWS::SDK::Forecast
         visited = visited + ['EvaluationResult']
         {
           algorithm_arn: 'algorithm_arn',
-          test_windows: Stubs::TestWindows.default(visited),
+          test_windows: TestWindows.default(visited),
         }
       end
 
@@ -1970,7 +1970,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('TestWindows')
         visited = visited + ['TestWindows']
         [
-          Stubs::WindowSummary.default(visited)
+          WindowSummary.default(visited)
         ]
       end
 
@@ -1994,7 +1994,7 @@ module AWS::SDK::Forecast
           test_window_end: Time.now,
           item_count: 1,
           evaluation_type: 'evaluation_type',
-          metrics: Stubs::Metrics.default(visited),
+          metrics: Metrics.default(visited),
         }
       end
 
@@ -2017,8 +2017,8 @@ module AWS::SDK::Forecast
         visited = visited + ['Metrics']
         {
           rmse: 1.0,
-          weighted_quantile_losses: Stubs::WeightedQuantileLosses.default(visited),
-          error_metrics: Stubs::ErrorMetrics.default(visited),
+          weighted_quantile_losses: WeightedQuantileLosses.default(visited),
+          error_metrics: ErrorMetrics.default(visited),
           average_weighted_quantile_loss: 1.0,
         }
       end
@@ -2040,7 +2040,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('ErrorMetrics')
         visited = visited + ['ErrorMetrics']
         [
-          Stubs::ErrorMetric.default(visited)
+          ErrorMetric.default(visited)
         ]
       end
 
@@ -2086,7 +2086,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('WeightedQuantileLosses')
         visited = visited + ['WeightedQuantileLosses']
         [
-          Stubs::WeightedQuantileLoss.default(visited)
+          WeightedQuantileLoss.default(visited)
         ]
       end
 
@@ -2124,7 +2124,7 @@ module AWS::SDK::Forecast
     class ListDatasetGroups
       def self.default(visited=[])
         {
-          dataset_groups: Stubs::DatasetGroups.default(visited),
+          dataset_groups: DatasetGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2144,7 +2144,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('DatasetGroups')
         visited = visited + ['DatasetGroups']
         [
-          Stubs::DatasetGroupSummary.default(visited)
+          DatasetGroupSummary.default(visited)
         ]
       end
 
@@ -2186,7 +2186,7 @@ module AWS::SDK::Forecast
     class ListDatasetImportJobs
       def self.default(visited=[])
         {
-          dataset_import_jobs: Stubs::DatasetImportJobs.default(visited),
+          dataset_import_jobs: DatasetImportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2206,7 +2206,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('DatasetImportJobs')
         visited = visited + ['DatasetImportJobs']
         [
-          Stubs::DatasetImportJobSummary.default(visited)
+          DatasetImportJobSummary.default(visited)
         ]
       end
 
@@ -2228,7 +2228,7 @@ module AWS::SDK::Forecast
         {
           dataset_import_job_arn: 'dataset_import_job_arn',
           dataset_import_job_name: 'dataset_import_job_name',
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2254,7 +2254,7 @@ module AWS::SDK::Forecast
     class ListDatasets
       def self.default(visited=[])
         {
-          datasets: Stubs::Datasets.default(visited),
+          datasets: Datasets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2274,7 +2274,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Datasets')
         visited = visited + ['Datasets']
         [
-          Stubs::DatasetSummary.default(visited)
+          DatasetSummary.default(visited)
         ]
       end
 
@@ -2320,7 +2320,7 @@ module AWS::SDK::Forecast
     class ListExplainabilities
       def self.default(visited=[])
         {
-          explainabilities: Stubs::Explainabilities.default(visited),
+          explainabilities: Explainabilities.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2340,7 +2340,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Explainabilities')
         visited = visited + ['Explainabilities']
         [
-          Stubs::ExplainabilitySummary.default(visited)
+          ExplainabilitySummary.default(visited)
         ]
       end
 
@@ -2363,7 +2363,7 @@ module AWS::SDK::Forecast
           explainability_arn: 'explainability_arn',
           explainability_name: 'explainability_name',
           resource_arn: 'resource_arn',
-          explainability_config: Stubs::ExplainabilityConfig.default(visited),
+          explainability_config: ExplainabilityConfig.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2390,7 +2390,7 @@ module AWS::SDK::Forecast
     class ListExplainabilityExports
       def self.default(visited=[])
         {
-          explainability_exports: Stubs::ExplainabilityExports.default(visited),
+          explainability_exports: ExplainabilityExports.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2410,7 +2410,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('ExplainabilityExports')
         visited = visited + ['ExplainabilityExports']
         [
-          Stubs::ExplainabilityExportSummary.default(visited)
+          ExplainabilityExportSummary.default(visited)
         ]
       end
 
@@ -2432,7 +2432,7 @@ module AWS::SDK::Forecast
         {
           explainability_export_arn: 'explainability_export_arn',
           explainability_export_name: 'explainability_export_name',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2458,7 +2458,7 @@ module AWS::SDK::Forecast
     class ListForecastExportJobs
       def self.default(visited=[])
         {
-          forecast_export_jobs: Stubs::ForecastExportJobs.default(visited),
+          forecast_export_jobs: ForecastExportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2478,7 +2478,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('ForecastExportJobs')
         visited = visited + ['ForecastExportJobs']
         [
-          Stubs::ForecastExportJobSummary.default(visited)
+          ForecastExportJobSummary.default(visited)
         ]
       end
 
@@ -2500,7 +2500,7 @@ module AWS::SDK::Forecast
         {
           forecast_export_job_arn: 'forecast_export_job_arn',
           forecast_export_job_name: 'forecast_export_job_name',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2526,7 +2526,7 @@ module AWS::SDK::Forecast
     class ListForecasts
       def self.default(visited=[])
         {
-          forecasts: Stubs::Forecasts.default(visited),
+          forecasts: Forecasts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2546,7 +2546,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Forecasts')
         visited = visited + ['Forecasts']
         [
-          Stubs::ForecastSummary.default(visited)
+          ForecastSummary.default(visited)
         ]
       end
 
@@ -2599,7 +2599,7 @@ module AWS::SDK::Forecast
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          predictor_monitor_evaluations: Stubs::PredictorMonitorEvaluations.default(visited),
+          predictor_monitor_evaluations: PredictorMonitorEvaluations.default(visited),
         }
       end
 
@@ -2618,7 +2618,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorMonitorEvaluations')
         visited = visited + ['PredictorMonitorEvaluations']
         [
-          Stubs::PredictorMonitorEvaluation.default(visited)
+          PredictorMonitorEvaluation.default(visited)
         ]
       end
 
@@ -2644,9 +2644,9 @@ module AWS::SDK::Forecast
           evaluation_state: 'evaluation_state',
           window_start_datetime: Time.now,
           window_end_datetime: Time.now,
-          predictor_event: Stubs::PredictorEvent.default(visited),
-          monitor_data_source: Stubs::MonitorDataSource.default(visited),
-          metric_results: Stubs::MetricResults.default(visited),
+          predictor_event: PredictorEvent.default(visited),
+          monitor_data_source: MonitorDataSource.default(visited),
+          metric_results: MetricResults.default(visited),
           num_items_evaluated: 1,
           message: 'message',
         }
@@ -2676,7 +2676,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('MetricResults')
         visited = visited + ['MetricResults']
         [
-          Stubs::MetricResult.default(visited)
+          MetricResult.default(visited)
         ]
       end
 
@@ -2756,7 +2756,7 @@ module AWS::SDK::Forecast
     class ListMonitors
       def self.default(visited=[])
         {
-          monitors: Stubs::Monitors.default(visited),
+          monitors: Monitors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2776,7 +2776,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Monitors')
         visited = visited + ['Monitors']
         [
-          Stubs::MonitorSummary.default(visited)
+          MonitorSummary.default(visited)
         ]
       end
 
@@ -2822,7 +2822,7 @@ module AWS::SDK::Forecast
     class ListPredictorBacktestExportJobs
       def self.default(visited=[])
         {
-          predictor_backtest_export_jobs: Stubs::PredictorBacktestExportJobs.default(visited),
+          predictor_backtest_export_jobs: PredictorBacktestExportJobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2842,7 +2842,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('PredictorBacktestExportJobs')
         visited = visited + ['PredictorBacktestExportJobs']
         [
-          Stubs::PredictorBacktestExportJobSummary.default(visited)
+          PredictorBacktestExportJobSummary.default(visited)
         ]
       end
 
@@ -2864,7 +2864,7 @@ module AWS::SDK::Forecast
         {
           predictor_backtest_export_job_arn: 'predictor_backtest_export_job_arn',
           predictor_backtest_export_job_name: 'predictor_backtest_export_job_name',
-          destination: Stubs::DataDestination.default(visited),
+          destination: DataDestination.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2890,7 +2890,7 @@ module AWS::SDK::Forecast
     class ListPredictors
       def self.default(visited=[])
         {
-          predictors: Stubs::Predictors.default(visited),
+          predictors: Predictors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2910,7 +2910,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Predictors')
         visited = visited + ['Predictors']
         [
-          Stubs::PredictorSummary.default(visited)
+          PredictorSummary.default(visited)
         ]
       end
 
@@ -2934,7 +2934,7 @@ module AWS::SDK::Forecast
           predictor_name: 'predictor_name',
           dataset_group_arn: 'dataset_group_arn',
           is_auto_predictor: false,
-          reference_predictor_summary: Stubs::ReferencePredictorSummary.default(visited),
+          reference_predictor_summary: ReferencePredictorSummary.default(visited),
           status: 'status',
           message: 'message',
           creation_time: Time.now,
@@ -2962,7 +2962,7 @@ module AWS::SDK::Forecast
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2980,7 +2980,7 @@ module AWS::SDK::Forecast
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

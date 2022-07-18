@@ -1714,11 +1714,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Indicates that the event destination could not be created because of a naming
@@ -1875,11 +1875,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Represents a request to retrieve an existing custom verification email
@@ -2153,13 +2153,13 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max24_hour_send ||= 0
         self.max_send_rate ||= 0
         self.sent_last24_hours ||= 0
       end
-
     end
 
     GetSendStatisticsInput = ::Struct.new(
@@ -2245,11 +2245,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dkim_enabled ||= false
       end
-
     end
 
     # <p>Represents the custom MAIL FROM domain attributes of a verified identity (email
@@ -2361,6 +2361,7 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.forwarding_enabled ||= false
@@ -2368,7 +2369,6 @@ module AWS::SDK::SES
         self.headers_in_complaint_notifications_enabled ||= false
         self.headers_in_delivery_notifications_enabled ||= false
       end
-
     end
 
     # Includes enum constants for IdentityType
@@ -3557,12 +3557,12 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.scan_enabled ||= false
       end
-
     end
 
     # <p>Information about a receipt rule set.</p>
@@ -3740,12 +3740,12 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
         self.reputation_metrics_enabled ||= false
       end
-
     end
 
     # <p>Indicates that the provided receipt rule does not exist.</p>
@@ -4228,6 +4228,7 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delivery_attempts ||= 0
@@ -4235,7 +4236,6 @@ module AWS::SDK::SES
         self.complaints ||= 0
         self.rejects ||= 0
       end
-
     end
 
     # <p>Represents a request to send a single formatted email using Amazon SES. For more
@@ -4717,11 +4717,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dkim_enabled ||= false
       end
-
     end
 
     # <p>An empty element returned on a successful request.</p>
@@ -4761,11 +4761,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.forwarding_enabled ||= false
       end
-
     end
 
     # <p>An empty element returned on a successful request.</p>
@@ -4812,11 +4812,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>An empty element returned on a successful request.</p>
@@ -5197,11 +5197,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     UpdateAccountSendingEnabledOutput = ::Struct.new(
@@ -5265,11 +5265,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     UpdateConfigurationSetReputationMetricsEnabledOutput = ::Struct.new(
@@ -5299,11 +5299,11 @@ module AWS::SDK::SES
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     UpdateConfigurationSetSendingEnabledOutput = ::Struct.new(

@@ -106,7 +106,7 @@ module AWS::SDK::Kinesis
     class DescribeStream
       def self.default(visited=[])
         {
-          stream_description: Stubs::StreamDescription.default(visited),
+          stream_description: StreamDescription.default(visited),
         }
       end
 
@@ -127,12 +127,12 @@ module AWS::SDK::Kinesis
           stream_name: 'stream_name',
           stream_arn: 'stream_arn',
           stream_status: 'stream_status',
-          stream_mode_details: Stubs::StreamModeDetails.default(visited),
-          shards: Stubs::ShardList.default(visited),
+          stream_mode_details: StreamModeDetails.default(visited),
+          shards: ShardList.default(visited),
           has_more_shards: false,
           retention_period_hours: 1,
           stream_creation_timestamp: Time.now,
-          enhanced_monitoring: Stubs::EnhancedMonitoringList.default(visited),
+          enhanced_monitoring: EnhancedMonitoringList.default(visited),
           encryption_type: 'encryption_type',
           key_id: 'key_id',
         }
@@ -162,7 +162,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('EnhancedMonitoringList')
         visited = visited + ['EnhancedMonitoringList']
         [
-          Stubs::EnhancedMetrics.default(visited)
+          EnhancedMetrics.default(visited)
         ]
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('EnhancedMetrics')
         visited = visited + ['EnhancedMetrics']
         {
-          shard_level_metrics: Stubs::MetricsNameList.default(visited),
+          shard_level_metrics: MetricsNameList.default(visited),
         }
       end
 
@@ -220,7 +220,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('ShardList')
         visited = visited + ['ShardList']
         [
-          Stubs::Shard.default(visited)
+          Shard.default(visited)
         ]
       end
 
@@ -243,8 +243,8 @@ module AWS::SDK::Kinesis
           shard_id: 'shard_id',
           parent_shard_id: 'parent_shard_id',
           adjacent_parent_shard_id: 'adjacent_parent_shard_id',
-          hash_key_range: Stubs::HashKeyRange.default(visited),
-          sequence_number_range: Stubs::SequenceNumberRange.default(visited),
+          hash_key_range: HashKeyRange.default(visited),
+          sequence_number_range: SequenceNumberRange.default(visited),
         }
       end
 
@@ -322,7 +322,7 @@ module AWS::SDK::Kinesis
     class DescribeStreamConsumer
       def self.default(visited=[])
         {
-          consumer_description: Stubs::ConsumerDescription.default(visited),
+          consumer_description: ConsumerDescription.default(visited),
         }
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::Kinesis
     class DescribeStreamSummary
       def self.default(visited=[])
         {
-          stream_description_summary: Stubs::StreamDescriptionSummary.default(visited),
+          stream_description_summary: StreamDescriptionSummary.default(visited),
         }
       end
 
@@ -385,10 +385,10 @@ module AWS::SDK::Kinesis
           stream_name: 'stream_name',
           stream_arn: 'stream_arn',
           stream_status: 'stream_status',
-          stream_mode_details: Stubs::StreamModeDetails.default(visited),
+          stream_mode_details: StreamModeDetails.default(visited),
           retention_period_hours: 1,
           stream_creation_timestamp: Time.now,
-          enhanced_monitoring: Stubs::EnhancedMonitoringList.default(visited),
+          enhanced_monitoring: EnhancedMonitoringList.default(visited),
           encryption_type: 'encryption_type',
           key_id: 'key_id',
           open_shard_count: 1,
@@ -419,8 +419,8 @@ module AWS::SDK::Kinesis
       def self.default(visited=[])
         {
           stream_name: 'stream_name',
-          current_shard_level_metrics: Stubs::MetricsNameList.default(visited),
-          desired_shard_level_metrics: Stubs::MetricsNameList.default(visited),
+          current_shard_level_metrics: MetricsNameList.default(visited),
+          desired_shard_level_metrics: MetricsNameList.default(visited),
         }
       end
 
@@ -439,8 +439,8 @@ module AWS::SDK::Kinesis
       def self.default(visited=[])
         {
           stream_name: 'stream_name',
-          current_shard_level_metrics: Stubs::MetricsNameList.default(visited),
-          desired_shard_level_metrics: Stubs::MetricsNameList.default(visited),
+          current_shard_level_metrics: MetricsNameList.default(visited),
+          desired_shard_level_metrics: MetricsNameList.default(visited),
         }
       end
 
@@ -458,10 +458,10 @@ module AWS::SDK::Kinesis
     class GetRecords
       def self.default(visited=[])
         {
-          records: Stubs::RecordList.default(visited),
+          records: RecordList.default(visited),
           next_shard_iterator: 'next_shard_iterator',
           millis_behind_latest: 1,
-          child_shards: Stubs::ChildShardList.default(visited),
+          child_shards: ChildShardList.default(visited),
         }
       end
 
@@ -482,7 +482,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('ChildShardList')
         visited = visited + ['ChildShardList']
         [
-          Stubs::ChildShard.default(visited)
+          ChildShard.default(visited)
         ]
       end
 
@@ -503,8 +503,8 @@ module AWS::SDK::Kinesis
         visited = visited + ['ChildShard']
         {
           shard_id: 'shard_id',
-          parent_shards: Stubs::ShardIdList.default(visited),
-          hash_key_range: Stubs::HashKeyRange.default(visited),
+          parent_shards: ShardIdList.default(visited),
+          hash_key_range: HashKeyRange.default(visited),
         }
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('RecordList')
         visited = visited + ['RecordList']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -618,7 +618,7 @@ module AWS::SDK::Kinesis
     class ListShards
       def self.default(visited=[])
         {
-          shards: Stubs::ShardList.default(visited),
+          shards: ShardList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -636,7 +636,7 @@ module AWS::SDK::Kinesis
     class ListStreamConsumers
       def self.default(visited=[])
         {
-          consumers: Stubs::ConsumerList.default(visited),
+          consumers: ConsumerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -656,7 +656,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('ConsumerList')
         visited = visited + ['ConsumerList']
         [
-          Stubs::Consumer.default(visited)
+          Consumer.default(visited)
         ]
       end
 
@@ -698,7 +698,7 @@ module AWS::SDK::Kinesis
     class ListStreams
       def self.default(visited=[])
         {
-          stream_names: Stubs::StreamNameList.default(visited),
+          stream_names: StreamNameList.default(visited),
           has_more_streams: false,
         }
       end
@@ -736,7 +736,7 @@ module AWS::SDK::Kinesis
     class ListTagsForStream
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           has_more_tags: false,
         }
       end
@@ -756,7 +756,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -829,7 +829,7 @@ module AWS::SDK::Kinesis
       def self.default(visited=[])
         {
           failed_record_count: 1,
-          records: Stubs::PutRecordsResultEntryList.default(visited),
+          records: PutRecordsResultEntryList.default(visited),
           encryption_type: 'encryption_type',
         }
       end
@@ -850,7 +850,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('PutRecordsResultEntryList')
         visited = visited + ['PutRecordsResultEntryList']
         [
-          Stubs::PutRecordsResultEntry.default(visited)
+          PutRecordsResultEntry.default(visited)
         ]
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Kinesis
     class RegisterStreamConsumer
       def self.default(visited=[])
         {
-          consumer: Stubs::Consumer.default(visited),
+          consumer: Consumer.default(visited),
         }
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::Kinesis
     class SubscribeToShard
       def self.default(visited=[])
         {
-          event_stream: Stubs::SubscribeToShardEventStream.default(visited),
+          event_stream: SubscribeToShardEventStream.default(visited),
         }
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('SubscribeToShardEventStream')
         visited = visited + ['SubscribeToShardEventStream']
         {
-          subscribe_to_shard_event: Stubs::SubscribeToShardEvent.default(visited),
+          subscribe_to_shard_event: SubscribeToShardEvent.default(visited),
         }
       end
 
@@ -1186,10 +1186,10 @@ module AWS::SDK::Kinesis
         return nil if visited.include?('SubscribeToShardEvent')
         visited = visited + ['SubscribeToShardEvent']
         {
-          records: Stubs::RecordList.default(visited),
+          records: RecordList.default(visited),
           continuation_sequence_number: 'continuation_sequence_number',
           millis_behind_latest: 1,
-          child_shards: Stubs::ChildShardList.default(visited),
+          child_shards: ChildShardList.default(visited),
         }
       end
 

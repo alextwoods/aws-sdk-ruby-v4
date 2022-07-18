@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::EMRServerless
   module Builders
 
@@ -234,10 +232,10 @@ module AWS::SDK::EMRServerless
       end
     end
 
-    # Set Builder for ApplicationStateSet
+    # List Builder for ApplicationStateSet
     class ApplicationStateSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end
@@ -271,10 +269,10 @@ module AWS::SDK::EMRServerless
       end
     end
 
-    # Set Builder for JobRunStateSet
+    # List Builder for JobRunStateSet
     class JobRunStateSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

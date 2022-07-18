@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ServiceCatalog
@@ -102,7 +104,7 @@ module AWS::SDK::ServiceCatalog
     def accept_portfolio_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptPortfolioShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptPortfolioShareInput,
         validate_input: @config.validate_input
@@ -174,7 +176,7 @@ module AWS::SDK::ServiceCatalog
     def associate_budget_with_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateBudgetWithResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateBudgetWithResourceInput,
         validate_input: @config.validate_input
@@ -268,7 +270,7 @@ module AWS::SDK::ServiceCatalog
     def associate_principal_with_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePrincipalWithPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePrincipalWithPortfolioInput,
         validate_input: @config.validate_input
@@ -363,7 +365,7 @@ module AWS::SDK::ServiceCatalog
     def associate_product_with_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateProductWithPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateProductWithPortfolioInput,
         validate_input: @config.validate_input
@@ -457,7 +459,7 @@ module AWS::SDK::ServiceCatalog
     def associate_service_action_with_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateServiceActionWithProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateServiceActionWithProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -529,7 +531,7 @@ module AWS::SDK::ServiceCatalog
     def associate_tag_option_with_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTagOptionWithResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTagOptionWithResourceInput,
         validate_input: @config.validate_input
@@ -628,7 +630,7 @@ module AWS::SDK::ServiceCatalog
     def batch_associate_service_action_with_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateServiceActionWithProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateServiceActionWithProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -727,7 +729,7 @@ module AWS::SDK::ServiceCatalog
     def batch_disassociate_service_action_from_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateServiceActionFromProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateServiceActionFromProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -847,7 +849,7 @@ module AWS::SDK::ServiceCatalog
     def copy_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyProductInput,
         validate_input: @config.validate_input
@@ -1042,7 +1044,7 @@ module AWS::SDK::ServiceCatalog
     def create_constraint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConstraintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConstraintInput,
         validate_input: @config.validate_input
@@ -1162,7 +1164,7 @@ module AWS::SDK::ServiceCatalog
     def create_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePortfolioInput,
         validate_input: @config.validate_input
@@ -1277,7 +1279,7 @@ module AWS::SDK::ServiceCatalog
     def create_portfolio_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePortfolioShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePortfolioShareInput,
         validate_input: @config.validate_input
@@ -1453,7 +1455,7 @@ module AWS::SDK::ServiceCatalog
     def create_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProductInput,
         validate_input: @config.validate_input
@@ -1606,7 +1608,7 @@ module AWS::SDK::ServiceCatalog
     def create_provisioned_product_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProvisionedProductPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProvisionedProductPlanInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::ServiceCatalog
     def create_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -1860,7 +1862,7 @@ module AWS::SDK::ServiceCatalog
     def create_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceActionInput,
         validate_input: @config.validate_input
@@ -1938,7 +1940,7 @@ module AWS::SDK::ServiceCatalog
     def create_tag_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagOptionInput,
         validate_input: @config.validate_input
@@ -2025,7 +2027,7 @@ module AWS::SDK::ServiceCatalog
     def delete_constraint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConstraintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConstraintInput,
         validate_input: @config.validate_input
@@ -2114,7 +2116,7 @@ module AWS::SDK::ServiceCatalog
     def delete_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePortfolioInput,
         validate_input: @config.validate_input
@@ -2215,7 +2217,7 @@ module AWS::SDK::ServiceCatalog
     def delete_portfolio_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePortfolioShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePortfolioShareInput,
         validate_input: @config.validate_input
@@ -2303,7 +2305,7 @@ module AWS::SDK::ServiceCatalog
     def delete_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProductInput,
         validate_input: @config.validate_input
@@ -2394,7 +2396,7 @@ module AWS::SDK::ServiceCatalog
     def delete_provisioned_product_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisionedProductPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisionedProductPlanInput,
         validate_input: @config.validate_input
@@ -2487,7 +2489,7 @@ module AWS::SDK::ServiceCatalog
     def delete_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -2573,7 +2575,7 @@ module AWS::SDK::ServiceCatalog
     def delete_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceActionInput,
         validate_input: @config.validate_input
@@ -2642,7 +2644,7 @@ module AWS::SDK::ServiceCatalog
     def delete_tag_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagOptionInput,
         validate_input: @config.validate_input
@@ -2737,7 +2739,7 @@ module AWS::SDK::ServiceCatalog
     def describe_constraint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConstraintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConstraintInput,
         validate_input: @config.validate_input
@@ -2826,7 +2828,7 @@ module AWS::SDK::ServiceCatalog
     def describe_copy_product_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCopyProductStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCopyProductStatusInput,
         validate_input: @config.validate_input
@@ -2934,7 +2936,7 @@ module AWS::SDK::ServiceCatalog
     def describe_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePortfolioInput,
         validate_input: @config.validate_input
@@ -3016,7 +3018,7 @@ module AWS::SDK::ServiceCatalog
     def describe_portfolio_share_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePortfolioShareStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePortfolioShareStatusInput,
         validate_input: @config.validate_input
@@ -3111,7 +3113,7 @@ module AWS::SDK::ServiceCatalog
     def describe_portfolio_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePortfolioSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePortfolioSharesInput,
         validate_input: @config.validate_input
@@ -3227,7 +3229,7 @@ module AWS::SDK::ServiceCatalog
     def describe_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProductInput,
         validate_input: @config.validate_input
@@ -3364,7 +3366,7 @@ module AWS::SDK::ServiceCatalog
     def describe_product_as_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProductAsAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProductAsAdminInput,
         validate_input: @config.validate_input
@@ -3469,7 +3471,7 @@ module AWS::SDK::ServiceCatalog
     def describe_product_view(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProductViewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProductViewInput,
         validate_input: @config.validate_input
@@ -3579,7 +3581,7 @@ module AWS::SDK::ServiceCatalog
     def describe_provisioned_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisionedProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisionedProductInput,
         validate_input: @config.validate_input
@@ -3715,7 +3717,7 @@ module AWS::SDK::ServiceCatalog
     def describe_provisioned_product_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisionedProductPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisionedProductPlanInput,
         validate_input: @config.validate_input
@@ -3828,7 +3830,7 @@ module AWS::SDK::ServiceCatalog
     def describe_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -3982,7 +3984,7 @@ module AWS::SDK::ServiceCatalog
     def describe_provisioning_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisioningParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisioningParametersInput,
         validate_input: @config.validate_input
@@ -4112,7 +4114,7 @@ module AWS::SDK::ServiceCatalog
     def describe_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecordInput,
         validate_input: @config.validate_input
@@ -4206,7 +4208,7 @@ module AWS::SDK::ServiceCatalog
     def describe_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceActionInput,
         validate_input: @config.validate_input
@@ -4302,7 +4304,7 @@ module AWS::SDK::ServiceCatalog
     def describe_service_action_execution_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceActionExecutionParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceActionExecutionParametersInput,
         validate_input: @config.validate_input
@@ -4376,7 +4378,7 @@ module AWS::SDK::ServiceCatalog
     def describe_tag_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagOptionInput,
         validate_input: @config.validate_input
@@ -4445,7 +4447,7 @@ module AWS::SDK::ServiceCatalog
     def disable_aws_organizations_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableAWSOrganizationsAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableAWSOrganizationsAccessInput,
         validate_input: @config.validate_input
@@ -4517,7 +4519,7 @@ module AWS::SDK::ServiceCatalog
     def disassociate_budget_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateBudgetFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateBudgetFromResourceInput,
         validate_input: @config.validate_input
@@ -4608,7 +4610,7 @@ module AWS::SDK::ServiceCatalog
     def disassociate_principal_from_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePrincipalFromPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePrincipalFromPortfolioInput,
         validate_input: @config.validate_input
@@ -4699,7 +4701,7 @@ module AWS::SDK::ServiceCatalog
     def disassociate_product_from_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateProductFromPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateProductFromPortfolioInput,
         validate_input: @config.validate_input
@@ -4793,7 +4795,7 @@ module AWS::SDK::ServiceCatalog
     def disassociate_service_action_from_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateServiceActionFromProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateServiceActionFromProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -4865,7 +4867,7 @@ module AWS::SDK::ServiceCatalog
     def disassociate_tag_option_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTagOptionFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTagOptionFromResourceInput,
         validate_input: @config.validate_input
@@ -4933,7 +4935,7 @@ module AWS::SDK::ServiceCatalog
     def enable_aws_organizations_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableAWSOrganizationsAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableAWSOrganizationsAccessInput,
         validate_input: @config.validate_input
@@ -5045,7 +5047,7 @@ module AWS::SDK::ServiceCatalog
     def execute_provisioned_product_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteProvisionedProductPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteProvisionedProductPlanInput,
         validate_input: @config.validate_input
@@ -5170,7 +5172,7 @@ module AWS::SDK::ServiceCatalog
     def execute_provisioned_product_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteProvisionedProductServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteProvisionedProductServiceActionInput,
         validate_input: @config.validate_input
@@ -5235,7 +5237,7 @@ module AWS::SDK::ServiceCatalog
     def get_aws_organizations_access_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAWSOrganizationsAccessStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAWSOrganizationsAccessStatusInput,
         validate_input: @config.validate_input
@@ -5345,7 +5347,7 @@ module AWS::SDK::ServiceCatalog
     def get_provisioned_product_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProvisionedProductOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProvisionedProductOutputsInput,
         validate_input: @config.validate_input
@@ -5484,7 +5486,7 @@ module AWS::SDK::ServiceCatalog
     def import_as_provisioned_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportAsProvisionedProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportAsProvisionedProductInput,
         validate_input: @config.validate_input
@@ -5604,7 +5606,7 @@ module AWS::SDK::ServiceCatalog
     def list_accepted_portfolio_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAcceptedPortfolioSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAcceptedPortfolioSharesInput,
         validate_input: @config.validate_input
@@ -5702,7 +5704,7 @@ module AWS::SDK::ServiceCatalog
     def list_budgets_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBudgetsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBudgetsForResourceInput,
         validate_input: @config.validate_input
@@ -5809,7 +5811,7 @@ module AWS::SDK::ServiceCatalog
     def list_constraints_for_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConstraintsForPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConstraintsForPortfolioInput,
         validate_input: @config.validate_input
@@ -5918,7 +5920,7 @@ module AWS::SDK::ServiceCatalog
     def list_launch_paths(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLaunchPathsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLaunchPathsInput,
         validate_input: @config.validate_input
@@ -6038,7 +6040,7 @@ module AWS::SDK::ServiceCatalog
     def list_organization_portfolio_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationPortfolioAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationPortfolioAccessInput,
         validate_input: @config.validate_input
@@ -6140,7 +6142,7 @@ module AWS::SDK::ServiceCatalog
     def list_portfolio_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPortfolioAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPortfolioAccessInput,
         validate_input: @config.validate_input
@@ -6239,7 +6241,7 @@ module AWS::SDK::ServiceCatalog
     def list_portfolios(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPortfoliosInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPortfoliosInput,
         validate_input: @config.validate_input
@@ -6342,7 +6344,7 @@ module AWS::SDK::ServiceCatalog
     def list_portfolios_for_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPortfoliosForProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPortfoliosForProductInput,
         validate_input: @config.validate_input
@@ -6441,7 +6443,7 @@ module AWS::SDK::ServiceCatalog
     def list_principals_for_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPrincipalsForPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPrincipalsForPortfolioInput,
         validate_input: @config.validate_input
@@ -6551,7 +6553,7 @@ module AWS::SDK::ServiceCatalog
     def list_provisioned_product_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisionedProductPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedProductPlansInput,
         validate_input: @config.validate_input
@@ -6647,7 +6649,7 @@ module AWS::SDK::ServiceCatalog
     def list_provisioning_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisioningArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisioningArtifactsInput,
         validate_input: @config.validate_input
@@ -6762,7 +6764,7 @@ module AWS::SDK::ServiceCatalog
     def list_provisioning_artifacts_for_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisioningArtifactsForServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisioningArtifactsForServiceActionInput,
         validate_input: @config.validate_input
@@ -6889,7 +6891,7 @@ module AWS::SDK::ServiceCatalog
     def list_record_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecordHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecordHistoryInput,
         validate_input: @config.validate_input
@@ -6989,7 +6991,7 @@ module AWS::SDK::ServiceCatalog
     def list_resources_for_tag_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesForTagOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesForTagOptionInput,
         validate_input: @config.validate_input
@@ -7086,7 +7088,7 @@ module AWS::SDK::ServiceCatalog
     def list_service_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceActionsInput,
         validate_input: @config.validate_input
@@ -7191,7 +7193,7 @@ module AWS::SDK::ServiceCatalog
     def list_service_actions_for_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceActionsForProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceActionsForProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -7291,7 +7293,7 @@ module AWS::SDK::ServiceCatalog
     def list_stack_instances_for_provisioned_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStackInstancesForProvisionedProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStackInstancesForProvisionedProductInput,
         validate_input: @config.validate_input
@@ -7379,7 +7381,7 @@ module AWS::SDK::ServiceCatalog
     def list_tag_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagOptionsInput,
         validate_input: @config.validate_input
@@ -7566,7 +7568,7 @@ module AWS::SDK::ServiceCatalog
     def provision_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionProductInput,
         validate_input: @config.validate_input
@@ -7673,7 +7675,7 @@ module AWS::SDK::ServiceCatalog
     def reject_portfolio_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectPortfolioShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectPortfolioShareInput,
         validate_input: @config.validate_input
@@ -7788,7 +7790,7 @@ module AWS::SDK::ServiceCatalog
     def scan_provisioned_products(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScanProvisionedProductsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanProvisionedProductsInput,
         validate_input: @config.validate_input
@@ -7914,7 +7916,7 @@ module AWS::SDK::ServiceCatalog
     def search_products(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchProductsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchProductsInput,
         validate_input: @config.validate_input
@@ -8047,7 +8049,7 @@ module AWS::SDK::ServiceCatalog
     def search_products_as_admin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchProductsAsAdminInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchProductsAsAdminInput,
         validate_input: @config.validate_input
@@ -8195,7 +8197,7 @@ module AWS::SDK::ServiceCatalog
     def search_provisioned_products(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchProvisionedProductsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchProvisionedProductsInput,
         validate_input: @config.validate_input
@@ -8329,7 +8331,7 @@ module AWS::SDK::ServiceCatalog
     def terminate_provisioned_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateProvisionedProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateProvisionedProductInput,
         validate_input: @config.validate_input
@@ -8483,7 +8485,7 @@ module AWS::SDK::ServiceCatalog
     def update_constraint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConstraintInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConstraintInput,
         validate_input: @config.validate_input
@@ -8608,7 +8610,7 @@ module AWS::SDK::ServiceCatalog
     def update_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePortfolioInput,
         validate_input: @config.validate_input
@@ -8719,7 +8721,7 @@ module AWS::SDK::ServiceCatalog
     def update_portfolio_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePortfolioShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePortfolioShareInput,
         validate_input: @config.validate_input
@@ -8868,7 +8870,7 @@ module AWS::SDK::ServiceCatalog
     def update_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProductInput,
         validate_input: @config.validate_input
@@ -9048,7 +9050,7 @@ module AWS::SDK::ServiceCatalog
     def update_provisioned_product(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProvisionedProductInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProvisionedProductInput,
         validate_input: @config.validate_input
@@ -9167,7 +9169,7 @@ module AWS::SDK::ServiceCatalog
     def update_provisioned_product_properties(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProvisionedProductPropertiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProvisionedProductPropertiesInput,
         validate_input: @config.validate_input
@@ -9290,7 +9292,7 @@ module AWS::SDK::ServiceCatalog
     def update_provisioning_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProvisioningArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProvisioningArtifactInput,
         validate_input: @config.validate_input
@@ -9398,7 +9400,7 @@ module AWS::SDK::ServiceCatalog
     def update_service_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceActionInput,
         validate_input: @config.validate_input
@@ -9480,7 +9482,7 @@ module AWS::SDK::ServiceCatalog
     def update_tag_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTagOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTagOptionInput,
         validate_input: @config.validate_input

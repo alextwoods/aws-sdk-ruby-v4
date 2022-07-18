@@ -232,6 +232,7 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.required ||= false
@@ -239,7 +240,6 @@ module AWS::SDK::CodePipeline
         self.secret ||= false
         self.queryable ||= false
       end
-
     end
 
     # Includes enum constants for ActionConfigurationPropertyType
@@ -816,12 +816,12 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_count ||= 0
         self.maximum_count ||= 0
       end
-
     end
 
     # <p>The parameters for the action type definition that are provided when the action type
@@ -1142,6 +1142,7 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.optional ||= false
@@ -1149,7 +1150,6 @@ module AWS::SDK::CodePipeline
         self.no_echo ||= false
         self.queryable ||= false
       end
-
     end
 
     # <p>Returns information about the settings for an action type.</p>
@@ -1346,12 +1346,12 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_count ||= 0
         self.maximum_count ||= 0
       end
-
     end
 
     # <p>Represents information about the location of an artifact.</p>
@@ -3797,11 +3797,11 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.new_revision ||= false
       end
-
     end
 
     # <p>Represents the input of a <code>PutApprovalResult</code> action.</p>
@@ -4508,11 +4508,11 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.abandon ||= false
       end
-
     end
 
     # @!attribute pipeline_execution_id
@@ -4752,11 +4752,11 @@ module AWS::SDK::CodePipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for TriggerType

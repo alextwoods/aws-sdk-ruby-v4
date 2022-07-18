@@ -144,11 +144,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.alert_sensitivity_threshold ||= 0
       end
-
     end
 
     # Includes enum constants for AlertStatus
@@ -227,11 +227,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.alert_sensitivity_threshold ||= 0
       end
-
     end
 
     # Includes enum constants for AlertType
@@ -490,11 +490,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_count ||= 0
       end
-
     end
 
     # <p>Details about a group of anomalous metrics.</p>
@@ -889,11 +889,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.alert_sensitivity_threshold ||= 0
       end
-
     end
 
     # @!attribute alert_arn
@@ -1899,11 +1899,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.occurrence_count ||= 0
       end
-
     end
 
     # Includes enum constants for JsonFileCompression
@@ -2129,11 +2129,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sensitivity_threshold ||= 0
       end
-
     end
 
     # @!attribute anomaly_group_summary_list
@@ -2353,11 +2353,11 @@ module AWS::SDK::LookoutMetrics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.num_time_series ||= 0
       end
-
     end
 
     # <p>Contains information about a dataset.</p>

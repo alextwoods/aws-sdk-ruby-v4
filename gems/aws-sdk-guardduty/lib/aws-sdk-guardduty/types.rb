@@ -61,12 +61,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_public_read_access ||= false
         self.allows_public_write_access ||= false
       end
-
     end
 
     # <p>Contains information about the access keys.</p>
@@ -348,6 +348,7 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_public_acls ||= false
@@ -355,7 +356,6 @@ module AWS::SDK::GuardDuty
         self.block_public_acls ||= false
         self.block_public_policy ||= false
       end
-
     end
 
     # <p>Contains information about the bucket level permissions for the S3 bucket.</p>
@@ -405,12 +405,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allows_public_read_access ||= false
         self.allows_public_write_access ||= false
       end
-
     end
 
     # <p>Contains information about the city associated with the IP address.</p>
@@ -547,6 +547,7 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gt ||= 0
@@ -558,7 +559,6 @@ module AWS::SDK::GuardDuty
         self.less_than ||= 0
         self.less_than_or_equal ||= 0
       end
-
     end
 
     # <p>Details of a container.</p>
@@ -667,11 +667,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
       end
-
     end
 
     # @!attribute detector_id
@@ -921,11 +921,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # @!attribute name
@@ -991,11 +991,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.activate ||= false
       end
-
     end
 
     # @!attribute ip_set_id
@@ -1165,11 +1165,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.activate ||= false
       end
-
     end
 
     # @!attribute threat_intel_set_id
@@ -1559,12 +1559,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
         self.member_account_limit_reached ||= false
       end
-
     end
 
     # @!attribute detector_id
@@ -1627,11 +1627,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publishing_failure_start_timestamp ||= 0
       end
-
     end
 
     # <p>Contains information about the publishing destination, including the ID, type, and
@@ -2010,12 +2010,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.confidence ||= 0
         self.severity ||= 0
       end
-
     end
 
     # <p>Contains information about the criteria used for querying findings.</p>
@@ -2105,12 +2105,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.lat ||= 0
         self.lon ||= 0
       end
-
     end
 
     # @!attribute detector_id
@@ -2238,11 +2238,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # @!attribute detector_id
@@ -2394,11 +2394,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.invitations_count ||= 0
       end
-
     end
 
     # @!attribute detector_id
@@ -2606,11 +2606,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute usage_statistics
@@ -2838,11 +2838,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_email_notification ||= false
       end
-
     end
 
     # @!attribute unprocessed_accounts
@@ -2966,11 +2966,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
@@ -2985,11 +2985,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
       end
-
     end
 
     # <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
@@ -3130,11 +3130,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.host_network ||= false
       end
-
     end
 
     # @!attribute max_results
@@ -3157,11 +3157,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute detector_ids
@@ -3209,11 +3209,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute filter_names
@@ -3424,11 +3424,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute finding_ids
@@ -3476,11 +3476,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute ip_set_ids
@@ -3522,11 +3522,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute invitations
@@ -3581,11 +3581,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute members
@@ -3626,11 +3626,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute admin_accounts
@@ -3678,11 +3678,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute destinations
@@ -3757,11 +3757,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute threat_intel_set_ids
@@ -3815,11 +3815,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Contains information about the administrator account and invitation.</p>
@@ -3972,11 +3972,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blocked ||= false
       end
-
     end
 
     # <p>Contains information about the elastic network interface of the EC2 instance.</p>
@@ -4148,11 +4148,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     # <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
@@ -4167,11 +4167,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     # <p>Organization-wide Kubernetes data sources configurations.</p>
@@ -4216,11 +4216,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     # <p>The current configuration of S3 data event logs as a data source for the
@@ -4237,11 +4237,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     # <p>Contains information on the owner of the bucket.</p>
@@ -4299,11 +4299,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blocked ||= false
       end
-
     end
 
     # <p>Contains information about the port probe details.</p>
@@ -4431,11 +4431,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.affiliated ||= false
       end
-
     end
 
     # <p>Contains information about the remote IP address of the connection.</p>
@@ -4494,11 +4494,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
@@ -4616,11 +4616,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
       end
-
     end
 
     # <p>Describes whether S3 data event logs will be enabled as a data source.</p>
@@ -4652,11 +4652,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.privileged ||= false
       end
-
     end
 
     # <p>Contains information about the security groups associated with the EC2 instance.</p>
@@ -4747,12 +4747,12 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.archived ||= false
         self.count ||= 0
       end
-
     end
 
     # <p>Contains information about the criteria used for sorting findings.</p>
@@ -5089,11 +5089,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable ||= false
       end
-
     end
 
     UpdateDetectorOutput = ::Struct.new(
@@ -5147,11 +5147,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # @!attribute name
@@ -5239,11 +5239,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.activate ||= false
       end
-
     end
 
     UpdateIPSetOutput = ::Struct.new(
@@ -5312,11 +5312,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_enable ||= false
       end
-
     end
 
     UpdateOrganizationConfigurationOutput = ::Struct.new(
@@ -5394,11 +5394,11 @@ module AWS::SDK::GuardDuty
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.activate ||= false
       end
-
     end
 
     UpdateThreatIntelSetOutput = ::Struct.new(

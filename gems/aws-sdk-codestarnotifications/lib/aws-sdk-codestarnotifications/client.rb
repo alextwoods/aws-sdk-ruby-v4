@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodestarNotifications
@@ -194,7 +196,7 @@ module AWS::SDK::CodestarNotifications
     def create_notification_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNotificationRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNotificationRuleInput,
         validate_input: @config.validate_input
@@ -263,7 +265,7 @@ module AWS::SDK::CodestarNotifications
     def delete_notification_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotificationRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotificationRuleInput,
         validate_input: @config.validate_input
@@ -337,7 +339,7 @@ module AWS::SDK::CodestarNotifications
     def delete_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTargetInput,
         validate_input: @config.validate_input
@@ -426,7 +428,7 @@ module AWS::SDK::CodestarNotifications
     def describe_notification_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotificationRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotificationRuleInput,
         validate_input: @config.validate_input
@@ -516,7 +518,7 @@ module AWS::SDK::CodestarNotifications
     def list_event_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventTypesInput,
         validate_input: @config.validate_input
@@ -608,7 +610,7 @@ module AWS::SDK::CodestarNotifications
     def list_notification_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotificationRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotificationRulesInput,
         validate_input: @config.validate_input
@@ -678,7 +680,7 @@ module AWS::SDK::CodestarNotifications
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -771,7 +773,7 @@ module AWS::SDK::CodestarNotifications
     def list_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetsInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::CodestarNotifications
     def subscribe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubscribeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubscribeInput,
         validate_input: @config.validate_input
@@ -930,7 +932,7 @@ module AWS::SDK::CodestarNotifications
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1005,7 +1007,7 @@ module AWS::SDK::CodestarNotifications
     def unsubscribe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnsubscribeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnsubscribeInput,
         validate_input: @config.validate_input
@@ -1081,7 +1083,7 @@ module AWS::SDK::CodestarNotifications
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::CodestarNotifications
     def update_notification_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotificationRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotificationRuleInput,
         validate_input: @config.validate_input

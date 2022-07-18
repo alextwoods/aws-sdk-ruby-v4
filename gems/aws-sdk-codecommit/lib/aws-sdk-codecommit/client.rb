@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeCommit
@@ -463,7 +465,7 @@ module AWS::SDK::CodeCommit
     def associate_approval_rule_template_with_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateApprovalRuleTemplateWithRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateApprovalRuleTemplateWithRepositoryInput,
         validate_input: @config.validate_input
@@ -547,7 +549,7 @@ module AWS::SDK::CodeCommit
     def batch_associate_approval_rule_template_with_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateApprovalRuleTemplateWithRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
         validate_input: @config.validate_input
@@ -706,7 +708,7 @@ module AWS::SDK::CodeCommit
     def batch_describe_merge_conflicts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDescribeMergeConflictsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDescribeMergeConflictsInput,
         validate_input: @config.validate_input
@@ -791,7 +793,7 @@ module AWS::SDK::CodeCommit
     def batch_disassociate_approval_rule_template_from_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateApprovalRuleTemplateFromRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
         validate_input: @config.validate_input
@@ -887,7 +889,7 @@ module AWS::SDK::CodeCommit
     def batch_get_commits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetCommitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetCommitsInput,
         validate_input: @config.validate_input
@@ -981,7 +983,7 @@ module AWS::SDK::CodeCommit
     def batch_get_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetRepositoriesInput,
         validate_input: @config.validate_input
@@ -1117,7 +1119,7 @@ module AWS::SDK::CodeCommit
     def create_approval_rule_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApprovalRuleTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApprovalRuleTemplateInput,
         validate_input: @config.validate_input
@@ -1196,7 +1198,7 @@ module AWS::SDK::CodeCommit
     def create_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBranchInput,
         validate_input: @config.validate_input
@@ -1333,7 +1335,7 @@ module AWS::SDK::CodeCommit
     def create_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCommitInput,
         validate_input: @config.validate_input
@@ -1464,7 +1466,7 @@ module AWS::SDK::CodeCommit
     def create_pull_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePullRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePullRequestInput,
         validate_input: @config.validate_input
@@ -1593,7 +1595,7 @@ module AWS::SDK::CodeCommit
     def create_pull_request_approval_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePullRequestApprovalRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePullRequestApprovalRuleInput,
         validate_input: @config.validate_input
@@ -1696,7 +1698,7 @@ module AWS::SDK::CodeCommit
     def create_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRepositoryInput,
         validate_input: @config.validate_input
@@ -1844,7 +1846,7 @@ module AWS::SDK::CodeCommit
     def create_unreferenced_merge_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUnreferencedMergeCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUnreferencedMergeCommitInput,
         validate_input: @config.validate_input
@@ -1913,7 +1915,7 @@ module AWS::SDK::CodeCommit
     def delete_approval_rule_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApprovalRuleTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApprovalRuleTemplateInput,
         validate_input: @config.validate_input
@@ -1988,7 +1990,7 @@ module AWS::SDK::CodeCommit
     def delete_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBranchInput,
         validate_input: @config.validate_input
@@ -2070,7 +2072,7 @@ module AWS::SDK::CodeCommit
     def delete_comment_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCommentContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCommentContentInput,
         validate_input: @config.validate_input
@@ -2183,7 +2185,7 @@ module AWS::SDK::CodeCommit
     def delete_file(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFileInput,
         validate_input: @config.validate_input
@@ -2258,7 +2260,7 @@ module AWS::SDK::CodeCommit
     def delete_pull_request_approval_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePullRequestApprovalRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePullRequestApprovalRuleInput,
         validate_input: @config.validate_input
@@ -2332,7 +2334,7 @@ module AWS::SDK::CodeCommit
     def delete_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryInput,
         validate_input: @config.validate_input
@@ -2480,7 +2482,7 @@ module AWS::SDK::CodeCommit
     def describe_merge_conflicts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMergeConflictsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMergeConflictsInput,
         validate_input: @config.validate_input
@@ -2605,7 +2607,7 @@ module AWS::SDK::CodeCommit
     def describe_pull_request_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePullRequestEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePullRequestEventsInput,
         validate_input: @config.validate_input
@@ -2680,7 +2682,7 @@ module AWS::SDK::CodeCommit
     def disassociate_approval_rule_template_from_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateApprovalRuleTemplateFromRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateApprovalRuleTemplateFromRepositoryInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::CodeCommit
     def evaluate_pull_request_approval_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EvaluatePullRequestApprovalRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EvaluatePullRequestApprovalRulesInput,
         validate_input: @config.validate_input
@@ -2838,7 +2840,7 @@ module AWS::SDK::CodeCommit
     def get_approval_rule_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApprovalRuleTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApprovalRuleTemplateInput,
         validate_input: @config.validate_input
@@ -2911,7 +2913,7 @@ module AWS::SDK::CodeCommit
     def get_blob(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBlobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBlobInput,
         validate_input: @config.validate_input
@@ -2986,7 +2988,7 @@ module AWS::SDK::CodeCommit
     def get_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBranchInput,
         validate_input: @config.validate_input
@@ -3072,7 +3074,7 @@ module AWS::SDK::CodeCommit
     def get_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommentInput,
         validate_input: @config.validate_input
@@ -3162,7 +3164,7 @@ module AWS::SDK::CodeCommit
     def get_comment_reactions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommentReactionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommentReactionsInput,
         validate_input: @config.validate_input
@@ -3279,7 +3281,7 @@ module AWS::SDK::CodeCommit
     def get_comments_for_compared_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommentsForComparedCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommentsForComparedCommitInput,
         validate_input: @config.validate_input
@@ -3400,7 +3402,7 @@ module AWS::SDK::CodeCommit
     def get_comments_for_pull_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommentsForPullRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommentsForPullRequestInput,
         validate_input: @config.validate_input
@@ -3484,7 +3486,7 @@ module AWS::SDK::CodeCommit
     def get_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCommitInput,
         validate_input: @config.validate_input
@@ -3597,7 +3599,7 @@ module AWS::SDK::CodeCommit
     def get_differences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDifferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDifferencesInput,
         validate_input: @config.validate_input
@@ -3683,7 +3685,7 @@ module AWS::SDK::CodeCommit
     def get_file(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFileInput,
         validate_input: @config.validate_input
@@ -3789,7 +3791,7 @@ module AWS::SDK::CodeCommit
     def get_folder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFolderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFolderInput,
         validate_input: @config.validate_input
@@ -3884,7 +3886,7 @@ module AWS::SDK::CodeCommit
     def get_merge_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMergeCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMergeCommitInput,
         validate_input: @config.validate_input
@@ -4019,7 +4021,7 @@ module AWS::SDK::CodeCommit
     def get_merge_conflicts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMergeConflictsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMergeConflictsInput,
         validate_input: @config.validate_input
@@ -4117,7 +4119,7 @@ module AWS::SDK::CodeCommit
     def get_merge_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMergeOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMergeOptionsInput,
         validate_input: @config.validate_input
@@ -4220,7 +4222,7 @@ module AWS::SDK::CodeCommit
     def get_pull_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPullRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPullRequestInput,
         validate_input: @config.validate_input
@@ -4297,7 +4299,7 @@ module AWS::SDK::CodeCommit
     def get_pull_request_approval_states(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPullRequestApprovalStatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPullRequestApprovalStatesInput,
         validate_input: @config.validate_input
@@ -4374,7 +4376,7 @@ module AWS::SDK::CodeCommit
     def get_pull_request_override_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPullRequestOverrideStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPullRequestOverrideStateInput,
         validate_input: @config.validate_input
@@ -4461,7 +4463,7 @@ module AWS::SDK::CodeCommit
     def get_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryInput,
         validate_input: @config.validate_input
@@ -4539,7 +4541,7 @@ module AWS::SDK::CodeCommit
     def get_repository_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryTriggersInput,
         validate_input: @config.validate_input
@@ -4616,7 +4618,7 @@ module AWS::SDK::CodeCommit
     def list_approval_rule_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApprovalRuleTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApprovalRuleTemplatesInput,
         validate_input: @config.validate_input
@@ -4696,7 +4698,7 @@ module AWS::SDK::CodeCommit
     def list_associated_approval_rule_templates_for_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociatedApprovalRuleTemplatesForRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociatedApprovalRuleTemplatesForRepositoryInput,
         validate_input: @config.validate_input
@@ -4771,7 +4773,7 @@ module AWS::SDK::CodeCommit
     def list_branches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBranchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBranchesInput,
         validate_input: @config.validate_input
@@ -4861,7 +4863,7 @@ module AWS::SDK::CodeCommit
     def list_pull_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPullRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPullRequestsInput,
         validate_input: @config.validate_input
@@ -4944,7 +4946,7 @@ module AWS::SDK::CodeCommit
     def list_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoriesInput,
         validate_input: @config.validate_input
@@ -5024,7 +5026,7 @@ module AWS::SDK::CodeCommit
     def list_repositories_for_approval_rule_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoriesForApprovalRuleTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoriesForApprovalRuleTemplateInput,
         validate_input: @config.validate_input
@@ -5103,7 +5105,7 @@ module AWS::SDK::CodeCommit
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5187,7 +5189,7 @@ module AWS::SDK::CodeCommit
     def merge_branches_by_fast_forward(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeBranchesByFastForwardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeBranchesByFastForwardInput,
         validate_input: @config.validate_input
@@ -5329,7 +5331,7 @@ module AWS::SDK::CodeCommit
     def merge_branches_by_squash(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeBranchesBySquashInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeBranchesBySquashInput,
         validate_input: @config.validate_input
@@ -5471,7 +5473,7 @@ module AWS::SDK::CodeCommit
     def merge_branches_by_three_way(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeBranchesByThreeWayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeBranchesByThreeWayInput,
         validate_input: @config.validate_input
@@ -5584,7 +5586,7 @@ module AWS::SDK::CodeCommit
     def merge_pull_request_by_fast_forward(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergePullRequestByFastForwardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergePullRequestByFastForwardInput,
         validate_input: @config.validate_input
@@ -5755,7 +5757,7 @@ module AWS::SDK::CodeCommit
     def merge_pull_request_by_squash(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergePullRequestBySquashInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergePullRequestBySquashInput,
         validate_input: @config.validate_input
@@ -5926,7 +5928,7 @@ module AWS::SDK::CodeCommit
     def merge_pull_request_by_three_way(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergePullRequestByThreeWayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergePullRequestByThreeWayInput,
         validate_input: @config.validate_input
@@ -6006,7 +6008,7 @@ module AWS::SDK::CodeCommit
     def override_pull_request_approval_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::OverridePullRequestApprovalRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::OverridePullRequestApprovalRulesInput,
         validate_input: @config.validate_input
@@ -6126,7 +6128,7 @@ module AWS::SDK::CodeCommit
     def post_comment_for_compared_commit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostCommentForComparedCommitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostCommentForComparedCommitInput,
         validate_input: @config.validate_input
@@ -6250,7 +6252,7 @@ module AWS::SDK::CodeCommit
     def post_comment_for_pull_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostCommentForPullRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostCommentForPullRequestInput,
         validate_input: @config.validate_input
@@ -6343,7 +6345,7 @@ module AWS::SDK::CodeCommit
     def post_comment_reply(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostCommentReplyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostCommentReplyInput,
         validate_input: @config.validate_input
@@ -6417,7 +6419,7 @@ module AWS::SDK::CodeCommit
     def put_comment_reaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutCommentReactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutCommentReactionInput,
         validate_input: @config.validate_input
@@ -6531,7 +6533,7 @@ module AWS::SDK::CodeCommit
     def put_file(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFileInput,
         validate_input: @config.validate_input
@@ -6616,7 +6618,7 @@ module AWS::SDK::CodeCommit
     def put_repository_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRepositoryTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRepositoryTriggersInput,
         validate_input: @config.validate_input
@@ -6692,7 +6694,7 @@ module AWS::SDK::CodeCommit
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6784,7 +6786,7 @@ module AWS::SDK::CodeCommit
     def test_repository_triggers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestRepositoryTriggersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestRepositoryTriggersInput,
         validate_input: @config.validate_input
@@ -6860,7 +6862,7 @@ module AWS::SDK::CodeCommit
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6950,7 +6952,7 @@ module AWS::SDK::CodeCommit
     def update_approval_rule_template_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApprovalRuleTemplateContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApprovalRuleTemplateContentInput,
         validate_input: @config.validate_input
@@ -7031,7 +7033,7 @@ module AWS::SDK::CodeCommit
     def update_approval_rule_template_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApprovalRuleTemplateDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApprovalRuleTemplateDescriptionInput,
         validate_input: @config.validate_input
@@ -7112,7 +7114,7 @@ module AWS::SDK::CodeCommit
     def update_approval_rule_template_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApprovalRuleTemplateNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApprovalRuleTemplateNameInput,
         validate_input: @config.validate_input
@@ -7198,7 +7200,7 @@ module AWS::SDK::CodeCommit
     def update_comment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCommentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCommentInput,
         validate_input: @config.validate_input
@@ -7273,7 +7275,7 @@ module AWS::SDK::CodeCommit
     def update_default_branch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDefaultBranchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDefaultBranchInput,
         validate_input: @config.validate_input
@@ -7407,7 +7409,7 @@ module AWS::SDK::CodeCommit
     def update_pull_request_approval_rule_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePullRequestApprovalRuleContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePullRequestApprovalRuleContentInput,
         validate_input: @config.validate_input
@@ -7483,7 +7485,7 @@ module AWS::SDK::CodeCommit
     def update_pull_request_approval_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePullRequestApprovalStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePullRequestApprovalStateInput,
         validate_input: @config.validate_input
@@ -7591,7 +7593,7 @@ module AWS::SDK::CodeCommit
     def update_pull_request_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePullRequestDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePullRequestDescriptionInput,
         validate_input: @config.validate_input
@@ -7700,7 +7702,7 @@ module AWS::SDK::CodeCommit
     def update_pull_request_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePullRequestStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePullRequestStatusInput,
         validate_input: @config.validate_input
@@ -7807,7 +7809,7 @@ module AWS::SDK::CodeCommit
     def update_pull_request_title(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePullRequestTitleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePullRequestTitleInput,
         validate_input: @config.validate_input
@@ -7886,7 +7888,7 @@ module AWS::SDK::CodeCommit
     def update_repository_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRepositoryDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRepositoryDescriptionInput,
         validate_input: @config.validate_input
@@ -7962,7 +7964,7 @@ module AWS::SDK::CodeCommit
     def update_repository_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRepositoryNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRepositoryNameInput,
         validate_input: @config.validate_input

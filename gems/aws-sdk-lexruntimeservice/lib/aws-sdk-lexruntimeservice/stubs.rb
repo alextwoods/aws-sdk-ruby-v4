@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::LexRuntimeService
   module Stubs
 
@@ -37,11 +39,11 @@ module AWS::SDK::LexRuntimeService
     class GetSession
       def self.default(visited=[])
         {
-          recent_intent_summary_view: Stubs::IntentSummaryList.default(visited),
-          session_attributes: Stubs::StringMap.default(visited),
+          recent_intent_summary_view: IntentSummaryList.default(visited),
+          session_attributes: StringMap.default(visited),
           session_id: 'session_id',
-          dialog_action: Stubs::DialogAction.default(visited),
-          active_contexts: Stubs::ActiveContextsList.default(visited),
+          dialog_action: DialogAction.default(visited),
+          active_contexts: ActiveContextsList.default(visited),
         }
       end
 
@@ -64,7 +66,7 @@ module AWS::SDK::LexRuntimeService
         return nil if visited.include?('ActiveContextsList')
         visited = visited + ['ActiveContextsList']
         [
-          Stubs::ActiveContext.default(visited)
+          ActiveContext.default(visited)
         ]
       end
 
@@ -85,8 +87,8 @@ module AWS::SDK::LexRuntimeService
         visited = visited + ['ActiveContext']
         {
           name: 'name',
-          time_to_live: Stubs::ActiveContextTimeToLive.default(visited),
-          parameters: Stubs::ActiveContextParametersMap.default(visited),
+          time_to_live: ActiveContextTimeToLive.default(visited),
+          parameters: ActiveContextParametersMap.default(visited),
         }
       end
 
@@ -148,7 +150,7 @@ module AWS::SDK::LexRuntimeService
         {
           type: 'type',
           intent_name: 'intent_name',
-          slots: Stubs::StringMap.default(visited),
+          slots: StringMap.default(visited),
           slot_to_elicit: 'slot_to_elicit',
           fulfillment_state: 'fulfillment_state',
           message: 'message',
@@ -196,7 +198,7 @@ module AWS::SDK::LexRuntimeService
         return nil if visited.include?('IntentSummaryList')
         visited = visited + ['IntentSummaryList']
         [
-          Stubs::IntentSummary.default(visited)
+          IntentSummary.default(visited)
         ]
       end
 
@@ -218,7 +220,7 @@ module AWS::SDK::LexRuntimeService
         {
           intent_name: 'intent_name',
           checkpoint_label: 'checkpoint_label',
-          slots: Stubs::StringMap.default(visited),
+          slots: StringMap.default(visited),
           confirmation_status: 'confirmation_status',
           dialog_action_type: 'dialog_action_type',
           fulfillment_state: 'fulfillment_state',
@@ -270,10 +272,10 @@ module AWS::SDK::LexRuntimeService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['x-amz-lex-intent-name'] = stub[:intent_name] unless stub[:intent_name].nil? || stub[:intent_name].empty?
-        http_resp.headers['x-amz-lex-nlu-intent-confidence'] = Base64::encode64(stub[:nlu_intent_confidence]).strip unless stub[:nlu_intent_confidence].nil? || stub[:nlu_intent_confidence].empty?
-        http_resp.headers['x-amz-lex-alternative-intents'] = Base64::encode64(stub[:alternative_intents]).strip unless stub[:alternative_intents].nil? || stub[:alternative_intents].empty?
-        http_resp.headers['x-amz-lex-slots'] = Base64::encode64(stub[:slots]).strip unless stub[:slots].nil? || stub[:slots].empty?
-        http_resp.headers['x-amz-lex-session-attributes'] = Base64::encode64(stub[:session_attributes]).strip unless stub[:session_attributes].nil? || stub[:session_attributes].empty?
+        http_resp.headers['x-amz-lex-nlu-intent-confidence'] = ::Base64::encode64(stub[:nlu_intent_confidence]).strip unless stub[:nlu_intent_confidence].nil? || stub[:nlu_intent_confidence].empty?
+        http_resp.headers['x-amz-lex-alternative-intents'] = ::Base64::encode64(stub[:alternative_intents]).strip unless stub[:alternative_intents].nil? || stub[:alternative_intents].empty?
+        http_resp.headers['x-amz-lex-slots'] = ::Base64::encode64(stub[:slots]).strip unless stub[:slots].nil? || stub[:slots].empty?
+        http_resp.headers['x-amz-lex-session-attributes'] = ::Base64::encode64(stub[:session_attributes]).strip unless stub[:session_attributes].nil? || stub[:session_attributes].empty?
         http_resp.headers['x-amz-lex-sentiment'] = stub[:sentiment_response] unless stub[:sentiment_response].nil? || stub[:sentiment_response].empty?
         http_resp.headers['x-amz-lex-message'] = stub[:message] unless stub[:message].nil? || stub[:message].empty?
         http_resp.headers['x-amz-lex-encoded-message'] = stub[:encoded_message] unless stub[:encoded_message].nil? || stub[:encoded_message].empty?
@@ -284,7 +286,7 @@ module AWS::SDK::LexRuntimeService
         http_resp.headers['x-amz-lex-encoded-input-transcript'] = stub[:encoded_input_transcript] unless stub[:encoded_input_transcript].nil? || stub[:encoded_input_transcript].empty?
         http_resp.headers['x-amz-lex-bot-version'] = stub[:bot_version] unless stub[:bot_version].nil? || stub[:bot_version].empty?
         http_resp.headers['x-amz-lex-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amz-lex-active-contexts'] = Base64::encode64(stub[:active_contexts]).strip unless stub[:active_contexts].nil? || stub[:active_contexts].empty?
+        http_resp.headers['x-amz-lex-active-contexts'] = ::Base64::encode64(stub[:active_contexts]).strip unless stub[:active_contexts].nil? || stub[:active_contexts].empty?
         IO.copy_stream(stub[:audio_stream], http_resp.body)
       end
     end
@@ -294,19 +296,19 @@ module AWS::SDK::LexRuntimeService
       def self.default(visited=[])
         {
           intent_name: 'intent_name',
-          nlu_intent_confidence: Stubs::IntentConfidence.default(visited),
-          alternative_intents: Stubs::IntentList.default(visited),
-          slots: Stubs::StringMap.default(visited),
-          session_attributes: Stubs::StringMap.default(visited),
+          nlu_intent_confidence: IntentConfidence.default(visited),
+          alternative_intents: IntentList.default(visited),
+          slots: StringMap.default(visited),
+          session_attributes: StringMap.default(visited),
           message: 'message',
-          sentiment_response: Stubs::SentimentResponse.default(visited),
+          sentiment_response: SentimentResponse.default(visited),
           message_format: 'message_format',
           dialog_state: 'dialog_state',
           slot_to_elicit: 'slot_to_elicit',
-          response_card: Stubs::ResponseCard.default(visited),
+          response_card: ResponseCard.default(visited),
           session_id: 'session_id',
           bot_version: 'bot_version',
-          active_contexts: Stubs::ActiveContextsList.default(visited),
+          active_contexts: ActiveContextsList.default(visited),
         }
       end
 
@@ -340,7 +342,7 @@ module AWS::SDK::LexRuntimeService
         {
           version: 'version',
           content_type: 'content_type',
-          generic_attachments: Stubs::GenericAttachmentList.default(visited),
+          generic_attachments: GenericAttachmentList.default(visited),
         }
       end
 
@@ -360,7 +362,7 @@ module AWS::SDK::LexRuntimeService
         return nil if visited.include?('GenericAttachmentList')
         visited = visited + ['GenericAttachmentList']
         [
-          Stubs::GenericAttachment.default(visited)
+          GenericAttachment.default(visited)
         ]
       end
 
@@ -384,7 +386,7 @@ module AWS::SDK::LexRuntimeService
           sub_title: 'sub_title',
           attachment_link_url: 'attachment_link_url',
           image_url: 'image_url',
-          buttons: Stubs::ListOfButtons.default(visited),
+          buttons: ListOfButtons.default(visited),
         }
       end
 
@@ -406,7 +408,7 @@ module AWS::SDK::LexRuntimeService
         return nil if visited.include?('ListOfButtons')
         visited = visited + ['ListOfButtons']
         [
-          Stubs::Button.default(visited)
+          Button.default(visited)
         ]
       end
 
@@ -466,7 +468,7 @@ module AWS::SDK::LexRuntimeService
         return nil if visited.include?('IntentList')
         visited = visited + ['IntentList']
         [
-          Stubs::PredictedIntent.default(visited)
+          PredictedIntent.default(visited)
         ]
       end
 
@@ -487,8 +489,8 @@ module AWS::SDK::LexRuntimeService
         visited = visited + ['PredictedIntent']
         {
           intent_name: 'intent_name',
-          nlu_intent_confidence: Stubs::IntentConfidence.default(visited),
-          slots: Stubs::StringMap.default(visited),
+          nlu_intent_confidence: IntentConfidence.default(visited),
+          slots: StringMap.default(visited),
         }
       end
 
@@ -544,15 +546,15 @@ module AWS::SDK::LexRuntimeService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['x-amz-lex-intent-name'] = stub[:intent_name] unless stub[:intent_name].nil? || stub[:intent_name].empty?
-        http_resp.headers['x-amz-lex-slots'] = Base64::encode64(stub[:slots]).strip unless stub[:slots].nil? || stub[:slots].empty?
-        http_resp.headers['x-amz-lex-session-attributes'] = Base64::encode64(stub[:session_attributes]).strip unless stub[:session_attributes].nil? || stub[:session_attributes].empty?
+        http_resp.headers['x-amz-lex-slots'] = ::Base64::encode64(stub[:slots]).strip unless stub[:slots].nil? || stub[:slots].empty?
+        http_resp.headers['x-amz-lex-session-attributes'] = ::Base64::encode64(stub[:session_attributes]).strip unless stub[:session_attributes].nil? || stub[:session_attributes].empty?
         http_resp.headers['x-amz-lex-message'] = stub[:message] unless stub[:message].nil? || stub[:message].empty?
         http_resp.headers['x-amz-lex-encoded-message'] = stub[:encoded_message] unless stub[:encoded_message].nil? || stub[:encoded_message].empty?
         http_resp.headers['x-amz-lex-message-format'] = stub[:message_format] unless stub[:message_format].nil? || stub[:message_format].empty?
         http_resp.headers['x-amz-lex-dialog-state'] = stub[:dialog_state] unless stub[:dialog_state].nil? || stub[:dialog_state].empty?
         http_resp.headers['x-amz-lex-slot-to-elicit'] = stub[:slot_to_elicit] unless stub[:slot_to_elicit].nil? || stub[:slot_to_elicit].empty?
         http_resp.headers['x-amz-lex-session-id'] = stub[:session_id] unless stub[:session_id].nil? || stub[:session_id].empty?
-        http_resp.headers['x-amz-lex-active-contexts'] = Base64::encode64(stub[:active_contexts]).strip unless stub[:active_contexts].nil? || stub[:active_contexts].empty?
+        http_resp.headers['x-amz-lex-active-contexts'] = ::Base64::encode64(stub[:active_contexts]).strip unless stub[:active_contexts].nil? || stub[:active_contexts].empty?
         IO.copy_stream(stub[:audio_stream], http_resp.body)
       end
     end

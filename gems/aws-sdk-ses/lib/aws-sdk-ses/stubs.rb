@@ -374,8 +374,8 @@ module AWS::SDK::SES
     class DescribeActiveReceiptRuleSet
       def self.default(visited=[])
         {
-          metadata: Stubs::ReceiptRuleSetMetadata.default(visited),
-          rules: Stubs::ReceiptRulesList.default(visited),
+          metadata: ReceiptRuleSetMetadata.default(visited),
+          rules: ReceiptRulesList.default(visited),
         }
       end
 
@@ -398,7 +398,7 @@ module AWS::SDK::SES
         return nil if visited.include?('ReceiptRulesList')
         visited = visited + ['ReceiptRulesList']
         [
-          Stubs::ReceiptRule.default(visited)
+          ReceiptRule.default(visited)
         ]
       end
 
@@ -420,8 +420,8 @@ module AWS::SDK::SES
           name: 'name',
           enabled: false,
           tls_policy: 'tls_policy',
-          recipients: Stubs::RecipientsList.default(visited),
-          actions: Stubs::ReceiptActionsList.default(visited),
+          recipients: RecipientsList.default(visited),
+          actions: ReceiptActionsList.default(visited),
           scan_enabled: false,
         }
       end
@@ -445,7 +445,7 @@ module AWS::SDK::SES
         return nil if visited.include?('ReceiptActionsList')
         visited = visited + ['ReceiptActionsList']
         [
-          Stubs::ReceiptAction.default(visited)
+          ReceiptAction.default(visited)
         ]
       end
 
@@ -464,13 +464,13 @@ module AWS::SDK::SES
         return nil if visited.include?('ReceiptAction')
         visited = visited + ['ReceiptAction']
         {
-          s3_action: Stubs::S3Action.default(visited),
-          bounce_action: Stubs::BounceAction.default(visited),
-          workmail_action: Stubs::WorkmailAction.default(visited),
-          lambda_action: Stubs::LambdaAction.default(visited),
-          stop_action: Stubs::StopAction.default(visited),
-          add_header_action: Stubs::AddHeaderAction.default(visited),
-          sns_action: Stubs::SNSAction.default(visited),
+          s3_action: S3Action.default(visited),
+          bounce_action: BounceAction.default(visited),
+          workmail_action: WorkmailAction.default(visited),
+          lambda_action: LambdaAction.default(visited),
+          stop_action: StopAction.default(visited),
+          add_header_action: AddHeaderAction.default(visited),
+          sns_action: SNSAction.default(visited),
         }
       end
 
@@ -683,11 +683,11 @@ module AWS::SDK::SES
     class DescribeConfigurationSet
       def self.default(visited=[])
         {
-          configuration_set: Stubs::ConfigurationSet.default(visited),
-          event_destinations: Stubs::EventDestinations.default(visited),
-          tracking_options: Stubs::TrackingOptions.default(visited),
-          delivery_options: Stubs::DeliveryOptions.default(visited),
-          reputation_options: Stubs::ReputationOptions.default(visited),
+          configuration_set: ConfigurationSet.default(visited),
+          event_destinations: EventDestinations.default(visited),
+          tracking_options: TrackingOptions.default(visited),
+          delivery_options: DeliveryOptions.default(visited),
+          reputation_options: ReputationOptions.default(visited),
         }
       end
 
@@ -771,7 +771,7 @@ module AWS::SDK::SES
         return nil if visited.include?('EventDestinations')
         visited = visited + ['EventDestinations']
         [
-          Stubs::EventDestination.default(visited)
+          EventDestination.default(visited)
         ]
       end
 
@@ -792,10 +792,10 @@ module AWS::SDK::SES
         {
           name: 'name',
           enabled: false,
-          matching_event_types: Stubs::EventTypes.default(visited),
-          kinesis_firehose_destination: Stubs::KinesisFirehoseDestination.default(visited),
-          cloud_watch_destination: Stubs::CloudWatchDestination.default(visited),
-          sns_destination: Stubs::SNSDestination.default(visited),
+          matching_event_types: EventTypes.default(visited),
+          kinesis_firehose_destination: KinesisFirehoseDestination.default(visited),
+          cloud_watch_destination: CloudWatchDestination.default(visited),
+          sns_destination: SNSDestination.default(visited),
         }
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::SES
         return nil if visited.include?('CloudWatchDestination')
         visited = visited + ['CloudWatchDestination']
         {
-          dimension_configurations: Stubs::CloudWatchDimensionConfigurations.default(visited),
+          dimension_configurations: CloudWatchDimensionConfigurations.default(visited),
         }
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::SES
         return nil if visited.include?('CloudWatchDimensionConfigurations')
         visited = visited + ['CloudWatchDimensionConfigurations']
         [
-          Stubs::CloudWatchDimensionConfiguration.default(visited)
+          CloudWatchDimensionConfiguration.default(visited)
         ]
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::SES
     class DescribeReceiptRule
       def self.default(visited=[])
         {
-          rule: Stubs::ReceiptRule.default(visited),
+          rule: ReceiptRule.default(visited),
         }
       end
 
@@ -970,8 +970,8 @@ module AWS::SDK::SES
     class DescribeReceiptRuleSet
       def self.default(visited=[])
         {
-          metadata: Stubs::ReceiptRuleSetMetadata.default(visited),
-          rules: Stubs::ReceiptRulesList.default(visited),
+          metadata: ReceiptRuleSetMetadata.default(visited),
+          rules: ReceiptRulesList.default(visited),
         }
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::SES
     class GetIdentityDkimAttributes
       def self.default(visited=[])
         {
-          dkim_attributes: Stubs::DkimAttributes.default(visited),
+          dkim_attributes: DkimAttributes.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::SES
         return nil if visited.include?('DkimAttributes')
         visited = visited + ['DkimAttributes']
         {
-          test_key: Stubs::IdentityDkimAttributes.default(visited)
+          test_key: IdentityDkimAttributes.default(visited)
         }
       end
 
@@ -1088,7 +1088,7 @@ module AWS::SDK::SES
         {
           dkim_enabled: false,
           dkim_verification_status: 'dkim_verification_status',
-          dkim_tokens: Stubs::VerificationTokenList.default(visited),
+          dkim_tokens: VerificationTokenList.default(visited),
         }
       end
 
@@ -1125,7 +1125,7 @@ module AWS::SDK::SES
     class GetIdentityMailFromDomainAttributes
       def self.default(visited=[])
         {
-          mail_from_domain_attributes: Stubs::MailFromDomainAttributes.default(visited),
+          mail_from_domain_attributes: MailFromDomainAttributes.default(visited),
         }
       end
 
@@ -1147,7 +1147,7 @@ module AWS::SDK::SES
         return nil if visited.include?('MailFromDomainAttributes')
         visited = visited + ['MailFromDomainAttributes']
         {
-          test_key: Stubs::IdentityMailFromDomainAttributes.default(visited)
+          test_key: IdentityMailFromDomainAttributes.default(visited)
         }
       end
 
@@ -1189,7 +1189,7 @@ module AWS::SDK::SES
     class GetIdentityNotificationAttributes
       def self.default(visited=[])
         {
-          notification_attributes: Stubs::NotificationAttributes.default(visited),
+          notification_attributes: NotificationAttributes.default(visited),
         }
       end
 
@@ -1211,7 +1211,7 @@ module AWS::SDK::SES
         return nil if visited.include?('NotificationAttributes')
         visited = visited + ['NotificationAttributes']
         {
-          test_key: Stubs::IdentityNotificationAttributes.default(visited)
+          test_key: IdentityNotificationAttributes.default(visited)
         }
       end
 
@@ -1261,7 +1261,7 @@ module AWS::SDK::SES
     class GetIdentityPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::PolicyMap.default(visited),
+          policies: PolicyMap.default(visited),
         }
       end
 
@@ -1303,7 +1303,7 @@ module AWS::SDK::SES
     class GetIdentityVerificationAttributes
       def self.default(visited=[])
         {
-          verification_attributes: Stubs::VerificationAttributes.default(visited),
+          verification_attributes: VerificationAttributes.default(visited),
         }
       end
 
@@ -1325,7 +1325,7 @@ module AWS::SDK::SES
         return nil if visited.include?('VerificationAttributes')
         visited = visited + ['VerificationAttributes']
         {
-          test_key: Stubs::IdentityVerificationAttributes.default(visited)
+          test_key: IdentityVerificationAttributes.default(visited)
         }
       end
 
@@ -1389,7 +1389,7 @@ module AWS::SDK::SES
     class GetSendStatistics
       def self.default(visited=[])
         {
-          send_data_points: Stubs::SendDataPointList.default(visited),
+          send_data_points: SendDataPointList.default(visited),
         }
       end
 
@@ -1411,7 +1411,7 @@ module AWS::SDK::SES
         return nil if visited.include?('SendDataPointList')
         visited = visited + ['SendDataPointList']
         [
-          Stubs::SendDataPoint.default(visited)
+          SendDataPoint.default(visited)
         ]
       end
 
@@ -1454,7 +1454,7 @@ module AWS::SDK::SES
     class GetTemplate
       def self.default(visited=[])
         {
-          template: Stubs::Template.default(visited),
+          template: Template.default(visited),
         }
       end
 
@@ -1498,7 +1498,7 @@ module AWS::SDK::SES
     class ListConfigurationSets
       def self.default(visited=[])
         {
-          configuration_sets: Stubs::ConfigurationSets.default(visited),
+          configuration_sets: ConfigurationSets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1522,7 +1522,7 @@ module AWS::SDK::SES
         return nil if visited.include?('ConfigurationSets')
         visited = visited + ['ConfigurationSets']
         [
-          Stubs::ConfigurationSet.default(visited)
+          ConfigurationSet.default(visited)
         ]
       end
 
@@ -1539,7 +1539,7 @@ module AWS::SDK::SES
     class ListCustomVerificationEmailTemplates
       def self.default(visited=[])
         {
-          custom_verification_email_templates: Stubs::CustomVerificationEmailTemplates.default(visited),
+          custom_verification_email_templates: CustomVerificationEmailTemplates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1563,7 +1563,7 @@ module AWS::SDK::SES
         return nil if visited.include?('CustomVerificationEmailTemplates')
         visited = visited + ['CustomVerificationEmailTemplates']
         [
-          Stubs::CustomVerificationEmailTemplate.default(visited)
+          CustomVerificationEmailTemplate.default(visited)
         ]
       end
 
@@ -1606,7 +1606,7 @@ module AWS::SDK::SES
     class ListIdentities
       def self.default(visited=[])
         {
-          identities: Stubs::IdentityList.default(visited),
+          identities: IdentityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1647,7 +1647,7 @@ module AWS::SDK::SES
     class ListIdentityPolicies
       def self.default(visited=[])
         {
-          policy_names: Stubs::PolicyNameList.default(visited),
+          policy_names: PolicyNameList.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::SES
     class ListReceiptFilters
       def self.default(visited=[])
         {
-          filters: Stubs::ReceiptFilterList.default(visited),
+          filters: ReceiptFilterList.default(visited),
         }
       end
 
@@ -1708,7 +1708,7 @@ module AWS::SDK::SES
         return nil if visited.include?('ReceiptFilterList')
         visited = visited + ['ReceiptFilterList']
         [
-          Stubs::ReceiptFilter.default(visited)
+          ReceiptFilter.default(visited)
         ]
       end
 
@@ -1728,7 +1728,7 @@ module AWS::SDK::SES
         visited = visited + ['ReceiptFilter']
         {
           name: 'name',
-          ip_filter: Stubs::ReceiptIpFilter.default(visited),
+          ip_filter: ReceiptIpFilter.default(visited),
         }
       end
 
@@ -1765,7 +1765,7 @@ module AWS::SDK::SES
     class ListReceiptRuleSets
       def self.default(visited=[])
         {
-          rule_sets: Stubs::ReceiptRuleSetsLists.default(visited),
+          rule_sets: ReceiptRuleSetsLists.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1789,7 +1789,7 @@ module AWS::SDK::SES
         return nil if visited.include?('ReceiptRuleSetsLists')
         visited = visited + ['ReceiptRuleSetsLists']
         [
-          Stubs::ReceiptRuleSetMetadata.default(visited)
+          ReceiptRuleSetMetadata.default(visited)
         ]
       end
 
@@ -1806,7 +1806,7 @@ module AWS::SDK::SES
     class ListTemplates
       def self.default(visited=[])
         {
-          templates_metadata: Stubs::TemplateMetadataList.default(visited),
+          templates_metadata: TemplateMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1830,7 +1830,7 @@ module AWS::SDK::SES
         return nil if visited.include?('TemplateMetadataList')
         visited = visited + ['TemplateMetadataList']
         [
-          Stubs::TemplateMetadata.default(visited)
+          TemplateMetadata.default(visited)
         ]
       end
 
@@ -1867,7 +1867,7 @@ module AWS::SDK::SES
     class ListVerifiedEmailAddresses
       def self.default(visited=[])
         {
-          verified_email_addresses: Stubs::AddressList.default(visited),
+          verified_email_addresses: AddressList.default(visited),
         }
       end
 
@@ -1980,7 +1980,7 @@ module AWS::SDK::SES
     class SendBulkTemplatedEmail
       def self.default(visited=[])
         {
-          status: Stubs::BulkEmailDestinationStatusList.default(visited),
+          status: BulkEmailDestinationStatusList.default(visited),
         }
       end
 
@@ -2002,7 +2002,7 @@ module AWS::SDK::SES
         return nil if visited.include?('BulkEmailDestinationStatusList')
         visited = visited + ['BulkEmailDestinationStatusList']
         [
-          Stubs::BulkEmailDestinationStatus.default(visited)
+          BulkEmailDestinationStatus.default(visited)
         ]
       end
 
@@ -2411,7 +2411,7 @@ module AWS::SDK::SES
     class VerifyDomainDkim
       def self.default(visited=[])
         {
-          dkim_tokens: Stubs::VerificationTokenList.default(visited),
+          dkim_tokens: VerificationTokenList.default(visited),
         }
       end
 

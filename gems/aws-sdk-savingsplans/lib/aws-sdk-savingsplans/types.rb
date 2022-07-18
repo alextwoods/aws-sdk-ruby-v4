@@ -261,11 +261,11 @@ module AWS::SDK::Savingsplans
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute search_results
@@ -372,11 +372,11 @@ module AWS::SDK::Savingsplans
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute search_results
@@ -502,11 +502,11 @@ module AWS::SDK::Savingsplans
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_seconds ||= 0
       end
-
     end
 
     # <p>The specified resource was not found.</p>
@@ -644,11 +644,11 @@ module AWS::SDK::Savingsplans
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.term_duration_in_seconds ||= 0
       end
-
     end
 
     # <p>Information about a filter.</p>
@@ -751,11 +751,11 @@ module AWS::SDK::Savingsplans
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for SavingsPlanOfferingFilterAttribute

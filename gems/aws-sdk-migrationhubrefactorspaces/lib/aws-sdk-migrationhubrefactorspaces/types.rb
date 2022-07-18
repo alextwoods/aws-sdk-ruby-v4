@@ -3113,11 +3113,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApiGatewayV2
@@ -146,7 +148,7 @@ module AWS::SDK::ApiGatewayV2
     def create_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApiInput,
         validate_input: @config.validate_input
@@ -230,7 +232,7 @@ module AWS::SDK::ApiGatewayV2
     def create_api_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApiMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApiMappingInput,
         validate_input: @config.validate_input
@@ -361,7 +363,7 @@ module AWS::SDK::ApiGatewayV2
     def create_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAuthorizerInput,
         validate_input: @config.validate_input
@@ -443,7 +445,7 @@ module AWS::SDK::ApiGatewayV2
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -562,7 +564,7 @@ module AWS::SDK::ApiGatewayV2
     def create_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainNameInput,
         validate_input: @config.validate_input
@@ -731,7 +733,7 @@ module AWS::SDK::ApiGatewayV2
     def create_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIntegrationInput,
         validate_input: @config.validate_input
@@ -835,7 +837,7 @@ module AWS::SDK::ApiGatewayV2
     def create_integration_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIntegrationResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIntegrationResponseInput,
         validate_input: @config.validate_input
@@ -924,7 +926,7 @@ module AWS::SDK::ApiGatewayV2
     def create_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelInput,
         validate_input: @config.validate_input
@@ -1061,7 +1063,7 @@ module AWS::SDK::ApiGatewayV2
     def create_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteInput,
         validate_input: @config.validate_input
@@ -1163,7 +1165,7 @@ module AWS::SDK::ApiGatewayV2
     def create_route_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteResponseInput,
         validate_input: @config.validate_input
@@ -1306,7 +1308,7 @@ module AWS::SDK::ApiGatewayV2
     def create_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStageInput,
         validate_input: @config.validate_input
@@ -1404,7 +1406,7 @@ module AWS::SDK::ApiGatewayV2
     def create_vpc_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcLinkInput,
         validate_input: @config.validate_input
@@ -1476,7 +1478,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_access_log_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessLogSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessLogSettingsInput,
         validate_input: @config.validate_input
@@ -1543,7 +1545,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApiInput,
         validate_input: @config.validate_input
@@ -1614,7 +1616,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_api_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApiMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApiMappingInput,
         validate_input: @config.validate_input
@@ -1685,7 +1687,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAuthorizerInput,
         validate_input: @config.validate_input
@@ -1752,7 +1754,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_cors_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCorsConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCorsConfigurationInput,
         validate_input: @config.validate_input
@@ -1823,7 +1825,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeploymentInput,
         validate_input: @config.validate_input
@@ -1890,7 +1892,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainNameInput,
         validate_input: @config.validate_input
@@ -1961,7 +1963,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIntegrationInput,
         validate_input: @config.validate_input
@@ -2036,7 +2038,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_integration_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIntegrationResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIntegrationResponseInput,
         validate_input: @config.validate_input
@@ -2107,7 +2109,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelInput,
         validate_input: @config.validate_input
@@ -2178,7 +2180,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteInput,
         validate_input: @config.validate_input
@@ -2253,7 +2255,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_route_request_parameter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteRequestParameterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteRequestParameterInput,
         validate_input: @config.validate_input
@@ -2328,7 +2330,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_route_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteResponseInput,
         validate_input: @config.validate_input
@@ -2403,7 +2405,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_route_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteSettingsInput,
         validate_input: @config.validate_input
@@ -2474,7 +2476,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStageInput,
         validate_input: @config.validate_input
@@ -2541,7 +2543,7 @@ module AWS::SDK::ApiGatewayV2
     def delete_vpc_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcLinkInput,
         validate_input: @config.validate_input
@@ -2627,7 +2629,7 @@ module AWS::SDK::ApiGatewayV2
     def export_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportApiInput,
         validate_input: @config.validate_input
@@ -2721,7 +2723,7 @@ module AWS::SDK::ApiGatewayV2
     def get_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApiInput,
         validate_input: @config.validate_input
@@ -2796,7 +2798,7 @@ module AWS::SDK::ApiGatewayV2
     def get_api_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApiMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApiMappingInput,
         validate_input: @config.validate_input
@@ -2878,7 +2880,7 @@ module AWS::SDK::ApiGatewayV2
     def get_api_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApiMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApiMappingsInput,
         validate_input: @config.validate_input
@@ -2979,7 +2981,7 @@ module AWS::SDK::ApiGatewayV2
     def get_apis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApisInput,
         validate_input: @config.validate_input
@@ -3065,7 +3067,7 @@ module AWS::SDK::ApiGatewayV2
     def get_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAuthorizerInput,
         validate_input: @config.validate_input
@@ -3158,7 +3160,7 @@ module AWS::SDK::ApiGatewayV2
     def get_authorizers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAuthorizersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAuthorizersInput,
         validate_input: @config.validate_input
@@ -3235,7 +3237,7 @@ module AWS::SDK::ApiGatewayV2
     def get_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentInput,
         validate_input: @config.validate_input
@@ -3319,7 +3321,7 @@ module AWS::SDK::ApiGatewayV2
     def get_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentsInput,
         validate_input: @config.validate_input
@@ -3407,7 +3409,7 @@ module AWS::SDK::ApiGatewayV2
     def get_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainNameInput,
         validate_input: @config.validate_input
@@ -3502,7 +3504,7 @@ module AWS::SDK::ApiGatewayV2
     def get_domain_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainNamesInput,
         validate_input: @config.validate_input
@@ -3596,7 +3598,7 @@ module AWS::SDK::ApiGatewayV2
     def get_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntegrationInput,
         validate_input: @config.validate_input
@@ -3679,7 +3681,7 @@ module AWS::SDK::ApiGatewayV2
     def get_integration_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntegrationResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntegrationResponseInput,
         validate_input: @config.validate_input
@@ -3769,7 +3771,7 @@ module AWS::SDK::ApiGatewayV2
     def get_integration_responses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntegrationResponsesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntegrationResponsesInput,
         validate_input: @config.validate_input
@@ -3870,7 +3872,7 @@ module AWS::SDK::ApiGatewayV2
     def get_integrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntegrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntegrationsInput,
         validate_input: @config.validate_input
@@ -3946,7 +3948,7 @@ module AWS::SDK::ApiGatewayV2
     def get_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelInput,
         validate_input: @config.validate_input
@@ -4018,7 +4020,7 @@ module AWS::SDK::ApiGatewayV2
     def get_model_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelTemplateInput,
         validate_input: @config.validate_input
@@ -4101,7 +4103,7 @@ module AWS::SDK::ApiGatewayV2
     def get_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelsInput,
         validate_input: @config.validate_input
@@ -4189,7 +4191,7 @@ module AWS::SDK::ApiGatewayV2
     def get_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRouteInput,
         validate_input: @config.validate_input
@@ -4272,7 +4274,7 @@ module AWS::SDK::ApiGatewayV2
     def get_route_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRouteResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRouteResponseInput,
         validate_input: @config.validate_input
@@ -4362,7 +4364,7 @@ module AWS::SDK::ApiGatewayV2
     def get_route_responses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRouteResponsesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRouteResponsesInput,
         validate_input: @config.validate_input
@@ -4457,7 +4459,7 @@ module AWS::SDK::ApiGatewayV2
     def get_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoutesInput,
         validate_input: @config.validate_input
@@ -4551,7 +4553,7 @@ module AWS::SDK::ApiGatewayV2
     def get_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStageInput,
         validate_input: @config.validate_input
@@ -4652,7 +4654,7 @@ module AWS::SDK::ApiGatewayV2
     def get_stages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStagesInput,
         validate_input: @config.validate_input
@@ -4721,7 +4723,7 @@ module AWS::SDK::ApiGatewayV2
     def get_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagsInput,
         validate_input: @config.validate_input
@@ -4800,7 +4802,7 @@ module AWS::SDK::ApiGatewayV2
     def get_vpc_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVpcLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVpcLinkInput,
         validate_input: @config.validate_input
@@ -4886,7 +4888,7 @@ module AWS::SDK::ApiGatewayV2
     def get_vpc_links(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVpcLinksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVpcLinksInput,
         validate_input: @config.validate_input
@@ -4988,7 +4990,7 @@ module AWS::SDK::ApiGatewayV2
     def import_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportApiInput,
         validate_input: @config.validate_input
@@ -5095,7 +5097,7 @@ module AWS::SDK::ApiGatewayV2
     def reimport_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReimportApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReimportApiInput,
         validate_input: @config.validate_input
@@ -5167,7 +5169,7 @@ module AWS::SDK::ApiGatewayV2
     def reset_authorizers_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetAuthorizersCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetAuthorizersCacheInput,
         validate_input: @config.validate_input
@@ -5240,7 +5242,7 @@ module AWS::SDK::ApiGatewayV2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5314,7 +5316,7 @@ module AWS::SDK::ApiGatewayV2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5464,7 +5466,7 @@ module AWS::SDK::ApiGatewayV2
     def update_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApiInput,
         validate_input: @config.validate_input
@@ -5552,7 +5554,7 @@ module AWS::SDK::ApiGatewayV2
     def update_api_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApiMappingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApiMappingInput,
         validate_input: @config.validate_input
@@ -5687,7 +5689,7 @@ module AWS::SDK::ApiGatewayV2
     def update_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAuthorizerInput,
         validate_input: @config.validate_input
@@ -5769,7 +5771,7 @@ module AWS::SDK::ApiGatewayV2
     def update_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeploymentInput,
         validate_input: @config.validate_input
@@ -5882,7 +5884,7 @@ module AWS::SDK::ApiGatewayV2
     def update_domain_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainNameInput,
         validate_input: @config.validate_input
@@ -6055,7 +6057,7 @@ module AWS::SDK::ApiGatewayV2
     def update_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIntegrationInput,
         validate_input: @config.validate_input
@@ -6170,7 +6172,7 @@ module AWS::SDK::ApiGatewayV2
     def update_integration_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIntegrationResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIntegrationResponseInput,
         validate_input: @config.validate_input
@@ -6263,7 +6265,7 @@ module AWS::SDK::ApiGatewayV2
     def update_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateModelInput,
         validate_input: @config.validate_input
@@ -6404,7 +6406,7 @@ module AWS::SDK::ApiGatewayV2
     def update_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRouteInput,
         validate_input: @config.validate_input
@@ -6510,7 +6512,7 @@ module AWS::SDK::ApiGatewayV2
     def update_route_response(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRouteResponseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRouteResponseInput,
         validate_input: @config.validate_input
@@ -6647,7 +6649,7 @@ module AWS::SDK::ApiGatewayV2
     def update_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStageInput,
         validate_input: @config.validate_input
@@ -6731,7 +6733,7 @@ module AWS::SDK::ApiGatewayV2
     def update_vpc_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVpcLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVpcLinkInput,
         validate_input: @config.validate_input

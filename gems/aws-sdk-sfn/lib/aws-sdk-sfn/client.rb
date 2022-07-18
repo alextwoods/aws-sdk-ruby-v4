@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SFN
@@ -128,7 +130,7 @@ module AWS::SDK::SFN
     def create_activity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateActivityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateActivityInput,
         validate_input: @config.validate_input
@@ -291,7 +293,7 @@ module AWS::SDK::SFN
     def create_state_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStateMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStateMachineInput,
         validate_input: @config.validate_input
@@ -359,7 +361,7 @@ module AWS::SDK::SFN
     def delete_activity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteActivityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteActivityInput,
         validate_input: @config.validate_input
@@ -433,7 +435,7 @@ module AWS::SDK::SFN
     def delete_state_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStateMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStateMachineInput,
         validate_input: @config.validate_input
@@ -507,7 +509,7 @@ module AWS::SDK::SFN
     def describe_activity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActivityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActivityInput,
         validate_input: @config.validate_input
@@ -591,7 +593,7 @@ module AWS::SDK::SFN
     def describe_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExecutionInput,
         validate_input: @config.validate_input
@@ -678,7 +680,7 @@ module AWS::SDK::SFN
     def describe_state_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStateMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStateMachineInput,
         validate_input: @config.validate_input
@@ -764,7 +766,7 @@ module AWS::SDK::SFN
     def describe_state_machine_for_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStateMachineForExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStateMachineForExecutionInput,
         validate_input: @config.validate_input
@@ -852,7 +854,7 @@ module AWS::SDK::SFN
     def get_activity_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetActivityTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetActivityTaskInput,
         validate_input: @config.validate_input
@@ -1065,7 +1067,7 @@ module AWS::SDK::SFN
     def get_execution_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetExecutionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetExecutionHistoryInput,
         validate_input: @config.validate_input
@@ -1151,7 +1153,7 @@ module AWS::SDK::SFN
     def list_activities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActivitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActivitiesInput,
         validate_input: @config.validate_input
@@ -1251,7 +1253,7 @@ module AWS::SDK::SFN
     def list_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExecutionsInput,
         validate_input: @config.validate_input
@@ -1338,7 +1340,7 @@ module AWS::SDK::SFN
     def list_state_machines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStateMachinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStateMachinesInput,
         validate_input: @config.validate_input
@@ -1411,7 +1413,7 @@ module AWS::SDK::SFN
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1490,7 +1492,7 @@ module AWS::SDK::SFN
     def send_task_failure(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTaskFailureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTaskFailureInput,
         validate_input: @config.validate_input
@@ -1574,7 +1576,7 @@ module AWS::SDK::SFN
     def send_task_heartbeat(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTaskHeartbeatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTaskHeartbeatInput,
         validate_input: @config.validate_input
@@ -1650,7 +1652,7 @@ module AWS::SDK::SFN
     def send_task_success(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTaskSuccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTaskSuccessInput,
         validate_input: @config.validate_input
@@ -1773,7 +1775,7 @@ module AWS::SDK::SFN
     def start_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExecutionInput,
         validate_input: @config.validate_input
@@ -1879,7 +1881,7 @@ module AWS::SDK::SFN
     def start_sync_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSyncExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSyncExecutionInput,
         validate_input: @config.validate_input
@@ -1961,7 +1963,7 @@ module AWS::SDK::SFN
     def stop_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopExecutionInput,
         validate_input: @config.validate_input
@@ -2044,7 +2046,7 @@ module AWS::SDK::SFN
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2118,7 +2120,7 @@ module AWS::SDK::SFN
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2226,7 +2228,7 @@ module AWS::SDK::SFN
     def update_state_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStateMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStateMachineInput,
         validate_input: @config.validate_input

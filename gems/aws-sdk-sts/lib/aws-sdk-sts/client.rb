@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::STS
@@ -363,7 +365,7 @@ module AWS::SDK::STS
     def assume_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleInput,
         validate_input: @config.validate_input
@@ -669,7 +671,7 @@ module AWS::SDK::STS
     def assume_role_with_saml(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithSAMLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithSAMLInput,
         validate_input: @config.validate_input
@@ -990,7 +992,7 @@ module AWS::SDK::STS
     def assume_role_with_web_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithWebIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithWebIdentityInput,
         validate_input: @config.validate_input
@@ -1094,7 +1096,7 @@ module AWS::SDK::STS
     def decode_authorization_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecodeAuthorizationMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecodeAuthorizationMessageInput,
         validate_input: @config.validate_input
@@ -1182,7 +1184,7 @@ module AWS::SDK::STS
     def get_access_key_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessKeyInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessKeyInfoInput,
         validate_input: @config.validate_input
@@ -1257,7 +1259,7 @@ module AWS::SDK::STS
     def get_caller_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCallerIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallerIdentityInput,
         validate_input: @config.validate_input
@@ -1541,7 +1543,7 @@ module AWS::SDK::STS
     def get_federation_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFederationTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFederationTokenInput,
         validate_input: @config.validate_input
@@ -1699,7 +1701,7 @@ module AWS::SDK::STS
     def get_session_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionTokenInput,
         validate_input: @config.validate_input

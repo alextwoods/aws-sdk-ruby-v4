@@ -198,7 +198,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ChannelFlowCallbackInput, context: context)
         type = Types::ChannelFlowCallbackInput.new
-        type.callback_id = params[:callback_id] || SecureRandom.uuid
+        type.callback_id = params[:callback_id] || ::SecureRandom.uuid
         type.channel_arn = params[:channel_arn]
         type.delete_resource = params[:delete_resource]
         type.channel_message = ChannelMessageCallback.build(params[:channel_message], context: "#{context}[:channel_message]") unless params[:channel_message].nil?
@@ -537,7 +537,7 @@ module AWS::SDK::ChimeSDKMessaging
         type.mode = params[:mode]
         type.privacy = params[:privacy]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.chime_bearer = params[:chime_bearer]
         type.channel_id = params[:channel_id]
@@ -1441,7 +1441,7 @@ module AWS::SDK::ChimeSDKMessaging
         type.type = params[:type]
         type.persistence = params[:persistence]
         type.metadata = params[:metadata]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.chime_bearer = params[:chime_bearer]
         type.push_notification = PushNotificationConfiguration.build(params[:push_notification], context: "#{context}[:push_notification]") unless params[:push_notification].nil?
         type.message_attributes = MessageAttributeMap.build(params[:message_attributes], context: "#{context}[:message_attributes]") unless params[:message_attributes].nil?

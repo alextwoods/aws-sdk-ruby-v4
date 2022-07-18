@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AppMesh
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::AccessLog::File
-          Validators::FileAccessLog.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          FileAccessLog.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -41,7 +43,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AwsCloudMapInstanceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AwsCloudMapInstanceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -51,7 +53,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::AwsCloudMapServiceDiscovery, context: context)
         Hearth::Validator.validate!(input[:namespace_name], ::String, context: "#{context}[:namespace_name]")
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
-        Validators::AwsCloudMapInstanceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        AwsCloudMapInstanceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:ip_preference], ::String, context: "#{context}[:ip_preference]")
       end
     end
@@ -60,7 +62,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::Backend::VirtualService
-          Validators::VirtualServiceBackend.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualServiceBackend.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -78,7 +80,7 @@ module AWS::SDK::AppMesh
     class BackendDefaults
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackendDefaults, context: context)
-        Validators::ClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
+        ClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Backend.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Backend.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -110,7 +112,7 @@ module AWS::SDK::AppMesh
     class ClientPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClientPolicy, context: context)
-        Validators::ClientPolicyTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
+        ClientPolicyTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
       end
     end
 
@@ -118,9 +120,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClientPolicyTls, context: context)
         Hearth::Validator.validate!(input[:enforce], ::TrueClass, ::FalseClass, context: "#{context}[:enforce]")
-        Validators::PortSet.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
-        Validators::ClientTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
-        Validators::TlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
+        PortSet.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
+        ClientTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        TlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
       end
     end
 
@@ -128,9 +130,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::ClientTlsCertificate::File
-          Validators::ListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ClientTlsCertificate::Sds
-          Validators::ListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -164,8 +166,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:gateway_route_name], ::String, context: "#{context}[:gateway_route_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
-        Validators::GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -174,7 +176,7 @@ module AWS::SDK::AppMesh
     class CreateGatewayRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGatewayRouteOutput, context: context)
-        Validators::GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
+        GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
       end
     end
 
@@ -182,8 +184,8 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeshInput, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -191,7 +193,7 @@ module AWS::SDK::AppMesh
     class CreateMeshOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeshOutput, context: context)
-        Validators::MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
+        MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
       end
     end
 
@@ -201,8 +203,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:route_name], ::String, context: "#{context}[:route_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
-        Validators::RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -211,7 +213,7 @@ module AWS::SDK::AppMesh
     class CreateRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRouteOutput, context: context)
-        Validators::RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
+        RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
       end
     end
 
@@ -220,8 +222,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::CreateVirtualGatewayInput, context: context)
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -230,7 +232,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVirtualGatewayOutput, context: context)
-        Validators::VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
+        VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
       end
     end
 
@@ -239,8 +241,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::CreateVirtualNodeInput, context: context)
         Hearth::Validator.validate!(input[:virtual_node_name], ::String, context: "#{context}[:virtual_node_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -249,7 +251,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualNodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVirtualNodeOutput, context: context)
-        Validators::VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
+        VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
       end
     end
 
@@ -258,8 +260,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::CreateVirtualRouterInput, context: context)
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -268,7 +270,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualRouterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVirtualRouterOutput, context: context)
-        Validators::VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
+        VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
       end
     end
 
@@ -277,8 +279,8 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::CreateVirtualServiceInput, context: context)
         Hearth::Validator.validate!(input[:virtual_service_name], ::String, context: "#{context}[:virtual_service_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -287,7 +289,7 @@ module AWS::SDK::AppMesh
     class CreateVirtualServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVirtualServiceOutput, context: context)
-        Validators::VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
+        VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::AppMesh
     class DeleteGatewayRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteGatewayRouteOutput, context: context)
-        Validators::GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
+        GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::AppMesh
     class DeleteMeshOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMeshOutput, context: context)
-        Validators::MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
+        MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
       end
     end
 
@@ -335,7 +337,7 @@ module AWS::SDK::AppMesh
     class DeleteRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRouteOutput, context: context)
-        Validators::RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
+        RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVirtualGatewayOutput, context: context)
-        Validators::VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
+        VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualNodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVirtualNodeOutput, context: context)
-        Validators::VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
+        VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualRouterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVirtualRouterOutput, context: context)
-        Validators::VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
+        VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::AppMesh
     class DeleteVirtualServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVirtualServiceOutput, context: context)
-        Validators::VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
+        VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::AppMesh
     class DescribeGatewayRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGatewayRouteOutput, context: context)
-        Validators::GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
+        GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::AppMesh
     class DescribeMeshOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMeshOutput, context: context)
-        Validators::MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
+        MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::AppMesh
     class DescribeRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRouteOutput, context: context)
-        Validators::RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
+        RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVirtualGatewayOutput, context: context)
-        Validators::VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
+        VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
       end
     end
 
@@ -480,7 +482,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualNodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVirtualNodeOutput, context: context)
-        Validators::VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
+        VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualRouterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVirtualRouterOutput, context: context)
-        Validators::VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
+        VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
       end
     end
 
@@ -512,7 +514,7 @@ module AWS::SDK::AppMesh
     class DescribeVirtualServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVirtualServiceOutput, context: context)
-        Validators::VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
+        VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
       end
     end
 
@@ -560,9 +562,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:gateway_route_name], ::String, context: "#{context}[:gateway_route_name]")
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
-        Validators::GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::GatewayRouteStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        GatewayRouteStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GatewayRouteRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GatewayRouteRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -609,9 +611,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GatewayRouteSpec, context: context)
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::HttpGatewayRoute.validate!(input[:http_route], context: "#{context}[:http_route]") unless input[:http_route].nil?
-        Validators::HttpGatewayRoute.validate!(input[:http2_route], context: "#{context}[:http2_route]") unless input[:http2_route].nil?
-        Validators::GrpcGatewayRoute.validate!(input[:grpc_route], context: "#{context}[:grpc_route]") unless input[:grpc_route].nil?
+        HttpGatewayRoute.validate!(input[:http_route], context: "#{context}[:http_route]") unless input[:http_route].nil?
+        HttpGatewayRoute.validate!(input[:http2_route], context: "#{context}[:http2_route]") unless input[:http2_route].nil?
+        GrpcGatewayRoute.validate!(input[:grpc_route], context: "#{context}[:grpc_route]") unless input[:grpc_route].nil?
       end
     end
 
@@ -625,7 +627,7 @@ module AWS::SDK::AppMesh
     class GatewayRouteTarget
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GatewayRouteTarget, context: context)
-        Validators::GatewayRouteVirtualService.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
+        GatewayRouteVirtualService.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
       end
     end
 
@@ -639,16 +641,16 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcGatewayRoute, context: context)
-        Validators::GrpcGatewayRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
-        Validators::GrpcGatewayRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        GrpcGatewayRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        GrpcGatewayRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
     class GrpcGatewayRouteAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcGatewayRouteAction, context: context)
-        Validators::GatewayRouteTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::GrpcGatewayRouteRewrite.validate!(input[:rewrite], context: "#{context}[:rewrite]") unless input[:rewrite].nil?
+        GatewayRouteTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        GrpcGatewayRouteRewrite.validate!(input[:rewrite], context: "#{context}[:rewrite]") unless input[:rewrite].nil?
       end
     end
 
@@ -656,8 +658,8 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcGatewayRouteMatch, context: context)
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
-        Validators::GatewayRouteHostnameMatch.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
-        Validators::GrpcGatewayRouteMetadataList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        GatewayRouteHostnameMatch.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
+        GrpcGatewayRouteMetadataList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -666,7 +668,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::GrpcGatewayRouteMetadata, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:invert], ::TrueClass, ::FalseClass, context: "#{context}[:invert]")
-        Validators::GrpcMetadataMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        GrpcMetadataMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -674,7 +676,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GrpcGatewayRouteMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GrpcGatewayRouteMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -682,7 +684,7 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRouteRewrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcGatewayRouteRewrite, context: context)
-        Validators::GatewayRouteHostnameRewrite.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
+        GatewayRouteHostnameRewrite.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcMetadataMatchMethod::Regex
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::GrpcMetadataMatchMethod::Range
-          Validators::MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::GrpcMetadataMatchMethod::Prefix
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::GrpcMetadataMatchMethod::Suffix
@@ -740,11 +742,11 @@ module AWS::SDK::AppMesh
     class GrpcRetryPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcRetryPolicy, context: context)
-        Validators::Duration.validate!(input[:per_retry_timeout], context: "#{context}[:per_retry_timeout]") unless input[:per_retry_timeout].nil?
+        Duration.validate!(input[:per_retry_timeout], context: "#{context}[:per_retry_timeout]") unless input[:per_retry_timeout].nil?
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::HttpRetryPolicyEvents.validate!(input[:http_retry_events], context: "#{context}[:http_retry_events]") unless input[:http_retry_events].nil?
-        Validators::TcpRetryPolicyEvents.validate!(input[:tcp_retry_events], context: "#{context}[:tcp_retry_events]") unless input[:tcp_retry_events].nil?
-        Validators::GrpcRetryPolicyEvents.validate!(input[:grpc_retry_events], context: "#{context}[:grpc_retry_events]") unless input[:grpc_retry_events].nil?
+        HttpRetryPolicyEvents.validate!(input[:http_retry_events], context: "#{context}[:http_retry_events]") unless input[:http_retry_events].nil?
+        TcpRetryPolicyEvents.validate!(input[:tcp_retry_events], context: "#{context}[:tcp_retry_events]") unless input[:tcp_retry_events].nil?
+        GrpcRetryPolicyEvents.validate!(input[:grpc_retry_events], context: "#{context}[:grpc_retry_events]") unless input[:grpc_retry_events].nil?
       end
     end
 
@@ -760,17 +762,17 @@ module AWS::SDK::AppMesh
     class GrpcRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcRoute, context: context)
-        Validators::GrpcRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::GrpcRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
-        Validators::GrpcRetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
-        Validators::GrpcTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        GrpcRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        GrpcRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        GrpcRetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
+        GrpcTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
       end
     end
 
     class GrpcRouteAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcRouteAction, context: context)
-        Validators::WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
+        WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
       end
     end
 
@@ -779,7 +781,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::GrpcRouteMatch, context: context)
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
         Hearth::Validator.validate!(input[:method_name], ::String, context: "#{context}[:method_name]")
-        Validators::GrpcRouteMetadataList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        GrpcRouteMetadataList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -788,7 +790,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::GrpcRouteMetadata, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:invert], ::TrueClass, ::FalseClass, context: "#{context}[:invert]")
-        Validators::GrpcRouteMetadataMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        GrpcRouteMetadataMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -796,7 +798,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GrpcRouteMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GrpcRouteMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcRouteMetadataMatchMethod::Regex
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::GrpcRouteMetadataMatchMethod::Range
-          Validators::MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::GrpcRouteMetadataMatchMethod::Prefix
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::GrpcRouteMetadataMatchMethod::Suffix
@@ -855,8 +857,8 @@ module AWS::SDK::AppMesh
     class GrpcTimeout
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrpcTimeout, context: context)
-        Validators::Duration.validate!(input[:per_request], context: "#{context}[:per_request]") unless input[:per_request].nil?
-        Validators::Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
+        Duration.validate!(input[:per_request], context: "#{context}[:per_request]") unless input[:per_request].nil?
+        Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
       end
     end
 
@@ -868,7 +870,7 @@ module AWS::SDK::AppMesh
         when Types::HeaderMatchMethod::Regex
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::HeaderMatchMethod::Range
-          Validators::MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MatchRange.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::HeaderMatchMethod::Prefix
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::HeaderMatchMethod::Suffix
@@ -927,16 +929,16 @@ module AWS::SDK::AppMesh
     class HttpGatewayRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpGatewayRoute, context: context)
-        Validators::HttpGatewayRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
-        Validators::HttpGatewayRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        HttpGatewayRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        HttpGatewayRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
     class HttpGatewayRouteAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpGatewayRouteAction, context: context)
-        Validators::GatewayRouteTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::HttpGatewayRouteRewrite.validate!(input[:rewrite], context: "#{context}[:rewrite]") unless input[:rewrite].nil?
+        GatewayRouteTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        HttpGatewayRouteRewrite.validate!(input[:rewrite], context: "#{context}[:rewrite]") unless input[:rewrite].nil?
       end
     end
 
@@ -945,7 +947,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::HttpGatewayRouteHeader, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:invert], ::TrueClass, ::FalseClass, context: "#{context}[:invert]")
-        Validators::HeaderMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        HeaderMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -953,7 +955,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpGatewayRouteHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpGatewayRouteHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -962,11 +964,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpGatewayRouteMatch, context: context)
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::HttpPathMatch.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
-        Validators::HttpQueryParameters.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
+        HttpPathMatch.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        HttpQueryParameters.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
-        Validators::GatewayRouteHostnameMatch.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
-        Validators::HttpGatewayRouteHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        GatewayRouteHostnameMatch.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
+        HttpGatewayRouteHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
@@ -988,9 +990,9 @@ module AWS::SDK::AppMesh
     class HttpGatewayRouteRewrite
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpGatewayRouteRewrite, context: context)
-        Validators::HttpGatewayRoutePrefixRewrite.validate!(input[:prefix], context: "#{context}[:prefix]") unless input[:prefix].nil?
-        Validators::HttpGatewayRoutePathRewrite.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
-        Validators::GatewayRouteHostnameRewrite.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
+        HttpGatewayRoutePrefixRewrite.validate!(input[:prefix], context: "#{context}[:prefix]") unless input[:prefix].nil?
+        HttpGatewayRoutePathRewrite.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        GatewayRouteHostnameRewrite.validate!(input[:hostname], context: "#{context}[:hostname]") unless input[:hostname].nil?
       end
     end
 
@@ -1006,7 +1008,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpQueryParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::QueryParameterMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        QueryParameterMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -1014,7 +1016,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpQueryParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpQueryParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1022,10 +1024,10 @@ module AWS::SDK::AppMesh
     class HttpRetryPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpRetryPolicy, context: context)
-        Validators::Duration.validate!(input[:per_retry_timeout], context: "#{context}[:per_retry_timeout]") unless input[:per_retry_timeout].nil?
+        Duration.validate!(input[:per_retry_timeout], context: "#{context}[:per_retry_timeout]") unless input[:per_retry_timeout].nil?
         Hearth::Validator.validate!(input[:max_retries], ::Integer, context: "#{context}[:max_retries]")
-        Validators::HttpRetryPolicyEvents.validate!(input[:http_retry_events], context: "#{context}[:http_retry_events]") unless input[:http_retry_events].nil?
-        Validators::TcpRetryPolicyEvents.validate!(input[:tcp_retry_events], context: "#{context}[:tcp_retry_events]") unless input[:tcp_retry_events].nil?
+        HttpRetryPolicyEvents.validate!(input[:http_retry_events], context: "#{context}[:http_retry_events]") unless input[:http_retry_events].nil?
+        TcpRetryPolicyEvents.validate!(input[:tcp_retry_events], context: "#{context}[:tcp_retry_events]") unless input[:tcp_retry_events].nil?
       end
     end
 
@@ -1041,17 +1043,17 @@ module AWS::SDK::AppMesh
     class HttpRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpRoute, context: context)
-        Validators::HttpRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
-        Validators::HttpRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::HttpRetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
-        Validators::HttpTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        HttpRouteMatch.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        HttpRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        HttpRetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
+        HttpTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
       end
     end
 
     class HttpRouteAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpRouteAction, context: context)
-        Validators::WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
+        WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
       end
     end
 
@@ -1060,7 +1062,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::HttpRouteHeader, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:invert], ::TrueClass, ::FalseClass, context: "#{context}[:invert]")
-        Validators::HeaderMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        HeaderMatchMethod.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpRouteHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpRouteHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1077,19 +1079,19 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpRouteMatch, context: context)
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::HttpPathMatch.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
-        Validators::HttpQueryParameters.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
+        HttpPathMatch.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        HttpQueryParameters.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
         Hearth::Validator.validate!(input[:scheme], ::String, context: "#{context}[:scheme]")
-        Validators::HttpRouteHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        HttpRouteHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
     class HttpTimeout
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpTimeout, context: context)
-        Validators::Duration.validate!(input[:per_request], context: "#{context}[:per_request]") unless input[:per_request].nil?
-        Validators::Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
+        Duration.validate!(input[:per_request], context: "#{context}[:per_request]") unless input[:per_request].nil?
+        Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
       end
     end
 
@@ -1121,7 +1123,7 @@ module AWS::SDK::AppMesh
     class ListGatewayRoutesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGatewayRoutesOutput, context: context)
-        Validators::GatewayRouteList.validate!(input[:gateway_routes], context: "#{context}[:gateway_routes]") unless input[:gateway_routes].nil?
+        GatewayRouteList.validate!(input[:gateway_routes], context: "#{context}[:gateway_routes]") unless input[:gateway_routes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::AppMesh
     class ListMeshesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMeshesOutput, context: context)
-        Validators::MeshList.validate!(input[:meshes], context: "#{context}[:meshes]") unless input[:meshes].nil?
+        MeshList.validate!(input[:meshes], context: "#{context}[:meshes]") unless input[:meshes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1156,7 +1158,7 @@ module AWS::SDK::AppMesh
     class ListRoutesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoutesOutput, context: context)
-        Validators::RouteList.validate!(input[:routes], context: "#{context}[:routes]") unless input[:routes].nil?
+        RouteList.validate!(input[:routes], context: "#{context}[:routes]") unless input[:routes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1173,7 +1175,7 @@ module AWS::SDK::AppMesh
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1191,7 +1193,7 @@ module AWS::SDK::AppMesh
     class ListVirtualGatewaysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualGatewaysOutput, context: context)
-        Validators::VirtualGatewayList.validate!(input[:virtual_gateways], context: "#{context}[:virtual_gateways]") unless input[:virtual_gateways].nil?
+        VirtualGatewayList.validate!(input[:virtual_gateways], context: "#{context}[:virtual_gateways]") unless input[:virtual_gateways].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1209,7 +1211,7 @@ module AWS::SDK::AppMesh
     class ListVirtualNodesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualNodesOutput, context: context)
-        Validators::VirtualNodeList.validate!(input[:virtual_nodes], context: "#{context}[:virtual_nodes]") unless input[:virtual_nodes].nil?
+        VirtualNodeList.validate!(input[:virtual_nodes], context: "#{context}[:virtual_nodes]") unless input[:virtual_nodes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1227,7 +1229,7 @@ module AWS::SDK::AppMesh
     class ListVirtualRoutersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualRoutersOutput, context: context)
-        Validators::VirtualRouterList.validate!(input[:virtual_routers], context: "#{context}[:virtual_routers]") unless input[:virtual_routers].nil?
+        VirtualRouterList.validate!(input[:virtual_routers], context: "#{context}[:virtual_routers]") unless input[:virtual_routers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1245,7 +1247,7 @@ module AWS::SDK::AppMesh
     class ListVirtualServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualServicesOutput, context: context)
-        Validators::VirtualServiceList.validate!(input[:virtual_services], context: "#{context}[:virtual_services]") unless input[:virtual_services].nil?
+        VirtualServiceList.validate!(input[:virtual_services], context: "#{context}[:virtual_services]") unless input[:virtual_services].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1253,12 +1255,12 @@ module AWS::SDK::AppMesh
     class Listener
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Listener, context: context)
-        Validators::PortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
-        Validators::ListenerTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
-        Validators::HealthCheckPolicy.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
-        Validators::ListenerTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
-        Validators::OutlierDetection.validate!(input[:outlier_detection], context: "#{context}[:outlier_detection]") unless input[:outlier_detection].nil?
-        Validators::VirtualNodeConnectionPool.validate!(input[:connection_pool], context: "#{context}[:connection_pool]") unless input[:connection_pool].nil?
+        PortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
+        ListenerTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
+        HealthCheckPolicy.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        ListenerTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        OutlierDetection.validate!(input[:outlier_detection], context: "#{context}[:outlier_detection]") unless input[:outlier_detection].nil?
+        VirtualNodeConnectionPool.validate!(input[:connection_pool], context: "#{context}[:connection_pool]") unless input[:connection_pool].nil?
       end
     end
 
@@ -1266,13 +1268,13 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::ListenerTimeout::Tcp
-          Validators::TcpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TcpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTimeout::Http
-          Validators::HttpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          HttpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTimeout::Http2
-          Validators::HttpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          HttpTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTimeout::Grpc
-          Validators::GrpcTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          GrpcTimeout.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1309,8 +1311,8 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListenerTls, context: context)
         Hearth::Validator.validate!(input[:mode], ::String, context: "#{context}[:mode]")
-        Validators::ListenerTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
-        Validators::ListenerTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
+        ListenerTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        ListenerTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
       end
     end
 
@@ -1325,11 +1327,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::ListenerTlsCertificate::Acm
-          Validators::ListenerTlsAcmCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListenerTlsAcmCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTlsCertificate::File
-          Validators::ListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTlsCertificate::Sds
-          Validators::ListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1374,8 +1376,8 @@ module AWS::SDK::AppMesh
     class ListenerTlsValidationContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListenerTlsValidationContext, context: context)
-        Validators::ListenerTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
-        Validators::SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        ListenerTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
+        SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
       end
     end
 
@@ -1383,9 +1385,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::ListenerTlsValidationContextTrust::File
-          Validators::TlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ListenerTlsValidationContextTrust::Sds
-          Validators::TlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1410,7 +1412,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Listener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::AppMesh
     class Logging
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Logging, context: context)
-        Validators::AccessLog.validate!(input[:access_log], context: "#{context}[:access_log]") unless input[:access_log].nil?
+        AccessLog.validate!(input[:access_log], context: "#{context}[:access_log]") unless input[:access_log].nil?
       end
     end
 
@@ -1434,9 +1436,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MeshData, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::MeshStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        MeshStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -1444,7 +1446,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MeshRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MeshRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1472,8 +1474,8 @@ module AWS::SDK::AppMesh
     class MeshSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MeshSpec, context: context)
-        Validators::EgressFilter.validate!(input[:egress_filter], context: "#{context}[:egress_filter]") unless input[:egress_filter].nil?
-        Validators::MeshServiceDiscovery.validate!(input[:service_discovery], context: "#{context}[:service_discovery]") unless input[:service_discovery].nil?
+        EgressFilter.validate!(input[:egress_filter], context: "#{context}[:egress_filter]") unless input[:egress_filter].nil?
+        MeshServiceDiscovery.validate!(input[:service_discovery], context: "#{context}[:service_discovery]") unless input[:service_discovery].nil?
       end
     end
 
@@ -1495,8 +1497,8 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutlierDetection, context: context)
         Hearth::Validator.validate!(input[:max_server_errors], ::Integer, context: "#{context}[:max_server_errors]")
-        Validators::Duration.validate!(input[:interval], context: "#{context}[:interval]") unless input[:interval].nil?
-        Validators::Duration.validate!(input[:base_ejection_duration], context: "#{context}[:base_ejection_duration]") unless input[:base_ejection_duration].nil?
+        Duration.validate!(input[:interval], context: "#{context}[:interval]") unless input[:interval].nil?
+        Duration.validate!(input[:base_ejection_duration], context: "#{context}[:base_ejection_duration]") unless input[:base_ejection_duration].nil?
         Hearth::Validator.validate!(input[:max_ejection_percent], ::Integer, context: "#{context}[:max_ejection_percent]")
       end
     end
@@ -1511,7 +1513,7 @@ module AWS::SDK::AppMesh
 
     class PortSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::Integer, context: "#{context}[#{index}]")
         end
@@ -1551,9 +1553,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
         Hearth::Validator.validate!(input[:route_name], ::String, context: "#{context}[:route_name]")
-        Validators::RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::RouteStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        RouteStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -1561,7 +1563,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RouteRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RouteRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1585,10 +1587,10 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RouteSpec, context: context)
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::HttpRoute.validate!(input[:http_route], context: "#{context}[:http_route]") unless input[:http_route].nil?
-        Validators::TcpRoute.validate!(input[:tcp_route], context: "#{context}[:tcp_route]") unless input[:tcp_route].nil?
-        Validators::HttpRoute.validate!(input[:http2_route], context: "#{context}[:http2_route]") unless input[:http2_route].nil?
-        Validators::GrpcRoute.validate!(input[:grpc_route], context: "#{context}[:grpc_route]") unless input[:grpc_route].nil?
+        HttpRoute.validate!(input[:http_route], context: "#{context}[:http_route]") unless input[:http_route].nil?
+        TcpRoute.validate!(input[:tcp_route], context: "#{context}[:tcp_route]") unless input[:tcp_route].nil?
+        HttpRoute.validate!(input[:http2_route], context: "#{context}[:http2_route]") unless input[:http2_route].nil?
+        GrpcRoute.validate!(input[:grpc_route], context: "#{context}[:grpc_route]") unless input[:grpc_route].nil?
       end
     end
 
@@ -1603,9 +1605,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::ServiceDiscovery::Dns
-          Validators::DnsServiceDiscovery.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DnsServiceDiscovery.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ServiceDiscovery::AwsCloudMap
-          Validators::AwsCloudMapServiceDiscovery.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AwsCloudMapServiceDiscovery.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1645,14 +1647,14 @@ module AWS::SDK::AppMesh
     class SubjectAlternativeNameMatchers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubjectAlternativeNameMatchers, context: context)
-        Validators::SubjectAlternativeNameList.validate!(input[:exact], context: "#{context}[:exact]") unless input[:exact].nil?
+        SubjectAlternativeNameList.validate!(input[:exact], context: "#{context}[:exact]") unless input[:exact].nil?
       end
     end
 
     class SubjectAlternativeNames
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubjectAlternativeNames, context: context)
-        Validators::SubjectAlternativeNameMatchers.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
+        SubjectAlternativeNameMatchers.validate!(input[:match], context: "#{context}[:match]") unless input[:match].nil?
       end
     end
 
@@ -1669,7 +1671,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1708,37 +1710,37 @@ module AWS::SDK::AppMesh
     class TcpRoute
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TcpRoute, context: context)
-        Validators::TcpRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::TcpTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        TcpRouteAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        TcpTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
       end
     end
 
     class TcpRouteAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TcpRouteAction, context: context)
-        Validators::WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
+        WeightedTargets.validate!(input[:weighted_targets], context: "#{context}[:weighted_targets]") unless input[:weighted_targets].nil?
       end
     end
 
     class TcpTimeout
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TcpTimeout, context: context)
-        Validators::Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
+        Duration.validate!(input[:idle], context: "#{context}[:idle]") unless input[:idle].nil?
       end
     end
 
     class TlsValidationContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TlsValidationContext, context: context)
-        Validators::TlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
-        Validators::SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        TlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
+        SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
       end
     end
 
     class TlsValidationContextAcmTrust
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TlsValidationContextAcmTrust, context: context)
-        Validators::CertificateAuthorityArns.validate!(input[:certificate_authority_arns], context: "#{context}[:certificate_authority_arns]") unless input[:certificate_authority_arns].nil?
+        CertificateAuthorityArns.validate!(input[:certificate_authority_arns], context: "#{context}[:certificate_authority_arns]") unless input[:certificate_authority_arns].nil?
       end
     end
 
@@ -1760,11 +1762,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::TlsValidationContextTrust::Acm
-          Validators::TlsValidationContextAcmTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TlsValidationContextAcmTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TlsValidationContextTrust::File
-          Validators::TlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TlsValidationContextTrust::Sds
-          Validators::TlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1809,7 +1811,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1825,7 +1827,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:gateway_route_name], ::String, context: "#{context}[:gateway_route_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
-        Validators::GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        GatewayRouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1834,7 +1836,7 @@ module AWS::SDK::AppMesh
     class UpdateGatewayRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGatewayRouteOutput, context: context)
-        Validators::GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
+        GatewayRouteData.validate!(input[:gateway_route], context: "#{context}[:gateway_route]") unless input[:gateway_route].nil?
       end
     end
 
@@ -1842,7 +1844,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMeshInput, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        MeshSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1850,7 +1852,7 @@ module AWS::SDK::AppMesh
     class UpdateMeshOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMeshOutput, context: context)
-        Validators::MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
+        MeshData.validate!(input[:mesh], context: "#{context}[:mesh]") unless input[:mesh].nil?
       end
     end
 
@@ -1860,7 +1862,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input[:route_name], ::String, context: "#{context}[:route_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
-        Validators::RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        RouteSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1869,7 +1871,7 @@ module AWS::SDK::AppMesh
     class UpdateRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRouteOutput, context: context)
-        Validators::RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
+        RouteData.validate!(input[:route], context: "#{context}[:route]") unless input[:route].nil?
       end
     end
 
@@ -1878,7 +1880,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::UpdateVirtualGatewayInput, context: context)
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1887,7 +1889,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVirtualGatewayOutput, context: context)
-        Validators::VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
+        VirtualGatewayData.validate!(input[:virtual_gateway], context: "#{context}[:virtual_gateway]") unless input[:virtual_gateway].nil?
       end
     end
 
@@ -1896,7 +1898,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::UpdateVirtualNodeInput, context: context)
         Hearth::Validator.validate!(input[:virtual_node_name], ::String, context: "#{context}[:virtual_node_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1905,7 +1907,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualNodeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVirtualNodeOutput, context: context)
-        Validators::VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
+        VirtualNodeData.validate!(input[:virtual_node], context: "#{context}[:virtual_node]") unless input[:virtual_node].nil?
       end
     end
 
@@ -1914,7 +1916,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::UpdateVirtualRouterInput, context: context)
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1923,7 +1925,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualRouterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVirtualRouterOutput, context: context)
-        Validators::VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
+        VirtualRouterData.validate!(input[:virtual_router], context: "#{context}[:virtual_router]") unless input[:virtual_router].nil?
       end
     end
 
@@ -1932,7 +1934,7 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::UpdateVirtualServiceInput, context: context)
         Hearth::Validator.validate!(input[:virtual_service_name], ::String, context: "#{context}[:virtual_service_name]")
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
-        Validators::VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:mesh_owner], ::String, context: "#{context}[:mesh_owner]")
       end
@@ -1941,7 +1943,7 @@ module AWS::SDK::AppMesh
     class UpdateVirtualServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVirtualServiceOutput, context: context)
-        Validators::VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
+        VirtualServiceData.validate!(input[:virtual_service], context: "#{context}[:virtual_service]") unless input[:virtual_service].nil?
       end
     end
 
@@ -1949,7 +1951,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayAccessLog::File
-          Validators::VirtualGatewayFileAccessLog.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayFileAccessLog.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1967,7 +1969,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayBackendDefaults
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayBackendDefaults, context: context)
-        Validators::VirtualGatewayClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
+        VirtualGatewayClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
       end
     end
 
@@ -1983,7 +1985,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayClientPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayClientPolicy, context: context)
-        Validators::VirtualGatewayClientPolicyTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
+        VirtualGatewayClientPolicyTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
       end
     end
 
@@ -1991,9 +1993,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayClientPolicyTls, context: context)
         Hearth::Validator.validate!(input[:enforce], ::TrueClass, ::FalseClass, context: "#{context}[:enforce]")
-        Validators::PortSet.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
-        Validators::VirtualGatewayClientTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
-        Validators::VirtualGatewayTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
+        PortSet.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
+        VirtualGatewayClientTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        VirtualGatewayTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
       end
     end
 
@@ -2001,9 +2003,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayClientTlsCertificate::File
-          Validators::VirtualGatewayListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayClientTlsCertificate::Sds
-          Validators::VirtualGatewayListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2028,11 +2030,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayConnectionPool::Http
-          Validators::VirtualGatewayHttpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayHttpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayConnectionPool::Http2
-          Validators::VirtualGatewayHttp2ConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayHttp2ConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayConnectionPool::Grpc
-          Validators::VirtualGatewayGrpcConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayGrpcConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2064,9 +2066,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::VirtualGatewayData, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_gateway_name], ::String, context: "#{context}[:virtual_gateway_name]")
-        Validators::VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::VirtualGatewayStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VirtualGatewaySpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        VirtualGatewayStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2116,7 +2118,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualGatewayRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualGatewayRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2124,10 +2126,10 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListener
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayListener, context: context)
-        Validators::VirtualGatewayHealthCheckPolicy.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
-        Validators::VirtualGatewayPortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
-        Validators::VirtualGatewayListenerTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
-        Validators::VirtualGatewayConnectionPool.validate!(input[:connection_pool], context: "#{context}[:connection_pool]") unless input[:connection_pool].nil?
+        VirtualGatewayHealthCheckPolicy.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        VirtualGatewayPortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
+        VirtualGatewayListenerTls.validate!(input[:tls], context: "#{context}[:tls]") unless input[:tls].nil?
+        VirtualGatewayConnectionPool.validate!(input[:connection_pool], context: "#{context}[:connection_pool]") unless input[:connection_pool].nil?
       end
     end
 
@@ -2135,8 +2137,8 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayListenerTls, context: context)
         Hearth::Validator.validate!(input[:mode], ::String, context: "#{context}[:mode]")
-        Validators::VirtualGatewayListenerTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
-        Validators::VirtualGatewayListenerTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        VirtualGatewayListenerTlsValidationContext.validate!(input[:validation], context: "#{context}[:validation]") unless input[:validation].nil?
+        VirtualGatewayListenerTlsCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -2151,11 +2153,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayListenerTlsCertificate::Acm
-          Validators::VirtualGatewayListenerTlsAcmCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayListenerTlsAcmCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayListenerTlsCertificate::File
-          Validators::VirtualGatewayListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayListenerTlsFileCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayListenerTlsCertificate::Sds
-          Validators::VirtualGatewayListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayListenerTlsSdsCertificate.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2200,8 +2202,8 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListenerTlsValidationContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayListenerTlsValidationContext, context: context)
-        Validators::VirtualGatewayListenerTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
-        Validators::SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        VirtualGatewayListenerTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
+        SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
       end
     end
 
@@ -2209,9 +2211,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayListenerTlsValidationContextTrust::File
-          Validators::VirtualGatewayTlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayTlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayListenerTlsValidationContextTrust::Sds
-          Validators::VirtualGatewayTlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayTlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2236,7 +2238,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualGatewayListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualGatewayListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2244,7 +2246,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayLogging
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayLogging, context: context)
-        Validators::VirtualGatewayAccessLog.validate!(input[:access_log], context: "#{context}[:access_log]") unless input[:access_log].nil?
+        VirtualGatewayAccessLog.validate!(input[:access_log], context: "#{context}[:access_log]") unless input[:access_log].nil?
       end
     end
 
@@ -2273,9 +2275,9 @@ module AWS::SDK::AppMesh
     class VirtualGatewaySpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewaySpec, context: context)
-        Validators::VirtualGatewayBackendDefaults.validate!(input[:backend_defaults], context: "#{context}[:backend_defaults]") unless input[:backend_defaults].nil?
-        Validators::VirtualGatewayListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
-        Validators::VirtualGatewayLogging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        VirtualGatewayBackendDefaults.validate!(input[:backend_defaults], context: "#{context}[:backend_defaults]") unless input[:backend_defaults].nil?
+        VirtualGatewayListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        VirtualGatewayLogging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
       end
     end
 
@@ -2289,15 +2291,15 @@ module AWS::SDK::AppMesh
     class VirtualGatewayTlsValidationContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayTlsValidationContext, context: context)
-        Validators::VirtualGatewayTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
-        Validators::SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        VirtualGatewayTlsValidationContextTrust.validate!(input[:member_trust], context: "#{context}[:member_trust]") unless input[:member_trust].nil?
+        SubjectAlternativeNames.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
       end
     end
 
     class VirtualGatewayTlsValidationContextAcmTrust
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualGatewayTlsValidationContextAcmTrust, context: context)
-        Validators::VirtualGatewayCertificateAuthorityArns.validate!(input[:certificate_authority_arns], context: "#{context}[:certificate_authority_arns]") unless input[:certificate_authority_arns].nil?
+        VirtualGatewayCertificateAuthorityArns.validate!(input[:certificate_authority_arns], context: "#{context}[:certificate_authority_arns]") unless input[:certificate_authority_arns].nil?
       end
     end
 
@@ -2319,11 +2321,11 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualGatewayTlsValidationContextTrust::Acm
-          Validators::VirtualGatewayTlsValidationContextAcmTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayTlsValidationContextAcmTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayTlsValidationContextTrust::File
-          Validators::VirtualGatewayTlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayTlsValidationContextFileTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualGatewayTlsValidationContextTrust::Sds
-          Validators::VirtualGatewayTlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualGatewayTlsValidationContextSdsTrust.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2354,13 +2356,13 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualNodeConnectionPool::Tcp
-          Validators::VirtualNodeTcpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualNodeTcpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualNodeConnectionPool::Http
-          Validators::VirtualNodeHttpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualNodeHttpConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualNodeConnectionPool::Http2
-          Validators::VirtualNodeHttp2ConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualNodeHttp2ConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualNodeConnectionPool::Grpc
-          Validators::VirtualNodeGrpcConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualNodeGrpcConnectionPool.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2398,9 +2400,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::VirtualNodeData, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_node_name], ::String, context: "#{context}[:virtual_node_name]")
-        Validators::VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::VirtualNodeStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VirtualNodeSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        VirtualNodeStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2430,7 +2432,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualNodeRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualNodeRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2459,11 +2461,11 @@ module AWS::SDK::AppMesh
     class VirtualNodeSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualNodeSpec, context: context)
-        Validators::ServiceDiscovery.validate!(input[:service_discovery], context: "#{context}[:service_discovery]") unless input[:service_discovery].nil?
-        Validators::Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
-        Validators::Backends.validate!(input[:backends], context: "#{context}[:backends]") unless input[:backends].nil?
-        Validators::BackendDefaults.validate!(input[:backend_defaults], context: "#{context}[:backend_defaults]") unless input[:backend_defaults].nil?
-        Validators::Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        ServiceDiscovery.validate!(input[:service_discovery], context: "#{context}[:service_discovery]") unless input[:service_discovery].nil?
+        Listeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        Backends.validate!(input[:backends], context: "#{context}[:backends]") unless input[:backends].nil?
+        BackendDefaults.validate!(input[:backend_defaults], context: "#{context}[:backend_defaults]") unless input[:backend_defaults].nil?
+        Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
       end
     end
 
@@ -2486,9 +2488,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::VirtualRouterData, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_router_name], ::String, context: "#{context}[:virtual_router_name]")
-        Validators::VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::VirtualRouterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VirtualRouterSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        VirtualRouterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2496,7 +2498,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualRouterRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualRouterRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2504,7 +2506,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterListener
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualRouterListener, context: context)
-        Validators::PortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
+        PortMapping.validate!(input[:port_mapping], context: "#{context}[:port_mapping]") unless input[:port_mapping].nil?
       end
     end
 
@@ -2512,7 +2514,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualRouterListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualRouterListener.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2541,7 +2543,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualRouterSpec, context: context)
-        Validators::VirtualRouterListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
+        VirtualRouterListeners.validate!(input[:listeners], context: "#{context}[:listeners]") unless input[:listeners].nil?
       end
     end
 
@@ -2556,7 +2558,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualServiceBackend, context: context)
         Hearth::Validator.validate!(input[:virtual_service_name], ::String, context: "#{context}[:virtual_service_name]")
-        Validators::ClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
+        ClientPolicy.validate!(input[:client_policy], context: "#{context}[:client_policy]") unless input[:client_policy].nil?
       end
     end
 
@@ -2565,9 +2567,9 @@ module AWS::SDK::AppMesh
         Hearth::Validator.validate!(input, Types::VirtualServiceData, context: context)
         Hearth::Validator.validate!(input[:mesh_name], ::String, context: "#{context}[:mesh_name]")
         Hearth::Validator.validate!(input[:virtual_service_name], ::String, context: "#{context}[:virtual_service_name]")
-        Validators::VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
-        Validators::ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::VirtualServiceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        VirtualServiceSpec.validate!(input[:spec], context: "#{context}[:spec]") unless input[:spec].nil?
+        ResourceMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        VirtualServiceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2575,7 +2577,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualServiceRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualServiceRef.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2584,9 +2586,9 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         case input
         when Types::VirtualServiceProvider::VirtualNode
-          Validators::VirtualNodeServiceProvider.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualNodeServiceProvider.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::VirtualServiceProvider::VirtualRouter
-          Validators::VirtualRouterServiceProvider.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          VirtualRouterServiceProvider.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -2624,7 +2626,7 @@ module AWS::SDK::AppMesh
     class VirtualServiceSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VirtualServiceSpec, context: context)
-        Validators::VirtualServiceProvider.validate!(input[:provider], context: "#{context}[:provider]") unless input[:provider].nil?
+        VirtualServiceProvider.validate!(input[:provider], context: "#{context}[:provider]") unless input[:provider].nil?
       end
     end
 
@@ -2647,7 +2649,7 @@ module AWS::SDK::AppMesh
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WeightedTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WeightedTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

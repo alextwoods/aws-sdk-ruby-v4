@@ -288,11 +288,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.agent_count ||= 0
       end
-
     end
 
     # <p>An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.</p>
@@ -447,11 +447,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_sage_maker_metrics_time_series ||= false
       end
-
     end
 
     # Includes enum constants for AlgorithmStatus
@@ -3800,11 +3800,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_inter_container_traffic_encryption ||= false
       end
-
     end
 
     # Includes enum constants for AutoMLSortBy
@@ -4490,11 +4490,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_required ||= false
       end
-
     end
 
     # <p>Contains information about the output location for managed spot training checkpoint
@@ -4580,12 +4580,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_check ||= false
         self.register_new_baseline ||= false
       end
-
     end
 
     # Includes enum constants for CodeRepositorySortBy
@@ -5355,11 +5355,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.certify_for_marketplace ||= false
       end
-
     end
 
     # @!attribute algorithm_arn
@@ -5600,11 +5600,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.generate_candidate_definitions_only ||= false
       end
-
     end
 
     # @!attribute auto_ml_job_arn
@@ -7285,11 +7285,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
       end
-
     end
 
     # @!attribute model_arn
@@ -7496,11 +7496,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.certify_for_marketplace ||= false
       end
-
     end
 
     # @!attribute model_package_arn
@@ -8417,13 +8417,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_managed_spot_training ||= false
       end
-
     end
 
     # @!attribute training_job_arn
@@ -9041,11 +9041,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_capture ||= false
       end
-
     end
 
     # <p>The currently active data capture configuration used by your Endpoint.</p>
@@ -9086,11 +9086,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_capture ||= false
       end
-
     end
 
     # <p>The meta data of the Glue table which serves as data catalog for the
@@ -9450,11 +9450,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_gb ||= 0
       end
-
     end
 
     # <p>Information about the status of the rule evaluation.</p>
@@ -10338,11 +10338,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
@@ -10615,11 +10615,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.certify_for_marketplace ||= false
       end
-
     end
 
     # @!attribute app_image_config_name
@@ -11019,11 +11019,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.generate_candidate_definitions_only ||= false
       end
-
     end
 
     # @!attribute code_repository_name
@@ -11550,11 +11550,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_models ||= 0
       end
-
     end
 
     # @!attribute domain_id
@@ -13285,11 +13285,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
       end
-
     end
 
     # @!attribute model_package_group_name
@@ -13533,11 +13533,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.certify_for_marketplace ||= false
       end
-
     end
 
     # @!attribute job_definition_name
@@ -14984,13 +14984,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_managed_spot_training ||= false
       end
-
     end
 
     # @!attribute transform_job_name
@@ -15695,12 +15695,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connected_device_count ||= 0
         self.registered_device_count ||= 0
       end
-
     end
 
     # <p>Summary of the device.</p>
@@ -16224,6 +16224,7 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.offline_device_count ||= 0
@@ -16231,7 +16232,6 @@ module AWS::SDK::SageMaker
         self.active_device_count ||= 0
         self.sampling_device_count ||= 0
       end
-
     end
 
     # <p>Summary of model on edge device.</p>
@@ -16739,11 +16739,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initial_instance_count ||= 0
       end
-
     end
 
     # Includes enum constants for EndpointSortKey
@@ -17791,11 +17791,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Shows the final value for the
@@ -17833,11 +17833,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Contains information about where human output will be stored.</p>
@@ -20435,12 +20435,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_tunable ||= false
         self.is_required ||= false
       end
-
     end
 
     # <p>Defines
@@ -20603,13 +20603,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_managed_spot_training ||= false
       end
-
     end
 
     # <p>The container for the summary information about a training job.</p>
@@ -22412,6 +22412,7 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_labeled ||= 0
@@ -22420,7 +22421,6 @@ module AWS::SDK::SageMaker
         self.failed_non_retryable_error ||= 0
         self.unlabeled ||= 0
       end
-
     end
 
     # <p>Provides counts for human-labeled tasks in the labeling job.</p>
@@ -22447,13 +22447,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.human_labeled ||= 0
         self.pending_human ||= 0
         self.total ||= 0
       end
-
     end
 
     # <p>Provides configuration information for auto-labeling of your data objects. A
@@ -27782,11 +27782,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Information about the metric for a candidate produced by an AutoML job.</p>
@@ -27830,11 +27830,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Specifies a metric that the training algorithm
@@ -28117,11 +28117,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_generate_endpoint_name ||= false
       end
-
     end
 
     # <p>Provides information about the endpoint of the model deployment.</p>
@@ -28250,11 +28250,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value_in_milliseconds ||= 0
       end
-
     end
 
     # <p>Part of the search expression. You can specify the name and value
@@ -28598,11 +28598,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.certify_for_marketplace ||= false
       end
-
     end
 
     # <p>Describes the Docker container for the model package.</p>
@@ -29623,12 +29623,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_network_isolation ||= false
       end
-
     end
 
     # <p>The output object for a monitoring job.</p>
@@ -29969,11 +29969,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_runtime_in_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for MonitoringType
@@ -30115,12 +30115,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_network_isolation ||= false
       end
-
     end
 
     # Includes enum constants for NotebookInstanceAcceleratorType
@@ -30459,13 +30459,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.succeeded ||= 0
         self.pending ||= 0
         self.failed ||= 0
       end
-
     end
 
     # <p>The configuration of an <code>OfflineStore</code>.</p>
@@ -30499,11 +30499,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_glue_table_creation ||= false
       end
-
     end
 
     # <p>The status of <code>OfflineStore</code>.</p>
@@ -30708,11 +30708,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_online_store ||= false
       end
-
     end
 
     # <p>The security configuration for <code>OnlineStore</code>.</p>
@@ -31244,11 +31244,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parallel_execution_steps ||= 0
       end
-
     end
 
     # <p>Assigns a value to a named Pipeline parameter.</p>
@@ -31850,11 +31850,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attempt_count ||= 0
       end
-
     end
 
     # <p>Metadata for a step execution.</p>
@@ -32249,11 +32249,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.app_managed ||= false
       end
-
     end
 
     # Includes enum constants for ProcessingInstanceType
@@ -32738,11 +32738,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.app_managed ||= false
       end
-
     end
 
     # <p>Configuration for uploading output from the processing container.</p>
@@ -32959,11 +32959,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_runtime_in_seconds ||= 0
       end
-
     end
 
     # <p>Identifies a model that you want to host and the resources chosen to deploy for
@@ -33606,11 +33606,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_profiler ||= false
       end
-
     end
 
     # <p>Configuration information for profiling rules.</p>
@@ -33663,11 +33663,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_gb ||= 0
       end
-
     end
 
     # <p>Information about the status of the rule evaluation.</p>
@@ -34397,12 +34397,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_check ||= false
         self.register_new_baseline ||= false
       end
-
     end
 
     # <p>A set of filters to narrow the set of lineage entities connected to the <code>StartArn</code>(s) returned by the
@@ -34528,11 +34528,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_edges ||= false
       end
-
     end
 
     # @!attribute vertices
@@ -34905,11 +34905,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_invocations ||= 0
       end
-
     end
 
     # Includes enum constants for RecommendationJobType
@@ -34954,6 +34954,7 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cost_per_hour ||= 0
@@ -34961,7 +34962,6 @@ module AWS::SDK::SageMaker
         self.max_invocations ||= 0
         self.model_latency ||= 0
       end
-
     end
 
     # Includes enum constants for RecordWrapper
@@ -35356,12 +35356,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
         self.volume_size_in_gb ||= 0
       end
-
     end
 
     # <p>Resource being accessed is in use.</p>
@@ -35418,12 +35418,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_number_of_training_jobs ||= 0
         self.max_parallel_training_jobs ||= 0
       end
-
     end
 
     # <p>Resource being access is not found.</p>
@@ -35609,11 +35609,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_retry_attempts ||= 0
       end
-
     end
 
     # Includes enum constants for RootAccess
@@ -36667,11 +36667,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.seed ||= 0
       end
-
     end
 
     # Includes enum constants for SortActionsBy
@@ -37326,11 +37326,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_runtime_in_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for StudioLifecycleConfigAppType
@@ -38516,13 +38516,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_network_isolation ||= false
         self.enable_inter_container_traffic_encryption ||= false
         self.enable_managed_spot_training ||= false
       end
-
     end
 
     # <p>Defines the input needed to run a training job using the algorithm.</p>
@@ -38714,6 +38714,7 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.completed ||= 0
@@ -38722,7 +38723,6 @@ module AWS::SDK::SageMaker
         self.non_retryable_error ||= 0
         self.stopped ||= 0
       end
-
     end
 
     # <p>Metadata for a training job step.</p>
@@ -38849,11 +38849,11 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_distributed_training ||= false
       end
-
     end
 
     # <p>Describes the location of the channel data.</p>
@@ -40379,13 +40379,13 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dollars ||= 0
         self.cents ||= 0
         self.tenth_fractions_of_a_cent ||= 0
       end
-
     end
 
     # <p>Provided configuration information for the worker UI for a labeling job. Provide
@@ -40884,12 +40884,12 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retain_all_variant_properties ||= false
         self.retain_deployment_config ||= false
       end
-
     end
 
     # @!attribute endpoint_arn
@@ -41246,6 +41246,7 @@ module AWS::SDK::SageMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disassociate_lifecycle_config ||= false
@@ -41253,7 +41254,6 @@ module AWS::SDK::SageMaker
         self.disassociate_default_code_repository ||= false
         self.disassociate_additional_code_repositories ||= false
       end
-
     end
 
     # @!attribute notebook_instance_lifecycle_config_name

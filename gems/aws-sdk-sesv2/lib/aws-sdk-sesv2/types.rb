@@ -524,11 +524,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unsubscribe_all ||= false
       end
-
     end
 
     # Includes enum constants for ContactLanguage
@@ -770,11 +770,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unsubscribe_all ||= false
       end
-
     end
 
     # @!attribute contact_list_name
@@ -1047,11 +1047,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.verified_for_sending_status ||= false
       end
-
     end
 
     # <p>Represents a request to create a sending authorization policy for an identity. Sending
@@ -1828,11 +1828,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.signing_enabled ||= false
       end
-
     end
 
     # <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy DKIM</p>
@@ -2273,11 +2273,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>An object that defines the event destination. Specifically, it defines which services
@@ -2336,11 +2336,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for EventType
@@ -2501,13 +2501,13 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dedicated_ip_auto_warmup_enabled ||= false
         self.production_access_enabled ||= false
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear
@@ -2768,11 +2768,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unsubscribe_all ||= false
       end
-
     end
 
     # <p>Represents a request to retrieve an existing custom verification email
@@ -2981,11 +2981,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dashboard_enabled ||= false
       end
-
     end
 
     # <p>A request to retrieve the results of a predictive inbox placement test.</p>
@@ -3215,12 +3215,12 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.feedback_forwarding_status ||= false
         self.verified_for_sending_status ||= false
       end
-
     end
 
     # <p>A request to return the policies of an email identity.</p>
@@ -3427,11 +3427,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # Includes enum constants for IdentityType
@@ -3562,11 +3562,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.global ||= false
       end
-
     end
 
     # <p>The specified request includes an invalid or expired token.</p>
@@ -4635,11 +4635,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_warmup_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -4748,11 +4748,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -4867,11 +4867,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reputation_metrics_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -4904,11 +4904,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -5089,11 +5089,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dashboard_enabled ||= false
       end
-
     end
 
     # <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
@@ -5157,11 +5157,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.signing_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -5313,11 +5313,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.email_forwarding_enabled ||= false
       end
-
     end
 
     # <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -5521,11 +5521,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reputation_metrics_enabled ||= false
       end
-
     end
 
     # <p>An object that contains information about your account details review.</p>
@@ -5893,13 +5893,13 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max24_hour_send ||= 0
         self.max_send_rate ||= 0
         self.sent_last24_hours ||= 0
       end
-
     end
 
     # <p>Used to enable or disable email sending for messages that use this configuration set
@@ -5916,11 +5916,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sending_enabled ||= false
       end
-
     end
 
     # <p>The message can't be sent because the account's ability to send email is currently
@@ -6402,11 +6402,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_default_if_preference_unavailable ||= false
       end
-
     end
 
     # <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
@@ -6557,11 +6557,11 @@ module AWS::SDK::SESv2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unsubscribe_all ||= false
       end
-
     end
 
     # @!attribute contact_list_name

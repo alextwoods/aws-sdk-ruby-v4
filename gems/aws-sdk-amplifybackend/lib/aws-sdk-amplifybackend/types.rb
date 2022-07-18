@@ -112,11 +112,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expiration_time ||= 0
       end
-
     end
 
     # <p>Describes the auth types for your configured data models.</p>
@@ -531,11 +531,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unauthenticated_login ||= false
       end
-
     end
 
     # <p>The request body for CreateBackendAuth.</p>
@@ -698,11 +698,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_length ||= 0
       end
-
     end
 
     # <p>Defines the resource configuration when creating an auth resource in your Amplify project.</p>
@@ -1383,11 +1383,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_success ||= false
       end
-
     end
 
     # Includes enum constants for DeliveryMethod
@@ -1914,11 +1914,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.imported ||= false
       end
-
     end
 
     # @!attribute app_id
@@ -2167,11 +2167,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute jobs
@@ -2378,11 +2378,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.clean_amplify_app ||= false
       end
-
     end
 
     # @!attribute app_id
@@ -2830,11 +2830,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unauthenticated_login ||= false
       end
-
     end
 
     # <p>The request body for UpdateBackendAuth.</p>
@@ -2997,11 +2997,11 @@ module AWS::SDK::AmplifyBackend
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_length ||= 0
       end
-
     end
 
     # <p>Defines the resource configuration when updating an authentication resource in your Amplify project.</p>

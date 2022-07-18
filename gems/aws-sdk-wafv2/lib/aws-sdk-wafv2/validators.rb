@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WAFV2
   module Validators
 
@@ -32,14 +34,14 @@ module AWS::SDK::WAFV2
     class AllowAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AllowAction, context: context)
-        Validators::CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
+        CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
       end
     end
 
     class AndStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AndStatement, context: context)
-        Validators::Statements.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
+        Statements.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::WAFV2
     class BlockAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BlockAction, context: context)
-        Validators::CustomResponse.validate!(input[:custom_response], context: "#{context}[:custom_response]") unless input[:custom_response].nil?
+        CustomResponse.validate!(input[:custom_response], context: "#{context}[:custom_response]") unless input[:custom_response].nil?
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ByteMatchStatement, context: context)
         Hearth::Validator.validate!(input[:search_string], ::String, context: "#{context}[:search_string]")
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
         Hearth::Validator.validate!(input[:positional_constraint], ::String, context: "#{context}[:positional_constraint]")
       end
     end
@@ -84,14 +86,14 @@ module AWS::SDK::WAFV2
     class CaptchaAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CaptchaAction, context: context)
-        Validators::CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
+        CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
       end
     end
 
     class CaptchaConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CaptchaConfig, context: context)
-        Validators::ImmunityTimeProperty.validate!(input[:immunity_time_property], context: "#{context}[:immunity_time_property]") unless input[:immunity_time_property].nil?
+        ImmunityTimeProperty.validate!(input[:immunity_time_property], context: "#{context}[:immunity_time_property]") unless input[:immunity_time_property].nil?
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CheckCapacityInput, context: context)
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -122,8 +124,8 @@ module AWS::SDK::WAFV2
     class Condition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Condition, context: context)
-        Validators::ActionCondition.validate!(input[:action_condition], context: "#{context}[:action_condition]") unless input[:action_condition].nil?
-        Validators::LabelNameCondition.validate!(input[:label_name_condition], context: "#{context}[:label_name_condition]") unless input[:label_name_condition].nil?
+        ActionCondition.validate!(input[:action_condition], context: "#{context}[:action_condition]") unless input[:action_condition].nil?
+        LabelNameCondition.validate!(input[:label_name_condition], context: "#{context}[:label_name_condition]") unless input[:label_name_condition].nil?
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Condition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Condition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -139,9 +141,9 @@ module AWS::SDK::WAFV2
     class CookieMatchPattern
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CookieMatchPattern, context: context)
-        Validators::All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
-        Validators::CookieNames.validate!(input[:included_cookies], context: "#{context}[:included_cookies]") unless input[:included_cookies].nil?
-        Validators::CookieNames.validate!(input[:excluded_cookies], context: "#{context}[:excluded_cookies]") unless input[:excluded_cookies].nil?
+        All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
+        CookieNames.validate!(input[:included_cookies], context: "#{context}[:included_cookies]") unless input[:included_cookies].nil?
+        CookieNames.validate!(input[:excluded_cookies], context: "#{context}[:excluded_cookies]") unless input[:excluded_cookies].nil?
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::WAFV2
     class Cookies
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Cookies, context: context)
-        Validators::CookieMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
+        CookieMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
         Hearth::Validator.validate!(input[:match_scope], ::String, context: "#{context}[:match_scope]")
         Hearth::Validator.validate!(input[:oversize_handling], ::String, context: "#{context}[:oversize_handling]")
       end
@@ -166,7 +168,7 @@ module AWS::SDK::WAFV2
     class CountAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CountAction, context: context)
-        Validators::CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
+        CustomRequestHandling.validate!(input[:custom_request_handling], context: "#{context}[:custom_request_handling]") unless input[:custom_request_handling].nil?
       end
     end
 
@@ -186,15 +188,15 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:ip_address_version], ::String, context: "#{context}[:ip_address_version]")
-        Validators::IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateIPSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateIPSetOutput, context: context)
-        Validators::IPSetSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        IPSetSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -204,15 +206,15 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRegexPatternSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRegexPatternSetOutput, context: context)
-        Validators::RegexPatternSetSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        RegexPatternSetSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -223,17 +225,17 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:capacity], ::Integer, context: "#{context}[:capacity]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
       end
     end
 
     class CreateRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleGroupOutput, context: context)
-        Validators::RuleGroupSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        RuleGroupSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -242,20 +244,20 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::CreateWebACLInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
-        Validators::CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
       end
     end
 
     class CreateWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWebACLOutput, context: context)
-        Validators::WebACLSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        WebACLSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomHTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomHTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -279,7 +281,7 @@ module AWS::SDK::WAFV2
     class CustomRequestHandling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomRequestHandling, context: context)
-        Validators::CustomHTTPHeaders.validate!(input[:insert_headers], context: "#{context}[:insert_headers]") unless input[:insert_headers].nil?
+        CustomHTTPHeaders.validate!(input[:insert_headers], context: "#{context}[:insert_headers]") unless input[:insert_headers].nil?
       end
     end
 
@@ -288,7 +290,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::CustomResponse, context: context)
         Hearth::Validator.validate!(input[:response_code], ::Integer, context: "#{context}[:response_code]")
         Hearth::Validator.validate!(input[:custom_response_body_key], ::String, context: "#{context}[:custom_response_body_key]")
-        Validators::CustomHTTPHeaders.validate!(input[:response_headers], context: "#{context}[:response_headers]") unless input[:response_headers].nil?
+        CustomHTTPHeaders.validate!(input[:response_headers], context: "#{context}[:response_headers]") unless input[:response_headers].nil?
       end
     end
 
@@ -297,7 +299,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::CustomResponseBody.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          CustomResponseBody.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -313,8 +315,8 @@ module AWS::SDK::WAFV2
     class DefaultAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DefaultAction, context: context)
-        Validators::BlockAction.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
-        Validators::AllowAction.validate!(input[:allow], context: "#{context}[:allow]") unless input[:allow].nil?
+        BlockAction.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
+        AllowAction.validate!(input[:allow], context: "#{context}[:allow]") unless input[:allow].nil?
       end
     end
 
@@ -439,10 +441,10 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:version_name], ::String, context: "#{context}[:version_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:capacity], ::Integer, context: "#{context}[:capacity]")
-        Validators::RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleSummaries.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:label_namespace], ::String, context: "#{context}[:label_namespace]")
-        Validators::LabelSummaries.validate!(input[:available_labels], context: "#{context}[:available_labels]") unless input[:available_labels].nil?
-        Validators::LabelSummaries.validate!(input[:consumed_labels], context: "#{context}[:consumed_labels]") unless input[:consumed_labels].nil?
+        LabelSummaries.validate!(input[:available_labels], context: "#{context}[:available_labels]") unless input[:available_labels].nil?
+        LabelSummaries.validate!(input[:consumed_labels], context: "#{context}[:consumed_labels]") unless input[:consumed_labels].nil?
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExcludedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExcludedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -478,16 +480,16 @@ module AWS::SDK::WAFV2
     class FieldToMatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FieldToMatch, context: context)
-        Validators::SingleHeader.validate!(input[:single_header], context: "#{context}[:single_header]") unless input[:single_header].nil?
-        Validators::SingleQueryArgument.validate!(input[:single_query_argument], context: "#{context}[:single_query_argument]") unless input[:single_query_argument].nil?
-        Validators::AllQueryArguments.validate!(input[:all_query_arguments], context: "#{context}[:all_query_arguments]") unless input[:all_query_arguments].nil?
-        Validators::UriPath.validate!(input[:uri_path], context: "#{context}[:uri_path]") unless input[:uri_path].nil?
-        Validators::QueryString.validate!(input[:query_string], context: "#{context}[:query_string]") unless input[:query_string].nil?
-        Validators::Body.validate!(input[:body], context: "#{context}[:body]") unless input[:body].nil?
-        Validators::Method.validate!(input[:member_method], context: "#{context}[:member_method]") unless input[:member_method].nil?
-        Validators::JsonBody.validate!(input[:json_body], context: "#{context}[:json_body]") unless input[:json_body].nil?
-        Validators::Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
-        Validators::Cookies.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
+        SingleHeader.validate!(input[:single_header], context: "#{context}[:single_header]") unless input[:single_header].nil?
+        SingleQueryArgument.validate!(input[:single_query_argument], context: "#{context}[:single_query_argument]") unless input[:single_query_argument].nil?
+        AllQueryArguments.validate!(input[:all_query_arguments], context: "#{context}[:all_query_arguments]") unless input[:all_query_arguments].nil?
+        UriPath.validate!(input[:uri_path], context: "#{context}[:uri_path]") unless input[:uri_path].nil?
+        QueryString.validate!(input[:query_string], context: "#{context}[:query_string]") unless input[:query_string].nil?
+        Body.validate!(input[:body], context: "#{context}[:body]") unless input[:body].nil?
+        Method.validate!(input[:member_method], context: "#{context}[:member_method]") unless input[:member_method].nil?
+        JsonBody.validate!(input[:json_body], context: "#{context}[:json_body]") unless input[:json_body].nil?
+        Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        Cookies.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:behavior], ::String, context: "#{context}[:behavior]")
         Hearth::Validator.validate!(input[:requirement], ::String, context: "#{context}[:requirement]")
-        Validators::Conditions.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
+        Conditions.validate!(input[:conditions], context: "#{context}[:conditions]") unless input[:conditions].nil?
       end
     end
 
@@ -504,7 +506,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -514,9 +516,9 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::FirewallManagerRuleGroup, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::FirewallManagerStatement.validate!(input[:firewall_manager_statement], context: "#{context}[:firewall_manager_statement]") unless input[:firewall_manager_statement].nil?
-        Validators::OverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        FirewallManagerStatement.validate!(input[:firewall_manager_statement], context: "#{context}[:firewall_manager_statement]") unless input[:firewall_manager_statement].nil?
+        OverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
       end
     end
 
@@ -524,7 +526,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FirewallManagerRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FirewallManagerRuleGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -532,8 +534,8 @@ module AWS::SDK::WAFV2
     class FirewallManagerStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FirewallManagerStatement, context: context)
-        Validators::ManagedRuleGroupStatement.validate!(input[:managed_rule_group_statement], context: "#{context}[:managed_rule_group_statement]") unless input[:managed_rule_group_statement].nil?
-        Validators::RuleGroupReferenceStatement.validate!(input[:rule_group_reference_statement], context: "#{context}[:rule_group_reference_statement]") unless input[:rule_group_reference_statement].nil?
+        ManagedRuleGroupStatement.validate!(input[:managed_rule_group_statement], context: "#{context}[:managed_rule_group_statement]") unless input[:managed_rule_group_statement].nil?
+        RuleGroupReferenceStatement.validate!(input[:rule_group_reference_statement], context: "#{context}[:rule_group_reference_statement]") unless input[:rule_group_reference_statement].nil?
       end
     end
 
@@ -563,8 +565,8 @@ module AWS::SDK::WAFV2
     class GeoMatchStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GeoMatchStatement, context: context)
-        Validators::CountryCodes.validate!(input[:country_codes], context: "#{context}[:country_codes]") unless input[:country_codes].nil?
-        Validators::ForwardedIPConfig.validate!(input[:forwarded_ip_config], context: "#{context}[:forwarded_ip_config]") unless input[:forwarded_ip_config].nil?
+        CountryCodes.validate!(input[:country_codes], context: "#{context}[:country_codes]") unless input[:country_codes].nil?
+        ForwardedIPConfig.validate!(input[:forwarded_ip_config], context: "#{context}[:forwarded_ip_config]") unless input[:forwarded_ip_config].nil?
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::WAFV2
     class GetIPSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIPSetOutput, context: context)
-        Validators::IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
+        IPSet.validate!(input[:ip_set], context: "#{context}[:ip_set]") unless input[:ip_set].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -595,7 +597,7 @@ module AWS::SDK::WAFV2
     class GetLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -611,7 +613,7 @@ module AWS::SDK::WAFV2
     class GetManagedRuleSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetManagedRuleSetOutput, context: context)
-        Validators::ManagedRuleSet.validate!(input[:managed_rule_set], context: "#{context}[:managed_rule_set]") unless input[:managed_rule_set].nil?
+        ManagedRuleSet.validate!(input[:managed_rule_set], context: "#{context}[:managed_rule_set]") unless input[:managed_rule_set].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -627,7 +629,7 @@ module AWS::SDK::WAFV2
     class GetMobileSdkReleaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMobileSdkReleaseOutput, context: context)
-        Validators::MobileSdkRelease.validate!(input[:mobile_sdk_release], context: "#{context}[:mobile_sdk_release]") unless input[:mobile_sdk_release].nil?
+        MobileSdkRelease.validate!(input[:mobile_sdk_release], context: "#{context}[:mobile_sdk_release]") unless input[:mobile_sdk_release].nil?
       end
     end
 
@@ -659,8 +661,8 @@ module AWS::SDK::WAFV2
     class GetRateBasedStatementManagedKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRateBasedStatementManagedKeysOutput, context: context)
-        Validators::RateBasedStatementManagedKeysIPSet.validate!(input[:managed_keys_ipv4], context: "#{context}[:managed_keys_ipv4]") unless input[:managed_keys_ipv4].nil?
-        Validators::RateBasedStatementManagedKeysIPSet.validate!(input[:managed_keys_ipv6], context: "#{context}[:managed_keys_ipv6]") unless input[:managed_keys_ipv6].nil?
+        RateBasedStatementManagedKeysIPSet.validate!(input[:managed_keys_ipv4], context: "#{context}[:managed_keys_ipv4]") unless input[:managed_keys_ipv4].nil?
+        RateBasedStatementManagedKeysIPSet.validate!(input[:managed_keys_ipv6], context: "#{context}[:managed_keys_ipv6]") unless input[:managed_keys_ipv6].nil?
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::WAFV2
     class GetRegexPatternSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRegexPatternSetOutput, context: context)
-        Validators::RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
+        RegexPatternSet.validate!(input[:regex_pattern_set], context: "#{context}[:regex_pattern_set]") unless input[:regex_pattern_set].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::WAFV2
     class GetRuleGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRuleGroupOutput, context: context)
-        Validators::RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
+        RuleGroup.validate!(input[:rule_group], context: "#{context}[:rule_group]") unless input[:rule_group].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:web_acl_arn], ::String, context: "#{context}[:web_acl_arn]")
         Hearth::Validator.validate!(input[:rule_metric_name], ::String, context: "#{context}[:rule_metric_name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
+        TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
       end
     end
@@ -713,9 +715,9 @@ module AWS::SDK::WAFV2
     class GetSampledRequestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSampledRequestsOutput, context: context)
-        Validators::SampledHTTPRequests.validate!(input[:sampled_requests], context: "#{context}[:sampled_requests]") unless input[:sampled_requests].nil?
+        SampledHTTPRequests.validate!(input[:sampled_requests], context: "#{context}[:sampled_requests]") unless input[:sampled_requests].nil?
         Hearth::Validator.validate!(input[:population_size], ::Integer, context: "#{context}[:population_size]")
-        Validators::TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
+        TimeWindow.validate!(input[:time_window], context: "#{context}[:time_window]") unless input[:time_window].nil?
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::WAFV2
     class GetWebACLForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWebACLForResourceOutput, context: context)
-        Validators::WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
+        WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
       end
     end
 
@@ -745,7 +747,7 @@ module AWS::SDK::WAFV2
     class GetWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWebACLOutput, context: context)
-        Validators::WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
+        WebACL.validate!(input[:web_acl], context: "#{context}[:web_acl]") unless input[:web_acl].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
         Hearth::Validator.validate!(input[:application_integration_url], ::String, context: "#{context}[:application_integration_url]")
       end
@@ -763,7 +765,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HTTPHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -776,16 +778,16 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:uri], ::String, context: "#{context}[:uri]")
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
         Hearth::Validator.validate!(input[:http_version], ::String, context: "#{context}[:http_version]")
-        Validators::HTTPHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        HTTPHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
     class HeaderMatchPattern
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HeaderMatchPattern, context: context)
-        Validators::All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
-        Validators::HeaderNames.validate!(input[:included_headers], context: "#{context}[:included_headers]") unless input[:included_headers].nil?
-        Validators::HeaderNames.validate!(input[:excluded_headers], context: "#{context}[:excluded_headers]") unless input[:excluded_headers].nil?
+        All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
+        HeaderNames.validate!(input[:included_headers], context: "#{context}[:included_headers]") unless input[:included_headers].nil?
+        HeaderNames.validate!(input[:excluded_headers], context: "#{context}[:excluded_headers]") unless input[:excluded_headers].nil?
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::WAFV2
     class Headers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Headers, context: context)
-        Validators::HeaderMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
+        HeaderMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
         Hearth::Validator.validate!(input[:match_scope], ::String, context: "#{context}[:match_scope]")
         Hearth::Validator.validate!(input[:oversize_handling], ::String, context: "#{context}[:oversize_handling]")
       end
@@ -824,7 +826,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:ip_address_version], ::String, context: "#{context}[:ip_address_version]")
-        Validators::IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
+        IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IPSetReferenceStatement, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::IPSetForwardedIPConfig.validate!(input[:ip_set_forwarded_ip_config], context: "#{context}[:ip_set_forwarded_ip_config]") unless input[:ip_set_forwarded_ip_config].nil?
+        IPSetForwardedIPConfig.validate!(input[:ip_set_forwarded_ip_config], context: "#{context}[:ip_set_forwarded_ip_config]") unless input[:ip_set_forwarded_ip_config].nil?
       end
     end
 
@@ -849,7 +851,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IPSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IPSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::WAFV2
     class JsonBody
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JsonBody, context: context)
-        Validators::JsonMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
+        JsonMatchPattern.validate!(input[:match_pattern], context: "#{context}[:match_pattern]") unless input[:match_pattern].nil?
         Hearth::Validator.validate!(input[:match_scope], ::String, context: "#{context}[:match_scope]")
         Hearth::Validator.validate!(input[:invalid_fallback_behavior], ::String, context: "#{context}[:invalid_fallback_behavior]")
         Hearth::Validator.validate!(input[:oversize_handling], ::String, context: "#{context}[:oversize_handling]")
@@ -885,8 +887,8 @@ module AWS::SDK::WAFV2
     class JsonMatchPattern
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JsonMatchPattern, context: context)
-        Validators::All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
-        Validators::JsonPointerPaths.validate!(input[:included_paths], context: "#{context}[:included_paths]") unless input[:included_paths].nil?
+        All.validate!(input[:all], context: "#{context}[:all]") unless input[:all].nil?
+        JsonPointerPaths.validate!(input[:included_paths], context: "#{context}[:included_paths]") unless input[:included_paths].nil?
       end
     end
 
@@ -925,7 +927,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LabelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LabelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Label.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Label.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -961,7 +963,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAvailableManagedRuleGroupVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::ManagedRuleGroupVersions.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        ManagedRuleGroupVersions.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:current_default_version], ::String, context: "#{context}[:current_default_version]")
       end
     end
@@ -979,7 +981,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAvailableManagedRuleGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::ManagedRuleGroupSummaries.validate!(input[:managed_rule_groups], context: "#{context}[:managed_rule_groups]") unless input[:managed_rule_groups].nil?
+        ManagedRuleGroupSummaries.validate!(input[:managed_rule_groups], context: "#{context}[:managed_rule_groups]") unless input[:managed_rule_groups].nil?
       end
     end
 
@@ -996,7 +998,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIPSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::IPSetSummaries.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
+        IPSetSummaries.validate!(input[:ip_sets], context: "#{context}[:ip_sets]") unless input[:ip_sets].nil?
       end
     end
 
@@ -1012,7 +1014,7 @@ module AWS::SDK::WAFV2
     class ListLoggingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLoggingConfigurationsOutput, context: context)
-        Validators::LoggingConfigurations.validate!(input[:logging_configurations], context: "#{context}[:logging_configurations]") unless input[:logging_configurations].nil?
+        LoggingConfigurations.validate!(input[:logging_configurations], context: "#{context}[:logging_configurations]") unless input[:logging_configurations].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -1030,7 +1032,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListManagedRuleSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::ManagedRuleSetSummaries.validate!(input[:managed_rule_sets], context: "#{context}[:managed_rule_sets]") unless input[:managed_rule_sets].nil?
+        ManagedRuleSetSummaries.validate!(input[:managed_rule_sets], context: "#{context}[:managed_rule_sets]") unless input[:managed_rule_sets].nil?
       end
     end
 
@@ -1046,7 +1048,7 @@ module AWS::SDK::WAFV2
     class ListMobileSdkReleasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMobileSdkReleasesOutput, context: context)
-        Validators::ReleaseSummaries.validate!(input[:release_summaries], context: "#{context}[:release_summaries]") unless input[:release_summaries].nil?
+        ReleaseSummaries.validate!(input[:release_summaries], context: "#{context}[:release_summaries]") unless input[:release_summaries].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -1064,7 +1066,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRegexPatternSetsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RegexPatternSetSummaries.validate!(input[:regex_pattern_sets], context: "#{context}[:regex_pattern_sets]") unless input[:regex_pattern_sets].nil?
+        RegexPatternSetSummaries.validate!(input[:regex_pattern_sets], context: "#{context}[:regex_pattern_sets]") unless input[:regex_pattern_sets].nil?
       end
     end
 
@@ -1079,7 +1081,7 @@ module AWS::SDK::WAFV2
     class ListResourcesForWebACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesForWebACLOutput, context: context)
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
@@ -1096,7 +1098,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRuleGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::RuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
+        RuleGroupSummaries.validate!(input[:rule_groups], context: "#{context}[:rule_groups]") unless input[:rule_groups].nil?
       end
     end
 
@@ -1113,7 +1115,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::TagInfoForResource.validate!(input[:tag_info_for_resource], context: "#{context}[:tag_info_for_resource]") unless input[:tag_info_for_resource].nil?
+        TagInfoForResource.validate!(input[:tag_info_for_resource], context: "#{context}[:tag_info_for_resource]") unless input[:tag_info_for_resource].nil?
       end
     end
 
@@ -1130,7 +1132,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebACLsOutput, context: context)
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
-        Validators::WebACLSummaries.validate!(input[:web_ac_ls], context: "#{context}[:web_ac_ls]") unless input[:web_ac_ls].nil?
+        WebACLSummaries.validate!(input[:web_ac_ls], context: "#{context}[:web_ac_ls]") unless input[:web_ac_ls].nil?
       end
     end
 
@@ -1147,10 +1149,10 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggingConfiguration, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LogDestinationConfigs.validate!(input[:log_destination_configs], context: "#{context}[:log_destination_configs]") unless input[:log_destination_configs].nil?
-        Validators::RedactedFields.validate!(input[:redacted_fields], context: "#{context}[:redacted_fields]") unless input[:redacted_fields].nil?
+        LogDestinationConfigs.validate!(input[:log_destination_configs], context: "#{context}[:log_destination_configs]") unless input[:log_destination_configs].nil?
+        RedactedFields.validate!(input[:redacted_fields], context: "#{context}[:redacted_fields]") unless input[:redacted_fields].nil?
         Hearth::Validator.validate!(input[:managed_by_firewall_manager], ::TrueClass, ::FalseClass, context: "#{context}[:managed_by_firewall_manager]")
-        Validators::LoggingFilter.validate!(input[:logging_filter], context: "#{context}[:logging_filter]") unless input[:logging_filter].nil?
+        LoggingFilter.validate!(input[:logging_filter], context: "#{context}[:logging_filter]") unless input[:logging_filter].nil?
       end
     end
 
@@ -1158,7 +1160,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoggingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoggingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1166,7 +1168,7 @@ module AWS::SDK::WAFV2
     class LoggingFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggingFilter, context: context)
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:default_behavior], ::String, context: "#{context}[:default_behavior]")
       end
     end
@@ -1176,8 +1178,8 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::ManagedRuleGroupConfig, context: context)
         Hearth::Validator.validate!(input[:login_path], ::String, context: "#{context}[:login_path]")
         Hearth::Validator.validate!(input[:payload_type], ::String, context: "#{context}[:payload_type]")
-        Validators::UsernameField.validate!(input[:username_field], context: "#{context}[:username_field]") unless input[:username_field].nil?
-        Validators::PasswordField.validate!(input[:password_field], context: "#{context}[:password_field]") unless input[:password_field].nil?
+        UsernameField.validate!(input[:username_field], context: "#{context}[:username_field]") unless input[:username_field].nil?
+        PasswordField.validate!(input[:password_field], context: "#{context}[:password_field]") unless input[:password_field].nil?
       end
     end
 
@@ -1185,7 +1187,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedRuleGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedRuleGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1196,9 +1198,9 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:vendor_name], ::String, context: "#{context}[:vendor_name]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
-        Validators::Statement.validate!(input[:scope_down_statement], context: "#{context}[:scope_down_statement]") unless input[:scope_down_statement].nil?
-        Validators::ManagedRuleGroupConfigs.validate!(input[:managed_rule_group_configs], context: "#{context}[:managed_rule_group_configs]") unless input[:managed_rule_group_configs].nil?
+        ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
+        Statement.validate!(input[:scope_down_statement], context: "#{context}[:scope_down_statement]") unless input[:scope_down_statement].nil?
+        ManagedRuleGroupConfigs.validate!(input[:managed_rule_group_configs], context: "#{context}[:managed_rule_group_configs]") unless input[:managed_rule_group_configs].nil?
       end
     end
 
@@ -1206,7 +1208,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedRuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedRuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1233,7 +1235,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedRuleGroupVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedRuleGroupVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1245,7 +1247,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PublishedVersions.validate!(input[:published_versions], context: "#{context}[:published_versions]") unless input[:published_versions].nil?
+        PublishedVersions.validate!(input[:published_versions], context: "#{context}[:published_versions]") unless input[:published_versions].nil?
         Hearth::Validator.validate!(input[:recommended_version], ::String, context: "#{context}[:recommended_version]")
         Hearth::Validator.validate!(input[:label_namespace], ::String, context: "#{context}[:label_namespace]")
       end
@@ -1255,7 +1257,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedRuleSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedRuleSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1296,7 +1298,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:release_version], ::String, context: "#{context}[:release_version]")
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate!(input[:release_notes], ::String, context: "#{context}[:release_notes]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1309,22 +1311,22 @@ module AWS::SDK::WAFV2
     class NotStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotStatement, context: context)
-        Validators::Statement.validate!(input[:statement], context: "#{context}[:statement]") unless input[:statement].nil?
+        Statement.validate!(input[:statement], context: "#{context}[:statement]") unless input[:statement].nil?
       end
     end
 
     class OrStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OrStatement, context: context)
-        Validators::Statements.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
+        Statements.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
       end
     end
 
     class OverrideAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OverrideAction, context: context)
-        Validators::CountAction.validate!(input[:count], context: "#{context}[:count]") unless input[:count].nil?
-        Validators::NoneAction.validate!(input[:none], context: "#{context}[:none]") unless input[:none].nil?
+        CountAction.validate!(input[:count], context: "#{context}[:count]") unless input[:count].nil?
+        NoneAction.validate!(input[:none], context: "#{context}[:none]") unless input[:none].nil?
       end
     end
 
@@ -1340,7 +1342,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ManagedRuleSetVersion.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ManagedRuleSetVersion.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1348,14 +1350,14 @@ module AWS::SDK::WAFV2
     class PutLoggingConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutLoggingConfigurationInput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
     class PutLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -1367,7 +1369,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
         Hearth::Validator.validate!(input[:recommended_version], ::String, context: "#{context}[:recommended_version]")
-        Validators::VersionsToPublish.validate!(input[:versions_to_publish], context: "#{context}[:versions_to_publish]") unless input[:versions_to_publish].nil?
+        VersionsToPublish.validate!(input[:versions_to_publish], context: "#{context}[:versions_to_publish]") unless input[:versions_to_publish].nil?
       end
     end
 
@@ -1403,8 +1405,8 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::RateBasedStatement, context: context)
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:aggregate_key_type], ::String, context: "#{context}[:aggregate_key_type]")
-        Validators::Statement.validate!(input[:scope_down_statement], context: "#{context}[:scope_down_statement]") unless input[:scope_down_statement].nil?
-        Validators::ForwardedIPConfig.validate!(input[:forwarded_ip_config], context: "#{context}[:forwarded_ip_config]") unless input[:forwarded_ip_config].nil?
+        Statement.validate!(input[:scope_down_statement], context: "#{context}[:scope_down_statement]") unless input[:scope_down_statement].nil?
+        ForwardedIPConfig.validate!(input[:forwarded_ip_config], context: "#{context}[:forwarded_ip_config]") unless input[:forwarded_ip_config].nil?
       end
     end
 
@@ -1412,7 +1414,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RateBasedStatementManagedKeysIPSet, context: context)
         Hearth::Validator.validate!(input[:ip_address_version], ::String, context: "#{context}[:ip_address_version]")
-        Validators::IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
+        IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
       end
     end
 
@@ -1420,7 +1422,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldToMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldToMatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1436,8 +1438,8 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegexMatchStatement, context: context)
         Hearth::Validator.validate!(input[:regex_string], ::String, context: "#{context}[:regex_string]")
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
       end
     end
 
@@ -1448,7 +1450,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
+        RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
       end
     end
 
@@ -1456,8 +1458,8 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegexPatternSetReferenceStatement, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
       end
     end
 
@@ -1465,7 +1467,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RegexPatternSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RegexPatternSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1485,7 +1487,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Regex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Regex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1494,7 +1496,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReleaseSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReleaseSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1521,22 +1523,22 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, Types::Rule, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::Statement.validate!(input[:statement], context: "#{context}[:statement]") unless input[:statement].nil?
-        Validators::RuleAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::OverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
-        Validators::Labels.validate!(input[:rule_labels], context: "#{context}[:rule_labels]") unless input[:rule_labels].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
-        Validators::CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
+        Statement.validate!(input[:statement], context: "#{context}[:statement]") unless input[:statement].nil?
+        RuleAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        OverrideAction.validate!(input[:override_action], context: "#{context}[:override_action]") unless input[:override_action].nil?
+        Labels.validate!(input[:rule_labels], context: "#{context}[:rule_labels]") unless input[:rule_labels].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
       end
     end
 
     class RuleAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleAction, context: context)
-        Validators::BlockAction.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
-        Validators::AllowAction.validate!(input[:allow], context: "#{context}[:allow]") unless input[:allow].nil?
-        Validators::CountAction.validate!(input[:count], context: "#{context}[:count]") unless input[:count].nil?
-        Validators::CaptchaAction.validate!(input[:captcha], context: "#{context}[:captcha]") unless input[:captcha].nil?
+        BlockAction.validate!(input[:block], context: "#{context}[:block]") unless input[:block].nil?
+        AllowAction.validate!(input[:allow], context: "#{context}[:allow]") unless input[:allow].nil?
+        CountAction.validate!(input[:count], context: "#{context}[:count]") unless input[:count].nil?
+        CaptchaAction.validate!(input[:captcha], context: "#{context}[:captcha]") unless input[:captcha].nil?
       end
     end
 
@@ -1548,12 +1550,12 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:capacity], ::Integer, context: "#{context}[:capacity]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
         Hearth::Validator.validate!(input[:label_namespace], ::String, context: "#{context}[:label_namespace]")
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
-        Validators::LabelSummaries.validate!(input[:available_labels], context: "#{context}[:available_labels]") unless input[:available_labels].nil?
-        Validators::LabelSummaries.validate!(input[:consumed_labels], context: "#{context}[:consumed_labels]") unless input[:consumed_labels].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        LabelSummaries.validate!(input[:available_labels], context: "#{context}[:available_labels]") unless input[:available_labels].nil?
+        LabelSummaries.validate!(input[:consumed_labels], context: "#{context}[:consumed_labels]") unless input[:consumed_labels].nil?
       end
     end
 
@@ -1561,7 +1563,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleGroupReferenceStatement, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
+        ExcludedRules.validate!(input[:excluded_rules], context: "#{context}[:excluded_rules]") unless input[:excluded_rules].nil?
       end
     end
 
@@ -1569,7 +1571,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1589,7 +1591,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleSummary, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RuleAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        RuleAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
       end
     end
 
@@ -1606,7 +1608,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1614,15 +1616,15 @@ module AWS::SDK::WAFV2
     class SampledHTTPRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SampledHTTPRequest, context: context)
-        Validators::HTTPRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
+        HTTPRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
         Hearth::Validator.validate!(input[:weight], ::Integer, context: "#{context}[:weight]")
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:rule_name_within_rule_group], ::String, context: "#{context}[:rule_name_within_rule_group]")
-        Validators::HTTPHeaders.validate!(input[:request_headers_inserted], context: "#{context}[:request_headers_inserted]") unless input[:request_headers_inserted].nil?
+        HTTPHeaders.validate!(input[:request_headers_inserted], context: "#{context}[:request_headers_inserted]") unless input[:request_headers_inserted].nil?
         Hearth::Validator.validate!(input[:response_code_sent], ::Integer, context: "#{context}[:response_code_sent]")
-        Validators::Labels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
-        Validators::CaptchaResponse.validate!(input[:captcha_response], context: "#{context}[:captcha_response]") unless input[:captcha_response].nil?
+        Labels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        CaptchaResponse.validate!(input[:captcha_response], context: "#{context}[:captcha_response]") unless input[:captcha_response].nil?
       end
     end
 
@@ -1630,7 +1632,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SampledHTTPRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SampledHTTPRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1652,39 +1654,39 @@ module AWS::SDK::WAFV2
     class SizeConstraintStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SizeConstraintStatement, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
       end
     end
 
     class SqliMatchStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SqliMatchStatement, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
       end
     end
 
     class Statement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Statement, context: context)
-        Validators::ByteMatchStatement.validate!(input[:byte_match_statement], context: "#{context}[:byte_match_statement]") unless input[:byte_match_statement].nil?
-        Validators::SqliMatchStatement.validate!(input[:sqli_match_statement], context: "#{context}[:sqli_match_statement]") unless input[:sqli_match_statement].nil?
-        Validators::XssMatchStatement.validate!(input[:xss_match_statement], context: "#{context}[:xss_match_statement]") unless input[:xss_match_statement].nil?
-        Validators::SizeConstraintStatement.validate!(input[:size_constraint_statement], context: "#{context}[:size_constraint_statement]") unless input[:size_constraint_statement].nil?
-        Validators::GeoMatchStatement.validate!(input[:geo_match_statement], context: "#{context}[:geo_match_statement]") unless input[:geo_match_statement].nil?
-        Validators::RuleGroupReferenceStatement.validate!(input[:rule_group_reference_statement], context: "#{context}[:rule_group_reference_statement]") unless input[:rule_group_reference_statement].nil?
-        Validators::IPSetReferenceStatement.validate!(input[:ip_set_reference_statement], context: "#{context}[:ip_set_reference_statement]") unless input[:ip_set_reference_statement].nil?
-        Validators::RegexPatternSetReferenceStatement.validate!(input[:regex_pattern_set_reference_statement], context: "#{context}[:regex_pattern_set_reference_statement]") unless input[:regex_pattern_set_reference_statement].nil?
-        Validators::RateBasedStatement.validate!(input[:rate_based_statement], context: "#{context}[:rate_based_statement]") unless input[:rate_based_statement].nil?
-        Validators::AndStatement.validate!(input[:and_statement], context: "#{context}[:and_statement]") unless input[:and_statement].nil?
-        Validators::OrStatement.validate!(input[:or_statement], context: "#{context}[:or_statement]") unless input[:or_statement].nil?
-        Validators::NotStatement.validate!(input[:not_statement], context: "#{context}[:not_statement]") unless input[:not_statement].nil?
-        Validators::ManagedRuleGroupStatement.validate!(input[:managed_rule_group_statement], context: "#{context}[:managed_rule_group_statement]") unless input[:managed_rule_group_statement].nil?
-        Validators::LabelMatchStatement.validate!(input[:label_match_statement], context: "#{context}[:label_match_statement]") unless input[:label_match_statement].nil?
-        Validators::RegexMatchStatement.validate!(input[:regex_match_statement], context: "#{context}[:regex_match_statement]") unless input[:regex_match_statement].nil?
+        ByteMatchStatement.validate!(input[:byte_match_statement], context: "#{context}[:byte_match_statement]") unless input[:byte_match_statement].nil?
+        SqliMatchStatement.validate!(input[:sqli_match_statement], context: "#{context}[:sqli_match_statement]") unless input[:sqli_match_statement].nil?
+        XssMatchStatement.validate!(input[:xss_match_statement], context: "#{context}[:xss_match_statement]") unless input[:xss_match_statement].nil?
+        SizeConstraintStatement.validate!(input[:size_constraint_statement], context: "#{context}[:size_constraint_statement]") unless input[:size_constraint_statement].nil?
+        GeoMatchStatement.validate!(input[:geo_match_statement], context: "#{context}[:geo_match_statement]") unless input[:geo_match_statement].nil?
+        RuleGroupReferenceStatement.validate!(input[:rule_group_reference_statement], context: "#{context}[:rule_group_reference_statement]") unless input[:rule_group_reference_statement].nil?
+        IPSetReferenceStatement.validate!(input[:ip_set_reference_statement], context: "#{context}[:ip_set_reference_statement]") unless input[:ip_set_reference_statement].nil?
+        RegexPatternSetReferenceStatement.validate!(input[:regex_pattern_set_reference_statement], context: "#{context}[:regex_pattern_set_reference_statement]") unless input[:regex_pattern_set_reference_statement].nil?
+        RateBasedStatement.validate!(input[:rate_based_statement], context: "#{context}[:rate_based_statement]") unless input[:rate_based_statement].nil?
+        AndStatement.validate!(input[:and_statement], context: "#{context}[:and_statement]") unless input[:and_statement].nil?
+        OrStatement.validate!(input[:or_statement], context: "#{context}[:or_statement]") unless input[:or_statement].nil?
+        NotStatement.validate!(input[:not_statement], context: "#{context}[:not_statement]") unless input[:not_statement].nil?
+        ManagedRuleGroupStatement.validate!(input[:managed_rule_group_statement], context: "#{context}[:managed_rule_group_statement]") unless input[:managed_rule_group_statement].nil?
+        LabelMatchStatement.validate!(input[:label_match_statement], context: "#{context}[:label_match_statement]") unless input[:label_match_statement].nil?
+        RegexMatchStatement.validate!(input[:regex_match_statement], context: "#{context}[:regex_match_statement]") unless input[:regex_match_statement].nil?
       end
     end
 
@@ -1692,7 +1694,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Statement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Statement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1709,7 +1711,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagInfoForResource, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1726,7 +1728,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1735,7 +1737,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1757,7 +1759,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TextTransformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TextTransformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1774,7 +1776,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1791,7 +1793,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
+        IPAddresses.validate!(input[:addresses], context: "#{context}[:addresses]") unless input[:addresses].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -1831,7 +1833,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
+        RegularExpressionList.validate!(input[:regular_expression_list], context: "#{context}[:regular_expression_list]") unless input[:regular_expression_list].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
       end
     end
@@ -1850,10 +1852,10 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
       end
     end
 
@@ -1870,13 +1872,13 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
         Hearth::Validator.validate!(input[:lock_token], ::String, context: "#{context}[:lock_token]")
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
-        Validators::CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
       end
     end
 
@@ -1913,7 +1915,7 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::VersionToPublish.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          VersionToPublish.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2062,17 +2064,17 @@ module AWS::SDK::WAFV2
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
+        DefaultAction.validate!(input[:default_action], context: "#{context}[:default_action]") unless input[:default_action].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
+        Rules.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        VisibilityConfig.validate!(input[:visibility_config], context: "#{context}[:visibility_config]") unless input[:visibility_config].nil?
         Hearth::Validator.validate!(input[:capacity], ::Integer, context: "#{context}[:capacity]")
-        Validators::FirewallManagerRuleGroups.validate!(input[:pre_process_firewall_manager_rule_groups], context: "#{context}[:pre_process_firewall_manager_rule_groups]") unless input[:pre_process_firewall_manager_rule_groups].nil?
-        Validators::FirewallManagerRuleGroups.validate!(input[:post_process_firewall_manager_rule_groups], context: "#{context}[:post_process_firewall_manager_rule_groups]") unless input[:post_process_firewall_manager_rule_groups].nil?
+        FirewallManagerRuleGroups.validate!(input[:pre_process_firewall_manager_rule_groups], context: "#{context}[:pre_process_firewall_manager_rule_groups]") unless input[:pre_process_firewall_manager_rule_groups].nil?
+        FirewallManagerRuleGroups.validate!(input[:post_process_firewall_manager_rule_groups], context: "#{context}[:post_process_firewall_manager_rule_groups]") unless input[:post_process_firewall_manager_rule_groups].nil?
         Hearth::Validator.validate!(input[:managed_by_firewall_manager], ::TrueClass, ::FalseClass, context: "#{context}[:managed_by_firewall_manager]")
         Hearth::Validator.validate!(input[:label_namespace], ::String, context: "#{context}[:label_namespace]")
-        Validators::CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
-        Validators::CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
+        CustomResponseBodies.validate!(input[:custom_response_bodies], context: "#{context}[:custom_response_bodies]") unless input[:custom_response_bodies].nil?
+        CaptchaConfig.validate!(input[:captcha_config], context: "#{context}[:captcha_config]") unless input[:captcha_config].nil?
       end
     end
 
@@ -2080,7 +2082,7 @@ module AWS::SDK::WAFV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebACLSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebACLSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2099,8 +2101,8 @@ module AWS::SDK::WAFV2
     class XssMatchStatement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::XssMatchStatement, context: context)
-        Validators::FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
-        Validators::TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
+        FieldToMatch.validate!(input[:field_to_match], context: "#{context}[:field_to_match]") unless input[:field_to_match].nil?
+        TextTransformations.validate!(input[:text_transformations], context: "#{context}[:text_transformations]") unless input[:text_transformations].nil?
       end
     end
 

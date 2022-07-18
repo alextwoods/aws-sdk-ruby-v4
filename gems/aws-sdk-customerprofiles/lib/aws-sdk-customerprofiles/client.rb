@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CustomerProfiles
@@ -86,7 +88,7 @@ module AWS::SDK::CustomerProfiles
     def add_profile_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddProfileKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddProfileKeyInput,
         validate_input: @config.validate_input
@@ -248,7 +250,7 @@ module AWS::SDK::CustomerProfiles
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::CustomerProfiles
     def create_integration_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIntegrationWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIntegrationWorkflowInput,
         validate_input: @config.validate_input
@@ -584,7 +586,7 @@ module AWS::SDK::CustomerProfiles
     def create_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProfileInput,
         validate_input: @config.validate_input
@@ -654,7 +656,7 @@ module AWS::SDK::CustomerProfiles
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -726,7 +728,7 @@ module AWS::SDK::CustomerProfiles
     def delete_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIntegrationInput,
         validate_input: @config.validate_input
@@ -799,7 +801,7 @@ module AWS::SDK::CustomerProfiles
     def delete_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfileInput,
         validate_input: @config.validate_input
@@ -882,7 +884,7 @@ module AWS::SDK::CustomerProfiles
     def delete_profile_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfileKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfileKeyInput,
         validate_input: @config.validate_input
@@ -963,7 +965,7 @@ module AWS::SDK::CustomerProfiles
     def delete_profile_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfileObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfileObjectInput,
         validate_input: @config.validate_input
@@ -1039,7 +1041,7 @@ module AWS::SDK::CustomerProfiles
     def delete_profile_object_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfileObjectTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfileObjectTypeInput,
         validate_input: @config.validate_input
@@ -1110,7 +1112,7 @@ module AWS::SDK::CustomerProfiles
     def delete_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkflowInput,
         validate_input: @config.validate_input
@@ -1211,7 +1213,7 @@ module AWS::SDK::CustomerProfiles
     def get_auto_merging_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAutoMergingPreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAutoMergingPreviewInput,
         validate_input: @config.validate_input
@@ -1310,7 +1312,7 @@ module AWS::SDK::CustomerProfiles
     def get_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDomainInput,
         validate_input: @config.validate_input
@@ -1408,7 +1410,7 @@ module AWS::SDK::CustomerProfiles
     def get_identity_resolution_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityResolutionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityResolutionJobInput,
         validate_input: @config.validate_input
@@ -1489,7 +1491,7 @@ module AWS::SDK::CustomerProfiles
     def get_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIntegrationInput,
         validate_input: @config.validate_input
@@ -1620,7 +1622,7 @@ module AWS::SDK::CustomerProfiles
     def get_matches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMatchesInput,
         validate_input: @config.validate_input
@@ -1714,7 +1716,7 @@ module AWS::SDK::CustomerProfiles
     def get_profile_object_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProfileObjectTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProfileObjectTypeInput,
         validate_input: @config.validate_input
@@ -1802,7 +1804,7 @@ module AWS::SDK::CustomerProfiles
     def get_profile_object_type_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProfileObjectTypeTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProfileObjectTypeTemplateInput,
         validate_input: @config.validate_input
@@ -1889,7 +1891,7 @@ module AWS::SDK::CustomerProfiles
     def get_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowInput,
         validate_input: @config.validate_input
@@ -1983,7 +1985,7 @@ module AWS::SDK::CustomerProfiles
     def get_workflow_steps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkflowStepsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkflowStepsInput,
         validate_input: @config.validate_input
@@ -2075,7 +2077,7 @@ module AWS::SDK::CustomerProfiles
     def list_account_integrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountIntegrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountIntegrationsInput,
         validate_input: @config.validate_input
@@ -2155,7 +2157,7 @@ module AWS::SDK::CustomerProfiles
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -2249,7 +2251,7 @@ module AWS::SDK::CustomerProfiles
     def list_identity_resolution_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityResolutionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityResolutionJobsInput,
         validate_input: @config.validate_input
@@ -2341,7 +2343,7 @@ module AWS::SDK::CustomerProfiles
     def list_integrations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIntegrationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIntegrationsInput,
         validate_input: @config.validate_input
@@ -2418,7 +2420,7 @@ module AWS::SDK::CustomerProfiles
     def list_profile_object_type_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfileObjectTypeTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfileObjectTypeTemplatesInput,
         validate_input: @config.validate_input
@@ -2502,7 +2504,7 @@ module AWS::SDK::CustomerProfiles
     def list_profile_object_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfileObjectTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfileObjectTypesInput,
         validate_input: @config.validate_input
@@ -2601,7 +2603,7 @@ module AWS::SDK::CustomerProfiles
     def list_profile_objects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfileObjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfileObjectsInput,
         validate_input: @config.validate_input
@@ -2672,7 +2674,7 @@ module AWS::SDK::CustomerProfiles
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2773,7 +2775,7 @@ module AWS::SDK::CustomerProfiles
     def list_workflows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkflowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkflowsInput,
         validate_input: @config.validate_input
@@ -2925,7 +2927,7 @@ module AWS::SDK::CustomerProfiles
     def merge_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MergeProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MergeProfilesInput,
         validate_input: @config.validate_input
@@ -3096,7 +3098,7 @@ module AWS::SDK::CustomerProfiles
     def put_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutIntegrationInput,
         validate_input: @config.validate_input
@@ -3182,7 +3184,7 @@ module AWS::SDK::CustomerProfiles
     def put_profile_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProfileObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProfileObjectInput,
         validate_input: @config.validate_input
@@ -3338,7 +3340,7 @@ module AWS::SDK::CustomerProfiles
     def put_profile_object_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProfileObjectTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProfileObjectTypeInput,
         validate_input: @config.validate_input
@@ -3466,7 +3468,7 @@ module AWS::SDK::CustomerProfiles
     def search_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchProfilesInput,
         validate_input: @config.validate_input
@@ -3551,7 +3553,7 @@ module AWS::SDK::CustomerProfiles
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3626,7 +3628,7 @@ module AWS::SDK::CustomerProfiles
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3787,7 +3789,7 @@ module AWS::SDK::CustomerProfiles
     def update_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainInput,
         validate_input: @config.validate_input
@@ -3961,7 +3963,7 @@ module AWS::SDK::CustomerProfiles
     def update_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProfileInput,
         validate_input: @config.validate_input

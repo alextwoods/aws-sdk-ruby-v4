@@ -563,11 +563,11 @@ module AWS::SDK::Transcribe
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.channel_id ||= 0
       end
-
     end
 
     # <p>A resource already exists with this name. Resource names must be unique within an

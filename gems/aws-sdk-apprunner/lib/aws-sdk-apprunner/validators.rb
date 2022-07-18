@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AppRunner
   module Validators
 
@@ -24,7 +26,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::AssociateCustomDomainOutput, context: context)
         Hearth::Validator.validate!(input[:dns_target], ::String, context: "#{context}[:dns_target]")
         Hearth::Validator.validate!(input[:service_arn], ::String, context: "#{context}[:service_arn]")
-        Validators::CustomDomain.validate!(input[:custom_domain], context: "#{context}[:custom_domain]") unless input[:custom_domain].nil?
+        CustomDomain.validate!(input[:custom_domain], context: "#{context}[:custom_domain]") unless input[:custom_domain].nil?
       end
     end
 
@@ -65,7 +67,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -84,7 +86,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeConfiguration, context: context)
         Hearth::Validator.validate!(input[:configuration_source], ::String, context: "#{context}[:configuration_source]")
-        Validators::CodeConfigurationValues.validate!(input[:code_configuration_values], context: "#{context}[:code_configuration_values]") unless input[:code_configuration_values].nil?
+        CodeConfigurationValues.validate!(input[:code_configuration_values], context: "#{context}[:code_configuration_values]") unless input[:code_configuration_values].nil?
       end
     end
 
@@ -104,7 +106,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input[:build_command], ::String, context: "#{context}[:build_command]")
         Hearth::Validator.validate!(input[:start_command], ::String, context: "#{context}[:start_command]")
         Hearth::Validator.validate!(input[:port], ::String, context: "#{context}[:port]")
-        Validators::RuntimeEnvironmentVariables.validate!(input[:runtime_environment_variables], context: "#{context}[:runtime_environment_variables]") unless input[:runtime_environment_variables].nil?
+        RuntimeEnvironmentVariables.validate!(input[:runtime_environment_variables], context: "#{context}[:runtime_environment_variables]") unless input[:runtime_environment_variables].nil?
       end
     end
 
@@ -112,8 +114,8 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeRepository, context: context)
         Hearth::Validator.validate!(input[:repository_url], ::String, context: "#{context}[:repository_url]")
-        Validators::SourceCodeVersion.validate!(input[:source_code_version], context: "#{context}[:source_code_version]") unless input[:source_code_version].nil?
-        Validators::CodeConfiguration.validate!(input[:code_configuration], context: "#{context}[:code_configuration]") unless input[:code_configuration].nil?
+        SourceCodeVersion.validate!(input[:source_code_version], context: "#{context}[:source_code_version]") unless input[:source_code_version].nil?
+        CodeConfiguration.validate!(input[:code_configuration], context: "#{context}[:code_configuration]") unless input[:code_configuration].nil?
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -155,14 +157,14 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input[:max_concurrency], ::Integer, context: "#{context}[:max_concurrency]")
         Hearth::Validator.validate!(input[:min_size], ::Integer, context: "#{context}[:min_size]")
         Hearth::Validator.validate!(input[:max_size], ::Integer, context: "#{context}[:max_size]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAutoScalingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAutoScalingConfigurationOutput, context: context)
-        Validators::AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
+        AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
       end
     end
 
@@ -171,14 +173,14 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::CreateConnectionInput, context: context)
         Hearth::Validator.validate!(input[:connection_name], ::String, context: "#{context}[:connection_name]")
         Hearth::Validator.validate!(input[:provider_type], ::String, context: "#{context}[:provider_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -186,15 +188,15 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateObservabilityConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:observability_configuration_name], ::String, context: "#{context}[:observability_configuration_name]")
-        Validators::TraceConfiguration.validate!(input[:trace_configuration], context: "#{context}[:trace_configuration]") unless input[:trace_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TraceConfiguration.validate!(input[:trace_configuration], context: "#{context}[:trace_configuration]") unless input[:trace_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateObservabilityConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateObservabilityConfigurationOutput, context: context)
-        Validators::ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
@@ -202,21 +204,21 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceInput, context: context)
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
-        Validators::InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
         Hearth::Validator.validate!(input[:auto_scaling_configuration_arn], ::String, context: "#{context}[:auto_scaling_configuration_arn]")
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
     class CreateServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
         Hearth::Validator.validate!(input[:operation_id], ::String, context: "#{context}[:operation_id]")
       end
     end
@@ -225,16 +227,16 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVpcConnectorInput, context: context)
         Hearth::Validator.validate!(input[:vpc_connector_name], ::String, context: "#{context}[:vpc_connector_name]")
-        Validators::StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateVpcConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVpcConnectorOutput, context: context)
-        Validators::VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
+        VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
       end
     end
 
@@ -243,7 +245,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::CustomDomain, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:enable_www_subdomain], ::TrueClass, ::FalseClass, context: "#{context}[:enable_www_subdomain]")
-        Validators::CertificateValidationRecordList.validate!(input[:certificate_validation_records], context: "#{context}[:certificate_validation_records]") unless input[:certificate_validation_records].nil?
+        CertificateValidationRecordList.validate!(input[:certificate_validation_records], context: "#{context}[:certificate_validation_records]") unless input[:certificate_validation_records].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomDomain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomDomain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::AppRunner
     class DeleteAutoScalingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAutoScalingConfigurationOutput, context: context)
-        Validators::AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
+        AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::AppRunner
     class DeleteConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::AppRunner
     class DeleteObservabilityConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteObservabilityConfigurationOutput, context: context)
-        Validators::ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
@@ -309,7 +311,7 @@ module AWS::SDK::AppRunner
     class DeleteServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
         Hearth::Validator.validate!(input[:operation_id], ::String, context: "#{context}[:operation_id]")
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::AppRunner
     class DeleteVpcConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVpcConnectorOutput, context: context)
-        Validators::VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
+        VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
       end
     end
 
@@ -338,7 +340,7 @@ module AWS::SDK::AppRunner
     class DescribeAutoScalingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAutoScalingConfigurationOutput, context: context)
-        Validators::AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
+        AutoScalingConfiguration.validate!(input[:auto_scaling_configuration], context: "#{context}[:auto_scaling_configuration]") unless input[:auto_scaling_configuration].nil?
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::DescribeCustomDomainsOutput, context: context)
         Hearth::Validator.validate!(input[:dns_target], ::String, context: "#{context}[:dns_target]")
         Hearth::Validator.validate!(input[:service_arn], ::String, context: "#{context}[:service_arn]")
-        Validators::CustomDomainList.validate!(input[:custom_domains], context: "#{context}[:custom_domains]") unless input[:custom_domains].nil?
+        CustomDomainList.validate!(input[:custom_domains], context: "#{context}[:custom_domains]") unless input[:custom_domains].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -371,7 +373,7 @@ module AWS::SDK::AppRunner
     class DescribeObservabilityConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeObservabilityConfigurationOutput, context: context)
-        Validators::ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        ObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::AppRunner
     class DescribeServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::AppRunner
     class DescribeVpcConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVpcConnectorOutput, context: context)
-        Validators::VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
+        VpcConnector.validate!(input[:vpc_connector], context: "#{context}[:vpc_connector]") unless input[:vpc_connector].nil?
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::DisassociateCustomDomainOutput, context: context)
         Hearth::Validator.validate!(input[:dns_target], ::String, context: "#{context}[:dns_target]")
         Hearth::Validator.validate!(input[:service_arn], ::String, context: "#{context}[:service_arn]")
-        Validators::CustomDomain.validate!(input[:custom_domain], context: "#{context}[:custom_domain]") unless input[:custom_domain].nil?
+        CustomDomain.validate!(input[:custom_domain], context: "#{context}[:custom_domain]") unless input[:custom_domain].nil?
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::AppRunner
     class ImageConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImageConfiguration, context: context)
-        Validators::RuntimeEnvironmentVariables.validate!(input[:runtime_environment_variables], context: "#{context}[:runtime_environment_variables]") unless input[:runtime_environment_variables].nil?
+        RuntimeEnvironmentVariables.validate!(input[:runtime_environment_variables], context: "#{context}[:runtime_environment_variables]") unless input[:runtime_environment_variables].nil?
         Hearth::Validator.validate!(input[:start_command], ::String, context: "#{context}[:start_command]")
         Hearth::Validator.validate!(input[:port], ::String, context: "#{context}[:port]")
       end
@@ -460,7 +462,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImageRepository, context: context)
         Hearth::Validator.validate!(input[:image_identifier], ::String, context: "#{context}[:image_identifier]")
-        Validators::ImageConfiguration.validate!(input[:image_configuration], context: "#{context}[:image_configuration]") unless input[:image_configuration].nil?
+        ImageConfiguration.validate!(input[:image_configuration], context: "#{context}[:image_configuration]") unless input[:image_configuration].nil?
         Hearth::Validator.validate!(input[:image_repository_type], ::String, context: "#{context}[:image_repository_type]")
       end
     end
@@ -508,7 +510,7 @@ module AWS::SDK::AppRunner
     class ListAutoScalingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAutoScalingConfigurationsOutput, context: context)
-        Validators::AutoScalingConfigurationSummaryList.validate!(input[:auto_scaling_configuration_summary_list], context: "#{context}[:auto_scaling_configuration_summary_list]") unless input[:auto_scaling_configuration_summary_list].nil?
+        AutoScalingConfigurationSummaryList.validate!(input[:auto_scaling_configuration_summary_list], context: "#{context}[:auto_scaling_configuration_summary_list]") unless input[:auto_scaling_configuration_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::AppRunner
     class ListConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectionsOutput, context: context)
-        Validators::ConnectionSummaryList.validate!(input[:connection_summary_list], context: "#{context}[:connection_summary_list]") unless input[:connection_summary_list].nil?
+        ConnectionSummaryList.validate!(input[:connection_summary_list], context: "#{context}[:connection_summary_list]") unless input[:connection_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::AppRunner
     class ListObservabilityConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListObservabilityConfigurationsOutput, context: context)
-        Validators::ObservabilityConfigurationSummaryList.validate!(input[:observability_configuration_summary_list], context: "#{context}[:observability_configuration_summary_list]") unless input[:observability_configuration_summary_list].nil?
+        ObservabilityConfigurationSummaryList.validate!(input[:observability_configuration_summary_list], context: "#{context}[:observability_configuration_summary_list]") unless input[:observability_configuration_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -560,7 +562,7 @@ module AWS::SDK::AppRunner
     class ListOperationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOperationsOutput, context: context)
-        Validators::OperationSummaryList.validate!(input[:operation_summary_list], context: "#{context}[:operation_summary_list]") unless input[:operation_summary_list].nil?
+        OperationSummaryList.validate!(input[:operation_summary_list], context: "#{context}[:operation_summary_list]") unless input[:operation_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -576,7 +578,7 @@ module AWS::SDK::AppRunner
     class ListServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicesOutput, context: context)
-        Validators::ServiceSummaryList.validate!(input[:service_summary_list], context: "#{context}[:service_summary_list]") unless input[:service_summary_list].nil?
+        ServiceSummaryList.validate!(input[:service_summary_list], context: "#{context}[:service_summary_list]") unless input[:service_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::AppRunner
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -606,7 +608,7 @@ module AWS::SDK::AppRunner
     class ListVpcConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVpcConnectorsOutput, context: context)
-        Validators::VpcConnectors.validate!(input[:vpc_connectors], context: "#{context}[:vpc_connectors]") unless input[:vpc_connectors].nil?
+        VpcConnectors.validate!(input[:vpc_connectors], context: "#{context}[:vpc_connectors]") unless input[:vpc_connectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -614,7 +616,7 @@ module AWS::SDK::AppRunner
     class NetworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkConfiguration, context: context)
-        Validators::EgressConfiguration.validate!(input[:egress_configuration], context: "#{context}[:egress_configuration]") unless input[:egress_configuration].nil?
+        EgressConfiguration.validate!(input[:egress_configuration], context: "#{context}[:egress_configuration]") unless input[:egress_configuration].nil?
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input, Types::ObservabilityConfiguration, context: context)
         Hearth::Validator.validate!(input[:observability_configuration_arn], ::String, context: "#{context}[:observability_configuration_arn]")
         Hearth::Validator.validate!(input[:observability_configuration_name], ::String, context: "#{context}[:observability_configuration_name]")
-        Validators::TraceConfiguration.validate!(input[:trace_configuration], context: "#{context}[:trace_configuration]") unless input[:trace_configuration].nil?
+        TraceConfiguration.validate!(input[:trace_configuration], context: "#{context}[:trace_configuration]") unless input[:trace_configuration].nil?
         Hearth::Validator.validate!(input[:observability_configuration_revision], ::Integer, context: "#{context}[:observability_configuration_revision]")
         Hearth::Validator.validate!(input[:latest], ::TrueClass, ::FalseClass, context: "#{context}[:latest]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -645,7 +647,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ObservabilityConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ObservabilityConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -667,7 +669,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -682,7 +684,7 @@ module AWS::SDK::AppRunner
     class PauseServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PauseServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
         Hearth::Validator.validate!(input[:operation_id], ::String, context: "#{context}[:operation_id]")
       end
     end
@@ -704,7 +706,7 @@ module AWS::SDK::AppRunner
     class ResumeServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResumeServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
         Hearth::Validator.validate!(input[:operation_id], ::String, context: "#{context}[:operation_id]")
       end
     end
@@ -730,13 +732,13 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:deleted_at], ::Time, context: "#{context}[:deleted_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
-        Validators::InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
-        Validators::AutoScalingConfigurationSummary.validate!(input[:auto_scaling_configuration_summary], context: "#{context}[:auto_scaling_configuration_summary]") unless input[:auto_scaling_configuration_summary].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
+        AutoScalingConfigurationSummary.validate!(input[:auto_scaling_configuration_summary], context: "#{context}[:auto_scaling_configuration_summary]") unless input[:auto_scaling_configuration_summary].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
@@ -772,7 +774,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -788,10 +790,10 @@ module AWS::SDK::AppRunner
     class SourceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceConfiguration, context: context)
-        Validators::CodeRepository.validate!(input[:code_repository], context: "#{context}[:code_repository]") unless input[:code_repository].nil?
-        Validators::ImageRepository.validate!(input[:image_repository], context: "#{context}[:image_repository]") unless input[:image_repository].nil?
+        CodeRepository.validate!(input[:code_repository], context: "#{context}[:code_repository]") unless input[:code_repository].nil?
+        ImageRepository.validate!(input[:image_repository], context: "#{context}[:image_repository]") unless input[:image_repository].nil?
         Hearth::Validator.validate!(input[:auto_deployments_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:auto_deployments_enabled]")
-        Validators::AuthenticationConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
+        AuthenticationConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
       end
     end
 
@@ -839,7 +841,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -848,7 +850,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -883,19 +885,19 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceInput, context: context)
         Hearth::Validator.validate!(input[:service_arn], ::String, context: "#{context}[:service_arn]")
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
-        Validators::InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
         Hearth::Validator.validate!(input[:auto_scaling_configuration_arn], ::String, context: "#{context}[:auto_scaling_configuration_arn]")
-        Validators::HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
+        HealthCheckConfiguration.validate!(input[:health_check_configuration], context: "#{context}[:health_check_configuration]") unless input[:health_check_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        ServiceObservabilityConfiguration.validate!(input[:observability_configuration], context: "#{context}[:observability_configuration]") unless input[:observability_configuration].nil?
       end
     end
 
     class UpdateServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
         Hearth::Validator.validate!(input[:operation_id], ::String, context: "#{context}[:operation_id]")
       end
     end
@@ -906,8 +908,8 @@ module AWS::SDK::AppRunner
         Hearth::Validator.validate!(input[:vpc_connector_name], ::String, context: "#{context}[:vpc_connector_name]")
         Hearth::Validator.validate!(input[:vpc_connector_arn], ::String, context: "#{context}[:vpc_connector_arn]")
         Hearth::Validator.validate!(input[:vpc_connector_revision], ::Integer, context: "#{context}[:vpc_connector_revision]")
-        Validators::StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:deleted_at], ::Time, context: "#{context}[:deleted_at]")
@@ -918,7 +920,7 @@ module AWS::SDK::AppRunner
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcConnector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcConnector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DynamoDB
   module Validators
 
@@ -31,7 +33,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -60,7 +62,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValueUpdate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValueUpdate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -75,15 +77,15 @@ module AWS::SDK::DynamoDB
         when Types::AttributeValue::B
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::AttributeValue::Ss
-          Validators::StringSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          StringSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Ns
-          Validators::NumberSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          NumberSetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Bs
-          Validators::BinarySetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BinarySetAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::M
-          Validators::MapAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MapAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::L
-          Validators::ListAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ListAttributeValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AttributeValue::Null
           Hearth::Validator.validate!(input.__getobj__, ::TrueClass, ::FalseClass, context: context)
         when Types::AttributeValue::Bool
@@ -160,7 +162,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -168,7 +170,7 @@ module AWS::SDK::DynamoDB
     class AttributeValueUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributeValueUpdate, context: context)
-        Validators::AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingPolicyDescription, context: context)
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
-        Validators::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
+        AutoScalingTargetTrackingScalingPolicyConfigurationDescription.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingPolicyDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingPolicyDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -194,7 +196,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingPolicyUpdate, context: context)
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
-        Validators::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
+        AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.validate!(input[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless input[:target_tracking_scaling_policy_configuration].nil?
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:maximum_units], ::Integer, context: "#{context}[:maximum_units]")
         Hearth::Validator.validate!(input[:auto_scaling_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:auto_scaling_disabled]")
         Hearth::Validator.validate!(input[:auto_scaling_role_arn], ::String, context: "#{context}[:auto_scaling_role_arn]")
-        Validators::AutoScalingPolicyDescriptionList.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
+        AutoScalingPolicyDescriptionList.validate!(input[:scaling_policies], context: "#{context}[:scaling_policies]") unless input[:scaling_policies].nil?
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:maximum_units], ::Integer, context: "#{context}[:maximum_units]")
         Hearth::Validator.validate!(input[:auto_scaling_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:auto_scaling_disabled]")
         Hearth::Validator.validate!(input[:auto_scaling_role_arn], ::String, context: "#{context}[:auto_scaling_role_arn]")
-        Validators::AutoScalingPolicyUpdate.validate!(input[:scaling_policy_update], context: "#{context}[:scaling_policy_update]") unless input[:scaling_policy_update].nil?
+        AutoScalingPolicyUpdate.validate!(input[:scaling_policy_update], context: "#{context}[:scaling_policy_update]") unless input[:scaling_policy_update].nil?
       end
     end
 
@@ -243,9 +245,9 @@ module AWS::SDK::DynamoDB
     class BackupDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackupDescription, context: context)
-        Validators::BackupDetails.validate!(input[:backup_details], context: "#{context}[:backup_details]") unless input[:backup_details].nil?
-        Validators::SourceTableDetails.validate!(input[:source_table_details], context: "#{context}[:source_table_details]") unless input[:source_table_details].nil?
-        Validators::SourceTableFeatureDetails.validate!(input[:source_table_feature_details], context: "#{context}[:source_table_feature_details]") unless input[:source_table_feature_details].nil?
+        BackupDetails.validate!(input[:backup_details], context: "#{context}[:backup_details]") unless input[:backup_details].nil?
+        SourceTableDetails.validate!(input[:source_table_details], context: "#{context}[:source_table_details]") unless input[:source_table_details].nil?
+        SourceTableFeatureDetails.validate!(input[:source_table_feature_details], context: "#{context}[:source_table_feature_details]") unless input[:source_table_feature_details].nil?
       end
     end
 
@@ -280,7 +282,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::DynamoDB
     class BatchExecuteStatementInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchExecuteStatementInput, context: context)
-        Validators::PartiQLBatchRequest.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
+        PartiQLBatchRequest.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
       end
     end
@@ -312,15 +314,15 @@ module AWS::SDK::DynamoDB
     class BatchExecuteStatementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchExecuteStatementOutput, context: context)
-        Validators::PartiQLBatchResponse.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        PartiQLBatchResponse.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
     class BatchGetItemInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetItemInput, context: context)
-        Validators::BatchGetRequestMap.validate!(input[:request_items], context: "#{context}[:request_items]") unless input[:request_items].nil?
+        BatchGetRequestMap.validate!(input[:request_items], context: "#{context}[:request_items]") unless input[:request_items].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
       end
     end
@@ -328,9 +330,9 @@ module AWS::SDK::DynamoDB
     class BatchGetItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetItemOutput, context: context)
-        Validators::BatchGetResponseMap.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
-        Validators::BatchGetRequestMap.validate!(input[:unprocessed_keys], context: "#{context}[:unprocessed_keys]") unless input[:unprocessed_keys].nil?
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        BatchGetResponseMap.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        BatchGetRequestMap.validate!(input[:unprocessed_keys], context: "#{context}[:unprocessed_keys]") unless input[:unprocessed_keys].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -339,7 +341,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::KeysAndAttributes.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          KeysAndAttributes.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -349,7 +351,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ItemList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ItemList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStatementRequest, context: context)
         Hearth::Validator.validate!(input[:statement], ::String, context: "#{context}[:statement]")
-        Validators::PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
       end
     end
@@ -374,16 +376,16 @@ module AWS::SDK::DynamoDB
     class BatchStatementResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStatementResponse, context: context)
-        Validators::BatchStatementError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchStatementError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
       end
     end
 
     class BatchWriteItemInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteItemInput, context: context)
-        Validators::BatchWriteItemRequestMap.validate!(input[:request_items], context: "#{context}[:request_items]") unless input[:request_items].nil?
+        BatchWriteItemRequestMap.validate!(input[:request_items], context: "#{context}[:request_items]") unless input[:request_items].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:return_item_collection_metrics], ::String, context: "#{context}[:return_item_collection_metrics]")
       end
@@ -392,9 +394,9 @@ module AWS::SDK::DynamoDB
     class BatchWriteItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchWriteItemOutput, context: context)
-        Validators::BatchWriteItemRequestMap.validate!(input[:unprocessed_items], context: "#{context}[:unprocessed_items]") unless input[:unprocessed_items].nil?
-        Validators::ItemCollectionMetricsPerTable.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        BatchWriteItemRequestMap.validate!(input[:unprocessed_items], context: "#{context}[:unprocessed_items]") unless input[:unprocessed_items].nil?
+        ItemCollectionMetricsPerTable.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::WriteRequests.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          WriteRequests.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -428,7 +430,7 @@ module AWS::SDK::DynamoDB
     class CancellationReason
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancellationReason, context: context)
-        Validators::AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
@@ -438,7 +440,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CancellationReason.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CancellationReason.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::DynamoDB
     class Condition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Condition, context: context)
-        Validators::AttributeValueList.validate!(input[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless input[:attribute_value_list].nil?
+        AttributeValueList.validate!(input[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless input[:attribute_value_list].nil?
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
       end
     end
@@ -463,11 +465,11 @@ module AWS::SDK::DynamoDB
     class ConditionCheck
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConditionCheck, context: context)
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
         Hearth::Validator.validate!(input[:return_values_on_condition_check_failure], ::String, context: "#{context}[:return_values_on_condition_check_failure]")
       end
     end
@@ -486,9 +488,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:capacity_units], ::Float, context: "#{context}[:capacity_units]")
         Hearth::Validator.validate!(input[:read_capacity_units], ::Float, context: "#{context}[:read_capacity_units]")
         Hearth::Validator.validate!(input[:write_capacity_units], ::Float, context: "#{context}[:write_capacity_units]")
-        Validators::Capacity.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
-        Validators::SecondaryIndexesCapacityMap.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
-        Validators::SecondaryIndexesCapacityMap.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        Capacity.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
+        SecondaryIndexesCapacityMap.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
+        SecondaryIndexesCapacityMap.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConsumedCapacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConsumedCapacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContinuousBackupsDescription, context: context)
         Hearth::Validator.validate!(input[:continuous_backups_status], ::String, context: "#{context}[:continuous_backups_status]")
-        Validators::PointInTimeRecoveryDescription.validate!(input[:point_in_time_recovery_description], context: "#{context}[:point_in_time_recovery_description]") unless input[:point_in_time_recovery_description].nil?
+        PointInTimeRecoveryDescription.validate!(input[:point_in_time_recovery_description], context: "#{context}[:point_in_time_recovery_description]") unless input[:point_in_time_recovery_description].nil?
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContributorInsightsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContributorInsightsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::DynamoDB
     class CreateBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackupOutput, context: context)
-        Validators::BackupDetails.validate!(input[:backup_details], context: "#{context}[:backup_details]") unless input[:backup_details].nil?
+        BackupDetails.validate!(input[:backup_details], context: "#{context}[:backup_details]") unless input[:backup_details].nil?
       end
     end
 
@@ -562,9 +564,9 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalSecondaryIndexAction, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
       end
     end
 
@@ -572,14 +574,14 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalTableInput, context: context)
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
-        Validators::ReplicaList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicaList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
     class CreateGlobalTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGlobalTableOutput, context: context)
-        Validators::GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
+        GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
       end
     end
 
@@ -595,8 +597,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::CreateReplicationGroupMemberAction, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
         Hearth::Validator.validate!(input[:kms_master_key_id], ::String, context: "#{context}[:kms_master_key_id]")
-        Validators::ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
-        Validators::ReplicaGlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        ReplicaGlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
         Hearth::Validator.validate!(input[:table_class_override], ::String, context: "#{context}[:table_class_override]")
       end
     end
@@ -604,16 +606,16 @@ module AWS::SDK::DynamoDB
     class CreateTableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTableInput, context: context)
-        Validators::AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
+        AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::LocalSecondaryIndexList.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
-        Validators::GlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        LocalSecondaryIndexList.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
+        GlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
         Hearth::Validator.validate!(input[:billing_mode], ::String, context: "#{context}[:billing_mode]")
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
-        Validators::StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
-        Validators::SSESpecification.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
+        SSESpecification.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:table_class], ::String, context: "#{context}[:table_class]")
       end
     end
@@ -621,18 +623,18 @@ module AWS::SDK::DynamoDB
     class CreateTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTableOutput, context: context)
-        Validators::TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
+        TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
       end
     end
 
     class Delete
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Delete, context: context)
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
         Hearth::Validator.validate!(input[:return_values_on_condition_check_failure], ::String, context: "#{context}[:return_values_on_condition_check_failure]")
       end
     end
@@ -647,7 +649,7 @@ module AWS::SDK::DynamoDB
     class DeleteBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBackupOutput, context: context)
-        Validators::BackupDescription.validate!(input[:backup_description], context: "#{context}[:backup_description]") unless input[:backup_description].nil?
+        BackupDescription.validate!(input[:backup_description], context: "#{context}[:backup_description]") unless input[:backup_description].nil?
       end
     end
 
@@ -662,24 +664,24 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteItemInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
-        Validators::ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
         Hearth::Validator.validate!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
         Hearth::Validator.validate!(input[:return_values], ::String, context: "#{context}[:return_values]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:return_item_collection_metrics], ::String, context: "#{context}[:return_item_collection_metrics]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
       end
     end
 
     class DeleteItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteItemOutput, context: context)
-        Validators::AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+        AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::DynamoDB
     class DeleteRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRequest, context: context)
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
       end
     end
 
@@ -714,7 +716,7 @@ module AWS::SDK::DynamoDB
     class DeleteTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTableOutput, context: context)
-        Validators::TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
+        TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
       end
     end
 
@@ -728,7 +730,7 @@ module AWS::SDK::DynamoDB
     class DescribeBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBackupOutput, context: context)
-        Validators::BackupDescription.validate!(input[:backup_description], context: "#{context}[:backup_description]") unless input[:backup_description].nil?
+        BackupDescription.validate!(input[:backup_description], context: "#{context}[:backup_description]") unless input[:backup_description].nil?
       end
     end
 
@@ -742,7 +744,7 @@ module AWS::SDK::DynamoDB
     class DescribeContinuousBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeContinuousBackupsOutput, context: context)
-        Validators::ContinuousBackupsDescription.validate!(input[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless input[:continuous_backups_description].nil?
+        ContinuousBackupsDescription.validate!(input[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless input[:continuous_backups_description].nil?
       end
     end
 
@@ -759,10 +761,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::DescribeContributorInsightsOutput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::ContributorInsightsRuleList.validate!(input[:contributor_insights_rule_list], context: "#{context}[:contributor_insights_rule_list]") unless input[:contributor_insights_rule_list].nil?
+        ContributorInsightsRuleList.validate!(input[:contributor_insights_rule_list], context: "#{context}[:contributor_insights_rule_list]") unless input[:contributor_insights_rule_list].nil?
         Hearth::Validator.validate!(input[:contributor_insights_status], ::String, context: "#{context}[:contributor_insights_status]")
         Hearth::Validator.validate!(input[:last_update_date_time], ::Time, context: "#{context}[:last_update_date_time]")
-        Validators::FailureException.validate!(input[:failure_exception], context: "#{context}[:failure_exception]") unless input[:failure_exception].nil?
+        FailureException.validate!(input[:failure_exception], context: "#{context}[:failure_exception]") unless input[:failure_exception].nil?
       end
     end
 
@@ -775,7 +777,7 @@ module AWS::SDK::DynamoDB
     class DescribeEndpointsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointsOutput, context: context)
-        Validators::Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::DynamoDB
     class DescribeExportOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeExportOutput, context: context)
-        Validators::ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
+        ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
       end
     end
 
@@ -803,7 +805,7 @@ module AWS::SDK::DynamoDB
     class DescribeGlobalTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalTableOutput, context: context)
-        Validators::GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
+        GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
       end
     end
 
@@ -818,7 +820,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGlobalTableSettingsOutput, context: context)
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
-        Validators::ReplicaSettingsDescriptionList.validate!(input[:replica_settings], context: "#{context}[:replica_settings]") unless input[:replica_settings].nil?
+        ReplicaSettingsDescriptionList.validate!(input[:replica_settings], context: "#{context}[:replica_settings]") unless input[:replica_settings].nil?
       end
     end
 
@@ -833,7 +835,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeKinesisStreamingDestinationOutput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::KinesisDataStreamDestinations.validate!(input[:kinesis_data_stream_destinations], context: "#{context}[:kinesis_data_stream_destinations]") unless input[:kinesis_data_stream_destinations].nil?
+        KinesisDataStreamDestinations.validate!(input[:kinesis_data_stream_destinations], context: "#{context}[:kinesis_data_stream_destinations]") unless input[:kinesis_data_stream_destinations].nil?
       end
     end
 
@@ -863,7 +865,7 @@ module AWS::SDK::DynamoDB
     class DescribeTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableOutput, context: context)
-        Validators::TableDescription.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
+        TableDescription.validate!(input[:table], context: "#{context}[:table]") unless input[:table].nil?
       end
     end
 
@@ -877,7 +879,7 @@ module AWS::SDK::DynamoDB
     class DescribeTableReplicaAutoScalingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableReplicaAutoScalingOutput, context: context)
-        Validators::TableAutoScalingDescription.validate!(input[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless input[:table_auto_scaling_description].nil?
+        TableAutoScalingDescription.validate!(input[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless input[:table_auto_scaling_description].nil?
       end
     end
 
@@ -891,7 +893,7 @@ module AWS::SDK::DynamoDB
     class DescribeTimeToLiveOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTimeToLiveOutput, context: context)
-        Validators::TimeToLiveDescription.validate!(input[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless input[:time_to_live_description].nil?
+        TimeToLiveDescription.validate!(input[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless input[:time_to_live_description].nil?
       end
     end
 
@@ -948,7 +950,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -957,7 +959,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteStatementInput, context: context)
         Hearth::Validator.validate!(input[:statement], ::String, context: "#{context}[:statement]")
-        Validators::PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
@@ -968,17 +970,17 @@ module AWS::SDK::DynamoDB
     class ExecuteStatementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteStatementOutput, context: context)
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
       end
     end
 
     class ExecuteTransactionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteTransactionInput, context: context)
-        Validators::ParameterizedStatements.validate!(input[:transact_statements], context: "#{context}[:transact_statements]") unless input[:transact_statements].nil?
+        ParameterizedStatements.validate!(input[:transact_statements], context: "#{context}[:transact_statements]") unless input[:transact_statements].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
       end
@@ -987,8 +989,8 @@ module AWS::SDK::DynamoDB
     class ExecuteTransactionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteTransactionOutput, context: context)
-        Validators::ItemResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -997,7 +999,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ExpectedAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ExpectedAttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1005,10 +1007,10 @@ module AWS::SDK::DynamoDB
     class ExpectedAttributeValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExpectedAttributeValue, context: context)
-        Validators::AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:exists], ::TrueClass, ::FalseClass, context: "#{context}[:exists]")
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
-        Validators::AttributeValueList.validate!(input[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless input[:attribute_value_list].nil?
+        AttributeValueList.validate!(input[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless input[:attribute_value_list].nil?
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExportSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::DynamoDB
     class ExportTableToPointInTimeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportTableToPointInTimeOutput, context: context)
-        Validators::ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
+        ExportDescription.validate!(input[:export_description], context: "#{context}[:export_description]") unless input[:export_description].nil?
       end
     end
 
@@ -1105,7 +1107,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1123,7 +1125,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Condition.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Condition.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1131,10 +1133,10 @@ module AWS::SDK::DynamoDB
     class Get
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Get, context: context)
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:projection_expression], ::String, context: "#{context}[:projection_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
       end
     end
 
@@ -1142,20 +1144,20 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetItemInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
-        Validators::AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:projection_expression], ::String, context: "#{context}[:projection_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
       end
     end
 
     class GetItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetItemOutput, context: context)
-        Validators::AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -1163,9 +1165,9 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalSecondaryIndex, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
       end
     end
 
@@ -1173,7 +1175,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalSecondaryIndexAutoScalingUpdate, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless input[:provisioned_write_capacity_auto_scaling_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless input[:provisioned_write_capacity_auto_scaling_update].nil?
       end
     end
 
@@ -1181,7 +1183,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalSecondaryIndexAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalSecondaryIndexAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1190,11 +1192,11 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalSecondaryIndexDescription, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
         Hearth::Validator.validate!(input[:index_status], ::String, context: "#{context}[:index_status]")
         Hearth::Validator.validate!(input[:backfilling], ::TrueClass, ::FalseClass, context: "#{context}[:backfilling]")
-        Validators::ProvisionedThroughputDescription.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        ProvisionedThroughputDescription.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
         Hearth::Validator.validate!(input[:index_size_bytes], ::Integer, context: "#{context}[:index_size_bytes]")
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:index_arn], ::String, context: "#{context}[:index_arn]")
@@ -1205,7 +1207,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1214,9 +1216,9 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalSecondaryIndexInfo, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
       end
     end
 
@@ -1224,7 +1226,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1232,9 +1234,9 @@ module AWS::SDK::DynamoDB
     class GlobalSecondaryIndexUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalSecondaryIndexUpdate, context: context)
-        Validators::UpdateGlobalSecondaryIndexAction.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
-        Validators::CreateGlobalSecondaryIndexAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
-        Validators::DeleteGlobalSecondaryIndexAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
+        UpdateGlobalSecondaryIndexAction.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
+        CreateGlobalSecondaryIndexAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
+        DeleteGlobalSecondaryIndexAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
       end
     end
 
@@ -1242,7 +1244,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalSecondaryIndexUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalSecondaryIndexUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1251,7 +1253,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalSecondaryIndexInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalSecondaryIndexInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1260,7 +1262,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalTable, context: context)
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
-        Validators::ReplicaList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicaList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
       end
     end
 
@@ -1274,7 +1276,7 @@ module AWS::SDK::DynamoDB
     class GlobalTableDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GlobalTableDescription, context: context)
-        Validators::ReplicaDescriptionList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
+        ReplicaDescriptionList.validate!(input[:replication_group], context: "#{context}[:replication_group]") unless input[:replication_group].nil?
         Hearth::Validator.validate!(input[:global_table_arn], ::String, context: "#{context}[:global_table_arn]")
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
         Hearth::Validator.validate!(input[:global_table_status], ::String, context: "#{context}[:global_table_status]")
@@ -1287,7 +1289,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:provisioned_write_capacity_units], ::Integer, context: "#{context}[:provisioned_write_capacity_units]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings_update]") unless input[:provisioned_write_capacity_auto_scaling_settings_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings_update]") unless input[:provisioned_write_capacity_auto_scaling_settings_update].nil?
       end
     end
 
@@ -1295,7 +1297,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalTableGlobalSecondaryIndexSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalTableGlobalSecondaryIndexSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1304,7 +1306,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GlobalTable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GlobalTable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1363,7 +1365,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1371,8 +1373,8 @@ module AWS::SDK::DynamoDB
     class ItemCollectionMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ItemCollectionMetrics, context: context)
-        Validators::ItemCollectionKeyAttributeMap.validate!(input[:item_collection_key], context: "#{context}[:item_collection_key]") unless input[:item_collection_key].nil?
-        Validators::ItemCollectionSizeEstimateRange.validate!(input[:size_estimate_range_gb], context: "#{context}[:size_estimate_range_gb]") unless input[:size_estimate_range_gb].nil?
+        ItemCollectionKeyAttributeMap.validate!(input[:item_collection_key], context: "#{context}[:item_collection_key]") unless input[:item_collection_key].nil?
+        ItemCollectionSizeEstimateRange.validate!(input[:size_estimate_range_gb], context: "#{context}[:size_estimate_range_gb]") unless input[:size_estimate_range_gb].nil?
       end
     end
 
@@ -1380,7 +1382,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ItemCollectionMetrics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ItemCollectionMetrics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1390,7 +1392,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ItemCollectionMetricsMultiple.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ItemCollectionMetricsMultiple.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1415,7 +1417,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1423,7 +1425,7 @@ module AWS::SDK::DynamoDB
     class ItemResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ItemResponse, context: context)
-        Validators::AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        AttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
       end
     end
 
@@ -1431,7 +1433,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ItemResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ItemResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1441,7 +1443,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1451,7 +1453,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Condition.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Condition.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1460,7 +1462,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Key.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Key.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1469,7 +1471,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeySchemaElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeySchemaElement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1485,11 +1487,11 @@ module AWS::SDK::DynamoDB
     class KeysAndAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeysAndAttributes, context: context)
-        Validators::KeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
-        Validators::AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
+        KeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
         Hearth::Validator.validate!(input[:projection_expression], ::String, context: "#{context}[:projection_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
       end
     end
 
@@ -1506,7 +1508,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KinesisDataStreamDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KinesisDataStreamDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1522,7 +1524,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1542,7 +1544,7 @@ module AWS::SDK::DynamoDB
     class ListBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackupsOutput, context: context)
-        Validators::BackupSummaries.validate!(input[:backup_summaries], context: "#{context}[:backup_summaries]") unless input[:backup_summaries].nil?
+        BackupSummaries.validate!(input[:backup_summaries], context: "#{context}[:backup_summaries]") unless input[:backup_summaries].nil?
         Hearth::Validator.validate!(input[:last_evaluated_backup_arn], ::String, context: "#{context}[:last_evaluated_backup_arn]")
       end
     end
@@ -1559,7 +1561,7 @@ module AWS::SDK::DynamoDB
     class ListContributorInsightsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContributorInsightsOutput, context: context)
-        Validators::ContributorInsightsSummaries.validate!(input[:contributor_insights_summaries], context: "#{context}[:contributor_insights_summaries]") unless input[:contributor_insights_summaries].nil?
+        ContributorInsightsSummaries.validate!(input[:contributor_insights_summaries], context: "#{context}[:contributor_insights_summaries]") unless input[:contributor_insights_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1576,7 +1578,7 @@ module AWS::SDK::DynamoDB
     class ListExportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExportsOutput, context: context)
-        Validators::ExportSummaries.validate!(input[:export_summaries], context: "#{context}[:export_summaries]") unless input[:export_summaries].nil?
+        ExportSummaries.validate!(input[:export_summaries], context: "#{context}[:export_summaries]") unless input[:export_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1593,7 +1595,7 @@ module AWS::SDK::DynamoDB
     class ListGlobalTablesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGlobalTablesOutput, context: context)
-        Validators::GlobalTableList.validate!(input[:global_tables], context: "#{context}[:global_tables]") unless input[:global_tables].nil?
+        GlobalTableList.validate!(input[:global_tables], context: "#{context}[:global_tables]") unless input[:global_tables].nil?
         Hearth::Validator.validate!(input[:last_evaluated_global_table_name], ::String, context: "#{context}[:last_evaluated_global_table_name]")
       end
     end
@@ -1609,7 +1611,7 @@ module AWS::SDK::DynamoDB
     class ListTablesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTablesOutput, context: context)
-        Validators::TableNameList.validate!(input[:table_names], context: "#{context}[:table_names]") unless input[:table_names].nil?
+        TableNameList.validate!(input[:table_names], context: "#{context}[:table_names]") unless input[:table_names].nil?
         Hearth::Validator.validate!(input[:last_evaluated_table_name], ::String, context: "#{context}[:last_evaluated_table_name]")
       end
     end
@@ -1625,7 +1627,7 @@ module AWS::SDK::DynamoDB
     class ListTagsOfResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOfResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1634,8 +1636,8 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocalSecondaryIndex, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
       end
     end
 
@@ -1643,8 +1645,8 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocalSecondaryIndexDescription, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
         Hearth::Validator.validate!(input[:index_size_bytes], ::Integer, context: "#{context}[:index_size_bytes]")
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:index_arn], ::String, context: "#{context}[:index_arn]")
@@ -1655,7 +1657,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1664,8 +1666,8 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocalSecondaryIndexInfo, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
-        Validators::Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        Projection.validate!(input[:projection], context: "#{context}[:projection]") unless input[:projection].nil?
       end
     end
 
@@ -1673,7 +1675,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1682,7 +1684,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LocalSecondaryIndexInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LocalSecondaryIndexInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1692,7 +1694,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1719,7 +1721,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ParameterizedStatement, context: context)
         Hearth::Validator.validate!(input[:statement], ::String, context: "#{context}[:statement]")
-        Validators::PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        PreparedStatementParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1727,7 +1729,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterizedStatement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterizedStatement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1736,7 +1738,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchStatementRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchStatementRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1745,7 +1747,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchStatementResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchStatementResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1777,7 +1779,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1786,7 +1788,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Projection, context: context)
         Hearth::Validator.validate!(input[:projection_type], ::String, context: "#{context}[:projection_type]")
-        Validators::NonKeyAttributeNameList.validate!(input[:non_key_attributes], context: "#{context}[:non_key_attributes]") unless input[:non_key_attributes].nil?
+        NonKeyAttributeNameList.validate!(input[:non_key_attributes], context: "#{context}[:non_key_attributes]") unless input[:non_key_attributes].nil?
       end
     end
 
@@ -1826,11 +1828,11 @@ module AWS::SDK::DynamoDB
     class Put
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Put, context: context)
-        Validators::PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
         Hearth::Validator.validate!(input[:return_values_on_condition_check_failure], ::String, context: "#{context}[:return_values_on_condition_check_failure]")
       end
     end
@@ -1839,15 +1841,15 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutItemInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
-        Validators::ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
+        PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
         Hearth::Validator.validate!(input[:return_values], ::String, context: "#{context}[:return_values]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:return_item_collection_metrics], ::String, context: "#{context}[:return_item_collection_metrics]")
         Hearth::Validator.validate!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
       end
     end
 
@@ -1856,7 +1858,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AttributeValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1864,16 +1866,16 @@ module AWS::SDK::DynamoDB
     class PutItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutItemOutput, context: context)
-        Validators::AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+        AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
       end
     end
 
     class PutRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRequest, context: context)
-        Validators::PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
+        PutItemInputAttributeMap.validate!(input[:item], context: "#{context}[:item]") unless input[:item].nil?
       end
     end
 
@@ -1883,31 +1885,31 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:select], ::String, context: "#{context}[:select]")
-        Validators::AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
+        AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
-        Validators::KeyConditions.validate!(input[:key_conditions], context: "#{context}[:key_conditions]") unless input[:key_conditions].nil?
-        Validators::FilterConditionMap.validate!(input[:query_filter], context: "#{context}[:query_filter]") unless input[:query_filter].nil?
+        KeyConditions.validate!(input[:key_conditions], context: "#{context}[:key_conditions]") unless input[:key_conditions].nil?
+        FilterConditionMap.validate!(input[:query_filter], context: "#{context}[:query_filter]") unless input[:query_filter].nil?
         Hearth::Validator.validate!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
         Hearth::Validator.validate!(input[:scan_index_forward], ::TrueClass, ::FalseClass, context: "#{context}[:scan_index_forward]")
-        Validators::Key.validate!(input[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless input[:exclusive_start_key].nil?
+        Key.validate!(input[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless input[:exclusive_start_key].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:projection_expression], ::String, context: "#{context}[:projection_expression]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
         Hearth::Validator.validate!(input[:key_condition_expression], ::String, context: "#{context}[:key_condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
       end
     end
 
     class QueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryOutput, context: context)
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Hearth::Validator.validate!(input[:scanned_count], ::Integer, context: "#{context}[:scanned_count]")
-        Validators::Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -1929,9 +1931,9 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaAutoScalingDescription, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
-        Validators::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
-        Validators::AutoScalingSettingsDescription.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
-        Validators::AutoScalingSettingsDescription.validate!(input[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless input[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        AutoScalingSettingsDescription.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless input[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
         Hearth::Validator.validate!(input[:replica_status], ::String, context: "#{context}[:replica_status]")
       end
     end
@@ -1940,7 +1942,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaAutoScalingDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaAutoScalingDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1949,8 +1951,8 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaAutoScalingUpdate, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
-        Validators::ReplicaGlobalSecondaryIndexAutoScalingUpdateList.validate!(input[:replica_global_secondary_index_updates], context: "#{context}[:replica_global_secondary_index_updates]") unless input[:replica_global_secondary_index_updates].nil?
-        Validators::AutoScalingSettingsUpdate.validate!(input[:replica_provisioned_read_capacity_auto_scaling_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_update]") unless input[:replica_provisioned_read_capacity_auto_scaling_update].nil?
+        ReplicaGlobalSecondaryIndexAutoScalingUpdateList.validate!(input[:replica_global_secondary_index_updates], context: "#{context}[:replica_global_secondary_index_updates]") unless input[:replica_global_secondary_index_updates].nil?
+        AutoScalingSettingsUpdate.validate!(input[:replica_provisioned_read_capacity_auto_scaling_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_update]") unless input[:replica_provisioned_read_capacity_auto_scaling_update].nil?
       end
     end
 
@@ -1958,7 +1960,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1971,10 +1973,10 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:replica_status_description], ::String, context: "#{context}[:replica_status_description]")
         Hearth::Validator.validate!(input[:replica_status_percent_progress], ::String, context: "#{context}[:replica_status_percent_progress]")
         Hearth::Validator.validate!(input[:kms_master_key_id], ::String, context: "#{context}[:kms_master_key_id]")
-        Validators::ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
-        Validators::ReplicaGlobalSecondaryIndexDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        ReplicaGlobalSecondaryIndexDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
         Hearth::Validator.validate!(input[:replica_inaccessible_date_time], ::Time, context: "#{context}[:replica_inaccessible_date_time]")
-        Validators::TableClassSummary.validate!(input[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless input[:replica_table_class_summary].nil?
+        TableClassSummary.validate!(input[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless input[:replica_table_class_summary].nil?
       end
     end
 
@@ -1982,7 +1984,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1991,7 +1993,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaGlobalSecondaryIndex, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
       end
     end
 
@@ -2000,8 +2002,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::ReplicaGlobalSecondaryIndexAutoScalingDescription, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:index_status], ::String, context: "#{context}[:index_status]")
-        Validators::AutoScalingSettingsDescription.validate!(input[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless input[:provisioned_read_capacity_auto_scaling_settings].nil?
-        Validators::AutoScalingSettingsDescription.validate!(input[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless input[:provisioned_write_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless input[:provisioned_read_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless input[:provisioned_write_capacity_auto_scaling_settings].nil?
       end
     end
 
@@ -2009,7 +2011,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndexAutoScalingDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndexAutoScalingDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2018,7 +2020,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:provisioned_read_capacity_auto_scaling_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_update]") unless input[:provisioned_read_capacity_auto_scaling_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:provisioned_read_capacity_auto_scaling_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_update]") unless input[:provisioned_read_capacity_auto_scaling_update].nil?
       end
     end
 
@@ -2026,7 +2028,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndexAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndexAutoScalingUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaGlobalSecondaryIndexDescription, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
       end
     end
 
@@ -2043,7 +2045,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndexDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2052,7 +2054,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndex.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2063,9 +2065,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:index_status], ::String, context: "#{context}[:index_status]")
         Hearth::Validator.validate!(input[:provisioned_read_capacity_units], ::Integer, context: "#{context}[:provisioned_read_capacity_units]")
-        Validators::AutoScalingSettingsDescription.validate!(input[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless input[:provisioned_read_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless input[:provisioned_read_capacity_auto_scaling_settings].nil?
         Hearth::Validator.validate!(input[:provisioned_write_capacity_units], ::Integer, context: "#{context}[:provisioned_write_capacity_units]")
-        Validators::AutoScalingSettingsDescription.validate!(input[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless input[:provisioned_write_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless input[:provisioned_write_capacity_auto_scaling_settings].nil?
       end
     end
 
@@ -2073,7 +2075,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndexSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndexSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2083,7 +2085,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::ReplicaGlobalSecondaryIndexSettingsUpdate, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:provisioned_read_capacity_units], ::Integer, context: "#{context}[:provisioned_read_capacity_units]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings_update]") unless input[:provisioned_read_capacity_auto_scaling_settings_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings_update]") unless input[:provisioned_read_capacity_auto_scaling_settings_update].nil?
       end
     end
 
@@ -2091,7 +2093,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaGlobalSecondaryIndexSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaGlobalSecondaryIndexSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2100,7 +2102,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Replica.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Replica.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2117,13 +2119,13 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::ReplicaSettingsDescription, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
         Hearth::Validator.validate!(input[:replica_status], ::String, context: "#{context}[:replica_status]")
-        Validators::BillingModeSummary.validate!(input[:replica_billing_mode_summary], context: "#{context}[:replica_billing_mode_summary]") unless input[:replica_billing_mode_summary].nil?
+        BillingModeSummary.validate!(input[:replica_billing_mode_summary], context: "#{context}[:replica_billing_mode_summary]") unless input[:replica_billing_mode_summary].nil?
         Hearth::Validator.validate!(input[:replica_provisioned_read_capacity_units], ::Integer, context: "#{context}[:replica_provisioned_read_capacity_units]")
-        Validators::AutoScalingSettingsDescription.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        AutoScalingSettingsDescription.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
         Hearth::Validator.validate!(input[:replica_provisioned_write_capacity_units], ::Integer, context: "#{context}[:replica_provisioned_write_capacity_units]")
-        Validators::AutoScalingSettingsDescription.validate!(input[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless input[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
-        Validators::ReplicaGlobalSecondaryIndexSettingsDescriptionList.validate!(input[:replica_global_secondary_index_settings], context: "#{context}[:replica_global_secondary_index_settings]") unless input[:replica_global_secondary_index_settings].nil?
-        Validators::TableClassSummary.validate!(input[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless input[:replica_table_class_summary].nil?
+        AutoScalingSettingsDescription.validate!(input[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless input[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        ReplicaGlobalSecondaryIndexSettingsDescriptionList.validate!(input[:replica_global_secondary_index_settings], context: "#{context}[:replica_global_secondary_index_settings]") unless input[:replica_global_secondary_index_settings].nil?
+        TableClassSummary.validate!(input[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless input[:replica_table_class_summary].nil?
       end
     end
 
@@ -2131,7 +2133,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaSettingsDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2141,8 +2143,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::ReplicaSettingsUpdate, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
         Hearth::Validator.validate!(input[:replica_provisioned_read_capacity_units], ::Integer, context: "#{context}[:replica_provisioned_read_capacity_units]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings_update]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings_update].nil?
-        Validators::ReplicaGlobalSecondaryIndexSettingsUpdateList.validate!(input[:replica_global_secondary_index_settings_update], context: "#{context}[:replica_global_secondary_index_settings_update]") unless input[:replica_global_secondary_index_settings_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:replica_provisioned_read_capacity_auto_scaling_settings_update], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings_update]") unless input[:replica_provisioned_read_capacity_auto_scaling_settings_update].nil?
+        ReplicaGlobalSecondaryIndexSettingsUpdateList.validate!(input[:replica_global_secondary_index_settings_update], context: "#{context}[:replica_global_secondary_index_settings_update]") unless input[:replica_global_secondary_index_settings_update].nil?
         Hearth::Validator.validate!(input[:replica_table_class], ::String, context: "#{context}[:replica_table_class]")
       end
     end
@@ -2151,7 +2153,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaSettingsUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2159,8 +2161,8 @@ module AWS::SDK::DynamoDB
     class ReplicaUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicaUpdate, context: context)
-        Validators::CreateReplicaAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
-        Validators::DeleteReplicaAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
+        CreateReplicaAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
+        DeleteReplicaAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
       end
     end
 
@@ -2168,7 +2170,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicaUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicaUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2176,9 +2178,9 @@ module AWS::SDK::DynamoDB
     class ReplicationGroupUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicationGroupUpdate, context: context)
-        Validators::CreateReplicationGroupMemberAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
-        Validators::UpdateReplicationGroupMemberAction.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
-        Validators::DeleteReplicationGroupMemberAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
+        CreateReplicationGroupMemberAction.validate!(input[:create], context: "#{context}[:create]") unless input[:create].nil?
+        UpdateReplicationGroupMemberAction.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
+        DeleteReplicationGroupMemberAction.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
       end
     end
 
@@ -2186,7 +2188,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationGroupUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationGroupUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2228,17 +2230,17 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:target_table_name], ::String, context: "#{context}[:target_table_name]")
         Hearth::Validator.validate!(input[:backup_arn], ::String, context: "#{context}[:backup_arn]")
         Hearth::Validator.validate!(input[:billing_mode_override], ::String, context: "#{context}[:billing_mode_override]")
-        Validators::GlobalSecondaryIndexList.validate!(input[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless input[:global_secondary_index_override].nil?
-        Validators::LocalSecondaryIndexList.validate!(input[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless input[:local_secondary_index_override].nil?
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
-        Validators::SSESpecification.validate!(input[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless input[:sse_specification_override].nil?
+        GlobalSecondaryIndexList.validate!(input[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless input[:global_secondary_index_override].nil?
+        LocalSecondaryIndexList.validate!(input[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless input[:local_secondary_index_override].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        SSESpecification.validate!(input[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless input[:sse_specification_override].nil?
       end
     end
 
     class RestoreTableFromBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreTableFromBackupOutput, context: context)
-        Validators::TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
+        TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
       end
     end
 
@@ -2251,17 +2253,17 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:use_latest_restorable_time], ::TrueClass, ::FalseClass, context: "#{context}[:use_latest_restorable_time]")
         Hearth::Validator.validate!(input[:restore_date_time], ::Time, context: "#{context}[:restore_date_time]")
         Hearth::Validator.validate!(input[:billing_mode_override], ::String, context: "#{context}[:billing_mode_override]")
-        Validators::GlobalSecondaryIndexList.validate!(input[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless input[:global_secondary_index_override].nil?
-        Validators::LocalSecondaryIndexList.validate!(input[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless input[:local_secondary_index_override].nil?
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
-        Validators::SSESpecification.validate!(input[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless input[:sse_specification_override].nil?
+        GlobalSecondaryIndexList.validate!(input[:global_secondary_index_override], context: "#{context}[:global_secondary_index_override]") unless input[:global_secondary_index_override].nil?
+        LocalSecondaryIndexList.validate!(input[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless input[:local_secondary_index_override].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        SSESpecification.validate!(input[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless input[:sse_specification_override].nil?
       end
     end
 
     class RestoreTableToPointInTimeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreTableToPointInTimeOutput, context: context)
-        Validators::TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
+        TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
       end
     end
 
@@ -2289,19 +2291,19 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::ScanInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
+        AttributeNameList.validate!(input[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless input[:attributes_to_get].nil?
         Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
         Hearth::Validator.validate!(input[:select], ::String, context: "#{context}[:select]")
-        Validators::FilterConditionMap.validate!(input[:scan_filter], context: "#{context}[:scan_filter]") unless input[:scan_filter].nil?
+        FilterConditionMap.validate!(input[:scan_filter], context: "#{context}[:scan_filter]") unless input[:scan_filter].nil?
         Hearth::Validator.validate!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
-        Validators::Key.validate!(input[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless input[:exclusive_start_key].nil?
+        Key.validate!(input[:exclusive_start_key], context: "#{context}[:exclusive_start_key]") unless input[:exclusive_start_key].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:total_segments], ::Integer, context: "#{context}[:total_segments]")
         Hearth::Validator.validate!(input[:segment], ::Integer, context: "#{context}[:segment]")
         Hearth::Validator.validate!(input[:projection_expression], ::String, context: "#{context}[:projection_expression]")
         Hearth::Validator.validate!(input[:filter_expression], ::String, context: "#{context}[:filter_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
       end
     end
@@ -2309,11 +2311,11 @@ module AWS::SDK::DynamoDB
     class ScanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScanOutput, context: context)
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Hearth::Validator.validate!(input[:scanned_count], ::Integer, context: "#{context}[:scanned_count]")
-        Validators::Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
       end
     end
 
@@ -2322,7 +2324,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Capacity.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Capacity.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2334,9 +2336,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:table_id], ::String, context: "#{context}[:table_id]")
         Hearth::Validator.validate!(input[:table_arn], ::String, context: "#{context}[:table_arn]")
         Hearth::Validator.validate!(input[:table_size_bytes], ::Integer, context: "#{context}[:table_size_bytes]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
         Hearth::Validator.validate!(input[:table_creation_date_time], ::Time, context: "#{context}[:table_creation_date_time]")
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:billing_mode], ::String, context: "#{context}[:billing_mode]")
       end
@@ -2345,11 +2347,11 @@ module AWS::SDK::DynamoDB
     class SourceTableFeatureDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceTableFeatureDetails, context: context)
-        Validators::LocalSecondaryIndexes.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
-        Validators::GlobalSecondaryIndexes.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
-        Validators::StreamSpecification.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
-        Validators::TimeToLiveDescription.validate!(input[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless input[:time_to_live_description].nil?
-        Validators::SSEDescription.validate!(input[:sse_description], context: "#{context}[:sse_description]") unless input[:sse_description].nil?
+        LocalSecondaryIndexes.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
+        GlobalSecondaryIndexes.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        StreamSpecification.validate!(input[:stream_description], context: "#{context}[:stream_description]") unless input[:stream_description].nil?
+        TimeToLiveDescription.validate!(input[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless input[:time_to_live_description].nil?
+        SSEDescription.validate!(input[:sse_description], context: "#{context}[:sse_description]") unless input[:sse_description].nil?
       end
     end
 
@@ -2382,7 +2384,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::TableAutoScalingDescription, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:table_status], ::String, context: "#{context}[:table_status]")
-        Validators::ReplicaAutoScalingDescriptionList.validate!(input[:replicas], context: "#{context}[:replicas]") unless input[:replicas].nil?
+        ReplicaAutoScalingDescriptionList.validate!(input[:replicas], context: "#{context}[:replicas]") unless input[:replicas].nil?
       end
     end
 
@@ -2397,28 +2399,28 @@ module AWS::SDK::DynamoDB
     class TableDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TableDescription, context: context)
-        Validators::AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
+        AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
+        KeySchema.validate!(input[:key_schema], context: "#{context}[:key_schema]") unless input[:key_schema].nil?
         Hearth::Validator.validate!(input[:table_status], ::String, context: "#{context}[:table_status]")
         Hearth::Validator.validate!(input[:creation_date_time], ::Time, context: "#{context}[:creation_date_time]")
-        Validators::ProvisionedThroughputDescription.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        ProvisionedThroughputDescription.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
         Hearth::Validator.validate!(input[:table_size_bytes], ::Integer, context: "#{context}[:table_size_bytes]")
         Hearth::Validator.validate!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
         Hearth::Validator.validate!(input[:table_arn], ::String, context: "#{context}[:table_arn]")
         Hearth::Validator.validate!(input[:table_id], ::String, context: "#{context}[:table_id]")
-        Validators::BillingModeSummary.validate!(input[:billing_mode_summary], context: "#{context}[:billing_mode_summary]") unless input[:billing_mode_summary].nil?
-        Validators::LocalSecondaryIndexDescriptionList.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
-        Validators::GlobalSecondaryIndexDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
-        Validators::StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
+        BillingModeSummary.validate!(input[:billing_mode_summary], context: "#{context}[:billing_mode_summary]") unless input[:billing_mode_summary].nil?
+        LocalSecondaryIndexDescriptionList.validate!(input[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless input[:local_secondary_indexes].nil?
+        GlobalSecondaryIndexDescriptionList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
         Hearth::Validator.validate!(input[:latest_stream_label], ::String, context: "#{context}[:latest_stream_label]")
         Hearth::Validator.validate!(input[:latest_stream_arn], ::String, context: "#{context}[:latest_stream_arn]")
         Hearth::Validator.validate!(input[:global_table_version], ::String, context: "#{context}[:global_table_version]")
-        Validators::ReplicaDescriptionList.validate!(input[:replicas], context: "#{context}[:replicas]") unless input[:replicas].nil?
-        Validators::RestoreSummary.validate!(input[:restore_summary], context: "#{context}[:restore_summary]") unless input[:restore_summary].nil?
-        Validators::SSEDescription.validate!(input[:sse_description], context: "#{context}[:sse_description]") unless input[:sse_description].nil?
-        Validators::ArchivalSummary.validate!(input[:archival_summary], context: "#{context}[:archival_summary]") unless input[:archival_summary].nil?
-        Validators::TableClassSummary.validate!(input[:table_class_summary], context: "#{context}[:table_class_summary]") unless input[:table_class_summary].nil?
+        ReplicaDescriptionList.validate!(input[:replicas], context: "#{context}[:replicas]") unless input[:replicas].nil?
+        RestoreSummary.validate!(input[:restore_summary], context: "#{context}[:restore_summary]") unless input[:restore_summary].nil?
+        SSEDescription.validate!(input[:sse_description], context: "#{context}[:sse_description]") unless input[:sse_description].nil?
+        ArchivalSummary.validate!(input[:archival_summary], context: "#{context}[:archival_summary]") unless input[:archival_summary].nil?
+        TableClassSummary.validate!(input[:table_class_summary], context: "#{context}[:table_class_summary]") unless input[:table_class_summary].nil?
       end
     end
 
@@ -2466,7 +2468,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2475,7 +2477,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2504,7 +2506,7 @@ module AWS::SDK::DynamoDB
     class TransactGetItem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactGetItem, context: context)
-        Validators::Get.validate!(input[:get], context: "#{context}[:get]") unless input[:get].nil?
+        Get.validate!(input[:get], context: "#{context}[:get]") unless input[:get].nil?
       end
     end
 
@@ -2512,7 +2514,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransactGetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransactGetItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2520,7 +2522,7 @@ module AWS::SDK::DynamoDB
     class TransactGetItemsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactGetItemsInput, context: context)
-        Validators::TransactGetItemList.validate!(input[:transact_items], context: "#{context}[:transact_items]") unless input[:transact_items].nil?
+        TransactGetItemList.validate!(input[:transact_items], context: "#{context}[:transact_items]") unless input[:transact_items].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
       end
     end
@@ -2528,18 +2530,18 @@ module AWS::SDK::DynamoDB
     class TransactGetItemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactGetItemsOutput, context: context)
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::ItemResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
       end
     end
 
     class TransactWriteItem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactWriteItem, context: context)
-        Validators::ConditionCheck.validate!(input[:condition_check], context: "#{context}[:condition_check]") unless input[:condition_check].nil?
-        Validators::Put.validate!(input[:put], context: "#{context}[:put]") unless input[:put].nil?
-        Validators::Delete.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
-        Validators::Update.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
+        ConditionCheck.validate!(input[:condition_check], context: "#{context}[:condition_check]") unless input[:condition_check].nil?
+        Put.validate!(input[:put], context: "#{context}[:put]") unless input[:put].nil?
+        Delete.validate!(input[:delete], context: "#{context}[:delete]") unless input[:delete].nil?
+        Update.validate!(input[:update], context: "#{context}[:update]") unless input[:update].nil?
       end
     end
 
@@ -2547,7 +2549,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransactWriteItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransactWriteItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2555,7 +2557,7 @@ module AWS::SDK::DynamoDB
     class TransactWriteItemsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactWriteItemsInput, context: context)
-        Validators::TransactWriteItemList.validate!(input[:transact_items], context: "#{context}[:transact_items]") unless input[:transact_items].nil?
+        TransactWriteItemList.validate!(input[:transact_items], context: "#{context}[:transact_items]") unless input[:transact_items].nil?
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:return_item_collection_metrics], ::String, context: "#{context}[:return_item_collection_metrics]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -2565,8 +2567,8 @@ module AWS::SDK::DynamoDB
     class TransactWriteItemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactWriteItemsOutput, context: context)
-        Validators::ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::ItemCollectionMetricsPerTable.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+        ConsumedCapacityMultiple.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemCollectionMetricsPerTable.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
       end
     end
 
@@ -2574,7 +2576,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TransactionCanceledException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::CancellationReasonList.validate!(input[:cancellation_reasons], context: "#{context}[:cancellation_reasons]") unless input[:cancellation_reasons].nil?
+        CancellationReasonList.validate!(input[:cancellation_reasons], context: "#{context}[:cancellation_reasons]") unless input[:cancellation_reasons].nil?
       end
     end
 
@@ -2596,7 +2598,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2609,12 +2611,12 @@ module AWS::SDK::DynamoDB
     class Update
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Update, context: context)
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
         Hearth::Validator.validate!(input[:update_expression], ::String, context: "#{context}[:update_expression]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
         Hearth::Validator.validate!(input[:return_values_on_condition_check_failure], ::String, context: "#{context}[:return_values_on_condition_check_failure]")
       end
     end
@@ -2623,14 +2625,14 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateContinuousBackupsInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::PointInTimeRecoverySpecification.validate!(input[:point_in_time_recovery_specification], context: "#{context}[:point_in_time_recovery_specification]") unless input[:point_in_time_recovery_specification].nil?
+        PointInTimeRecoverySpecification.validate!(input[:point_in_time_recovery_specification], context: "#{context}[:point_in_time_recovery_specification]") unless input[:point_in_time_recovery_specification].nil?
       end
     end
 
     class UpdateContinuousBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateContinuousBackupsOutput, context: context)
-        Validators::ContinuousBackupsDescription.validate!(input[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless input[:continuous_backups_description].nil?
+        ContinuousBackupsDescription.validate!(input[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless input[:continuous_backups_description].nil?
       end
     end
 
@@ -2656,7 +2658,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalSecondaryIndexAction, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
       end
     end
 
@@ -2664,14 +2666,14 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalTableInput, context: context)
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
-        Validators::ReplicaUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
+        ReplicaUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
       end
     end
 
     class UpdateGlobalTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalTableOutput, context: context)
-        Validators::GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
+        GlobalTableDescription.validate!(input[:global_table_description], context: "#{context}[:global_table_description]") unless input[:global_table_description].nil?
       end
     end
 
@@ -2681,9 +2683,9 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
         Hearth::Validator.validate!(input[:global_table_billing_mode], ::String, context: "#{context}[:global_table_billing_mode]")
         Hearth::Validator.validate!(input[:global_table_provisioned_write_capacity_units], ::Integer, context: "#{context}[:global_table_provisioned_write_capacity_units]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:global_table_provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:global_table_provisioned_write_capacity_auto_scaling_settings_update]") unless input[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
-        Validators::GlobalTableGlobalSecondaryIndexSettingsUpdateList.validate!(input[:global_table_global_secondary_index_settings_update], context: "#{context}[:global_table_global_secondary_index_settings_update]") unless input[:global_table_global_secondary_index_settings_update].nil?
-        Validators::ReplicaSettingsUpdateList.validate!(input[:replica_settings_update], context: "#{context}[:replica_settings_update]") unless input[:replica_settings_update].nil?
+        AutoScalingSettingsUpdate.validate!(input[:global_table_provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:global_table_provisioned_write_capacity_auto_scaling_settings_update]") unless input[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
+        GlobalTableGlobalSecondaryIndexSettingsUpdateList.validate!(input[:global_table_global_secondary_index_settings_update], context: "#{context}[:global_table_global_secondary_index_settings_update]") unless input[:global_table_global_secondary_index_settings_update].nil?
+        ReplicaSettingsUpdateList.validate!(input[:replica_settings_update], context: "#{context}[:replica_settings_update]") unless input[:replica_settings_update].nil?
       end
     end
 
@@ -2691,7 +2693,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalTableSettingsOutput, context: context)
         Hearth::Validator.validate!(input[:global_table_name], ::String, context: "#{context}[:global_table_name]")
-        Validators::ReplicaSettingsDescriptionList.validate!(input[:replica_settings], context: "#{context}[:replica_settings]") unless input[:replica_settings].nil?
+        ReplicaSettingsDescriptionList.validate!(input[:replica_settings], context: "#{context}[:replica_settings]") unless input[:replica_settings].nil?
       end
     end
 
@@ -2699,26 +2701,26 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateItemInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
-        Validators::AttributeUpdates.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
-        Validators::ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
+        Key.validate!(input[:key], context: "#{context}[:key]") unless input[:key].nil?
+        AttributeUpdates.validate!(input[:attribute_updates], context: "#{context}[:attribute_updates]") unless input[:attribute_updates].nil?
+        ExpectedAttributeMap.validate!(input[:expected], context: "#{context}[:expected]") unless input[:expected].nil?
         Hearth::Validator.validate!(input[:conditional_operator], ::String, context: "#{context}[:conditional_operator]")
         Hearth::Validator.validate!(input[:return_values], ::String, context: "#{context}[:return_values]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
         Hearth::Validator.validate!(input[:return_item_collection_metrics], ::String, context: "#{context}[:return_item_collection_metrics]")
         Hearth::Validator.validate!(input[:update_expression], ::String, context: "#{context}[:update_expression]")
         Hearth::Validator.validate!(input[:condition_expression], ::String, context: "#{context}[:condition_expression]")
-        Validators::ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
-        Validators::ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
+        ExpressionAttributeNameMap.validate!(input[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless input[:expression_attribute_names].nil?
+        ExpressionAttributeValueMap.validate!(input[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless input[:expression_attribute_values].nil?
       end
     end
 
     class UpdateItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateItemOutput, context: context)
-        Validators::AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
-        Validators::ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+        AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
       end
     end
 
@@ -2727,8 +2729,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(input, Types::UpdateReplicationGroupMemberAction, context: context)
         Hearth::Validator.validate!(input[:region_name], ::String, context: "#{context}[:region_name]")
         Hearth::Validator.validate!(input[:kms_master_key_id], ::String, context: "#{context}[:kms_master_key_id]")
-        Validators::ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
-        Validators::ReplicaGlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
+        ProvisionedThroughputOverride.validate!(input[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless input[:provisioned_throughput_override].nil?
+        ReplicaGlobalSecondaryIndexList.validate!(input[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless input[:global_secondary_indexes].nil?
         Hearth::Validator.validate!(input[:table_class_override], ::String, context: "#{context}[:table_class_override]")
       end
     end
@@ -2736,14 +2738,14 @@ module AWS::SDK::DynamoDB
     class UpdateTableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTableInput, context: context)
-        Validators::AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
+        AttributeDefinitions.validate!(input[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless input[:attribute_definitions].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:billing_mode], ::String, context: "#{context}[:billing_mode]")
-        Validators::ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
-        Validators::GlobalSecondaryIndexUpdateList.validate!(input[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless input[:global_secondary_index_updates].nil?
-        Validators::StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
-        Validators::SSESpecification.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
-        Validators::ReplicationGroupUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
+        ProvisionedThroughput.validate!(input[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless input[:provisioned_throughput].nil?
+        GlobalSecondaryIndexUpdateList.validate!(input[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless input[:global_secondary_index_updates].nil?
+        StreamSpecification.validate!(input[:stream_specification], context: "#{context}[:stream_specification]") unless input[:stream_specification].nil?
+        SSESpecification.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
+        ReplicationGroupUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
         Hearth::Validator.validate!(input[:table_class], ::String, context: "#{context}[:table_class]")
       end
     end
@@ -2751,24 +2753,24 @@ module AWS::SDK::DynamoDB
     class UpdateTableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTableOutput, context: context)
-        Validators::TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
+        TableDescription.validate!(input[:table_description], context: "#{context}[:table_description]") unless input[:table_description].nil?
       end
     end
 
     class UpdateTableReplicaAutoScalingInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTableReplicaAutoScalingInput, context: context)
-        Validators::GlobalSecondaryIndexAutoScalingUpdateList.validate!(input[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless input[:global_secondary_index_updates].nil?
+        GlobalSecondaryIndexAutoScalingUpdateList.validate!(input[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless input[:global_secondary_index_updates].nil?
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless input[:provisioned_write_capacity_auto_scaling_update].nil?
-        Validators::ReplicaAutoScalingUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
+        AutoScalingSettingsUpdate.validate!(input[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless input[:provisioned_write_capacity_auto_scaling_update].nil?
+        ReplicaAutoScalingUpdateList.validate!(input[:replica_updates], context: "#{context}[:replica_updates]") unless input[:replica_updates].nil?
       end
     end
 
     class UpdateTableReplicaAutoScalingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTableReplicaAutoScalingOutput, context: context)
-        Validators::TableAutoScalingDescription.validate!(input[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless input[:table_auto_scaling_description].nil?
+        TableAutoScalingDescription.validate!(input[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless input[:table_auto_scaling_description].nil?
       end
     end
 
@@ -2776,22 +2778,22 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTimeToLiveInput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::TimeToLiveSpecification.validate!(input[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless input[:time_to_live_specification].nil?
+        TimeToLiveSpecification.validate!(input[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless input[:time_to_live_specification].nil?
       end
     end
 
     class UpdateTimeToLiveOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTimeToLiveOutput, context: context)
-        Validators::TimeToLiveSpecification.validate!(input[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless input[:time_to_live_specification].nil?
+        TimeToLiveSpecification.validate!(input[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless input[:time_to_live_specification].nil?
       end
     end
 
     class WriteRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WriteRequest, context: context)
-        Validators::PutRequest.validate!(input[:put_request], context: "#{context}[:put_request]") unless input[:put_request].nil?
-        Validators::DeleteRequest.validate!(input[:delete_request], context: "#{context}[:delete_request]") unless input[:delete_request].nil?
+        PutRequest.validate!(input[:put_request], context: "#{context}[:put_request]") unless input[:put_request].nil?
+        DeleteRequest.validate!(input[:delete_request], context: "#{context}[:delete_request]") unless input[:delete_request].nil?
       end
     end
 
@@ -2799,7 +2801,7 @@ module AWS::SDK::DynamoDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WriteRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WriteRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

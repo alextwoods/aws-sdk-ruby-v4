@@ -71,10 +71,10 @@ module AWS::SDK::IotDeviceAdvisor
           suite_definition_arn: 'suite_definition_arn',
           suite_definition_version: 'suite_definition_version',
           latest_version: 'latest_version',
-          suite_definition_configuration: Stubs::SuiteDefinitionConfiguration.default(visited),
+          suite_definition_configuration: SuiteDefinitionConfiguration.default(visited),
           created_at: Time.now,
           last_modified_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -121,7 +121,7 @@ module AWS::SDK::IotDeviceAdvisor
         visited = visited + ['SuiteDefinitionConfiguration']
         {
           suite_definition_name: 'suite_definition_name',
-          devices: Stubs::DeviceUnderTestList.default(visited),
+          devices: DeviceUnderTestList.default(visited),
           intended_for_qualification: false,
           root_group: 'root_group',
           device_permission_role_arn: 'device_permission_role_arn',
@@ -146,7 +146,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('DeviceUnderTestList')
         visited = visited + ['DeviceUnderTestList']
         [
-          Stubs::DeviceUnderTest.default(visited)
+          DeviceUnderTest.default(visited)
         ]
       end
 
@@ -188,13 +188,13 @@ module AWS::SDK::IotDeviceAdvisor
           suite_definition_version: 'suite_definition_version',
           suite_run_id: 'suite_run_id',
           suite_run_arn: 'suite_run_arn',
-          suite_run_configuration: Stubs::SuiteRunConfiguration.default(visited),
-          test_result: Stubs::TestResult.default(visited),
+          suite_run_configuration: SuiteRunConfiguration.default(visited),
+          test_result: TestResult.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           status: 'status',
           error_reason: 'error_reason',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('TestResult')
         visited = visited + ['TestResult']
         {
-          groups: Stubs::GroupResultList.default(visited),
+          groups: GroupResultList.default(visited),
         }
       end
 
@@ -241,7 +241,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('GroupResultList')
         visited = visited + ['GroupResultList']
         [
-          Stubs::GroupResult.default(visited)
+          GroupResult.default(visited)
         ]
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::IotDeviceAdvisor
         {
           group_id: 'group_id',
           group_name: 'group_name',
-          tests: Stubs::TestCaseRuns.default(visited),
+          tests: TestCaseRuns.default(visited),
         }
       end
 
@@ -283,7 +283,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('TestCaseRuns')
         visited = visited + ['TestCaseRuns']
         [
-          Stubs::TestCaseRun.default(visited)
+          TestCaseRun.default(visited)
         ]
       end
 
@@ -337,8 +337,8 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('SuiteRunConfiguration')
         visited = visited + ['SuiteRunConfiguration']
         {
-          primary_device: Stubs::DeviceUnderTest.default(visited),
-          selected_test_list: Stubs::SelectedTestList.default(visited),
+          primary_device: DeviceUnderTest.default(visited),
+          selected_test_list: SelectedTestList.default(visited),
           parallel_run: false,
         }
       end
@@ -394,7 +394,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListSuiteDefinitions
       def self.default(visited=[])
         {
-          suite_definition_information_list: Stubs::SuiteDefinitionInformationList.default(visited),
+          suite_definition_information_list: SuiteDefinitionInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -415,7 +415,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('SuiteDefinitionInformationList')
         visited = visited + ['SuiteDefinitionInformationList']
         [
-          Stubs::SuiteDefinitionInformation.default(visited)
+          SuiteDefinitionInformation.default(visited)
         ]
       end
 
@@ -437,7 +437,7 @@ module AWS::SDK::IotDeviceAdvisor
         {
           suite_definition_id: 'suite_definition_id',
           suite_definition_name: 'suite_definition_name',
-          default_devices: Stubs::DeviceUnderTestList.default(visited),
+          default_devices: DeviceUnderTestList.default(visited),
           intended_for_qualification: false,
           created_at: Time.now,
         }
@@ -459,7 +459,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListSuiteRuns
       def self.default(visited=[])
         {
-          suite_runs_list: Stubs::SuiteRunsList.default(visited),
+          suite_runs_list: SuiteRunsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -480,7 +480,7 @@ module AWS::SDK::IotDeviceAdvisor
         return nil if visited.include?('SuiteRunsList')
         visited = visited + ['SuiteRunsList']
         [
-          Stubs::SuiteRunInformation.default(visited)
+          SuiteRunInformation.default(visited)
         ]
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

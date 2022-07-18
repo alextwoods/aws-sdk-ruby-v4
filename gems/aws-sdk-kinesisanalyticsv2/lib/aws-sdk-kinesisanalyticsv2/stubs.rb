@@ -16,7 +16,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          cloud_watch_logging_option_descriptions: Stubs::CloudWatchLoggingOptionDescriptions.default(visited),
+          cloud_watch_logging_option_descriptions: CloudWatchLoggingOptionDescriptions.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('CloudWatchLoggingOptionDescriptions')
         visited = visited + ['CloudWatchLoggingOptionDescriptions']
         [
-          Stubs::CloudWatchLoggingOptionDescription.default(visited)
+          CloudWatchLoggingOptionDescription.default(visited)
         ]
       end
 
@@ -78,7 +78,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          input_descriptions: Stubs::InputDescriptions.default(visited),
+          input_descriptions: InputDescriptions.default(visited),
         }
       end
 
@@ -98,7 +98,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('InputDescriptions')
         visited = visited + ['InputDescriptions']
         [
-          Stubs::InputDescription.default(visited)
+          InputDescription.default(visited)
         ]
       end
 
@@ -120,13 +120,13 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           input_id: 'input_id',
           name_prefix: 'name_prefix',
-          in_app_stream_names: Stubs::InAppStreamNames.default(visited),
-          input_processing_configuration_description: Stubs::InputProcessingConfigurationDescription.default(visited),
-          kinesis_streams_input_description: Stubs::KinesisStreamsInputDescription.default(visited),
-          kinesis_firehose_input_description: Stubs::KinesisFirehoseInputDescription.default(visited),
-          input_schema: Stubs::SourceSchema.default(visited),
-          input_parallelism: Stubs::InputParallelism.default(visited),
-          input_starting_position_configuration: Stubs::InputStartingPositionConfiguration.default(visited),
+          in_app_stream_names: InAppStreamNames.default(visited),
+          input_processing_configuration_description: InputProcessingConfigurationDescription.default(visited),
+          kinesis_streams_input_description: KinesisStreamsInputDescription.default(visited),
+          kinesis_firehose_input_description: KinesisFirehoseInputDescription.default(visited),
+          input_schema: SourceSchema.default(visited),
+          input_parallelism: InputParallelism.default(visited),
+          input_starting_position_configuration: InputStartingPositionConfiguration.default(visited),
         }
       end
 
@@ -188,9 +188,9 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('SourceSchema')
         visited = visited + ['SourceSchema']
         {
-          record_format: Stubs::RecordFormat.default(visited),
+          record_format: RecordFormat.default(visited),
           record_encoding: 'record_encoding',
-          record_columns: Stubs::RecordColumns.default(visited),
+          record_columns: RecordColumns.default(visited),
         }
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('RecordColumns')
         visited = visited + ['RecordColumns']
         [
-          Stubs::RecordColumn.default(visited)
+          RecordColumn.default(visited)
         ]
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::KinesisAnalyticsV2
         visited = visited + ['RecordFormat']
         {
           record_format_type: 'record_format_type',
-          mapping_parameters: Stubs::MappingParameters.default(visited),
+          mapping_parameters: MappingParameters.default(visited),
         }
       end
 
@@ -272,8 +272,8 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('MappingParameters')
         visited = visited + ['MappingParameters']
         {
-          json_mapping_parameters: Stubs::JSONMappingParameters.default(visited),
-          csv_mapping_parameters: Stubs::CSVMappingParameters.default(visited),
+          json_mapping_parameters: JSONMappingParameters.default(visited),
+          csv_mapping_parameters: CSVMappingParameters.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('InputProcessingConfigurationDescription')
         visited = visited + ['InputProcessingConfigurationDescription']
         {
-          input_lambda_processor_description: Stubs::InputLambdaProcessorDescription.default(visited),
+          input_lambda_processor_description: InputLambdaProcessorDescription.default(visited),
         }
       end
 
@@ -429,7 +429,7 @@ module AWS::SDK::KinesisAnalyticsV2
           application_arn: 'application_arn',
           application_version_id: 1,
           input_id: 'input_id',
-          input_processing_configuration_description: Stubs::InputProcessingConfigurationDescription.default(visited),
+          input_processing_configuration_description: InputProcessingConfigurationDescription.default(visited),
         }
       end
 
@@ -450,7 +450,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          output_descriptions: Stubs::OutputDescriptions.default(visited),
+          output_descriptions: OutputDescriptions.default(visited),
         }
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('OutputDescriptions')
         visited = visited + ['OutputDescriptions']
         [
-          Stubs::OutputDescription.default(visited)
+          OutputDescription.default(visited)
         ]
       end
 
@@ -492,10 +492,10 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           output_id: 'output_id',
           name: 'name',
-          kinesis_streams_output_description: Stubs::KinesisStreamsOutputDescription.default(visited),
-          kinesis_firehose_output_description: Stubs::KinesisFirehoseOutputDescription.default(visited),
-          lambda_output_description: Stubs::LambdaOutputDescription.default(visited),
-          destination_schema: Stubs::DestinationSchema.default(visited),
+          kinesis_streams_output_description: KinesisStreamsOutputDescription.default(visited),
+          kinesis_firehose_output_description: KinesisFirehoseOutputDescription.default(visited),
+          lambda_output_description: LambdaOutputDescription.default(visited),
+          destination_schema: DestinationSchema.default(visited),
         }
       end
 
@@ -596,7 +596,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          reference_data_source_descriptions: Stubs::ReferenceDataSourceDescriptions.default(visited),
+          reference_data_source_descriptions: ReferenceDataSourceDescriptions.default(visited),
         }
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ReferenceDataSourceDescriptions')
         visited = visited + ['ReferenceDataSourceDescriptions']
         [
-          Stubs::ReferenceDataSourceDescription.default(visited)
+          ReferenceDataSourceDescription.default(visited)
         ]
       end
 
@@ -638,8 +638,8 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           reference_id: 'reference_id',
           table_name: 'table_name',
-          s3_reference_data_source_description: Stubs::S3ReferenceDataSourceDescription.default(visited),
-          reference_schema: Stubs::SourceSchema.default(visited),
+          s3_reference_data_source_description: S3ReferenceDataSourceDescription.default(visited),
+          reference_schema: SourceSchema.default(visited),
         }
       end
 
@@ -682,7 +682,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          vpc_configuration_description: Stubs::VpcConfigurationDescription.default(visited),
+          vpc_configuration_description: VpcConfigurationDescription.default(visited),
         }
       end
 
@@ -704,8 +704,8 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           vpc_configuration_id: 'vpc_configuration_id',
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -764,7 +764,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class CreateApplication
       def self.default(visited=[])
         {
-          application_detail: Stubs::ApplicationDetail.default(visited),
+          application_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -791,9 +791,9 @@ module AWS::SDK::KinesisAnalyticsV2
           application_version_id: 1,
           create_timestamp: Time.now,
           last_update_timestamp: Time.now,
-          application_configuration_description: Stubs::ApplicationConfigurationDescription.default(visited),
-          cloud_watch_logging_option_descriptions: Stubs::CloudWatchLoggingOptionDescriptions.default(visited),
-          application_maintenance_configuration_description: Stubs::ApplicationMaintenanceConfigurationDescription.default(visited),
+          application_configuration_description: ApplicationConfigurationDescription.default(visited),
+          cloud_watch_logging_option_descriptions: CloudWatchLoggingOptionDescriptions.default(visited),
+          application_maintenance_configuration_description: ApplicationMaintenanceConfigurationDescription.default(visited),
           application_version_updated_from: 1,
           application_version_rolled_back_from: 1,
           conditional_token: 'conditional_token',
@@ -852,14 +852,14 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ApplicationConfigurationDescription')
         visited = visited + ['ApplicationConfigurationDescription']
         {
-          sql_application_configuration_description: Stubs::SqlApplicationConfigurationDescription.default(visited),
-          application_code_configuration_description: Stubs::ApplicationCodeConfigurationDescription.default(visited),
-          run_configuration_description: Stubs::RunConfigurationDescription.default(visited),
-          flink_application_configuration_description: Stubs::FlinkApplicationConfigurationDescription.default(visited),
-          environment_property_descriptions: Stubs::EnvironmentPropertyDescriptions.default(visited),
-          application_snapshot_configuration_description: Stubs::ApplicationSnapshotConfigurationDescription.default(visited),
-          vpc_configuration_descriptions: Stubs::VpcConfigurationDescriptions.default(visited),
-          zeppelin_application_configuration_description: Stubs::ZeppelinApplicationConfigurationDescription.default(visited),
+          sql_application_configuration_description: SqlApplicationConfigurationDescription.default(visited),
+          application_code_configuration_description: ApplicationCodeConfigurationDescription.default(visited),
+          run_configuration_description: RunConfigurationDescription.default(visited),
+          flink_application_configuration_description: FlinkApplicationConfigurationDescription.default(visited),
+          environment_property_descriptions: EnvironmentPropertyDescriptions.default(visited),
+          application_snapshot_configuration_description: ApplicationSnapshotConfigurationDescription.default(visited),
+          vpc_configuration_descriptions: VpcConfigurationDescriptions.default(visited),
+          zeppelin_application_configuration_description: ZeppelinApplicationConfigurationDescription.default(visited),
         }
       end
 
@@ -884,10 +884,10 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ZeppelinApplicationConfigurationDescription')
         visited = visited + ['ZeppelinApplicationConfigurationDescription']
         {
-          monitoring_configuration_description: Stubs::ZeppelinMonitoringConfigurationDescription.default(visited),
-          catalog_configuration_description: Stubs::CatalogConfigurationDescription.default(visited),
-          deploy_as_application_configuration_description: Stubs::DeployAsApplicationConfigurationDescription.default(visited),
-          custom_artifacts_configuration_description: Stubs::CustomArtifactsConfigurationDescriptionList.default(visited),
+          monitoring_configuration_description: ZeppelinMonitoringConfigurationDescription.default(visited),
+          catalog_configuration_description: CatalogConfigurationDescription.default(visited),
+          deploy_as_application_configuration_description: DeployAsApplicationConfigurationDescription.default(visited),
+          custom_artifacts_configuration_description: CustomArtifactsConfigurationDescriptionList.default(visited),
         }
       end
 
@@ -908,7 +908,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('CustomArtifactsConfigurationDescriptionList')
         visited = visited + ['CustomArtifactsConfigurationDescriptionList']
         [
-          Stubs::CustomArtifactConfigurationDescription.default(visited)
+          CustomArtifactConfigurationDescription.default(visited)
         ]
       end
 
@@ -929,8 +929,8 @@ module AWS::SDK::KinesisAnalyticsV2
         visited = visited + ['CustomArtifactConfigurationDescription']
         {
           artifact_type: 'artifact_type',
-          s3_content_location_description: Stubs::S3ContentLocation.default(visited),
-          maven_reference_description: Stubs::MavenReference.default(visited),
+          s3_content_location_description: S3ContentLocation.default(visited),
+          maven_reference_description: MavenReference.default(visited),
         }
       end
 
@@ -994,7 +994,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('DeployAsApplicationConfigurationDescription')
         visited = visited + ['DeployAsApplicationConfigurationDescription']
         {
-          s3_content_location_description: Stubs::S3ContentBaseLocationDescription.default(visited),
+          s3_content_location_description: S3ContentBaseLocationDescription.default(visited),
         }
       end
 
@@ -1032,7 +1032,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('CatalogConfigurationDescription')
         visited = visited + ['CatalogConfigurationDescription']
         {
-          glue_data_catalog_configuration_description: Stubs::GlueDataCatalogConfigurationDescription.default(visited),
+          glue_data_catalog_configuration_description: GlueDataCatalogConfigurationDescription.default(visited),
         }
       end
 
@@ -1086,7 +1086,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('VpcConfigurationDescriptions')
         visited = visited + ['VpcConfigurationDescriptions']
         [
-          Stubs::VpcConfigurationDescription.default(visited)
+          VpcConfigurationDescription.default(visited)
         ]
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('EnvironmentPropertyDescriptions')
         visited = visited + ['EnvironmentPropertyDescriptions']
         {
-          property_group_descriptions: Stubs::PropertyGroups.default(visited),
+          property_group_descriptions: PropertyGroups.default(visited),
         }
       end
 
@@ -1142,7 +1142,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('PropertyGroups')
         visited = visited + ['PropertyGroups']
         [
-          Stubs::PropertyGroup.default(visited)
+          PropertyGroup.default(visited)
         ]
       end
 
@@ -1163,7 +1163,7 @@ module AWS::SDK::KinesisAnalyticsV2
         visited = visited + ['PropertyGroup']
         {
           property_group_id: 'property_group_id',
-          property_map: Stubs::PropertyMap.default(visited),
+          property_map: PropertyMap.default(visited),
         }
       end
 
@@ -1202,9 +1202,9 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('FlinkApplicationConfigurationDescription')
         visited = visited + ['FlinkApplicationConfigurationDescription']
         {
-          checkpoint_configuration_description: Stubs::CheckpointConfigurationDescription.default(visited),
-          monitoring_configuration_description: Stubs::MonitoringConfigurationDescription.default(visited),
-          parallelism_configuration_description: Stubs::ParallelismConfigurationDescription.default(visited),
+          checkpoint_configuration_description: CheckpointConfigurationDescription.default(visited),
+          monitoring_configuration_description: MonitoringConfigurationDescription.default(visited),
+          parallelism_configuration_description: ParallelismConfigurationDescription.default(visited),
           job_plan_description: 'job_plan_description',
         }
       end
@@ -1298,8 +1298,8 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('RunConfigurationDescription')
         visited = visited + ['RunConfigurationDescription']
         {
-          application_restore_configuration_description: Stubs::ApplicationRestoreConfiguration.default(visited),
-          flink_run_configuration_description: Stubs::FlinkRunConfiguration.default(visited),
+          application_restore_configuration_description: ApplicationRestoreConfiguration.default(visited),
+          flink_run_configuration_description: FlinkRunConfiguration.default(visited),
         }
       end
 
@@ -1357,7 +1357,7 @@ module AWS::SDK::KinesisAnalyticsV2
         visited = visited + ['ApplicationCodeConfigurationDescription']
         {
           code_content_type: 'code_content_type',
-          code_content_description: Stubs::CodeContentDescription.default(visited),
+          code_content_description: CodeContentDescription.default(visited),
         }
       end
 
@@ -1379,7 +1379,7 @@ module AWS::SDK::KinesisAnalyticsV2
           text_content: 'text_content',
           code_md5: 'code_md5',
           code_size: 1,
-          s3_application_code_location_description: Stubs::S3ApplicationCodeLocationDescription.default(visited),
+          s3_application_code_location_description: S3ApplicationCodeLocationDescription.default(visited),
         }
       end
 
@@ -1422,9 +1422,9 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('SqlApplicationConfigurationDescription')
         visited = visited + ['SqlApplicationConfigurationDescription']
         {
-          input_descriptions: Stubs::InputDescriptions.default(visited),
-          output_descriptions: Stubs::OutputDescriptions.default(visited),
-          reference_data_source_descriptions: Stubs::ReferenceDataSourceDescriptions.default(visited),
+          input_descriptions: InputDescriptions.default(visited),
+          output_descriptions: OutputDescriptions.default(visited),
+          reference_data_source_descriptions: ReferenceDataSourceDescriptions.default(visited),
         }
       end
 
@@ -1488,7 +1488,7 @@ module AWS::SDK::KinesisAnalyticsV2
         {
           application_arn: 'application_arn',
           application_version_id: 1,
-          cloud_watch_logging_option_descriptions: Stubs::CloudWatchLoggingOptionDescriptions.default(visited),
+          cloud_watch_logging_option_descriptions: CloudWatchLoggingOptionDescriptions.default(visited),
         }
       end
 
@@ -1592,7 +1592,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class DescribeApplication
       def self.default(visited=[])
         {
-          application_detail: Stubs::ApplicationDetail.default(visited),
+          application_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -1608,7 +1608,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class DescribeApplicationSnapshot
       def self.default(visited=[])
         {
-          snapshot_details: Stubs::SnapshotDetails.default(visited),
+          snapshot_details: SnapshotDetails.default(visited),
         }
       end
 
@@ -1648,7 +1648,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class DescribeApplicationVersion
       def self.default(visited=[])
         {
-          application_version_detail: Stubs::ApplicationDetail.default(visited),
+          application_version_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -1664,10 +1664,10 @@ module AWS::SDK::KinesisAnalyticsV2
     class DiscoverInputSchema
       def self.default(visited=[])
         {
-          input_schema: Stubs::SourceSchema.default(visited),
-          parsed_input_records: Stubs::ParsedInputRecords.default(visited),
-          processed_input_records: Stubs::ProcessedInputRecords.default(visited),
-          raw_input_records: Stubs::RawInputRecords.default(visited),
+          input_schema: SourceSchema.default(visited),
+          parsed_input_records: ParsedInputRecords.default(visited),
+          processed_input_records: ProcessedInputRecords.default(visited),
+          raw_input_records: RawInputRecords.default(visited),
         }
       end
 
@@ -1728,7 +1728,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ParsedInputRecords')
         visited = visited + ['ParsedInputRecords']
         [
-          Stubs::ParsedInputRecord.default(visited)
+          ParsedInputRecord.default(visited)
         ]
       end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class ListApplicationSnapshots
       def self.default(visited=[])
         {
-          snapshot_summaries: Stubs::SnapshotSummaries.default(visited),
+          snapshot_summaries: SnapshotSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1786,7 +1786,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('SnapshotSummaries')
         visited = visited + ['SnapshotSummaries']
         [
-          Stubs::SnapshotDetails.default(visited)
+          SnapshotDetails.default(visited)
         ]
       end
 
@@ -1804,7 +1804,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class ListApplicationVersions
       def self.default(visited=[])
         {
-          application_version_summaries: Stubs::ApplicationVersionSummaries.default(visited),
+          application_version_summaries: ApplicationVersionSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1824,7 +1824,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ApplicationVersionSummaries')
         visited = visited + ['ApplicationVersionSummaries']
         [
-          Stubs::ApplicationVersionSummary.default(visited)
+          ApplicationVersionSummary.default(visited)
         ]
       end
 
@@ -1862,7 +1862,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class ListApplications
       def self.default(visited=[])
         {
-          application_summaries: Stubs::ApplicationSummaries.default(visited),
+          application_summaries: ApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1882,7 +1882,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('ApplicationSummaries')
         visited = visited + ['ApplicationSummaries']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -1928,7 +1928,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1946,7 +1946,7 @@ module AWS::SDK::KinesisAnalyticsV2
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1984,7 +1984,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class RollbackApplication
       def self.default(visited=[])
         {
-          application_detail: Stubs::ApplicationDetail.default(visited),
+          application_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -2056,7 +2056,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class UpdateApplication
       def self.default(visited=[])
         {
-          application_detail: Stubs::ApplicationDetail.default(visited),
+          application_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -2073,7 +2073,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.default(visited=[])
         {
           application_arn: 'application_arn',
-          application_maintenance_configuration_description: Stubs::ApplicationMaintenanceConfigurationDescription.default(visited),
+          application_maintenance_configuration_description: ApplicationMaintenanceConfigurationDescription.default(visited),
         }
       end
 

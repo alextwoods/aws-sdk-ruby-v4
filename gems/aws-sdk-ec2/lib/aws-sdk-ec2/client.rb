@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EC2
@@ -102,7 +104,7 @@ module AWS::SDK::EC2
     def accept_reserved_instances_exchange_quote(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptReservedInstancesExchangeQuoteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptReservedInstancesExchangeQuoteInput,
         validate_input: @config.validate_input
@@ -196,7 +198,7 @@ module AWS::SDK::EC2
     def accept_transit_gateway_multicast_domain_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptTransitGatewayMulticastDomainAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptTransitGatewayMulticastDomainAssociationsInput,
         validate_input: @config.validate_input
@@ -287,7 +289,7 @@ module AWS::SDK::EC2
     def accept_transit_gateway_peering_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptTransitGatewayPeeringAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptTransitGatewayPeeringAttachmentInput,
         validate_input: @config.validate_input
@@ -381,7 +383,7 @@ module AWS::SDK::EC2
     def accept_transit_gateway_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptTransitGatewayVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptTransitGatewayVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -467,7 +469,7 @@ module AWS::SDK::EC2
     def accept_vpc_endpoint_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptVpcEndpointConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptVpcEndpointConnectionsInput,
         validate_input: @config.validate_input
@@ -573,7 +575,7 @@ module AWS::SDK::EC2
     def accept_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -663,7 +665,7 @@ module AWS::SDK::EC2
     def advertise_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdvertiseByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdvertiseByoipCidrInput,
         validate_input: @config.validate_input
@@ -798,7 +800,7 @@ module AWS::SDK::EC2
     def allocate_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateAddressInput,
         validate_input: @config.validate_input
@@ -938,7 +940,7 @@ module AWS::SDK::EC2
     def allocate_hosts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateHostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateHostsInput,
         validate_input: @config.validate_input
@@ -1065,7 +1067,7 @@ module AWS::SDK::EC2
     def allocate_ipam_pool_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllocateIpamPoolCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllocateIpamPoolCidrInput,
         validate_input: @config.validate_input
@@ -1151,7 +1153,7 @@ module AWS::SDK::EC2
     def apply_security_groups_to_client_vpn_target_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplySecurityGroupsToClientVpnTargetNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplySecurityGroupsToClientVpnTargetNetworkInput,
         validate_input: @config.validate_input
@@ -1260,7 +1262,7 @@ module AWS::SDK::EC2
     def assign_ipv6_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssignIpv6AddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssignIpv6AddressesInput,
         validate_input: @config.validate_input
@@ -1375,7 +1377,7 @@ module AWS::SDK::EC2
     def assign_private_ip_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssignPrivateIpAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssignPrivateIpAddressesInput,
         validate_input: @config.validate_input
@@ -1499,7 +1501,7 @@ module AWS::SDK::EC2
     def associate_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAddressInput,
         validate_input: @config.validate_input
@@ -1584,7 +1586,7 @@ module AWS::SDK::EC2
     def associate_client_vpn_target_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateClientVpnTargetNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateClientVpnTargetNetworkInput,
         validate_input: @config.validate_input
@@ -1666,7 +1668,7 @@ module AWS::SDK::EC2
     def associate_dhcp_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDhcpOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDhcpOptionsInput,
         validate_input: @config.validate_input
@@ -1760,7 +1762,7 @@ module AWS::SDK::EC2
     def associate_enclave_certificate_iam_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateEnclaveCertificateIamRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateEnclaveCertificateIamRoleInput,
         validate_input: @config.validate_input
@@ -1844,7 +1846,7 @@ module AWS::SDK::EC2
     def associate_iam_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateIamInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateIamInstanceProfileInput,
         validate_input: @config.validate_input
@@ -1959,7 +1961,7 @@ module AWS::SDK::EC2
     def associate_instance_event_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateInstanceEventWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateInstanceEventWindowInput,
         validate_input: @config.validate_input
@@ -2051,7 +2053,7 @@ module AWS::SDK::EC2
     def associate_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateRouteTableInput,
         validate_input: @config.validate_input
@@ -2132,7 +2134,7 @@ module AWS::SDK::EC2
     def associate_subnet_cidr_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSubnetCidrBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSubnetCidrBlockInput,
         validate_input: @config.validate_input
@@ -2228,7 +2230,7 @@ module AWS::SDK::EC2
     def associate_transit_gateway_multicast_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTransitGatewayMulticastDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTransitGatewayMulticastDomainInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::EC2
     def associate_transit_gateway_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTransitGatewayRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTransitGatewayRouteTableInput,
         validate_input: @config.validate_input
@@ -2424,7 +2426,7 @@ module AWS::SDK::EC2
     def associate_trunk_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTrunkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTrunkInterfaceInput,
         validate_input: @config.validate_input
@@ -2554,7 +2556,7 @@ module AWS::SDK::EC2
     def associate_vpc_cidr_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateVpcCidrBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateVpcCidrBlockInput,
         validate_input: @config.validate_input
@@ -2645,7 +2647,7 @@ module AWS::SDK::EC2
     def attach_classic_link_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachClassicLinkVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachClassicLinkVpcInput,
         validate_input: @config.validate_input
@@ -2724,7 +2726,7 @@ module AWS::SDK::EC2
     def attach_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachInternetGatewayInput,
         validate_input: @config.validate_input
@@ -2814,7 +2816,7 @@ module AWS::SDK::EC2
     def attach_network_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachNetworkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachNetworkInterfaceInput,
         validate_input: @config.validate_input
@@ -2927,7 +2929,7 @@ module AWS::SDK::EC2
     def attach_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachVolumeInput,
         validate_input: @config.validate_input
@@ -3012,7 +3014,7 @@ module AWS::SDK::EC2
     def attach_vpn_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachVpnGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachVpnGatewayInput,
         validate_input: @config.validate_input
@@ -3111,7 +3113,7 @@ module AWS::SDK::EC2
     def authorize_client_vpn_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeClientVpnIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeClientVpnIngressInput,
         validate_input: @config.validate_input
@@ -3298,7 +3300,7 @@ module AWS::SDK::EC2
     def authorize_security_group_egress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeSecurityGroupEgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeSecurityGroupEgressInput,
         validate_input: @config.validate_input
@@ -3511,7 +3513,7 @@ module AWS::SDK::EC2
     def authorize_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -3621,7 +3623,7 @@ module AWS::SDK::EC2
     def bundle_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BundleInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BundleInstanceInput,
         validate_input: @config.validate_input
@@ -3712,7 +3714,7 @@ module AWS::SDK::EC2
     def cancel_bundle_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelBundleTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelBundleTaskInput,
         validate_input: @config.validate_input
@@ -3790,7 +3792,7 @@ module AWS::SDK::EC2
     def cancel_capacity_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelCapacityReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelCapacityReservationInput,
         validate_input: @config.validate_input
@@ -3889,7 +3891,7 @@ module AWS::SDK::EC2
     def cancel_capacity_reservation_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelCapacityReservationFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelCapacityReservationFleetsInput,
         validate_input: @config.validate_input
@@ -3971,7 +3973,7 @@ module AWS::SDK::EC2
     def cancel_conversion_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelConversionTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelConversionTaskInput,
         validate_input: @config.validate_input
@@ -4041,7 +4043,7 @@ module AWS::SDK::EC2
     def cancel_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelExportTaskInput,
         validate_input: @config.validate_input
@@ -4122,7 +4124,7 @@ module AWS::SDK::EC2
     def cancel_import_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelImportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelImportTaskInput,
         validate_input: @config.validate_input
@@ -4216,7 +4218,7 @@ module AWS::SDK::EC2
     def cancel_reserved_instances_listing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelReservedInstancesListingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelReservedInstancesListingInput,
         validate_input: @config.validate_input
@@ -4315,7 +4317,7 @@ module AWS::SDK::EC2
     def cancel_spot_fleet_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSpotFleetRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSpotFleetRequestsInput,
         validate_input: @config.validate_input
@@ -4400,7 +4402,7 @@ module AWS::SDK::EC2
     def cancel_spot_instance_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSpotInstanceRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSpotInstanceRequestsInput,
         validate_input: @config.validate_input
@@ -4482,7 +4484,7 @@ module AWS::SDK::EC2
     def confirm_product_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmProductInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmProductInstanceInput,
         validate_input: @config.validate_input
@@ -4574,7 +4576,7 @@ module AWS::SDK::EC2
     def copy_fpga_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyFpgaImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyFpgaImageInput,
         validate_input: @config.validate_input
@@ -4732,7 +4734,7 @@ module AWS::SDK::EC2
     def copy_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyImageInput,
         validate_input: @config.validate_input
@@ -4924,7 +4926,7 @@ module AWS::SDK::EC2
     def copy_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopySnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopySnapshotInput,
         validate_input: @config.validate_input
@@ -5163,7 +5165,7 @@ module AWS::SDK::EC2
     def create_capacity_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCapacityReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCapacityReservationInput,
         validate_input: @config.validate_input
@@ -5346,7 +5348,7 @@ module AWS::SDK::EC2
     def create_capacity_reservation_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCapacityReservationFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCapacityReservationFleetInput,
         validate_input: @config.validate_input
@@ -5449,7 +5451,7 @@ module AWS::SDK::EC2
     def create_carrier_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCarrierGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCarrierGatewayInput,
         validate_input: @config.validate_input
@@ -5664,7 +5666,7 @@ module AWS::SDK::EC2
     def create_client_vpn_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClientVpnEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClientVpnEndpointInput,
         validate_input: @config.validate_input
@@ -5773,7 +5775,7 @@ module AWS::SDK::EC2
     def create_client_vpn_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClientVpnRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClientVpnRouteInput,
         validate_input: @config.validate_input
@@ -5908,7 +5910,7 @@ module AWS::SDK::EC2
     def create_customer_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomerGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomerGatewayInput,
         validate_input: @config.validate_input
@@ -6024,7 +6026,7 @@ module AWS::SDK::EC2
     def create_default_subnet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDefaultSubnetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDefaultSubnetInput,
         validate_input: @config.validate_input
@@ -6131,7 +6133,7 @@ module AWS::SDK::EC2
     def create_default_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDefaultVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDefaultVpcInput,
         validate_input: @config.validate_input
@@ -6291,7 +6293,7 @@ module AWS::SDK::EC2
     def create_dhcp_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDhcpOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDhcpOptionsInput,
         validate_input: @config.validate_input
@@ -6399,7 +6401,7 @@ module AWS::SDK::EC2
     def create_egress_only_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEgressOnlyInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEgressOnlyInternetGatewayInput,
         validate_input: @config.validate_input
@@ -6763,7 +6765,7 @@ module AWS::SDK::EC2
     def create_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetInput,
         validate_input: @config.validate_input
@@ -6956,7 +6958,7 @@ module AWS::SDK::EC2
     def create_flow_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFlowLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFlowLogsInput,
         validate_input: @config.validate_input
@@ -7070,7 +7072,7 @@ module AWS::SDK::EC2
     def create_fpga_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFpgaImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFpgaImageInput,
         validate_input: @config.validate_input
@@ -7240,7 +7242,7 @@ module AWS::SDK::EC2
     def create_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageInput,
         validate_input: @config.validate_input
@@ -7418,7 +7420,7 @@ module AWS::SDK::EC2
     def create_instance_event_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceEventWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceEventWindowInput,
         validate_input: @config.validate_input
@@ -7537,7 +7539,7 @@ module AWS::SDK::EC2
     def create_instance_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceExportTaskInput,
         validate_input: @config.validate_input
@@ -7634,7 +7636,7 @@ module AWS::SDK::EC2
     def create_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInternetGatewayInput,
         validate_input: @config.validate_input
@@ -7760,7 +7762,7 @@ module AWS::SDK::EC2
     def create_ipam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIpamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIpamInput,
         validate_input: @config.validate_input
@@ -7944,7 +7946,7 @@ module AWS::SDK::EC2
     def create_ipam_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIpamPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIpamPoolInput,
         validate_input: @config.validate_input
@@ -8057,7 +8059,7 @@ module AWS::SDK::EC2
     def create_ipam_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIpamScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIpamScopeInput,
         validate_input: @config.validate_input
@@ -8176,7 +8178,7 @@ module AWS::SDK::EC2
     def create_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyPairInput,
         validate_input: @config.validate_input
@@ -8522,7 +8524,7 @@ module AWS::SDK::EC2
     def create_launch_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLaunchTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLaunchTemplateInput,
         validate_input: @config.validate_input
@@ -9039,7 +9041,7 @@ module AWS::SDK::EC2
     def create_launch_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLaunchTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLaunchTemplateVersionInput,
         validate_input: @config.validate_input
@@ -9130,7 +9132,7 @@ module AWS::SDK::EC2
     def create_local_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocalGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocalGatewayRouteInput,
         validate_input: @config.validate_input
@@ -9234,7 +9236,7 @@ module AWS::SDK::EC2
     def create_local_gateway_route_table_vpc_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLocalGatewayRouteTableVpcAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLocalGatewayRouteTableVpcAssociationInput,
         validate_input: @config.validate_input
@@ -9364,7 +9366,7 @@ module AWS::SDK::EC2
     def create_managed_prefix_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateManagedPrefixListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateManagedPrefixListInput,
         validate_input: @config.validate_input
@@ -9506,7 +9508,7 @@ module AWS::SDK::EC2
     def create_nat_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNatGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNatGatewayInput,
         validate_input: @config.validate_input
@@ -9624,7 +9626,7 @@ module AWS::SDK::EC2
     def create_network_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkAclInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkAclInput,
         validate_input: @config.validate_input
@@ -9753,7 +9755,7 @@ module AWS::SDK::EC2
     def create_network_acl_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkAclEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkAclEntryInput,
         validate_input: @config.validate_input
@@ -9903,7 +9905,7 @@ module AWS::SDK::EC2
     def create_network_insights_access_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkInsightsAccessScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkInsightsAccessScopeInput,
         validate_input: @config.validate_input
@@ -10033,7 +10035,7 @@ module AWS::SDK::EC2
     def create_network_insights_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkInsightsPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkInsightsPathInput,
         validate_input: @config.validate_input
@@ -10269,7 +10271,7 @@ module AWS::SDK::EC2
     def create_network_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkInterfaceInput,
         validate_input: @config.validate_input
@@ -10366,7 +10368,7 @@ module AWS::SDK::EC2
     def create_network_interface_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkInterfacePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkInterfacePermissionInput,
         validate_input: @config.validate_input
@@ -10485,7 +10487,7 @@ module AWS::SDK::EC2
     def create_placement_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlacementGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlacementGroupInput,
         validate_input: @config.validate_input
@@ -10571,7 +10573,7 @@ module AWS::SDK::EC2
     def create_public_ipv4_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicIpv4PoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicIpv4PoolInput,
         validate_input: @config.validate_input
@@ -10684,7 +10686,7 @@ module AWS::SDK::EC2
     def create_replace_root_volume_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplaceRootVolumeTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplaceRootVolumeTaskInput,
         validate_input: @config.validate_input
@@ -10810,7 +10812,7 @@ module AWS::SDK::EC2
     def create_reserved_instances_listing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReservedInstancesListingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReservedInstancesListingInput,
         validate_input: @config.validate_input
@@ -10925,7 +10927,7 @@ module AWS::SDK::EC2
     def create_restore_image_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRestoreImageTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRestoreImageTaskInput,
         validate_input: @config.validate_input
@@ -11078,7 +11080,7 @@ module AWS::SDK::EC2
     def create_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteInput,
         validate_input: @config.validate_input
@@ -11207,7 +11209,7 @@ module AWS::SDK::EC2
     def create_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteTableInput,
         validate_input: @config.validate_input
@@ -11329,7 +11331,7 @@ module AWS::SDK::EC2
     def create_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecurityGroupInput,
         validate_input: @config.validate_input
@@ -11490,7 +11492,7 @@ module AWS::SDK::EC2
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -11638,7 +11640,7 @@ module AWS::SDK::EC2
     def create_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotsInput,
         validate_input: @config.validate_input
@@ -11730,7 +11732,7 @@ module AWS::SDK::EC2
     def create_spot_datafeed_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSpotDatafeedSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSpotDatafeedSubscriptionInput,
         validate_input: @config.validate_input
@@ -11824,7 +11826,7 @@ module AWS::SDK::EC2
     def create_store_image_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStoreImageTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStoreImageTaskInput,
         validate_input: @config.validate_input
@@ -12000,7 +12002,7 @@ module AWS::SDK::EC2
     def create_subnet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubnetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubnetInput,
         validate_input: @config.validate_input
@@ -12132,7 +12134,7 @@ module AWS::SDK::EC2
     def create_subnet_cidr_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubnetCidrReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubnetCidrReservationInput,
         validate_input: @config.validate_input
@@ -12228,7 +12230,7 @@ module AWS::SDK::EC2
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -12349,7 +12351,7 @@ module AWS::SDK::EC2
     def create_traffic_mirror_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficMirrorFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficMirrorFilterInput,
         validate_input: @config.validate_input
@@ -12484,7 +12486,7 @@ module AWS::SDK::EC2
     def create_traffic_mirror_filter_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficMirrorFilterRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficMirrorFilterRuleInput,
         validate_input: @config.validate_input
@@ -12630,7 +12632,7 @@ module AWS::SDK::EC2
     def create_traffic_mirror_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficMirrorSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficMirrorSessionInput,
         validate_input: @config.validate_input
@@ -12752,7 +12754,7 @@ module AWS::SDK::EC2
     def create_traffic_mirror_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrafficMirrorTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrafficMirrorTargetInput,
         validate_input: @config.validate_input
@@ -12890,7 +12892,7 @@ module AWS::SDK::EC2
     def create_transit_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayInput,
         validate_input: @config.validate_input
@@ -12997,7 +12999,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_connect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayConnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayConnectInput,
         validate_input: @config.validate_input
@@ -13136,7 +13138,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayConnectPeerInput,
         validate_input: @config.validate_input
@@ -13248,7 +13250,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_multicast_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayMulticastDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayMulticastDomainInput,
         validate_input: @config.validate_input
@@ -13369,7 +13371,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_peering_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayPeeringAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayPeeringAttachmentInput,
         validate_input: @config.validate_input
@@ -13465,7 +13467,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_prefix_list_reference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayPrefixListReferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayPrefixListReferenceInput,
         validate_input: @config.validate_input
@@ -13562,7 +13564,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayRouteInput,
         validate_input: @config.validate_input
@@ -13661,7 +13663,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayRouteTableInput,
         validate_input: @config.validate_input
@@ -13789,7 +13791,7 @@ module AWS::SDK::EC2
     def create_transit_gateway_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransitGatewayVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransitGatewayVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -14058,7 +14060,7 @@ module AWS::SDK::EC2
     def create_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVolumeInput,
         validate_input: @config.validate_input
@@ -14234,7 +14236,7 @@ module AWS::SDK::EC2
     def create_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcInput,
         validate_input: @config.validate_input
@@ -14427,7 +14429,7 @@ module AWS::SDK::EC2
     def create_vpc_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcEndpointInput,
         validate_input: @config.validate_input
@@ -14537,7 +14539,7 @@ module AWS::SDK::EC2
     def create_vpc_endpoint_connection_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcEndpointConnectionNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcEndpointConnectionNotificationInput,
         validate_input: @config.validate_input
@@ -14693,7 +14695,7 @@ module AWS::SDK::EC2
     def create_vpc_endpoint_service_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcEndpointServiceConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcEndpointServiceConfigurationInput,
         validate_input: @config.validate_input
@@ -14836,7 +14838,7 @@ module AWS::SDK::EC2
     def create_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -15089,7 +15091,7 @@ module AWS::SDK::EC2
     def create_vpn_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpnConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpnConnectionInput,
         validate_input: @config.validate_input
@@ -15165,7 +15167,7 @@ module AWS::SDK::EC2
     def create_vpn_connection_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpnConnectionRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpnConnectionRouteInput,
         validate_input: @config.validate_input
@@ -15283,7 +15285,7 @@ module AWS::SDK::EC2
     def create_vpn_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVpnGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVpnGatewayInput,
         validate_input: @config.validate_input
@@ -15371,7 +15373,7 @@ module AWS::SDK::EC2
     def delete_carrier_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCarrierGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCarrierGatewayInput,
         validate_input: @config.validate_input
@@ -15447,7 +15449,7 @@ module AWS::SDK::EC2
     def delete_client_vpn_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClientVpnEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClientVpnEndpointInput,
         validate_input: @config.validate_input
@@ -15533,7 +15535,7 @@ module AWS::SDK::EC2
     def delete_client_vpn_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClientVpnRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClientVpnRouteInput,
         validate_input: @config.validate_input
@@ -15609,7 +15611,7 @@ module AWS::SDK::EC2
     def delete_customer_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomerGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomerGatewayInput,
         validate_input: @config.validate_input
@@ -15683,7 +15685,7 @@ module AWS::SDK::EC2
     def delete_dhcp_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDhcpOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDhcpOptionsInput,
         validate_input: @config.validate_input
@@ -15758,7 +15760,7 @@ module AWS::SDK::EC2
     def delete_egress_only_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEgressOnlyInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEgressOnlyInternetGatewayInput,
         validate_input: @config.validate_input
@@ -15881,7 +15883,7 @@ module AWS::SDK::EC2
     def delete_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetsInput,
         validate_input: @config.validate_input
@@ -15964,7 +15966,7 @@ module AWS::SDK::EC2
     def delete_flow_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFlowLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFlowLogsInput,
         validate_input: @config.validate_input
@@ -16039,7 +16041,7 @@ module AWS::SDK::EC2
     def delete_fpga_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFpgaImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFpgaImageInput,
         validate_input: @config.validate_input
@@ -16123,7 +16125,7 @@ module AWS::SDK::EC2
     def delete_instance_event_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceEventWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceEventWindowInput,
         validate_input: @config.validate_input
@@ -16198,7 +16200,7 @@ module AWS::SDK::EC2
     def delete_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInternetGatewayInput,
         validate_input: @config.validate_input
@@ -16316,7 +16318,7 @@ module AWS::SDK::EC2
     def delete_ipam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIpamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIpamInput,
         validate_input: @config.validate_input
@@ -16426,7 +16428,7 @@ module AWS::SDK::EC2
     def delete_ipam_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIpamPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIpamPoolInput,
         validate_input: @config.validate_input
@@ -16517,7 +16519,7 @@ module AWS::SDK::EC2
     def delete_ipam_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIpamScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIpamScopeInput,
         validate_input: @config.validate_input
@@ -16595,7 +16597,7 @@ module AWS::SDK::EC2
     def delete_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyPairInput,
         validate_input: @config.validate_input
@@ -16688,7 +16690,7 @@ module AWS::SDK::EC2
     def delete_launch_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchTemplateInput,
         validate_input: @config.validate_input
@@ -16791,7 +16793,7 @@ module AWS::SDK::EC2
     def delete_launch_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -16877,7 +16879,7 @@ module AWS::SDK::EC2
     def delete_local_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLocalGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLocalGatewayRouteInput,
         validate_input: @config.validate_input
@@ -16963,7 +16965,7 @@ module AWS::SDK::EC2
     def delete_local_gateway_route_table_vpc_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLocalGatewayRouteTableVpcAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLocalGatewayRouteTableVpcAssociationInput,
         validate_input: @config.validate_input
@@ -17051,7 +17053,7 @@ module AWS::SDK::EC2
     def delete_managed_prefix_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteManagedPrefixListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteManagedPrefixListInput,
         validate_input: @config.validate_input
@@ -17128,7 +17130,7 @@ module AWS::SDK::EC2
     def delete_nat_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNatGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNatGatewayInput,
         validate_input: @config.validate_input
@@ -17202,7 +17204,7 @@ module AWS::SDK::EC2
     def delete_network_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkAclInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkAclInput,
         validate_input: @config.validate_input
@@ -17284,7 +17286,7 @@ module AWS::SDK::EC2
     def delete_network_acl_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkAclEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkAclEntryInput,
         validate_input: @config.validate_input
@@ -17359,7 +17361,7 @@ module AWS::SDK::EC2
     def delete_network_insights_access_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInsightsAccessScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInsightsAccessScopeInput,
         validate_input: @config.validate_input
@@ -17434,7 +17436,7 @@ module AWS::SDK::EC2
     def delete_network_insights_access_scope_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInsightsAccessScopeAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInsightsAccessScopeAnalysisInput,
         validate_input: @config.validate_input
@@ -17509,7 +17511,7 @@ module AWS::SDK::EC2
     def delete_network_insights_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInsightsAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInsightsAnalysisInput,
         validate_input: @config.validate_input
@@ -17584,7 +17586,7 @@ module AWS::SDK::EC2
     def delete_network_insights_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInsightsPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInsightsPathInput,
         validate_input: @config.validate_input
@@ -17658,7 +17660,7 @@ module AWS::SDK::EC2
     def delete_network_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInterfaceInput,
         validate_input: @config.validate_input
@@ -17741,7 +17743,7 @@ module AWS::SDK::EC2
     def delete_network_interface_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkInterfacePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkInterfacePermissionInput,
         validate_input: @config.validate_input
@@ -17817,7 +17819,7 @@ module AWS::SDK::EC2
     def delete_placement_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlacementGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlacementGroupInput,
         validate_input: @config.validate_input
@@ -17892,7 +17894,7 @@ module AWS::SDK::EC2
     def delete_public_ipv4_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicIpv4PoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicIpv4PoolInput,
         validate_input: @config.validate_input
@@ -17977,7 +17979,7 @@ module AWS::SDK::EC2
     def delete_queued_reserved_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueuedReservedInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueuedReservedInstancesInput,
         validate_input: @config.validate_input
@@ -18063,7 +18065,7 @@ module AWS::SDK::EC2
     def delete_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteInput,
         validate_input: @config.validate_input
@@ -18137,7 +18139,7 @@ module AWS::SDK::EC2
     def delete_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteTableInput,
         validate_input: @config.validate_input
@@ -18219,7 +18221,7 @@ module AWS::SDK::EC2
     def delete_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecurityGroupInput,
         validate_input: @config.validate_input
@@ -18302,7 +18304,7 @@ module AWS::SDK::EC2
     def delete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotInput,
         validate_input: @config.validate_input
@@ -18373,7 +18375,7 @@ module AWS::SDK::EC2
     def delete_spot_datafeed_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSpotDatafeedSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSpotDatafeedSubscriptionInput,
         validate_input: @config.validate_input
@@ -18447,7 +18449,7 @@ module AWS::SDK::EC2
     def delete_subnet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubnetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubnetInput,
         validate_input: @config.validate_input
@@ -18532,7 +18534,7 @@ module AWS::SDK::EC2
     def delete_subnet_cidr_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubnetCidrReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubnetCidrReservationInput,
         validate_input: @config.validate_input
@@ -18628,7 +18630,7 @@ module AWS::SDK::EC2
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -18704,7 +18706,7 @@ module AWS::SDK::EC2
     def delete_traffic_mirror_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficMirrorFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficMirrorFilterInput,
         validate_input: @config.validate_input
@@ -18779,7 +18781,7 @@ module AWS::SDK::EC2
     def delete_traffic_mirror_filter_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficMirrorFilterRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficMirrorFilterRuleInput,
         validate_input: @config.validate_input
@@ -18854,7 +18856,7 @@ module AWS::SDK::EC2
     def delete_traffic_mirror_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficMirrorSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficMirrorSessionInput,
         validate_input: @config.validate_input
@@ -18930,7 +18932,7 @@ module AWS::SDK::EC2
     def delete_traffic_mirror_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrafficMirrorTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrafficMirrorTargetInput,
         validate_input: @config.validate_input
@@ -19027,7 +19029,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayInput,
         validate_input: @config.validate_input
@@ -19114,7 +19116,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_connect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayConnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayConnectInput,
         validate_input: @config.validate_input
@@ -19210,7 +19212,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_connect_peer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayConnectPeerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayConnectPeerInput,
         validate_input: @config.validate_input
@@ -19299,7 +19301,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_multicast_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayMulticastDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayMulticastDomainInput,
         validate_input: @config.validate_input
@@ -19389,7 +19391,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_peering_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayPeeringAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayPeeringAttachmentInput,
         validate_input: @config.validate_input
@@ -19477,7 +19479,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_prefix_list_reference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayPrefixListReferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayPrefixListReferenceInput,
         validate_input: @config.validate_input
@@ -19565,7 +19567,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayRouteInput,
         validate_input: @config.validate_input
@@ -19651,7 +19653,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayRouteTableInput,
         validate_input: @config.validate_input
@@ -19742,7 +19744,7 @@ module AWS::SDK::EC2
     def delete_transit_gateway_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTransitGatewayVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTransitGatewayVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -19820,7 +19822,7 @@ module AWS::SDK::EC2
     def delete_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVolumeInput,
         validate_input: @config.validate_input
@@ -19894,7 +19896,7 @@ module AWS::SDK::EC2
     def delete_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcInput,
         validate_input: @config.validate_input
@@ -19976,7 +19978,7 @@ module AWS::SDK::EC2
     def delete_vpc_endpoint_connection_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcEndpointConnectionNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcEndpointConnectionNotificationsInput,
         validate_input: @config.validate_input
@@ -20061,7 +20063,7 @@ module AWS::SDK::EC2
     def delete_vpc_endpoint_service_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcEndpointServiceConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcEndpointServiceConfigurationsInput,
         validate_input: @config.validate_input
@@ -20167,7 +20169,7 @@ module AWS::SDK::EC2
     def delete_vpc_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcEndpointsInput,
         validate_input: @config.validate_input
@@ -20246,7 +20248,7 @@ module AWS::SDK::EC2
     def delete_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -20331,7 +20333,7 @@ module AWS::SDK::EC2
     def delete_vpn_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpnConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpnConnectionInput,
         validate_input: @config.validate_input
@@ -20406,7 +20408,7 @@ module AWS::SDK::EC2
     def delete_vpn_connection_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpnConnectionRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpnConnectionRouteInput,
         validate_input: @config.validate_input
@@ -20484,7 +20486,7 @@ module AWS::SDK::EC2
     def delete_vpn_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVpnGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVpnGatewayInput,
         validate_input: @config.validate_input
@@ -20567,7 +20569,7 @@ module AWS::SDK::EC2
     def deprovision_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprovisionByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprovisionByoipCidrInput,
         validate_input: @config.validate_input
@@ -20651,7 +20653,7 @@ module AWS::SDK::EC2
     def deprovision_ipam_pool_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprovisionIpamPoolCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprovisionIpamPoolCidrInput,
         validate_input: @config.validate_input
@@ -20732,7 +20734,7 @@ module AWS::SDK::EC2
     def deprovision_public_ipv4_pool_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprovisionPublicIpv4PoolCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprovisionPublicIpv4PoolCidrInput,
         validate_input: @config.validate_input
@@ -20821,7 +20823,7 @@ module AWS::SDK::EC2
     def deregister_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterImageInput,
         validate_input: @config.validate_input
@@ -20905,7 +20907,7 @@ module AWS::SDK::EC2
     def deregister_instance_event_notification_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterInstanceEventNotificationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterInstanceEventNotificationAttributesInput,
         validate_input: @config.validate_input
@@ -20994,7 +20996,7 @@ module AWS::SDK::EC2
     def deregister_transit_gateway_multicast_group_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTransitGatewayMulticastGroupMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTransitGatewayMulticastGroupMembersInput,
         validate_input: @config.validate_input
@@ -21083,7 +21085,7 @@ module AWS::SDK::EC2
     def deregister_transit_gateway_multicast_group_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTransitGatewayMulticastGroupSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTransitGatewayMulticastGroupSourcesInput,
         validate_input: @config.validate_input
@@ -21199,7 +21201,7 @@ module AWS::SDK::EC2
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -21363,7 +21365,7 @@ module AWS::SDK::EC2
     def describe_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddressesInput,
         validate_input: @config.validate_input
@@ -21461,7 +21463,7 @@ module AWS::SDK::EC2
     def describe_addresses_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAddressesAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAddressesAttributeInput,
         validate_input: @config.validate_input
@@ -21554,7 +21556,7 @@ module AWS::SDK::EC2
     def describe_aggregate_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAggregateIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAggregateIdFormatInput,
         validate_input: @config.validate_input
@@ -21731,7 +21733,7 @@ module AWS::SDK::EC2
     def describe_availability_zones(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAvailabilityZonesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAvailabilityZonesInput,
         validate_input: @config.validate_input
@@ -21883,7 +21885,7 @@ module AWS::SDK::EC2
     def describe_bundle_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBundleTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBundleTasksInput,
         validate_input: @config.validate_input
@@ -21971,7 +21973,7 @@ module AWS::SDK::EC2
     def describe_byoip_cidrs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeByoipCidrsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeByoipCidrsInput,
         validate_input: @config.validate_input
@@ -22114,7 +22116,7 @@ module AWS::SDK::EC2
     def describe_capacity_reservation_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCapacityReservationFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCapacityReservationFleetsInput,
         validate_input: @config.validate_input
@@ -22348,7 +22350,7 @@ module AWS::SDK::EC2
     def describe_capacity_reservations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCapacityReservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCapacityReservationsInput,
         validate_input: @config.validate_input
@@ -22483,7 +22485,7 @@ module AWS::SDK::EC2
     def describe_carrier_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCarrierGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCarrierGatewaysInput,
         validate_input: @config.validate_input
@@ -22624,7 +22626,7 @@ module AWS::SDK::EC2
     def describe_classic_link_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClassicLinkInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClassicLinkInstancesInput,
         validate_input: @config.validate_input
@@ -22741,7 +22743,7 @@ module AWS::SDK::EC2
     def describe_client_vpn_authorization_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientVpnAuthorizationRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientVpnAuthorizationRulesInput,
         validate_input: @config.validate_input
@@ -22864,7 +22866,7 @@ module AWS::SDK::EC2
     def describe_client_vpn_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientVpnConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientVpnConnectionsInput,
         validate_input: @config.validate_input
@@ -23023,7 +23025,7 @@ module AWS::SDK::EC2
     def describe_client_vpn_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientVpnEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientVpnEndpointsInput,
         validate_input: @config.validate_input
@@ -23140,7 +23142,7 @@ module AWS::SDK::EC2
     def describe_client_vpn_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientVpnRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientVpnRoutesInput,
         validate_input: @config.validate_input
@@ -23260,7 +23262,7 @@ module AWS::SDK::EC2
     def describe_client_vpn_target_networks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientVpnTargetNetworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientVpnTargetNetworksInput,
         validate_input: @config.validate_input
@@ -23378,7 +23380,7 @@ module AWS::SDK::EC2
     def describe_coip_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCoipPoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCoipPoolsInput,
         validate_input: @config.validate_input
@@ -23491,7 +23493,7 @@ module AWS::SDK::EC2
     def describe_conversion_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConversionTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConversionTasksInput,
         validate_input: @config.validate_input
@@ -23631,7 +23633,7 @@ module AWS::SDK::EC2
     def describe_customer_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomerGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomerGatewaysInput,
         validate_input: @config.validate_input
@@ -23772,7 +23774,7 @@ module AWS::SDK::EC2
     def describe_dhcp_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDhcpOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDhcpOptionsInput,
         validate_input: @config.validate_input
@@ -23891,7 +23893,7 @@ module AWS::SDK::EC2
     def describe_egress_only_internet_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEgressOnlyInternetGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEgressOnlyInternetGatewaysInput,
         validate_input: @config.validate_input
@@ -24031,7 +24033,7 @@ module AWS::SDK::EC2
     def describe_elastic_gpus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticGpusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticGpusInput,
         validate_input: @config.validate_input
@@ -24143,7 +24145,7 @@ module AWS::SDK::EC2
     def describe_export_image_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportImageTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportImageTasksInput,
         validate_input: @config.validate_input
@@ -24242,7 +24244,7 @@ module AWS::SDK::EC2
     def describe_export_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportTasksInput,
         validate_input: @config.validate_input
@@ -24373,7 +24375,7 @@ module AWS::SDK::EC2
     def describe_fast_launch_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFastLaunchImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFastLaunchImagesInput,
         validate_input: @config.validate_input
@@ -24500,7 +24502,7 @@ module AWS::SDK::EC2
     def describe_fast_snapshot_restores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFastSnapshotRestoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFastSnapshotRestoresInput,
         validate_input: @config.validate_input
@@ -24610,7 +24612,7 @@ module AWS::SDK::EC2
     def describe_fleet_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetHistoryInput,
         validate_input: @config.validate_input
@@ -24720,7 +24722,7 @@ module AWS::SDK::EC2
     def describe_fleet_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetInstancesInput,
         validate_input: @config.validate_input
@@ -24977,7 +24979,7 @@ module AWS::SDK::EC2
     def describe_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetsInput,
         validate_input: @config.validate_input
@@ -25139,7 +25141,7 @@ module AWS::SDK::EC2
     def describe_flow_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFlowLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFlowLogsInput,
         validate_input: @config.validate_input
@@ -25229,7 +25231,7 @@ module AWS::SDK::EC2
     def describe_fpga_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFpgaImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFpgaImageAttributeInput,
         validate_input: @config.validate_input
@@ -25411,7 +25413,7 @@ module AWS::SDK::EC2
     def describe_fpga_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFpgaImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFpgaImagesInput,
         validate_input: @config.validate_input
@@ -25540,7 +25542,7 @@ module AWS::SDK::EC2
     def describe_host_reservation_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHostReservationOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHostReservationOfferingsInput,
         validate_input: @config.validate_input
@@ -25678,7 +25680,7 @@ module AWS::SDK::EC2
     def describe_host_reservations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHostReservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHostReservationsInput,
         validate_input: @config.validate_input
@@ -25849,7 +25851,7 @@ module AWS::SDK::EC2
     def describe_hosts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHostsInput,
         validate_input: @config.validate_input
@@ -25960,7 +25962,7 @@ module AWS::SDK::EC2
     def describe_iam_instance_profile_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIamInstanceProfileAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIamInstanceProfileAssociationsInput,
         validate_input: @config.validate_input
@@ -26065,7 +26067,7 @@ module AWS::SDK::EC2
     def describe_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdFormatInput,
         validate_input: @config.validate_input
@@ -26173,7 +26175,7 @@ module AWS::SDK::EC2
     def describe_identity_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityIdFormatInput,
         validate_input: @config.validate_input
@@ -26290,7 +26292,7 @@ module AWS::SDK::EC2
     def describe_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageAttributeInput,
         validate_input: @config.validate_input
@@ -26632,7 +26634,7 @@ module AWS::SDK::EC2
     def describe_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImagesInput,
         validate_input: @config.validate_input
@@ -26766,7 +26768,7 @@ module AWS::SDK::EC2
     def describe_import_image_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportImageTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImportImageTasksInput,
         validate_input: @config.validate_input
@@ -26885,7 +26887,7 @@ module AWS::SDK::EC2
     def describe_import_snapshot_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportSnapshotTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImportSnapshotTasksInput,
         validate_input: @config.validate_input
@@ -27004,7 +27006,7 @@ module AWS::SDK::EC2
     def describe_instance_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceAttributeInput,
         validate_input: @config.validate_input
@@ -27134,7 +27136,7 @@ module AWS::SDK::EC2
     def describe_instance_credit_specifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceCreditSpecificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceCreditSpecificationsInput,
         validate_input: @config.validate_input
@@ -27209,7 +27211,7 @@ module AWS::SDK::EC2
     def describe_instance_event_notification_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceEventNotificationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceEventNotificationAttributesInput,
         validate_input: @config.validate_input
@@ -27390,7 +27392,7 @@ module AWS::SDK::EC2
     def describe_instance_event_windows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceEventWindowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceEventWindowsInput,
         validate_input: @config.validate_input
@@ -27626,7 +27628,7 @@ module AWS::SDK::EC2
     def describe_instance_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceStatusInput,
         validate_input: @config.validate_input
@@ -27739,7 +27741,7 @@ module AWS::SDK::EC2
     def describe_instance_type_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceTypeOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceTypeOfferingsInput,
         validate_input: @config.validate_input
@@ -28159,7 +28161,7 @@ module AWS::SDK::EC2
     def describe_instance_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceTypesInput,
         validate_input: @config.validate_input
@@ -28907,7 +28909,7 @@ module AWS::SDK::EC2
     def describe_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancesInput,
         validate_input: @config.validate_input
@@ -29045,7 +29047,7 @@ module AWS::SDK::EC2
     def describe_internet_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInternetGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInternetGatewaysInput,
         validate_input: @config.validate_input
@@ -29168,7 +29170,7 @@ module AWS::SDK::EC2
     def describe_ipam_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpamPoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpamPoolsInput,
         validate_input: @config.validate_input
@@ -29277,7 +29279,7 @@ module AWS::SDK::EC2
     def describe_ipam_scopes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpamScopesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpamScopesInput,
         validate_input: @config.validate_input
@@ -29390,7 +29392,7 @@ module AWS::SDK::EC2
     def describe_ipams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpamsInput,
         validate_input: @config.validate_input
@@ -29509,7 +29511,7 @@ module AWS::SDK::EC2
     def describe_ipv6_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIpv6PoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIpv6PoolsInput,
         validate_input: @config.validate_input
@@ -29646,7 +29648,7 @@ module AWS::SDK::EC2
     def describe_key_pairs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKeyPairsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKeyPairsInput,
         validate_input: @config.validate_input
@@ -30026,7 +30028,7 @@ module AWS::SDK::EC2
     def describe_launch_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLaunchTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLaunchTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -30162,7 +30164,7 @@ module AWS::SDK::EC2
     def describe_launch_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLaunchTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLaunchTemplatesInput,
         validate_input: @config.validate_input
@@ -30304,7 +30306,7 @@ module AWS::SDK::EC2
     def describe_local_gateway_route_table_virtual_interface_group_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput,
         validate_input: @config.validate_input
@@ -30446,7 +30448,7 @@ module AWS::SDK::EC2
     def describe_local_gateway_route_table_vpc_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewayRouteTableVpcAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewayRouteTableVpcAssociationsInput,
         validate_input: @config.validate_input
@@ -30583,7 +30585,7 @@ module AWS::SDK::EC2
     def describe_local_gateway_route_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewayRouteTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewayRouteTablesInput,
         validate_input: @config.validate_input
@@ -30709,7 +30711,7 @@ module AWS::SDK::EC2
     def describe_local_gateway_virtual_interface_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewayVirtualInterfaceGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewayVirtualInterfaceGroupsInput,
         validate_input: @config.validate_input
@@ -30855,7 +30857,7 @@ module AWS::SDK::EC2
     def describe_local_gateway_virtual_interfaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewayVirtualInterfacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewayVirtualInterfacesInput,
         validate_input: @config.validate_input
@@ -30981,7 +30983,7 @@ module AWS::SDK::EC2
     def describe_local_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLocalGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLocalGatewaysInput,
         validate_input: @config.validate_input
@@ -31105,7 +31107,7 @@ module AWS::SDK::EC2
     def describe_managed_prefix_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeManagedPrefixListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeManagedPrefixListsInput,
         validate_input: @config.validate_input
@@ -31213,7 +31215,7 @@ module AWS::SDK::EC2
     def describe_moving_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMovingAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMovingAddressesInput,
         validate_input: @config.validate_input
@@ -31365,7 +31367,7 @@ module AWS::SDK::EC2
     def describe_nat_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNatGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNatGatewaysInput,
         validate_input: @config.validate_input
@@ -31570,7 +31572,7 @@ module AWS::SDK::EC2
     def describe_network_acls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkAclsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkAclsInput,
         validate_input: @config.validate_input
@@ -31695,7 +31697,7 @@ module AWS::SDK::EC2
     def describe_network_insights_access_scope_analyses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInsightsAccessScopeAnalysesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInsightsAccessScopeAnalysesInput,
         validate_input: @config.validate_input
@@ -31802,7 +31804,7 @@ module AWS::SDK::EC2
     def describe_network_insights_access_scopes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInsightsAccessScopesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInsightsAccessScopesInput,
         validate_input: @config.validate_input
@@ -32059,7 +32061,7 @@ module AWS::SDK::EC2
     def describe_network_insights_analyses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInsightsAnalysesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInsightsAnalysesInput,
         validate_input: @config.validate_input
@@ -32188,7 +32190,7 @@ module AWS::SDK::EC2
     def describe_network_insights_paths(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInsightsPathsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInsightsPathsInput,
         validate_input: @config.validate_input
@@ -32284,7 +32286,7 @@ module AWS::SDK::EC2
     def describe_network_interface_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInterfaceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInterfaceAttributeInput,
         validate_input: @config.validate_input
@@ -32411,7 +32413,7 @@ module AWS::SDK::EC2
     def describe_network_interface_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInterfacePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInterfacePermissionsInput,
         validate_input: @config.validate_input
@@ -32733,7 +32735,7 @@ module AWS::SDK::EC2
     def describe_network_interfaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNetworkInterfacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNetworkInterfacesInput,
         validate_input: @config.validate_input
@@ -32874,7 +32876,7 @@ module AWS::SDK::EC2
     def describe_placement_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePlacementGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePlacementGroupsInput,
         validate_input: @config.validate_input
@@ -32989,7 +32991,7 @@ module AWS::SDK::EC2
     def describe_prefix_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePrefixListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePrefixListsInput,
         validate_input: @config.validate_input
@@ -33113,7 +33115,7 @@ module AWS::SDK::EC2
     def describe_principal_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePrincipalIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePrincipalIdFormatInput,
         validate_input: @config.validate_input
@@ -33232,7 +33234,7 @@ module AWS::SDK::EC2
     def describe_public_ipv4_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePublicIpv4PoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePublicIpv4PoolsInput,
         validate_input: @config.validate_input
@@ -33346,7 +33348,7 @@ module AWS::SDK::EC2
     def describe_regions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegionsInput,
         validate_input: @config.validate_input
@@ -33461,7 +33463,7 @@ module AWS::SDK::EC2
     def describe_replace_root_volume_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplaceRootVolumeTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplaceRootVolumeTasksInput,
         validate_input: @config.validate_input
@@ -33653,7 +33655,7 @@ module AWS::SDK::EC2
     def describe_reserved_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstancesInput,
         validate_input: @config.validate_input
@@ -33783,7 +33785,7 @@ module AWS::SDK::EC2
     def describe_reserved_instances_listings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstancesListingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstancesListingsInput,
         validate_input: @config.validate_input
@@ -33946,7 +33948,7 @@ module AWS::SDK::EC2
     def describe_reserved_instances_modifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstancesModificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstancesModificationsInput,
         validate_input: @config.validate_input
@@ -34182,7 +34184,7 @@ module AWS::SDK::EC2
     def describe_reserved_instances_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedInstancesOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedInstancesOfferingsInput,
         validate_input: @config.validate_input
@@ -34424,7 +34426,7 @@ module AWS::SDK::EC2
     def describe_route_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRouteTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRouteTablesInput,
         validate_input: @config.validate_input
@@ -34587,7 +34589,7 @@ module AWS::SDK::EC2
     def describe_scheduled_instance_availability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledInstanceAvailabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledInstanceAvailabilityInput,
         validate_input: @config.validate_input
@@ -34734,7 +34736,7 @@ module AWS::SDK::EC2
     def describe_scheduled_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledInstancesInput,
         validate_input: @config.validate_input
@@ -34815,7 +34817,7 @@ module AWS::SDK::EC2
     def describe_security_group_references(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityGroupReferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityGroupReferencesInput,
         validate_input: @config.validate_input
@@ -34952,7 +34954,7 @@ module AWS::SDK::EC2
     def describe_security_group_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityGroupRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityGroupRulesInput,
         validate_input: @config.validate_input
@@ -35227,7 +35229,7 @@ module AWS::SDK::EC2
     def describe_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -35316,7 +35318,7 @@ module AWS::SDK::EC2
     def describe_snapshot_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotAttributeInput,
         validate_input: @config.validate_input
@@ -35440,7 +35442,7 @@ module AWS::SDK::EC2
     def describe_snapshot_tier_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotTierStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotTierStatusInput,
         validate_input: @config.validate_input
@@ -35693,7 +35695,7 @@ module AWS::SDK::EC2
     def describe_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotsInput,
         validate_input: @config.validate_input
@@ -35773,7 +35775,7 @@ module AWS::SDK::EC2
     def describe_spot_datafeed_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotDatafeedSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotDatafeedSubscriptionInput,
         validate_input: @config.validate_input
@@ -35866,7 +35868,7 @@ module AWS::SDK::EC2
     def describe_spot_fleet_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotFleetInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotFleetInstancesInput,
         validate_input: @config.validate_input
@@ -35978,7 +35980,7 @@ module AWS::SDK::EC2
     def describe_spot_fleet_request_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotFleetRequestHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotFleetRequestHistoryInput,
         validate_input: @config.validate_input
@@ -36253,7 +36255,7 @@ module AWS::SDK::EC2
     def describe_spot_fleet_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotFleetRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotFleetRequestsInput,
         validate_input: @config.validate_input
@@ -36658,7 +36660,7 @@ module AWS::SDK::EC2
     def describe_spot_instance_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotInstanceRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotInstanceRequestsInput,
         validate_input: @config.validate_input
@@ -36824,7 +36826,7 @@ module AWS::SDK::EC2
     def describe_spot_price_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpotPriceHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpotPriceHistoryInput,
         validate_input: @config.validate_input
@@ -36935,7 +36937,7 @@ module AWS::SDK::EC2
     def describe_stale_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStaleSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStaleSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -37066,7 +37068,7 @@ module AWS::SDK::EC2
     def describe_store_image_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStoreImageTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStoreImageTasksInput,
         validate_input: @config.validate_input
@@ -37283,7 +37285,7 @@ module AWS::SDK::EC2
     def describe_subnets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubnetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubnetsInput,
         validate_input: @config.validate_input
@@ -37407,7 +37409,7 @@ module AWS::SDK::EC2
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -37540,7 +37542,7 @@ module AWS::SDK::EC2
     def describe_traffic_mirror_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrafficMirrorFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrafficMirrorFiltersInput,
         validate_input: @config.validate_input
@@ -37690,7 +37692,7 @@ module AWS::SDK::EC2
     def describe_traffic_mirror_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrafficMirrorSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrafficMirrorSessionsInput,
         validate_input: @config.validate_input
@@ -37822,7 +37824,7 @@ module AWS::SDK::EC2
     def describe_traffic_mirror_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrafficMirrorTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrafficMirrorTargetsInput,
         validate_input: @config.validate_input
@@ -37978,7 +37980,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayAttachmentsInput,
         validate_input: @config.validate_input
@@ -38114,7 +38116,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_connect_peers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayConnectPeersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayConnectPeersInput,
         validate_input: @config.validate_input
@@ -38252,7 +38254,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_connects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayConnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayConnectsInput,
         validate_input: @config.validate_input
@@ -38379,7 +38381,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_multicast_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayMulticastDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayMulticastDomainsInput,
         validate_input: @config.validate_input
@@ -38524,7 +38526,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_peering_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayPeeringAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayPeeringAttachmentsInput,
         validate_input: @config.validate_input
@@ -38658,7 +38660,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_route_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayRouteTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayRouteTablesInput,
         validate_input: @config.validate_input
@@ -38792,7 +38794,7 @@ module AWS::SDK::EC2
     def describe_transit_gateway_vpc_attachments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewayVpcAttachmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewayVpcAttachmentsInput,
         validate_input: @config.validate_input
@@ -38962,7 +38964,7 @@ module AWS::SDK::EC2
     def describe_transit_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransitGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransitGatewaysInput,
         validate_input: @config.validate_input
@@ -39085,7 +39087,7 @@ module AWS::SDK::EC2
     def describe_trunk_interface_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrunkInterfaceAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrunkInterfaceAssociationsInput,
         validate_input: @config.validate_input
@@ -39172,7 +39174,7 @@ module AWS::SDK::EC2
     def describe_volume_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumeAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumeAttributeInput,
         validate_input: @config.validate_input
@@ -39402,7 +39404,7 @@ module AWS::SDK::EC2
     def describe_volume_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumeStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumeStatusInput,
         validate_input: @config.validate_input
@@ -39629,7 +39631,7 @@ module AWS::SDK::EC2
     def describe_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumesInput,
         validate_input: @config.validate_input
@@ -39799,7 +39801,7 @@ module AWS::SDK::EC2
     def describe_volumes_modifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumesModificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumesModificationsInput,
         validate_input: @config.validate_input
@@ -39881,7 +39883,7 @@ module AWS::SDK::EC2
     def describe_vpc_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcAttributeInput,
         validate_input: @config.validate_input
@@ -39992,7 +39994,7 @@ module AWS::SDK::EC2
     def describe_vpc_classic_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcClassicLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcClassicLinkInput,
         validate_input: @config.validate_input
@@ -40080,7 +40082,7 @@ module AWS::SDK::EC2
     def describe_vpc_classic_link_dns_support(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcClassicLinkDnsSupportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcClassicLinkDnsSupportInput,
         validate_input: @config.validate_input
@@ -40216,7 +40218,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoint_connection_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointConnectionNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointConnectionNotificationsInput,
         validate_input: @config.validate_input
@@ -40352,7 +40354,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoint_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointConnectionsInput,
         validate_input: @config.validate_input
@@ -40508,7 +40510,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoint_service_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointServiceConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointServiceConfigurationsInput,
         validate_input: @config.validate_input
@@ -40623,7 +40625,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoint_service_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointServicePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointServicePermissionsInput,
         validate_input: @config.validate_input
@@ -40774,7 +40776,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoint_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointServicesInput,
         validate_input: @config.validate_input
@@ -40942,7 +40944,7 @@ module AWS::SDK::EC2
     def describe_vpc_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcEndpointsInput,
         validate_input: @config.validate_input
@@ -41128,7 +41130,7 @@ module AWS::SDK::EC2
     def describe_vpc_peering_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcPeeringConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcPeeringConnectionsInput,
         validate_input: @config.validate_input
@@ -41325,7 +41327,7 @@ module AWS::SDK::EC2
     def describe_vpcs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpcsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpcsInput,
         validate_input: @config.validate_input
@@ -41551,7 +41553,7 @@ module AWS::SDK::EC2
     def describe_vpn_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpnConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpnConnectionsInput,
         validate_input: @config.validate_input
@@ -41703,7 +41705,7 @@ module AWS::SDK::EC2
     def describe_vpn_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVpnGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVpnGatewaysInput,
         validate_input: @config.validate_input
@@ -41782,7 +41784,7 @@ module AWS::SDK::EC2
     def detach_classic_link_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachClassicLinkVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachClassicLinkVpcInput,
         validate_input: @config.validate_input
@@ -41862,7 +41864,7 @@ module AWS::SDK::EC2
     def detach_internet_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachInternetGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachInternetGatewayInput,
         validate_input: @config.validate_input
@@ -41957,7 +41959,7 @@ module AWS::SDK::EC2
     def detach_network_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachNetworkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachNetworkInterfaceInput,
         validate_input: @config.validate_input
@@ -42064,7 +42066,7 @@ module AWS::SDK::EC2
     def detach_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachVolumeInput,
         validate_input: @config.validate_input
@@ -42148,7 +42150,7 @@ module AWS::SDK::EC2
     def detach_vpn_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachVpnGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachVpnGatewayInput,
         validate_input: @config.validate_input
@@ -42225,7 +42227,7 @@ module AWS::SDK::EC2
     def disable_ebs_encryption_by_default(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableEbsEncryptionByDefaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableEbsEncryptionByDefaultInput,
         validate_input: @config.validate_input
@@ -42322,7 +42324,7 @@ module AWS::SDK::EC2
     def disable_fast_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableFastLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableFastLaunchInput,
         validate_input: @config.validate_input
@@ -42426,7 +42428,7 @@ module AWS::SDK::EC2
     def disable_fast_snapshot_restores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableFastSnapshotRestoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableFastSnapshotRestoresInput,
         validate_input: @config.validate_input
@@ -42503,7 +42505,7 @@ module AWS::SDK::EC2
     def disable_image_deprecation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableImageDeprecationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableImageDeprecationInput,
         validate_input: @config.validate_input
@@ -42579,7 +42581,7 @@ module AWS::SDK::EC2
     def disable_ipam_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableIpamOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableIpamOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -42651,7 +42653,7 @@ module AWS::SDK::EC2
     def disable_serial_console_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableSerialConsoleAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableSerialConsoleAccessInput,
         validate_input: @config.validate_input
@@ -42736,7 +42738,7 @@ module AWS::SDK::EC2
     def disable_transit_gateway_route_table_propagation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableTransitGatewayRouteTablePropagationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableTransitGatewayRouteTablePropagationInput,
         validate_input: @config.validate_input
@@ -42816,7 +42818,7 @@ module AWS::SDK::EC2
     def disable_vgw_route_propagation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableVgwRoutePropagationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableVgwRoutePropagationInput,
         validate_input: @config.validate_input
@@ -42891,7 +42893,7 @@ module AWS::SDK::EC2
     def disable_vpc_classic_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableVpcClassicLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableVpcClassicLinkInput,
         validate_input: @config.validate_input
@@ -42964,7 +42966,7 @@ module AWS::SDK::EC2
     def disable_vpc_classic_link_dns_support(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableVpcClassicLinkDnsSupportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableVpcClassicLinkDnsSupportInput,
         validate_input: @config.validate_input
@@ -43046,7 +43048,7 @@ module AWS::SDK::EC2
     def disassociate_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAddressInput,
         validate_input: @config.validate_input
@@ -43142,7 +43144,7 @@ module AWS::SDK::EC2
     def disassociate_client_vpn_target_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateClientVpnTargetNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateClientVpnTargetNetworkInput,
         validate_input: @config.validate_input
@@ -43223,7 +43225,7 @@ module AWS::SDK::EC2
     def disassociate_enclave_certificate_iam_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateEnclaveCertificateIamRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateEnclaveCertificateIamRoleInput,
         validate_input: @config.validate_input
@@ -43301,7 +43303,7 @@ module AWS::SDK::EC2
     def disassociate_iam_instance_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateIamInstanceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateIamInstanceProfileInput,
         validate_input: @config.validate_input
@@ -43415,7 +43417,7 @@ module AWS::SDK::EC2
     def disassociate_instance_event_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateInstanceEventWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateInstanceEventWindowInput,
         validate_input: @config.validate_input
@@ -43493,7 +43495,7 @@ module AWS::SDK::EC2
     def disassociate_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateRouteTableInput,
         validate_input: @config.validate_input
@@ -43568,7 +43570,7 @@ module AWS::SDK::EC2
     def disassociate_subnet_cidr_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSubnetCidrBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSubnetCidrBlockInput,
         validate_input: @config.validate_input
@@ -43662,7 +43664,7 @@ module AWS::SDK::EC2
     def disassociate_transit_gateway_multicast_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTransitGatewayMulticastDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTransitGatewayMulticastDomainInput,
         validate_input: @config.validate_input
@@ -43746,7 +43748,7 @@ module AWS::SDK::EC2
     def disassociate_transit_gateway_route_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTransitGatewayRouteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTransitGatewayRouteTableInput,
         validate_input: @config.validate_input
@@ -43832,7 +43834,7 @@ module AWS::SDK::EC2
     def disassociate_trunk_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTrunkInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTrunkInterfaceInput,
         validate_input: @config.validate_input
@@ -43918,7 +43920,7 @@ module AWS::SDK::EC2
     def disassociate_vpc_cidr_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateVpcCidrBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateVpcCidrBlockInput,
         validate_input: @config.validate_input
@@ -44000,7 +44002,7 @@ module AWS::SDK::EC2
     def enable_ebs_encryption_by_default(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableEbsEncryptionByDefaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableEbsEncryptionByDefaultInput,
         validate_input: @config.validate_input
@@ -44122,7 +44124,7 @@ module AWS::SDK::EC2
     def enable_fast_launch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableFastLaunchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableFastLaunchInput,
         validate_input: @config.validate_input
@@ -44232,7 +44234,7 @@ module AWS::SDK::EC2
     def enable_fast_snapshot_restores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableFastSnapshotRestoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableFastSnapshotRestoresInput,
         validate_input: @config.validate_input
@@ -44317,7 +44319,7 @@ module AWS::SDK::EC2
     def enable_image_deprecation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableImageDeprecationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableImageDeprecationInput,
         validate_input: @config.validate_input
@@ -44393,7 +44395,7 @@ module AWS::SDK::EC2
     def enable_ipam_organization_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableIpamOrganizationAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableIpamOrganizationAdminAccountInput,
         validate_input: @config.validate_input
@@ -44464,7 +44466,7 @@ module AWS::SDK::EC2
     def enable_serial_console_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableSerialConsoleAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableSerialConsoleAccessInput,
         validate_input: @config.validate_input
@@ -44549,7 +44551,7 @@ module AWS::SDK::EC2
     def enable_transit_gateway_route_table_propagation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableTransitGatewayRouteTablePropagationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableTransitGatewayRouteTablePropagationInput,
         validate_input: @config.validate_input
@@ -44632,7 +44634,7 @@ module AWS::SDK::EC2
     def enable_vgw_route_propagation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableVgwRoutePropagationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableVgwRoutePropagationInput,
         validate_input: @config.validate_input
@@ -44707,7 +44709,7 @@ module AWS::SDK::EC2
     def enable_volume_io(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableVolumeIOInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableVolumeIOInput,
         validate_input: @config.validate_input
@@ -44788,7 +44790,7 @@ module AWS::SDK::EC2
     def enable_vpc_classic_link(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableVpcClassicLinkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableVpcClassicLinkInput,
         validate_input: @config.validate_input
@@ -44863,7 +44865,7 @@ module AWS::SDK::EC2
     def enable_vpc_classic_link_dns_support(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableVpcClassicLinkDnsSupportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableVpcClassicLinkDnsSupportInput,
         validate_input: @config.validate_input
@@ -44939,7 +44941,7 @@ module AWS::SDK::EC2
     def export_client_vpn_client_certificate_revocation_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportClientVpnClientCertificateRevocationListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportClientVpnClientCertificateRevocationListInput,
         validate_input: @config.validate_input
@@ -45014,7 +45016,7 @@ module AWS::SDK::EC2
     def export_client_vpn_client_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportClientVpnClientConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportClientVpnClientConfigurationInput,
         validate_input: @config.validate_input
@@ -45144,7 +45146,7 @@ module AWS::SDK::EC2
     def export_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportImageInput,
         validate_input: @config.validate_input
@@ -45277,7 +45279,7 @@ module AWS::SDK::EC2
     def export_transit_gateway_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportTransitGatewayRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTransitGatewayRoutesInput,
         validate_input: @config.validate_input
@@ -45359,7 +45361,7 @@ module AWS::SDK::EC2
     def get_associated_enclave_certificate_iam_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssociatedEnclaveCertificateIamRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssociatedEnclaveCertificateIamRolesInput,
         validate_input: @config.validate_input
@@ -45447,7 +45449,7 @@ module AWS::SDK::EC2
     def get_associated_ipv6_pool_cidrs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssociatedIpv6PoolCidrsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssociatedIpv6PoolCidrsInput,
         validate_input: @config.validate_input
@@ -45540,7 +45542,7 @@ module AWS::SDK::EC2
     def get_capacity_reservation_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCapacityReservationUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCapacityReservationUsageInput,
         validate_input: @config.validate_input
@@ -45660,7 +45662,7 @@ module AWS::SDK::EC2
     def get_coip_pool_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoipPoolUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoipPoolUsageInput,
         validate_input: @config.validate_input
@@ -45754,7 +45756,7 @@ module AWS::SDK::EC2
     def get_console_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConsoleOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConsoleOutputInput,
         validate_input: @config.validate_input
@@ -45837,7 +45839,7 @@ module AWS::SDK::EC2
     def get_console_screenshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConsoleScreenshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConsoleScreenshotInput,
         validate_input: @config.validate_input
@@ -45917,7 +45919,7 @@ module AWS::SDK::EC2
     def get_default_credit_specification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDefaultCreditSpecificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDefaultCreditSpecificationInput,
         validate_input: @config.validate_input
@@ -45992,7 +45994,7 @@ module AWS::SDK::EC2
     def get_ebs_default_kms_key_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEbsDefaultKmsKeyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEbsDefaultKmsKeyIdInput,
         validate_input: @config.validate_input
@@ -46066,7 +46068,7 @@ module AWS::SDK::EC2
     def get_ebs_encryption_by_default(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEbsEncryptionByDefaultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEbsEncryptionByDefaultInput,
         validate_input: @config.validate_input
@@ -46175,7 +46177,7 @@ module AWS::SDK::EC2
     def get_flow_logs_integration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFlowLogsIntegrationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFlowLogsIntegrationTemplateInput,
         validate_input: @config.validate_input
@@ -46260,7 +46262,7 @@ module AWS::SDK::EC2
     def get_groups_for_capacity_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupsForCapacityReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupsForCapacityReservationInput,
         validate_input: @config.validate_input
@@ -46352,7 +46354,7 @@ module AWS::SDK::EC2
     def get_host_reservation_purchase_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostReservationPurchasePreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostReservationPurchasePreviewInput,
         validate_input: @config.validate_input
@@ -46521,7 +46523,7 @@ module AWS::SDK::EC2
     def get_instance_types_from_instance_requirements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceTypesFromInstanceRequirementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceTypesFromInstanceRequirementsInput,
         validate_input: @config.validate_input
@@ -46606,7 +46608,7 @@ module AWS::SDK::EC2
     def get_instance_uefi_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceUefiDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceUefiDataInput,
         validate_input: @config.validate_input
@@ -46719,7 +46721,7 @@ module AWS::SDK::EC2
     def get_ipam_address_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIpamAddressHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIpamAddressHistoryInput,
         validate_input: @config.validate_input
@@ -46826,7 +46828,7 @@ module AWS::SDK::EC2
     def get_ipam_pool_allocations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIpamPoolAllocationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIpamPoolAllocationsInput,
         validate_input: @config.validate_input
@@ -46927,7 +46929,7 @@ module AWS::SDK::EC2
     def get_ipam_pool_cidrs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIpamPoolCidrsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIpamPoolCidrsInput,
         validate_input: @config.validate_input
@@ -47064,7 +47066,7 @@ module AWS::SDK::EC2
     def get_ipam_resource_cidrs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIpamResourceCidrsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIpamResourceCidrsInput,
         validate_input: @config.validate_input
@@ -47315,7 +47317,7 @@ module AWS::SDK::EC2
     def get_launch_template_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchTemplateDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchTemplateDataInput,
         validate_input: @config.validate_input
@@ -47403,7 +47405,7 @@ module AWS::SDK::EC2
     def get_managed_prefix_list_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetManagedPrefixListAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetManagedPrefixListAssociationsInput,
         validate_input: @config.validate_input
@@ -47495,7 +47497,7 @@ module AWS::SDK::EC2
     def get_managed_prefix_list_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetManagedPrefixListEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetManagedPrefixListEntriesInput,
         validate_input: @config.validate_input
@@ -47646,7 +47648,7 @@ module AWS::SDK::EC2
     def get_network_insights_access_scope_analysis_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkInsightsAccessScopeAnalysisFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkInsightsAccessScopeAnalysisFindingsInput,
         validate_input: @config.validate_input
@@ -47743,7 +47745,7 @@ module AWS::SDK::EC2
     def get_network_insights_access_scope_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkInsightsAccessScopeContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkInsightsAccessScopeContentInput,
         validate_input: @config.validate_input
@@ -47832,7 +47834,7 @@ module AWS::SDK::EC2
     def get_password_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPasswordDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPasswordDataInput,
         validate_input: @config.validate_input
@@ -47940,7 +47942,7 @@ module AWS::SDK::EC2
     def get_reserved_instances_exchange_quote(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservedInstancesExchangeQuoteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservedInstancesExchangeQuoteInput,
         validate_input: @config.validate_input
@@ -48012,7 +48014,7 @@ module AWS::SDK::EC2
     def get_serial_console_access_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSerialConsoleAccessStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSerialConsoleAccessStatusInput,
         validate_input: @config.validate_input
@@ -48214,7 +48216,7 @@ module AWS::SDK::EC2
     def get_spot_placement_scores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSpotPlacementScoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSpotPlacementScoresInput,
         validate_input: @config.validate_input
@@ -48342,7 +48344,7 @@ module AWS::SDK::EC2
     def get_subnet_cidr_reservations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSubnetCidrReservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSubnetCidrReservationsInput,
         validate_input: @config.validate_input
@@ -48447,7 +48449,7 @@ module AWS::SDK::EC2
     def get_transit_gateway_attachment_propagations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayAttachmentPropagationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayAttachmentPropagationsInput,
         validate_input: @config.validate_input
@@ -48577,7 +48579,7 @@ module AWS::SDK::EC2
     def get_transit_gateway_multicast_domain_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayMulticastDomainAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayMulticastDomainAssociationsInput,
         validate_input: @config.validate_input
@@ -48715,7 +48717,7 @@ module AWS::SDK::EC2
     def get_transit_gateway_prefix_list_references(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayPrefixListReferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayPrefixListReferencesInput,
         validate_input: @config.validate_input
@@ -48832,7 +48834,7 @@ module AWS::SDK::EC2
     def get_transit_gateway_route_table_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayRouteTableAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayRouteTableAssociationsInput,
         validate_input: @config.validate_input
@@ -48949,7 +48951,7 @@ module AWS::SDK::EC2
     def get_transit_gateway_route_table_propagations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTransitGatewayRouteTablePropagationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTransitGatewayRouteTablePropagationsInput,
         validate_input: @config.validate_input
@@ -49037,7 +49039,7 @@ module AWS::SDK::EC2
     def get_vpn_connection_device_sample_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVpnConnectionDeviceSampleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVpnConnectionDeviceSampleConfigurationInput,
         validate_input: @config.validate_input
@@ -49137,7 +49139,7 @@ module AWS::SDK::EC2
     def get_vpn_connection_device_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetVpnConnectionDeviceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetVpnConnectionDeviceTypesInput,
         validate_input: @config.validate_input
@@ -49216,7 +49218,7 @@ module AWS::SDK::EC2
     def import_client_vpn_client_certificate_revocation_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportClientVpnClientCertificateRevocationListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportClientVpnClientCertificateRevocationListInput,
         validate_input: @config.validate_input
@@ -49449,7 +49451,7 @@ module AWS::SDK::EC2
     def import_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportImageInput,
         validate_input: @config.validate_input
@@ -49614,7 +49616,7 @@ module AWS::SDK::EC2
     def import_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportInstanceInput,
         validate_input: @config.validate_input
@@ -49718,7 +49720,7 @@ module AWS::SDK::EC2
     def import_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportKeyPairInput,
         validate_input: @config.validate_input
@@ -49889,7 +49891,7 @@ module AWS::SDK::EC2
     def import_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportSnapshotInput,
         validate_input: @config.validate_input
@@ -50021,7 +50023,7 @@ module AWS::SDK::EC2
     def import_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportVolumeInput,
         validate_input: @config.validate_input
@@ -50121,7 +50123,7 @@ module AWS::SDK::EC2
     def list_images_in_recycle_bin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagesInRecycleBinInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagesInRecycleBinInput,
         validate_input: @config.validate_input
@@ -50215,7 +50217,7 @@ module AWS::SDK::EC2
     def list_snapshots_in_recycle_bin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSnapshotsInRecycleBinInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSnapshotsInRecycleBinInput,
         validate_input: @config.validate_input
@@ -50301,7 +50303,7 @@ module AWS::SDK::EC2
     def modify_address_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyAddressAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyAddressAttributeInput,
         validate_input: @config.validate_input
@@ -50385,7 +50387,7 @@ module AWS::SDK::EC2
     def modify_availability_zone_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyAvailabilityZoneGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyAvailabilityZoneGroupInput,
         validate_input: @config.validate_input
@@ -50505,7 +50507,7 @@ module AWS::SDK::EC2
     def modify_capacity_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCapacityReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCapacityReservationInput,
         validate_input: @config.validate_input
@@ -50609,7 +50611,7 @@ module AWS::SDK::EC2
     def modify_capacity_reservation_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyCapacityReservationFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyCapacityReservationFleetInput,
         validate_input: @config.validate_input
@@ -50776,7 +50778,7 @@ module AWS::SDK::EC2
     def modify_client_vpn_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClientVpnEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClientVpnEndpointInput,
         validate_input: @config.validate_input
@@ -50872,7 +50874,7 @@ module AWS::SDK::EC2
     def modify_default_credit_specification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyDefaultCreditSpecificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyDefaultCreditSpecificationInput,
         validate_input: @config.validate_input
@@ -50974,7 +50976,7 @@ module AWS::SDK::EC2
     def modify_ebs_default_kms_key_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEbsDefaultKmsKeyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEbsDefaultKmsKeyIdInput,
         validate_input: @config.validate_input
@@ -51182,7 +51184,7 @@ module AWS::SDK::EC2
     def modify_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyFleetInput,
         validate_input: @config.validate_input
@@ -51314,7 +51316,7 @@ module AWS::SDK::EC2
     def modify_fpga_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyFpgaImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyFpgaImageAttributeInput,
         validate_input: @config.validate_input
@@ -51430,7 +51432,7 @@ module AWS::SDK::EC2
     def modify_hosts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyHostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyHostsInput,
         validate_input: @config.validate_input
@@ -51536,7 +51538,7 @@ module AWS::SDK::EC2
     def modify_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIdFormatInput,
         validate_input: @config.validate_input
@@ -51646,7 +51648,7 @@ module AWS::SDK::EC2
     def modify_identity_id_format(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIdentityIdFormatInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIdentityIdFormatInput,
         validate_input: @config.validate_input
@@ -51792,7 +51794,7 @@ module AWS::SDK::EC2
     def modify_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyImageAttributeInput,
         validate_input: @config.validate_input
@@ -51983,7 +51985,7 @@ module AWS::SDK::EC2
     def modify_instance_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceAttributeInput,
         validate_input: @config.validate_input
@@ -52068,7 +52070,7 @@ module AWS::SDK::EC2
     def modify_instance_capacity_reservation_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceCapacityReservationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceCapacityReservationAttributesInput,
         validate_input: @config.validate_input
@@ -52166,7 +52168,7 @@ module AWS::SDK::EC2
     def modify_instance_credit_specification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceCreditSpecificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceCreditSpecificationInput,
         validate_input: @config.validate_input
@@ -52255,7 +52257,7 @@ module AWS::SDK::EC2
     def modify_instance_event_start_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceEventStartTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceEventStartTimeInput,
         validate_input: @config.validate_input
@@ -52404,7 +52406,7 @@ module AWS::SDK::EC2
     def modify_instance_event_window(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceEventWindowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceEventWindowInput,
         validate_input: @config.validate_input
@@ -52489,7 +52491,7 @@ module AWS::SDK::EC2
     def modify_instance_maintenance_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceMaintenanceOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceMaintenanceOptionsInput,
         validate_input: @config.validate_input
@@ -52619,7 +52621,7 @@ module AWS::SDK::EC2
     def modify_instance_metadata_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstanceMetadataOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstanceMetadataOptionsInput,
         validate_input: @config.validate_input
@@ -52750,7 +52752,7 @@ module AWS::SDK::EC2
     def modify_instance_placement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyInstancePlacementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyInstancePlacementInput,
         validate_input: @config.validate_input
@@ -52864,7 +52866,7 @@ module AWS::SDK::EC2
     def modify_ipam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIpamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIpamInput,
         validate_input: @config.validate_input
@@ -53016,7 +53018,7 @@ module AWS::SDK::EC2
     def modify_ipam_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIpamPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIpamPoolInput,
         validate_input: @config.validate_input
@@ -53130,7 +53132,7 @@ module AWS::SDK::EC2
     def modify_ipam_resource_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIpamResourceCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIpamResourceCidrInput,
         validate_input: @config.validate_input
@@ -53223,7 +53225,7 @@ module AWS::SDK::EC2
     def modify_ipam_scope(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyIpamScopeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyIpamScopeInput,
         validate_input: @config.validate_input
@@ -53328,7 +53330,7 @@ module AWS::SDK::EC2
     def modify_launch_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyLaunchTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyLaunchTemplateInput,
         validate_input: @config.validate_input
@@ -53453,7 +53455,7 @@ module AWS::SDK::EC2
     def modify_managed_prefix_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyManagedPrefixListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyManagedPrefixListInput,
         validate_input: @config.validate_input
@@ -53559,7 +53561,7 @@ module AWS::SDK::EC2
     def modify_network_interface_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyNetworkInterfaceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyNetworkInterfaceAttributeInput,
         validate_input: @config.validate_input
@@ -53652,7 +53654,7 @@ module AWS::SDK::EC2
     def modify_private_dns_name_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyPrivateDnsNameOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyPrivateDnsNameOptionsInput,
         validate_input: @config.validate_input
@@ -53745,7 +53747,7 @@ module AWS::SDK::EC2
     def modify_reserved_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyReservedInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyReservedInstancesInput,
         validate_input: @config.validate_input
@@ -53838,7 +53840,7 @@ module AWS::SDK::EC2
     def modify_security_group_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySecurityGroupRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySecurityGroupRulesInput,
         validate_input: @config.validate_input
@@ -53950,7 +53952,7 @@ module AWS::SDK::EC2
     def modify_snapshot_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySnapshotAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySnapshotAttributeInput,
         validate_input: @config.validate_input
@@ -54034,7 +54036,7 @@ module AWS::SDK::EC2
     def modify_snapshot_tier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySnapshotTierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySnapshotTierInput,
         validate_input: @config.validate_input
@@ -54230,7 +54232,7 @@ module AWS::SDK::EC2
     def modify_spot_fleet_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySpotFleetRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySpotFleetRequestInput,
         validate_input: @config.validate_input
@@ -54385,7 +54387,7 @@ module AWS::SDK::EC2
     def modify_subnet_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySubnetAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySubnetAttributeInput,
         validate_input: @config.validate_input
@@ -54496,7 +54498,7 @@ module AWS::SDK::EC2
     def modify_traffic_mirror_filter_network_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTrafficMirrorFilterNetworkServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTrafficMirrorFilterNetworkServicesInput,
         validate_input: @config.validate_input
@@ -54633,7 +54635,7 @@ module AWS::SDK::EC2
     def modify_traffic_mirror_filter_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTrafficMirrorFilterRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTrafficMirrorFilterRuleInput,
         validate_input: @config.validate_input
@@ -54753,7 +54755,7 @@ module AWS::SDK::EC2
     def modify_traffic_mirror_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTrafficMirrorSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTrafficMirrorSessionInput,
         validate_input: @config.validate_input
@@ -54869,7 +54871,7 @@ module AWS::SDK::EC2
     def modify_transit_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTransitGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTransitGatewayInput,
         validate_input: @config.validate_input
@@ -54965,7 +54967,7 @@ module AWS::SDK::EC2
     def modify_transit_gateway_prefix_list_reference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTransitGatewayPrefixListReferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTransitGatewayPrefixListReferenceInput,
         validate_input: @config.validate_input
@@ -55073,7 +55075,7 @@ module AWS::SDK::EC2
     def modify_transit_gateway_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTransitGatewayVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTransitGatewayVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -55248,7 +55250,7 @@ module AWS::SDK::EC2
     def modify_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVolumeInput,
         validate_input: @config.validate_input
@@ -55334,7 +55336,7 @@ module AWS::SDK::EC2
     def modify_volume_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVolumeAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVolumeAttributeInput,
         validate_input: @config.validate_input
@@ -55417,7 +55419,7 @@ module AWS::SDK::EC2
     def modify_vpc_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcAttributeInput,
         validate_input: @config.validate_input
@@ -55547,7 +55549,7 @@ module AWS::SDK::EC2
     def modify_vpc_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcEndpointInput,
         validate_input: @config.validate_input
@@ -55634,7 +55636,7 @@ module AWS::SDK::EC2
     def modify_vpc_endpoint_connection_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcEndpointConnectionNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcEndpointConnectionNotificationInput,
         validate_input: @config.validate_input
@@ -55751,7 +55753,7 @@ module AWS::SDK::EC2
     def modify_vpc_endpoint_service_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcEndpointServiceConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcEndpointServiceConfigurationInput,
         validate_input: @config.validate_input
@@ -55832,7 +55834,7 @@ module AWS::SDK::EC2
     def modify_vpc_endpoint_service_payer_responsibility(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcEndpointServicePayerResponsibilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcEndpointServicePayerResponsibilityInput,
         validate_input: @config.validate_input
@@ -55923,7 +55925,7 @@ module AWS::SDK::EC2
     def modify_vpc_endpoint_service_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcEndpointServicePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcEndpointServicePermissionsInput,
         validate_input: @config.validate_input
@@ -56034,7 +56036,7 @@ module AWS::SDK::EC2
     def modify_vpc_peering_connection_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcPeeringConnectionOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcPeeringConnectionOptionsInput,
         validate_input: @config.validate_input
@@ -56120,7 +56122,7 @@ module AWS::SDK::EC2
     def modify_vpc_tenancy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpcTenancyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpcTenancyInput,
         validate_input: @config.validate_input
@@ -56317,7 +56319,7 @@ module AWS::SDK::EC2
     def modify_vpn_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpnConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpnConnectionInput,
         validate_input: @config.validate_input
@@ -56489,7 +56491,7 @@ module AWS::SDK::EC2
     def modify_vpn_connection_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpnConnectionOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpnConnectionOptionsInput,
         validate_input: @config.validate_input
@@ -56640,7 +56642,7 @@ module AWS::SDK::EC2
     def modify_vpn_tunnel_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpnTunnelCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpnTunnelCertificateInput,
         validate_input: @config.validate_input
@@ -56845,7 +56847,7 @@ module AWS::SDK::EC2
     def modify_vpn_tunnel_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyVpnTunnelOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyVpnTunnelOptionsInput,
         validate_input: @config.validate_input
@@ -56929,7 +56931,7 @@ module AWS::SDK::EC2
     def monitor_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MonitorInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MonitorInstancesInput,
         validate_input: @config.validate_input
@@ -57010,7 +57012,7 @@ module AWS::SDK::EC2
     def move_address_to_vpc(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MoveAddressToVpcInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MoveAddressToVpcInput,
         validate_input: @config.validate_input
@@ -57098,7 +57100,7 @@ module AWS::SDK::EC2
     def move_byoip_cidr_to_ipam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MoveByoipCidrToIpamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MoveByoipCidrToIpamInput,
         validate_input: @config.validate_input
@@ -57226,7 +57228,7 @@ module AWS::SDK::EC2
     def provision_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionByoipCidrInput,
         validate_input: @config.validate_input
@@ -57319,7 +57321,7 @@ module AWS::SDK::EC2
     def provision_ipam_pool_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionIpamPoolCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionIpamPoolCidrInput,
         validate_input: @config.validate_input
@@ -57408,7 +57410,7 @@ module AWS::SDK::EC2
     def provision_public_ipv4_pool_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionPublicIpv4PoolCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionPublicIpv4PoolCidrInput,
         validate_input: @config.validate_input
@@ -57533,7 +57535,7 @@ module AWS::SDK::EC2
     def purchase_host_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseHostReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseHostReservationInput,
         validate_input: @config.validate_input
@@ -57632,7 +57634,7 @@ module AWS::SDK::EC2
     def purchase_reserved_instances_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedInstancesOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedInstancesOfferingInput,
         validate_input: @config.validate_input
@@ -57744,7 +57746,7 @@ module AWS::SDK::EC2
     def purchase_scheduled_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseScheduledInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseScheduledInstancesInput,
         validate_input: @config.validate_input
@@ -57827,7 +57829,7 @@ module AWS::SDK::EC2
     def reboot_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootInstancesInput,
         validate_input: @config.validate_input
@@ -58049,7 +58051,7 @@ module AWS::SDK::EC2
     def register_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterImageInput,
         validate_input: @config.validate_input
@@ -58134,7 +58136,7 @@ module AWS::SDK::EC2
     def register_instance_event_notification_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterInstanceEventNotificationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterInstanceEventNotificationAttributesInput,
         validate_input: @config.validate_input
@@ -58228,7 +58230,7 @@ module AWS::SDK::EC2
     def register_transit_gateway_multicast_group_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTransitGatewayMulticastGroupMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTransitGatewayMulticastGroupMembersInput,
         validate_input: @config.validate_input
@@ -58322,7 +58324,7 @@ module AWS::SDK::EC2
     def register_transit_gateway_multicast_group_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTransitGatewayMulticastGroupSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTransitGatewayMulticastGroupSourcesInput,
         validate_input: @config.validate_input
@@ -58416,7 +58418,7 @@ module AWS::SDK::EC2
     def reject_transit_gateway_multicast_domain_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectTransitGatewayMulticastDomainAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectTransitGatewayMulticastDomainAssociationsInput,
         validate_input: @config.validate_input
@@ -58506,7 +58508,7 @@ module AWS::SDK::EC2
     def reject_transit_gateway_peering_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectTransitGatewayPeeringAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectTransitGatewayPeeringAttachmentInput,
         validate_input: @config.validate_input
@@ -58600,7 +58602,7 @@ module AWS::SDK::EC2
     def reject_transit_gateway_vpc_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectTransitGatewayVpcAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectTransitGatewayVpcAttachmentInput,
         validate_input: @config.validate_input
@@ -58687,7 +58689,7 @@ module AWS::SDK::EC2
     def reject_vpc_endpoint_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectVpcEndpointConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectVpcEndpointConnectionsInput,
         validate_input: @config.validate_input
@@ -58765,7 +58767,7 @@ module AWS::SDK::EC2
     def reject_vpc_peering_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectVpcPeeringConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectVpcPeeringConnectionInput,
         validate_input: @config.validate_input
@@ -58862,7 +58864,7 @@ module AWS::SDK::EC2
     def release_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleaseAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleaseAddressInput,
         validate_input: @config.validate_input
@@ -58948,7 +58950,7 @@ module AWS::SDK::EC2
     def release_hosts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleaseHostsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleaseHostsInput,
         validate_input: @config.validate_input
@@ -59032,7 +59034,7 @@ module AWS::SDK::EC2
     def release_ipam_pool_allocation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleaseIpamPoolAllocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleaseIpamPoolAllocationInput,
         validate_input: @config.validate_input
@@ -59119,7 +59121,7 @@ module AWS::SDK::EC2
     def replace_iam_instance_profile_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceIamInstanceProfileAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceIamInstanceProfileAssociationInput,
         validate_input: @config.validate_input
@@ -59202,7 +59204,7 @@ module AWS::SDK::EC2
     def replace_network_acl_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceNetworkAclAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceNetworkAclAssociationInput,
         validate_input: @config.validate_input
@@ -59325,7 +59327,7 @@ module AWS::SDK::EC2
     def replace_network_acl_entry(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceNetworkAclEntryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceNetworkAclEntryInput,
         validate_input: @config.validate_input
@@ -59466,7 +59468,7 @@ module AWS::SDK::EC2
     def replace_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceRouteInput,
         validate_input: @config.validate_input
@@ -59552,7 +59554,7 @@ module AWS::SDK::EC2
     def replace_route_table_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceRouteTableAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceRouteTableAssociationInput,
         validate_input: @config.validate_input
@@ -59648,7 +59650,7 @@ module AWS::SDK::EC2
     def replace_transit_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceTransitGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceTransitGatewayRouteInput,
         validate_input: @config.validate_input
@@ -59794,7 +59796,7 @@ module AWS::SDK::EC2
     def report_instance_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReportInstanceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReportInstanceStatusInput,
         validate_input: @config.validate_input
@@ -60130,7 +60132,7 @@ module AWS::SDK::EC2
     def request_spot_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestSpotFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestSpotFleetInput,
         validate_input: @config.validate_input
@@ -60498,7 +60500,7 @@ module AWS::SDK::EC2
     def request_spot_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestSpotInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestSpotInstancesInput,
         validate_input: @config.validate_input
@@ -60584,7 +60586,7 @@ module AWS::SDK::EC2
     def reset_address_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetAddressAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetAddressAttributeInput,
         validate_input: @config.validate_input
@@ -60660,7 +60662,7 @@ module AWS::SDK::EC2
     def reset_ebs_default_kms_key_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetEbsDefaultKmsKeyIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetEbsDefaultKmsKeyIdInput,
         validate_input: @config.validate_input
@@ -60740,7 +60742,7 @@ module AWS::SDK::EC2
     def reset_fpga_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetFpgaImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetFpgaImageAttributeInput,
         validate_input: @config.validate_input
@@ -60818,7 +60820,7 @@ module AWS::SDK::EC2
     def reset_image_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetImageAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetImageAttributeInput,
         validate_input: @config.validate_input
@@ -60908,7 +60910,7 @@ module AWS::SDK::EC2
     def reset_instance_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetInstanceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetInstanceAttributeInput,
         validate_input: @config.validate_input
@@ -60986,7 +60988,7 @@ module AWS::SDK::EC2
     def reset_network_interface_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetNetworkInterfaceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetNetworkInterfaceAttributeInput,
         validate_input: @config.validate_input
@@ -61067,7 +61069,7 @@ module AWS::SDK::EC2
     def reset_snapshot_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetSnapshotAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetSnapshotAttributeInput,
         validate_input: @config.validate_input
@@ -61143,7 +61145,7 @@ module AWS::SDK::EC2
     def restore_address_to_classic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreAddressToClassicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreAddressToClassicInput,
         validate_input: @config.validate_input
@@ -61218,7 +61220,7 @@ module AWS::SDK::EC2
     def restore_image_from_recycle_bin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreImageFromRecycleBinInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreImageFromRecycleBinInput,
         validate_input: @config.validate_input
@@ -61314,7 +61316,7 @@ module AWS::SDK::EC2
     def restore_managed_prefix_list_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreManagedPrefixListVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreManagedPrefixListVersionInput,
         validate_input: @config.validate_input
@@ -61399,7 +61401,7 @@ module AWS::SDK::EC2
     def restore_snapshot_from_recycle_bin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreSnapshotFromRecycleBinInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreSnapshotFromRecycleBinInput,
         validate_input: @config.validate_input
@@ -61497,7 +61499,7 @@ module AWS::SDK::EC2
     def restore_snapshot_tier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreSnapshotTierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreSnapshotTierInput,
         validate_input: @config.validate_input
@@ -61584,7 +61586,7 @@ module AWS::SDK::EC2
     def revoke_client_vpn_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeClientVpnIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeClientVpnIngressInput,
         validate_input: @config.validate_input
@@ -61772,7 +61774,7 @@ module AWS::SDK::EC2
     def revoke_security_group_egress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeSecurityGroupEgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeSecurityGroupEgressInput,
         validate_input: @config.validate_input
@@ -61966,7 +61968,7 @@ module AWS::SDK::EC2
     def revoke_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -62674,7 +62676,7 @@ module AWS::SDK::EC2
     def run_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunInstancesInput,
         validate_input: @config.validate_input
@@ -62832,7 +62834,7 @@ module AWS::SDK::EC2
     def run_scheduled_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RunScheduledInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RunScheduledInstancesInput,
         validate_input: @config.validate_input
@@ -62964,7 +62966,7 @@ module AWS::SDK::EC2
     def search_local_gateway_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchLocalGatewayRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchLocalGatewayRoutesInput,
         validate_input: @config.validate_input
@@ -63110,7 +63112,7 @@ module AWS::SDK::EC2
     def search_transit_gateway_multicast_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchTransitGatewayMulticastGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchTransitGatewayMulticastGroupsInput,
         validate_input: @config.validate_input
@@ -63256,7 +63258,7 @@ module AWS::SDK::EC2
     def search_transit_gateway_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchTransitGatewayRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchTransitGatewayRoutesInput,
         validate_input: @config.validate_input
@@ -63347,7 +63349,7 @@ module AWS::SDK::EC2
     def send_diagnostic_interrupt(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendDiagnosticInterruptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendDiagnosticInterruptInput,
         validate_input: @config.validate_input
@@ -63454,7 +63456,7 @@ module AWS::SDK::EC2
     def start_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartInstancesInput,
         validate_input: @config.validate_input
@@ -63562,7 +63564,7 @@ module AWS::SDK::EC2
     def start_network_insights_access_scope_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartNetworkInsightsAccessScopeAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartNetworkInsightsAccessScopeAnalysisInput,
         validate_input: @config.validate_input
@@ -63801,7 +63803,7 @@ module AWS::SDK::EC2
     def start_network_insights_analysis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartNetworkInsightsAnalysisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartNetworkInsightsAnalysisInput,
         validate_input: @config.validate_input
@@ -63879,7 +63881,7 @@ module AWS::SDK::EC2
     def start_vpc_endpoint_service_private_dns_verification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartVpcEndpointServicePrivateDnsVerificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartVpcEndpointServicePrivateDnsVerificationInput,
         validate_input: @config.validate_input
@@ -64010,7 +64012,7 @@ module AWS::SDK::EC2
     def stop_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopInstancesInput,
         validate_input: @config.validate_input
@@ -64100,7 +64102,7 @@ module AWS::SDK::EC2
     def terminate_client_vpn_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateClientVpnConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateClientVpnConnectionsInput,
         validate_input: @config.validate_input
@@ -64249,7 +64251,7 @@ module AWS::SDK::EC2
     def terminate_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateInstancesInput,
         validate_input: @config.validate_input
@@ -64334,7 +64336,7 @@ module AWS::SDK::EC2
     def unassign_ipv6_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnassignIpv6AddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnassignIpv6AddressesInput,
         validate_input: @config.validate_input
@@ -64414,7 +64416,7 @@ module AWS::SDK::EC2
     def unassign_private_ip_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnassignPrivateIpAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnassignPrivateIpAddressesInput,
         validate_input: @config.validate_input
@@ -64497,7 +64499,7 @@ module AWS::SDK::EC2
     def unmonitor_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnmonitorInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnmonitorInstancesInput,
         validate_input: @config.validate_input
@@ -64632,7 +64634,7 @@ module AWS::SDK::EC2
     def update_security_group_rule_descriptions_egress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecurityGroupRuleDescriptionsEgressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecurityGroupRuleDescriptionsEgressInput,
         validate_input: @config.validate_input
@@ -64767,7 +64769,7 @@ module AWS::SDK::EC2
     def update_security_group_rule_descriptions_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecurityGroupRuleDescriptionsIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecurityGroupRuleDescriptionsIngressInput,
         validate_input: @config.validate_input
@@ -64850,7 +64852,7 @@ module AWS::SDK::EC2
     def withdraw_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::WithdrawByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::WithdrawByoipCidrInput,
         validate_input: @config.validate_input

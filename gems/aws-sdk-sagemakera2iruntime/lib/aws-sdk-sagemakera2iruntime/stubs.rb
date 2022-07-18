@@ -34,7 +34,7 @@ module AWS::SDK::SageMakerA2IRuntime
           human_loop_name: 'human_loop_name',
           human_loop_arn: 'human_loop_arn',
           flow_definition_arn: 'flow_definition_arn',
-          human_loop_output: Stubs::HumanLoopOutput.default(visited),
+          human_loop_output: HumanLoopOutput.default(visited),
         }
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::SageMakerA2IRuntime
     class ListHumanLoops
       def self.default(visited=[])
         {
-          human_loop_summaries: Stubs::HumanLoopSummaries.default(visited),
+          human_loop_summaries: HumanLoopSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -97,7 +97,7 @@ module AWS::SDK::SageMakerA2IRuntime
         return nil if visited.include?('HumanLoopSummaries')
         visited = visited + ['HumanLoopSummaries']
         [
-          Stubs::HumanLoopSummary.default(visited)
+          HumanLoopSummary.default(visited)
         ]
       end
 

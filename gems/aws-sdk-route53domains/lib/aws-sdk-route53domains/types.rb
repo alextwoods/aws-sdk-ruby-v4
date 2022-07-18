@@ -94,11 +94,11 @@ module AWS::SDK::Route53Domains
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.price ||= 0
       end
-
     end
 
     # <p>The CancelDomainTransferToAnotherAwsAccount request includes the following element.</p>
@@ -3145,11 +3145,11 @@ module AWS::SDK::Route53Domains
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.suggestion_count ||= 0
       end
-
     end
 
     # @!attribute suggestions_list
@@ -3661,11 +3661,11 @@ module AWS::SDK::Route53Domains
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.price ||= 0
       end
-
     end
 
     # Includes enum constants for ReachabilityStatus
@@ -3900,11 +3900,11 @@ module AWS::SDK::Route53Domains
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_expiry_year ||= 0
       end
-
     end
 
     # @!attribute operation_id

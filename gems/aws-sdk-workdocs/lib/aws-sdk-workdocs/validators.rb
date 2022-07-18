@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WorkDocs
   module Validators
 
@@ -36,7 +38,7 @@ module AWS::SDK::WorkDocs
     class ActivateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActivateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -47,11 +49,11 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:time_stamp], ::Time, context: "#{context}[:time_stamp]")
         Hearth::Validator.validate!(input[:is_indirect_activity], ::TrueClass, ::FalseClass, context: "#{context}[:is_indirect_activity]")
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
-        Validators::UserMetadata.validate!(input[:initiator], context: "#{context}[:initiator]") unless input[:initiator].nil?
-        Validators::Participants.validate!(input[:participants], context: "#{context}[:participants]") unless input[:participants].nil?
-        Validators::ResourceMetadata.validate!(input[:resource_metadata], context: "#{context}[:resource_metadata]") unless input[:resource_metadata].nil?
-        Validators::ResourceMetadata.validate!(input[:original_parent], context: "#{context}[:original_parent]") unless input[:original_parent].nil?
-        Validators::CommentMetadata.validate!(input[:comment_metadata], context: "#{context}[:comment_metadata]") unless input[:comment_metadata].nil?
+        UserMetadata.validate!(input[:initiator], context: "#{context}[:initiator]") unless input[:initiator].nil?
+        Participants.validate!(input[:participants], context: "#{context}[:participants]") unless input[:participants].nil?
+        ResourceMetadata.validate!(input[:resource_metadata], context: "#{context}[:resource_metadata]") unless input[:resource_metadata].nil?
+        ResourceMetadata.validate!(input[:original_parent], context: "#{context}[:original_parent]") unless input[:original_parent].nil?
+        CommentMetadata.validate!(input[:comment_metadata], context: "#{context}[:comment_metadata]") unless input[:comment_metadata].nil?
       end
     end
 
@@ -60,15 +62,15 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input, Types::AddResourcePermissionsInput, context: context)
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::SharePrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
-        Validators::NotificationOptions.validate!(input[:notification_options], context: "#{context}[:notification_options]") unless input[:notification_options].nil?
+        SharePrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        NotificationOptions.validate!(input[:notification_options], context: "#{context}[:notification_options]") unless input[:notification_options].nil?
       end
     end
 
     class AddResourcePermissionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddResourcePermissionsOutput, context: context)
-        Validators::ShareResultsList.validate!(input[:share_results], context: "#{context}[:share_results]") unless input[:share_results].nil?
+        ShareResultsList.validate!(input[:share_results], context: "#{context}[:share_results]") unless input[:share_results].nil?
       end
     end
 
@@ -79,7 +81,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:parent_id], ::String, context: "#{context}[:parent_id]")
         Hearth::Validator.validate!(input[:thread_id], ::String, context: "#{context}[:thread_id]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::User.validate!(input[:contributor], context: "#{context}[:contributor]") unless input[:contributor].nil?
+        User.validate!(input[:contributor], context: "#{context}[:contributor]") unless input[:contributor].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:visibility], ::String, context: "#{context}[:visibility]")
@@ -91,7 +93,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Comment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Comment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -100,7 +102,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CommentMetadata, context: context)
         Hearth::Validator.validate!(input[:comment_id], ::String, context: "#{context}[:comment_id]")
-        Validators::User.validate!(input[:contributor], context: "#{context}[:contributor]") unless input[:contributor].nil?
+        User.validate!(input[:contributor], context: "#{context}[:contributor]") unless input[:contributor].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:comment_status], ::String, context: "#{context}[:comment_status]")
         Hearth::Validator.validate!(input[:recipient_id], ::String, context: "#{context}[:recipient_id]")
@@ -138,7 +140,7 @@ module AWS::SDK::WorkDocs
     class CreateCommentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCommentOutput, context: context)
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
-        Validators::CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
+        CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
       end
     end
 
@@ -170,7 +172,7 @@ module AWS::SDK::WorkDocs
     class CreateFolderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFolderOutput, context: context)
-        Validators::FolderMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        FolderMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -178,7 +180,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLabelsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::WorkDocs
     class CreateNotificationSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNotificationSubscriptionOutput, context: context)
-        Validators::Subscription.validate!(input[:subscription], context: "#{context}[:subscription]") unless input[:subscription].nil?
+        Subscription.validate!(input[:subscription], context: "#{context}[:subscription]") unless input[:subscription].nil?
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:surname], ::String, context: "#{context}[:surname]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:time_zone_id], ::String, context: "#{context}[:time_zone_id]")
-        Validators::StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
+        StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
       end
     end
@@ -224,7 +226,7 @@ module AWS::SDK::WorkDocs
     class CreateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -298,7 +300,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
-        Validators::CustomMetadataKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        CustomMetadataKeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
         Hearth::Validator.validate!(input[:delete_all], ::TrueClass, ::FalseClass, context: "#{context}[:delete_all]")
       end
     end
@@ -356,7 +358,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input, Types::DeleteLabelsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:authentication_token], ::String, context: "#{context}[:authentication_token]")
-        Validators::SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
         Hearth::Validator.validate!(input[:delete_all], ::TrueClass, ::FalseClass, context: "#{context}[:delete_all]")
       end
     end
@@ -414,7 +416,7 @@ module AWS::SDK::WorkDocs
     class DescribeActivitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeActivitiesOutput, context: context)
-        Validators::UserActivities.validate!(input[:user_activities], context: "#{context}[:user_activities]") unless input[:user_activities].nil?
+        UserActivities.validate!(input[:user_activities], context: "#{context}[:user_activities]") unless input[:user_activities].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -433,7 +435,7 @@ module AWS::SDK::WorkDocs
     class DescribeCommentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCommentsOutput, context: context)
-        Validators::CommentList.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
+        CommentList.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -453,7 +455,7 @@ module AWS::SDK::WorkDocs
     class DescribeDocumentVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDocumentVersionsOutput, context: context)
-        Validators::DocumentVersionMetadataList.validate!(input[:document_versions], context: "#{context}[:document_versions]") unless input[:document_versions].nil?
+        DocumentVersionMetadataList.validate!(input[:document_versions], context: "#{context}[:document_versions]") unless input[:document_versions].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -475,8 +477,8 @@ module AWS::SDK::WorkDocs
     class DescribeFolderContentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFolderContentsOutput, context: context)
-        Validators::FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
-        Validators::DocumentMetadataList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
+        FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
+        DocumentMetadataList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::WorkDocs
     class DescribeGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGroupsOutput, context: context)
-        Validators::GroupMetadataList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupMetadataList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -512,7 +514,7 @@ module AWS::SDK::WorkDocs
     class DescribeNotificationSubscriptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNotificationSubscriptionsOutput, context: context)
-        Validators::SubscriptionList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
+        SubscriptionList.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -531,7 +533,7 @@ module AWS::SDK::WorkDocs
     class DescribeResourcePermissionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeResourcePermissionsOutput, context: context)
-        Validators::PrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        PrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::WorkDocs
     class DescribeRootFoldersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRootFoldersOutput, context: context)
-        Validators::FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
+        FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -572,7 +574,7 @@ module AWS::SDK::WorkDocs
     class DescribeUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUsersOutput, context: context)
-        Validators::OrganizationUserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        OrganizationUserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:total_number_of_users], ::Integer, context: "#{context}[:total_number_of_users]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -593,9 +595,9 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:parent_folder_id], ::String, context: "#{context}[:parent_folder_id]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:modified_timestamp], ::Time, context: "#{context}[:modified_timestamp]")
-        Validators::DocumentVersionMetadata.validate!(input[:latest_version_metadata], context: "#{context}[:latest_version_metadata]") unless input[:latest_version_metadata].nil?
+        DocumentVersionMetadata.validate!(input[:latest_version_metadata], context: "#{context}[:latest_version_metadata]") unless input[:latest_version_metadata].nil?
         Hearth::Validator.validate!(input[:resource_state], ::String, context: "#{context}[:resource_state]")
-        Validators::SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -642,8 +644,8 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:content_created_timestamp], ::Time, context: "#{context}[:content_created_timestamp]")
         Hearth::Validator.validate!(input[:content_modified_timestamp], ::Time, context: "#{context}[:content_modified_timestamp]")
         Hearth::Validator.validate!(input[:creator_id], ::String, context: "#{context}[:creator_id]")
-        Validators::DocumentThumbnailUrlMap.validate!(input[:thumbnail], context: "#{context}[:thumbnail]") unless input[:thumbnail].nil?
-        Validators::DocumentSourceUrlMap.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        DocumentThumbnailUrlMap.validate!(input[:thumbnail], context: "#{context}[:thumbnail]") unless input[:thumbnail].nil?
+        DocumentSourceUrlMap.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentVersionMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentVersionMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityNotExistsException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::EntityIdList.validate!(input[:entity_ids], context: "#{context}[:entity_ids]") unless input[:entity_ids].nil?
+        EntityIdList.validate!(input[:entity_ids], context: "#{context}[:entity_ids]") unless input[:entity_ids].nil?
       end
     end
 
@@ -705,7 +707,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:modified_timestamp], ::Time, context: "#{context}[:modified_timestamp]")
         Hearth::Validator.validate!(input[:resource_state], ::String, context: "#{context}[:resource_state]")
         Hearth::Validator.validate!(input[:signature], ::String, context: "#{context}[:signature]")
-        Validators::SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        SharedLabels.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
         Hearth::Validator.validate!(input[:latest_version_size], ::Integer, context: "#{context}[:latest_version_size]")
       end
@@ -715,7 +717,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FolderMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FolderMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -730,7 +732,7 @@ module AWS::SDK::WorkDocs
     class GetCurrentUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCurrentUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -746,8 +748,8 @@ module AWS::SDK::WorkDocs
     class GetDocumentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDocumentOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
+        DocumentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
       end
     end
 
@@ -765,7 +767,7 @@ module AWS::SDK::WorkDocs
     class GetDocumentPathOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDocumentPathOutput, context: context)
-        Validators::ResourcePath.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        ResourcePath.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
       end
     end
 
@@ -783,8 +785,8 @@ module AWS::SDK::WorkDocs
     class GetDocumentVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDocumentVersionOutput, context: context)
-        Validators::DocumentVersionMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
+        DocumentVersionMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
       end
     end
 
@@ -800,8 +802,8 @@ module AWS::SDK::WorkDocs
     class GetFolderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFolderOutput, context: context)
-        Validators::FolderMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
+        FolderMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        CustomMetadataMap.validate!(input[:custom_metadata], context: "#{context}[:custom_metadata]") unless input[:custom_metadata].nil?
       end
     end
 
@@ -819,7 +821,7 @@ module AWS::SDK::WorkDocs
     class GetFolderPathOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFolderPathOutput, context: context)
-        Validators::ResourcePath.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
+        ResourcePath.validate!(input[:path], context: "#{context}[:path]") unless input[:path].nil?
       end
     end
 
@@ -837,8 +839,8 @@ module AWS::SDK::WorkDocs
     class GetResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourcesOutput, context: context)
-        Validators::FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
-        Validators::DocumentMetadataList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
+        FolderMetadataList.validate!(input[:folders], context: "#{context}[:folders]") unless input[:folders].nil?
+        DocumentMetadataList.validate!(input[:documents], context: "#{context}[:documents]") unless input[:documents].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -855,7 +857,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -884,8 +886,8 @@ module AWS::SDK::WorkDocs
     class InitiateDocumentVersionUploadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InitiateDocumentVersionUploadOutput, context: context)
-        Validators::DocumentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::UploadMetadata.validate!(input[:upload_metadata], context: "#{context}[:upload_metadata]") unless input[:upload_metadata].nil?
+        DocumentMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        UploadMetadata.validate!(input[:upload_metadata], context: "#{context}[:upload_metadata]") unless input[:upload_metadata].nil?
       end
     end
 
@@ -936,7 +938,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -944,8 +946,8 @@ module AWS::SDK::WorkDocs
     class Participants
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Participants, context: context)
-        Validators::UserMetadataList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
-        Validators::GroupMetadataList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        UserMetadataList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        GroupMetadataList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
       end
     end
 
@@ -961,7 +963,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PermissionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PermissionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -971,7 +973,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input, Types::Principal, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::PermissionInfoList.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        PermissionInfoList.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
       end
     end
 
@@ -979,7 +981,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Principal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1043,7 +1045,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:original_name], ::String, context: "#{context}[:original_name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
-        Validators::UserMetadata.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
+        UserMetadata.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
         Hearth::Validator.validate!(input[:parent_id], ::String, context: "#{context}[:parent_id]")
       end
     end
@@ -1051,7 +1053,7 @@ module AWS::SDK::WorkDocs
     class ResourcePath
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourcePath, context: context)
-        Validators::ResourcePathComponentList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ResourcePathComponentList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
       end
     end
 
@@ -1067,7 +1069,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePathComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePathComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1092,7 +1094,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SharePrincipal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SharePrincipal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ShareResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ShareResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1172,7 +1174,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1264,7 +1266,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:given_name], ::String, context: "#{context}[:given_name]")
         Hearth::Validator.validate!(input[:surname], ::String, context: "#{context}[:surname]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
+        StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
         Hearth::Validator.validate!(input[:time_zone_id], ::String, context: "#{context}[:time_zone_id]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
         Hearth::Validator.validate!(input[:grant_poweruser_privileges], ::String, context: "#{context}[:grant_poweruser_privileges]")
@@ -1274,7 +1276,7 @@ module AWS::SDK::WorkDocs
     class UpdateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -1282,7 +1284,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UploadMetadata, context: context)
         Hearth::Validator.validate!(input[:upload_url], ::String, context: "#{context}[:upload_url]")
-        Validators::SignedHeaderMap.validate!(input[:signed_headers], context: "#{context}[:signed_headers]") unless input[:signed_headers].nil?
+        SignedHeaderMap.validate!(input[:signed_headers], context: "#{context}[:signed_headers]") unless input[:signed_headers].nil?
       end
     end
 
@@ -1303,7 +1305,7 @@ module AWS::SDK::WorkDocs
         Hearth::Validator.validate!(input[:modified_timestamp], ::Time, context: "#{context}[:modified_timestamp]")
         Hearth::Validator.validate!(input[:time_zone_id], ::String, context: "#{context}[:time_zone_id]")
         Hearth::Validator.validate!(input[:locale], ::String, context: "#{context}[:locale]")
-        Validators::UserStorageMetadata.validate!(input[:storage], context: "#{context}[:storage]") unless input[:storage].nil?
+        UserStorageMetadata.validate!(input[:storage], context: "#{context}[:storage]") unless input[:storage].nil?
       end
     end
 
@@ -1311,7 +1313,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Activity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Activity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1331,7 +1333,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1340,7 +1342,7 @@ module AWS::SDK::WorkDocs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserStorageMetadata, context: context)
         Hearth::Validator.validate!(input[:storage_utilized_in_bytes], ::Integer, context: "#{context}[:storage_utilized_in_bytes]")
-        Validators::StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
+        StorageRuleType.validate!(input[:storage_rule], context: "#{context}[:storage_rule]") unless input[:storage_rule].nil?
       end
     end
 

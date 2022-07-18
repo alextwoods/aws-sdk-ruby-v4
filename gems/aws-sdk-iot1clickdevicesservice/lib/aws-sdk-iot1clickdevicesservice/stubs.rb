@@ -33,7 +33,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class DescribeDevice
       def self.default(visited=[])
         {
-          device_description: Stubs::DeviceDescription.default(visited),
+          device_description: DeviceDescription.default(visited),
         }
       end
 
@@ -53,12 +53,12 @@ module AWS::SDK::IoT1ClickDevicesService
         visited = visited + ['DeviceDescription']
         {
           arn: 'arn',
-          attributes: Stubs::DeviceAttributes.default(visited),
+          attributes: DeviceAttributes.default(visited),
           device_id: 'device_id',
           enabled: false,
           remaining_life: 1.0,
           type: 'type',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -137,7 +137,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class GetDeviceMethods
       def self.default(visited=[])
         {
-          device_methods: Stubs::List____listOfDeviceMethod.default(visited),
+          device_methods: List____listOfDeviceMethod.default(visited),
         }
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::IoT1ClickDevicesService
         return nil if visited.include?('List____listOfDeviceMethod')
         visited = visited + ['List____listOfDeviceMethod']
         [
-          Stubs::DeviceMethod.default(visited)
+          DeviceMethod.default(visited)
         ]
       end
 
@@ -228,7 +228,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListDeviceEvents
       def self.default(visited=[])
         {
-          events: Stubs::List____listOfDeviceEvent.default(visited),
+          events: List____listOfDeviceEvent.default(visited),
           next_token: 'next_token',
         }
       end
@@ -249,7 +249,7 @@ module AWS::SDK::IoT1ClickDevicesService
         return nil if visited.include?('List____listOfDeviceEvent')
         visited = visited + ['List____listOfDeviceEvent']
         [
-          Stubs::DeviceEvent.default(visited)
+          DeviceEvent.default(visited)
         ]
       end
 
@@ -269,7 +269,7 @@ module AWS::SDK::IoT1ClickDevicesService
         return nil if visited.include?('DeviceEvent')
         visited = visited + ['DeviceEvent']
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
           std_event: 'std_event',
         }
       end
@@ -289,7 +289,7 @@ module AWS::SDK::IoT1ClickDevicesService
         return nil if visited.include?('Device')
         visited = visited + ['Device']
         {
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
           device_id: 'device_id',
           type: 'type',
         }
@@ -325,7 +325,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::List____listOfDeviceDescription.default(visited),
+          devices: List____listOfDeviceDescription.default(visited),
           next_token: 'next_token',
         }
       end
@@ -346,7 +346,7 @@ module AWS::SDK::IoT1ClickDevicesService
         return nil if visited.include?('List____listOfDeviceDescription')
         visited = visited + ['List____listOfDeviceDescription']
         [
-          Stubs::DeviceDescription.default(visited)
+          DeviceDescription.default(visited)
         ]
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 

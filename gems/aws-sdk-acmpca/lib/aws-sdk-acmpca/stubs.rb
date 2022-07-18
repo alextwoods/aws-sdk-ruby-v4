@@ -104,7 +104,7 @@ module AWS::SDK::ACMPCA
     class DescribeCertificateAuthority
       def self.default(visited=[])
         {
-          certificate_authority: Stubs::CertificateAuthority.default(visited),
+          certificate_authority: CertificateAuthority.default(visited),
         }
       end
 
@@ -132,8 +132,8 @@ module AWS::SDK::ACMPCA
           not_before: Time.now,
           not_after: Time.now,
           failure_reason: 'failure_reason',
-          certificate_authority_configuration: Stubs::CertificateAuthorityConfiguration.default(visited),
-          revocation_configuration: Stubs::RevocationConfiguration.default(visited),
+          certificate_authority_configuration: CertificateAuthorityConfiguration.default(visited),
+          revocation_configuration: RevocationConfiguration.default(visited),
           restorable_until: Time.now,
           key_storage_security_standard: 'key_storage_security_standard',
         }
@@ -166,8 +166,8 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('RevocationConfiguration')
         visited = visited + ['RevocationConfiguration']
         {
-          crl_configuration: Stubs::CrlConfiguration.default(visited),
-          ocsp_configuration: Stubs::OcspConfiguration.default(visited),
+          crl_configuration: CrlConfiguration.default(visited),
+          ocsp_configuration: OcspConfiguration.default(visited),
         }
       end
 
@@ -234,8 +234,8 @@ module AWS::SDK::ACMPCA
         {
           key_algorithm: 'key_algorithm',
           signing_algorithm: 'signing_algorithm',
-          subject: Stubs::ASN1Subject.default(visited),
-          csr_extensions: Stubs::CsrExtensions.default(visited),
+          subject: ASN1Subject.default(visited),
+          csr_extensions: CsrExtensions.default(visited),
         }
       end
 
@@ -256,8 +256,8 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('CsrExtensions')
         visited = visited + ['CsrExtensions']
         {
-          key_usage: Stubs::KeyUsage.default(visited),
-          subject_information_access: Stubs::AccessDescriptionList.default(visited),
+          key_usage: KeyUsage.default(visited),
+          subject_information_access: AccessDescriptionList.default(visited),
         }
       end
 
@@ -276,7 +276,7 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('AccessDescriptionList')
         visited = visited + ['AccessDescriptionList']
         [
-          Stubs::AccessDescription.default(visited)
+          AccessDescription.default(visited)
         ]
       end
 
@@ -296,8 +296,8 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('AccessDescription')
         visited = visited + ['AccessDescription']
         {
-          access_method: Stubs::AccessMethod.default(visited),
-          access_location: Stubs::GeneralName.default(visited),
+          access_method: AccessMethod.default(visited),
+          access_location: GeneralName.default(visited),
         }
       end
 
@@ -316,11 +316,11 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('GeneralName')
         visited = visited + ['GeneralName']
         {
-          other_name: Stubs::OtherName.default(visited),
+          other_name: OtherName.default(visited),
           rfc822_name: 'rfc822_name',
           dns_name: 'dns_name',
-          directory_name: Stubs::ASN1Subject.default(visited),
-          edi_party_name: Stubs::EdiPartyName.default(visited),
+          directory_name: ASN1Subject.default(visited),
+          edi_party_name: EdiPartyName.default(visited),
           uniform_resource_identifier: 'uniform_resource_identifier',
           ip_address: 'ip_address',
           registered_id: 'registered_id',
@@ -382,7 +382,7 @@ module AWS::SDK::ACMPCA
           initials: 'initials',
           pseudonym: 'pseudonym',
           generation_qualifier: 'generation_qualifier',
-          custom_attributes: Stubs::CustomAttributeList.default(visited),
+          custom_attributes: CustomAttributeList.default(visited),
         }
       end
 
@@ -414,7 +414,7 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('CustomAttributeList')
         visited = visited + ['CustomAttributeList']
         [
-          Stubs::CustomAttribute.default(visited)
+          CustomAttribute.default(visited)
         ]
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::ACMPCA
     class ListCertificateAuthorities
       def self.default(visited=[])
         {
-          certificate_authorities: Stubs::CertificateAuthorities.default(visited),
+          certificate_authorities: CertificateAuthorities.default(visited),
           next_token: 'next_token',
         }
       end
@@ -666,7 +666,7 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('CertificateAuthorities')
         visited = visited + ['CertificateAuthorities']
         [
-          Stubs::CertificateAuthority.default(visited)
+          CertificateAuthority.default(visited)
         ]
       end
 
@@ -684,7 +684,7 @@ module AWS::SDK::ACMPCA
     class ListPermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::PermissionList.default(visited),
+          permissions: PermissionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -704,7 +704,7 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('PermissionList')
         visited = visited + ['PermissionList']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::ACMPCA
           created_at: Time.now,
           principal: 'principal',
           source_account: 'source_account',
-          actions: Stubs::ActionList.default(visited),
+          actions: ActionList.default(visited),
           policy: 'policy',
         }
       end
@@ -770,7 +770,7 @@ module AWS::SDK::ACMPCA
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -790,7 +790,7 @@ module AWS::SDK::ACMPCA
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

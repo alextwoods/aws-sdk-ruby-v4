@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SagemakerEdge
   module Validators
 
@@ -24,7 +26,7 @@ module AWS::SDK::SagemakerEdge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EdgeMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EdgeMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -59,7 +61,7 @@ module AWS::SDK::SagemakerEdge
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
         Hearth::Validator.validate!(input[:latest_sample_time], ::Time, context: "#{context}[:latest_sample_time]")
         Hearth::Validator.validate!(input[:latest_inference], ::Time, context: "#{context}[:latest_inference]")
-        Validators::EdgeMetrics.validate!(input[:model_metrics], context: "#{context}[:model_metrics]") unless input[:model_metrics].nil?
+        EdgeMetrics.validate!(input[:model_metrics], context: "#{context}[:model_metrics]") unless input[:model_metrics].nil?
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::SagemakerEdge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -75,8 +77,8 @@ module AWS::SDK::SagemakerEdge
     class SendHeartbeatInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendHeartbeatInput, context: context)
-        Validators::EdgeMetrics.validate!(input[:agent_metrics], context: "#{context}[:agent_metrics]") unless input[:agent_metrics].nil?
-        Validators::Models.validate!(input[:models], context: "#{context}[:models]") unless input[:models].nil?
+        EdgeMetrics.validate!(input[:agent_metrics], context: "#{context}[:agent_metrics]") unless input[:agent_metrics].nil?
+        Models.validate!(input[:models], context: "#{context}[:models]") unless input[:models].nil?
         Hearth::Validator.validate!(input[:agent_version], ::String, context: "#{context}[:agent_version]")
         Hearth::Validator.validate!(input[:device_name], ::String, context: "#{context}[:device_name]")
         Hearth::Validator.validate!(input[:device_fleet_name], ::String, context: "#{context}[:device_fleet_name]")

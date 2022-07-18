@@ -897,11 +897,11 @@ module AWS::SDK::Forecast
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_geolocation_for_time_zone ||= false
       end
-
     end
 
     # @!attribute dataset_import_job_arn
@@ -2741,11 +2741,11 @@ module AWS::SDK::Forecast
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_geolocation_for_time_zone ||= false
       end
-
     end
 
     # @!attribute dataset_arn

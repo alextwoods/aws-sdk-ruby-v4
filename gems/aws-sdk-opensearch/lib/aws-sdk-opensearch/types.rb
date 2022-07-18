@@ -680,11 +680,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_version ||= 0
       end
-
     end
 
     # Includes enum constants for AutoTuneType
@@ -846,11 +846,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_number_of_stages ||= 0
       end
-
     end
 
     # <p>The configuration for the domain cluster, such as the type and number of instances.</p>
@@ -1581,11 +1581,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a <code>DescribeDomainAutoTunes</code> request. See <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html" target="_blank">
@@ -1803,11 +1803,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a
@@ -1967,11 +1967,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a
@@ -2079,11 +2079,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -2141,11 +2141,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Container for results from
@@ -2199,11 +2199,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Container for results from
@@ -2833,11 +2833,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Options to enable, disable, and specify the properties of EBS storage volumes.</p>
@@ -3072,11 +3072,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3148,11 +3148,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3409,12 +3409,12 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_instance_count ||= 0
         self.maximum_instance_count ||= 0
       end
-
     end
 
     # <p>InstanceLimits represents the list of instance-related attributes that are available for a given InstanceType.
@@ -3644,11 +3644,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3712,11 +3712,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute instance_type_details
@@ -3771,11 +3771,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -3889,11 +3889,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>
@@ -4516,11 +4516,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_version ||= 0
       end
-
     end
 
     # <p>Specifies details about an outbound connection.</p>
@@ -4858,11 +4858,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code> operation.
@@ -5079,12 +5079,12 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Details of a reserved OpenSearch instance offering.</p>
@@ -5145,11 +5145,11 @@ module AWS::SDK::OpenSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # Includes enum constants for ReservedInstancePaymentOption

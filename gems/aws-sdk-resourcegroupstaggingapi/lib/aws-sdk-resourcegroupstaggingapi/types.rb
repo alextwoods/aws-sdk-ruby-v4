@@ -214,11 +214,11 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # @!attribute target_id_filters
@@ -757,11 +757,11 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.non_compliant_resources ||= 0
       end
-
     end
 
     # <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize

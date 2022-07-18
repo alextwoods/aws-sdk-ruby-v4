@@ -798,11 +798,11 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.completed ||= false
       end
-
     end
 
     # <p>Provides options for retrieving metadata for a specific vault in Amazon
@@ -880,12 +880,12 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_archives ||= 0
         self.size_in_bytes ||= 0
       end
-
     end
 
     # <p>Contains the Amazon S3 Glacier response to your request.</p>
@@ -938,12 +938,12 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_archives ||= 0
         self.size_in_bytes ||= 0
       end
-
     end
 
     # <p>Contains information about the encryption used to store the job results in Amazon S3. </p>
@@ -1192,11 +1192,11 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>Input for GetVaultAccessPolicy.</p>
@@ -1519,11 +1519,11 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.completed ||= false
       end
-
     end
 
     # <p>Contains information about a grant.</p>
@@ -2266,11 +2266,11 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_size_in_bytes ||= 0
       end
-
     end
 
     # @!attribute account_id
@@ -3061,11 +3061,11 @@ module AWS::SDK::Glacier
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.part_size_in_bytes ||= 0
       end
-
     end
 
     # <p>Provides options to upload a part of an archive in a multipart upload

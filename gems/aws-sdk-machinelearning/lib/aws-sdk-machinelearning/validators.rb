@@ -7,13 +7,15 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MachineLearning
   module Validators
 
     class AddTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsInput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
       end
@@ -53,7 +55,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPrediction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPrediction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input, Types::CreateDataSourceFromRDSInput, context: context)
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:data_source_name], ::String, context: "#{context}[:data_source_name]")
-        Validators::RDSDataSpec.validate!(input[:rds_data], context: "#{context}[:rds_data]") unless input[:rds_data].nil?
+        RDSDataSpec.validate!(input[:rds_data], context: "#{context}[:rds_data]") unless input[:rds_data].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:compute_statistics], ::TrueClass, ::FalseClass, context: "#{context}[:compute_statistics]")
       end
@@ -99,7 +101,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input, Types::CreateDataSourceFromRedshiftInput, context: context)
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:data_source_name], ::String, context: "#{context}[:data_source_name]")
-        Validators::RedshiftDataSpec.validate!(input[:data_spec], context: "#{context}[:data_spec]") unless input[:data_spec].nil?
+        RedshiftDataSpec.validate!(input[:data_spec], context: "#{context}[:data_spec]") unless input[:data_spec].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:compute_statistics], ::TrueClass, ::FalseClass, context: "#{context}[:compute_statistics]")
       end
@@ -117,7 +119,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input, Types::CreateDataSourceFromS3Input, context: context)
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:data_source_name], ::String, context: "#{context}[:data_source_name]")
-        Validators::S3DataSpec.validate!(input[:data_spec], context: "#{context}[:data_spec]") unless input[:data_spec].nil?
+        S3DataSpec.validate!(input[:data_spec], context: "#{context}[:data_spec]") unless input[:data_spec].nil?
         Hearth::Validator.validate!(input[:compute_statistics], ::TrueClass, ::FalseClass, context: "#{context}[:compute_statistics]")
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:ml_model_id], ::String, context: "#{context}[:ml_model_id]")
         Hearth::Validator.validate!(input[:ml_model_name], ::String, context: "#{context}[:ml_model_name]")
         Hearth::Validator.validate!(input[:ml_model_type], ::String, context: "#{context}[:ml_model_type]")
-        Validators::TrainingParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        TrainingParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:training_data_source_id], ::String, context: "#{context}[:training_data_source_id]")
         Hearth::Validator.validate!(input[:recipe], ::String, context: "#{context}[:recipe]")
         Hearth::Validator.validate!(input[:recipe_uri], ::String, context: "#{context}[:recipe_uri]")
@@ -177,7 +179,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRealtimeEndpointOutput, context: context)
         Hearth::Validator.validate!(input[:ml_model_id], ::String, context: "#{context}[:ml_model_id]")
-        Validators::RealtimeEndpointInfo.validate!(input[:realtime_endpoint_info], context: "#{context}[:realtime_endpoint_info]") unless input[:realtime_endpoint_info].nil?
+        RealtimeEndpointInfo.validate!(input[:realtime_endpoint_info], context: "#{context}[:realtime_endpoint_info]") unless input[:realtime_endpoint_info].nil?
       end
     end
 
@@ -195,8 +197,8 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::RedshiftMetadata.validate!(input[:redshift_metadata], context: "#{context}[:redshift_metadata]") unless input[:redshift_metadata].nil?
-        Validators::RDSMetadata.validate!(input[:rds_metadata], context: "#{context}[:rds_metadata]") unless input[:rds_metadata].nil?
+        RedshiftMetadata.validate!(input[:redshift_metadata], context: "#{context}[:redshift_metadata]") unless input[:redshift_metadata].nil?
+        RDSMetadata.validate!(input[:rds_metadata], context: "#{context}[:rds_metadata]") unless input[:rds_metadata].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:compute_statistics], ::TrueClass, ::FalseClass, context: "#{context}[:compute_statistics]")
         Hearth::Validator.validate!(input[:compute_time], ::Integer, context: "#{context}[:compute_time]")
@@ -209,7 +211,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -281,14 +283,14 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRealtimeEndpointOutput, context: context)
         Hearth::Validator.validate!(input[:ml_model_id], ::String, context: "#{context}[:ml_model_id]")
-        Validators::RealtimeEndpointInfo.validate!(input[:realtime_endpoint_info], context: "#{context}[:realtime_endpoint_info]") unless input[:realtime_endpoint_info].nil?
+        RealtimeEndpointInfo.validate!(input[:realtime_endpoint_info], context: "#{context}[:realtime_endpoint_info]") unless input[:realtime_endpoint_info].nil?
       end
     end
 
     class DeleteTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTagsInput, context: context)
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
       end
@@ -322,7 +324,7 @@ module AWS::SDK::MachineLearning
     class DescribeBatchPredictionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBatchPredictionsOutput, context: context)
-        Validators::BatchPredictions.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        BatchPredictions.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::MachineLearning
     class DescribeDataSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSourcesOutput, context: context)
-        Validators::DataSources.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        DataSources.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::MachineLearning
     class DescribeEvaluationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEvaluationsOutput, context: context)
-        Validators::Evaluations.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        Evaluations.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::MachineLearning
     class DescribeMLModelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMLModelsOutput, context: context)
-        Validators::MLModels.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        MLModels.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -415,7 +417,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input, Types::DescribeTagsOutput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::PerformanceMetrics.validate!(input[:performance_metrics], context: "#{context}[:performance_metrics]") unless input[:performance_metrics].nil?
+        PerformanceMetrics.validate!(input[:performance_metrics], context: "#{context}[:performance_metrics]") unless input[:performance_metrics].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:compute_time], ::Integer, context: "#{context}[:compute_time]")
         Hearth::Validator.validate!(input[:finished_at], ::Time, context: "#{context}[:finished_at]")
@@ -462,7 +464,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Evaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Evaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -520,8 +522,8 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:log_uri], ::String, context: "#{context}[:log_uri]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::RedshiftMetadata.validate!(input[:redshift_metadata], context: "#{context}[:redshift_metadata]") unless input[:redshift_metadata].nil?
-        Validators::RDSMetadata.validate!(input[:rds_metadata], context: "#{context}[:rds_metadata]") unless input[:rds_metadata].nil?
+        RedshiftMetadata.validate!(input[:redshift_metadata], context: "#{context}[:redshift_metadata]") unless input[:redshift_metadata].nil?
+        RDSMetadata.validate!(input[:rds_metadata], context: "#{context}[:rds_metadata]") unless input[:rds_metadata].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:compute_statistics], ::TrueClass, ::FalseClass, context: "#{context}[:compute_statistics]")
         Hearth::Validator.validate!(input[:compute_time], ::Integer, context: "#{context}[:compute_time]")
@@ -550,7 +552,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::PerformanceMetrics.validate!(input[:performance_metrics], context: "#{context}[:performance_metrics]") unless input[:performance_metrics].nil?
+        PerformanceMetrics.validate!(input[:performance_metrics], context: "#{context}[:performance_metrics]") unless input[:performance_metrics].nil?
         Hearth::Validator.validate!(input[:log_uri], ::String, context: "#{context}[:log_uri]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:compute_time], ::Integer, context: "#{context}[:compute_time]")
@@ -578,8 +580,8 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:size_in_bytes], ::Integer, context: "#{context}[:size_in_bytes]")
-        Validators::RealtimeEndpointInfo.validate!(input[:endpoint_info], context: "#{context}[:endpoint_info]") unless input[:endpoint_info].nil?
-        Validators::TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
+        RealtimeEndpointInfo.validate!(input[:endpoint_info], context: "#{context}[:endpoint_info]") unless input[:endpoint_info].nil?
+        TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
         Hearth::Validator.validate!(input[:input_data_location_s3], ::String, context: "#{context}[:input_data_location_s3]")
         Hearth::Validator.validate!(input[:ml_model_type], ::String, context: "#{context}[:ml_model_type]")
         Hearth::Validator.validate!(input[:score_threshold], ::Float, context: "#{context}[:score_threshold]")
@@ -644,8 +646,8 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:size_in_bytes], ::Integer, context: "#{context}[:size_in_bytes]")
-        Validators::RealtimeEndpointInfo.validate!(input[:endpoint_info], context: "#{context}[:endpoint_info]") unless input[:endpoint_info].nil?
-        Validators::TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
+        RealtimeEndpointInfo.validate!(input[:endpoint_info], context: "#{context}[:endpoint_info]") unless input[:endpoint_info].nil?
+        TrainingParameters.validate!(input[:training_parameters], context: "#{context}[:training_parameters]") unless input[:training_parameters].nil?
         Hearth::Validator.validate!(input[:input_data_location_s3], ::String, context: "#{context}[:input_data_location_s3]")
         Hearth::Validator.validate!(input[:algorithm], ::String, context: "#{context}[:algorithm]")
         Hearth::Validator.validate!(input[:ml_model_type], ::String, context: "#{context}[:ml_model_type]")
@@ -662,7 +664,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MLModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MLModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -670,7 +672,7 @@ module AWS::SDK::MachineLearning
     class PerformanceMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PerformanceMetrics, context: context)
-        Validators::PerformanceMetricsProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        PerformanceMetricsProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -688,7 +690,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictInput, context: context)
         Hearth::Validator.validate!(input[:ml_model_id], ::String, context: "#{context}[:ml_model_id]")
-        Validators::Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
+        Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
         Hearth::Validator.validate!(input[:predict_endpoint], ::String, context: "#{context}[:predict_endpoint]")
       end
     end
@@ -696,7 +698,7 @@ module AWS::SDK::MachineLearning
     class PredictOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictOutput, context: context)
-        Validators::Prediction.validate!(input[:prediction], context: "#{context}[:prediction]") unless input[:prediction].nil?
+        Prediction.validate!(input[:prediction], context: "#{context}[:prediction]") unless input[:prediction].nil?
       end
     end
 
@@ -705,8 +707,8 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input, Types::Prediction, context: context)
         Hearth::Validator.validate!(input[:predicted_label], ::String, context: "#{context}[:predicted_label]")
         Hearth::Validator.validate!(input[:predicted_value], ::Float, context: "#{context}[:predicted_value]")
-        Validators::ScoreValuePerLabelMap.validate!(input[:predicted_scores], context: "#{context}[:predicted_scores]") unless input[:predicted_scores].nil?
-        Validators::DetailsMap.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ScoreValuePerLabelMap.validate!(input[:predicted_scores], context: "#{context}[:predicted_scores]") unless input[:predicted_scores].nil?
+        DetailsMap.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
@@ -720,9 +722,9 @@ module AWS::SDK::MachineLearning
     class RDSDataSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RDSDataSpec, context: context)
-        Validators::RDSDatabase.validate!(input[:database_information], context: "#{context}[:database_information]") unless input[:database_information].nil?
+        RDSDatabase.validate!(input[:database_information], context: "#{context}[:database_information]") unless input[:database_information].nil?
         Hearth::Validator.validate!(input[:select_sql_query], ::String, context: "#{context}[:select_sql_query]")
-        Validators::RDSDatabaseCredentials.validate!(input[:database_credentials], context: "#{context}[:database_credentials]") unless input[:database_credentials].nil?
+        RDSDatabaseCredentials.validate!(input[:database_credentials], context: "#{context}[:database_credentials]") unless input[:database_credentials].nil?
         Hearth::Validator.validate!(input[:s3_staging_location], ::String, context: "#{context}[:s3_staging_location]")
         Hearth::Validator.validate!(input[:data_rearrangement], ::String, context: "#{context}[:data_rearrangement]")
         Hearth::Validator.validate!(input[:data_schema], ::String, context: "#{context}[:data_schema]")
@@ -730,7 +732,7 @@ module AWS::SDK::MachineLearning
         Hearth::Validator.validate!(input[:resource_role], ::String, context: "#{context}[:resource_role]")
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
-        Validators::EDPSecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        EDPSecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -753,7 +755,7 @@ module AWS::SDK::MachineLearning
     class RDSMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RDSMetadata, context: context)
-        Validators::RDSDatabase.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
+        RDSDatabase.validate!(input[:database], context: "#{context}[:database]") unless input[:database].nil?
         Hearth::Validator.validate!(input[:database_user_name], ::String, context: "#{context}[:database_user_name]")
         Hearth::Validator.validate!(input[:select_sql_query], ::String, context: "#{context}[:select_sql_query]")
         Hearth::Validator.validate!(input[:resource_role], ::String, context: "#{context}[:resource_role]")
@@ -785,9 +787,9 @@ module AWS::SDK::MachineLearning
     class RedshiftDataSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RedshiftDataSpec, context: context)
-        Validators::RedshiftDatabase.validate!(input[:database_information], context: "#{context}[:database_information]") unless input[:database_information].nil?
+        RedshiftDatabase.validate!(input[:database_information], context: "#{context}[:database_information]") unless input[:database_information].nil?
         Hearth::Validator.validate!(input[:select_sql_query], ::String, context: "#{context}[:select_sql_query]")
-        Validators::RedshiftDatabaseCredentials.validate!(input[:database_credentials], context: "#{context}[:database_credentials]") unless input[:database_credentials].nil?
+        RedshiftDatabaseCredentials.validate!(input[:database_credentials], context: "#{context}[:database_credentials]") unless input[:database_credentials].nil?
         Hearth::Validator.validate!(input[:s3_staging_location], ::String, context: "#{context}[:s3_staging_location]")
         Hearth::Validator.validate!(input[:data_rearrangement], ::String, context: "#{context}[:data_rearrangement]")
         Hearth::Validator.validate!(input[:data_schema], ::String, context: "#{context}[:data_schema]")
@@ -814,7 +816,7 @@ module AWS::SDK::MachineLearning
     class RedshiftMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RedshiftMetadata, context: context)
-        Validators::RedshiftDatabase.validate!(input[:redshift_database], context: "#{context}[:redshift_database]") unless input[:redshift_database].nil?
+        RedshiftDatabase.validate!(input[:redshift_database], context: "#{context}[:redshift_database]") unless input[:redshift_database].nil?
         Hearth::Validator.validate!(input[:database_user_name], ::String, context: "#{context}[:database_user_name]")
         Hearth::Validator.validate!(input[:select_sql_query], ::String, context: "#{context}[:select_sql_query]")
       end
@@ -876,7 +878,7 @@ module AWS::SDK::MachineLearning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

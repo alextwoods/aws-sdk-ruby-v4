@@ -34,11 +34,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
@@ -107,6 +107,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -114,7 +115,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the ADM (Amazon Device Messaging) channel.</p>
@@ -221,11 +221,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.silent_push ||= false
       end
-
     end
 
     # <p>Specifies the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -282,11 +282,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
@@ -367,6 +367,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -375,7 +376,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the APNs (Apple Push Notification service) channel.</p>
@@ -494,13 +494,13 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.badge ||= 0
         self.silent_push ||= false
         self.time_to_live ||= 0
       end
-
     end
 
     # <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
@@ -609,11 +609,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
@@ -694,6 +694,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -702,7 +703,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -759,11 +759,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
@@ -844,6 +844,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -852,7 +853,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -909,11 +909,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
@@ -994,6 +994,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -1002,7 +1003,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for Action
@@ -1199,6 +1199,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.successful_endpoint_count ||= 0
@@ -1206,7 +1207,6 @@ module AWS::SDK::Pinpoint
         self.timezones_total_count ||= 0
         self.total_endpoint_count ||= 0
       end
-
     end
 
     # <p>Specifies address-based configuration settings for a message that's sent directly to an endpoint.</p>
@@ -1599,11 +1599,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
@@ -1678,6 +1678,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -1685,7 +1686,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the Baidu (Baidu Cloud Push) channel.</p>
@@ -1780,12 +1780,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.silent_push ||= false
         self.time_to_live ||= 0
       end
-
     end
 
     # <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
@@ -2034,6 +2034,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.daily ||= 0
@@ -2042,7 +2043,6 @@ module AWS::SDK::Pinpoint
         self.total ||= 0
         self.session ||= 0
       end
-
     end
 
     # <p>Provides information about the status, configuration, and other settings for a campaign.</p>
@@ -2201,6 +2201,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.holdout_percent ||= 0
@@ -2209,7 +2210,6 @@ module AWS::SDK::Pinpoint
         self.version ||= 0
         self.priority ||= 0
       end
-
     end
 
     # <p>Specifies the content and settings for an SMS message that's sent to recipients of a campaign.</p>
@@ -2386,6 +2386,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -2393,7 +2394,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for ChannelType
@@ -2890,11 +2890,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recommendations_per_message ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -3121,11 +3121,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.border_radius ||= 0
       end
-
     end
 
     # <p>Specifies the default message for all channels.</p>
@@ -3198,11 +3198,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.silent_push ||= false
       end
-
     end
 
     # <p>Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.</p>
@@ -4019,11 +4019,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the email channel for an application.</p>
@@ -4122,6 +4122,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -4130,7 +4131,6 @@ module AWS::SDK::Pinpoint
         self.messages_per_second ||= 0
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the default settings and content for a one-time email message that's sent directly to an endpoint.</p>
@@ -4523,11 +4523,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>Specifies geographic information about an endpoint.</p>
@@ -4572,12 +4572,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latitude ||= 0
         self.longitude ||= 0
       end
-
     end
 
     # <p>Provides information about the delivery status and results of sending a message directly to an endpoint.</p>
@@ -4624,11 +4624,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>Specifies the channel type and other settings for an endpoint.</p>
@@ -5033,11 +5033,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>Specifies the settings for an event that causes a journey activity to start.</p>
@@ -5183,11 +5183,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_version ||= 0
       end
-
     end
 
     # <p>Provides information about the resource settings for a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -5220,11 +5220,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_version ||= 0
       end
-
     end
 
     # <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
@@ -5313,6 +5313,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.completed_pieces ||= 0
@@ -5321,7 +5322,6 @@ module AWS::SDK::Pinpoint
         self.total_pieces ||= 0
         self.total_processed ||= 0
       end
-
     end
 
     # <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
@@ -5438,11 +5438,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -5517,6 +5517,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -5524,7 +5525,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a one-time message that's sent directly to an endpoint through the GCM channel. The GCM channel enables Amazon Pinpoint to send messages to the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
@@ -5637,12 +5637,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.silent_push ||= false
         self.time_to_live ||= 0
       end
-
     end
 
     # <p>Specifies the GPS coordinates of a location.</p>
@@ -5663,12 +5663,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latitude ||= 0
         self.longitude ||= 0
       end
-
     end
 
     # <p>Specifies GPS-based criteria for including or excluding endpoints from a segment.</p>
@@ -5689,11 +5689,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.range_in_kilometers ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -7214,11 +7214,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percentage ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a job that imports endpoint definitions from an Amazon Simple Storage Service (Amazon S3) bucket.</p>
@@ -7277,12 +7277,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.define_segment ||= false
         self.register_endpoints ||= false
       end
-
     end
 
     # <p>Provides information about the resource settings for a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -7341,12 +7341,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.define_segment ||= false
         self.register_endpoints ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
@@ -7435,6 +7435,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.completed_pieces ||= 0
@@ -7443,7 +7444,6 @@ module AWS::SDK::Pinpoint
         self.total_pieces ||= 0
         self.total_processed ||= 0
       end
-
     end
 
     # <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
@@ -7634,6 +7634,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.daily_cap ||= 0
@@ -7641,7 +7642,6 @@ module AWS::SDK::Pinpoint
         self.session_cap ||= 0
         self.total_cap ||= 0
       end
-
     end
 
     # <p>The configuration for the message content.</p>
@@ -8148,13 +8148,13 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.daily_cap ||= 0
         self.endpoint_reentry_cap ||= 0
         self.messages_per_second ||= 0
       end
-
     end
 
     # <p>Specifies the message configuration for a push notification that's sent to participants in a journey.</p>
@@ -8287,13 +8287,13 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.local_time ||= false
         self.wait_for_quiet_time ||= false
         self.refresh_on_segment_update ||= false
       end
-
     end
 
     # <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
@@ -8675,12 +8675,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.silent_push ||= false
         self.time_to_live ||= 0
       end
-
     end
 
     # <p>Provides information about an API request or response.</p>
@@ -8879,11 +8879,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # Includes enum constants for MessageType
@@ -8936,11 +8936,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for Mode
@@ -9132,11 +9132,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.phone_type_code ||= 0
       end
-
     end
 
     # Includes enum constants for Operator
@@ -9599,11 +9599,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percentage ||= 0
       end
-
     end
 
     # <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
@@ -9734,11 +9734,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recommendations_per_message ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -9847,11 +9847,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the SMS channel for an application.</p>
@@ -9944,6 +9944,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -9953,7 +9954,6 @@ module AWS::SDK::Pinpoint
         self.transactional_messages_per_second ||= 0
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.</p>
@@ -10219,11 +10219,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_local_time ||= false
       end
-
     end
 
     # <p>Specifies dimension settings for including or excluding endpoints from a segment based on how recently an endpoint was active.</p>
@@ -10444,11 +10444,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Specifies geographical dimension settings for a segment.</p>
@@ -10489,11 +10489,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
@@ -10576,11 +10576,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for SegmentType
@@ -10747,13 +10747,13 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_attempts ||= 0
         self.code_length ||= 0
         self.validity_period ||= 0
       end
-
     end
 
     # <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
@@ -10880,11 +10880,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # <p>Specifies the dimension type and values for a segment dimension.</p>
@@ -11452,11 +11452,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size_percent ||= 0
       end
-
     end
 
     # Includes enum constants for Type
@@ -11818,11 +11818,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_new_version ||= false
       end
-
     end
 
     # @!attribute message_body
@@ -11961,11 +11961,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_new_version ||= false
       end
-
     end
 
     # @!attribute message_body
@@ -12080,11 +12080,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_new_version ||= false
       end
-
     end
 
     # @!attribute message_body
@@ -12189,11 +12189,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recommendations_per_message ||= 0
       end
-
     end
 
     # @!attribute application_id
@@ -12290,11 +12290,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_new_version ||= false
       end
-
     end
 
     # @!attribute message_body
@@ -12403,11 +12403,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_new_version ||= false
       end
-
     end
 
     # @!attribute message_body
@@ -12434,11 +12434,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.valid ||= false
       end
-
     end
 
     # @!attribute application_id
@@ -12509,11 +12509,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Provides information about the status and settings of the voice channel for an application.</p>
@@ -12582,6 +12582,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -12589,7 +12590,6 @@ module AWS::SDK::Pinpoint
         self.is_archived ||= false
         self.version ||= 0
       end
-
     end
 
     # <p>Specifies the settings for a one-time voice message that's sent directly to an endpoint through the voice channel.</p>
@@ -12831,12 +12831,12 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_watch_metrics_enabled ||= false
         self.event_tagging_enabled ||= false
       end
-
     end
 
     # <p>Specifies the configuration and other settings for a campaign.</p>
@@ -12947,6 +12947,7 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.holdout_percent ||= 0
@@ -12954,7 +12955,6 @@ module AWS::SDK::Pinpoint
         self.segment_version ||= 0
         self.priority ||= 0
       end
-
     end
 
     # <p>Specifies the Amazon Resource Name (ARN) of an event stream to publish events to and the AWS Identity and Access Management (IAM) role to use when publishing those events.</p>
@@ -13077,13 +13077,13 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.local_time ||= false
         self.wait_for_quiet_time ||= false
         self.refresh_on_segment_update ||= false
       end
-
     end
 
     # <p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>
@@ -13166,11 +13166,11 @@ module AWS::SDK::Pinpoint
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size_percent ||= 0
       end
-
     end
 
     # Includes enum constants for String____EndpointTypesElement

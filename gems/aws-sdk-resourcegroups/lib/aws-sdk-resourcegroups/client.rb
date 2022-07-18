@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ResourceGroups
@@ -180,7 +182,7 @@ module AWS::SDK::ResourceGroups
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -268,7 +270,7 @@ module AWS::SDK::ResourceGroups
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -355,7 +357,7 @@ module AWS::SDK::ResourceGroups
     def get_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupInput,
         validate_input: @config.validate_input
@@ -448,7 +450,7 @@ module AWS::SDK::ResourceGroups
     def get_group_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupConfigurationInput,
         validate_input: @config.validate_input
@@ -538,7 +540,7 @@ module AWS::SDK::ResourceGroups
     def get_group_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupQueryInput,
         validate_input: @config.validate_input
@@ -621,7 +623,7 @@ module AWS::SDK::ResourceGroups
     def get_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTagsInput,
         validate_input: @config.validate_input
@@ -715,7 +717,7 @@ module AWS::SDK::ResourceGroups
     def group_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GroupResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GroupResourcesInput,
         validate_input: @config.validate_input
@@ -891,7 +893,7 @@ module AWS::SDK::ResourceGroups
     def list_group_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupResourcesInput,
         validate_input: @config.validate_input
@@ -1035,7 +1037,7 @@ module AWS::SDK::ResourceGroups
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -1141,7 +1143,7 @@ module AWS::SDK::ResourceGroups
     def put_group_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutGroupConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutGroupConfigurationInput,
         validate_input: @config.validate_input
@@ -1268,7 +1270,7 @@ module AWS::SDK::ResourceGroups
     def search_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchResourcesInput,
         validate_input: @config.validate_input
@@ -1364,7 +1366,7 @@ module AWS::SDK::ResourceGroups
     def tag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagInput,
         validate_input: @config.validate_input
@@ -1459,7 +1461,7 @@ module AWS::SDK::ResourceGroups
     def ungroup_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UngroupResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UngroupResourcesInput,
         validate_input: @config.validate_input
@@ -1548,7 +1550,7 @@ module AWS::SDK::ResourceGroups
     def untag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagInput,
         validate_input: @config.validate_input
@@ -1641,7 +1643,7 @@ module AWS::SDK::ResourceGroups
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -1742,7 +1744,7 @@ module AWS::SDK::ResourceGroups
     def update_group_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupQueryInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::FSx
@@ -104,7 +106,7 @@ module AWS::SDK::FSx
     def associate_file_system_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateFileSystemAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateFileSystemAliasesInput,
         validate_input: @config.validate_input
@@ -186,7 +188,7 @@ module AWS::SDK::FSx
     def cancel_data_repository_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelDataRepositoryTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelDataRepositoryTaskInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::FSx
     def copy_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyBackupInput,
         validate_input: @config.validate_input
@@ -866,7 +868,7 @@ module AWS::SDK::FSx
     def create_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
         validate_input: @config.validate_input
@@ -1040,7 +1042,7 @@ module AWS::SDK::FSx
     def create_data_repository_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataRepositoryAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataRepositoryAssociationInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::FSx
     def create_data_repository_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataRepositoryTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataRepositoryTaskInput,
         validate_input: @config.validate_input
@@ -1781,7 +1783,7 @@ module AWS::SDK::FSx
     def create_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFileSystemInput,
         validate_input: @config.validate_input
@@ -2278,7 +2280,7 @@ module AWS::SDK::FSx
     def create_file_system_from_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFileSystemFromBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFileSystemFromBackupInput,
         validate_input: @config.validate_input
@@ -2565,7 +2567,7 @@ module AWS::SDK::FSx
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -2732,7 +2734,7 @@ module AWS::SDK::FSx
     def create_storage_virtual_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStorageVirtualMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStorageVirtualMachineInput,
         validate_input: @config.validate_input
@@ -3042,7 +3044,7 @@ module AWS::SDK::FSx
     def create_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVolumeInput,
         validate_input: @config.validate_input
@@ -3317,7 +3319,7 @@ module AWS::SDK::FSx
     def create_volume_from_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVolumeFromBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVolumeFromBackupInput,
         validate_input: @config.validate_input
@@ -3402,7 +3404,7 @@ module AWS::SDK::FSx
     def delete_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
         validate_input: @config.validate_input
@@ -3490,7 +3492,7 @@ module AWS::SDK::FSx
     def delete_data_repository_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataRepositoryAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataRepositoryAssociationInput,
         validate_input: @config.validate_input
@@ -3632,7 +3634,7 @@ module AWS::SDK::FSx
     def delete_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFileSystemInput,
         validate_input: @config.validate_input
@@ -3712,7 +3714,7 @@ module AWS::SDK::FSx
     def delete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotInput,
         validate_input: @config.validate_input
@@ -3789,7 +3791,7 @@ module AWS::SDK::FSx
     def delete_storage_virtual_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStorageVirtualMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStorageVirtualMachineInput,
         validate_input: @config.validate_input
@@ -3895,7 +3897,7 @@ module AWS::SDK::FSx
     def delete_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVolumeInput,
         validate_input: @config.validate_input
@@ -4215,7 +4217,7 @@ module AWS::SDK::FSx
     def describe_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupsInput,
         validate_input: @config.validate_input
@@ -4350,7 +4352,7 @@ module AWS::SDK::FSx
     def describe_data_repository_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataRepositoryAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataRepositoryAssociationsInput,
         validate_input: @config.validate_input
@@ -4483,7 +4485,7 @@ module AWS::SDK::FSx
     def describe_data_repository_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataRepositoryTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataRepositoryTasksInput,
         validate_input: @config.validate_input
@@ -4578,7 +4580,7 @@ module AWS::SDK::FSx
     def describe_file_system_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFileSystemAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFileSystemAliasesInput,
         validate_input: @config.validate_input
@@ -4868,7 +4870,7 @@ module AWS::SDK::FSx
     def describe_file_systems(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFileSystemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFileSystemsInput,
         validate_input: @config.validate_input
@@ -5163,7 +5165,7 @@ module AWS::SDK::FSx
     def describe_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotsInput,
         validate_input: @config.validate_input
@@ -5290,7 +5292,7 @@ module AWS::SDK::FSx
     def describe_storage_virtual_machines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStorageVirtualMachinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStorageVirtualMachinesInput,
         validate_input: @config.validate_input
@@ -5559,7 +5561,7 @@ module AWS::SDK::FSx
     def describe_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumesInput,
         validate_input: @config.validate_input
@@ -5651,7 +5653,7 @@ module AWS::SDK::FSx
     def disassociate_file_system_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFileSystemAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFileSystemAliasesInput,
         validate_input: @config.validate_input
@@ -5765,7 +5767,7 @@ module AWS::SDK::FSx
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6013,7 +6015,7 @@ module AWS::SDK::FSx
     def release_file_system_nfs_v3_locks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleaseFileSystemNfsV3LocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleaseFileSystemNfsV3LocksInput,
         validate_input: @config.validate_input
@@ -6115,7 +6117,7 @@ module AWS::SDK::FSx
     def restore_volume_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreVolumeFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreVolumeFromSnapshotInput,
         validate_input: @config.validate_input
@@ -6194,7 +6196,7 @@ module AWS::SDK::FSx
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6269,7 +6271,7 @@ module AWS::SDK::FSx
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6394,7 +6396,7 @@ module AWS::SDK::FSx
     def update_data_repository_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataRepositoryAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataRepositoryAssociationInput,
         validate_input: @config.validate_input
@@ -6898,7 +6900,7 @@ module AWS::SDK::FSx
     def update_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFileSystemInput,
         validate_input: @config.validate_input
@@ -7150,7 +7152,7 @@ module AWS::SDK::FSx
     def update_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSnapshotInput,
         validate_input: @config.validate_input
@@ -7273,7 +7275,7 @@ module AWS::SDK::FSx
     def update_storage_virtual_machine(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStorageVirtualMachineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStorageVirtualMachineInput,
         validate_input: @config.validate_input
@@ -7569,7 +7571,7 @@ module AWS::SDK::FSx
     def update_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVolumeInput,
         validate_input: @config.validate_input

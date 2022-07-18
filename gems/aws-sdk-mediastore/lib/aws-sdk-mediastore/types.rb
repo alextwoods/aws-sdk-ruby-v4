@@ -188,11 +188,11 @@ module AWS::SDK::MediaStore
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_age_seconds ||= 0
       end
-
     end
 
     # @!attribute container_name

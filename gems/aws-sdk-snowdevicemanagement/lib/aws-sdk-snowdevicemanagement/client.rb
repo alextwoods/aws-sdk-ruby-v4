@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SnowDeviceManagement
@@ -64,7 +66,7 @@ module AWS::SDK::SnowDeviceManagement
     def cancel_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelTaskInput,
         validate_input: @config.validate_input
@@ -158,7 +160,7 @@ module AWS::SDK::SnowDeviceManagement
     def create_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTaskInput,
         validate_input: @config.validate_input
@@ -256,7 +258,7 @@ module AWS::SDK::SnowDeviceManagement
     def describe_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceInput,
         validate_input: @config.validate_input
@@ -362,7 +364,7 @@ module AWS::SDK::SnowDeviceManagement
     def describe_device_ec2_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceEc2InstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceEc2InstancesInput,
         validate_input: @config.validate_input
@@ -440,7 +442,7 @@ module AWS::SDK::SnowDeviceManagement
     def describe_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExecutionInput,
         validate_input: @config.validate_input
@@ -518,7 +520,7 @@ module AWS::SDK::SnowDeviceManagement
     def describe_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTaskInput,
         validate_input: @config.validate_input
@@ -603,7 +605,7 @@ module AWS::SDK::SnowDeviceManagement
     def list_device_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceResourcesInput,
         validate_input: @config.validate_input
@@ -687,7 +689,7 @@ module AWS::SDK::SnowDeviceManagement
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -773,7 +775,7 @@ module AWS::SDK::SnowDeviceManagement
     def list_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExecutionsInput,
         validate_input: @config.validate_input
@@ -842,7 +844,7 @@ module AWS::SDK::SnowDeviceManagement
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -925,7 +927,7 @@ module AWS::SDK::SnowDeviceManagement
     def list_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTasksInput,
         validate_input: @config.validate_input
@@ -999,7 +1001,7 @@ module AWS::SDK::SnowDeviceManagement
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1074,7 +1076,7 @@ module AWS::SDK::SnowDeviceManagement
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

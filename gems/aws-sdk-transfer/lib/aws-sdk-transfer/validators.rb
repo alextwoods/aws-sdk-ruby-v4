@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Transfer
   module Validators
 
@@ -37,7 +39,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyStepDetails, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputFileLocation.validate!(input[:destination_file_location], context: "#{context}[:destination_file_location]") unless input[:destination_file_location].nil?
+        InputFileLocation.validate!(input[:destination_file_location], context: "#{context}[:destination_file_location]") unless input[:destination_file_location].nil?
         Hearth::Validator.validate!(input[:overwrite_existing], ::String, context: "#{context}[:overwrite_existing]")
         Hearth::Validator.validate!(input[:source_file_location], ::String, context: "#{context}[:source_file_location]")
       end
@@ -48,9 +50,9 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::CreateAccessInput, context: context)
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
@@ -70,19 +72,19 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::CreateServerInput, context: context)
         Hearth::Validator.validate!(input[:certificate], ::String, context: "#{context}[:certificate]")
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
+        EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
         Hearth::Validator.validate!(input[:host_key], ::String, context: "#{context}[:host_key]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
         Hearth::Validator.validate!(input[:identity_provider_type], ::String, context: "#{context}[:identity_provider_type]")
         Hearth::Validator.validate!(input[:logging_role], ::String, context: "#{context}[:logging_role]")
         Hearth::Validator.validate!(input[:post_authentication_login_banner], ::String, context: "#{context}[:post_authentication_login_banner]")
         Hearth::Validator.validate!(input[:pre_authentication_login_banner], ::String, context: "#{context}[:pre_authentication_login_banner]")
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
-        Validators::ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
         Hearth::Validator.validate!(input[:security_policy_name], ::String, context: "#{context}[:security_policy_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
       end
     end
 
@@ -98,13 +100,13 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::CreateUserInput, context: context)
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:ssh_public_key_body], ::String, context: "#{context}[:ssh_public_key_body]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
       end
     end
@@ -121,9 +123,9 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWorkflowInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::WorkflowSteps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::WorkflowSteps.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        WorkflowSteps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        WorkflowSteps.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccessOutput, context: context)
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::DescribedAccess.validate!(input[:access], context: "#{context}[:access]") unless input[:access].nil?
+        DescribedAccess.validate!(input[:access], context: "#{context}[:access]") unless input[:access].nil?
       end
     end
 
@@ -249,7 +251,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeExecutionOutput, context: context)
         Hearth::Validator.validate!(input[:workflow_id], ::String, context: "#{context}[:workflow_id]")
-        Validators::DescribedExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        DescribedExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::Transfer
     class DescribeSecurityPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSecurityPolicyOutput, context: context)
-        Validators::DescribedSecurityPolicy.validate!(input[:security_policy], context: "#{context}[:security_policy]") unless input[:security_policy].nil?
+        DescribedSecurityPolicy.validate!(input[:security_policy], context: "#{context}[:security_policy]") unless input[:security_policy].nil?
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::Transfer
     class DescribeServerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServerOutput, context: context)
-        Validators::DescribedServer.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        DescribedServer.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserOutput, context: context)
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::DescribedUser.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        DescribedUser.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::Transfer
     class DescribeWorkflowOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeWorkflowOutput, context: context)
-        Validators::DescribedWorkflow.validate!(input[:workflow], context: "#{context}[:workflow]") unless input[:workflow].nil?
+        DescribedWorkflow.validate!(input[:workflow], context: "#{context}[:workflow]") unless input[:workflow].nil?
       end
     end
 
@@ -315,10 +317,10 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribedAccess, context: context)
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
       end
@@ -328,13 +330,13 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribedExecution, context: context)
         Hearth::Validator.validate!(input[:execution_id], ::String, context: "#{context}[:execution_id]")
-        Validators::FileLocation.validate!(input[:initial_file_location], context: "#{context}[:initial_file_location]") unless input[:initial_file_location].nil?
-        Validators::ServiceMetadata.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
+        FileLocation.validate!(input[:initial_file_location], context: "#{context}[:initial_file_location]") unless input[:initial_file_location].nil?
+        ServiceMetadata.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
         Hearth::Validator.validate!(input[:execution_role], ::String, context: "#{context}[:execution_role]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ExecutionResults.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        ExecutionResults.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
@@ -343,10 +345,10 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::DescribedSecurityPolicy, context: context)
         Hearth::Validator.validate!(input[:fips], ::TrueClass, ::FalseClass, context: "#{context}[:fips]")
         Hearth::Validator.validate!(input[:security_policy_name], ::String, context: "#{context}[:security_policy_name]")
-        Validators::SecurityPolicyOptions.validate!(input[:ssh_ciphers], context: "#{context}[:ssh_ciphers]") unless input[:ssh_ciphers].nil?
-        Validators::SecurityPolicyOptions.validate!(input[:ssh_kexs], context: "#{context}[:ssh_kexs]") unless input[:ssh_kexs].nil?
-        Validators::SecurityPolicyOptions.validate!(input[:ssh_macs], context: "#{context}[:ssh_macs]") unless input[:ssh_macs].nil?
-        Validators::SecurityPolicyOptions.validate!(input[:tls_ciphers], context: "#{context}[:tls_ciphers]") unless input[:tls_ciphers].nil?
+        SecurityPolicyOptions.validate!(input[:ssh_ciphers], context: "#{context}[:ssh_ciphers]") unless input[:ssh_ciphers].nil?
+        SecurityPolicyOptions.validate!(input[:ssh_kexs], context: "#{context}[:ssh_kexs]") unless input[:ssh_kexs].nil?
+        SecurityPolicyOptions.validate!(input[:ssh_macs], context: "#{context}[:ssh_macs]") unless input[:ssh_macs].nil?
+        SecurityPolicyOptions.validate!(input[:tls_ciphers], context: "#{context}[:tls_ciphers]") unless input[:tls_ciphers].nil?
       end
     end
 
@@ -355,23 +357,23 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::DescribedServer, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:certificate], ::String, context: "#{context}[:certificate]")
-        Validators::ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
+        ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
-        Validators::EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
+        EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
         Hearth::Validator.validate!(input[:host_key_fingerprint], ::String, context: "#{context}[:host_key_fingerprint]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
         Hearth::Validator.validate!(input[:identity_provider_type], ::String, context: "#{context}[:identity_provider_type]")
         Hearth::Validator.validate!(input[:logging_role], ::String, context: "#{context}[:logging_role]")
         Hearth::Validator.validate!(input[:post_authentication_login_banner], ::String, context: "#{context}[:post_authentication_login_banner]")
         Hearth::Validator.validate!(input[:pre_authentication_login_banner], ::String, context: "#{context}[:pre_authentication_login_banner]")
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
         Hearth::Validator.validate!(input[:security_policy_name], ::String, context: "#{context}[:security_policy_name]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:user_count], ::Integer, context: "#{context}[:user_count]")
-        Validators::WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
+        WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
       end
     end
 
@@ -380,13 +382,13 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::DescribedUser, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
-        Validators::SshPublicKeys.validate!(input[:ssh_public_keys], context: "#{context}[:ssh_public_keys]") unless input[:ssh_public_keys].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SshPublicKeys.validate!(input[:ssh_public_keys], context: "#{context}[:ssh_public_keys]") unless input[:ssh_public_keys].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
       end
     end
@@ -396,10 +398,10 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::DescribedWorkflow, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::WorkflowSteps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::WorkflowSteps.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
+        WorkflowSteps.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        WorkflowSteps.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
         Hearth::Validator.validate!(input[:workflow_id], ::String, context: "#{context}[:workflow_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -414,11 +416,11 @@ module AWS::SDK::Transfer
     class EndpointDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EndpointDetails, context: context)
-        Validators::AddressAllocationIds.validate!(input[:address_allocation_ids], context: "#{context}[:address_allocation_ids]") unless input[:address_allocation_ids].nil?
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        AddressAllocationIds.validate!(input[:address_allocation_ids], context: "#{context}[:address_allocation_ids]") unless input[:address_allocation_ids].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:vpc_endpoint_id], ::String, context: "#{context}[:vpc_endpoint_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -433,8 +435,8 @@ module AWS::SDK::Transfer
     class ExecutionResults
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecutionResults, context: context)
-        Validators::ExecutionStepResults.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::ExecutionStepResults.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
+        ExecutionStepResults.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        ExecutionStepResults.validate!(input[:on_exception_steps], context: "#{context}[:on_exception_steps]") unless input[:on_exception_steps].nil?
       end
     end
 
@@ -443,7 +445,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::ExecutionStepResult, context: context)
         Hearth::Validator.validate!(input[:step_type], ::String, context: "#{context}[:step_type]")
         Hearth::Validator.validate!(input[:outputs], ::String, context: "#{context}[:outputs]")
-        Validators::ExecutionError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        ExecutionError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -451,7 +453,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionStepResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionStepResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -459,8 +461,8 @@ module AWS::SDK::Transfer
     class FileLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FileLocation, context: context)
-        Validators::S3FileLocation.validate!(input[:s3_file_location], context: "#{context}[:s3_file_location]") unless input[:s3_file_location].nil?
-        Validators::EfsFileLocation.validate!(input[:efs_file_location], context: "#{context}[:efs_file_location]") unless input[:efs_file_location].nil?
+        S3FileLocation.validate!(input[:s3_file_location], context: "#{context}[:s3_file_location]") unless input[:s3_file_location].nil?
+        EfsFileLocation.validate!(input[:efs_file_location], context: "#{context}[:efs_file_location]") unless input[:efs_file_location].nil?
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HomeDirectoryMapEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HomeDirectoryMapEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -512,8 +514,8 @@ module AWS::SDK::Transfer
     class InputFileLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputFileLocation, context: context)
-        Validators::S3InputFileLocation.validate!(input[:s3_file_location], context: "#{context}[:s3_file_location]") unless input[:s3_file_location].nil?
-        Validators::EfsFileLocation.validate!(input[:efs_file_location], context: "#{context}[:efs_file_location]") unless input[:efs_file_location].nil?
+        S3InputFileLocation.validate!(input[:s3_file_location], context: "#{context}[:s3_file_location]") unless input[:s3_file_location].nil?
+        EfsFileLocation.validate!(input[:efs_file_location], context: "#{context}[:efs_file_location]") unless input[:efs_file_location].nil?
       end
     end
 
@@ -552,7 +554,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::ListAccessesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::ListedAccesses.validate!(input[:accesses], context: "#{context}[:accesses]") unless input[:accesses].nil?
+        ListedAccesses.validate!(input[:accesses], context: "#{context}[:accesses]") unless input[:accesses].nil?
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::ListExecutionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:workflow_id], ::String, context: "#{context}[:workflow_id]")
-        Validators::ListedExecutions.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
+        ListedExecutions.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSecurityPoliciesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SecurityPolicyNames.validate!(input[:security_policy_names], context: "#{context}[:security_policy_names]") unless input[:security_policy_names].nil?
+        SecurityPolicyNames.validate!(input[:security_policy_names], context: "#{context}[:security_policy_names]") unless input[:security_policy_names].nil?
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ListedServers.validate!(input[:servers], context: "#{context}[:servers]") unless input[:servers].nil?
+        ListedServers.validate!(input[:servers], context: "#{context}[:servers]") unless input[:servers].nil?
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::ListedUsers.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        ListedUsers.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -654,7 +656,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkflowsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ListedWorkflows.validate!(input[:workflows], context: "#{context}[:workflows]") unless input[:workflows].nil?
+        ListedWorkflows.validate!(input[:workflows], context: "#{context}[:workflows]") unless input[:workflows].nil?
       end
     end
 
@@ -672,7 +674,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -681,8 +683,8 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListedExecution, context: context)
         Hearth::Validator.validate!(input[:execution_id], ::String, context: "#{context}[:execution_id]")
-        Validators::FileLocation.validate!(input[:initial_file_location], context: "#{context}[:initial_file_location]") unless input[:initial_file_location].nil?
-        Validators::ServiceMetadata.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
+        FileLocation.validate!(input[:initial_file_location], context: "#{context}[:initial_file_location]") unless input[:initial_file_location].nil?
+        ServiceMetadata.validate!(input[:service_metadata], context: "#{context}[:service_metadata]") unless input[:service_metadata].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -691,7 +693,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -714,7 +716,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -735,7 +737,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -753,7 +755,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedWorkflow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedWorkflow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -770,7 +772,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkflowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkflowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -780,7 +782,7 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::PosixProfile, context: context)
         Hearth::Validator.validate!(input[:uid], ::Integer, context: "#{context}[:uid]")
         Hearth::Validator.validate!(input[:gid], ::Integer, context: "#{context}[:gid]")
-        Validators::SecondaryGids.validate!(input[:secondary_gids], context: "#{context}[:secondary_gids]") unless input[:secondary_gids].nil?
+        SecondaryGids.validate!(input[:secondary_gids], context: "#{context}[:secondary_gids]") unless input[:secondary_gids].nil?
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -910,7 +912,7 @@ module AWS::SDK::Transfer
     class ServiceMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceMetadata, context: context)
-        Validators::UserDetails.validate!(input[:user_details], context: "#{context}[:user_details]") unless input[:user_details].nil?
+        UserDetails.validate!(input[:user_details], context: "#{context}[:user_details]") unless input[:user_details].nil?
       end
     end
 
@@ -934,7 +936,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SshPublicKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SshPublicKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -995,7 +997,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1009,7 +1011,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagStepDetails, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::S3Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        S3Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:source_file_location], ::String, context: "#{context}[:source_file_location]")
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1055,7 +1057,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1070,9 +1072,9 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::UpdateAccessInput, context: context)
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
@@ -1091,18 +1093,18 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServerInput, context: context)
         Hearth::Validator.validate!(input[:certificate], ::String, context: "#{context}[:certificate]")
-        Validators::ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
-        Validators::EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
+        ProtocolDetails.validate!(input[:protocol_details], context: "#{context}[:protocol_details]") unless input[:protocol_details].nil?
+        EndpointDetails.validate!(input[:endpoint_details], context: "#{context}[:endpoint_details]") unless input[:endpoint_details].nil?
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
         Hearth::Validator.validate!(input[:host_key], ::String, context: "#{context}[:host_key]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
         Hearth::Validator.validate!(input[:logging_role], ::String, context: "#{context}[:logging_role]")
         Hearth::Validator.validate!(input[:post_authentication_login_banner], ::String, context: "#{context}[:post_authentication_login_banner]")
         Hearth::Validator.validate!(input[:pre_authentication_login_banner], ::String, context: "#{context}[:pre_authentication_login_banner]")
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
         Hearth::Validator.validate!(input[:security_policy_name], ::String, context: "#{context}[:security_policy_name]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
-        Validators::WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
+        WorkflowDetails.validate!(input[:workflow_details], context: "#{context}[:workflow_details]") unless input[:workflow_details].nil?
       end
     end
 
@@ -1118,9 +1120,9 @@ module AWS::SDK::Transfer
         Hearth::Validator.validate!(input, Types::UpdateUserInput, context: context)
         Hearth::Validator.validate!(input[:home_directory], ::String, context: "#{context}[:home_directory]")
         Hearth::Validator.validate!(input[:home_directory_type], ::String, context: "#{context}[:home_directory_type]")
-        Validators::HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
+        HomeDirectoryMappings.validate!(input[:home_directory_mappings], context: "#{context}[:home_directory_mappings]") unless input[:home_directory_mappings].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
-        Validators::PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
+        PosixProfile.validate!(input[:posix_profile], context: "#{context}[:posix_profile]") unless input[:posix_profile].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:server_id], ::String, context: "#{context}[:server_id]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
@@ -1155,7 +1157,7 @@ module AWS::SDK::Transfer
     class WorkflowDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkflowDetails, context: context)
-        Validators::OnUploadWorkflowDetails.validate!(input[:on_upload], context: "#{context}[:on_upload]") unless input[:on_upload].nil?
+        OnUploadWorkflowDetails.validate!(input[:on_upload], context: "#{context}[:on_upload]") unless input[:on_upload].nil?
       end
     end
 
@@ -1163,10 +1165,10 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkflowStep, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::CopyStepDetails.validate!(input[:copy_step_details], context: "#{context}[:copy_step_details]") unless input[:copy_step_details].nil?
-        Validators::CustomStepDetails.validate!(input[:custom_step_details], context: "#{context}[:custom_step_details]") unless input[:custom_step_details].nil?
-        Validators::DeleteStepDetails.validate!(input[:delete_step_details], context: "#{context}[:delete_step_details]") unless input[:delete_step_details].nil?
-        Validators::TagStepDetails.validate!(input[:tag_step_details], context: "#{context}[:tag_step_details]") unless input[:tag_step_details].nil?
+        CopyStepDetails.validate!(input[:copy_step_details], context: "#{context}[:copy_step_details]") unless input[:copy_step_details].nil?
+        CustomStepDetails.validate!(input[:custom_step_details], context: "#{context}[:custom_step_details]") unless input[:custom_step_details].nil?
+        DeleteStepDetails.validate!(input[:delete_step_details], context: "#{context}[:delete_step_details]") unless input[:delete_step_details].nil?
+        TagStepDetails.validate!(input[:tag_step_details], context: "#{context}[:tag_step_details]") unless input[:tag_step_details].nil?
       end
     end
 
@@ -1174,7 +1176,7 @@ module AWS::SDK::Transfer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkflowStep.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkflowStep.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

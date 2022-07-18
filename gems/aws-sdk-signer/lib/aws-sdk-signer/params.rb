@@ -738,7 +738,7 @@ module AWS::SDK::Signer
         type.source = Source.build(params[:source], context: "#{context}[:source]") unless params[:source].nil?
         type.destination = Destination.build(params[:destination], context: "#{context}[:destination]") unless params[:destination].nil?
         type.profile_name = params[:profile_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.profile_owner = params[:profile_owner]
         type
       end

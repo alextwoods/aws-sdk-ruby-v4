@@ -597,11 +597,11 @@ module AWS::SDK::LexRuntimeService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # <p>Provides information about the state of an intent. You can use this

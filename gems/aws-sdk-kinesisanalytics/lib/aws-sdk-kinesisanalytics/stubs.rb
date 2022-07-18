@@ -84,7 +84,7 @@ module AWS::SDK::KinesisAnalytics
     class CreateApplication
       def self.default(visited=[])
         {
-          application_summary: Stubs::ApplicationSummary.default(visited),
+          application_summary: ApplicationSummary.default(visited),
         }
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::KinesisAnalytics
     class DescribeApplication
       def self.default(visited=[])
         {
-          application_detail: Stubs::ApplicationDetail.default(visited),
+          application_detail: ApplicationDetail.default(visited),
         }
       end
 
@@ -216,10 +216,10 @@ module AWS::SDK::KinesisAnalytics
           application_status: 'application_status',
           create_timestamp: Time.now,
           last_update_timestamp: Time.now,
-          input_descriptions: Stubs::InputDescriptions.default(visited),
-          output_descriptions: Stubs::OutputDescriptions.default(visited),
-          reference_data_source_descriptions: Stubs::ReferenceDataSourceDescriptions.default(visited),
-          cloud_watch_logging_option_descriptions: Stubs::CloudWatchLoggingOptionDescriptions.default(visited),
+          input_descriptions: InputDescriptions.default(visited),
+          output_descriptions: OutputDescriptions.default(visited),
+          reference_data_source_descriptions: ReferenceDataSourceDescriptions.default(visited),
+          cloud_watch_logging_option_descriptions: CloudWatchLoggingOptionDescriptions.default(visited),
           application_code: 'application_code',
           application_version_id: 1,
         }
@@ -250,7 +250,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('CloudWatchLoggingOptionDescriptions')
         visited = visited + ['CloudWatchLoggingOptionDescriptions']
         [
-          Stubs::CloudWatchLoggingOptionDescription.default(visited)
+          CloudWatchLoggingOptionDescription.default(visited)
         ]
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('ReferenceDataSourceDescriptions')
         visited = visited + ['ReferenceDataSourceDescriptions']
         [
-          Stubs::ReferenceDataSourceDescription.default(visited)
+          ReferenceDataSourceDescription.default(visited)
         ]
       end
 
@@ -314,8 +314,8 @@ module AWS::SDK::KinesisAnalytics
         {
           reference_id: 'reference_id',
           table_name: 'table_name',
-          s3_reference_data_source_description: Stubs::S3ReferenceDataSourceDescription.default(visited),
-          reference_schema: Stubs::SourceSchema.default(visited),
+          s3_reference_data_source_description: S3ReferenceDataSourceDescription.default(visited),
+          reference_schema: SourceSchema.default(visited),
         }
       end
 
@@ -336,9 +336,9 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('SourceSchema')
         visited = visited + ['SourceSchema']
         {
-          record_format: Stubs::RecordFormat.default(visited),
+          record_format: RecordFormat.default(visited),
           record_encoding: 'record_encoding',
-          record_columns: Stubs::RecordColumns.default(visited),
+          record_columns: RecordColumns.default(visited),
         }
       end
 
@@ -358,7 +358,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('RecordColumns')
         visited = visited + ['RecordColumns']
         [
-          Stubs::RecordColumn.default(visited)
+          RecordColumn.default(visited)
         ]
       end
 
@@ -401,7 +401,7 @@ module AWS::SDK::KinesisAnalytics
         visited = visited + ['RecordFormat']
         {
           record_format_type: 'record_format_type',
-          mapping_parameters: Stubs::MappingParameters.default(visited),
+          mapping_parameters: MappingParameters.default(visited),
         }
       end
 
@@ -420,8 +420,8 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('MappingParameters')
         visited = visited + ['MappingParameters']
         {
-          json_mapping_parameters: Stubs::JSONMappingParameters.default(visited),
-          csv_mapping_parameters: Stubs::CSVMappingParameters.default(visited),
+          json_mapping_parameters: JSONMappingParameters.default(visited),
+          csv_mapping_parameters: CSVMappingParameters.default(visited),
         }
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('OutputDescriptions')
         visited = visited + ['OutputDescriptions']
         [
-          Stubs::OutputDescription.default(visited)
+          OutputDescription.default(visited)
         ]
       end
 
@@ -522,10 +522,10 @@ module AWS::SDK::KinesisAnalytics
         {
           output_id: 'output_id',
           name: 'name',
-          kinesis_streams_output_description: Stubs::KinesisStreamsOutputDescription.default(visited),
-          kinesis_firehose_output_description: Stubs::KinesisFirehoseOutputDescription.default(visited),
-          lambda_output_description: Stubs::LambdaOutputDescription.default(visited),
-          destination_schema: Stubs::DestinationSchema.default(visited),
+          kinesis_streams_output_description: KinesisStreamsOutputDescription.default(visited),
+          kinesis_firehose_output_description: KinesisFirehoseOutputDescription.default(visited),
+          lambda_output_description: LambdaOutputDescription.default(visited),
+          destination_schema: DestinationSchema.default(visited),
         }
       end
 
@@ -626,7 +626,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('InputDescriptions')
         visited = visited + ['InputDescriptions']
         [
-          Stubs::InputDescription.default(visited)
+          InputDescription.default(visited)
         ]
       end
 
@@ -648,13 +648,13 @@ module AWS::SDK::KinesisAnalytics
         {
           input_id: 'input_id',
           name_prefix: 'name_prefix',
-          in_app_stream_names: Stubs::InAppStreamNames.default(visited),
-          input_processing_configuration_description: Stubs::InputProcessingConfigurationDescription.default(visited),
-          kinesis_streams_input_description: Stubs::KinesisStreamsInputDescription.default(visited),
-          kinesis_firehose_input_description: Stubs::KinesisFirehoseInputDescription.default(visited),
-          input_schema: Stubs::SourceSchema.default(visited),
-          input_parallelism: Stubs::InputParallelism.default(visited),
-          input_starting_position_configuration: Stubs::InputStartingPositionConfiguration.default(visited),
+          in_app_stream_names: InAppStreamNames.default(visited),
+          input_processing_configuration_description: InputProcessingConfigurationDescription.default(visited),
+          kinesis_streams_input_description: KinesisStreamsInputDescription.default(visited),
+          kinesis_firehose_input_description: KinesisFirehoseInputDescription.default(visited),
+          input_schema: SourceSchema.default(visited),
+          input_parallelism: InputParallelism.default(visited),
+          input_starting_position_configuration: InputStartingPositionConfiguration.default(visited),
         }
       end
 
@@ -756,7 +756,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('InputProcessingConfigurationDescription')
         visited = visited + ['InputProcessingConfigurationDescription']
         {
-          input_lambda_processor_description: Stubs::InputLambdaProcessorDescription.default(visited),
+          input_lambda_processor_description: InputLambdaProcessorDescription.default(visited),
         }
       end
 
@@ -812,10 +812,10 @@ module AWS::SDK::KinesisAnalytics
     class DiscoverInputSchema
       def self.default(visited=[])
         {
-          input_schema: Stubs::SourceSchema.default(visited),
-          parsed_input_records: Stubs::ParsedInputRecords.default(visited),
-          processed_input_records: Stubs::ProcessedInputRecords.default(visited),
-          raw_input_records: Stubs::RawInputRecords.default(visited),
+          input_schema: SourceSchema.default(visited),
+          parsed_input_records: ParsedInputRecords.default(visited),
+          processed_input_records: ProcessedInputRecords.default(visited),
+          raw_input_records: RawInputRecords.default(visited),
         }
       end
 
@@ -876,7 +876,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('ParsedInputRecords')
         visited = visited + ['ParsedInputRecords']
         [
-          Stubs::ParsedInputRecord.default(visited)
+          ParsedInputRecord.default(visited)
         ]
       end
 
@@ -914,7 +914,7 @@ module AWS::SDK::KinesisAnalytics
     class ListApplications
       def self.default(visited=[])
         {
-          application_summaries: Stubs::ApplicationSummaries.default(visited),
+          application_summaries: ApplicationSummaries.default(visited),
           has_more_applications: false,
         }
       end
@@ -934,7 +934,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('ApplicationSummaries')
         visited = visited + ['ApplicationSummaries']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -952,7 +952,7 @@ module AWS::SDK::KinesisAnalytics
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -970,7 +970,7 @@ module AWS::SDK::KinesisAnalytics
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

@@ -70,11 +70,11 @@ module AWS::SDK::CloudHSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retryable ||= false
       end
-
     end
 
     # Includes enum constants for CloudHsmObjectState
@@ -111,11 +111,11 @@ module AWS::SDK::CloudHSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retryable ||= false
       end
-
     end
 
     # <p>Contains the inputs for the <a>CreateHapgRequest</a> action.</p>
@@ -756,11 +756,11 @@ module AWS::SDK::CloudHSM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retryable ||= false
       end
-
     end
 
     # <p>Contains the inputs for the <a>ListAvailableZones</a> action.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Chime
   module Validators
 
@@ -27,9 +29,9 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:account_type], ::String, context: "#{context}[:account_type]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:default_license], ::String, context: "#{context}[:default_license]")
-        Validators::LicenseList.validate!(input[:supported_licenses], context: "#{context}[:supported_licenses]") unless input[:supported_licenses].nil?
+        LicenseList.validate!(input[:supported_licenses], context: "#{context}[:supported_licenses]") unless input[:supported_licenses].nil?
         Hearth::Validator.validate!(input[:account_status], ::String, context: "#{context}[:account_status]")
-        Validators::SigninDelegateGroupList.validate!(input[:signin_delegate_groups], context: "#{context}[:signin_delegate_groups]") unless input[:signin_delegate_groups].nil?
+        SigninDelegateGroupList.validate!(input[:signin_delegate_groups], context: "#{context}[:signin_delegate_groups]") unless input[:signin_delegate_groups].nil?
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::Chime
     class AppInstanceAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppInstanceAdmin, context: context)
-        Validators::Identity.validate!(input[:admin], context: "#{context}[:admin]") unless input[:admin].nil?
+        Identity.validate!(input[:admin], context: "#{context}[:admin]") unless input[:admin].nil?
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
       end
@@ -82,7 +84,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppInstanceAdminSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppInstanceAdminSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::Chime
     class AppInstanceAdminSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppInstanceAdminSummary, context: context)
-        Validators::Identity.validate!(input[:admin], context: "#{context}[:admin]") unless input[:admin].nil?
+        Identity.validate!(input[:admin], context: "#{context}[:admin]") unless input[:admin].nil?
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,7 +108,7 @@ module AWS::SDK::Chime
     class AppInstanceRetentionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppInstanceRetentionSettings, context: context)
-        Validators::ChannelRetentionSettings.validate!(input[:channel_retention_settings], context: "#{context}[:channel_retention_settings]") unless input[:channel_retention_settings].nil?
+        ChannelRetentionSettings.validate!(input[:channel_retention_settings], context: "#{context}[:channel_retention_settings]") unless input[:channel_retention_settings].nil?
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppInstanceStreamingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppInstanceStreamingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -176,9 +178,9 @@ module AWS::SDK::Chime
     class ArtifactsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactsConfiguration, context: context)
-        Validators::AudioArtifactsConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
-        Validators::VideoArtifactsConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
-        Validators::ContentArtifactsConfiguration.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
+        AudioArtifactsConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        VideoArtifactsConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
+        ContentArtifactsConfiguration.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePhoneNumbersWithVoiceConnectorGroupInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_group_id], ::String, context: "#{context}[:voice_connector_group_id]")
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
         Hearth::Validator.validate!(input[:force_associate], ::TrueClass, ::FalseClass, context: "#{context}[:force_associate]")
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::Chime
     class AssociatePhoneNumbersWithVoiceConnectorGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePhoneNumbersWithVoiceConnectorGroupOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePhoneNumbersWithVoiceConnectorInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
         Hearth::Validator.validate!(input[:force_associate], ::TrueClass, ::FalseClass, context: "#{context}[:force_associate]")
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::Chime
     class AssociatePhoneNumbersWithVoiceConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociatePhoneNumbersWithVoiceConnectorOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateSigninDelegateGroupsWithAccountInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SigninDelegateGroupList.validate!(input[:signin_delegate_groups], context: "#{context}[:signin_delegate_groups]") unless input[:signin_delegate_groups].nil?
+        SigninDelegateGroupList.validate!(input[:signin_delegate_groups], context: "#{context}[:signin_delegate_groups]") unless input[:signin_delegate_groups].nil?
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Attendee.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Attendee.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -306,9 +308,9 @@ module AWS::SDK::Chime
     class BatchChannelMemberships
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchChannelMemberships, context: context)
-        Validators::Identity.validate!(input[:invited_by], context: "#{context}[:invited_by]") unless input[:invited_by].nil?
+        Identity.validate!(input[:invited_by], context: "#{context}[:invited_by]") unless input[:invited_by].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Members.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        Members.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
       end
     end
@@ -317,7 +319,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -326,15 +328,15 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::CreateAttendeeRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        CreateAttendeeRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
       end
     end
 
     class BatchCreateAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateAttendeeOutput, context: context)
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
-        Validators::BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchCreateChannelMembershipError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchCreateChannelMembershipError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::BatchCreateChannelMembershipInput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::MemberArns.validate!(input[:member_arns], context: "#{context}[:member_arns]") unless input[:member_arns].nil?
+        MemberArns.validate!(input[:member_arns], context: "#{context}[:member_arns]") unless input[:member_arns].nil?
         Hearth::Validator.validate!(input[:chime_bearer], ::String, context: "#{context}[:chime_bearer]")
       end
     end
@@ -369,8 +371,8 @@ module AWS::SDK::Chime
     class BatchCreateChannelMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateChannelMembershipOutput, context: context)
-        Validators::BatchChannelMemberships.validate!(input[:batch_channel_memberships], context: "#{context}[:batch_channel_memberships]") unless input[:batch_channel_memberships].nil?
-        Validators::BatchCreateChannelMembershipErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchChannelMemberships.validate!(input[:batch_channel_memberships], context: "#{context}[:batch_channel_memberships]") unless input[:batch_channel_memberships].nil?
+        BatchCreateChannelMembershipErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -379,28 +381,28 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::BatchCreateRoomMembershipInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:room_id], ::String, context: "#{context}[:room_id]")
-        Validators::MembershipItemList.validate!(input[:membership_item_list], context: "#{context}[:membership_item_list]") unless input[:membership_item_list].nil?
+        MembershipItemList.validate!(input[:membership_item_list], context: "#{context}[:membership_item_list]") unless input[:membership_item_list].nil?
       end
     end
 
     class BatchCreateRoomMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateRoomMembershipOutput, context: context)
-        Validators::MemberErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        MemberErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class BatchDeletePhoneNumberInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeletePhoneNumberInput, context: context)
-        Validators::NonEmptyStringList.validate!(input[:phone_number_ids], context: "#{context}[:phone_number_ids]") unless input[:phone_number_ids].nil?
+        NonEmptyStringList.validate!(input[:phone_number_ids], context: "#{context}[:phone_number_ids]") unless input[:phone_number_ids].nil?
       end
     end
 
     class BatchDeletePhoneNumberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeletePhoneNumberOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -408,14 +410,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchSuspendUserInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::UserIdList.validate!(input[:user_id_list], context: "#{context}[:user_id_list]") unless input[:user_id_list].nil?
+        UserIdList.validate!(input[:user_id_list], context: "#{context}[:user_id_list]") unless input[:user_id_list].nil?
       end
     end
 
     class BatchSuspendUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchSuspendUserOutput, context: context)
-        Validators::UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
+        UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
       end
     end
 
@@ -423,28 +425,28 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUnsuspendUserInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::UserIdList.validate!(input[:user_id_list], context: "#{context}[:user_id_list]") unless input[:user_id_list].nil?
+        UserIdList.validate!(input[:user_id_list], context: "#{context}[:user_id_list]") unless input[:user_id_list].nil?
       end
     end
 
     class BatchUnsuspendUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUnsuspendUserOutput, context: context)
-        Validators::UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
+        UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
       end
     end
 
     class BatchUpdatePhoneNumberInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdatePhoneNumberInput, context: context)
-        Validators::UpdatePhoneNumberRequestItemList.validate!(input[:update_phone_number_request_items], context: "#{context}[:update_phone_number_request_items]") unless input[:update_phone_number_request_items].nil?
+        UpdatePhoneNumberRequestItemList.validate!(input[:update_phone_number_request_items], context: "#{context}[:update_phone_number_request_items]") unless input[:update_phone_number_request_items].nil?
       end
     end
 
     class BatchUpdatePhoneNumberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdatePhoneNumberOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -452,14 +454,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateUserInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::UpdateUserRequestItemList.validate!(input[:update_user_request_items], context: "#{context}[:update_user_request_items]") unless input[:update_user_request_items].nil?
+        UpdateUserRequestItemList.validate!(input[:update_user_request_items], context: "#{context}[:update_user_request_items]") unless input[:update_user_request_items].nil?
       end
     end
 
     class BatchUpdateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateUserOutput, context: context)
-        Validators::UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
+        UserErrorList.validate!(input[:user_errors], context: "#{context}[:user_errors]") unless input[:user_errors].nil?
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Bot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Bot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -520,7 +522,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:mode], ::String, context: "#{context}[:mode]")
         Hearth::Validator.validate!(input[:privacy], ::String, context: "#{context}[:privacy]")
         Hearth::Validator.validate!(input[:metadata], ::String, context: "#{context}[:metadata]")
-        Validators::Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:last_message_timestamp], ::Time, context: "#{context}[:last_message_timestamp]")
         Hearth::Validator.validate!(input[:last_updated_timestamp], ::Time, context: "#{context}[:last_updated_timestamp]")
@@ -530,17 +532,17 @@ module AWS::SDK::Chime
     class ChannelBan
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelBan, context: context)
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
-        Validators::Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
       end
     end
 
     class ChannelBanSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelBanSummary, context: context)
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
@@ -548,7 +550,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelBanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelBanSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -556,9 +558,9 @@ module AWS::SDK::Chime
     class ChannelMembership
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelMembership, context: context)
-        Validators::Identity.validate!(input[:invited_by], context: "#{context}[:invited_by]") unless input[:invited_by].nil?
+        Identity.validate!(input[:invited_by], context: "#{context}[:invited_by]") unless input[:invited_by].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:last_updated_timestamp], ::Time, context: "#{context}[:last_updated_timestamp]")
@@ -568,8 +570,8 @@ module AWS::SDK::Chime
     class ChannelMembershipForAppInstanceUserSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelMembershipForAppInstanceUserSummary, context: context)
-        Validators::ChannelSummary.validate!(input[:channel_summary], context: "#{context}[:channel_summary]") unless input[:channel_summary].nil?
-        Validators::AppInstanceUserMembershipSummary.validate!(input[:app_instance_user_membership_summary], context: "#{context}[:app_instance_user_membership_summary]") unless input[:app_instance_user_membership_summary].nil?
+        ChannelSummary.validate!(input[:channel_summary], context: "#{context}[:channel_summary]") unless input[:channel_summary].nil?
+        AppInstanceUserMembershipSummary.validate!(input[:app_instance_user_membership_summary], context: "#{context}[:app_instance_user_membership_summary]") unless input[:app_instance_user_membership_summary].nil?
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelMembershipForAppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelMembershipForAppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::Chime
     class ChannelMembershipSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelMembershipSummary, context: context)
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelMembershipSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelMembershipSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -609,7 +611,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:last_edited_timestamp], ::Time, context: "#{context}[:last_edited_timestamp]")
         Hearth::Validator.validate!(input[:last_updated_timestamp], ::Time, context: "#{context}[:last_updated_timestamp]")
-        Validators::Identity.validate!(input[:sender], context: "#{context}[:sender]") unless input[:sender].nil?
+        Identity.validate!(input[:sender], context: "#{context}[:sender]") unless input[:sender].nil?
         Hearth::Validator.validate!(input[:redacted], ::TrueClass, ::FalseClass, context: "#{context}[:redacted]")
         Hearth::Validator.validate!(input[:persistence], ::String, context: "#{context}[:persistence]")
       end
@@ -625,7 +627,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:last_updated_timestamp], ::Time, context: "#{context}[:last_updated_timestamp]")
         Hearth::Validator.validate!(input[:last_edited_timestamp], ::Time, context: "#{context}[:last_edited_timestamp]")
-        Validators::Identity.validate!(input[:sender], context: "#{context}[:sender]") unless input[:sender].nil?
+        Identity.validate!(input[:sender], context: "#{context}[:sender]") unless input[:sender].nil?
         Hearth::Validator.validate!(input[:redacted], ::TrueClass, ::FalseClass, context: "#{context}[:redacted]")
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelMessageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelMessageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -642,7 +644,7 @@ module AWS::SDK::Chime
     class ChannelModeratedByAppInstanceUserSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelModeratedByAppInstanceUserSummary, context: context)
-        Validators::ChannelSummary.validate!(input[:channel_summary], context: "#{context}[:channel_summary]") unless input[:channel_summary].nil?
+        ChannelSummary.validate!(input[:channel_summary], context: "#{context}[:channel_summary]") unless input[:channel_summary].nil?
       end
     end
 
@@ -650,7 +652,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelModeratedByAppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelModeratedByAppInstanceUserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -658,17 +660,17 @@ module AWS::SDK::Chime
     class ChannelModerator
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelModerator, context: context)
-        Validators::Identity.validate!(input[:moderator], context: "#{context}[:moderator]") unless input[:moderator].nil?
+        Identity.validate!(input[:moderator], context: "#{context}[:moderator]") unless input[:moderator].nil?
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
-        Validators::Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
+        Identity.validate!(input[:created_by], context: "#{context}[:created_by]") unless input[:created_by].nil?
       end
     end
 
     class ChannelModeratorSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelModeratorSummary, context: context)
-        Validators::Identity.validate!(input[:moderator], context: "#{context}[:moderator]") unless input[:moderator].nil?
+        Identity.validate!(input[:moderator], context: "#{context}[:moderator]") unless input[:moderator].nil?
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelModeratorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelModeratorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -704,7 +706,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -712,8 +714,8 @@ module AWS::SDK::Chime
     class ChimeSdkMeetingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChimeSdkMeetingConfiguration, context: context)
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
-        Validators::ArtifactsConfiguration.validate!(input[:artifacts_configuration], context: "#{context}[:artifacts_configuration]") unless input[:artifacts_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        ArtifactsConfiguration.validate!(input[:artifacts_configuration], context: "#{context}[:artifacts_configuration]") unless input[:artifacts_configuration].nil?
       end
     end
 
@@ -759,7 +761,7 @@ module AWS::SDK::Chime
     class CreateAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAccountOutput, context: context)
-        Validators::Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
+        Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
       end
     end
 
@@ -774,7 +776,7 @@ module AWS::SDK::Chime
     class CreateAppInstanceAdminOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAppInstanceAdminOutput, context: context)
-        Validators::Identity.validate!(input[:app_instance_admin], context: "#{context}[:app_instance_admin]") unless input[:app_instance_admin].nil?
+        Identity.validate!(input[:app_instance_admin], context: "#{context}[:app_instance_admin]") unless input[:app_instance_admin].nil?
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metadata], ::String, context: "#{context}[:metadata]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -804,7 +806,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metadata], ::String, context: "#{context}[:metadata]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -829,14 +831,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::CreateAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:external_user_id], ::String, context: "#{context}[:external_user_id]")
-        Validators::AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAttendeeOutput, context: context)
-        Validators::Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
+        Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
       end
     end
 
@@ -844,7 +846,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAttendeeRequestItem, context: context)
         Hearth::Validator.validate!(input[:external_user_id], ::String, context: "#{context}[:external_user_id]")
-        Validators::AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -852,7 +854,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -869,7 +871,7 @@ module AWS::SDK::Chime
     class CreateBotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBotOutput, context: context)
-        Validators::Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
+        Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
       end
     end
 
@@ -886,7 +888,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelBanOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
@@ -899,7 +901,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:privacy], ::String, context: "#{context}[:privacy]")
         Hearth::Validator.validate!(input[:metadata], ::String, context: "#{context}[:metadata]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:chime_bearer], ::String, context: "#{context}[:chime_bearer]")
       end
     end
@@ -918,7 +920,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelMembershipOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Identity.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelModeratorOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::Identity.validate!(input[:channel_moderator], context: "#{context}[:channel_moderator]") unless input[:channel_moderator].nil?
+        Identity.validate!(input[:channel_moderator], context: "#{context}[:channel_moderator]") unless input[:channel_moderator].nil?
       end
     end
 
@@ -954,14 +956,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:sink_type], ::String, context: "#{context}[:sink_type]")
         Hearth::Validator.validate!(input[:sink_arn], ::String, context: "#{context}[:sink_arn]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
+        ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
       end
     end
 
     class CreateMediaCapturePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMediaCapturePipelineOutput, context: context)
-        Validators::MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
+        MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
       end
     end
 
@@ -989,15 +991,15 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
         Hearth::Validator.validate!(input[:meeting_host_id], ::String, context: "#{context}[:meeting_host_id]")
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
-        Validators::MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::MeetingNotificationConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
+        MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MeetingNotificationConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
       end
     end
 
     class CreateMeetingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeetingOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
       end
     end
 
@@ -1008,18 +1010,18 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
         Hearth::Validator.validate!(input[:meeting_host_id], ::String, context: "#{context}[:meeting_host_id]")
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
-        Validators::MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::MeetingNotificationConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
-        Validators::CreateMeetingWithAttendeesRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MeetingNotificationConfiguration.validate!(input[:notifications_configuration], context: "#{context}[:notifications_configuration]") unless input[:notifications_configuration].nil?
+        CreateMeetingWithAttendeesRequestItemList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
       end
     end
 
     class CreateMeetingWithAttendeesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeetingWithAttendeesOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
-        Validators::BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        BatchCreateAttendeeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateAttendeeRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1036,14 +1038,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePhoneNumberOrderInput, context: context)
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
       end
     end
 
     class CreatePhoneNumberOrderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePhoneNumberOrderOutput, context: context)
-        Validators::PhoneNumberOrder.validate!(input[:phone_number_order], context: "#{context}[:phone_number_order]") unless input[:phone_number_order].nil?
+        PhoneNumberOrder.validate!(input[:phone_number_order], context: "#{context}[:phone_number_order]") unless input[:phone_number_order].nil?
       end
     end
 
@@ -1051,20 +1053,20 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProxySessionInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::ParticipantPhoneNumberList.validate!(input[:participant_phone_numbers], context: "#{context}[:participant_phone_numbers]") unless input[:participant_phone_numbers].nil?
+        ParticipantPhoneNumberList.validate!(input[:participant_phone_numbers], context: "#{context}[:participant_phone_numbers]") unless input[:participant_phone_numbers].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:expiry_minutes], ::Integer, context: "#{context}[:expiry_minutes]")
-        Validators::CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
         Hearth::Validator.validate!(input[:number_selection_behavior], ::String, context: "#{context}[:number_selection_behavior]")
         Hearth::Validator.validate!(input[:geo_match_level], ::String, context: "#{context}[:geo_match_level]")
-        Validators::GeoMatchParams.validate!(input[:geo_match_params], context: "#{context}[:geo_match_params]") unless input[:geo_match_params].nil?
+        GeoMatchParams.validate!(input[:geo_match_params], context: "#{context}[:geo_match_params]") unless input[:geo_match_params].nil?
       end
     end
 
     class CreateProxySessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProxySessionOutput, context: context)
-        Validators::ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
+        ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
       end
     end
 
@@ -1090,14 +1092,14 @@ module AWS::SDK::Chime
     class CreateRoomMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRoomMembershipOutput, context: context)
-        Validators::RoomMembership.validate!(input[:room_membership], context: "#{context}[:room_membership]") unless input[:room_membership].nil?
+        RoomMembership.validate!(input[:room_membership], context: "#{context}[:room_membership]") unless input[:room_membership].nil?
       end
     end
 
     class CreateRoomOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRoomOutput, context: context)
-        Validators::Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
+        Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
       end
     end
 
@@ -1107,14 +1109,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:from_phone_number], ::String, context: "#{context}[:from_phone_number]")
         Hearth::Validator.validate!(input[:to_phone_number], ::String, context: "#{context}[:to_phone_number]")
         Hearth::Validator.validate!(input[:sip_media_application_id], ::String, context: "#{context}[:sip_media_application_id]")
-        Validators::SipHeadersMap.validate!(input[:sip_headers], context: "#{context}[:sip_headers]") unless input[:sip_headers].nil?
+        SipHeadersMap.validate!(input[:sip_headers], context: "#{context}[:sip_headers]") unless input[:sip_headers].nil?
       end
     end
 
     class CreateSipMediaApplicationCallOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSipMediaApplicationCallOutput, context: context)
-        Validators::SipMediaApplicationCall.validate!(input[:sip_media_application_call], context: "#{context}[:sip_media_application_call]") unless input[:sip_media_application_call].nil?
+        SipMediaApplicationCall.validate!(input[:sip_media_application_call], context: "#{context}[:sip_media_application_call]") unless input[:sip_media_application_call].nil?
       end
     end
 
@@ -1123,14 +1125,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::CreateSipMediaApplicationInput, context: context)
         Hearth::Validator.validate!(input[:aws_region], ::String, context: "#{context}[:aws_region]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
     class CreateSipMediaApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSipMediaApplicationOutput, context: context)
-        Validators::SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
+        SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
       end
     end
 
@@ -1141,14 +1143,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:trigger_type], ::String, context: "#{context}[:trigger_type]")
         Hearth::Validator.validate!(input[:trigger_value], ::String, context: "#{context}[:trigger_value]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
-        Validators::SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
+        SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
       end
     end
 
     class CreateSipRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSipRuleOutput, context: context)
-        Validators::SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
+        SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
       end
     end
 
@@ -1165,7 +1167,7 @@ module AWS::SDK::Chime
     class CreateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -1173,14 +1175,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVoiceConnectorGroupInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
+        VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
       end
     end
 
     class CreateVoiceConnectorGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVoiceConnectorGroupOutput, context: context)
-        Validators::VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
+        VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::Chime
     class CreateVoiceConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVoiceConnectorOutput, context: context)
-        Validators::VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
+        VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
       end
     end
 
@@ -1212,7 +1214,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Credential.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Credential.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1230,7 +1232,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DNISEmergencyCallingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DNISEmergencyCallingConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1593,7 +1595,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteVoiceConnectorTerminationCredentialsInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::SensitiveStringList.validate!(input[:usernames], context: "#{context}[:usernames]") unless input[:usernames].nil?
+        SensitiveStringList.validate!(input[:usernames], context: "#{context}[:usernames]") unless input[:usernames].nil?
       end
     end
 
@@ -1627,7 +1629,7 @@ module AWS::SDK::Chime
     class DescribeAppInstanceAdminOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAppInstanceAdminOutput, context: context)
-        Validators::AppInstanceAdmin.validate!(input[:app_instance_admin], context: "#{context}[:app_instance_admin]") unless input[:app_instance_admin].nil?
+        AppInstanceAdmin.validate!(input[:app_instance_admin], context: "#{context}[:app_instance_admin]") unless input[:app_instance_admin].nil?
       end
     end
 
@@ -1641,7 +1643,7 @@ module AWS::SDK::Chime
     class DescribeAppInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAppInstanceOutput, context: context)
-        Validators::AppInstance.validate!(input[:app_instance], context: "#{context}[:app_instance]") unless input[:app_instance].nil?
+        AppInstance.validate!(input[:app_instance], context: "#{context}[:app_instance]") unless input[:app_instance].nil?
       end
     end
 
@@ -1655,7 +1657,7 @@ module AWS::SDK::Chime
     class DescribeAppInstanceUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAppInstanceUserOutput, context: context)
-        Validators::AppInstanceUser.validate!(input[:app_instance_user], context: "#{context}[:app_instance_user]") unless input[:app_instance_user].nil?
+        AppInstanceUser.validate!(input[:app_instance_user], context: "#{context}[:app_instance_user]") unless input[:app_instance_user].nil?
       end
     end
 
@@ -1671,7 +1673,7 @@ module AWS::SDK::Chime
     class DescribeChannelBanOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelBanOutput, context: context)
-        Validators::ChannelBan.validate!(input[:channel_ban], context: "#{context}[:channel_ban]") unless input[:channel_ban].nil?
+        ChannelBan.validate!(input[:channel_ban], context: "#{context}[:channel_ban]") unless input[:channel_ban].nil?
       end
     end
 
@@ -1695,7 +1697,7 @@ module AWS::SDK::Chime
     class DescribeChannelMembershipForAppInstanceUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelMembershipForAppInstanceUserOutput, context: context)
-        Validators::ChannelMembershipForAppInstanceUserSummary.validate!(input[:channel_membership], context: "#{context}[:channel_membership]") unless input[:channel_membership].nil?
+        ChannelMembershipForAppInstanceUserSummary.validate!(input[:channel_membership], context: "#{context}[:channel_membership]") unless input[:channel_membership].nil?
       end
     end
 
@@ -1711,7 +1713,7 @@ module AWS::SDK::Chime
     class DescribeChannelMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelMembershipOutput, context: context)
-        Validators::ChannelMembership.validate!(input[:channel_membership], context: "#{context}[:channel_membership]") unless input[:channel_membership].nil?
+        ChannelMembership.validate!(input[:channel_membership], context: "#{context}[:channel_membership]") unless input[:channel_membership].nil?
       end
     end
 
@@ -1727,7 +1729,7 @@ module AWS::SDK::Chime
     class DescribeChannelModeratedByAppInstanceUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelModeratedByAppInstanceUserOutput, context: context)
-        Validators::ChannelModeratedByAppInstanceUserSummary.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        ChannelModeratedByAppInstanceUserSummary.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
@@ -1743,14 +1745,14 @@ module AWS::SDK::Chime
     class DescribeChannelModeratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelModeratorOutput, context: context)
-        Validators::ChannelModerator.validate!(input[:channel_moderator], context: "#{context}[:channel_moderator]") unless input[:channel_moderator].nil?
+        ChannelModerator.validate!(input[:channel_moderator], context: "#{context}[:channel_moderator]") unless input[:channel_moderator].nil?
       end
     end
 
     class DescribeChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
@@ -1772,14 +1774,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociatePhoneNumbersFromVoiceConnectorGroupInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_group_id], ::String, context: "#{context}[:voice_connector_group_id]")
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
       end
     end
 
     class DisassociatePhoneNumbersFromVoiceConnectorGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociatePhoneNumbersFromVoiceConnectorGroupOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -1787,14 +1789,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociatePhoneNumbersFromVoiceConnectorInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
       end
     end
 
     class DisassociatePhoneNumbersFromVoiceConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociatePhoneNumbersFromVoiceConnectorOutput, context: context)
-        Validators::PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
+        PhoneNumberErrorList.validate!(input[:phone_number_errors], context: "#{context}[:phone_number_errors]") unless input[:phone_number_errors].nil?
       end
     end
 
@@ -1802,7 +1804,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateSigninDelegateGroupsFromAccountInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::NonEmptyStringList.validate!(input[:group_names], context: "#{context}[:group_names]") unless input[:group_names].nil?
+        NonEmptyStringList.validate!(input[:group_names], context: "#{context}[:group_names]") unless input[:group_names].nil?
       end
     end
 
@@ -1824,7 +1826,7 @@ module AWS::SDK::Chime
     class EmergencyCallingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EmergencyCallingConfiguration, context: context)
-        Validators::DNISEmergencyCallingConfigurationList.validate!(input[:dnis], context: "#{context}[:dnis]") unless input[:dnis].nil?
+        DNISEmergencyCallingConfigurationList.validate!(input[:dnis], context: "#{context}[:dnis]") unless input[:dnis].nil?
       end
     end
 
@@ -1901,7 +1903,7 @@ module AWS::SDK::Chime
     class GetAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountOutput, context: context)
-        Validators::Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
+        Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
       end
     end
 
@@ -1915,7 +1917,7 @@ module AWS::SDK::Chime
     class GetAccountSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountSettingsOutput, context: context)
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
       end
     end
 
@@ -1929,7 +1931,7 @@ module AWS::SDK::Chime
     class GetAppInstanceRetentionSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppInstanceRetentionSettingsOutput, context: context)
-        Validators::AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
+        AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
         Hearth::Validator.validate!(input[:initiate_deletion_timestamp], ::Time, context: "#{context}[:initiate_deletion_timestamp]")
       end
     end
@@ -1944,7 +1946,7 @@ module AWS::SDK::Chime
     class GetAppInstanceStreamingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAppInstanceStreamingConfigurationsOutput, context: context)
-        Validators::AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
+        AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
       end
     end
 
@@ -1959,7 +1961,7 @@ module AWS::SDK::Chime
     class GetAttendeeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAttendeeOutput, context: context)
-        Validators::Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
+        Attendee.validate!(input[:attendee], context: "#{context}[:attendee]") unless input[:attendee].nil?
       end
     end
 
@@ -1974,7 +1976,7 @@ module AWS::SDK::Chime
     class GetBotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBotOutput, context: context)
-        Validators::Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
+        Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
       end
     end
 
@@ -1990,7 +1992,7 @@ module AWS::SDK::Chime
     class GetChannelMessageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetChannelMessageOutput, context: context)
-        Validators::ChannelMessage.validate!(input[:channel_message], context: "#{context}[:channel_message]") unless input[:channel_message].nil?
+        ChannelMessage.validate!(input[:channel_message], context: "#{context}[:channel_message]") unless input[:channel_message].nil?
       end
     end
 
@@ -2005,7 +2007,7 @@ module AWS::SDK::Chime
     class GetEventsConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventsConfigurationOutput, context: context)
-        Validators::EventsConfiguration.validate!(input[:events_configuration], context: "#{context}[:events_configuration]") unless input[:events_configuration].nil?
+        EventsConfiguration.validate!(input[:events_configuration], context: "#{context}[:events_configuration]") unless input[:events_configuration].nil?
       end
     end
 
@@ -2018,8 +2020,8 @@ module AWS::SDK::Chime
     class GetGlobalSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGlobalSettingsOutput, context: context)
-        Validators::BusinessCallingSettings.validate!(input[:business_calling], context: "#{context}[:business_calling]") unless input[:business_calling].nil?
-        Validators::VoiceConnectorSettings.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
+        BusinessCallingSettings.validate!(input[:business_calling], context: "#{context}[:business_calling]") unless input[:business_calling].nil?
+        VoiceConnectorSettings.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
       end
     end
 
@@ -2033,7 +2035,7 @@ module AWS::SDK::Chime
     class GetMediaCapturePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMediaCapturePipelineOutput, context: context)
-        Validators::MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
+        MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
       end
     end
 
@@ -2047,7 +2049,7 @@ module AWS::SDK::Chime
     class GetMeetingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMeetingOutput, context: context)
-        Validators::Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
+        Meeting.validate!(input[:meeting], context: "#{context}[:meeting]") unless input[:meeting].nil?
       end
     end
 
@@ -2060,7 +2062,7 @@ module AWS::SDK::Chime
     class GetMessagingSessionEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMessagingSessionEndpointOutput, context: context)
-        Validators::MessagingSessionEndpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        MessagingSessionEndpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -2081,14 +2083,14 @@ module AWS::SDK::Chime
     class GetPhoneNumberOrderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPhoneNumberOrderOutput, context: context)
-        Validators::PhoneNumberOrder.validate!(input[:phone_number_order], context: "#{context}[:phone_number_order]") unless input[:phone_number_order].nil?
+        PhoneNumberOrder.validate!(input[:phone_number_order], context: "#{context}[:phone_number_order]") unless input[:phone_number_order].nil?
       end
     end
 
     class GetPhoneNumberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPhoneNumberOutput, context: context)
-        Validators::PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
+        PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
       end
     end
 
@@ -2117,7 +2119,7 @@ module AWS::SDK::Chime
     class GetProxySessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProxySessionOutput, context: context)
-        Validators::ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
+        ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
       end
     end
 
@@ -2131,7 +2133,7 @@ module AWS::SDK::Chime
     class GetRetentionSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRetentionSettingsOutput, context: context)
-        Validators::RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
+        RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
         Hearth::Validator.validate!(input[:initiate_deletion_timestamp], ::Time, context: "#{context}[:initiate_deletion_timestamp]")
       end
     end
@@ -2147,7 +2149,7 @@ module AWS::SDK::Chime
     class GetRoomOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoomOutput, context: context)
-        Validators::Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
+        Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
       end
     end
 
@@ -2168,14 +2170,14 @@ module AWS::SDK::Chime
     class GetSipMediaApplicationLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSipMediaApplicationLoggingConfigurationOutput, context: context)
-        Validators::SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
+        SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
       end
     end
 
     class GetSipMediaApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSipMediaApplicationOutput, context: context)
-        Validators::SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
+        SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
       end
     end
 
@@ -2189,7 +2191,7 @@ module AWS::SDK::Chime
     class GetSipRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSipRuleOutput, context: context)
-        Validators::SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
+        SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
       end
     end
 
@@ -2204,7 +2206,7 @@ module AWS::SDK::Chime
     class GetUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -2219,7 +2221,7 @@ module AWS::SDK::Chime
     class GetUserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserSettingsOutput, context: context)
-        Validators::UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
+        UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
       end
     end
 
@@ -2233,7 +2235,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorEmergencyCallingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorEmergencyCallingConfigurationOutput, context: context)
-        Validators::EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
+        EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
       end
     end
 
@@ -2247,7 +2249,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorGroupOutput, context: context)
-        Validators::VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
+        VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
       end
     end
 
@@ -2268,7 +2270,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -2282,14 +2284,14 @@ module AWS::SDK::Chime
     class GetVoiceConnectorOriginationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorOriginationOutput, context: context)
-        Validators::Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
+        Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
       end
     end
 
     class GetVoiceConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorOutput, context: context)
-        Validators::VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
+        VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
       end
     end
 
@@ -2303,7 +2305,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorProxyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorProxyOutput, context: context)
-        Validators::Proxy.validate!(input[:proxy], context: "#{context}[:proxy]") unless input[:proxy].nil?
+        Proxy.validate!(input[:proxy], context: "#{context}[:proxy]") unless input[:proxy].nil?
       end
     end
 
@@ -2317,7 +2319,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorStreamingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorStreamingConfigurationOutput, context: context)
-        Validators::StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
+        StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
       end
     end
 
@@ -2331,7 +2333,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorTerminationHealthOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorTerminationHealthOutput, context: context)
-        Validators::TerminationHealth.validate!(input[:termination_health], context: "#{context}[:termination_health]") unless input[:termination_health].nil?
+        TerminationHealth.validate!(input[:termination_health], context: "#{context}[:termination_health]") unless input[:termination_health].nil?
       end
     end
 
@@ -2345,7 +2347,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorTerminationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVoiceConnectorTerminationOutput, context: context)
-        Validators::Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
+        Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
       end
     end
 
@@ -2371,7 +2373,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Invite.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Invite.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2380,7 +2382,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InviteUsersInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::UserEmailList.validate!(input[:user_email_list], context: "#{context}[:user_email_list]") unless input[:user_email_list].nil?
+        UserEmailList.validate!(input[:user_email_list], context: "#{context}[:user_email_list]") unless input[:user_email_list].nil?
         Hearth::Validator.validate!(input[:user_type], ::String, context: "#{context}[:user_type]")
       end
     end
@@ -2388,7 +2390,7 @@ module AWS::SDK::Chime
     class InviteUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InviteUsersOutput, context: context)
-        Validators::InviteList.validate!(input[:invites], context: "#{context}[:invites]") unless input[:invites].nil?
+        InviteList.validate!(input[:invites], context: "#{context}[:invites]") unless input[:invites].nil?
       end
     end
 
@@ -2414,7 +2416,7 @@ module AWS::SDK::Chime
     class ListAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountsOutput, context: context)
-        Validators::AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2432,7 +2434,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppInstanceAdminsOutput, context: context)
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
-        Validators::AppInstanceAdminList.validate!(input[:app_instance_admins], context: "#{context}[:app_instance_admins]") unless input[:app_instance_admins].nil?
+        AppInstanceAdminList.validate!(input[:app_instance_admins], context: "#{context}[:app_instance_admins]") unless input[:app_instance_admins].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2450,7 +2452,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppInstanceUsersOutput, context: context)
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
-        Validators::AppInstanceUserList.validate!(input[:app_instance_users], context: "#{context}[:app_instance_users]") unless input[:app_instance_users].nil?
+        AppInstanceUserList.validate!(input[:app_instance_users], context: "#{context}[:app_instance_users]") unless input[:app_instance_users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2466,7 +2468,7 @@ module AWS::SDK::Chime
     class ListAppInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppInstancesOutput, context: context)
-        Validators::AppInstanceList.validate!(input[:app_instances], context: "#{context}[:app_instances]") unless input[:app_instances].nil?
+        AppInstanceList.validate!(input[:app_instances], context: "#{context}[:app_instances]") unless input[:app_instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2482,7 +2484,7 @@ module AWS::SDK::Chime
     class ListAttendeeTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttendeeTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2498,7 +2500,7 @@ module AWS::SDK::Chime
     class ListAttendeesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttendeesOutput, context: context)
-        Validators::AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
+        AttendeeList.validate!(input[:attendees], context: "#{context}[:attendees]") unless input[:attendees].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2515,7 +2517,7 @@ module AWS::SDK::Chime
     class ListBotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBotsOutput, context: context)
-        Validators::BotList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
+        BotList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2535,7 +2537,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::ListChannelBansOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ChannelBanSummaryList.validate!(input[:channel_bans], context: "#{context}[:channel_bans]") unless input[:channel_bans].nil?
+        ChannelBanSummaryList.validate!(input[:channel_bans], context: "#{context}[:channel_bans]") unless input[:channel_bans].nil?
       end
     end
 
@@ -2552,7 +2554,7 @@ module AWS::SDK::Chime
     class ListChannelMembershipsForAppInstanceUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelMembershipsForAppInstanceUserOutput, context: context)
-        Validators::ChannelMembershipForAppInstanceUserSummaryList.validate!(input[:channel_memberships], context: "#{context}[:channel_memberships]") unless input[:channel_memberships].nil?
+        ChannelMembershipForAppInstanceUserSummaryList.validate!(input[:channel_memberships], context: "#{context}[:channel_memberships]") unless input[:channel_memberships].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2572,7 +2574,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelMembershipsOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::ChannelMembershipSummaryList.validate!(input[:channel_memberships], context: "#{context}[:channel_memberships]") unless input[:channel_memberships].nil?
+        ChannelMembershipSummaryList.validate!(input[:channel_memberships], context: "#{context}[:channel_memberships]") unless input[:channel_memberships].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2595,7 +2597,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::ListChannelMessagesOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ChannelMessageSummaryList.validate!(input[:channel_messages], context: "#{context}[:channel_messages]") unless input[:channel_messages].nil?
+        ChannelMessageSummaryList.validate!(input[:channel_messages], context: "#{context}[:channel_messages]") unless input[:channel_messages].nil?
       end
     end
 
@@ -2614,7 +2616,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::ListChannelModeratorsOutput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ChannelModeratorSummaryList.validate!(input[:channel_moderators], context: "#{context}[:channel_moderators]") unless input[:channel_moderators].nil?
+        ChannelModeratorSummaryList.validate!(input[:channel_moderators], context: "#{context}[:channel_moderators]") unless input[:channel_moderators].nil?
       end
     end
 
@@ -2642,7 +2644,7 @@ module AWS::SDK::Chime
     class ListChannelsModeratedByAppInstanceUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelsModeratedByAppInstanceUserOutput, context: context)
-        Validators::ChannelModeratedByAppInstanceUserSummaryList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        ChannelModeratedByAppInstanceUserSummaryList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2650,7 +2652,7 @@ module AWS::SDK::Chime
     class ListChannelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelsOutput, context: context)
-        Validators::ChannelSummaryList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        ChannelSummaryList.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2666,7 +2668,7 @@ module AWS::SDK::Chime
     class ListMediaCapturePipelinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMediaCapturePipelinesOutput, context: context)
-        Validators::MediaCapturePipelineList.validate!(input[:media_capture_pipelines], context: "#{context}[:media_capture_pipelines]") unless input[:media_capture_pipelines].nil?
+        MediaCapturePipelineList.validate!(input[:media_capture_pipelines], context: "#{context}[:media_capture_pipelines]") unless input[:media_capture_pipelines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2681,7 +2683,7 @@ module AWS::SDK::Chime
     class ListMeetingTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMeetingTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2696,7 +2698,7 @@ module AWS::SDK::Chime
     class ListMeetingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMeetingsOutput, context: context)
-        Validators::MeetingList.validate!(input[:meetings], context: "#{context}[:meetings]") unless input[:meetings].nil?
+        MeetingList.validate!(input[:meetings], context: "#{context}[:meetings]") unless input[:meetings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2712,7 +2714,7 @@ module AWS::SDK::Chime
     class ListPhoneNumberOrdersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPhoneNumberOrdersOutput, context: context)
-        Validators::PhoneNumberOrderList.validate!(input[:phone_number_orders], context: "#{context}[:phone_number_orders]") unless input[:phone_number_orders].nil?
+        PhoneNumberOrderList.validate!(input[:phone_number_orders], context: "#{context}[:phone_number_orders]") unless input[:phone_number_orders].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2732,7 +2734,7 @@ module AWS::SDK::Chime
     class ListPhoneNumbersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPhoneNumbersOutput, context: context)
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2750,7 +2752,7 @@ module AWS::SDK::Chime
     class ListProxySessionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProxySessionsOutput, context: context)
-        Validators::ProxySessions.validate!(input[:proxy_sessions], context: "#{context}[:proxy_sessions]") unless input[:proxy_sessions].nil?
+        ProxySessions.validate!(input[:proxy_sessions], context: "#{context}[:proxy_sessions]") unless input[:proxy_sessions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2768,7 +2770,7 @@ module AWS::SDK::Chime
     class ListRoomMembershipsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoomMembershipsOutput, context: context)
-        Validators::RoomMembershipList.validate!(input[:room_memberships], context: "#{context}[:room_memberships]") unless input[:room_memberships].nil?
+        RoomMembershipList.validate!(input[:room_memberships], context: "#{context}[:room_memberships]") unless input[:room_memberships].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2786,7 +2788,7 @@ module AWS::SDK::Chime
     class ListRoomsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoomsOutput, context: context)
-        Validators::RoomList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
+        RoomList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2802,7 +2804,7 @@ module AWS::SDK::Chime
     class ListSipMediaApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSipMediaApplicationsOutput, context: context)
-        Validators::SipMediaApplicationList.validate!(input[:sip_media_applications], context: "#{context}[:sip_media_applications]") unless input[:sip_media_applications].nil?
+        SipMediaApplicationList.validate!(input[:sip_media_applications], context: "#{context}[:sip_media_applications]") unless input[:sip_media_applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2819,7 +2821,7 @@ module AWS::SDK::Chime
     class ListSipRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSipRulesOutput, context: context)
-        Validators::SipRuleList.validate!(input[:sip_rules], context: "#{context}[:sip_rules]") unless input[:sip_rules].nil?
+        SipRuleList.validate!(input[:sip_rules], context: "#{context}[:sip_rules]") unless input[:sip_rules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2834,7 +2836,7 @@ module AWS::SDK::Chime
     class ListSupportedPhoneNumberCountriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSupportedPhoneNumberCountriesOutput, context: context)
-        Validators::PhoneNumberCountriesList.validate!(input[:phone_number_countries], context: "#{context}[:phone_number_countries]") unless input[:phone_number_countries].nil?
+        PhoneNumberCountriesList.validate!(input[:phone_number_countries], context: "#{context}[:phone_number_countries]") unless input[:phone_number_countries].nil?
       end
     end
 
@@ -2848,7 +2850,7 @@ module AWS::SDK::Chime
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2866,7 +2868,7 @@ module AWS::SDK::Chime
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2882,7 +2884,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectorGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVoiceConnectorGroupsOutput, context: context)
-        Validators::VoiceConnectorGroupList.validate!(input[:voice_connector_groups], context: "#{context}[:voice_connector_groups]") unless input[:voice_connector_groups].nil?
+        VoiceConnectorGroupList.validate!(input[:voice_connector_groups], context: "#{context}[:voice_connector_groups]") unless input[:voice_connector_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2897,7 +2899,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectorTerminationCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVoiceConnectorTerminationCredentialsOutput, context: context)
-        Validators::SensitiveStringList.validate!(input[:usernames], context: "#{context}[:usernames]") unless input[:usernames].nil?
+        SensitiveStringList.validate!(input[:usernames], context: "#{context}[:usernames]") unless input[:usernames].nil?
       end
     end
 
@@ -2912,7 +2914,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVoiceConnectorsOutput, context: context)
-        Validators::VoiceConnectorList.validate!(input[:voice_connectors], context: "#{context}[:voice_connectors]") unless input[:voice_connectors].nil?
+        VoiceConnectorList.validate!(input[:voice_connectors], context: "#{context}[:voice_connectors]") unless input[:voice_connectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2950,7 +2952,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:sink_arn], ::String, context: "#{context}[:sink_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
-        Validators::ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
+        ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
       end
     end
 
@@ -2958,7 +2960,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaCapturePipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaCapturePipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2982,7 +2984,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::Meeting, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:external_meeting_id], ::String, context: "#{context}[:external_meeting_id]")
-        Validators::MediaPlacement.validate!(input[:media_placement], context: "#{context}[:media_placement]") unless input[:media_placement].nil?
+        MediaPlacement.validate!(input[:media_placement], context: "#{context}[:media_placement]") unless input[:media_placement].nil?
         Hearth::Validator.validate!(input[:media_region], ::String, context: "#{context}[:media_region]")
       end
     end
@@ -2991,7 +2993,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Meeting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Meeting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3017,7 +3019,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3055,7 +3057,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3064,7 +3066,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Identity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Identity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3081,7 +3083,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MembershipItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MembershipItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3122,7 +3124,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrderedPhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrderedPhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3130,7 +3132,7 @@ module AWS::SDK::Chime
     class Origination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Origination, context: context)
-        Validators::OriginationRouteList.validate!(input[:routes], context: "#{context}[:routes]") unless input[:routes].nil?
+        OriginationRouteList.validate!(input[:routes], context: "#{context}[:routes]") unless input[:routes].nil?
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
       end
     end
@@ -3150,7 +3152,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginationRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginationRoute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3176,7 +3178,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Participant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Participant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3190,8 +3192,8 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::PhoneNumberCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
-        Validators::PhoneNumberAssociationList.validate!(input[:associations], context: "#{context}[:associations]") unless input[:associations].nil?
+        PhoneNumberCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        PhoneNumberAssociationList.validate!(input[:associations], context: "#{context}[:associations]") unless input[:associations].nil?
         Hearth::Validator.validate!(input[:calling_name], ::String, context: "#{context}[:calling_name]")
         Hearth::Validator.validate!(input[:calling_name_status], ::String, context: "#{context}[:calling_name_status]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
@@ -3213,7 +3215,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3234,7 +3236,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberCountry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberCountry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3243,7 +3245,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PhoneNumberCountry, context: context)
         Hearth::Validator.validate!(input[:country_code], ::String, context: "#{context}[:country_code]")
-        Validators::PhoneNumberTypeList.validate!(input[:supported_phone_number_types], context: "#{context}[:supported_phone_number_types]") unless input[:supported_phone_number_types].nil?
+        PhoneNumberTypeList.validate!(input[:supported_phone_number_types], context: "#{context}[:supported_phone_number_types]") unless input[:supported_phone_number_types].nil?
       end
     end
 
@@ -3260,7 +3262,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3269,7 +3271,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3280,7 +3282,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:phone_number_order_id], ::String, context: "#{context}[:phone_number_order_id]")
         Hearth::Validator.validate!(input[:product_type], ::String, context: "#{context}[:product_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::OrderedPhoneNumberList.validate!(input[:ordered_phone_numbers], context: "#{context}[:ordered_phone_numbers]") unless input[:ordered_phone_numbers].nil?
+        OrderedPhoneNumberList.validate!(input[:ordered_phone_numbers], context: "#{context}[:ordered_phone_numbers]") unless input[:ordered_phone_numbers].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
       end
@@ -3290,7 +3292,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumberOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumberOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3310,7 +3312,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:default_session_expiry_minutes], ::Integer, context: "#{context}[:default_session_expiry_minutes]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
         Hearth::Validator.validate!(input[:fall_back_phone_number], ::String, context: "#{context}[:fall_back_phone_number]")
-        Validators::StringList.validate!(input[:phone_number_countries], context: "#{context}[:phone_number_countries]") unless input[:phone_number_countries].nil?
+        StringList.validate!(input[:phone_number_countries], context: "#{context}[:phone_number_countries]") unless input[:phone_number_countries].nil?
       end
     end
 
@@ -3322,14 +3324,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:expiry_minutes], ::Integer, context: "#{context}[:expiry_minutes]")
-        Validators::CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
         Hearth::Validator.validate!(input[:ended_timestamp], ::Time, context: "#{context}[:ended_timestamp]")
-        Validators::Participants.validate!(input[:participants], context: "#{context}[:participants]") unless input[:participants].nil?
+        Participants.validate!(input[:participants], context: "#{context}[:participants]") unless input[:participants].nil?
         Hearth::Validator.validate!(input[:number_selection_behavior], ::String, context: "#{context}[:number_selection_behavior]")
         Hearth::Validator.validate!(input[:geo_match_level], ::String, context: "#{context}[:geo_match_level]")
-        Validators::GeoMatchParams.validate!(input[:geo_match_params], context: "#{context}[:geo_match_params]") unless input[:geo_match_params].nil?
+        GeoMatchParams.validate!(input[:geo_match_params], context: "#{context}[:geo_match_params]") unless input[:geo_match_params].nil?
       end
     end
 
@@ -3337,7 +3339,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProxySession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProxySession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3346,14 +3348,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppInstanceRetentionSettingsInput, context: context)
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
-        Validators::AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
+        AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
       end
     end
 
     class PutAppInstanceRetentionSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppInstanceRetentionSettingsOutput, context: context)
-        Validators::AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
+        AppInstanceRetentionSettings.validate!(input[:app_instance_retention_settings], context: "#{context}[:app_instance_retention_settings]") unless input[:app_instance_retention_settings].nil?
         Hearth::Validator.validate!(input[:initiate_deletion_timestamp], ::Time, context: "#{context}[:initiate_deletion_timestamp]")
       end
     end
@@ -3362,14 +3364,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppInstanceStreamingConfigurationsInput, context: context)
         Hearth::Validator.validate!(input[:app_instance_arn], ::String, context: "#{context}[:app_instance_arn]")
-        Validators::AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
+        AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
       end
     end
 
     class PutAppInstanceStreamingConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAppInstanceStreamingConfigurationsOutput, context: context)
-        Validators::AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
+        AppInstanceStreamingConfigurationList.validate!(input[:app_instance_streaming_configurations], context: "#{context}[:app_instance_streaming_configurations]") unless input[:app_instance_streaming_configurations].nil?
       end
     end
 
@@ -3386,7 +3388,7 @@ module AWS::SDK::Chime
     class PutEventsConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEventsConfigurationOutput, context: context)
-        Validators::EventsConfiguration.validate!(input[:events_configuration], context: "#{context}[:events_configuration]") unless input[:events_configuration].nil?
+        EventsConfiguration.validate!(input[:events_configuration], context: "#{context}[:events_configuration]") unless input[:events_configuration].nil?
       end
     end
 
@@ -3394,14 +3396,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRetentionSettingsInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
+        RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
       end
     end
 
     class PutRetentionSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRetentionSettingsOutput, context: context)
-        Validators::RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
+        RetentionSettings.validate!(input[:retention_settings], context: "#{context}[:retention_settings]") unless input[:retention_settings].nil?
         Hearth::Validator.validate!(input[:initiate_deletion_timestamp], ::Time, context: "#{context}[:initiate_deletion_timestamp]")
       end
     end
@@ -3410,14 +3412,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutSipMediaApplicationLoggingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:sip_media_application_id], ::String, context: "#{context}[:sip_media_application_id]")
-        Validators::SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
+        SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
       end
     end
 
     class PutSipMediaApplicationLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutSipMediaApplicationLoggingConfigurationOutput, context: context)
-        Validators::SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
+        SipMediaApplicationLoggingConfiguration.validate!(input[:sip_media_application_logging_configuration], context: "#{context}[:sip_media_application_logging_configuration]") unless input[:sip_media_application_logging_configuration].nil?
       end
     end
 
@@ -3425,14 +3427,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorEmergencyCallingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
+        EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
       end
     end
 
     class PutVoiceConnectorEmergencyCallingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorEmergencyCallingConfigurationOutput, context: context)
-        Validators::EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
+        EmergencyCallingConfiguration.validate!(input[:emergency_calling_configuration], context: "#{context}[:emergency_calling_configuration]") unless input[:emergency_calling_configuration].nil?
       end
     end
 
@@ -3440,14 +3442,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorLoggingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
     class PutVoiceConnectorLoggingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorLoggingConfigurationOutput, context: context)
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
       end
     end
 
@@ -3455,14 +3457,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorOriginationInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
+        Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
       end
     end
 
     class PutVoiceConnectorOriginationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorOriginationOutput, context: context)
-        Validators::Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
+        Origination.validate!(input[:origination], context: "#{context}[:origination]") unless input[:origination].nil?
       end
     end
 
@@ -3471,7 +3473,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorProxyInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
         Hearth::Validator.validate!(input[:default_session_expiry_minutes], ::Integer, context: "#{context}[:default_session_expiry_minutes]")
-        Validators::CountryList.validate!(input[:phone_number_pool_countries], context: "#{context}[:phone_number_pool_countries]") unless input[:phone_number_pool_countries].nil?
+        CountryList.validate!(input[:phone_number_pool_countries], context: "#{context}[:phone_number_pool_countries]") unless input[:phone_number_pool_countries].nil?
         Hearth::Validator.validate!(input[:fall_back_phone_number], ::String, context: "#{context}[:fall_back_phone_number]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
       end
@@ -3480,7 +3482,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorProxyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorProxyOutput, context: context)
-        Validators::Proxy.validate!(input[:proxy], context: "#{context}[:proxy]") unless input[:proxy].nil?
+        Proxy.validate!(input[:proxy], context: "#{context}[:proxy]") unless input[:proxy].nil?
       end
     end
 
@@ -3488,14 +3490,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorStreamingConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
+        StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
       end
     end
 
     class PutVoiceConnectorStreamingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorStreamingConfigurationOutput, context: context)
-        Validators::StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
+        StreamingConfiguration.validate!(input[:streaming_configuration], context: "#{context}[:streaming_configuration]") unless input[:streaming_configuration].nil?
       end
     end
 
@@ -3503,7 +3505,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorTerminationCredentialsInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::CredentialList.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        CredentialList.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
       end
     end
 
@@ -3517,14 +3519,14 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorTerminationInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
-        Validators::Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
+        Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
       end
     end
 
     class PutVoiceConnectorTerminationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutVoiceConnectorTerminationOutput, context: context)
-        Validators::Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
+        Termination.validate!(input[:termination], context: "#{context}[:termination]") unless input[:termination].nil?
       end
     end
 
@@ -3586,7 +3588,7 @@ module AWS::SDK::Chime
     class RegenerateSecurityTokenOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegenerateSecurityTokenOutput, context: context)
-        Validators::Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
+        Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
       end
     end
 
@@ -3601,7 +3603,7 @@ module AWS::SDK::Chime
     class ResetPersonalPINOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResetPersonalPINOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -3623,15 +3625,15 @@ module AWS::SDK::Chime
     class RestorePhoneNumberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestorePhoneNumberOutput, context: context)
-        Validators::PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
+        PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
       end
     end
 
     class RetentionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RetentionSettings, context: context)
-        Validators::RoomRetentionSettings.validate!(input[:room_retention_settings], context: "#{context}[:room_retention_settings]") unless input[:room_retention_settings].nil?
-        Validators::ConversationRetentionSettings.validate!(input[:conversation_retention_settings], context: "#{context}[:conversation_retention_settings]") unless input[:conversation_retention_settings].nil?
+        RoomRetentionSettings.validate!(input[:room_retention_settings], context: "#{context}[:room_retention_settings]") unless input[:room_retention_settings].nil?
+        ConversationRetentionSettings.validate!(input[:conversation_retention_settings], context: "#{context}[:conversation_retention_settings]") unless input[:conversation_retention_settings].nil?
       end
     end
 
@@ -3651,7 +3653,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Room.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Room.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3660,7 +3662,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RoomMembership, context: context)
         Hearth::Validator.validate!(input[:room_id], ::String, context: "#{context}[:room_id]")
-        Validators::Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:invited_by], ::String, context: "#{context}[:invited_by]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
@@ -3671,7 +3673,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoomMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoomMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3710,7 +3712,7 @@ module AWS::SDK::Chime
     class SearchAvailablePhoneNumbersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchAvailablePhoneNumbersOutput, context: context)
-        Validators::E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
+        E164PhoneNumberList.validate!(input[:e164_phone_numbers], context: "#{context}[:e164_phone_numbers]") unless input[:e164_phone_numbers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3718,8 +3720,8 @@ module AWS::SDK::Chime
     class SelectedVideoStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SelectedVideoStreams, context: context)
-        Validators::AttendeeIdList.validate!(input[:attendee_ids], context: "#{context}[:attendee_ids]") unless input[:attendee_ids].nil?
-        Validators::ExternalUserIdList.validate!(input[:external_user_ids], context: "#{context}[:external_user_ids]") unless input[:external_user_ids].nil?
+        AttendeeIdList.validate!(input[:attendee_ids], context: "#{context}[:attendee_ids]") unless input[:attendee_ids].nil?
+        ExternalUserIdList.validate!(input[:external_user_ids], context: "#{context}[:external_user_ids]") unless input[:external_user_ids].nil?
       end
     end
 
@@ -3780,7 +3782,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SigninDelegateGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SigninDelegateGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3801,7 +3803,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:sip_media_application_id], ::String, context: "#{context}[:sip_media_application_id]")
         Hearth::Validator.validate!(input[:aws_region], ::String, context: "#{context}[:aws_region]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
       end
@@ -3825,7 +3827,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SipMediaApplicationEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SipMediaApplicationEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3834,7 +3836,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SipMediaApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SipMediaApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3854,7 +3856,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
         Hearth::Validator.validate!(input[:trigger_type], ::String, context: "#{context}[:trigger_type]")
         Hearth::Validator.validate!(input[:trigger_value], ::String, context: "#{context}[:trigger_value]")
-        Validators::SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
+        SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
       end
@@ -3864,7 +3866,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SipRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SipRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3882,7 +3884,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SipRuleTargetApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SipRuleTargetApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3890,7 +3892,7 @@ module AWS::SDK::Chime
     class SourceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceConfiguration, context: context)
-        Validators::SelectedVideoStreams.validate!(input[:selected_video_streams], context: "#{context}[:selected_video_streams]") unless input[:selected_video_streams].nil?
+        SelectedVideoStreams.validate!(input[:selected_video_streams], context: "#{context}[:selected_video_streams]") unless input[:selected_video_streams].nil?
       end
     end
 
@@ -3898,7 +3900,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMeetingTranscriptionInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::TranscriptionConfiguration.validate!(input[:transcription_configuration], context: "#{context}[:transcription_configuration]") unless input[:transcription_configuration].nil?
+        TranscriptionConfiguration.validate!(input[:transcription_configuration], context: "#{context}[:transcription_configuration]") unless input[:transcription_configuration].nil?
       end
     end
 
@@ -3926,7 +3928,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::StreamingConfiguration, context: context)
         Hearth::Validator.validate!(input[:data_retention_in_hours], ::Integer, context: "#{context}[:data_retention_in_hours]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
-        Validators::StreamingNotificationTargetList.validate!(input[:streaming_notification_targets], context: "#{context}[:streaming_notification_targets]") unless input[:streaming_notification_targets].nil?
+        StreamingNotificationTargetList.validate!(input[:streaming_notification_targets], context: "#{context}[:streaming_notification_targets]") unless input[:streaming_notification_targets].nil?
       end
     end
 
@@ -3941,7 +3943,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamingNotificationTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamingNotificationTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3968,7 +3970,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::TagAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:attendee_id], ::String, context: "#{context}[:attendee_id]")
-        Validators::AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AttendeeTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3991,7 +3993,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4000,7 +4002,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagMeetingInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MeetingTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -4014,7 +4016,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -4038,8 +4040,8 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::Termination, context: context)
         Hearth::Validator.validate!(input[:cps_limit], ::Integer, context: "#{context}[:cps_limit]")
         Hearth::Validator.validate!(input[:default_phone_number], ::String, context: "#{context}[:default_phone_number]")
-        Validators::CallingRegionList.validate!(input[:calling_regions], context: "#{context}[:calling_regions]") unless input[:calling_regions].nil?
-        Validators::StringList.validate!(input[:cidr_allowed_list], context: "#{context}[:cidr_allowed_list]") unless input[:cidr_allowed_list].nil?
+        CallingRegionList.validate!(input[:calling_regions], context: "#{context}[:calling_regions]") unless input[:calling_regions].nil?
+        StringList.validate!(input[:cidr_allowed_list], context: "#{context}[:cidr_allowed_list]") unless input[:cidr_allowed_list].nil?
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
       end
     end
@@ -4063,8 +4065,8 @@ module AWS::SDK::Chime
     class TranscriptionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TranscriptionConfiguration, context: context)
-        Validators::EngineTranscribeSettings.validate!(input[:engine_transcribe_settings], context: "#{context}[:engine_transcribe_settings]") unless input[:engine_transcribe_settings].nil?
-        Validators::EngineTranscribeMedicalSettings.validate!(input[:engine_transcribe_medical_settings], context: "#{context}[:engine_transcribe_medical_settings]") unless input[:engine_transcribe_medical_settings].nil?
+        EngineTranscribeSettings.validate!(input[:engine_transcribe_settings], context: "#{context}[:engine_transcribe_settings]") unless input[:engine_transcribe_settings].nil?
+        EngineTranscribeMedicalSettings.validate!(input[:engine_transcribe_medical_settings], context: "#{context}[:engine_transcribe_medical_settings]") unless input[:engine_transcribe_medical_settings].nil?
       end
     end
 
@@ -4089,7 +4091,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UntagAttendeeInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
         Hearth::Validator.validate!(input[:attendee_id], ::String, context: "#{context}[:attendee_id]")
-        Validators::AttendeeTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        AttendeeTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -4103,7 +4105,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagMeetingInput, context: context)
         Hearth::Validator.validate!(input[:meeting_id], ::String, context: "#{context}[:meeting_id]")
-        Validators::MeetingTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        MeetingTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -4117,7 +4119,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -4139,7 +4141,7 @@ module AWS::SDK::Chime
     class UpdateAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAccountOutput, context: context)
-        Validators::Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
+        Account.validate!(input[:account], context: "#{context}[:account]") unless input[:account].nil?
       end
     end
 
@@ -4147,7 +4149,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAccountSettingsInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
       end
     end
 
@@ -4201,7 +4203,7 @@ module AWS::SDK::Chime
     class UpdateBotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBotOutput, context: context)
-        Validators::Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
+        Bot.validate!(input[:bot], context: "#{context}[:bot]") unless input[:bot].nil?
       end
     end
 
@@ -4260,8 +4262,8 @@ module AWS::SDK::Chime
     class UpdateGlobalSettingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGlobalSettingsInput, context: context)
-        Validators::BusinessCallingSettings.validate!(input[:business_calling], context: "#{context}[:business_calling]") unless input[:business_calling].nil?
-        Validators::VoiceConnectorSettings.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
+        BusinessCallingSettings.validate!(input[:business_calling], context: "#{context}[:business_calling]") unless input[:business_calling].nil?
+        VoiceConnectorSettings.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
       end
     end
 
@@ -4283,7 +4285,7 @@ module AWS::SDK::Chime
     class UpdatePhoneNumberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePhoneNumberOutput, context: context)
-        Validators::PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
+        PhoneNumber.validate!(input[:phone_number], context: "#{context}[:phone_number]") unless input[:phone_number].nil?
       end
     end
 
@@ -4300,7 +4302,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdatePhoneNumberRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdatePhoneNumberRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4323,7 +4325,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UpdateProxySessionInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_id], ::String, context: "#{context}[:voice_connector_id]")
         Hearth::Validator.validate!(input[:proxy_session_id], ::String, context: "#{context}[:proxy_session_id]")
-        Validators::CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        CapabilityList.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
         Hearth::Validator.validate!(input[:expiry_minutes], ::Integer, context: "#{context}[:expiry_minutes]")
       end
     end
@@ -4331,7 +4333,7 @@ module AWS::SDK::Chime
     class UpdateProxySessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProxySessionOutput, context: context)
-        Validators::ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
+        ProxySession.validate!(input[:proxy_session], context: "#{context}[:proxy_session]") unless input[:proxy_session].nil?
       end
     end
 
@@ -4357,14 +4359,14 @@ module AWS::SDK::Chime
     class UpdateRoomMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRoomMembershipOutput, context: context)
-        Validators::RoomMembership.validate!(input[:room_membership], context: "#{context}[:room_membership]") unless input[:room_membership].nil?
+        RoomMembership.validate!(input[:room_membership], context: "#{context}[:room_membership]") unless input[:room_membership].nil?
       end
     end
 
     class UpdateRoomOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRoomOutput, context: context)
-        Validators::Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
+        Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
       end
     end
 
@@ -4373,14 +4375,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UpdateSipMediaApplicationCallInput, context: context)
         Hearth::Validator.validate!(input[:sip_media_application_id], ::String, context: "#{context}[:sip_media_application_id]")
         Hearth::Validator.validate!(input[:transaction_id], ::String, context: "#{context}[:transaction_id]")
-        Validators::SMAUpdateCallArgumentsMap.validate!(input[:arguments], context: "#{context}[:arguments]") unless input[:arguments].nil?
+        SMAUpdateCallArgumentsMap.validate!(input[:arguments], context: "#{context}[:arguments]") unless input[:arguments].nil?
       end
     end
 
     class UpdateSipMediaApplicationCallOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSipMediaApplicationCallOutput, context: context)
-        Validators::SipMediaApplicationCall.validate!(input[:sip_media_application_call], context: "#{context}[:sip_media_application_call]") unless input[:sip_media_application_call].nil?
+        SipMediaApplicationCall.validate!(input[:sip_media_application_call], context: "#{context}[:sip_media_application_call]") unless input[:sip_media_application_call].nil?
       end
     end
 
@@ -4389,14 +4391,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UpdateSipMediaApplicationInput, context: context)
         Hearth::Validator.validate!(input[:sip_media_application_id], ::String, context: "#{context}[:sip_media_application_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        SipMediaApplicationEndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
     class UpdateSipMediaApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSipMediaApplicationOutput, context: context)
-        Validators::SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
+        SipMediaApplication.validate!(input[:sip_media_application], context: "#{context}[:sip_media_application]") unless input[:sip_media_application].nil?
       end
     end
 
@@ -4406,14 +4408,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:sip_rule_id], ::String, context: "#{context}[:sip_rule_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:disabled], ::TrueClass, ::FalseClass, context: "#{context}[:disabled]")
-        Validators::SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
+        SipRuleTargetApplicationList.validate!(input[:target_applications], context: "#{context}[:target_applications]") unless input[:target_applications].nil?
       end
     end
 
     class UpdateSipRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSipRuleOutput, context: context)
-        Validators::SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
+        SipRule.validate!(input[:sip_rule], context: "#{context}[:sip_rule]") unless input[:sip_rule].nil?
       end
     end
 
@@ -4424,14 +4426,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:license_type], ::String, context: "#{context}[:license_type]")
         Hearth::Validator.validate!(input[:user_type], ::String, context: "#{context}[:user_type]")
-        Validators::AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
+        AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
       end
     end
 
     class UpdateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -4441,7 +4443,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:license_type], ::String, context: "#{context}[:license_type]")
         Hearth::Validator.validate!(input[:user_type], ::String, context: "#{context}[:user_type]")
-        Validators::AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
+        AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
       end
     end
 
@@ -4449,7 +4451,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateUserRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateUserRequestItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4459,7 +4461,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UpdateUserSettingsInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
-        Validators::UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
+        UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
       end
     end
 
@@ -4474,14 +4476,14 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::UpdateVoiceConnectorGroupInput, context: context)
         Hearth::Validator.validate!(input[:voice_connector_group_id], ::String, context: "#{context}[:voice_connector_group_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
+        VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
       end
     end
 
     class UpdateVoiceConnectorGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVoiceConnectorGroupOutput, context: context)
-        Validators::VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
+        VoiceConnectorGroup.validate!(input[:voice_connector_group], context: "#{context}[:voice_connector_group]") unless input[:voice_connector_group].nil?
       end
     end
 
@@ -4497,7 +4499,7 @@ module AWS::SDK::Chime
     class UpdateVoiceConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateVoiceConnectorOutput, context: context)
-        Validators::VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
+        VoiceConnector.validate!(input[:voice_connector], context: "#{context}[:voice_connector]") unless input[:voice_connector].nil?
       end
     end
 
@@ -4515,7 +4517,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input[:user_invitation_status], ::String, context: "#{context}[:user_invitation_status]")
         Hearth::Validator.validate!(input[:registered_on], ::Time, context: "#{context}[:registered_on]")
         Hearth::Validator.validate!(input[:invited_on], ::Time, context: "#{context}[:invited_on]")
-        Validators::AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
+        AlexaForBusinessMetadata.validate!(input[:alexa_for_business_metadata], context: "#{context}[:alexa_for_business_metadata]") unless input[:alexa_for_business_metadata].nil?
         Hearth::Validator.validate!(input[:personal_pin], ::String, context: "#{context}[:personal_pin]")
       end
     end
@@ -4542,7 +4544,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4560,7 +4562,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4568,7 +4570,7 @@ module AWS::SDK::Chime
     class UserSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserSettings, context: context)
-        Validators::TelephonySettings.validate!(input[:telephony], context: "#{context}[:telephony]") unless input[:telephony].nil?
+        TelephonySettings.validate!(input[:telephony], context: "#{context}[:telephony]") unless input[:telephony].nil?
       end
     end
 
@@ -4599,7 +4601,7 @@ module AWS::SDK::Chime
         Hearth::Validator.validate!(input, Types::VoiceConnectorGroup, context: context)
         Hearth::Validator.validate!(input[:voice_connector_group_id], ::String, context: "#{context}[:voice_connector_group_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
+        VoiceConnectorItemList.validate!(input[:voice_connector_items], context: "#{context}[:voice_connector_items]") unless input[:voice_connector_items].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
         Hearth::Validator.validate!(input[:voice_connector_group_arn], ::String, context: "#{context}[:voice_connector_group_arn]")
@@ -4610,7 +4612,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VoiceConnectorGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VoiceConnectorGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4627,7 +4629,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VoiceConnectorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VoiceConnectorItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4636,7 +4638,7 @@ module AWS::SDK::Chime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VoiceConnector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VoiceConnector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

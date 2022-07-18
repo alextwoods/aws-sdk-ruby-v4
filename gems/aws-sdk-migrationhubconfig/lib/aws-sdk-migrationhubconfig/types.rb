@@ -47,11 +47,11 @@ module AWS::SDK::MigrationHubConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute home_region_control
@@ -292,11 +292,11 @@ module AWS::SDK::MigrationHubConfig
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
   end

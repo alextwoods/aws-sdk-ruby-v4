@@ -14,7 +14,7 @@ module AWS::SDK::CloudSearch
     class BuildSuggesters
       def self.default(visited=[])
         {
-          field_names: Stubs::FieldNameList.default(visited),
+          field_names: FieldNameList.default(visited),
         }
       end
 
@@ -53,7 +53,7 @@ module AWS::SDK::CloudSearch
     class CreateDomain
       def self.default(visited=[])
         {
-          domain_status: Stubs::DomainStatus.default(visited),
+          domain_status: DomainStatus.default(visited),
         }
       end
 
@@ -80,14 +80,14 @@ module AWS::SDK::CloudSearch
           arn: 'arn',
           created: false,
           deleted: false,
-          doc_service: Stubs::ServiceEndpoint.default(visited),
-          search_service: Stubs::ServiceEndpoint.default(visited),
+          doc_service: ServiceEndpoint.default(visited),
+          search_service: ServiceEndpoint.default(visited),
           requires_index_documents: false,
           processing: false,
           search_instance_type: 'search_instance_type',
           search_partition_count: 1,
           search_instance_count: 1,
-          limits: Stubs::Limits.default(visited),
+          limits: Limits.default(visited),
         }
       end
 
@@ -153,7 +153,7 @@ module AWS::SDK::CloudSearch
     class DefineAnalysisScheme
       def self.default(visited=[])
         {
-          analysis_scheme: Stubs::AnalysisSchemeStatus.default(visited),
+          analysis_scheme: AnalysisSchemeStatus.default(visited),
         }
       end
 
@@ -175,8 +175,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('AnalysisSchemeStatus')
         visited = visited + ['AnalysisSchemeStatus']
         {
-          options: Stubs::AnalysisScheme.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: AnalysisScheme.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::CloudSearch
         {
           analysis_scheme_name: 'analysis_scheme_name',
           analysis_scheme_language: 'analysis_scheme_language',
-          analysis_options: Stubs::AnalysisOptions.default(visited),
+          analysis_options: AnalysisOptions.default(visited),
         }
       end
 
@@ -267,7 +267,7 @@ module AWS::SDK::CloudSearch
     class DefineExpression
       def self.default(visited=[])
         {
-          expression: Stubs::ExpressionStatus.default(visited),
+          expression: ExpressionStatus.default(visited),
         }
       end
 
@@ -289,8 +289,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('ExpressionStatus')
         visited = visited + ['ExpressionStatus']
         {
-          options: Stubs::Expression.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: Expression.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -327,7 +327,7 @@ module AWS::SDK::CloudSearch
     class DefineIndexField
       def self.default(visited=[])
         {
-          index_field: Stubs::IndexFieldStatus.default(visited),
+          index_field: IndexFieldStatus.default(visited),
         }
       end
 
@@ -349,8 +349,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('IndexFieldStatus')
         visited = visited + ['IndexFieldStatus']
         {
-          options: Stubs::IndexField.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: IndexField.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -371,17 +371,17 @@ module AWS::SDK::CloudSearch
         {
           index_field_name: 'index_field_name',
           index_field_type: 'index_field_type',
-          int_options: Stubs::IntOptions.default(visited),
-          double_options: Stubs::DoubleOptions.default(visited),
-          literal_options: Stubs::LiteralOptions.default(visited),
-          text_options: Stubs::TextOptions.default(visited),
-          date_options: Stubs::DateOptions.default(visited),
-          lat_lon_options: Stubs::LatLonOptions.default(visited),
-          int_array_options: Stubs::IntArrayOptions.default(visited),
-          double_array_options: Stubs::DoubleArrayOptions.default(visited),
-          literal_array_options: Stubs::LiteralArrayOptions.default(visited),
-          text_array_options: Stubs::TextArrayOptions.default(visited),
-          date_array_options: Stubs::DateArrayOptions.default(visited),
+          int_options: IntOptions.default(visited),
+          double_options: DoubleOptions.default(visited),
+          literal_options: LiteralOptions.default(visited),
+          text_options: TextOptions.default(visited),
+          date_options: DateOptions.default(visited),
+          lat_lon_options: LatLonOptions.default(visited),
+          int_array_options: IntArrayOptions.default(visited),
+          double_array_options: DoubleArrayOptions.default(visited),
+          literal_array_options: LiteralArrayOptions.default(visited),
+          text_array_options: TextArrayOptions.default(visited),
+          date_array_options: DateArrayOptions.default(visited),
         }
       end
 
@@ -707,7 +707,7 @@ module AWS::SDK::CloudSearch
     class DefineSuggester
       def self.default(visited=[])
         {
-          suggester: Stubs::SuggesterStatus.default(visited),
+          suggester: SuggesterStatus.default(visited),
         }
       end
 
@@ -729,8 +729,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('SuggesterStatus')
         visited = visited + ['SuggesterStatus']
         {
-          options: Stubs::Suggester.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: Suggester.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -750,7 +750,7 @@ module AWS::SDK::CloudSearch
         visited = visited + ['Suggester']
         {
           suggester_name: 'suggester_name',
-          document_suggester_options: Stubs::DocumentSuggesterOptions.default(visited),
+          document_suggester_options: DocumentSuggesterOptions.default(visited),
         }
       end
 
@@ -789,7 +789,7 @@ module AWS::SDK::CloudSearch
     class DeleteAnalysisScheme
       def self.default(visited=[])
         {
-          analysis_scheme: Stubs::AnalysisSchemeStatus.default(visited),
+          analysis_scheme: AnalysisSchemeStatus.default(visited),
         }
       end
 
@@ -809,7 +809,7 @@ module AWS::SDK::CloudSearch
     class DeleteDomain
       def self.default(visited=[])
         {
-          domain_status: Stubs::DomainStatus.default(visited),
+          domain_status: DomainStatus.default(visited),
         }
       end
 
@@ -829,7 +829,7 @@ module AWS::SDK::CloudSearch
     class DeleteExpression
       def self.default(visited=[])
         {
-          expression: Stubs::ExpressionStatus.default(visited),
+          expression: ExpressionStatus.default(visited),
         }
       end
 
@@ -849,7 +849,7 @@ module AWS::SDK::CloudSearch
     class DeleteIndexField
       def self.default(visited=[])
         {
-          index_field: Stubs::IndexFieldStatus.default(visited),
+          index_field: IndexFieldStatus.default(visited),
         }
       end
 
@@ -869,7 +869,7 @@ module AWS::SDK::CloudSearch
     class DeleteSuggester
       def self.default(visited=[])
         {
-          suggester: Stubs::SuggesterStatus.default(visited),
+          suggester: SuggesterStatus.default(visited),
         }
       end
 
@@ -889,7 +889,7 @@ module AWS::SDK::CloudSearch
     class DescribeAnalysisSchemes
       def self.default(visited=[])
         {
-          analysis_schemes: Stubs::AnalysisSchemeStatusList.default(visited),
+          analysis_schemes: AnalysisSchemeStatusList.default(visited),
         }
       end
 
@@ -911,7 +911,7 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('AnalysisSchemeStatusList')
         visited = visited + ['AnalysisSchemeStatusList']
         [
-          Stubs::AnalysisSchemeStatus.default(visited)
+          AnalysisSchemeStatus.default(visited)
         ]
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::CloudSearch
     class DescribeAvailabilityOptions
       def self.default(visited=[])
         {
-          availability_options: Stubs::AvailabilityOptionsStatus.default(visited),
+          availability_options: AvailabilityOptionsStatus.default(visited),
         }
       end
 
@@ -951,7 +951,7 @@ module AWS::SDK::CloudSearch
         visited = visited + ['AvailabilityOptionsStatus']
         {
           options: false,
-          status: Stubs::OptionStatus.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::CloudSearch
     class DescribeDomainEndpointOptions
       def self.default(visited=[])
         {
-          domain_endpoint_options: Stubs::DomainEndpointOptionsStatus.default(visited),
+          domain_endpoint_options: DomainEndpointOptionsStatus.default(visited),
         }
       end
 
@@ -990,8 +990,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('DomainEndpointOptionsStatus')
         visited = visited + ['DomainEndpointOptionsStatus']
         {
-          options: Stubs::DomainEndpointOptions.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: DomainEndpointOptions.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::CloudSearch
     class DescribeDomains
       def self.default(visited=[])
         {
-          domain_status_list: Stubs::DomainStatusList.default(visited),
+          domain_status_list: DomainStatusList.default(visited),
         }
       end
 
@@ -1050,7 +1050,7 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('DomainStatusList')
         visited = visited + ['DomainStatusList']
         [
-          Stubs::DomainStatus.default(visited)
+          DomainStatus.default(visited)
         ]
       end
 
@@ -1067,7 +1067,7 @@ module AWS::SDK::CloudSearch
     class DescribeExpressions
       def self.default(visited=[])
         {
-          expressions: Stubs::ExpressionStatusList.default(visited),
+          expressions: ExpressionStatusList.default(visited),
         }
       end
 
@@ -1089,7 +1089,7 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('ExpressionStatusList')
         visited = visited + ['ExpressionStatusList']
         [
-          Stubs::ExpressionStatus.default(visited)
+          ExpressionStatus.default(visited)
         ]
       end
 
@@ -1106,7 +1106,7 @@ module AWS::SDK::CloudSearch
     class DescribeIndexFields
       def self.default(visited=[])
         {
-          index_fields: Stubs::IndexFieldStatusList.default(visited),
+          index_fields: IndexFieldStatusList.default(visited),
         }
       end
 
@@ -1128,7 +1128,7 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('IndexFieldStatusList')
         visited = visited + ['IndexFieldStatusList']
         [
-          Stubs::IndexFieldStatus.default(visited)
+          IndexFieldStatus.default(visited)
         ]
       end
 
@@ -1145,7 +1145,7 @@ module AWS::SDK::CloudSearch
     class DescribeScalingParameters
       def self.default(visited=[])
         {
-          scaling_parameters: Stubs::ScalingParametersStatus.default(visited),
+          scaling_parameters: ScalingParametersStatus.default(visited),
         }
       end
 
@@ -1167,8 +1167,8 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('ScalingParametersStatus')
         visited = visited + ['ScalingParametersStatus']
         {
-          options: Stubs::ScalingParameters.default(visited),
-          status: Stubs::OptionStatus.default(visited),
+          options: ScalingParameters.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1207,7 +1207,7 @@ module AWS::SDK::CloudSearch
     class DescribeServiceAccessPolicies
       def self.default(visited=[])
         {
-          access_policies: Stubs::AccessPoliciesStatus.default(visited),
+          access_policies: AccessPoliciesStatus.default(visited),
         }
       end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::CloudSearch
         visited = visited + ['AccessPoliciesStatus']
         {
           options: 'options',
-          status: Stubs::OptionStatus.default(visited),
+          status: OptionStatus.default(visited),
         }
       end
 
@@ -1247,7 +1247,7 @@ module AWS::SDK::CloudSearch
     class DescribeSuggesters
       def self.default(visited=[])
         {
-          suggesters: Stubs::SuggesterStatusList.default(visited),
+          suggesters: SuggesterStatusList.default(visited),
         }
       end
 
@@ -1269,7 +1269,7 @@ module AWS::SDK::CloudSearch
         return nil if visited.include?('SuggesterStatusList')
         visited = visited + ['SuggesterStatusList']
         [
-          Stubs::SuggesterStatus.default(visited)
+          SuggesterStatus.default(visited)
         ]
       end
 
@@ -1286,7 +1286,7 @@ module AWS::SDK::CloudSearch
     class IndexDocuments
       def self.default(visited=[])
         {
-          field_names: Stubs::FieldNameList.default(visited),
+          field_names: FieldNameList.default(visited),
         }
       end
 
@@ -1306,7 +1306,7 @@ module AWS::SDK::CloudSearch
     class ListDomainNames
       def self.default(visited=[])
         {
-          domain_names: Stubs::DomainNameMap.default(visited),
+          domain_names: DomainNameMap.default(visited),
         }
       end
 
@@ -1348,7 +1348,7 @@ module AWS::SDK::CloudSearch
     class UpdateAvailabilityOptions
       def self.default(visited=[])
         {
-          availability_options: Stubs::AvailabilityOptionsStatus.default(visited),
+          availability_options: AvailabilityOptionsStatus.default(visited),
         }
       end
 
@@ -1368,7 +1368,7 @@ module AWS::SDK::CloudSearch
     class UpdateDomainEndpointOptions
       def self.default(visited=[])
         {
-          domain_endpoint_options: Stubs::DomainEndpointOptionsStatus.default(visited),
+          domain_endpoint_options: DomainEndpointOptionsStatus.default(visited),
         }
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::CloudSearch
     class UpdateScalingParameters
       def self.default(visited=[])
         {
-          scaling_parameters: Stubs::ScalingParametersStatus.default(visited),
+          scaling_parameters: ScalingParametersStatus.default(visited),
         }
       end
 
@@ -1408,7 +1408,7 @@ module AWS::SDK::CloudSearch
     class UpdateServiceAccessPolicies
       def self.default(visited=[])
         {
-          access_policies: Stubs::AccessPoliciesStatus.default(visited),
+          access_policies: AccessPoliciesStatus.default(visited),
         }
       end
 

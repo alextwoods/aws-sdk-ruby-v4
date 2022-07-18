@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Nimble
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptEulasInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::EulaIdList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
+        EulaIdList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
     end
@@ -22,7 +24,7 @@ module AWS::SDK::Nimble
     class AcceptEulasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptEulasOutput, context: context)
-        Validators::EulaAcceptanceList.validate!(input[:eula_acceptances], context: "#{context}[:eula_acceptances]") unless input[:eula_acceptances].nil?
+        EulaAcceptanceList.validate!(input[:eula_acceptances], context: "#{context}[:eula_acceptances]") unless input[:eula_acceptances].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccessDeniedException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActiveDirectoryComputerAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActiveDirectoryComputerAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::Nimble
     class ActiveDirectoryConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActiveDirectoryConfiguration, context: context)
-        Validators::ActiveDirectoryComputerAttributeList.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
+        ActiveDirectoryComputerAttributeList.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:organizational_unit_distinguished_name], ::String, context: "#{context}[:organizational_unit_distinguished_name]")
       end
@@ -82,7 +84,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConflictException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -92,20 +94,20 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input, Types::CreateLaunchProfileInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EC2SubnetIdList.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
-        Validators::LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
+        EC2SubnetIdList.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
+        LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StreamConfigurationCreate.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
-        Validators::LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
+        StreamConfigurationCreate.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
+        LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateLaunchProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLaunchProfileOutput, context: context)
-        Validators::LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
+        LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
       end
     end
 
@@ -117,14 +119,14 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:ec2_image_id], ::String, context: "#{context}[:ec2_image_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateStreamingImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingImageOutput, context: context)
-        Validators::StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
+        StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
       end
     end
 
@@ -137,14 +139,14 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:owned_by], ::String, context: "#{context}[:owned_by]")
         Hearth::Validator.validate!(input[:streaming_image_id], ::String, context: "#{context}[:streaming_image_id]")
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateStreamingSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingSessionOutput, context: context)
-        Validators::StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
+        StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::Nimble
     class CreateStreamingSessionStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingSessionStreamOutput, context: context)
-        Validators::StreamingSessionStream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
+        StreamingSessionStream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
       end
     end
 
@@ -169,23 +171,25 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStudioComponentInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
-        Validators::StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
+        StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
+        StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
+        StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
         Hearth::Validator.validate!(input[:subtype], ::String, context: "#{context}[:subtype]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
+        Hearth::Validator.validate!(input[:secure_initialization_role_arn], ::String, context: "#{context}[:secure_initialization_role_arn]")
+        Hearth::Validator.validate!(input[:runtime_role_arn], ::String, context: "#{context}[:runtime_role_arn]")
       end
     end
 
     class CreateStudioComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStudioComponentOutput, context: context)
-        Validators::StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
+        StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
       end
     end
 
@@ -195,9 +199,9 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:admin_role_arn], ::String, context: "#{context}[:admin_role_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
-        Validators::StudioEncryptionConfiguration.validate!(input[:studio_encryption_configuration], context: "#{context}[:studio_encryption_configuration]") unless input[:studio_encryption_configuration].nil?
+        StudioEncryptionConfiguration.validate!(input[:studio_encryption_configuration], context: "#{context}[:studio_encryption_configuration]") unless input[:studio_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:studio_name], ::String, context: "#{context}[:studio_name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:user_role_arn], ::String, context: "#{context}[:user_role_arn]")
       end
     end
@@ -205,7 +209,7 @@ module AWS::SDK::Nimble
     class CreateStudioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStudioOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -237,7 +241,7 @@ module AWS::SDK::Nimble
     class DeleteLaunchProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteLaunchProfileOutput, context: context)
-        Validators::LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
+        LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
       end
     end
 
@@ -253,7 +257,7 @@ module AWS::SDK::Nimble
     class DeleteStreamingImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteStreamingImageOutput, context: context)
-        Validators::StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
+        StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
       end
     end
 
@@ -269,7 +273,7 @@ module AWS::SDK::Nimble
     class DeleteStreamingSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteStreamingSessionOutput, context: context)
-        Validators::StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
+        StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
       end
     end
 
@@ -285,7 +289,7 @@ module AWS::SDK::Nimble
     class DeleteStudioComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteStudioComponentOutput, context: context)
-        Validators::StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
+        StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
       end
     end
 
@@ -315,7 +319,7 @@ module AWS::SDK::Nimble
     class DeleteStudioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteStudioOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -354,7 +358,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EulaAcceptance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EulaAcceptance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -372,7 +376,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Eula.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Eula.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -397,7 +401,7 @@ module AWS::SDK::Nimble
     class GetEulaOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEulaOutput, context: context)
-        Validators::Eula.validate!(input[:eula], context: "#{context}[:eula]") unless input[:eula].nil?
+        Eula.validate!(input[:eula], context: "#{context}[:eula]") unless input[:eula].nil?
       end
     end
 
@@ -412,9 +416,9 @@ module AWS::SDK::Nimble
     class GetLaunchProfileDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLaunchProfileDetailsOutput, context: context)
-        Validators::LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
-        Validators::StreamingImageList.validate!(input[:streaming_images], context: "#{context}[:streaming_images]") unless input[:streaming_images].nil?
-        Validators::StudioComponentSummaryList.validate!(input[:studio_component_summaries], context: "#{context}[:studio_component_summaries]") unless input[:studio_component_summaries].nil?
+        LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
+        StreamingImageList.validate!(input[:streaming_images], context: "#{context}[:streaming_images]") unless input[:streaming_images].nil?
+        StudioComponentSummaryList.validate!(input[:studio_component_summaries], context: "#{context}[:studio_component_summaries]") unless input[:studio_component_summaries].nil?
       end
     end
 
@@ -422,7 +426,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLaunchProfileInitializationInput, context: context)
         Hearth::Validator.validate!(input[:launch_profile_id], ::String, context: "#{context}[:launch_profile_id]")
-        Validators::StringList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
+        StringList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
         Hearth::Validator.validate!(input[:launch_purpose], ::String, context: "#{context}[:launch_purpose]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
@@ -432,7 +436,7 @@ module AWS::SDK::Nimble
     class GetLaunchProfileInitializationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLaunchProfileInitializationOutput, context: context)
-        Validators::LaunchProfileInitialization.validate!(input[:launch_profile_initialization], context: "#{context}[:launch_profile_initialization]") unless input[:launch_profile_initialization].nil?
+        LaunchProfileInitialization.validate!(input[:launch_profile_initialization], context: "#{context}[:launch_profile_initialization]") unless input[:launch_profile_initialization].nil?
       end
     end
 
@@ -456,14 +460,14 @@ module AWS::SDK::Nimble
     class GetLaunchProfileMemberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLaunchProfileMemberOutput, context: context)
-        Validators::LaunchProfileMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        LaunchProfileMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
     class GetLaunchProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLaunchProfileOutput, context: context)
-        Validators::LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
+        LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
       end
     end
 
@@ -478,7 +482,7 @@ module AWS::SDK::Nimble
     class GetStreamingImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamingImageOutput, context: context)
-        Validators::StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
+        StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
       end
     end
 
@@ -493,7 +497,7 @@ module AWS::SDK::Nimble
     class GetStreamingSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamingSessionOutput, context: context)
-        Validators::StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
+        StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
       end
     end
 
@@ -509,7 +513,7 @@ module AWS::SDK::Nimble
     class GetStreamingSessionStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamingSessionStreamOutput, context: context)
-        Validators::StreamingSessionStream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
+        StreamingSessionStream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
       end
     end
 
@@ -524,7 +528,7 @@ module AWS::SDK::Nimble
     class GetStudioComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStudioComponentOutput, context: context)
-        Validators::StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
+        StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
       end
     end
 
@@ -546,14 +550,14 @@ module AWS::SDK::Nimble
     class GetStudioMemberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStudioMemberOutput, context: context)
-        Validators::StudioMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        StudioMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
     class GetStudioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStudioOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -561,7 +565,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InternalServerErrorException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -573,44 +577,44 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EC2SubnetIdList.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
+        EC2SubnetIdList.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
         Hearth::Validator.validate!(input[:launch_profile_id], ::String, context: "#{context}[:launch_profile_id]")
-        Validators::LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
+        LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
-        Validators::StreamConfiguration.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
-        Validators::LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StreamConfiguration.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
+        LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:updated_by], ::String, context: "#{context}[:updated_by]")
-        Validators::ValidationResults.validate!(input[:validation_results], context: "#{context}[:validation_results]") unless input[:validation_results].nil?
+        ValidationResults.validate!(input[:validation_results], context: "#{context}[:validation_results]") unless input[:validation_results].nil?
       end
     end
 
     class LaunchProfileInitialization
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchProfileInitialization, context: context)
-        Validators::LaunchProfileInitializationActiveDirectory.validate!(input[:active_directory], context: "#{context}[:active_directory]") unless input[:active_directory].nil?
-        Validators::LaunchProfileSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
+        LaunchProfileInitializationActiveDirectory.validate!(input[:active_directory], context: "#{context}[:active_directory]") unless input[:active_directory].nil?
+        LaunchProfileSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
         Hearth::Validator.validate!(input[:launch_profile_id], ::String, context: "#{context}[:launch_profile_id]")
         Hearth::Validator.validate!(input[:launch_profile_protocol_version], ::String, context: "#{context}[:launch_profile_protocol_version]")
         Hearth::Validator.validate!(input[:launch_purpose], ::String, context: "#{context}[:launch_purpose]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::LaunchProfileInitializationScriptList.validate!(input[:system_initialization_scripts], context: "#{context}[:system_initialization_scripts]") unless input[:system_initialization_scripts].nil?
-        Validators::LaunchProfileInitializationScriptList.validate!(input[:user_initialization_scripts], context: "#{context}[:user_initialization_scripts]") unless input[:user_initialization_scripts].nil?
+        LaunchProfileInitializationScriptList.validate!(input[:system_initialization_scripts], context: "#{context}[:system_initialization_scripts]") unless input[:system_initialization_scripts].nil?
+        LaunchProfileInitializationScriptList.validate!(input[:user_initialization_scripts], context: "#{context}[:user_initialization_scripts]") unless input[:user_initialization_scripts].nil?
       end
     end
 
     class LaunchProfileInitializationActiveDirectory
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchProfileInitializationActiveDirectory, context: context)
-        Validators::ActiveDirectoryComputerAttributeList.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
+        ActiveDirectoryComputerAttributeList.validate!(input[:computer_attributes], context: "#{context}[:computer_attributes]") unless input[:computer_attributes].nil?
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:directory_name], ::String, context: "#{context}[:directory_name]")
-        Validators::ActiveDirectoryDnsIpAddressList.validate!(input[:dns_ip_addresses], context: "#{context}[:dns_ip_addresses]") unless input[:dns_ip_addresses].nil?
+        ActiveDirectoryDnsIpAddressList.validate!(input[:dns_ip_addresses], context: "#{context}[:dns_ip_addresses]") unless input[:dns_ip_addresses].nil?
         Hearth::Validator.validate!(input[:organizational_unit_distinguished_name], ::String, context: "#{context}[:organizational_unit_distinguished_name]")
         Hearth::Validator.validate!(input[:studio_component_id], ::String, context: "#{context}[:studio_component_id]")
         Hearth::Validator.validate!(input[:studio_component_name], ::String, context: "#{context}[:studio_component_name]")
@@ -623,6 +627,8 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:script], ::String, context: "#{context}[:script]")
         Hearth::Validator.validate!(input[:studio_component_id], ::String, context: "#{context}[:studio_component_id]")
         Hearth::Validator.validate!(input[:studio_component_name], ::String, context: "#{context}[:studio_component_name]")
+        Hearth::Validator.validate!(input[:secure_initialization_role_arn], ::String, context: "#{context}[:secure_initialization_role_arn]")
+        Hearth::Validator.validate!(input[:runtime_role_arn], ::String, context: "#{context}[:runtime_role_arn]")
       end
     end
 
@@ -630,7 +636,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchProfileInitializationScript.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchProfileInitializationScript.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -639,7 +645,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -658,7 +664,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchProfileMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchProfileMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -709,7 +715,7 @@ module AWS::SDK::Nimble
     class ListEulaAcceptancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEulaAcceptancesInput, context: context)
-        Validators::StringList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
+        StringList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
@@ -718,7 +724,7 @@ module AWS::SDK::Nimble
     class ListEulaAcceptancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEulaAcceptancesOutput, context: context)
-        Validators::EulaAcceptanceList.validate!(input[:eula_acceptances], context: "#{context}[:eula_acceptances]") unless input[:eula_acceptances].nil?
+        EulaAcceptanceList.validate!(input[:eula_acceptances], context: "#{context}[:eula_acceptances]") unless input[:eula_acceptances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -726,7 +732,7 @@ module AWS::SDK::Nimble
     class ListEulasInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEulasInput, context: context)
-        Validators::StringList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
+        StringList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -734,7 +740,7 @@ module AWS::SDK::Nimble
     class ListEulasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEulasOutput, context: context)
-        Validators::EulaList.validate!(input[:eulas], context: "#{context}[:eulas]") unless input[:eulas].nil?
+        EulaList.validate!(input[:eulas], context: "#{context}[:eulas]") unless input[:eulas].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -752,7 +758,7 @@ module AWS::SDK::Nimble
     class ListLaunchProfileMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLaunchProfileMembersOutput, context: context)
-        Validators::LaunchProfileMembershipList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        LaunchProfileMembershipList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -763,7 +769,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:principal_id], ::String, context: "#{context}[:principal_id]")
-        Validators::LaunchProfileStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        LaunchProfileStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
     end
@@ -771,7 +777,7 @@ module AWS::SDK::Nimble
     class ListLaunchProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLaunchProfilesOutput, context: context)
-        Validators::LaunchProfileList.validate!(input[:launch_profiles], context: "#{context}[:launch_profiles]") unless input[:launch_profiles].nil?
+        LaunchProfileList.validate!(input[:launch_profiles], context: "#{context}[:launch_profiles]") unless input[:launch_profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -789,7 +795,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamingImagesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StreamingImageList.validate!(input[:streaming_images], context: "#{context}[:streaming_images]") unless input[:streaming_images].nil?
+        StreamingImageList.validate!(input[:streaming_images], context: "#{context}[:streaming_images]") unless input[:streaming_images].nil?
       end
     end
 
@@ -808,7 +814,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamingSessionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StreamingSessionList.validate!(input[:sessions], context: "#{context}[:sessions]") unless input[:sessions].nil?
+        StreamingSessionList.validate!(input[:sessions], context: "#{context}[:sessions]") unless input[:sessions].nil?
       end
     end
 
@@ -817,9 +823,9 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input, Types::ListStudioComponentsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StudioComponentStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
+        StudioComponentStateList.validate!(input[:states], context: "#{context}[:states]") unless input[:states].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
-        Validators::StudioComponentTypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
+        StudioComponentTypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
       end
     end
 
@@ -827,7 +833,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStudioComponentsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StudioComponentList.validate!(input[:studio_components], context: "#{context}[:studio_components]") unless input[:studio_components].nil?
+        StudioComponentList.validate!(input[:studio_components], context: "#{context}[:studio_components]") unless input[:studio_components].nil?
       end
     end
 
@@ -843,7 +849,7 @@ module AWS::SDK::Nimble
     class ListStudioMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStudioMembersOutput, context: context)
-        Validators::StudioMembershipList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        StudioMembershipList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -859,7 +865,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStudiosOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StudioList.validate!(input[:studios], context: "#{context}[:studios]") unless input[:studios].nil?
+        StudioList.validate!(input[:studios], context: "#{context}[:studios]") unless input[:studios].nil?
       end
     end
 
@@ -873,7 +879,7 @@ module AWS::SDK::Nimble
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -889,7 +895,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NewLaunchProfileMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NewLaunchProfileMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -906,7 +912,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NewStudioMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NewStudioMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -917,7 +923,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:identity_store_id], ::String, context: "#{context}[:identity_store_id]")
         Hearth::Validator.validate!(input[:launch_profile_id], ::String, context: "#{context}[:launch_profile_id]")
-        Validators::NewLaunchProfileMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        NewLaunchProfileMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
     end
@@ -933,7 +939,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input, Types::PutStudioMembersInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:identity_store_id], ::String, context: "#{context}[:identity_store_id]")
-        Validators::NewStudioMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        NewStudioMemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
     end
@@ -948,7 +954,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceNotFoundException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -965,7 +971,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceQuotaExceededException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -993,7 +999,7 @@ module AWS::SDK::Nimble
     class StartStreamingSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartStreamingSessionOutput, context: context)
-        Validators::StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
+        StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
       end
     end
 
@@ -1008,7 +1014,7 @@ module AWS::SDK::Nimble
     class StartStudioSSOConfigurationRepairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartStudioSSOConfigurationRepairOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -1024,7 +1030,7 @@ module AWS::SDK::Nimble
     class StopStreamingSessionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopStreamingSessionOutput, context: context)
-        Validators::StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
+        StreamingSession.validate!(input[:session], context: "#{context}[:session]") unless input[:session].nil?
       end
     end
 
@@ -1032,11 +1038,11 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamConfiguration, context: context)
         Hearth::Validator.validate!(input[:clipboard_mode], ::String, context: "#{context}[:clipboard_mode]")
-        Validators::StreamingInstanceTypeList.validate!(input[:ec2_instance_types], context: "#{context}[:ec2_instance_types]") unless input[:ec2_instance_types].nil?
+        StreamingInstanceTypeList.validate!(input[:ec2_instance_types], context: "#{context}[:ec2_instance_types]") unless input[:ec2_instance_types].nil?
         Hearth::Validator.validate!(input[:max_session_length_in_minutes], ::Integer, context: "#{context}[:max_session_length_in_minutes]")
-        Validators::StreamingImageIdList.validate!(input[:streaming_image_ids], context: "#{context}[:streaming_image_ids]") unless input[:streaming_image_ids].nil?
+        StreamingImageIdList.validate!(input[:streaming_image_ids], context: "#{context}[:streaming_image_ids]") unless input[:streaming_image_ids].nil?
         Hearth::Validator.validate!(input[:max_stopped_session_length_in_minutes], ::Integer, context: "#{context}[:max_stopped_session_length_in_minutes]")
-        Validators::StreamConfigurationSessionStorage.validate!(input[:session_storage], context: "#{context}[:session_storage]") unless input[:session_storage].nil?
+        StreamConfigurationSessionStorage.validate!(input[:session_storage], context: "#{context}[:session_storage]") unless input[:session_storage].nil?
       end
     end
 
@@ -1044,19 +1050,19 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamConfigurationCreate, context: context)
         Hearth::Validator.validate!(input[:clipboard_mode], ::String, context: "#{context}[:clipboard_mode]")
-        Validators::StreamingInstanceTypeList.validate!(input[:ec2_instance_types], context: "#{context}[:ec2_instance_types]") unless input[:ec2_instance_types].nil?
+        StreamingInstanceTypeList.validate!(input[:ec2_instance_types], context: "#{context}[:ec2_instance_types]") unless input[:ec2_instance_types].nil?
         Hearth::Validator.validate!(input[:max_session_length_in_minutes], ::Integer, context: "#{context}[:max_session_length_in_minutes]")
-        Validators::StreamingImageIdList.validate!(input[:streaming_image_ids], context: "#{context}[:streaming_image_ids]") unless input[:streaming_image_ids].nil?
+        StreamingImageIdList.validate!(input[:streaming_image_ids], context: "#{context}[:streaming_image_ids]") unless input[:streaming_image_ids].nil?
         Hearth::Validator.validate!(input[:max_stopped_session_length_in_minutes], ::Integer, context: "#{context}[:max_stopped_session_length_in_minutes]")
-        Validators::StreamConfigurationSessionStorage.validate!(input[:session_storage], context: "#{context}[:session_storage]") unless input[:session_storage].nil?
+        StreamConfigurationSessionStorage.validate!(input[:session_storage], context: "#{context}[:session_storage]") unless input[:session_storage].nil?
       end
     end
 
     class StreamConfigurationSessionStorage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamConfigurationSessionStorage, context: context)
-        Validators::StreamingSessionStorageRoot.validate!(input[:root], context: "#{context}[:root]") unless input[:root].nil?
-        Validators::StreamingSessionStorageModeList.validate!(input[:mode], context: "#{context}[:mode]") unless input[:mode].nil?
+        StreamingSessionStorageRoot.validate!(input[:root], context: "#{context}[:root]") unless input[:root].nil?
+        StreamingSessionStorageModeList.validate!(input[:mode], context: "#{context}[:mode]") unless input[:mode].nil?
       end
     end
 
@@ -1066,8 +1072,8 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:ec2_image_id], ::String, context: "#{context}[:ec2_image_id]")
-        Validators::StreamingImageEncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::EulaIdList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
+        StreamingImageEncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        EulaIdList.validate!(input[:eula_ids], context: "#{context}[:eula_ids]") unless input[:eula_ids].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
@@ -1075,7 +1081,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:streaming_image_id], ::String, context: "#{context}[:streaming_image_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1100,7 +1106,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamingImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamingImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1128,7 +1134,7 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:streaming_image_id], ::String, context: "#{context}[:streaming_image_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:terminate_at], ::Time, context: "#{context}[:terminate_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:updated_by], ::String, context: "#{context}[:updated_by]")
@@ -1144,7 +1150,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamingSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamingSession.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1201,11 +1207,11 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
-        Validators::StudioEncryptionConfiguration.validate!(input[:studio_encryption_configuration], context: "#{context}[:studio_encryption_configuration]") unless input[:studio_encryption_configuration].nil?
+        StudioEncryptionConfiguration.validate!(input[:studio_encryption_configuration], context: "#{context}[:studio_encryption_configuration]") unless input[:studio_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
         Hearth::Validator.validate!(input[:studio_name], ::String, context: "#{context}[:studio_name]")
         Hearth::Validator.validate!(input[:studio_url], ::String, context: "#{context}[:studio_url]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:user_role_arn], ::String, context: "#{context}[:user_role_arn]")
       end
@@ -1215,23 +1221,25 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StudioComponent, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
-        Validators::StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
+        StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
+        StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
+        StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:studio_component_id], ::String, context: "#{context}[:studio_component_id]")
         Hearth::Validator.validate!(input[:subtype], ::String, context: "#{context}[:subtype]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:updated_by], ::String, context: "#{context}[:updated_by]")
+        Hearth::Validator.validate!(input[:secure_initialization_role_arn], ::String, context: "#{context}[:secure_initialization_role_arn]")
+        Hearth::Validator.validate!(input[:runtime_role_arn], ::String, context: "#{context}[:runtime_role_arn]")
       end
     end
 
@@ -1239,13 +1247,13 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         case input
         when Types::StudioComponentConfiguration::ActiveDirectoryConfiguration
-          Validators::ActiveDirectoryConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ActiveDirectoryConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StudioComponentConfiguration::ComputeFarmConfiguration
-          Validators::ComputeFarmConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ComputeFarmConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StudioComponentConfiguration::LicenseServiceConfiguration
-          Validators::LicenseServiceConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          LicenseServiceConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::StudioComponentConfiguration::SharedFileSystemConfiguration
-          Validators::SharedFileSystemConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SharedFileSystemConfiguration.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1292,7 +1300,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StudioComponentInitializationScript.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StudioComponentInitializationScript.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1301,7 +1309,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StudioComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StudioComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1310,7 +1318,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScriptParameterKeyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScriptParameterKeyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1352,7 +1360,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StudioComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StudioComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1378,7 +1386,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Studio.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Studio.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1397,7 +1405,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StudioMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StudioMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1406,7 +1414,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1430,7 +1438,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThrottlingException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -1439,7 +1447,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1455,10 +1463,10 @@ module AWS::SDK::Nimble
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:launch_profile_id], ::String, context: "#{context}[:launch_profile_id]")
-        Validators::LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
+        LaunchProfileProtocolVersionList.validate!(input[:launch_profile_protocol_versions], context: "#{context}[:launch_profile_protocol_versions]") unless input[:launch_profile_protocol_versions].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StreamConfigurationCreate.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
-        Validators::LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
+        StreamConfigurationCreate.validate!(input[:stream_configuration], context: "#{context}[:stream_configuration]") unless input[:stream_configuration].nil?
+        LaunchProfileStudioComponentIdList.validate!(input[:studio_component_ids], context: "#{context}[:studio_component_ids]") unless input[:studio_component_ids].nil?
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
       end
     end
@@ -1477,14 +1485,14 @@ module AWS::SDK::Nimble
     class UpdateLaunchProfileMemberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLaunchProfileMemberOutput, context: context)
-        Validators::LaunchProfileMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        LaunchProfileMembership.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
     class UpdateLaunchProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLaunchProfileOutput, context: context)
-        Validators::LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
+        LaunchProfile.validate!(input[:launch_profile], context: "#{context}[:launch_profile]") unless input[:launch_profile].nil?
       end
     end
 
@@ -1502,7 +1510,7 @@ module AWS::SDK::Nimble
     class UpdateStreamingImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStreamingImageOutput, context: context)
-        Validators::StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
+        StreamingImage.validate!(input[:streaming_image], context: "#{context}[:streaming_image]") unless input[:streaming_image].nil?
       end
     end
 
@@ -1510,23 +1518,25 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStudioComponentInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        StudioComponentConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
-        Validators::StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
+        StudioComponentSecurityGroupIdList.validate!(input[:ec2_security_group_ids], context: "#{context}[:ec2_security_group_ids]") unless input[:ec2_security_group_ids].nil?
+        StudioComponentInitializationScriptList.validate!(input[:initialization_scripts], context: "#{context}[:initialization_scripts]") unless input[:initialization_scripts].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
+        StudioComponentScriptParameterKeyValueList.validate!(input[:script_parameters], context: "#{context}[:script_parameters]") unless input[:script_parameters].nil?
         Hearth::Validator.validate!(input[:studio_component_id], ::String, context: "#{context}[:studio_component_id]")
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
         Hearth::Validator.validate!(input[:subtype], ::String, context: "#{context}[:subtype]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
+        Hearth::Validator.validate!(input[:secure_initialization_role_arn], ::String, context: "#{context}[:secure_initialization_role_arn]")
+        Hearth::Validator.validate!(input[:runtime_role_arn], ::String, context: "#{context}[:runtime_role_arn]")
       end
     end
 
     class UpdateStudioComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStudioComponentOutput, context: context)
-        Validators::StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
+        StudioComponent.validate!(input[:studio_component], context: "#{context}[:studio_component]") unless input[:studio_component].nil?
       end
     end
 
@@ -1544,7 +1554,7 @@ module AWS::SDK::Nimble
     class UpdateStudioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStudioOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -1552,7 +1562,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        ExceptionContext.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -1571,7 +1581,7 @@ module AWS::SDK::Nimble
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

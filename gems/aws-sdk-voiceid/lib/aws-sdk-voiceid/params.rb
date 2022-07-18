@@ -63,7 +63,7 @@ module AWS::SDK::VoiceID
         type.name = params[:name]
         type.description = params[:description]
         type.server_side_encryption_configuration = ServerSideEncryptionConfiguration.build(params[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless params[:server_side_encryption_configuration].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -736,7 +736,7 @@ module AWS::SDK::VoiceID
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartFraudsterRegistrationJobInput, context: context)
         type = Types::StartFraudsterRegistrationJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.job_name = params[:job_name]
         type.domain_id = params[:domain_id]
         type.data_access_role_arn = params[:data_access_role_arn]
@@ -760,7 +760,7 @@ module AWS::SDK::VoiceID
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StartSpeakerEnrollmentJobInput, context: context)
         type = Types::StartSpeakerEnrollmentJobInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.job_name = params[:job_name]
         type.domain_id = params[:domain_id]
         type.data_access_role_arn = params[:data_access_role_arn]

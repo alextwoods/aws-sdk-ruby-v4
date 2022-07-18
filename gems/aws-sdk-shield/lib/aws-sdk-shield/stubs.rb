@@ -156,7 +156,7 @@ module AWS::SDK::Shield
     class DescribeAttack
       def self.default(visited=[])
         {
-          attack: Stubs::AttackDetail.default(visited),
+          attack: AttackDetail.default(visited),
         }
       end
 
@@ -176,12 +176,12 @@ module AWS::SDK::Shield
         {
           attack_id: 'attack_id',
           resource_arn: 'resource_arn',
-          sub_resources: Stubs::SubResourceSummaryList.default(visited),
+          sub_resources: SubResourceSummaryList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
-          attack_counters: Stubs::SummarizedCounterList.default(visited),
-          attack_properties: Stubs::AttackProperties.default(visited),
-          mitigations: Stubs::MitigationList.default(visited),
+          attack_counters: SummarizedCounterList.default(visited),
+          attack_properties: AttackProperties.default(visited),
+          mitigations: MitigationList.default(visited),
         }
       end
 
@@ -206,7 +206,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('MitigationList')
         visited = visited + ['MitigationList']
         [
-          Stubs::Mitigation.default(visited)
+          Mitigation.default(visited)
         ]
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackProperties')
         visited = visited + ['AttackProperties']
         [
-          Stubs::AttackProperty.default(visited)
+          AttackProperty.default(visited)
         ]
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::Shield
         {
           attack_layer: 'attack_layer',
           attack_property_identifier: 'attack_property_identifier',
-          top_contributors: Stubs::TopContributors.default(visited),
+          top_contributors: TopContributors.default(visited),
           unit: 'unit',
           total: 1,
         }
@@ -290,7 +290,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('TopContributors')
         visited = visited + ['TopContributors']
         [
-          Stubs::Contributor.default(visited)
+          Contributor.default(visited)
         ]
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('SummarizedCounterList')
         visited = visited + ['SummarizedCounterList']
         [
-          Stubs::SummarizedCounter.default(visited)
+          SummarizedCounter.default(visited)
         ]
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('SubResourceSummaryList')
         visited = visited + ['SubResourceSummaryList']
         [
-          Stubs::SubResourceSummary.default(visited)
+          SubResourceSummary.default(visited)
         ]
       end
 
@@ -400,8 +400,8 @@ module AWS::SDK::Shield
         {
           type: 'type',
           id: 'id',
-          attack_vectors: Stubs::SummarizedAttackVectorList.default(visited),
-          counters: Stubs::SummarizedCounterList.default(visited),
+          attack_vectors: SummarizedAttackVectorList.default(visited),
+          counters: SummarizedCounterList.default(visited),
         }
       end
 
@@ -422,7 +422,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('SummarizedAttackVectorList')
         visited = visited + ['SummarizedAttackVectorList']
         [
-          Stubs::SummarizedAttackVector.default(visited)
+          SummarizedAttackVector.default(visited)
         ]
       end
 
@@ -443,7 +443,7 @@ module AWS::SDK::Shield
         visited = visited + ['SummarizedAttackVector']
         {
           vector_type: 'vector_type',
-          vector_counters: Stubs::SummarizedCounterList.default(visited),
+          vector_counters: SummarizedCounterList.default(visited),
         }
       end
 
@@ -460,8 +460,8 @@ module AWS::SDK::Shield
     class DescribeAttackStatistics
       def self.default(visited=[])
         {
-          time_range: Stubs::TimeRange.default(visited),
-          data_items: Stubs::AttackStatisticsDataList.default(visited),
+          time_range: TimeRange.default(visited),
+          data_items: AttackStatisticsDataList.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackStatisticsDataList')
         visited = visited + ['AttackStatisticsDataList']
         [
-          Stubs::AttackStatisticsDataItem.default(visited)
+          AttackStatisticsDataItem.default(visited)
         ]
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackStatisticsDataItem')
         visited = visited + ['AttackStatisticsDataItem']
         {
-          attack_volume: Stubs::AttackVolume.default(visited),
+          attack_volume: AttackVolume.default(visited),
           attack_count: 1,
         }
       end
@@ -520,9 +520,9 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackVolume')
         visited = visited + ['AttackVolume']
         {
-          bits_per_second: Stubs::AttackVolumeStatistics.default(visited),
-          packets_per_second: Stubs::AttackVolumeStatistics.default(visited),
-          requests_per_second: Stubs::AttackVolumeStatistics.default(visited),
+          bits_per_second: AttackVolumeStatistics.default(visited),
+          packets_per_second: AttackVolumeStatistics.default(visited),
+          requests_per_second: AttackVolumeStatistics.default(visited),
         }
       end
 
@@ -579,7 +579,7 @@ module AWS::SDK::Shield
       def self.default(visited=[])
         {
           role_arn: 'role_arn',
-          log_bucket_list: Stubs::LogBucketList.default(visited),
+          log_bucket_list: LogBucketList.default(visited),
         }
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::Shield
     class DescribeEmergencyContactSettings
       def self.default(visited=[])
         {
-          emergency_contact_list: Stubs::EmergencyContactList.default(visited),
+          emergency_contact_list: EmergencyContactList.default(visited),
         }
       end
 
@@ -634,7 +634,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('EmergencyContactList')
         visited = visited + ['EmergencyContactList']
         [
-          Stubs::EmergencyContact.default(visited)
+          EmergencyContact.default(visited)
         ]
       end
 
@@ -674,7 +674,7 @@ module AWS::SDK::Shield
     class DescribeProtection
       def self.default(visited=[])
         {
-          protection: Stubs::Protection.default(visited),
+          protection: Protection.default(visited),
         }
       end
 
@@ -695,9 +695,9 @@ module AWS::SDK::Shield
           id: 'id',
           name: 'name',
           resource_arn: 'resource_arn',
-          health_check_ids: Stubs::HealthCheckIds.default(visited),
+          health_check_ids: HealthCheckIds.default(visited),
           protection_arn: 'protection_arn',
-          application_layer_automatic_response_configuration: Stubs::ApplicationLayerAutomaticResponseConfiguration.default(visited),
+          application_layer_automatic_response_configuration: ApplicationLayerAutomaticResponseConfiguration.default(visited),
         }
       end
 
@@ -721,7 +721,7 @@ module AWS::SDK::Shield
         visited = visited + ['ApplicationLayerAutomaticResponseConfiguration']
         {
           status: 'status',
-          action: Stubs::ResponseAction.default(visited),
+          action: ResponseAction.default(visited),
         }
       end
 
@@ -740,8 +740,8 @@ module AWS::SDK::Shield
         return nil if visited.include?('ResponseAction')
         visited = visited + ['ResponseAction']
         {
-          block: Stubs::BlockAction.default(visited),
-          count: Stubs::CountAction.default(visited),
+          block: BlockAction.default(visited),
+          count: CountAction.default(visited),
         }
       end
 
@@ -810,7 +810,7 @@ module AWS::SDK::Shield
     class DescribeProtectionGroup
       def self.default(visited=[])
         {
-          protection_group: Stubs::ProtectionGroup.default(visited),
+          protection_group: ProtectionGroup.default(visited),
         }
       end
 
@@ -832,7 +832,7 @@ module AWS::SDK::Shield
           aggregation: 'aggregation',
           pattern: 'pattern',
           resource_type: 'resource_type',
-          members: Stubs::ProtectionGroupMembers.default(visited),
+          members: ProtectionGroupMembers.default(visited),
           protection_group_arn: 'protection_group_arn',
         }
       end
@@ -874,7 +874,7 @@ module AWS::SDK::Shield
     class DescribeSubscription
       def self.default(visited=[])
         {
-          subscription: Stubs::Subscription.default(visited),
+          subscription: Subscription.default(visited),
         }
       end
 
@@ -896,9 +896,9 @@ module AWS::SDK::Shield
           end_time: Time.now,
           time_commitment_in_seconds: 1,
           auto_renew: 'auto_renew',
-          limits: Stubs::Limits.default(visited),
+          limits: Limits.default(visited),
           proactive_engagement_status: 'proactive_engagement_status',
-          subscription_limits: Stubs::SubscriptionLimits.default(visited),
+          subscription_limits: SubscriptionLimits.default(visited),
           subscription_arn: 'subscription_arn',
         }
       end
@@ -924,8 +924,8 @@ module AWS::SDK::Shield
         return nil if visited.include?('SubscriptionLimits')
         visited = visited + ['SubscriptionLimits']
         {
-          protection_limits: Stubs::ProtectionLimits.default(visited),
-          protection_group_limits: Stubs::ProtectionGroupLimits.default(visited),
+          protection_limits: ProtectionLimits.default(visited),
+          protection_group_limits: ProtectionGroupLimits.default(visited),
         }
       end
 
@@ -945,7 +945,7 @@ module AWS::SDK::Shield
         visited = visited + ['ProtectionGroupLimits']
         {
           max_protection_groups: 1,
-          pattern_type_limits: Stubs::ProtectionGroupPatternTypeLimits.default(visited),
+          pattern_type_limits: ProtectionGroupPatternTypeLimits.default(visited),
         }
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('ProtectionGroupPatternTypeLimits')
         visited = visited + ['ProtectionGroupPatternTypeLimits']
         {
-          arbitrary_pattern_limits: Stubs::ProtectionGroupArbitraryPatternLimits.default(visited),
+          arbitrary_pattern_limits: ProtectionGroupArbitraryPatternLimits.default(visited),
         }
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('ProtectionLimits')
         visited = visited + ['ProtectionLimits']
         {
-          protected_resource_type_limits: Stubs::Limits.default(visited),
+          protected_resource_type_limits: Limits.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('Limits')
         visited = visited + ['Limits']
         [
-          Stubs::Limit.default(visited)
+          Limit.default(visited)
         ]
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::Shield
     class ListAttacks
       def self.default(visited=[])
         {
-          attack_summaries: Stubs::AttackSummaries.default(visited),
+          attack_summaries: AttackSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1190,7 +1190,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackSummaries')
         visited = visited + ['AttackSummaries']
         [
-          Stubs::AttackSummary.default(visited)
+          AttackSummary.default(visited)
         ]
       end
 
@@ -1214,7 +1214,7 @@ module AWS::SDK::Shield
           resource_arn: 'resource_arn',
           start_time: Time.now,
           end_time: Time.now,
-          attack_vectors: Stubs::AttackVectorDescriptionList.default(visited),
+          attack_vectors: AttackVectorDescriptionList.default(visited),
         }
       end
 
@@ -1236,7 +1236,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('AttackVectorDescriptionList')
         visited = visited + ['AttackVectorDescriptionList']
         [
-          Stubs::AttackVectorDescription.default(visited)
+          AttackVectorDescription.default(visited)
         ]
       end
 
@@ -1272,7 +1272,7 @@ module AWS::SDK::Shield
     class ListProtectionGroups
       def self.default(visited=[])
         {
-          protection_groups: Stubs::ProtectionGroups.default(visited),
+          protection_groups: ProtectionGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1292,7 +1292,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('ProtectionGroups')
         visited = visited + ['ProtectionGroups']
         [
-          Stubs::ProtectionGroup.default(visited)
+          ProtectionGroup.default(visited)
         ]
       end
 
@@ -1310,7 +1310,7 @@ module AWS::SDK::Shield
     class ListProtections
       def self.default(visited=[])
         {
-          protections: Stubs::Protections.default(visited),
+          protections: Protections.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1330,7 +1330,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('Protections')
         visited = visited + ['Protections']
         [
-          Stubs::Protection.default(visited)
+          Protection.default(visited)
         ]
       end
 
@@ -1348,7 +1348,7 @@ module AWS::SDK::Shield
     class ListResourcesInProtectionGroup
       def self.default(visited=[])
         {
-          resource_arns: Stubs::ResourceArnList.default(visited),
+          resource_arns: ResourceArnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1386,7 +1386,7 @@ module AWS::SDK::Shield
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1404,7 +1404,7 @@ module AWS::SDK::Shield
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

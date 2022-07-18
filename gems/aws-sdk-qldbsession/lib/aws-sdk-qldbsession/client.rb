@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::QLDBSession
@@ -178,7 +180,7 @@ module AWS::SDK::QLDBSession
     def send_command(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendCommandInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendCommandInput,
         validate_input: @config.validate_input

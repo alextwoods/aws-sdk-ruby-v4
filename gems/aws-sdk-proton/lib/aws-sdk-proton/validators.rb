@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Proton
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::Proton
     class AcceptEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountSettings, context: context)
         Hearth::Validator.validate!(input[:pipeline_service_role_arn], ::String, context: "#{context}[:pipeline_service_role_arn]")
-        Validators::RepositoryBranch.validate!(input[:pipeline_provisioning_repository], context: "#{context}[:pipeline_provisioning_repository]") unless input[:pipeline_provisioning_repository].nil?
+        RepositoryBranch.validate!(input[:pipeline_provisioning_repository], context: "#{context}[:pipeline_provisioning_repository]") unless input[:pipeline_provisioning_repository].nil?
       end
     end
 
@@ -49,7 +51,7 @@ module AWS::SDK::Proton
     class CancelComponentDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelComponentDeploymentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::Proton
     class CancelEnvironmentDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelEnvironmentDeploymentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::Proton
     class CancelServiceInstanceDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelServiceInstanceDeploymentOutput, context: context)
-        Validators::ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
+        ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::Proton
     class CancelServicePipelineDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelServicePipelineDeploymentOutput, context: context)
-        Validators::ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
@@ -116,7 +118,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CompatibleEnvironmentTemplateInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CompatibleEnvironmentTemplateInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CompatibleEnvironmentTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CompatibleEnvironmentTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -193,14 +195,14 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:template_file], ::String, context: "#{context}[:template_file]")
         Hearth::Validator.validate!(input[:manifest], ::String, context: "#{context}[:manifest]")
         Hearth::Validator.validate!(input[:service_spec], ::String, context: "#{context}[:service_spec]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateComponentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -211,7 +213,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:management_account_id], ::String, context: "#{context}[:management_account_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:component_role_arn], ::String, context: "#{context}[:component_role_arn]")
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::Proton
     class CreateEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -234,8 +236,8 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:spec], ::String, context: "#{context}[:spec]")
         Hearth::Validator.validate!(input[:proton_service_role_arn], ::String, context: "#{context}[:proton_service_role_arn]")
         Hearth::Validator.validate!(input[:environment_account_connection_id], ::String, context: "#{context}[:environment_account_connection_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::RepositoryBranchInput.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RepositoryBranchInput.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
         Hearth::Validator.validate!(input[:component_role_arn], ::String, context: "#{context}[:component_role_arn]")
       end
     end
@@ -243,7 +245,7 @@ module AWS::SDK::Proton
     class CreateEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -255,14 +257,14 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
         Hearth::Validator.validate!(input[:provisioning], ::String, context: "#{context}[:provisioning]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateEnvironmentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEnvironmentTemplateOutput, context: context)
-        Validators::EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
+        EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
       end
     end
 
@@ -273,15 +275,15 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:major_version], ::String, context: "#{context}[:major_version]")
-        Validators::TemplateVersionSourceInput.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TemplateVersionSourceInput.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateEnvironmentTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEnvironmentTemplateVersionOutput, context: context)
-        Validators::EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
+        EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
       end
     end
 
@@ -292,14 +294,14 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:connection_arn], ::String, context: "#{context}[:connection_arn]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRepositoryOutput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -315,14 +317,14 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:repository_connection_arn], ::String, context: "#{context}[:repository_connection_arn]")
         Hearth::Validator.validate!(input[:repository_id], ::String, context: "#{context}[:repository_id]")
         Hearth::Validator.validate!(input[:branch_name], ::String, context: "#{context}[:branch_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -334,14 +336,14 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
         Hearth::Validator.validate!(input[:pipeline_provisioning], ::String, context: "#{context}[:pipeline_provisioning]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateServiceTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceTemplateOutput, context: context)
-        Validators::ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
+        ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
       end
     end
 
@@ -352,17 +354,17 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:major_version], ::String, context: "#{context}[:major_version]")
-        Validators::TemplateVersionSourceInput.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::CompatibleEnvironmentTemplateInputList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
+        TemplateVersionSourceInput.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        CompatibleEnvironmentTemplateInputList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
       end
     end
 
     class CreateServiceTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceTemplateVersionOutput, context: context)
-        Validators::ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
+        ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::Proton
     class CreateTemplateSyncConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTemplateSyncConfigOutput, context: context)
-        Validators::TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
+        TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
       end
     end
 
@@ -395,7 +397,7 @@ module AWS::SDK::Proton
     class DeleteComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteComponentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -409,7 +411,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -423,7 +425,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEnvironmentTemplateOutput, context: context)
-        Validators::EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
+        EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
       end
     end
 
@@ -453,7 +455,7 @@ module AWS::SDK::Proton
     class DeleteEnvironmentTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEnvironmentTemplateVersionOutput, context: context)
-        Validators::EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
+        EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
       end
     end
 
@@ -468,7 +470,7 @@ module AWS::SDK::Proton
     class DeleteRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRepositoryOutput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::Proton
     class DeleteServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::Proton
     class DeleteServiceTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteServiceTemplateOutput, context: context)
-        Validators::ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
+        ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
       end
     end
 
@@ -512,7 +514,7 @@ module AWS::SDK::Proton
     class DeleteServiceTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteServiceTemplateVersionOutput, context: context)
-        Validators::ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
+        ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::Proton
     class DeleteTemplateSyncConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTemplateSyncConfigOutput, context: context)
-        Validators::TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
+        TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:environment_account_id], ::String, context: "#{context}[:environment_account_id]")
         Hearth::Validator.validate!(input[:spec], ::String, context: "#{context}[:spec]")
         Hearth::Validator.validate!(input[:provisioning], ::String, context: "#{context}[:provisioning]")
-        Validators::RepositoryBranch.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
+        RepositoryBranch.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
         Hearth::Validator.validate!(input[:component_role_arn], ::String, context: "#{context}[:component_role_arn]")
       end
     end
@@ -600,7 +602,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentAccountConnectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentAccountConnectionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentTemplateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -686,7 +688,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -728,7 +730,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Proton
     class GetAccountSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountSettingsOutput, context: context)
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
       end
     end
 
@@ -756,7 +758,7 @@ module AWS::SDK::Proton
     class GetComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComponentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::Proton
     class GetEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::Proton
     class GetEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -798,7 +800,7 @@ module AWS::SDK::Proton
     class GetEnvironmentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentTemplateOutput, context: context)
-        Validators::EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
+        EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
       end
     end
 
@@ -814,7 +816,7 @@ module AWS::SDK::Proton
     class GetEnvironmentTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnvironmentTemplateVersionOutput, context: context)
-        Validators::EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
+        EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::Proton
     class GetRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositoryOutput, context: context)
-        Validators::Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        Repository.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -846,7 +848,7 @@ module AWS::SDK::Proton
     class GetRepositorySyncStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositorySyncStatusOutput, context: context)
-        Validators::RepositorySyncAttempt.validate!(input[:latest_sync], context: "#{context}[:latest_sync]") unless input[:latest_sync].nil?
+        RepositorySyncAttempt.validate!(input[:latest_sync], context: "#{context}[:latest_sync]") unless input[:latest_sync].nil?
       end
     end
 
@@ -868,14 +870,14 @@ module AWS::SDK::Proton
     class GetServiceInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceInstanceOutput, context: context)
-        Validators::ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
+        ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
       end
     end
 
     class GetServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -889,7 +891,7 @@ module AWS::SDK::Proton
     class GetServiceTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceTemplateOutput, context: context)
-        Validators::ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
+        ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
       end
     end
 
@@ -905,7 +907,7 @@ module AWS::SDK::Proton
     class GetServiceTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceTemplateVersionOutput, context: context)
-        Validators::ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
+        ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
       end
     end
 
@@ -920,7 +922,7 @@ module AWS::SDK::Proton
     class GetTemplateSyncConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTemplateSyncConfigOutput, context: context)
-        Validators::TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
+        TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
       end
     end
 
@@ -936,9 +938,9 @@ module AWS::SDK::Proton
     class GetTemplateSyncStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTemplateSyncStatusOutput, context: context)
-        Validators::ResourceSyncAttempt.validate!(input[:latest_sync], context: "#{context}[:latest_sync]") unless input[:latest_sync].nil?
-        Validators::ResourceSyncAttempt.validate!(input[:latest_successful_sync], context: "#{context}[:latest_successful_sync]") unless input[:latest_successful_sync].nil?
-        Validators::Revision.validate!(input[:desired_state], context: "#{context}[:desired_state]") unless input[:desired_state].nil?
+        ResourceSyncAttempt.validate!(input[:latest_sync], context: "#{context}[:latest_sync]") unless input[:latest_sync].nil?
+        ResourceSyncAttempt.validate!(input[:latest_successful_sync], context: "#{context}[:latest_successful_sync]") unless input[:latest_successful_sync].nil?
+        Revision.validate!(input[:desired_state], context: "#{context}[:desired_state]") unless input[:desired_state].nil?
       end
     end
 
@@ -961,7 +963,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentOutputsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -977,7 +979,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentProvisionedResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
+        ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
       end
     end
 
@@ -996,7 +998,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ComponentSummaryList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ComponentSummaryList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
       end
     end
 
@@ -1005,7 +1007,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input, Types::ListEnvironmentAccountConnectionsInput, context: context)
         Hearth::Validator.validate!(input[:requested_by], ::String, context: "#{context}[:requested_by]")
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
-        Validators::EnvironmentAccountConnectionStatusList.validate!(input[:statuses], context: "#{context}[:statuses]") unless input[:statuses].nil?
+        EnvironmentAccountConnectionStatusList.validate!(input[:statuses], context: "#{context}[:statuses]") unless input[:statuses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1014,7 +1016,7 @@ module AWS::SDK::Proton
     class ListEnvironmentAccountConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentAccountConnectionsOutput, context: context)
-        Validators::EnvironmentAccountConnectionSummaryList.validate!(input[:environment_account_connections], context: "#{context}[:environment_account_connections]") unless input[:environment_account_connections].nil?
+        EnvironmentAccountConnectionSummaryList.validate!(input[:environment_account_connections], context: "#{context}[:environment_account_connections]") unless input[:environment_account_connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentOutputsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -1047,7 +1049,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentProvisionedResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
+        ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
       end
     end
 
@@ -1065,7 +1067,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentTemplateVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EnvironmentTemplateVersionSummaryList.validate!(input[:template_versions], context: "#{context}[:template_versions]") unless input[:template_versions].nil?
+        EnvironmentTemplateVersionSummaryList.validate!(input[:template_versions], context: "#{context}[:template_versions]") unless input[:template_versions].nil?
       end
     end
 
@@ -1081,7 +1083,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentTemplatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EnvironmentTemplateSummaryList.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
+        EnvironmentTemplateSummaryList.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input, Types::ListEnvironmentsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::EnvironmentTemplateFilterList.validate!(input[:environment_templates], context: "#{context}[:environment_templates]") unless input[:environment_templates].nil?
+        EnvironmentTemplateFilterList.validate!(input[:environment_templates], context: "#{context}[:environment_templates]") unless input[:environment_templates].nil?
       end
     end
 
@@ -1098,7 +1100,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EnvironmentSummaryList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        EnvironmentSummaryList.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
       end
     end
 
@@ -1114,7 +1116,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoriesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
       end
     end
 
@@ -1132,7 +1134,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositorySyncDefinitionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RepositorySyncDefinitionList.validate!(input[:sync_definitions], context: "#{context}[:sync_definitions]") unless input[:sync_definitions].nil?
+        RepositorySyncDefinitionList.validate!(input[:sync_definitions], context: "#{context}[:sync_definitions]") unless input[:sync_definitions].nil?
       end
     end
 
@@ -1149,7 +1151,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceInstanceOutputsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -1166,7 +1168,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceInstanceProvisionedResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
+        ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
       end
     end
 
@@ -1183,7 +1185,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceInstancesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceInstanceSummaryList.validate!(input[:service_instances], context: "#{context}[:service_instances]") unless input[:service_instances].nil?
+        ServiceInstanceSummaryList.validate!(input[:service_instances], context: "#{context}[:service_instances]") unless input[:service_instances].nil?
       end
     end
 
@@ -1199,7 +1201,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicePipelineOutputsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -1215,7 +1217,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicePipelineProvisionedResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
+        ProvisionedResourceList.validate!(input[:provisioned_resources], context: "#{context}[:provisioned_resources]") unless input[:provisioned_resources].nil?
       end
     end
 
@@ -1233,7 +1235,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceTemplateVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceTemplateVersionSummaryList.validate!(input[:template_versions], context: "#{context}[:template_versions]") unless input[:template_versions].nil?
+        ServiceTemplateVersionSummaryList.validate!(input[:template_versions], context: "#{context}[:template_versions]") unless input[:template_versions].nil?
       end
     end
 
@@ -1249,7 +1251,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceTemplatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceTemplateSummaryList.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
+        ServiceTemplateSummaryList.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
       end
     end
 
@@ -1265,7 +1267,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceSummaryList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceSummaryList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
       end
     end
 
@@ -1281,7 +1283,7 @@ module AWS::SDK::Proton
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1291,7 +1293,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input, Types::NotifyResourceDeploymentStatusChangeInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputsList.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
       end
@@ -1315,7 +1317,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisionedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisionedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1348,7 +1350,7 @@ module AWS::SDK::Proton
     class RejectEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RejectEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -1395,7 +1397,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositorySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositorySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1405,7 +1407,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input, Types::RepositorySyncAttempt, context: context)
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::RepositorySyncEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        RepositorySyncEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -1423,7 +1425,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositorySyncDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositorySyncDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1442,7 +1444,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositorySyncEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositorySyncEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1457,12 +1459,12 @@ module AWS::SDK::Proton
     class ResourceSyncAttempt
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceSyncAttempt, context: context)
-        Validators::Revision.validate!(input[:initial_revision], context: "#{context}[:initial_revision]") unless input[:initial_revision].nil?
-        Validators::Revision.validate!(input[:target_revision], context: "#{context}[:target_revision]") unless input[:target_revision].nil?
+        Revision.validate!(input[:initial_revision], context: "#{context}[:initial_revision]") unless input[:initial_revision].nil?
+        Revision.validate!(input[:target_revision], context: "#{context}[:target_revision]") unless input[:target_revision].nil?
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResourceSyncEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        ResourceSyncEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -1480,7 +1482,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceSyncEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceSyncEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:spec], ::String, context: "#{context}[:spec]")
-        Validators::ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
         Hearth::Validator.validate!(input[:repository_connection_arn], ::String, context: "#{context}[:repository_connection_arn]")
         Hearth::Validator.validate!(input[:repository_id], ::String, context: "#{context}[:repository_id]")
         Hearth::Validator.validate!(input[:branch_name], ::String, context: "#{context}[:branch_name]")
@@ -1564,7 +1566,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1610,7 +1612,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1648,7 +1650,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1675,9 +1677,9 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_modified_at], ::Time, context: "#{context}[:last_modified_at]")
-        Validators::CompatibleEnvironmentTemplateList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
+        CompatibleEnvironmentTemplateList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
-        Validators::ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
+        ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
       end
     end
 
@@ -1701,7 +1703,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1727,7 +1729,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1736,7 +1738,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1762,7 +1764,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         case input
         when Types::TemplateVersionSourceInput::S3
-          Validators::S3ObjectSource.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3ObjectSource.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1788,7 +1790,7 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1802,14 +1804,14 @@ module AWS::SDK::Proton
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAccountSettingsInput, context: context)
         Hearth::Validator.validate!(input[:pipeline_service_role_arn], ::String, context: "#{context}[:pipeline_service_role_arn]")
-        Validators::RepositoryBranchInput.validate!(input[:pipeline_provisioning_repository], context: "#{context}[:pipeline_provisioning_repository]") unless input[:pipeline_provisioning_repository].nil?
+        RepositoryBranchInput.validate!(input[:pipeline_provisioning_repository], context: "#{context}[:pipeline_provisioning_repository]") unless input[:pipeline_provisioning_repository].nil?
       end
     end
 
     class UpdateAccountSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAccountSettingsOutput, context: context)
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
       end
     end
 
@@ -1829,7 +1831,7 @@ module AWS::SDK::Proton
     class UpdateComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateComponentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -1845,7 +1847,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentAccountConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentAccountConnectionOutput, context: context)
-        Validators::EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
+        EnvironmentAccountConnection.validate!(input[:environment_account_connection], context: "#{context}[:environment_account_connection]") unless input[:environment_account_connection].nil?
       end
     end
 
@@ -1860,7 +1862,7 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:proton_service_role_arn], ::String, context: "#{context}[:proton_service_role_arn]")
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
         Hearth::Validator.validate!(input[:environment_account_connection_id], ::String, context: "#{context}[:environment_account_connection_id]")
-        Validators::RepositoryBranchInput.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
+        RepositoryBranchInput.validate!(input[:provisioning_repository], context: "#{context}[:provisioning_repository]") unless input[:provisioning_repository].nil?
         Hearth::Validator.validate!(input[:component_role_arn], ::String, context: "#{context}[:component_role_arn]")
       end
     end
@@ -1868,7 +1870,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentOutput, context: context)
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -1884,7 +1886,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentTemplateOutput, context: context)
-        Validators::EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
+        EnvironmentTemplate.validate!(input[:environment_template], context: "#{context}[:environment_template]") unless input[:environment_template].nil?
       end
     end
 
@@ -1902,7 +1904,7 @@ module AWS::SDK::Proton
     class UpdateEnvironmentTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEnvironmentTemplateVersionOutput, context: context)
-        Validators::EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
+        EnvironmentTemplateVersion.validate!(input[:environment_template_version], context: "#{context}[:environment_template_version]") unless input[:environment_template_version].nil?
       end
     end
 
@@ -1930,14 +1932,14 @@ module AWS::SDK::Proton
     class UpdateServiceInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceInstanceOutput, context: context)
-        Validators::ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
+        ServiceInstance.validate!(input[:service_instance], context: "#{context}[:service_instance]") unless input[:service_instance].nil?
       end
     end
 
     class UpdateServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -1955,7 +1957,7 @@ module AWS::SDK::Proton
     class UpdateServicePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServicePipelineOutput, context: context)
-        Validators::ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        ServicePipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
@@ -1971,7 +1973,7 @@ module AWS::SDK::Proton
     class UpdateServiceTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceTemplateOutput, context: context)
-        Validators::ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
+        ServiceTemplate.validate!(input[:service_template], context: "#{context}[:service_template]") unless input[:service_template].nil?
       end
     end
 
@@ -1983,15 +1985,15 @@ module AWS::SDK::Proton
         Hearth::Validator.validate!(input[:minor_version], ::String, context: "#{context}[:minor_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::CompatibleEnvironmentTemplateInputList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
-        Validators::ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
+        CompatibleEnvironmentTemplateInputList.validate!(input[:compatible_environment_templates], context: "#{context}[:compatible_environment_templates]") unless input[:compatible_environment_templates].nil?
+        ServiceTemplateSupportedComponentSourceInputList.validate!(input[:supported_component_sources], context: "#{context}[:supported_component_sources]") unless input[:supported_component_sources].nil?
       end
     end
 
     class UpdateServiceTemplateVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceTemplateVersionOutput, context: context)
-        Validators::ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
+        ServiceTemplateVersion.validate!(input[:service_template_version], context: "#{context}[:service_template_version]") unless input[:service_template_version].nil?
       end
     end
 
@@ -2010,7 +2012,7 @@ module AWS::SDK::Proton
     class UpdateTemplateSyncConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTemplateSyncConfigOutput, context: context)
-        Validators::TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
+        TemplateSyncConfig.validate!(input[:template_sync_config], context: "#{context}[:template_sync_config]") unless input[:template_sync_config].nil?
       end
     end
 

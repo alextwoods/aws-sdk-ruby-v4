@@ -552,7 +552,7 @@ module AWS::SDK::AlexaForBusiness
     class GetAddressBook
       def self.default(visited=[])
         {
-          address_book: Stubs::AddressBook.default(visited),
+          address_book: AddressBook.default(visited),
         }
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::AlexaForBusiness
     class GetConferencePreference
       def self.default(visited=[])
         {
-          preference: Stubs::ConferencePreference.default(visited),
+          preference: ConferencePreference.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::AlexaForBusiness
     class GetConferenceProvider
       def self.default(visited=[])
         {
-          conference_provider: Stubs::ConferenceProvider.default(visited),
+          conference_provider: ConferenceProvider.default(visited),
         }
       end
 
@@ -645,9 +645,9 @@ module AWS::SDK::AlexaForBusiness
           arn: 'arn',
           name: 'name',
           type: 'type',
-          ip_dial_in: Stubs::IPDialIn.default(visited),
-          pstn_dial_in: Stubs::PSTNDialIn.default(visited),
-          meeting_setting: Stubs::MeetingSetting.default(visited),
+          ip_dial_in: IPDialIn.default(visited),
+          pstn_dial_in: PSTNDialIn.default(visited),
+          meeting_setting: MeetingSetting.default(visited),
         }
       end
 
@@ -730,7 +730,7 @@ module AWS::SDK::AlexaForBusiness
     class GetContact
       def self.default(visited=[])
         {
-          contact: Stubs::Contact.default(visited),
+          contact: Contact.default(visited),
         }
       end
 
@@ -753,8 +753,8 @@ module AWS::SDK::AlexaForBusiness
           first_name: 'first_name',
           last_name: 'last_name',
           phone_number: 'phone_number',
-          phone_numbers: Stubs::PhoneNumberList.default(visited),
-          sip_addresses: Stubs::SipAddressList.default(visited),
+          phone_numbers: PhoneNumberList.default(visited),
+          sip_addresses: SipAddressList.default(visited),
         }
       end
 
@@ -778,7 +778,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('SipAddressList')
         visited = visited + ['SipAddressList']
         [
-          Stubs::SipAddress.default(visited)
+          SipAddress.default(visited)
         ]
       end
 
@@ -818,7 +818,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('PhoneNumberList')
         visited = visited + ['PhoneNumberList']
         [
-          Stubs::PhoneNumber.default(visited)
+          PhoneNumber.default(visited)
         ]
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::AlexaForBusiness
     class GetDevice
       def self.default(visited=[])
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
         }
       end
 
@@ -882,8 +882,8 @@ module AWS::SDK::AlexaForBusiness
           mac_address: 'mac_address',
           room_arn: 'room_arn',
           device_status: 'device_status',
-          device_status_info: Stubs::DeviceStatusInfo.default(visited),
-          network_profile_info: Stubs::DeviceNetworkProfileInfo.default(visited),
+          device_status_info: DeviceStatusInfo.default(visited),
+          network_profile_info: DeviceNetworkProfileInfo.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('DeviceStatusInfo')
         visited = visited + ['DeviceStatusInfo']
         {
-          device_status_details: Stubs::DeviceStatusDetails.default(visited),
+          device_status_details: DeviceStatusDetails.default(visited),
           connection_status: 'connection_status',
           connection_status_updated_time: Time.now,
         }
@@ -954,7 +954,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('DeviceStatusDetails')
         visited = visited + ['DeviceStatusDetails']
         [
-          Stubs::DeviceStatusDetail.default(visited)
+          DeviceStatusDetail.default(visited)
         ]
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::AlexaForBusiness
     class GetGateway
       def self.default(visited=[])
         {
-          gateway: Stubs::Gateway.default(visited),
+          gateway: Gateway.default(visited),
         }
       end
 
@@ -1034,7 +1034,7 @@ module AWS::SDK::AlexaForBusiness
     class GetGatewayGroup
       def self.default(visited=[])
         {
-          gateway_group: Stubs::GatewayGroup.default(visited),
+          gateway_group: GatewayGroup.default(visited),
         }
       end
 
@@ -1074,7 +1074,7 @@ module AWS::SDK::AlexaForBusiness
         {
           organization_name: 'organization_name',
           contact_email: 'contact_email',
-          private_skill_ids: Stubs::ShortSkillIdList.default(visited),
+          private_skill_ids: ShortSkillIdList.default(visited),
         }
       end
 
@@ -1112,7 +1112,7 @@ module AWS::SDK::AlexaForBusiness
     class GetNetworkProfile
       def self.default(visited=[])
         {
-          network_profile: Stubs::NetworkProfile.default(visited),
+          network_profile: NetworkProfile.default(visited),
         }
       end
 
@@ -1139,7 +1139,7 @@ module AWS::SDK::AlexaForBusiness
           current_password: 'current_password',
           next_password: 'next_password',
           certificate_authority_arn: 'certificate_authority_arn',
-          trust_anchors: Stubs::TrustAnchorList.default(visited),
+          trust_anchors: TrustAnchorList.default(visited),
         }
       end
 
@@ -1184,7 +1184,7 @@ module AWS::SDK::AlexaForBusiness
     class GetProfile
       def self.default(visited=[])
         {
-          profile: Stubs::Profile.default(visited),
+          profile: Profile.default(visited),
         }
       end
 
@@ -1216,7 +1216,7 @@ module AWS::SDK::AlexaForBusiness
           pstn_enabled: false,
           data_retention_opt_in: false,
           address_book_arn: 'address_book_arn',
-          meeting_room_configuration: Stubs::MeetingRoomConfiguration.default(visited),
+          meeting_room_configuration: MeetingRoomConfiguration.default(visited),
         }
       end
 
@@ -1249,9 +1249,9 @@ module AWS::SDK::AlexaForBusiness
         visited = visited + ['MeetingRoomConfiguration']
         {
           room_utilization_metrics_enabled: false,
-          end_of_meeting_reminder: Stubs::EndOfMeetingReminder.default(visited),
-          instant_booking: Stubs::InstantBooking.default(visited),
-          require_check_in: Stubs::RequireCheckIn.default(visited),
+          end_of_meeting_reminder: EndOfMeetingReminder.default(visited),
+          instant_booking: InstantBooking.default(visited),
+          require_check_in: RequireCheckIn.default(visited),
         }
       end
 
@@ -1312,7 +1312,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('EndOfMeetingReminder')
         visited = visited + ['EndOfMeetingReminder']
         {
-          reminder_at_minutes: Stubs::EndOfMeetingReminderMinutesList.default(visited),
+          reminder_at_minutes: EndOfMeetingReminderMinutesList.default(visited),
           reminder_type: 'reminder_type',
           enabled: false,
         }
@@ -1352,7 +1352,7 @@ module AWS::SDK::AlexaForBusiness
     class GetRoom
       def self.default(visited=[])
         {
-          room: Stubs::Room.default(visited),
+          room: Room.default(visited),
         }
       end
 
@@ -1394,7 +1394,7 @@ module AWS::SDK::AlexaForBusiness
     class GetRoomSkillParameter
       def self.default(visited=[])
         {
-          room_skill_parameter: Stubs::RoomSkillParameter.default(visited),
+          room_skill_parameter: RoomSkillParameter.default(visited),
         }
       end
 
@@ -1430,7 +1430,7 @@ module AWS::SDK::AlexaForBusiness
     class GetSkillGroup
       def self.default(visited=[])
         {
-          skill_group: Stubs::SkillGroup.default(visited),
+          skill_group: SkillGroup.default(visited),
         }
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::AlexaForBusiness
     class ListBusinessReportSchedules
       def self.default(visited=[])
         {
-          business_report_schedules: Stubs::BusinessReportScheduleList.default(visited),
+          business_report_schedules: BusinessReportScheduleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1488,7 +1488,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('BusinessReportScheduleList')
         visited = visited + ['BusinessReportScheduleList']
         [
-          Stubs::BusinessReportSchedule.default(visited)
+          BusinessReportSchedule.default(visited)
         ]
       end
 
@@ -1513,9 +1513,9 @@ module AWS::SDK::AlexaForBusiness
           s3_bucket_name: 's3_bucket_name',
           s3_key_prefix: 's3_key_prefix',
           format: 'format',
-          content_range: Stubs::BusinessReportContentRange.default(visited),
-          recurrence: Stubs::BusinessReportRecurrence.default(visited),
-          last_business_report: Stubs::BusinessReport.default(visited),
+          content_range: BusinessReportContentRange.default(visited),
+          recurrence: BusinessReportRecurrence.default(visited),
+          last_business_report: BusinessReport.default(visited),
         }
       end
 
@@ -1542,7 +1542,7 @@ module AWS::SDK::AlexaForBusiness
         {
           status: 'status',
           failure_code: 'failure_code',
-          s3_location: Stubs::BusinessReportS3Location.default(visited),
+          s3_location: BusinessReportS3Location.default(visited),
           delivery_time: Time.now,
           download_url: 'download_url',
         }
@@ -1620,7 +1620,7 @@ module AWS::SDK::AlexaForBusiness
     class ListConferenceProviders
       def self.default(visited=[])
         {
-          conference_providers: Stubs::ConferenceProvidersList.default(visited),
+          conference_providers: ConferenceProvidersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1640,7 +1640,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('ConferenceProvidersList')
         visited = visited + ['ConferenceProvidersList']
         [
-          Stubs::ConferenceProvider.default(visited)
+          ConferenceProvider.default(visited)
         ]
       end
 
@@ -1658,7 +1658,7 @@ module AWS::SDK::AlexaForBusiness
     class ListDeviceEvents
       def self.default(visited=[])
         {
-          device_events: Stubs::DeviceEventList.default(visited),
+          device_events: DeviceEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1678,7 +1678,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('DeviceEventList')
         visited = visited + ['DeviceEventList']
         [
-          Stubs::DeviceEvent.default(visited)
+          DeviceEvent.default(visited)
         ]
       end
 
@@ -1718,7 +1718,7 @@ module AWS::SDK::AlexaForBusiness
     class ListGatewayGroups
       def self.default(visited=[])
         {
-          gateway_groups: Stubs::GatewayGroupSummaries.default(visited),
+          gateway_groups: GatewayGroupSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1738,7 +1738,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('GatewayGroupSummaries')
         visited = visited + ['GatewayGroupSummaries']
         [
-          Stubs::GatewayGroupSummary.default(visited)
+          GatewayGroupSummary.default(visited)
         ]
       end
 
@@ -1778,7 +1778,7 @@ module AWS::SDK::AlexaForBusiness
     class ListGateways
       def self.default(visited=[])
         {
-          gateways: Stubs::GatewaySummaries.default(visited),
+          gateways: GatewaySummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1798,7 +1798,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('GatewaySummaries')
         visited = visited + ['GatewaySummaries']
         [
-          Stubs::GatewaySummary.default(visited)
+          GatewaySummary.default(visited)
         ]
       end
 
@@ -1842,7 +1842,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkills
       def self.default(visited=[])
         {
-          skill_summaries: Stubs::SkillSummaryList.default(visited),
+          skill_summaries: SkillSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1862,7 +1862,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('SkillSummaryList')
         visited = visited + ['SkillSummaryList']
         [
-          Stubs::SkillSummary.default(visited)
+          SkillSummary.default(visited)
         ]
       end
 
@@ -1906,7 +1906,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkillsStoreCategories
       def self.default(visited=[])
         {
-          category_list: Stubs::CategoryList.default(visited),
+          category_list: CategoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1926,7 +1926,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('CategoryList')
         visited = visited + ['CategoryList']
         [
-          Stubs::Category.default(visited)
+          Category.default(visited)
         ]
       end
 
@@ -1964,7 +1964,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkillsStoreSkillsByCategory
       def self.default(visited=[])
         {
-          skills_store_skills: Stubs::SkillsStoreSkillList.default(visited),
+          skills_store_skills: SkillsStoreSkillList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1984,7 +1984,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('SkillsStoreSkillList')
         visited = visited + ['SkillsStoreSkillList']
         [
-          Stubs::SkillsStoreSkill.default(visited)
+          SkillsStoreSkill.default(visited)
         ]
       end
 
@@ -2008,8 +2008,8 @@ module AWS::SDK::AlexaForBusiness
           skill_name: 'skill_name',
           short_description: 'short_description',
           icon_url: 'icon_url',
-          sample_utterances: Stubs::SampleUtterances.default(visited),
-          skill_details: Stubs::SkillDetails.default(visited),
+          sample_utterances: SampleUtterances.default(visited),
+          skill_details: SkillDetails.default(visited),
           supports_linking: false,
         }
       end
@@ -2038,12 +2038,12 @@ module AWS::SDK::AlexaForBusiness
           invocation_phrase: 'invocation_phrase',
           release_date: 'release_date',
           end_user_license_agreement: 'end_user_license_agreement',
-          generic_keywords: Stubs::GenericKeywords.default(visited),
-          bullet_points: Stubs::BulletPoints.default(visited),
-          new_in_this_version_bullet_points: Stubs::NewInThisVersionBulletPoints.default(visited),
-          skill_types: Stubs::SkillTypes.default(visited),
-          reviews: Stubs::Reviews.default(visited),
-          developer_info: Stubs::DeveloperInfo.default(visited),
+          generic_keywords: GenericKeywords.default(visited),
+          bullet_points: BulletPoints.default(visited),
+          new_in_this_version_bullet_points: NewInThisVersionBulletPoints.default(visited),
+          skill_types: SkillTypes.default(visited),
+          reviews: Reviews.default(visited),
+          developer_info: DeveloperInfo.default(visited),
         }
       end
 
@@ -2212,7 +2212,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSmartHomeAppliances
       def self.default(visited=[])
         {
-          smart_home_appliances: Stubs::SmartHomeApplianceList.default(visited),
+          smart_home_appliances: SmartHomeApplianceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2232,7 +2232,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('SmartHomeApplianceList')
         visited = visited + ['SmartHomeApplianceList']
         [
-          Stubs::SmartHomeAppliance.default(visited)
+          SmartHomeAppliance.default(visited)
         ]
       end
 
@@ -2272,7 +2272,7 @@ module AWS::SDK::AlexaForBusiness
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2292,7 +2292,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2418,7 +2418,7 @@ module AWS::SDK::AlexaForBusiness
         {
           room_arn: 'room_arn',
           room_name: 'room_name',
-          room_skill_parameters: Stubs::RoomSkillParameters.default(visited),
+          room_skill_parameters: RoomSkillParameters.default(visited),
         }
       end
 
@@ -2438,7 +2438,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('RoomSkillParameters')
         visited = visited + ['RoomSkillParameters']
         [
-          Stubs::RoomSkillParameter.default(visited)
+          RoomSkillParameter.default(visited)
         ]
       end
 
@@ -2470,7 +2470,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchAddressBooks
       def self.default(visited=[])
         {
-          address_books: Stubs::AddressBookDataList.default(visited),
+          address_books: AddressBookDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2492,7 +2492,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('AddressBookDataList')
         visited = visited + ['AddressBookDataList']
         [
-          Stubs::AddressBookData.default(visited)
+          AddressBookData.default(visited)
         ]
       end
 
@@ -2532,7 +2532,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchContacts
       def self.default(visited=[])
         {
-          contacts: Stubs::ContactDataList.default(visited),
+          contacts: ContactDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2554,7 +2554,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('ContactDataList')
         visited = visited + ['ContactDataList']
         [
-          Stubs::ContactData.default(visited)
+          ContactData.default(visited)
         ]
       end
 
@@ -2579,8 +2579,8 @@ module AWS::SDK::AlexaForBusiness
           first_name: 'first_name',
           last_name: 'last_name',
           phone_number: 'phone_number',
-          phone_numbers: Stubs::PhoneNumberList.default(visited),
-          sip_addresses: Stubs::SipAddressList.default(visited),
+          phone_numbers: PhoneNumberList.default(visited),
+          sip_addresses: SipAddressList.default(visited),
         }
       end
 
@@ -2602,7 +2602,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceDataList.default(visited),
+          devices: DeviceDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2624,7 +2624,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('DeviceDataList')
         visited = visited + ['DeviceDataList']
         [
-          Stubs::DeviceData.default(visited)
+          DeviceData.default(visited)
         ]
       end
 
@@ -2655,7 +2655,7 @@ module AWS::SDK::AlexaForBusiness
           network_profile_name: 'network_profile_name',
           room_arn: 'room_arn',
           room_name: 'room_name',
-          device_status_info: Stubs::DeviceStatusInfo.default(visited),
+          device_status_info: DeviceStatusInfo.default(visited),
           created_time: Time.now,
         }
       end
@@ -2684,7 +2684,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchNetworkProfiles
       def self.default(visited=[])
         {
-          network_profiles: Stubs::NetworkProfileDataList.default(visited),
+          network_profiles: NetworkProfileDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2706,7 +2706,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('NetworkProfileDataList')
         visited = visited + ['NetworkProfileDataList']
         [
-          Stubs::NetworkProfileData.default(visited)
+          NetworkProfileData.default(visited)
         ]
       end
 
@@ -2754,7 +2754,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchProfiles
       def self.default(visited=[])
         {
-          profiles: Stubs::ProfileDataList.default(visited),
+          profiles: ProfileDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2776,7 +2776,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('ProfileDataList')
         visited = visited + ['ProfileDataList']
         [
-          Stubs::ProfileData.default(visited)
+          ProfileData.default(visited)
         ]
       end
 
@@ -2828,7 +2828,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchRooms
       def self.default(visited=[])
         {
-          rooms: Stubs::RoomDataList.default(visited),
+          rooms: RoomDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2850,7 +2850,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('RoomDataList')
         visited = visited + ['RoomDataList']
         [
-          Stubs::RoomData.default(visited)
+          RoomData.default(visited)
         ]
       end
 
@@ -2896,7 +2896,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchSkillGroups
       def self.default(visited=[])
         {
-          skill_groups: Stubs::SkillGroupDataList.default(visited),
+          skill_groups: SkillGroupDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2918,7 +2918,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('SkillGroupDataList')
         visited = visited + ['SkillGroupDataList']
         [
-          Stubs::SkillGroupData.default(visited)
+          SkillGroupData.default(visited)
         ]
       end
 
@@ -2958,7 +2958,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserDataList.default(visited),
+          users: UserDataList.default(visited),
           next_token: 'next_token',
           total_count: 1,
         }
@@ -2980,7 +2980,7 @@ module AWS::SDK::AlexaForBusiness
         return nil if visited.include?('UserDataList')
         visited = visited + ['UserDataList']
         [
-          Stubs::UserData.default(visited)
+          UserData.default(visited)
         ]
       end
 

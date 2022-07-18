@@ -30,7 +30,7 @@ module AWS::SDK::Batch
     class ArrayPropertiesDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArrayPropertiesDetail, context: context)
-        Validators::ArrayJobStatusSummary.validate!(input[:status_summary], context: "#{context}[:status_summary]") unless input[:status_summary].nil?
+        ArrayJobStatusSummary.validate!(input[:status_summary], context: "#{context}[:status_summary]") unless input[:status_summary].nil?
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
         Hearth::Validator.validate!(input[:index], ::Integer, context: "#{context}[:index]")
       end
@@ -52,14 +52,14 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:exit_code], ::Integer, context: "#{context}[:exit_code]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
         Hearth::Validator.validate!(input[:log_stream_name], ::String, context: "#{context}[:log_stream_name]")
-        Validators::NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
+        NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
       end
     end
 
     class AttemptDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttemptDetail, context: context)
-        Validators::AttemptContainerDetail.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        AttemptContainerDetail.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
         Hearth::Validator.validate!(input[:started_at], ::Integer, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:stopped_at], ::Integer, context: "#{context}[:stopped_at]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
@@ -70,7 +70,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttemptDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttemptDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -103,14 +103,14 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:compute_environment_arn], ::String, context: "#{context}[:compute_environment_arn]")
         Hearth::Validator.validate!(input[:unmanagedv_cpus], ::Integer, context: "#{context}[:unmanagedv_cpus]")
         Hearth::Validator.validate!(input[:ecs_cluster_arn], ::String, context: "#{context}[:ecs_cluster_arn]")
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::ComputeResource.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
+        ComputeResource.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::UpdatePolicy.validate!(input[:update_policy], context: "#{context}[:update_policy]") unless input[:update_policy].nil?
+        UpdatePolicy.validate!(input[:update_policy], context: "#{context}[:update_policy]") unless input[:update_policy].nil?
       end
     end
 
@@ -118,7 +118,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComputeEnvironmentDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComputeEnvironmentDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComputeEnvironmentOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComputeEnvironmentOrder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -148,18 +148,18 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:minv_cpus], ::Integer, context: "#{context}[:minv_cpus]")
         Hearth::Validator.validate!(input[:maxv_cpus], ::Integer, context: "#{context}[:maxv_cpus]")
         Hearth::Validator.validate!(input[:desiredv_cpus], ::Integer, context: "#{context}[:desiredv_cpus]")
-        Validators::StringList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        StringList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:image_id], ::String, context: "#{context}[:image_id]")
-        Validators::StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:ec2_key_pair], ::String, context: "#{context}[:ec2_key_pair]")
         Hearth::Validator.validate!(input[:instance_role], ::String, context: "#{context}[:instance_role]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:placement_group], ::String, context: "#{context}[:placement_group]")
         Hearth::Validator.validate!(input[:bid_percentage], ::Integer, context: "#{context}[:bid_percentage]")
         Hearth::Validator.validate!(input[:spot_iam_fleet_role], ::String, context: "#{context}[:spot_iam_fleet_role]")
-        Validators::LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
-        Validators::Ec2ConfigurationList.validate!(input[:ec2_configuration], context: "#{context}[:ec2_configuration]") unless input[:ec2_configuration].nil?
+        LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
+        Ec2ConfigurationList.validate!(input[:ec2_configuration], context: "#{context}[:ec2_configuration]") unless input[:ec2_configuration].nil?
       end
     end
 
@@ -169,17 +169,17 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:minv_cpus], ::Integer, context: "#{context}[:minv_cpus]")
         Hearth::Validator.validate!(input[:maxv_cpus], ::Integer, context: "#{context}[:maxv_cpus]")
         Hearth::Validator.validate!(input[:desiredv_cpus], ::Integer, context: "#{context}[:desiredv_cpus]")
-        Validators::StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        StringList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:allocation_strategy], ::String, context: "#{context}[:allocation_strategy]")
-        Validators::StringList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        StringList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:ec2_key_pair], ::String, context: "#{context}[:ec2_key_pair]")
         Hearth::Validator.validate!(input[:instance_role], ::String, context: "#{context}[:instance_role]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:placement_group], ::String, context: "#{context}[:placement_group]")
         Hearth::Validator.validate!(input[:bid_percentage], ::Integer, context: "#{context}[:bid_percentage]")
-        Validators::LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
-        Validators::Ec2ConfigurationList.validate!(input[:ec2_configuration], context: "#{context}[:ec2_configuration]") unless input[:ec2_configuration].nil?
+        LaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
+        Ec2ConfigurationList.validate!(input[:ec2_configuration], context: "#{context}[:ec2_configuration]") unless input[:ec2_configuration].nil?
         Hearth::Validator.validate!(input[:update_to_latest_image_version], ::TrueClass, ::FalseClass, context: "#{context}[:update_to_latest_image_version]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:image_id], ::String, context: "#{context}[:image_id]")
@@ -192,14 +192,14 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
         Hearth::Validator.validate!(input[:vcpus], ::Integer, context: "#{context}[:vcpus]")
         Hearth::Validator.validate!(input[:memory], ::Integer, context: "#{context}[:memory]")
-        Validators::StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
         Hearth::Validator.validate!(input[:job_role_arn], ::String, context: "#{context}[:job_role_arn]")
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
-        Validators::Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
-        Validators::EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
-        Validators::MountPoints.validate!(input[:mount_points], context: "#{context}[:mount_points]") unless input[:mount_points].nil?
+        Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
+        EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        MountPoints.validate!(input[:mount_points], context: "#{context}[:mount_points]") unless input[:mount_points].nil?
         Hearth::Validator.validate!(input[:readonly_root_filesystem], ::TrueClass, ::FalseClass, context: "#{context}[:readonly_root_filesystem]")
-        Validators::Ulimits.validate!(input[:ulimits], context: "#{context}[:ulimits]") unless input[:ulimits].nil?
+        Ulimits.validate!(input[:ulimits], context: "#{context}[:ulimits]") unless input[:ulimits].nil?
         Hearth::Validator.validate!(input[:privileged], ::TrueClass, ::FalseClass, context: "#{context}[:privileged]")
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:exit_code], ::Integer, context: "#{context}[:exit_code]")
@@ -208,13 +208,13 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:task_arn], ::String, context: "#{context}[:task_arn]")
         Hearth::Validator.validate!(input[:log_stream_name], ::String, context: "#{context}[:log_stream_name]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
-        Validators::ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
-        Validators::LinuxParameters.validate!(input[:linux_parameters], context: "#{context}[:linux_parameters]") unless input[:linux_parameters].nil?
-        Validators::LogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
-        Validators::SecretList.validate!(input[:secrets], context: "#{context}[:secrets]") unless input[:secrets].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::FargatePlatformConfiguration.validate!(input[:fargate_platform_configuration], context: "#{context}[:fargate_platform_configuration]") unless input[:fargate_platform_configuration].nil?
+        NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
+        ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
+        LinuxParameters.validate!(input[:linux_parameters], context: "#{context}[:linux_parameters]") unless input[:linux_parameters].nil?
+        LogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        SecretList.validate!(input[:secrets], context: "#{context}[:secrets]") unless input[:secrets].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        FargatePlatformConfiguration.validate!(input[:fargate_platform_configuration], context: "#{context}[:fargate_platform_configuration]") unless input[:fargate_platform_configuration].nil?
       end
     end
 
@@ -223,10 +223,10 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::ContainerOverrides, context: context)
         Hearth::Validator.validate!(input[:vcpus], ::Integer, context: "#{context}[:vcpus]")
         Hearth::Validator.validate!(input[:memory], ::Integer, context: "#{context}[:memory]")
-        Validators::StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
-        Validators::ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
+        EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
       end
     end
 
@@ -236,23 +236,23 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
         Hearth::Validator.validate!(input[:vcpus], ::Integer, context: "#{context}[:vcpus]")
         Hearth::Validator.validate!(input[:memory], ::Integer, context: "#{context}[:memory]")
-        Validators::StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
         Hearth::Validator.validate!(input[:job_role_arn], ::String, context: "#{context}[:job_role_arn]")
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
-        Validators::Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
-        Validators::EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
-        Validators::MountPoints.validate!(input[:mount_points], context: "#{context}[:mount_points]") unless input[:mount_points].nil?
+        Volumes.validate!(input[:volumes], context: "#{context}[:volumes]") unless input[:volumes].nil?
+        EnvironmentVariables.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        MountPoints.validate!(input[:mount_points], context: "#{context}[:mount_points]") unless input[:mount_points].nil?
         Hearth::Validator.validate!(input[:readonly_root_filesystem], ::TrueClass, ::FalseClass, context: "#{context}[:readonly_root_filesystem]")
         Hearth::Validator.validate!(input[:privileged], ::TrueClass, ::FalseClass, context: "#{context}[:privileged]")
-        Validators::Ulimits.validate!(input[:ulimits], context: "#{context}[:ulimits]") unless input[:ulimits].nil?
+        Ulimits.validate!(input[:ulimits], context: "#{context}[:ulimits]") unless input[:ulimits].nil?
         Hearth::Validator.validate!(input[:user], ::String, context: "#{context}[:user]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
-        Validators::LinuxParameters.validate!(input[:linux_parameters], context: "#{context}[:linux_parameters]") unless input[:linux_parameters].nil?
-        Validators::LogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
-        Validators::SecretList.validate!(input[:secrets], context: "#{context}[:secrets]") unless input[:secrets].nil?
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
-        Validators::FargatePlatformConfiguration.validate!(input[:fargate_platform_configuration], context: "#{context}[:fargate_platform_configuration]") unless input[:fargate_platform_configuration].nil?
+        ResourceRequirements.validate!(input[:resource_requirements], context: "#{context}[:resource_requirements]") unless input[:resource_requirements].nil?
+        LinuxParameters.validate!(input[:linux_parameters], context: "#{context}[:linux_parameters]") unless input[:linux_parameters].nil?
+        LogConfiguration.validate!(input[:log_configuration], context: "#{context}[:log_configuration]") unless input[:log_configuration].nil?
+        SecretList.validate!(input[:secrets], context: "#{context}[:secrets]") unless input[:secrets].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        FargatePlatformConfiguration.validate!(input[:fargate_platform_configuration], context: "#{context}[:fargate_platform_configuration]") unless input[:fargate_platform_configuration].nil?
       end
     end
 
@@ -271,9 +271,9 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:unmanagedv_cpus], ::Integer, context: "#{context}[:unmanagedv_cpus]")
-        Validators::ComputeResource.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
+        ComputeResource.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -292,8 +292,8 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:scheduling_policy_arn], ::String, context: "#{context}[:scheduling_policy_arn]")
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -309,8 +309,8 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSchedulingPolicyInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -377,7 +377,7 @@ module AWS::SDK::Batch
     class DescribeComputeEnvironmentsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeComputeEnvironmentsInput, context: context)
-        Validators::StringList.validate!(input[:compute_environments], context: "#{context}[:compute_environments]") unless input[:compute_environments].nil?
+        StringList.validate!(input[:compute_environments], context: "#{context}[:compute_environments]") unless input[:compute_environments].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -386,7 +386,7 @@ module AWS::SDK::Batch
     class DescribeComputeEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeComputeEnvironmentsOutput, context: context)
-        Validators::ComputeEnvironmentDetailList.validate!(input[:compute_environments], context: "#{context}[:compute_environments]") unless input[:compute_environments].nil?
+        ComputeEnvironmentDetailList.validate!(input[:compute_environments], context: "#{context}[:compute_environments]") unless input[:compute_environments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::Batch
     class DescribeJobDefinitionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobDefinitionsInput, context: context)
-        Validators::StringList.validate!(input[:job_definitions], context: "#{context}[:job_definitions]") unless input[:job_definitions].nil?
+        StringList.validate!(input[:job_definitions], context: "#{context}[:job_definitions]") unless input[:job_definitions].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:job_definition_name], ::String, context: "#{context}[:job_definition_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -405,7 +405,7 @@ module AWS::SDK::Batch
     class DescribeJobDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobDefinitionsOutput, context: context)
-        Validators::JobDefinitionList.validate!(input[:job_definitions], context: "#{context}[:job_definitions]") unless input[:job_definitions].nil?
+        JobDefinitionList.validate!(input[:job_definitions], context: "#{context}[:job_definitions]") unless input[:job_definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::Batch
     class DescribeJobQueuesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobQueuesInput, context: context)
-        Validators::StringList.validate!(input[:job_queues], context: "#{context}[:job_queues]") unless input[:job_queues].nil?
+        StringList.validate!(input[:job_queues], context: "#{context}[:job_queues]") unless input[:job_queues].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -422,7 +422,7 @@ module AWS::SDK::Batch
     class DescribeJobQueuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobQueuesOutput, context: context)
-        Validators::JobQueueDetailList.validate!(input[:job_queues], context: "#{context}[:job_queues]") unless input[:job_queues].nil?
+        JobQueueDetailList.validate!(input[:job_queues], context: "#{context}[:job_queues]") unless input[:job_queues].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -430,28 +430,28 @@ module AWS::SDK::Batch
     class DescribeJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobsInput, context: context)
-        Validators::StringList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        StringList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
       end
     end
 
     class DescribeJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobsOutput, context: context)
-        Validators::JobDetailList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        JobDetailList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
       end
     end
 
     class DescribeSchedulingPoliciesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSchedulingPoliciesInput, context: context)
-        Validators::StringList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
+        StringList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
       end
     end
 
     class DescribeSchedulingPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSchedulingPoliciesOutput, context: context)
-        Validators::SchedulingPolicyDetailList.validate!(input[:scheduling_policies], context: "#{context}[:scheduling_policies]") unless input[:scheduling_policies].nil?
+        SchedulingPolicyDetailList.validate!(input[:scheduling_policies], context: "#{context}[:scheduling_policies]") unless input[:scheduling_policies].nil?
       end
     end
 
@@ -460,7 +460,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::Device, context: context)
         Hearth::Validator.validate!(input[:host_path], ::String, context: "#{context}[:host_path]")
         Hearth::Validator.validate!(input[:container_path], ::String, context: "#{context}[:container_path]")
-        Validators::DeviceCgroupPermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        DeviceCgroupPermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
       end
     end
 
@@ -477,7 +477,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:root_directory], ::String, context: "#{context}[:root_directory]")
         Hearth::Validator.validate!(input[:transit_encryption], ::String, context: "#{context}[:transit_encryption]")
         Hearth::Validator.validate!(input[:transit_encryption_port], ::Integer, context: "#{context}[:transit_encryption_port]")
-        Validators::EFSAuthorizationConfig.validate!(input[:authorization_config], context: "#{context}[:authorization_config]") unless input[:authorization_config].nil?
+        EFSAuthorizationConfig.validate!(input[:authorization_config], context: "#{context}[:authorization_config]") unless input[:authorization_config].nil?
       end
     end
 
@@ -513,7 +513,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ec2Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ec2Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -522,7 +522,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyValuePair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -541,7 +541,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluateOnExit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluateOnExit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -551,7 +551,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::FairsharePolicy, context: context)
         Hearth::Validator.validate!(input[:share_decay_seconds], ::Integer, context: "#{context}[:share_decay_seconds]")
         Hearth::Validator.validate!(input[:compute_reservation], ::Integer, context: "#{context}[:compute_reservation]")
-        Validators::ShareAttributesList.validate!(input[:share_distribution], context: "#{context}[:share_distribution]") unless input[:share_distribution].nil?
+        ShareAttributesList.validate!(input[:share_distribution], context: "#{context}[:share_distribution]") unless input[:share_distribution].nil?
       end
     end
 
@@ -578,14 +578,14 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:scheduling_priority], ::Integer, context: "#{context}[:scheduling_priority]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
-        Validators::ContainerProperties.validate!(input[:container_properties], context: "#{context}[:container_properties]") unless input[:container_properties].nil?
-        Validators::JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
-        Validators::NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
+        ContainerProperties.validate!(input[:container_properties], context: "#{context}[:container_properties]") unless input[:container_properties].nil?
+        JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:propagate_tags], ::TrueClass, ::FalseClass, context: "#{context}[:propagate_tags]")
-        Validators::PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
+        PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
       end
     end
 
@@ -593,7 +593,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobDependency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobDependency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -625,23 +625,23 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:share_identifier], ::String, context: "#{context}[:share_identifier]")
         Hearth::Validator.validate!(input[:scheduling_priority], ::Integer, context: "#{context}[:scheduling_priority]")
-        Validators::AttemptDetails.validate!(input[:attempts], context: "#{context}[:attempts]") unless input[:attempts].nil?
+        AttemptDetails.validate!(input[:attempts], context: "#{context}[:attempts]") unless input[:attempts].nil?
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:created_at], ::Integer, context: "#{context}[:created_at]")
-        Validators::RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
+        RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
         Hearth::Validator.validate!(input[:started_at], ::Integer, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:stopped_at], ::Integer, context: "#{context}[:stopped_at]")
-        Validators::JobDependencyList.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
+        JobDependencyList.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
         Hearth::Validator.validate!(input[:job_definition], ::String, context: "#{context}[:job_definition]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ContainerDetail.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
-        Validators::NodeDetails.validate!(input[:node_details], context: "#{context}[:node_details]") unless input[:node_details].nil?
-        Validators::NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
-        Validators::ArrayPropertiesDetail.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
-        Validators::JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ContainerDetail.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        NodeDetails.validate!(input[:node_details], context: "#{context}[:node_details]") unless input[:node_details].nil?
+        NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
+        ArrayPropertiesDetail.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
+        JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:propagate_tags], ::TrueClass, ::FalseClass, context: "#{context}[:propagate_tags]")
-        Validators::PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
+        PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
       end
     end
 
@@ -649,7 +649,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -664,8 +664,8 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -673,7 +673,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobQueueDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobQueueDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -689,9 +689,9 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:started_at], ::Integer, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:stopped_at], ::Integer, context: "#{context}[:stopped_at]")
-        Validators::ContainerSummary.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
-        Validators::ArrayPropertiesSummary.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
-        Validators::NodePropertiesSummary.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
+        ContainerSummary.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        ArrayPropertiesSummary.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
+        NodePropertiesSummary.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
         Hearth::Validator.validate!(input[:job_definition], ::String, context: "#{context}[:job_definition]")
       end
     end
@@ -700,7 +700,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -724,7 +724,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyValuesPair, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -740,10 +740,10 @@ module AWS::SDK::Batch
     class LinuxParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LinuxParameters, context: context)
-        Validators::DevicesList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DevicesList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:init_process_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:init_process_enabled]")
         Hearth::Validator.validate!(input[:shared_memory_size], ::Integer, context: "#{context}[:shared_memory_size]")
-        Validators::TmpfsList.validate!(input[:tmpfs], context: "#{context}[:tmpfs]") unless input[:tmpfs].nil?
+        TmpfsList.validate!(input[:tmpfs], context: "#{context}[:tmpfs]") unless input[:tmpfs].nil?
         Hearth::Validator.validate!(input[:max_swap], ::Integer, context: "#{context}[:max_swap]")
         Hearth::Validator.validate!(input[:swappiness], ::Integer, context: "#{context}[:swappiness]")
       end
@@ -753,7 +753,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyValuesPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyValuesPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -767,14 +767,14 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ListJobsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ListJobsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobSummaryList.validate!(input[:job_summary_list], context: "#{context}[:job_summary_list]") unless input[:job_summary_list].nil?
+        JobSummaryList.validate!(input[:job_summary_list], context: "#{context}[:job_summary_list]") unless input[:job_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -790,7 +790,7 @@ module AWS::SDK::Batch
     class ListSchedulingPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchedulingPoliciesOutput, context: context)
-        Validators::SchedulingPolicyListingDetailList.validate!(input[:scheduling_policies], context: "#{context}[:scheduling_policies]") unless input[:scheduling_policies].nil?
+        SchedulingPolicyListingDetailList.validate!(input[:scheduling_policies], context: "#{context}[:scheduling_policies]") unless input[:scheduling_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -805,7 +805,7 @@ module AWS::SDK::Batch
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -813,8 +813,8 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogConfiguration, context: context)
         Hearth::Validator.validate!(input[:log_driver], ::String, context: "#{context}[:log_driver]")
-        Validators::LogConfigurationOptionsMap.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
-        Validators::SecretList.validate!(input[:secret_options], context: "#{context}[:secret_options]") unless input[:secret_options].nil?
+        LogConfigurationOptionsMap.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        SecretList.validate!(input[:secret_options], context: "#{context}[:secret_options]") unless input[:secret_options].nil?
       end
     end
 
@@ -841,7 +841,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MountPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MountPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -866,7 +866,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -883,7 +883,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeOverrides, context: context)
         Hearth::Validator.validate!(input[:num_nodes], ::Integer, context: "#{context}[:num_nodes]")
-        Validators::NodePropertyOverrides.validate!(input[:node_property_overrides], context: "#{context}[:node_property_overrides]") unless input[:node_property_overrides].nil?
+        NodePropertyOverrides.validate!(input[:node_property_overrides], context: "#{context}[:node_property_overrides]") unless input[:node_property_overrides].nil?
       end
     end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::NodeProperties, context: context)
         Hearth::Validator.validate!(input[:num_nodes], ::Integer, context: "#{context}[:num_nodes]")
         Hearth::Validator.validate!(input[:main_node], ::Integer, context: "#{context}[:main_node]")
-        Validators::NodeRangeProperties.validate!(input[:node_range_properties], context: "#{context}[:node_range_properties]") unless input[:node_range_properties].nil?
+        NodeRangeProperties.validate!(input[:node_range_properties], context: "#{context}[:node_range_properties]") unless input[:node_range_properties].nil?
       end
     end
 
@@ -909,7 +909,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodePropertyOverride, context: context)
         Hearth::Validator.validate!(input[:target_nodes], ::String, context: "#{context}[:target_nodes]")
-        Validators::ContainerOverrides.validate!(input[:container_overrides], context: "#{context}[:container_overrides]") unless input[:container_overrides].nil?
+        ContainerOverrides.validate!(input[:container_overrides], context: "#{context}[:container_overrides]") unless input[:container_overrides].nil?
       end
     end
 
@@ -917,7 +917,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodePropertyOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodePropertyOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -926,7 +926,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeRangeProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeRangeProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NodeRangeProperty, context: context)
         Hearth::Validator.validate!(input[:target_nodes], ::String, context: "#{context}[:target_nodes]")
-        Validators::ContainerProperties.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
+        ContainerProperties.validate!(input[:container], context: "#{context}[:container]") unless input[:container].nil?
       end
     end
 
@@ -963,15 +963,15 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::RegisterJobDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:job_definition_name], ::String, context: "#{context}[:job_definition_name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:scheduling_priority], ::Integer, context: "#{context}[:scheduling_priority]")
-        Validators::ContainerProperties.validate!(input[:container_properties], context: "#{context}[:container_properties]") unless input[:container_properties].nil?
-        Validators::NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
-        Validators::RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
+        ContainerProperties.validate!(input[:container_properties], context: "#{context}[:container_properties]") unless input[:container_properties].nil?
+        NodeProperties.validate!(input[:node_properties], context: "#{context}[:node_properties]") unless input[:node_properties].nil?
+        RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
         Hearth::Validator.validate!(input[:propagate_tags], ::TrueClass, ::FalseClass, context: "#{context}[:propagate_tags]")
-        Validators::JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
+        JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PlatformCapabilityList.validate!(input[:platform_capabilities], context: "#{context}[:platform_capabilities]") unless input[:platform_capabilities].nil?
       end
     end
 
@@ -996,7 +996,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceRequirement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceRequirement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1005,7 +1005,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RetryStrategy, context: context)
         Hearth::Validator.validate!(input[:attempts], ::Integer, context: "#{context}[:attempts]")
-        Validators::EvaluateOnExitList.validate!(input[:evaluate_on_exit], context: "#{context}[:evaluate_on_exit]") unless input[:evaluate_on_exit].nil?
+        EvaluateOnExitList.validate!(input[:evaluate_on_exit], context: "#{context}[:evaluate_on_exit]") unless input[:evaluate_on_exit].nil?
       end
     end
 
@@ -1014,8 +1014,8 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::SchedulingPolicyDetail, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1023,7 +1023,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchedulingPolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchedulingPolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1039,7 +1039,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchedulingPolicyListingDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchedulingPolicyListingDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1056,7 +1056,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Secret.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Secret.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1080,7 +1080,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ShareAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ShareAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,16 +1101,16 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:job_queue], ::String, context: "#{context}[:job_queue]")
         Hearth::Validator.validate!(input[:share_identifier], ::String, context: "#{context}[:share_identifier]")
         Hearth::Validator.validate!(input[:scheduling_priority_override], ::Integer, context: "#{context}[:scheduling_priority_override]")
-        Validators::ArrayProperties.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
-        Validators::JobDependencyList.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
+        ArrayProperties.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
+        JobDependencyList.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
         Hearth::Validator.validate!(input[:job_definition], ::String, context: "#{context}[:job_definition]")
-        Validators::ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ContainerOverrides.validate!(input[:container_overrides], context: "#{context}[:container_overrides]") unless input[:container_overrides].nil?
-        Validators::NodeOverrides.validate!(input[:node_overrides], context: "#{context}[:node_overrides]") unless input[:node_overrides].nil?
-        Validators::RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
+        ParametersMap.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ContainerOverrides.validate!(input[:container_overrides], context: "#{context}[:container_overrides]") unless input[:container_overrides].nil?
+        NodeOverrides.validate!(input[:node_overrides], context: "#{context}[:node_overrides]") unless input[:node_overrides].nil?
+        RetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
         Hearth::Validator.validate!(input[:propagate_tags], ::TrueClass, ::FalseClass, context: "#{context}[:propagate_tags]")
-        Validators::JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobTimeout.validate!(input[:timeout], context: "#{context}[:timeout]") unless input[:timeout].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1136,7 +1136,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagrisTagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1185,7 +1185,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input, Types::Tmpfs, context: context)
         Hearth::Validator.validate!(input[:container_path], ::String, context: "#{context}[:container_path]")
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
-        Validators::StringList.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
+        StringList.validate!(input[:mount_options], context: "#{context}[:mount_options]") unless input[:mount_options].nil?
       end
     end
 
@@ -1193,7 +1193,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tmpfs.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tmpfs.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1211,7 +1211,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ulimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ulimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1220,7 +1220,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeysList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeysList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1236,9 +1236,9 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:compute_environment], ::String, context: "#{context}[:compute_environment]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:unmanagedv_cpus], ::Integer, context: "#{context}[:unmanagedv_cpus]")
-        Validators::ComputeResourceUpdate.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
+        ComputeResourceUpdate.validate!(input[:compute_resources], context: "#{context}[:compute_resources]") unless input[:compute_resources].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::UpdatePolicy.validate!(input[:update_policy], context: "#{context}[:update_policy]") unless input[:update_policy].nil?
+        UpdatePolicy.validate!(input[:update_policy], context: "#{context}[:update_policy]") unless input[:update_policy].nil?
       end
     end
 
@@ -1257,7 +1257,7 @@ module AWS::SDK::Batch
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:scheduling_policy_arn], ::String, context: "#{context}[:scheduling_policy_arn]")
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
+        ComputeEnvironmentOrders.validate!(input[:compute_environment_order], context: "#{context}[:compute_environment_order]") unless input[:compute_environment_order].nil?
       end
     end
 
@@ -1281,7 +1281,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSchedulingPolicyInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
+        FairsharePolicy.validate!(input[:fairshare_policy], context: "#{context}[:fairshare_policy]") unless input[:fairshare_policy].nil?
       end
     end
 
@@ -1294,9 +1294,9 @@ module AWS::SDK::Batch
     class Volume
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Volume, context: context)
-        Validators::Host.validate!(input[:host], context: "#{context}[:host]") unless input[:host].nil?
+        Host.validate!(input[:host], context: "#{context}[:host]") unless input[:host].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::EFSVolumeConfiguration.validate!(input[:efs_volume_configuration], context: "#{context}[:efs_volume_configuration]") unless input[:efs_volume_configuration].nil?
+        EFSVolumeConfiguration.validate!(input[:efs_volume_configuration], context: "#{context}[:efs_volume_configuration]") unless input[:efs_volume_configuration].nil?
       end
     end
 
@@ -1304,7 +1304,7 @@ module AWS::SDK::Batch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Volume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Volume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

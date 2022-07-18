@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoT
@@ -81,7 +83,7 @@ module AWS::SDK::IoT
     def accept_certificate_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptCertificateTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptCertificateTransferInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::IoT
     def add_thing_to_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddThingToBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddThingToBillingGroupInput,
         validate_input: @config.validate_input
@@ -252,7 +254,7 @@ module AWS::SDK::IoT
     def add_thing_to_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddThingToThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddThingToThingGroupInput,
         validate_input: @config.validate_input
@@ -358,7 +360,7 @@ module AWS::SDK::IoT
     def associate_targets_with_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTargetsWithJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTargetsWithJobInput,
         validate_input: @config.validate_input
@@ -432,7 +434,7 @@ module AWS::SDK::IoT
     def attach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachPolicyInput,
         validate_input: @config.validate_input
@@ -511,7 +513,7 @@ module AWS::SDK::IoT
     def attach_principal_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachPrincipalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachPrincipalPolicyInput,
         validate_input: @config.validate_input
@@ -584,7 +586,7 @@ module AWS::SDK::IoT
     def attach_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachSecurityProfileInput,
         validate_input: @config.validate_input
@@ -659,7 +661,7 @@ module AWS::SDK::IoT
     def attach_thing_principal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachThingPrincipalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachThingPrincipalInput,
         validate_input: @config.validate_input
@@ -729,7 +731,7 @@ module AWS::SDK::IoT
     def cancel_audit_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelAuditMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelAuditMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -798,7 +800,7 @@ module AWS::SDK::IoT
     def cancel_audit_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelAuditTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelAuditTaskInput,
         validate_input: @config.validate_input
@@ -874,7 +876,7 @@ module AWS::SDK::IoT
     def cancel_certificate_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelCertificateTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelCertificateTransferInput,
         validate_input: @config.validate_input
@@ -946,7 +948,7 @@ module AWS::SDK::IoT
     def cancel_detect_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelDetectMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelDetectMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -1034,7 +1036,7 @@ module AWS::SDK::IoT
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -1134,7 +1136,7 @@ module AWS::SDK::IoT
     def cancel_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobExecutionInput,
         validate_input: @config.validate_input
@@ -1198,7 +1200,7 @@ module AWS::SDK::IoT
     def clear_default_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClearDefaultAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClearDefaultAuthorizerInput,
         validate_input: @config.validate_input
@@ -1269,7 +1271,7 @@ module AWS::SDK::IoT
     def confirm_topic_rule_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmTopicRuleDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmTopicRuleDestinationInput,
         validate_input: @config.validate_input
@@ -1383,7 +1385,7 @@ module AWS::SDK::IoT
     def create_audit_suppression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAuditSuppressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAuditSuppressionInput,
         validate_input: @config.validate_input
@@ -1501,7 +1503,7 @@ module AWS::SDK::IoT
     def create_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAuthorizerInput,
         validate_input: @config.validate_input
@@ -1588,7 +1590,7 @@ module AWS::SDK::IoT
     def create_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBillingGroupInput,
         validate_input: @config.validate_input
@@ -1700,7 +1702,7 @@ module AWS::SDK::IoT
     def create_certificate_from_csr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCertificateFromCsrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCertificateFromCsrInput,
         validate_input: @config.validate_input
@@ -1810,7 +1812,7 @@ module AWS::SDK::IoT
     def create_custom_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomMetricInput,
         validate_input: @config.validate_input
@@ -1907,7 +1909,7 @@ module AWS::SDK::IoT
     def create_dimension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDimensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDimensionInput,
         validate_input: @config.validate_input
@@ -2024,7 +2026,7 @@ module AWS::SDK::IoT
     def create_domain_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainConfigurationInput,
         validate_input: @config.validate_input
@@ -2140,7 +2142,7 @@ module AWS::SDK::IoT
     def create_dynamic_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDynamicThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDynamicThingGroupInput,
         validate_input: @config.validate_input
@@ -2258,7 +2260,7 @@ module AWS::SDK::IoT
     def create_fleet_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFleetMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFleetMetricInput,
         validate_input: @config.validate_input
@@ -2460,7 +2462,7 @@ module AWS::SDK::IoT
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -2619,7 +2621,7 @@ module AWS::SDK::IoT
     def create_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobTemplateInput,
         validate_input: @config.validate_input
@@ -2699,7 +2701,7 @@ module AWS::SDK::IoT
     def create_keys_and_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeysAndCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeysAndCertificateInput,
         validate_input: @config.validate_input
@@ -2810,7 +2812,7 @@ module AWS::SDK::IoT
     def create_mitigation_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMitigationActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMitigationActionInput,
         validate_input: @config.validate_input
@@ -3023,7 +3025,7 @@ module AWS::SDK::IoT
     def create_ota_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOTAUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOTAUpdateInput,
         validate_input: @config.validate_input
@@ -3120,7 +3122,7 @@ module AWS::SDK::IoT
     def create_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePolicyInput,
         validate_input: @config.validate_input
@@ -3210,7 +3212,7 @@ module AWS::SDK::IoT
     def create_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePolicyVersionInput,
         validate_input: @config.validate_input
@@ -3285,7 +3287,7 @@ module AWS::SDK::IoT
     def create_provisioning_claim(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProvisioningClaimInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProvisioningClaimInput,
         validate_input: @config.validate_input
@@ -3396,7 +3398,7 @@ module AWS::SDK::IoT
     def create_provisioning_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProvisioningTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProvisioningTemplateInput,
         validate_input: @config.validate_input
@@ -3477,7 +3479,7 @@ module AWS::SDK::IoT
     def create_provisioning_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProvisioningTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProvisioningTemplateVersionInput,
         validate_input: @config.validate_input
@@ -3575,7 +3577,7 @@ module AWS::SDK::IoT
     def create_role_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoleAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoleAliasInput,
         validate_input: @config.validate_input
@@ -3692,7 +3694,7 @@ module AWS::SDK::IoT
     def create_scheduled_audit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScheduledAuditInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScheduledAuditInput,
         validate_input: @config.validate_input
@@ -3847,7 +3849,7 @@ module AWS::SDK::IoT
     def create_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecurityProfileInput,
         validate_input: @config.validate_input
@@ -3952,7 +3954,7 @@ module AWS::SDK::IoT
     def create_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamInput,
         validate_input: @config.validate_input
@@ -4054,7 +4056,7 @@ module AWS::SDK::IoT
     def create_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThingInput,
         validate_input: @config.validate_input
@@ -4155,7 +4157,7 @@ module AWS::SDK::IoT
     def create_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThingGroupInput,
         validate_input: @config.validate_input
@@ -4247,7 +4249,7 @@ module AWS::SDK::IoT
     def create_thing_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateThingTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateThingTypeInput,
         validate_input: @config.validate_input
@@ -4515,7 +4517,7 @@ module AWS::SDK::IoT
     def create_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTopicRuleInput,
         validate_input: @config.validate_input
@@ -4613,7 +4615,7 @@ module AWS::SDK::IoT
     def create_topic_rule_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTopicRuleDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTopicRuleDestinationInput,
         validate_input: @config.validate_input
@@ -4684,7 +4686,7 @@ module AWS::SDK::IoT
     def delete_account_audit_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountAuditConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountAuditConfigurationInput,
         validate_input: @config.validate_input
@@ -4773,7 +4775,7 @@ module AWS::SDK::IoT
     def delete_audit_suppression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAuditSuppressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAuditSuppressionInput,
         validate_input: @config.validate_input
@@ -4842,7 +4844,7 @@ module AWS::SDK::IoT
     def delete_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAuthorizerInput,
         validate_input: @config.validate_input
@@ -4917,7 +4919,7 @@ module AWS::SDK::IoT
     def delete_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBillingGroupInput,
         validate_input: @config.validate_input
@@ -4986,7 +4988,7 @@ module AWS::SDK::IoT
     def delete_ca_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCACertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCACertificateInput,
         validate_input: @config.validate_input
@@ -5063,7 +5065,7 @@ module AWS::SDK::IoT
     def delete_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCertificateInput,
         validate_input: @config.validate_input
@@ -5143,7 +5145,7 @@ module AWS::SDK::IoT
     def delete_custom_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomMetricInput,
         validate_input: @config.validate_input
@@ -5211,7 +5213,7 @@ module AWS::SDK::IoT
     def delete_dimension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDimensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDimensionInput,
         validate_input: @config.validate_input
@@ -5279,7 +5281,7 @@ module AWS::SDK::IoT
     def delete_domain_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainConfigurationInput,
         validate_input: @config.validate_input
@@ -5351,7 +5353,7 @@ module AWS::SDK::IoT
     def delete_dynamic_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDynamicThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDynamicThingGroupInput,
         validate_input: @config.validate_input
@@ -5424,7 +5426,7 @@ module AWS::SDK::IoT
     def delete_fleet_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFleetMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFleetMetricInput,
         validate_input: @config.validate_input
@@ -5526,7 +5528,7 @@ module AWS::SDK::IoT
     def delete_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobInput,
         validate_input: @config.validate_input
@@ -5628,7 +5630,7 @@ module AWS::SDK::IoT
     def delete_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobExecutionInput,
         validate_input: @config.validate_input
@@ -5695,7 +5697,7 @@ module AWS::SDK::IoT
     def delete_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobTemplateInput,
         validate_input: @config.validate_input
@@ -5763,7 +5765,7 @@ module AWS::SDK::IoT
     def delete_mitigation_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMitigationActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMitigationActionInput,
         validate_input: @config.validate_input
@@ -5841,7 +5843,7 @@ module AWS::SDK::IoT
     def delete_ota_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOTAUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOTAUpdateInput,
         validate_input: @config.validate_input
@@ -5920,7 +5922,7 @@ module AWS::SDK::IoT
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -5994,7 +5996,7 @@ module AWS::SDK::IoT
     def delete_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyVersionInput,
         validate_input: @config.validate_input
@@ -6062,7 +6064,7 @@ module AWS::SDK::IoT
     def delete_provisioning_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisioningTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisioningTemplateInput,
         validate_input: @config.validate_input
@@ -6134,7 +6136,7 @@ module AWS::SDK::IoT
     def delete_provisioning_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisioningTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisioningTemplateVersionInput,
         validate_input: @config.validate_input
@@ -6197,7 +6199,7 @@ module AWS::SDK::IoT
     def delete_registration_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRegistrationCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRegistrationCodeInput,
         validate_input: @config.validate_input
@@ -6265,7 +6267,7 @@ module AWS::SDK::IoT
     def delete_role_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoleAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoleAliasInput,
         validate_input: @config.validate_input
@@ -6333,7 +6335,7 @@ module AWS::SDK::IoT
     def delete_scheduled_audit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduledAuditInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduledAuditInput,
         validate_input: @config.validate_input
@@ -6407,7 +6409,7 @@ module AWS::SDK::IoT
     def delete_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecurityProfileInput,
         validate_input: @config.validate_input
@@ -6475,7 +6477,7 @@ module AWS::SDK::IoT
     def delete_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamInput,
         validate_input: @config.validate_input
@@ -6551,7 +6553,7 @@ module AWS::SDK::IoT
     def delete_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThingInput,
         validate_input: @config.validate_input
@@ -6623,7 +6625,7 @@ module AWS::SDK::IoT
     def delete_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThingGroupInput,
         validate_input: @config.validate_input
@@ -6693,7 +6695,7 @@ module AWS::SDK::IoT
     def delete_thing_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteThingTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteThingTypeInput,
         validate_input: @config.validate_input
@@ -6761,7 +6763,7 @@ module AWS::SDK::IoT
     def delete_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTopicRuleInput,
         validate_input: @config.validate_input
@@ -6829,7 +6831,7 @@ module AWS::SDK::IoT
     def delete_topic_rule_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTopicRuleDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTopicRuleDestinationInput,
         validate_input: @config.validate_input
@@ -6902,7 +6904,7 @@ module AWS::SDK::IoT
     def delete_v2_logging_level(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteV2LoggingLevelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteV2LoggingLevelInput,
         validate_input: @config.validate_input
@@ -6976,7 +6978,7 @@ module AWS::SDK::IoT
     def deprecate_thing_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateThingTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateThingTypeInput,
         validate_input: @config.validate_input
@@ -7051,7 +7053,7 @@ module AWS::SDK::IoT
     def describe_account_audit_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAuditConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAuditConfigurationInput,
         validate_input: @config.validate_input
@@ -7153,7 +7155,7 @@ module AWS::SDK::IoT
     def describe_audit_finding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuditFindingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuditFindingInput,
         validate_input: @config.validate_input
@@ -7261,7 +7263,7 @@ module AWS::SDK::IoT
     def describe_audit_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuditMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuditMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -7364,7 +7366,7 @@ module AWS::SDK::IoT
     def describe_audit_suppression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuditSuppressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuditSuppressionInput,
         validate_input: @config.validate_input
@@ -7454,7 +7456,7 @@ module AWS::SDK::IoT
     def describe_audit_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuditTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuditTaskInput,
         validate_input: @config.validate_input
@@ -7534,7 +7536,7 @@ module AWS::SDK::IoT
     def describe_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuthorizerInput,
         validate_input: @config.validate_input
@@ -7610,7 +7612,7 @@ module AWS::SDK::IoT
     def describe_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBillingGroupInput,
         validate_input: @config.validate_input
@@ -7695,7 +7697,7 @@ module AWS::SDK::IoT
     def describe_ca_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCACertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCACertificateInput,
         validate_input: @config.validate_input
@@ -7786,7 +7788,7 @@ module AWS::SDK::IoT
     def describe_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificateInput,
         validate_input: @config.validate_input
@@ -7864,7 +7866,7 @@ module AWS::SDK::IoT
     def describe_custom_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomMetricInput,
         validate_input: @config.validate_input
@@ -7939,7 +7941,7 @@ module AWS::SDK::IoT
     def describe_default_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDefaultAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDefaultAuthorizerInput,
         validate_input: @config.validate_input
@@ -8051,7 +8053,7 @@ module AWS::SDK::IoT
     def describe_detect_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDetectMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDetectMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -8126,7 +8128,7 @@ module AWS::SDK::IoT
     def describe_dimension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDimensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDimensionInput,
         validate_input: @config.validate_input
@@ -8209,7 +8211,7 @@ module AWS::SDK::IoT
     def describe_domain_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainConfigurationInput,
         validate_input: @config.validate_input
@@ -8306,7 +8308,7 @@ module AWS::SDK::IoT
     def describe_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointInput,
         validate_input: @config.validate_input
@@ -8374,7 +8376,7 @@ module AWS::SDK::IoT
     def describe_event_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventConfigurationsInput,
         validate_input: @config.validate_input
@@ -8458,7 +8460,7 @@ module AWS::SDK::IoT
     def describe_fleet_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFleetMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFleetMetricInput,
         validate_input: @config.validate_input
@@ -8529,7 +8531,7 @@ module AWS::SDK::IoT
     def describe_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIndexInput,
         validate_input: @config.validate_input
@@ -8653,7 +8655,7 @@ module AWS::SDK::IoT
     def describe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobInput,
         validate_input: @config.validate_input
@@ -8744,7 +8746,7 @@ module AWS::SDK::IoT
     def describe_job_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobExecutionInput,
         validate_input: @config.validate_input
@@ -8842,7 +8844,7 @@ module AWS::SDK::IoT
     def describe_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobTemplateInput,
         validate_input: @config.validate_input
@@ -8928,7 +8930,7 @@ module AWS::SDK::IoT
     def describe_managed_job_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeManagedJobTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeManagedJobTemplateInput,
         validate_input: @config.validate_input
@@ -9019,7 +9021,7 @@ module AWS::SDK::IoT
     def describe_mitigation_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMitigationActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMitigationActionInput,
         validate_input: @config.validate_input
@@ -9099,7 +9101,7 @@ module AWS::SDK::IoT
     def describe_provisioning_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisioningTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisioningTemplateInput,
         validate_input: @config.validate_input
@@ -9175,7 +9177,7 @@ module AWS::SDK::IoT
     def describe_provisioning_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProvisioningTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProvisioningTemplateVersionInput,
         validate_input: @config.validate_input
@@ -9251,7 +9253,7 @@ module AWS::SDK::IoT
     def describe_role_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRoleAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRoleAliasInput,
         validate_input: @config.validate_input
@@ -9326,7 +9328,7 @@ module AWS::SDK::IoT
     def describe_scheduled_audit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledAuditInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledAuditInput,
         validate_input: @config.validate_input
@@ -9439,7 +9441,7 @@ module AWS::SDK::IoT
     def describe_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityProfileInput,
         validate_input: @config.validate_input
@@ -9522,7 +9524,7 @@ module AWS::SDK::IoT
     def describe_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamInput,
         validate_input: @config.validate_input
@@ -9599,7 +9601,7 @@ module AWS::SDK::IoT
     def describe_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThingInput,
         validate_input: @config.validate_input
@@ -9688,7 +9690,7 @@ module AWS::SDK::IoT
     def describe_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThingGroupInput,
         validate_input: @config.validate_input
@@ -9768,7 +9770,7 @@ module AWS::SDK::IoT
     def describe_thing_registration_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThingRegistrationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThingRegistrationTaskInput,
         validate_input: @config.validate_input
@@ -9847,7 +9849,7 @@ module AWS::SDK::IoT
     def describe_thing_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeThingTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeThingTypeInput,
         validate_input: @config.validate_input
@@ -9923,7 +9925,7 @@ module AWS::SDK::IoT
     def detach_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachPolicyInput,
         validate_input: @config.validate_input
@@ -10002,7 +10004,7 @@ module AWS::SDK::IoT
     def detach_principal_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachPrincipalPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachPrincipalPolicyInput,
         validate_input: @config.validate_input
@@ -10074,7 +10076,7 @@ module AWS::SDK::IoT
     def detach_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachSecurityProfileInput,
         validate_input: @config.validate_input
@@ -10154,7 +10156,7 @@ module AWS::SDK::IoT
     def detach_thing_principal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachThingPrincipalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachThingPrincipalInput,
         validate_input: @config.validate_input
@@ -10222,7 +10224,7 @@ module AWS::SDK::IoT
     def disable_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableTopicRuleInput,
         validate_input: @config.validate_input
@@ -10290,7 +10292,7 @@ module AWS::SDK::IoT
     def enable_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableTopicRuleInput,
         validate_input: @config.validate_input
@@ -10383,7 +10385,7 @@ module AWS::SDK::IoT
     def get_behavior_model_training_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBehaviorModelTrainingSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBehaviorModelTrainingSummariesInput,
         validate_input: @config.validate_input
@@ -10476,7 +10478,7 @@ module AWS::SDK::IoT
     def get_buckets_aggregation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketsAggregationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketsAggregationInput,
         validate_input: @config.validate_input
@@ -10558,7 +10560,7 @@ module AWS::SDK::IoT
     def get_cardinality(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCardinalityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCardinalityInput,
         validate_input: @config.validate_input
@@ -10641,7 +10643,7 @@ module AWS::SDK::IoT
     def get_effective_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEffectivePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEffectivePoliciesInput,
         validate_input: @config.validate_input
@@ -10719,7 +10721,7 @@ module AWS::SDK::IoT
     def get_indexing_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIndexingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIndexingConfigurationInput,
         validate_input: @config.validate_input
@@ -10788,7 +10790,7 @@ module AWS::SDK::IoT
     def get_job_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobDocumentInput,
         validate_input: @config.validate_input
@@ -10855,7 +10857,7 @@ module AWS::SDK::IoT
     def get_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -10987,7 +10989,7 @@ module AWS::SDK::IoT
     def get_ota_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOTAUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOTAUpdateInput,
         validate_input: @config.validate_input
@@ -11085,7 +11087,7 @@ module AWS::SDK::IoT
     def get_percentiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPercentilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPercentilesInput,
         validate_input: @config.validate_input
@@ -11162,7 +11164,7 @@ module AWS::SDK::IoT
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -11242,7 +11244,7 @@ module AWS::SDK::IoT
     def get_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyVersionInput,
         validate_input: @config.validate_input
@@ -11306,7 +11308,7 @@ module AWS::SDK::IoT
     def get_registration_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRegistrationCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRegistrationCodeInput,
         validate_input: @config.validate_input
@@ -11398,7 +11400,7 @@ module AWS::SDK::IoT
     def get_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStatisticsInput,
         validate_input: @config.validate_input
@@ -11557,7 +11559,11 @@ module AWS::SDK::IoT
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_alias #=> String
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values #=> Array<AssetPropertyValue>
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0] #=> Types::AssetPropertyValue
-    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value #=> AssetPropertyVariant
+    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value #=> Types::AssetPropertyVariant, one of [StringValue, IntegerValue, DoubleValue, BooleanValue]
+    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value.string_value #=> String
+    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value.integer_value #=> String
+    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value.double_value #=> String
+    #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].value.boolean_value #=> String
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].timestamp #=> Types::AssetPropertyTimestamp
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].timestamp.time_in_seconds #=> String
     #   resp.data.rule.actions[0].iot_site_wise.put_asset_property_value_entries[0].property_values[0].timestamp.offset_in_nanos #=> String
@@ -11610,7 +11616,7 @@ module AWS::SDK::IoT
     def get_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTopicRuleInput,
         validate_input: @config.validate_input
@@ -11693,7 +11699,7 @@ module AWS::SDK::IoT
     def get_topic_rule_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTopicRuleDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTopicRuleDestinationInput,
         validate_input: @config.validate_input
@@ -11759,7 +11765,7 @@ module AWS::SDK::IoT
     def get_v2_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetV2LoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetV2LoggingOptionsInput,
         validate_input: @config.validate_input
@@ -11895,7 +11901,7 @@ module AWS::SDK::IoT
     def list_active_violations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActiveViolationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActiveViolationsInput,
         validate_input: @config.validate_input
@@ -11980,7 +11986,7 @@ module AWS::SDK::IoT
     def list_attached_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttachedPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttachedPoliciesInput,
         validate_input: @config.validate_input
@@ -12126,7 +12132,7 @@ module AWS::SDK::IoT
     def list_audit_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuditFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuditFindingsInput,
         validate_input: @config.validate_input
@@ -12224,7 +12230,7 @@ module AWS::SDK::IoT
     def list_audit_mitigation_actions_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuditMitigationActionsExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuditMitigationActionsExecutionsInput,
         validate_input: @config.validate_input
@@ -12322,7 +12328,7 @@ module AWS::SDK::IoT
     def list_audit_mitigation_actions_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuditMitigationActionsTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuditMitigationActionsTasksInput,
         validate_input: @config.validate_input
@@ -12447,7 +12453,7 @@ module AWS::SDK::IoT
     def list_audit_suppressions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuditSuppressionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuditSuppressionsInput,
         validate_input: @config.validate_input
@@ -12547,7 +12553,7 @@ module AWS::SDK::IoT
     def list_audit_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuditTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuditTasksInput,
         validate_input: @config.validate_input
@@ -12632,7 +12638,7 @@ module AWS::SDK::IoT
     def list_authorizers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAuthorizersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAuthorizersInput,
         validate_input: @config.validate_input
@@ -12715,7 +12721,7 @@ module AWS::SDK::IoT
     def list_billing_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBillingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBillingGroupsInput,
         validate_input: @config.validate_input
@@ -12800,7 +12806,7 @@ module AWS::SDK::IoT
     def list_ca_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCACertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCACertificatesInput,
         validate_input: @config.validate_input
@@ -12887,7 +12893,7 @@ module AWS::SDK::IoT
     def list_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCertificatesInput,
         validate_input: @config.validate_input
@@ -12977,7 +12983,7 @@ module AWS::SDK::IoT
     def list_certificates_by_ca(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCertificatesByCAInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCertificatesByCAInput,
         validate_input: @config.validate_input
@@ -13058,7 +13064,7 @@ module AWS::SDK::IoT
     def list_custom_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomMetricsInput,
         validate_input: @config.validate_input
@@ -13179,7 +13185,7 @@ module AWS::SDK::IoT
     def list_detect_mitigation_actions_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDetectMitigationActionsExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDetectMitigationActionsExecutionsInput,
         validate_input: @config.validate_input
@@ -13310,7 +13316,7 @@ module AWS::SDK::IoT
     def list_detect_mitigation_actions_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDetectMitigationActionsTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDetectMitigationActionsTasksInput,
         validate_input: @config.validate_input
@@ -13385,7 +13391,7 @@ module AWS::SDK::IoT
     def list_dimensions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDimensionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDimensionsInput,
         validate_input: @config.validate_input
@@ -13468,7 +13474,7 @@ module AWS::SDK::IoT
     def list_domain_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainConfigurationsInput,
         validate_input: @config.validate_input
@@ -13546,7 +13552,7 @@ module AWS::SDK::IoT
     def list_fleet_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFleetMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFleetMetricsInput,
         validate_input: @config.validate_input
@@ -13622,7 +13628,7 @@ module AWS::SDK::IoT
     def list_indices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIndicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIndicesInput,
         validate_input: @config.validate_input
@@ -13713,7 +13719,7 @@ module AWS::SDK::IoT
     def list_job_executions_for_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobExecutionsForJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobExecutionsForJobInput,
         validate_input: @config.validate_input
@@ -13820,7 +13826,7 @@ module AWS::SDK::IoT
     def list_job_executions_for_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobExecutionsForThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobExecutionsForThingInput,
         validate_input: @config.validate_input
@@ -13899,7 +13905,7 @@ module AWS::SDK::IoT
     def list_job_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobTemplatesInput,
         validate_input: @config.validate_input
@@ -14019,7 +14025,7 @@ module AWS::SDK::IoT
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -14104,7 +14110,7 @@ module AWS::SDK::IoT
     def list_managed_job_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedJobTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedJobTemplatesInput,
         validate_input: @config.validate_input
@@ -14215,7 +14221,7 @@ module AWS::SDK::IoT
     def list_metric_values(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricValuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMetricValuesInput,
         validate_input: @config.validate_input
@@ -14297,7 +14303,7 @@ module AWS::SDK::IoT
     def list_mitigation_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMitigationActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMitigationActionsInput,
         validate_input: @config.validate_input
@@ -14379,7 +14385,7 @@ module AWS::SDK::IoT
     def list_ota_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOTAUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOTAUpdatesInput,
         validate_input: @config.validate_input
@@ -14465,7 +14471,7 @@ module AWS::SDK::IoT
     def list_outgoing_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOutgoingCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOutgoingCertificatesInput,
         validate_input: @config.validate_input
@@ -14547,7 +14553,7 @@ module AWS::SDK::IoT
     def list_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesInput,
         validate_input: @config.validate_input
@@ -14635,7 +14641,7 @@ module AWS::SDK::IoT
     def list_policy_principals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyPrincipalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyPrincipalsInput,
         validate_input: @config.validate_input
@@ -14709,7 +14715,7 @@ module AWS::SDK::IoT
     def list_policy_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyVersionsInput,
         validate_input: @config.validate_input
@@ -14800,7 +14806,7 @@ module AWS::SDK::IoT
     def list_principal_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPrincipalPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPrincipalPoliciesInput,
         validate_input: @config.validate_input
@@ -14883,7 +14889,7 @@ module AWS::SDK::IoT
     def list_principal_things(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPrincipalThingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPrincipalThingsInput,
         validate_input: @config.validate_input
@@ -14965,7 +14971,7 @@ module AWS::SDK::IoT
     def list_provisioning_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisioningTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisioningTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -15046,7 +15052,7 @@ module AWS::SDK::IoT
     def list_provisioning_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisioningTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisioningTemplatesInput,
         validate_input: @config.validate_input
@@ -15125,7 +15131,7 @@ module AWS::SDK::IoT
     def list_role_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoleAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoleAliasesInput,
         validate_input: @config.validate_input
@@ -15205,7 +15211,7 @@ module AWS::SDK::IoT
     def list_scheduled_audits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListScheduledAuditsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListScheduledAuditsInput,
         validate_input: @config.validate_input
@@ -15299,7 +15305,7 @@ module AWS::SDK::IoT
     def list_security_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityProfilesInput,
         validate_input: @config.validate_input
@@ -15387,7 +15393,7 @@ module AWS::SDK::IoT
     def list_security_profiles_for_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityProfilesForTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityProfilesForTargetInput,
         validate_input: @config.validate_input
@@ -15470,7 +15476,7 @@ module AWS::SDK::IoT
     def list_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamsInput,
         validate_input: @config.validate_input
@@ -15549,7 +15555,7 @@ module AWS::SDK::IoT
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -15628,7 +15634,7 @@ module AWS::SDK::IoT
     def list_targets_for_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetsForPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetsForPolicyInput,
         validate_input: @config.validate_input
@@ -15708,7 +15714,7 @@ module AWS::SDK::IoT
     def list_targets_for_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetsForSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetsForSecurityProfileInput,
         validate_input: @config.validate_input
@@ -15799,7 +15805,7 @@ module AWS::SDK::IoT
     def list_thing_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingGroupsInput,
         validate_input: @config.validate_input
@@ -15882,7 +15888,7 @@ module AWS::SDK::IoT
     def list_thing_groups_for_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingGroupsForThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingGroupsForThingInput,
         validate_input: @config.validate_input
@@ -15965,7 +15971,7 @@ module AWS::SDK::IoT
     def list_thing_principals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingPrincipalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingPrincipalsInput,
         validate_input: @config.validate_input
@@ -16050,7 +16056,7 @@ module AWS::SDK::IoT
     def list_thing_registration_task_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingRegistrationTaskReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingRegistrationTaskReportsInput,
         validate_input: @config.validate_input
@@ -16131,7 +16137,7 @@ module AWS::SDK::IoT
     def list_thing_registration_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingRegistrationTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingRegistrationTasksInput,
         validate_input: @config.validate_input
@@ -16222,7 +16228,7 @@ module AWS::SDK::IoT
     def list_thing_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingTypesInput,
         validate_input: @config.validate_input
@@ -16333,7 +16339,7 @@ module AWS::SDK::IoT
     def list_things(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingsInput,
         validate_input: @config.validate_input
@@ -16414,7 +16420,7 @@ module AWS::SDK::IoT
     def list_things_in_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingsInBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingsInBillingGroupInput,
         validate_input: @config.validate_input
@@ -16500,7 +16506,7 @@ module AWS::SDK::IoT
     def list_things_in_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThingsInThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThingsInThingGroupInput,
         validate_input: @config.validate_input
@@ -16591,7 +16597,7 @@ module AWS::SDK::IoT
     def list_topic_rule_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTopicRuleDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTopicRuleDestinationsInput,
         validate_input: @config.validate_input
@@ -16681,7 +16687,7 @@ module AWS::SDK::IoT
     def list_topic_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTopicRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTopicRulesInput,
         validate_input: @config.validate_input
@@ -16767,7 +16773,7 @@ module AWS::SDK::IoT
     def list_v2_logging_levels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListV2LoggingLevelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListV2LoggingLevelsInput,
         validate_input: @config.validate_input
@@ -16913,7 +16919,7 @@ module AWS::SDK::IoT
     def list_violation_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListViolationEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListViolationEventsInput,
         validate_input: @config.validate_input
@@ -16988,7 +16994,7 @@ module AWS::SDK::IoT
     def put_verification_state_on_violation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutVerificationStateOnViolationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutVerificationStateOnViolationInput,
         validate_input: @config.validate_input
@@ -17102,7 +17108,7 @@ module AWS::SDK::IoT
     def register_ca_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterCACertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterCACertificateInput,
         validate_input: @config.validate_input
@@ -17190,7 +17196,7 @@ module AWS::SDK::IoT
     def register_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterCertificateInput,
         validate_input: @config.validate_input
@@ -17267,7 +17273,7 @@ module AWS::SDK::IoT
     def register_certificate_without_ca(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterCertificateWithoutCAInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterCertificateWithoutCAInput,
         validate_input: @config.validate_input
@@ -17348,7 +17354,7 @@ module AWS::SDK::IoT
     def register_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterThingInput,
         validate_input: @config.validate_input
@@ -17428,7 +17434,7 @@ module AWS::SDK::IoT
     def reject_certificate_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectCertificateTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectCertificateTransferInput,
         validate_input: @config.validate_input
@@ -17512,7 +17518,7 @@ module AWS::SDK::IoT
     def remove_thing_from_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveThingFromBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveThingFromBillingGroupInput,
         validate_input: @config.validate_input
@@ -17598,7 +17604,7 @@ module AWS::SDK::IoT
     def remove_thing_from_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveThingFromThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveThingFromThingGroupInput,
         validate_input: @config.validate_input
@@ -17856,7 +17862,7 @@ module AWS::SDK::IoT
     def replace_topic_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplaceTopicRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplaceTopicRuleInput,
         validate_input: @config.validate_input
@@ -17965,7 +17971,7 @@ module AWS::SDK::IoT
     def search_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchIndexInput,
         validate_input: @config.validate_input
@@ -18037,7 +18043,7 @@ module AWS::SDK::IoT
     def set_default_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDefaultAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDefaultAuthorizerInput,
         validate_input: @config.validate_input
@@ -18113,7 +18119,7 @@ module AWS::SDK::IoT
     def set_default_policy_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDefaultPolicyVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDefaultPolicyVersionInput,
         validate_input: @config.validate_input
@@ -18186,7 +18192,7 @@ module AWS::SDK::IoT
     def set_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetLoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetLoggingOptionsInput,
         validate_input: @config.validate_input
@@ -18262,7 +18268,7 @@ module AWS::SDK::IoT
     def set_v2_logging_level(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetV2LoggingLevelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetV2LoggingLevelInput,
         validate_input: @config.validate_input
@@ -18339,7 +18345,7 @@ module AWS::SDK::IoT
     def set_v2_logging_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetV2LoggingOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetV2LoggingOptionsInput,
         validate_input: @config.validate_input
@@ -18438,7 +18444,7 @@ module AWS::SDK::IoT
     def start_audit_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAuditMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAuditMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -18559,7 +18565,7 @@ module AWS::SDK::IoT
     def start_detect_mitigation_actions_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDetectMitigationActionsTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDetectMitigationActionsTaskInput,
         validate_input: @config.validate_input
@@ -18634,7 +18640,7 @@ module AWS::SDK::IoT
     def start_on_demand_audit_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartOnDemandAuditTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartOnDemandAuditTaskInput,
         validate_input: @config.validate_input
@@ -18718,7 +18724,7 @@ module AWS::SDK::IoT
     def start_thing_registration_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartThingRegistrationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartThingRegistrationTaskInput,
         validate_input: @config.validate_input
@@ -18787,7 +18793,7 @@ module AWS::SDK::IoT
     def stop_thing_registration_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopThingRegistrationTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopThingRegistrationTaskInput,
         validate_input: @config.validate_input
@@ -18865,7 +18871,7 @@ module AWS::SDK::IoT
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -18986,7 +18992,7 @@ module AWS::SDK::IoT
     def test_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestAuthorizationInput,
         validate_input: @config.validate_input
@@ -19095,7 +19101,7 @@ module AWS::SDK::IoT
     def test_invoke_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestInvokeAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestInvokeAuthorizerInput,
         validate_input: @config.validate_input
@@ -19182,7 +19188,7 @@ module AWS::SDK::IoT
     def transfer_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransferCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransferCertificateInput,
         validate_input: @config.validate_input
@@ -19257,7 +19263,7 @@ module AWS::SDK::IoT
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -19365,7 +19371,7 @@ module AWS::SDK::IoT
     def update_account_audit_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountAuditConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountAuditConfigurationInput,
         validate_input: @config.validate_input
@@ -19472,7 +19478,7 @@ module AWS::SDK::IoT
     def update_audit_suppression(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAuditSuppressionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAuditSuppressionInput,
         validate_input: @config.validate_input
@@ -19567,7 +19573,7 @@ module AWS::SDK::IoT
     def update_authorizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAuthorizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAuthorizerInput,
         validate_input: @config.validate_input
@@ -19650,7 +19656,7 @@ module AWS::SDK::IoT
     def update_billing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBillingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBillingGroupInput,
         validate_input: @config.validate_input
@@ -19742,7 +19748,7 @@ module AWS::SDK::IoT
     def update_ca_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCACertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCACertificateInput,
         validate_input: @config.validate_input
@@ -19830,7 +19836,7 @@ module AWS::SDK::IoT
     def update_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCertificateInput,
         validate_input: @config.validate_input
@@ -19917,7 +19923,7 @@ module AWS::SDK::IoT
     def update_custom_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomMetricInput,
         validate_input: @config.validate_input
@@ -20004,7 +20010,7 @@ module AWS::SDK::IoT
     def update_dimension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDimensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDimensionInput,
         validate_input: @config.validate_input
@@ -20091,7 +20097,7 @@ module AWS::SDK::IoT
     def update_domain_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainConfigurationInput,
         validate_input: @config.validate_input
@@ -20196,7 +20202,7 @@ module AWS::SDK::IoT
     def update_dynamic_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDynamicThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDynamicThingGroupInput,
         validate_input: @config.validate_input
@@ -20269,7 +20275,7 @@ module AWS::SDK::IoT
     def update_event_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventConfigurationsInput,
         validate_input: @config.validate_input
@@ -20380,7 +20386,7 @@ module AWS::SDK::IoT
     def update_fleet_metric(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFleetMetricInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFleetMetricInput,
         validate_input: @config.validate_input
@@ -20466,7 +20472,7 @@ module AWS::SDK::IoT
     def update_indexing_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIndexingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIndexingConfigurationInput,
         validate_input: @config.validate_input
@@ -20603,7 +20609,7 @@ module AWS::SDK::IoT
     def update_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobInput,
         validate_input: @config.validate_input
@@ -20708,7 +20714,7 @@ module AWS::SDK::IoT
     def update_mitigation_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMitigationActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMitigationActionInput,
         validate_input: @config.validate_input
@@ -20805,7 +20811,7 @@ module AWS::SDK::IoT
     def update_provisioning_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProvisioningTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProvisioningTemplateInput,
         validate_input: @config.validate_input
@@ -20886,7 +20892,7 @@ module AWS::SDK::IoT
     def update_role_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoleAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoleAliasInput,
         validate_input: @config.validate_input
@@ -20991,7 +20997,7 @@ module AWS::SDK::IoT
     def update_scheduled_audit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScheduledAuditInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScheduledAuditInput,
         validate_input: @config.validate_input
@@ -21204,7 +21210,7 @@ module AWS::SDK::IoT
     def update_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecurityProfileInput,
         validate_input: @config.validate_input
@@ -21298,7 +21304,7 @@ module AWS::SDK::IoT
     def update_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamInput,
         validate_input: @config.validate_input
@@ -21399,7 +21405,7 @@ module AWS::SDK::IoT
     def update_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThingInput,
         validate_input: @config.validate_input
@@ -21486,7 +21492,7 @@ module AWS::SDK::IoT
     def update_thing_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThingGroupInput,
         validate_input: @config.validate_input
@@ -21571,7 +21577,7 @@ module AWS::SDK::IoT
     def update_thing_groups_for_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThingGroupsForThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThingGroupsForThingInput,
         validate_input: @config.validate_input
@@ -21676,7 +21682,7 @@ module AWS::SDK::IoT
     def update_topic_rule_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTopicRuleDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTopicRuleDestinationInput,
         validate_input: @config.validate_input
@@ -21787,7 +21793,7 @@ module AWS::SDK::IoT
     def validate_security_profile_behaviors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateSecurityProfileBehaviorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateSecurityProfileBehaviorsInput,
         validate_input: @config.validate_input

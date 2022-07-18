@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ComputeOptimizer
   module Validators
 
@@ -31,7 +33,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountEnrollmentStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountEnrollmentStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -71,25 +73,25 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input[:auto_scaling_group_arn], ::String, context: "#{context}[:auto_scaling_group_arn]")
         Hearth::Validator.validate!(input[:auto_scaling_group_name], ::String, context: "#{context}[:auto_scaling_group_name]")
         Hearth::Validator.validate!(input[:finding], ::String, context: "#{context}[:finding]")
-        Validators::UtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
+        UtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
         Hearth::Validator.validate!(input[:look_back_period_in_days], ::Float, context: "#{context}[:look_back_period_in_days]")
-        Validators::AutoScalingGroupConfiguration.validate!(input[:current_configuration], context: "#{context}[:current_configuration]") unless input[:current_configuration].nil?
-        Validators::AutoScalingGroupRecommendationOptions.validate!(input[:recommendation_options], context: "#{context}[:recommendation_options]") unless input[:recommendation_options].nil?
+        AutoScalingGroupConfiguration.validate!(input[:current_configuration], context: "#{context}[:current_configuration]") unless input[:current_configuration].nil?
+        AutoScalingGroupRecommendationOptions.validate!(input[:recommendation_options], context: "#{context}[:recommendation_options]") unless input[:recommendation_options].nil?
         Hearth::Validator.validate!(input[:last_refresh_timestamp], ::Time, context: "#{context}[:last_refresh_timestamp]")
         Hearth::Validator.validate!(input[:current_performance_risk], ::String, context: "#{context}[:current_performance_risk]")
-        Validators::EffectiveRecommendationPreferences.validate!(input[:effective_recommendation_preferences], context: "#{context}[:effective_recommendation_preferences]") unless input[:effective_recommendation_preferences].nil?
-        Validators::InferredWorkloadTypes.validate!(input[:inferred_workload_types], context: "#{context}[:inferred_workload_types]") unless input[:inferred_workload_types].nil?
+        EffectiveRecommendationPreferences.validate!(input[:effective_recommendation_preferences], context: "#{context}[:effective_recommendation_preferences]") unless input[:effective_recommendation_preferences].nil?
+        InferredWorkloadTypes.validate!(input[:inferred_workload_types], context: "#{context}[:inferred_workload_types]") unless input[:inferred_workload_types].nil?
       end
     end
 
     class AutoScalingGroupRecommendationOption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingGroupRecommendationOption, context: context)
-        Validators::AutoScalingGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ProjectedUtilizationMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
+        AutoScalingGroupConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ProjectedUtilizationMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
         Hearth::Validator.validate!(input[:performance_risk], ::Float, context: "#{context}[:performance_risk]")
         Hearth::Validator.validate!(input[:rank], ::Integer, context: "#{context}[:rank]")
-        Validators::SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
+        SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
         Hearth::Validator.validate!(input[:migration_effort], ::String, context: "#{context}[:migration_effort]")
       end
     end
@@ -98,7 +100,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingGroupRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingGroupRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -107,7 +109,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoScalingGroupRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoScalingGroupRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -135,8 +137,8 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRecommendationPreferencesInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
-        Validators::RecommendationPreferenceNames.validate!(input[:recommendation_preference_names], context: "#{context}[:recommendation_preference_names]") unless input[:recommendation_preference_names].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        RecommendationPreferenceNames.validate!(input[:recommendation_preference_names], context: "#{context}[:recommendation_preference_names]") unless input[:recommendation_preference_names].nil?
       end
     end
 
@@ -149,8 +151,8 @@ module AWS::SDK::ComputeOptimizer
     class DescribeRecommendationExportJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRecommendationExportJobsInput, context: context)
-        Validators::JobIds.validate!(input[:job_ids], context: "#{context}[:job_ids]") unless input[:job_ids].nil?
-        Validators::JobFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        JobIds.validate!(input[:job_ids], context: "#{context}[:job_ids]") unless input[:job_ids].nil?
+        JobFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -159,7 +161,7 @@ module AWS::SDK::ComputeOptimizer
     class DescribeRecommendationExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRecommendationExportJobsOutput, context: context)
-        Validators::RecommendationExportJobs.validate!(input[:recommendation_export_jobs], context: "#{context}[:recommendation_export_jobs]") unless input[:recommendation_export_jobs].nil?
+        RecommendationExportJobs.validate!(input[:recommendation_export_jobs], context: "#{context}[:recommendation_export_jobs]") unless input[:recommendation_export_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -168,7 +170,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EBSFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EBSFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EBSFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -194,7 +196,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EBSUtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EBSUtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::ComputeOptimizer
     class EffectiveRecommendationPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EffectiveRecommendationPreferences, context: context)
-        Validators::CpuVendorArchitectures.validate!(input[:cpu_vendor_architectures], context: "#{context}[:cpu_vendor_architectures]") unless input[:cpu_vendor_architectures].nil?
+        CpuVendorArchitectures.validate!(input[:cpu_vendor_architectures], context: "#{context}[:cpu_vendor_architectures]") unless input[:cpu_vendor_architectures].nil?
         Hearth::Validator.validate!(input[:enhanced_infrastructure_metrics], ::String, context: "#{context}[:enhanced_infrastructure_metrics]")
         Hearth::Validator.validate!(input[:inferred_workload_types], ::String, context: "#{context}[:inferred_workload_types]")
       end
@@ -212,7 +214,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnrollmentFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnrollmentFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnrollmentFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -236,13 +238,13 @@ module AWS::SDK::ComputeOptimizer
     class ExportAutoScalingGroupRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportAutoScalingGroupRecommendationsInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::ExportableAutoScalingGroupFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
-        Validators::S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ExportableAutoScalingGroupFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
+        S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
         Hearth::Validator.validate!(input[:file_format], ::String, context: "#{context}[:file_format]")
         Hearth::Validator.validate!(input[:include_member_accounts], ::TrueClass, ::FalseClass, context: "#{context}[:include_member_accounts]")
-        Validators::RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
+        RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
       end
     end
 
@@ -250,24 +252,24 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportAutoScalingGroupRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
     class ExportDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportDestination, context: context)
-        Validators::S3Destination.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Destination.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class ExportEBSVolumeRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportEBSVolumeRecommendationsInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::EBSFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::ExportableVolumeFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
-        Validators::S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        EBSFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ExportableVolumeFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
+        S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
         Hearth::Validator.validate!(input[:file_format], ::String, context: "#{context}[:file_format]")
         Hearth::Validator.validate!(input[:include_member_accounts], ::TrueClass, ::FalseClass, context: "#{context}[:include_member_accounts]")
       end
@@ -277,20 +279,20 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportEBSVolumeRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
     class ExportEC2InstanceRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportEC2InstanceRecommendationsInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::ExportableInstanceFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
-        Validators::S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ExportableInstanceFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
+        S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
         Hearth::Validator.validate!(input[:file_format], ::String, context: "#{context}[:file_format]")
         Hearth::Validator.validate!(input[:include_member_accounts], ::TrueClass, ::FalseClass, context: "#{context}[:include_member_accounts]")
-        Validators::RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
+        RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
       end
     end
 
@@ -298,17 +300,17 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportEC2InstanceRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
     class ExportLambdaFunctionRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportLambdaFunctionRecommendationsInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::LambdaFunctionRecommendationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::ExportableLambdaFunctionFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
-        Validators::S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        LambdaFunctionRecommendationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ExportableLambdaFunctionFields.validate!(input[:fields_to_export], context: "#{context}[:fields_to_export]") unless input[:fields_to_export].nil?
+        S3DestinationConfig.validate!(input[:s3_destination_config], context: "#{context}[:s3_destination_config]") unless input[:s3_destination_config].nil?
         Hearth::Validator.validate!(input[:file_format], ::String, context: "#{context}[:file_format]")
         Hearth::Validator.validate!(input[:include_member_accounts], ::TrueClass, ::FalseClass, context: "#{context}[:include_member_accounts]")
       end
@@ -318,7 +320,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportLambdaFunctionRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -396,12 +398,12 @@ module AWS::SDK::ComputeOptimizer
     class GetAutoScalingGroupRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAutoScalingGroupRecommendationsInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::AutoScalingGroupArns.validate!(input[:auto_scaling_group_arns], context: "#{context}[:auto_scaling_group_arns]") unless input[:auto_scaling_group_arns].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AutoScalingGroupArns.validate!(input[:auto_scaling_group_arns], context: "#{context}[:auto_scaling_group_arns]") unless input[:auto_scaling_group_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
       end
     end
 
@@ -409,19 +411,19 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAutoScalingGroupRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::AutoScalingGroupRecommendations.validate!(input[:auto_scaling_group_recommendations], context: "#{context}[:auto_scaling_group_recommendations]") unless input[:auto_scaling_group_recommendations].nil?
-        Validators::GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        AutoScalingGroupRecommendations.validate!(input[:auto_scaling_group_recommendations], context: "#{context}[:auto_scaling_group_recommendations]") unless input[:auto_scaling_group_recommendations].nil?
+        GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class GetEBSVolumeRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEBSVolumeRecommendationsInput, context: context)
-        Validators::VolumeArns.validate!(input[:volume_arns], context: "#{context}[:volume_arns]") unless input[:volume_arns].nil?
+        VolumeArns.validate!(input[:volume_arns], context: "#{context}[:volume_arns]") unless input[:volume_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::EBSFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        EBSFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
@@ -429,20 +431,20 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEBSVolumeRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::VolumeRecommendations.validate!(input[:volume_recommendations], context: "#{context}[:volume_recommendations]") unless input[:volume_recommendations].nil?
-        Validators::GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        VolumeRecommendations.validate!(input[:volume_recommendations], context: "#{context}[:volume_recommendations]") unless input[:volume_recommendations].nil?
+        GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class GetEC2InstanceRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEC2InstanceRecommendationsInput, context: context)
-        Validators::InstanceArns.validate!(input[:instance_arns], context: "#{context}[:instance_arns]") unless input[:instance_arns].nil?
+        InstanceArns.validate!(input[:instance_arns], context: "#{context}[:instance_arns]") unless input[:instance_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
       end
     end
 
@@ -450,8 +452,8 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEC2InstanceRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InstanceRecommendations.validate!(input[:instance_recommendations], context: "#{context}[:instance_recommendations]") unless input[:instance_recommendations].nil?
-        Validators::GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        InstanceRecommendations.validate!(input[:instance_recommendations], context: "#{context}[:instance_recommendations]") unless input[:instance_recommendations].nil?
+        GetRecommendationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -463,14 +465,14 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
+        RecommendationPreferences.validate!(input[:recommendation_preferences], context: "#{context}[:recommendation_preferences]") unless input[:recommendation_preferences].nil?
       end
     end
 
     class GetEC2RecommendationProjectedMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEC2RecommendationProjectedMetricsOutput, context: context)
-        Validators::RecommendedOptionProjectedMetrics.validate!(input[:recommended_option_projected_metrics], context: "#{context}[:recommended_option_projected_metrics]") unless input[:recommended_option_projected_metrics].nil?
+        RecommendedOptionProjectedMetrics.validate!(input[:recommended_option_projected_metrics], context: "#{context}[:recommended_option_projected_metrics]") unless input[:recommended_option_projected_metrics].nil?
       end
     end
 
@@ -508,7 +510,7 @@ module AWS::SDK::ComputeOptimizer
     class GetEnrollmentStatusesForOrganizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnrollmentStatusesForOrganizationInput, context: context)
-        Validators::EnrollmentFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        EnrollmentFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -517,7 +519,7 @@ module AWS::SDK::ComputeOptimizer
     class GetEnrollmentStatusesForOrganizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEnrollmentStatusesForOrganizationOutput, context: context)
-        Validators::AccountEnrollmentStatuses.validate!(input[:account_enrollment_statuses], context: "#{context}[:account_enrollment_statuses]") unless input[:account_enrollment_statuses].nil?
+        AccountEnrollmentStatuses.validate!(input[:account_enrollment_statuses], context: "#{context}[:account_enrollment_statuses]") unless input[:account_enrollment_statuses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -525,9 +527,9 @@ module AWS::SDK::ComputeOptimizer
     class GetLambdaFunctionRecommendationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLambdaFunctionRecommendationsInput, context: context)
-        Validators::FunctionArns.validate!(input[:function_arns], context: "#{context}[:function_arns]") unless input[:function_arns].nil?
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::LambdaFunctionRecommendationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FunctionArns.validate!(input[:function_arns], context: "#{context}[:function_arns]") unless input[:function_arns].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        LambdaFunctionRecommendationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -537,7 +539,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLambdaFunctionRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::LambdaFunctionRecommendations.validate!(input[:lambda_function_recommendations], context: "#{context}[:lambda_function_recommendations]") unless input[:lambda_function_recommendations].nil?
+        LambdaFunctionRecommendations.validate!(input[:lambda_function_recommendations], context: "#{context}[:lambda_function_recommendations]") unless input[:lambda_function_recommendations].nil?
       end
     end
 
@@ -554,7 +556,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GetRecommendationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GetRecommendationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationPreferencesInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -573,14 +575,14 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationPreferencesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecommendationPreferencesDetails.validate!(input[:recommendation_preferences_details], context: "#{context}[:recommendation_preferences_details]") unless input[:recommendation_preferences_details].nil?
+        RecommendationPreferencesDetails.validate!(input[:recommendation_preferences_details], context: "#{context}[:recommendation_preferences_details]") unless input[:recommendation_preferences_details].nil?
       end
     end
 
     class GetRecommendationSummariesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationSummariesInput, context: context)
-        Validators::AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -590,7 +592,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationSummariesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecommendationSummaries.validate!(input[:recommendation_summaries], context: "#{context}[:recommendation_summaries]") unless input[:recommendation_summaries].nil?
+        RecommendationSummaries.validate!(input[:recommendation_summaries], context: "#{context}[:recommendation_summaries]") unless input[:recommendation_summaries].nil?
       end
     end
 
@@ -620,15 +622,15 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
         Hearth::Validator.validate!(input[:current_instance_type], ::String, context: "#{context}[:current_instance_type]")
         Hearth::Validator.validate!(input[:finding], ::String, context: "#{context}[:finding]")
-        Validators::InstanceRecommendationFindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
-        Validators::UtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
+        InstanceRecommendationFindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
+        UtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
         Hearth::Validator.validate!(input[:look_back_period_in_days], ::Float, context: "#{context}[:look_back_period_in_days]")
-        Validators::RecommendationOptions.validate!(input[:recommendation_options], context: "#{context}[:recommendation_options]") unless input[:recommendation_options].nil?
-        Validators::RecommendationSources.validate!(input[:recommendation_sources], context: "#{context}[:recommendation_sources]") unless input[:recommendation_sources].nil?
+        RecommendationOptions.validate!(input[:recommendation_options], context: "#{context}[:recommendation_options]") unless input[:recommendation_options].nil?
+        RecommendationSources.validate!(input[:recommendation_sources], context: "#{context}[:recommendation_sources]") unless input[:recommendation_sources].nil?
         Hearth::Validator.validate!(input[:last_refresh_timestamp], ::Time, context: "#{context}[:last_refresh_timestamp]")
         Hearth::Validator.validate!(input[:current_performance_risk], ::String, context: "#{context}[:current_performance_risk]")
-        Validators::EffectiveRecommendationPreferences.validate!(input[:effective_recommendation_preferences], context: "#{context}[:effective_recommendation_preferences]") unless input[:effective_recommendation_preferences].nil?
-        Validators::InferredWorkloadTypes.validate!(input[:inferred_workload_types], context: "#{context}[:inferred_workload_types]") unless input[:inferred_workload_types].nil?
+        EffectiveRecommendationPreferences.validate!(input[:effective_recommendation_preferences], context: "#{context}[:effective_recommendation_preferences]") unless input[:effective_recommendation_preferences].nil?
+        InferredWorkloadTypes.validate!(input[:inferred_workload_types], context: "#{context}[:inferred_workload_types]") unless input[:inferred_workload_types].nil?
       end
     end
 
@@ -645,11 +647,11 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceRecommendationOption, context: context)
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::ProjectedUtilizationMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
-        Validators::PlatformDifferences.validate!(input[:platform_differences], context: "#{context}[:platform_differences]") unless input[:platform_differences].nil?
+        ProjectedUtilizationMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
+        PlatformDifferences.validate!(input[:platform_differences], context: "#{context}[:platform_differences]") unless input[:platform_differences].nil?
         Hearth::Validator.validate!(input[:performance_risk], ::Float, context: "#{context}[:performance_risk]")
         Hearth::Validator.validate!(input[:rank], ::Integer, context: "#{context}[:rank]")
-        Validators::SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
+        SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
         Hearth::Validator.validate!(input[:migration_effort], ::String, context: "#{context}[:migration_effort]")
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionMemoryProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionMemoryProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -726,8 +728,8 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input, Types::LambdaFunctionMemoryRecommendationOption, context: context)
         Hearth::Validator.validate!(input[:rank], ::Integer, context: "#{context}[:rank]")
         Hearth::Validator.validate!(input[:memory_size], ::Integer, context: "#{context}[:memory_size]")
-        Validators::LambdaFunctionMemoryProjectedMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
-        Validators::SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
+        LambdaFunctionMemoryProjectedMetrics.validate!(input[:projected_utilization_metrics], context: "#{context}[:projected_utilization_metrics]") unless input[:projected_utilization_metrics].nil?
+        SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
       end
     end
 
@@ -735,7 +737,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionMemoryRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionMemoryRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -748,12 +750,12 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:current_memory_size], ::Integer, context: "#{context}[:current_memory_size]")
         Hearth::Validator.validate!(input[:number_of_invocations], ::Integer, context: "#{context}[:number_of_invocations]")
-        Validators::LambdaFunctionUtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
+        LambdaFunctionUtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
         Hearth::Validator.validate!(input[:lookback_period_in_days], ::Float, context: "#{context}[:lookback_period_in_days]")
         Hearth::Validator.validate!(input[:last_refresh_timestamp], ::Time, context: "#{context}[:last_refresh_timestamp]")
         Hearth::Validator.validate!(input[:finding], ::String, context: "#{context}[:finding]")
-        Validators::LambdaFunctionRecommendationFindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
-        Validators::LambdaFunctionMemoryRecommendationOptions.validate!(input[:memory_size_recommendation_options], context: "#{context}[:memory_size_recommendation_options]") unless input[:memory_size_recommendation_options].nil?
+        LambdaFunctionRecommendationFindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
+        LambdaFunctionMemoryRecommendationOptions.validate!(input[:memory_size_recommendation_options], context: "#{context}[:memory_size_recommendation_options]") unless input[:memory_size_recommendation_options].nil?
         Hearth::Validator.validate!(input[:current_performance_risk], ::String, context: "#{context}[:current_performance_risk]")
       end
     end
@@ -762,7 +764,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LambdaFunctionRecommendationFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionRecommendationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionRecommendationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -788,7 +790,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -806,7 +808,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionUtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionUtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -854,8 +856,8 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProjectedMetric, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Timestamps.validate!(input[:timestamps], context: "#{context}[:timestamps]") unless input[:timestamps].nil?
-        Validators::MetricValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Timestamps.validate!(input[:timestamps], context: "#{context}[:timestamps]") unless input[:timestamps].nil?
+        MetricValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -863,7 +865,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecommendationPreferencesInput, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
         Hearth::Validator.validate!(input[:enhanced_infrastructure_metrics], ::String, context: "#{context}[:enhanced_infrastructure_metrics]")
         Hearth::Validator.validate!(input[:inferred_workload_types], ::String, context: "#{context}[:inferred_workload_types]")
       end
@@ -897,7 +899,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReasonCodeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReasonCodeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -914,7 +916,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationExportJob, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::ExportDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        ExportDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::Time, context: "#{context}[:creation_timestamp]")
@@ -927,7 +929,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationExportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationExportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -936,7 +938,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -953,14 +955,14 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationPreferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationPreferences, context: context)
-        Validators::CpuVendorArchitectures.validate!(input[:cpu_vendor_architectures], context: "#{context}[:cpu_vendor_architectures]") unless input[:cpu_vendor_architectures].nil?
+        CpuVendorArchitectures.validate!(input[:cpu_vendor_architectures], context: "#{context}[:cpu_vendor_architectures]") unless input[:cpu_vendor_architectures].nil?
       end
     end
 
     class RecommendationPreferencesDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationPreferencesDetail, context: context)
-        Validators::Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Scope.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:enhanced_infrastructure_metrics], ::String, context: "#{context}[:enhanced_infrastructure_metrics]")
         Hearth::Validator.validate!(input[:inferred_workload_types], ::String, context: "#{context}[:inferred_workload_types]")
@@ -971,7 +973,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationPreferencesDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationPreferencesDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -988,7 +990,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -997,7 +999,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1005,11 +1007,11 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationSummary, context: context)
-        Validators::Summaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        Summaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:recommendation_resource_type], ::String, context: "#{context}[:recommendation_resource_type]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
-        Validators::CurrentPerformanceRiskRatings.validate!(input[:current_performance_risk_ratings], context: "#{context}[:current_performance_risk_ratings]") unless input[:current_performance_risk_ratings].nil?
+        SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
+        CurrentPerformanceRiskRatings.validate!(input[:current_performance_risk_ratings], context: "#{context}[:current_performance_risk_ratings]") unless input[:current_performance_risk_ratings].nil?
       end
     end
 
@@ -1018,7 +1020,7 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input, Types::RecommendedOptionProjectedMetric, context: context)
         Hearth::Validator.validate!(input[:recommended_instance_type], ::String, context: "#{context}[:recommended_instance_type]")
         Hearth::Validator.validate!(input[:rank], ::Integer, context: "#{context}[:rank]")
-        Validators::ProjectedMetrics.validate!(input[:projected_metrics], context: "#{context}[:projected_metrics]") unless input[:projected_metrics].nil?
+        ProjectedMetrics.validate!(input[:projected_metrics], context: "#{context}[:projected_metrics]") unless input[:projected_metrics].nil?
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendedOptionProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendedOptionProjectedMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1059,7 +1061,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsOpportunity, context: context)
         Hearth::Validator.validate!(input[:savings_opportunity_percentage], ::Float, context: "#{context}[:savings_opportunity_percentage]")
-        Validators::EstimatedMonthlySavings.validate!(input[:estimated_monthly_savings], context: "#{context}[:estimated_monthly_savings]") unless input[:estimated_monthly_savings].nil?
+        EstimatedMonthlySavings.validate!(input[:estimated_monthly_savings], context: "#{context}[:estimated_monthly_savings]") unless input[:estimated_monthly_savings].nil?
       end
     end
 
@@ -1082,7 +1084,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Summary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Summary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1092,7 +1094,7 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input, Types::Summary, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:value], ::Float, context: "#{context}[:value]")
-        Validators::ReasonCodeSummaries.validate!(input[:reason_code_summaries], context: "#{context}[:reason_code_summaries]") unless input[:reason_code_summaries].nil?
+        ReasonCodeSummaries.validate!(input[:reason_code_summaries], context: "#{context}[:reason_code_summaries]") unless input[:reason_code_summaries].nil?
       end
     end
 
@@ -1141,7 +1143,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UtilizationMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1172,11 +1174,11 @@ module AWS::SDK::ComputeOptimizer
         Hearth::Validator.validate!(input, Types::VolumeRecommendation, context: context)
         Hearth::Validator.validate!(input[:volume_arn], ::String, context: "#{context}[:volume_arn]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::VolumeConfiguration.validate!(input[:current_configuration], context: "#{context}[:current_configuration]") unless input[:current_configuration].nil?
+        VolumeConfiguration.validate!(input[:current_configuration], context: "#{context}[:current_configuration]") unless input[:current_configuration].nil?
         Hearth::Validator.validate!(input[:finding], ::String, context: "#{context}[:finding]")
-        Validators::EBSUtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
+        EBSUtilizationMetrics.validate!(input[:utilization_metrics], context: "#{context}[:utilization_metrics]") unless input[:utilization_metrics].nil?
         Hearth::Validator.validate!(input[:look_back_period_in_days], ::Float, context: "#{context}[:look_back_period_in_days]")
-        Validators::VolumeRecommendationOptions.validate!(input[:volume_recommendation_options], context: "#{context}[:volume_recommendation_options]") unless input[:volume_recommendation_options].nil?
+        VolumeRecommendationOptions.validate!(input[:volume_recommendation_options], context: "#{context}[:volume_recommendation_options]") unless input[:volume_recommendation_options].nil?
         Hearth::Validator.validate!(input[:last_refresh_timestamp], ::Time, context: "#{context}[:last_refresh_timestamp]")
         Hearth::Validator.validate!(input[:current_performance_risk], ::String, context: "#{context}[:current_performance_risk]")
       end
@@ -1185,10 +1187,10 @@ module AWS::SDK::ComputeOptimizer
     class VolumeRecommendationOption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VolumeRecommendationOption, context: context)
-        Validators::VolumeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        VolumeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:performance_risk], ::Float, context: "#{context}[:performance_risk]")
         Hearth::Validator.validate!(input[:rank], ::Integer, context: "#{context}[:rank]")
-        Validators::SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
+        SavingsOpportunity.validate!(input[:savings_opportunity], context: "#{context}[:savings_opportunity]") unless input[:savings_opportunity].nil?
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VolumeRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VolumeRecommendationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1205,7 +1207,7 @@ module AWS::SDK::ComputeOptimizer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VolumeRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VolumeRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

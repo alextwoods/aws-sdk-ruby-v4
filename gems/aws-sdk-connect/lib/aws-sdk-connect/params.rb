@@ -429,7 +429,7 @@ module AWS::SDK::Connect
         type.phone_number = params[:phone_number]
         type.phone_number_description = params[:phone_number_description]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -680,7 +680,7 @@ module AWS::SDK::Connect
         type.description = params[:description]
         type.content = params[:content]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -887,7 +887,7 @@ module AWS::SDK::Connect
         type.defaults = TaskTemplateDefaults.build(params[:defaults], context: "#{context}[:defaults]") unless params[:defaults].nil?
         type.status = params[:status]
         type.fields = TaskTemplateFields.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -978,7 +978,7 @@ module AWS::SDK::Connect
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateVocabularyInput, context: context)
         type = Types::CreateVocabularyInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.instance_id = params[:instance_id]
         type.vocabulary_name = params[:vocabulary_name]
         type.language_code = params[:language_code]
@@ -3741,7 +3741,7 @@ module AWS::SDK::Connect
         Hearth::Validator.validate!(params, ::Hash, Types::ReleasePhoneNumberInput, context: context)
         type = Types::ReleasePhoneNumberInput.new
         type.phone_number_id = params[:phone_number_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4119,7 +4119,7 @@ module AWS::SDK::Connect
         type.attributes = Attributes.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
         type.participant_details = ParticipantDetails.build(params[:participant_details], context: "#{context}[:participant_details]") unless params[:participant_details].nil?
         type.initial_message = ChatMessage.build(params[:initial_message], context: "#{context}[:initial_message]") unless params[:initial_message].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.chat_duration_in_minutes = params[:chat_duration_in_minutes]
         type.supported_messaging_content_types = SupportedMessagingContentTypes.build(params[:supported_messaging_content_types], context: "#{context}[:supported_messaging_content_types]") unless params[:supported_messaging_content_types].nil?
         type
@@ -4164,7 +4164,7 @@ module AWS::SDK::Connect
         type.instance_id = params[:instance_id]
         type.contact_id = params[:contact_id]
         type.chat_streaming_configuration = ChatStreamingConfiguration.build(params[:chat_streaming_configuration], context: "#{context}[:chat_streaming_configuration]") unless params[:chat_streaming_configuration].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4185,7 +4185,7 @@ module AWS::SDK::Connect
         type.destination_phone_number = params[:destination_phone_number]
         type.contact_flow_id = params[:contact_flow_id]
         type.instance_id = params[:instance_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.source_phone_number = params[:source_phone_number]
         type.queue_id = params[:queue_id]
         type.attributes = Attributes.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
@@ -4216,7 +4216,7 @@ module AWS::SDK::Connect
         type.name = params[:name]
         type.references = ContactReferences.build(params[:references], context: "#{context}[:references]") unless params[:references].nil?
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.scheduled_time = params[:scheduled_time]
         type.task_template_id = params[:task_template_id]
         type.quick_connect_id = params[:quick_connect_id]
@@ -4539,7 +4539,7 @@ module AWS::SDK::Connect
         type.queue_id = params[:queue_id]
         type.user_id = params[:user_id]
         type.contact_flow_id = params[:contact_flow_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4821,7 +4821,7 @@ module AWS::SDK::Connect
         type = Types::UpdatePhoneNumberInput.new
         type.phone_number_id = params[:phone_number_id]
         type.target_arn = params[:target_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

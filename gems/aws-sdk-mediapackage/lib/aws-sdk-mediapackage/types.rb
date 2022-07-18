@@ -144,11 +144,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.key_rotation_interval_seconds ||= 0
       end
-
     end
 
     # A Common Media Application Format (CMAF) packaging configuration.
@@ -188,11 +188,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # A Common Media Application Format (CMAF) packaging configuration.
@@ -232,11 +232,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # the option to configure log subscription.
@@ -592,12 +592,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -706,12 +706,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -732,11 +732,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.key_rotation_interval_seconds ||= 0
       end
-
     end
 
     # A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -858,6 +858,7 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manifest_window_seconds ||= 0
@@ -866,7 +867,6 @@ module AWS::SDK::MediaPackage
         self.segment_duration_seconds ||= 0
         self.suggested_presentation_delay_seconds ||= 0
       end
-
     end
 
     # @!attribute id
@@ -1163,12 +1163,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # Configure egress access logging.
@@ -1346,12 +1346,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.key_rotation_interval_seconds ||= 0
         self.repeat_ext_x_key ||= false
       end
-
     end
 
     # An HTTP Live Streaming (HLS) ingest resource configuration.
@@ -1444,13 +1444,13 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_iframe_only_stream ||= false
         self.playlist_window_seconds ||= 0
         self.program_date_time_interval_seconds ||= 0
       end
-
     end
 
     # A HTTP Live Streaming (HLS) manifest configuration.
@@ -1546,13 +1546,13 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_iframe_only_stream ||= false
         self.playlist_window_seconds ||= 0
         self.program_date_time_interval_seconds ||= 0
       end
-
     end
 
     # An HTTP Live Streaming (HLS) packaging configuration.
@@ -1667,6 +1667,7 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_dvb_subtitles ||= false
@@ -1676,7 +1677,6 @@ module AWS::SDK::MediaPackage
         self.segment_duration_seconds ||= 0
         self.use_audio_rendition_group ||= false
       end
-
     end
 
     # An endpoint for ingesting source content for a Channel.
@@ -1754,11 +1754,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute channels
@@ -1807,11 +1807,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute harvest_jobs
@@ -1854,11 +1854,11 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1957,12 +1957,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manifest_window_seconds ||= 0
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # The requested resource does not exist.
@@ -2086,12 +2086,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for Origination
@@ -2453,12 +2453,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_video_bits_per_second ||= 0
         self.min_video_bits_per_second ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -2686,12 +2686,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -2800,12 +2800,12 @@ module AWS::SDK::MediaPackage
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.startover_window_seconds ||= 0
         self.time_delay_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for UtcTiming

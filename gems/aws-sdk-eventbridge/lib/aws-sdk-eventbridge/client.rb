@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EventBridge
@@ -78,7 +80,7 @@ module AWS::SDK::EventBridge
     def activate_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateEventSourceInput,
         validate_input: @config.validate_input
@@ -149,7 +151,7 @@ module AWS::SDK::EventBridge
     def cancel_replay(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelReplayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelReplayInput,
         validate_input: @config.validate_input
@@ -243,7 +245,7 @@ module AWS::SDK::EventBridge
     def create_api_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApiDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApiDestinationInput,
         validate_input: @config.validate_input
@@ -336,7 +338,7 @@ module AWS::SDK::EventBridge
     def create_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateArchiveInput,
         validate_input: @config.validate_input
@@ -462,7 +464,7 @@ module AWS::SDK::EventBridge
     def create_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectionInput,
         validate_input: @config.validate_input
@@ -585,7 +587,7 @@ module AWS::SDK::EventBridge
     def create_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointInput,
         validate_input: @config.validate_input
@@ -675,7 +677,7 @@ module AWS::SDK::EventBridge
     def create_event_bus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventBusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventBusInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::EventBridge
     def create_partner_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePartnerEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePartnerEventSourceInput,
         validate_input: @config.validate_input
@@ -849,7 +851,7 @@ module AWS::SDK::EventBridge
     def deactivate_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateEventSourceInput,
         validate_input: @config.validate_input
@@ -923,7 +925,7 @@ module AWS::SDK::EventBridge
     def deauthorize_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeauthorizeConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeauthorizeConnectionInput,
         validate_input: @config.validate_input
@@ -991,7 +993,7 @@ module AWS::SDK::EventBridge
     def delete_api_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApiDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApiDestinationInput,
         validate_input: @config.validate_input
@@ -1059,7 +1061,7 @@ module AWS::SDK::EventBridge
     def delete_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteArchiveInput,
         validate_input: @config.validate_input
@@ -1132,7 +1134,7 @@ module AWS::SDK::EventBridge
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -1200,7 +1202,7 @@ module AWS::SDK::EventBridge
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -1269,7 +1271,7 @@ module AWS::SDK::EventBridge
     def delete_event_bus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventBusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventBusInput,
         validate_input: @config.validate_input
@@ -1345,7 +1347,7 @@ module AWS::SDK::EventBridge
     def delete_partner_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePartnerEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePartnerEventSourceInput,
         validate_input: @config.validate_input
@@ -1439,7 +1441,7 @@ module AWS::SDK::EventBridge
     def delete_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleInput,
         validate_input: @config.validate_input
@@ -1517,7 +1519,7 @@ module AWS::SDK::EventBridge
     def describe_api_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApiDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApiDestinationInput,
         validate_input: @config.validate_input
@@ -1596,7 +1598,7 @@ module AWS::SDK::EventBridge
     def describe_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeArchiveInput,
         validate_input: @config.validate_input
@@ -1701,7 +1703,7 @@ module AWS::SDK::EventBridge
     def describe_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectionInput,
         validate_input: @config.validate_input
@@ -1794,7 +1796,7 @@ module AWS::SDK::EventBridge
     def describe_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointInput,
         validate_input: @config.validate_input
@@ -1872,7 +1874,7 @@ module AWS::SDK::EventBridge
     def describe_event_bus(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventBusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventBusInput,
         validate_input: @config.validate_input
@@ -1947,7 +1949,7 @@ module AWS::SDK::EventBridge
     def describe_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventSourceInput,
         validate_input: @config.validate_input
@@ -2020,7 +2022,7 @@ module AWS::SDK::EventBridge
     def describe_partner_event_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePartnerEventSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePartnerEventSourceInput,
         validate_input: @config.validate_input
@@ -2111,7 +2113,7 @@ module AWS::SDK::EventBridge
     def describe_replay(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplayInput,
         validate_input: @config.validate_input
@@ -2196,7 +2198,7 @@ module AWS::SDK::EventBridge
     def describe_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuleInput,
         validate_input: @config.validate_input
@@ -2273,7 +2275,7 @@ module AWS::SDK::EventBridge
     def disable_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableRuleInput,
         validate_input: @config.validate_input
@@ -2349,7 +2351,7 @@ module AWS::SDK::EventBridge
     def enable_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableRuleInput,
         validate_input: @config.validate_input
@@ -2442,7 +2444,7 @@ module AWS::SDK::EventBridge
     def list_api_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApiDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApiDestinationsInput,
         validate_input: @config.validate_input
@@ -2539,7 +2541,7 @@ module AWS::SDK::EventBridge
     def list_archives(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListArchivesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListArchivesInput,
         validate_input: @config.validate_input
@@ -2631,7 +2633,7 @@ module AWS::SDK::EventBridge
     def list_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectionsInput,
         validate_input: @config.validate_input
@@ -2737,7 +2739,7 @@ module AWS::SDK::EventBridge
     def list_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointsInput,
         validate_input: @config.validate_input
@@ -2823,7 +2825,7 @@ module AWS::SDK::EventBridge
     def list_event_buses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventBusesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventBusesInput,
         validate_input: @config.validate_input
@@ -2912,7 +2914,7 @@ module AWS::SDK::EventBridge
     def list_event_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventSourcesInput,
         validate_input: @config.validate_input
@@ -3000,7 +3002,7 @@ module AWS::SDK::EventBridge
     def list_partner_event_source_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPartnerEventSourceAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPartnerEventSourceAccountsInput,
         validate_input: @config.validate_input
@@ -3086,7 +3088,7 @@ module AWS::SDK::EventBridge
     def list_partner_event_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPartnerEventSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPartnerEventSourcesInput,
         validate_input: @config.validate_input
@@ -3184,7 +3186,7 @@ module AWS::SDK::EventBridge
     def list_replays(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReplaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReplaysInput,
         validate_input: @config.validate_input
@@ -3269,7 +3271,7 @@ module AWS::SDK::EventBridge
     def list_rule_names_by_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRuleNamesByTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRuleNamesByTargetInput,
         validate_input: @config.validate_input
@@ -3366,7 +3368,7 @@ module AWS::SDK::EventBridge
     def list_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRulesInput,
         validate_input: @config.validate_input
@@ -3439,7 +3441,7 @@ module AWS::SDK::EventBridge
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3606,7 +3608,7 @@ module AWS::SDK::EventBridge
     def list_targets_by_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetsByRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetsByRuleInput,
         validate_input: @config.validate_input
@@ -3704,7 +3706,7 @@ module AWS::SDK::EventBridge
     def put_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEventsInput,
         validate_input: @config.validate_input
@@ -3789,7 +3791,7 @@ module AWS::SDK::EventBridge
     def put_partner_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPartnerEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPartnerEventsInput,
         validate_input: @config.validate_input
@@ -3924,7 +3926,7 @@ module AWS::SDK::EventBridge
     def put_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPermissionInput,
         validate_input: @config.validate_input
@@ -4078,7 +4080,7 @@ module AWS::SDK::EventBridge
     def put_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRuleInput,
         validate_input: @config.validate_input
@@ -4466,7 +4468,7 @@ module AWS::SDK::EventBridge
     def put_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutTargetsInput,
         validate_input: @config.validate_input
@@ -4547,7 +4549,7 @@ module AWS::SDK::EventBridge
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: @config.validate_input
@@ -4652,7 +4654,7 @@ module AWS::SDK::EventBridge
     def remove_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTargetsInput,
         validate_input: @config.validate_input
@@ -4760,7 +4762,7 @@ module AWS::SDK::EventBridge
     def start_replay(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartReplayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartReplayInput,
         validate_input: @config.validate_input
@@ -4847,7 +4849,7 @@ module AWS::SDK::EventBridge
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4964,7 +4966,7 @@ module AWS::SDK::EventBridge
     def test_event_pattern(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestEventPatternInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestEventPatternInput,
         validate_input: @config.validate_input
@@ -5039,7 +5041,7 @@ module AWS::SDK::EventBridge
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5131,7 +5133,7 @@ module AWS::SDK::EventBridge
     def update_api_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApiDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApiDestinationInput,
         validate_input: @config.validate_input
@@ -5215,7 +5217,7 @@ module AWS::SDK::EventBridge
     def update_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateArchiveInput,
         validate_input: @config.validate_input
@@ -5340,7 +5342,7 @@ module AWS::SDK::EventBridge
     def update_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectionInput,
         validate_input: @config.validate_input
@@ -5460,7 +5462,7 @@ module AWS::SDK::EventBridge
     def update_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointInput,
         validate_input: @config.validate_input

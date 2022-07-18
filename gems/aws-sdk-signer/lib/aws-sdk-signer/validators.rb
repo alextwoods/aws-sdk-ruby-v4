@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Signer
   module Validators
 
@@ -77,22 +79,22 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSigningJobOutput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
         Hearth::Validator.validate!(input[:platform_id], ::String, context: "#{context}[:platform_id]")
         Hearth::Validator.validate!(input[:platform_display_name], ::String, context: "#{context}[:platform_display_name]")
         Hearth::Validator.validate!(input[:profile_name], ::String, context: "#{context}[:profile_name]")
         Hearth::Validator.validate!(input[:profile_version], ::String, context: "#{context}[:profile_version]")
-        Validators::SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
+        SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:completed_at], ::Time, context: "#{context}[:completed_at]")
         Hearth::Validator.validate!(input[:signature_expires_at], ::Time, context: "#{context}[:signature_expires_at]")
         Hearth::Validator.validate!(input[:requested_by], ::String, context: "#{context}[:requested_by]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::SigningJobRevocationRecord.validate!(input[:revocation_record], context: "#{context}[:revocation_record]") unless input[:revocation_record].nil?
-        Validators::SignedObject.validate!(input[:signed_object], context: "#{context}[:signed_object]") unless input[:signed_object].nil?
+        SigningJobRevocationRecord.validate!(input[:revocation_record], context: "#{context}[:revocation_record]") unless input[:revocation_record].nil?
+        SignedObject.validate!(input[:signed_object], context: "#{context}[:signed_object]") unless input[:signed_object].nil?
         Hearth::Validator.validate!(input[:job_owner], ::String, context: "#{context}[:job_owner]")
         Hearth::Validator.validate!(input[:job_invoker], ::String, context: "#{context}[:job_invoker]")
       end
@@ -101,14 +103,14 @@ module AWS::SDK::Signer
     class Destination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Destination, context: context)
-        Validators::S3Destination.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Destination.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class EncryptionAlgorithmOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EncryptionAlgorithmOptions, context: context)
-        Validators::EncryptionAlgorithms.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
+        EncryptionAlgorithms.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
       end
     end
@@ -137,8 +139,8 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input[:partner], ::String, context: "#{context}[:partner]")
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
-        Validators::SigningConfiguration.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
-        Validators::SigningImageFormat.validate!(input[:signing_image_format], context: "#{context}[:signing_image_format]") unless input[:signing_image_format].nil?
+        SigningConfiguration.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
+        SigningImageFormat.validate!(input[:signing_image_format], context: "#{context}[:signing_image_format]") unless input[:signing_image_format].nil?
         Hearth::Validator.validate!(input[:max_size_in_mb], ::Integer, context: "#{context}[:max_size_in_mb]")
         Hearth::Validator.validate!(input[:revocation_supported], ::TrueClass, ::FalseClass, context: "#{context}[:revocation_supported]")
       end
@@ -158,24 +160,24 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input[:profile_name], ::String, context: "#{context}[:profile_name]")
         Hearth::Validator.validate!(input[:profile_version], ::String, context: "#{context}[:profile_version]")
         Hearth::Validator.validate!(input[:profile_version_arn], ::String, context: "#{context}[:profile_version_arn]")
-        Validators::SigningProfileRevocationRecord.validate!(input[:revocation_record], context: "#{context}[:revocation_record]") unless input[:revocation_record].nil?
-        Validators::SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
+        SigningProfileRevocationRecord.validate!(input[:revocation_record], context: "#{context}[:revocation_record]") unless input[:revocation_record].nil?
+        SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
         Hearth::Validator.validate!(input[:platform_id], ::String, context: "#{context}[:platform_id]")
         Hearth::Validator.validate!(input[:platform_display_name], ::String, context: "#{context}[:platform_display_name]")
-        Validators::SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
-        Validators::SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
+        SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
+        SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class HashAlgorithmOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HashAlgorithmOptions, context: context)
-        Validators::HashAlgorithms.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
+        HashAlgorithms.validate!(input[:allowed_values], context: "#{context}[:allowed_values]") unless input[:allowed_values].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input, Types::ListProfilePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
         Hearth::Validator.validate!(input[:policy_size_bytes], ::Integer, context: "#{context}[:policy_size_bytes]")
-        Validators::Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::Signer
     class ListSigningJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSigningJobsOutput, context: context)
-        Validators::SigningJobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        SigningJobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::Signer
     class ListSigningPlatformsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSigningPlatformsOutput, context: context)
-        Validators::SigningPlatforms.validate!(input[:platforms], context: "#{context}[:platforms]") unless input[:platforms].nil?
+        SigningPlatforms.validate!(input[:platforms], context: "#{context}[:platforms]") unless input[:platforms].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -273,14 +275,14 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:platform_id], ::String, context: "#{context}[:platform_id]")
-        Validators::Statuses.validate!(input[:statuses], context: "#{context}[:statuses]") unless input[:statuses].nil?
+        Statuses.validate!(input[:statuses], context: "#{context}[:statuses]") unless input[:statuses].nil?
       end
     end
 
     class ListSigningProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSigningProfilesOutput, context: context)
-        Validators::SigningProfiles.validate!(input[:profiles], context: "#{context}[:profiles]") unless input[:profiles].nil?
+        SigningProfiles.validate!(input[:profiles], context: "#{context}[:profiles]") unless input[:profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::Signer
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -321,7 +323,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -330,12 +332,12 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutSigningProfileInput, context: context)
         Hearth::Validator.validate!(input[:profile_name], ::String, context: "#{context}[:profile_name]")
-        Validators::SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
-        Validators::SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
+        SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
+        SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
         Hearth::Validator.validate!(input[:platform_id], ::String, context: "#{context}[:platform_id]")
-        Validators::SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SigningPlatformOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -447,15 +449,15 @@ module AWS::SDK::Signer
     class SignedObject
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SignedObject, context: context)
-        Validators::S3SignedObject.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3SignedObject.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class SigningConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SigningConfiguration, context: context)
-        Validators::EncryptionAlgorithmOptions.validate!(input[:encryption_algorithm_options], context: "#{context}[:encryption_algorithm_options]") unless input[:encryption_algorithm_options].nil?
-        Validators::HashAlgorithmOptions.validate!(input[:hash_algorithm_options], context: "#{context}[:hash_algorithm_options]") unless input[:hash_algorithm_options].nil?
+        EncryptionAlgorithmOptions.validate!(input[:encryption_algorithm_options], context: "#{context}[:encryption_algorithm_options]") unless input[:encryption_algorithm_options].nil?
+        HashAlgorithmOptions.validate!(input[:hash_algorithm_options], context: "#{context}[:hash_algorithm_options]") unless input[:hash_algorithm_options].nil?
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::Signer
     class SigningImageFormat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SigningImageFormat, context: context)
-        Validators::ImageFormats.validate!(input[:supported_formats], context: "#{context}[:supported_formats]") unless input[:supported_formats].nil?
+        ImageFormats.validate!(input[:supported_formats], context: "#{context}[:supported_formats]") unless input[:supported_formats].nil?
         Hearth::Validator.validate!(input[:default_format], ::String, context: "#{context}[:default_format]")
       end
     end
@@ -479,9 +481,9 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SigningJob, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::SignedObject.validate!(input[:signed_object], context: "#{context}[:signed_object]") unless input[:signed_object].nil?
-        Validators::SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        SignedObject.validate!(input[:signed_object], context: "#{context}[:signed_object]") unless input[:signed_object].nil?
+        SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:is_revoked], ::TrueClass, ::FalseClass, context: "#{context}[:is_revoked]")
@@ -508,7 +510,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SigningJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SigningJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -538,8 +540,8 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input[:partner], ::String, context: "#{context}[:partner]")
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
-        Validators::SigningConfiguration.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
-        Validators::SigningImageFormat.validate!(input[:signing_image_format], context: "#{context}[:signing_image_format]") unless input[:signing_image_format].nil?
+        SigningConfiguration.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
+        SigningImageFormat.validate!(input[:signing_image_format], context: "#{context}[:signing_image_format]") unless input[:signing_image_format].nil?
         Hearth::Validator.validate!(input[:max_size_in_mb], ::Integer, context: "#{context}[:max_size_in_mb]")
         Hearth::Validator.validate!(input[:revocation_supported], ::TrueClass, ::FalseClass, context: "#{context}[:revocation_supported]")
       end
@@ -548,7 +550,7 @@ module AWS::SDK::Signer
     class SigningPlatformOverrides
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SigningPlatformOverrides, context: context)
-        Validators::SigningConfigurationOverrides.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
+        SigningConfigurationOverrides.validate!(input[:signing_configuration], context: "#{context}[:signing_configuration]") unless input[:signing_configuration].nil?
         Hearth::Validator.validate!(input[:signing_image_format], ::String, context: "#{context}[:signing_image_format]")
       end
     end
@@ -557,7 +559,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SigningPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SigningPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -568,14 +570,14 @@ module AWS::SDK::Signer
         Hearth::Validator.validate!(input[:profile_name], ::String, context: "#{context}[:profile_name]")
         Hearth::Validator.validate!(input[:profile_version], ::String, context: "#{context}[:profile_version]")
         Hearth::Validator.validate!(input[:profile_version_arn], ::String, context: "#{context}[:profile_version_arn]")
-        Validators::SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
-        Validators::SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
+        SigningMaterial.validate!(input[:signing_material], context: "#{context}[:signing_material]") unless input[:signing_material].nil?
+        SignatureValidityPeriod.validate!(input[:signature_validity_period], context: "#{context}[:signature_validity_period]") unless input[:signature_validity_period].nil?
         Hearth::Validator.validate!(input[:platform_id], ::String, context: "#{context}[:platform_id]")
         Hearth::Validator.validate!(input[:platform_display_name], ::String, context: "#{context}[:platform_display_name]")
-        Validators::SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
+        SigningParameters.validate!(input[:signing_parameters], context: "#{context}[:signing_parameters]") unless input[:signing_parameters].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -592,7 +594,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SigningProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SigningProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -600,15 +602,15 @@ module AWS::SDK::Signer
     class Source
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Source, context: context)
-        Validators::S3Source.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Source.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class StartSigningJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSigningJobInput, context: context)
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:profile_name], ::String, context: "#{context}[:profile_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:profile_owner], ::String, context: "#{context}[:profile_owner]")
@@ -655,7 +657,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -685,7 +687,7 @@ module AWS::SDK::Signer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

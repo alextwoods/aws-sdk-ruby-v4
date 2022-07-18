@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTFleetHub
@@ -88,7 +90,7 @@ module AWS::SDK::IoTFleetHub
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::IoTFleetHub
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -247,7 +249,7 @@ module AWS::SDK::IoTFleetHub
     def describe_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationInput,
         validate_input: @config.validate_input
@@ -327,7 +329,7 @@ module AWS::SDK::IoTFleetHub
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -399,7 +401,7 @@ module AWS::SDK::IoTFleetHub
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::IoTFleetHub
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -552,7 +554,7 @@ module AWS::SDK::IoTFleetHub
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -635,7 +637,7 @@ module AWS::SDK::IoTFleetHub
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input

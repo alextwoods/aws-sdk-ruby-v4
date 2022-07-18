@@ -120,7 +120,7 @@ module AWS::SDK::EKS
         type = Types::AssociateEncryptionConfigInput.new
         type.cluster_name = params[:cluster_name]
         type.encryption_config = EncryptionConfigList.build(params[:encryption_config], context: "#{context}[:encryption_config]") unless params[:encryption_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -141,7 +141,7 @@ module AWS::SDK::EKS
         type.cluster_name = params[:cluster_name]
         type.oidc = OidcIdentityProviderConfigRequest.build(params[:oidc], context: "#{context}[:oidc]") unless params[:oidc].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::EKS
         type.addon_version = params[:addon_version]
         type.service_account_role_arn = params[:service_account_role_arn]
         type.resolve_conflicts = params[:resolve_conflicts]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -310,7 +310,7 @@ module AWS::SDK::EKS
         type.resources_vpc_config = VpcConfigRequest.build(params[:resources_vpc_config], context: "#{context}[:resources_vpc_config]") unless params[:resources_vpc_config].nil?
         type.kubernetes_network_config = KubernetesNetworkConfigRequest.build(params[:kubernetes_network_config], context: "#{context}[:kubernetes_network_config]") unless params[:kubernetes_network_config].nil?
         type.logging = Logging.build(params[:logging], context: "#{context}[:logging]") unless params[:logging].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.encryption_config = EncryptionConfigList.build(params[:encryption_config], context: "#{context}[:encryption_config]") unless params[:encryption_config].nil?
         type
@@ -335,7 +335,7 @@ module AWS::SDK::EKS
         type.pod_execution_role_arn = params[:pod_execution_role_arn]
         type.subnets = StringList.build(params[:subnets], context: "#{context}[:subnets]") unless params[:subnets].nil?
         type.selectors = FargateProfileSelectors.build(params[:selectors], context: "#{context}[:selectors]") unless params[:selectors].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -366,7 +366,7 @@ module AWS::SDK::EKS
         type.labels = LabelsMap.build(params[:labels], context: "#{context}[:labels]") unless params[:labels].nil?
         type.taints = TaintsList.build(params[:taints], context: "#{context}[:taints]") unless params[:taints].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.launch_template = LaunchTemplateSpecification.build(params[:launch_template], context: "#{context}[:launch_template]") unless params[:launch_template].nil?
         type.update_config = NodegroupUpdateConfig.build(params[:update_config], context: "#{context}[:update_config]") unless params[:update_config].nil?
         type.capacity_type = params[:capacity_type]
@@ -622,7 +622,7 @@ module AWS::SDK::EKS
         type = Types::DisassociateIdentityProviderConfigInput.new
         type.cluster_name = params[:cluster_name]
         type.identity_provider_config = IdentityProviderConfig.build(params[:identity_provider_config], context: "#{context}[:identity_provider_config]") unless params[:identity_provider_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1184,7 +1184,7 @@ module AWS::SDK::EKS
         type = Types::RegisterClusterInput.new
         type.name = params[:name]
         type.connector_config = ConnectorConfigRequest.build(params[:connector_config], context: "#{context}[:connector_config]") unless params[:connector_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1390,7 +1390,7 @@ module AWS::SDK::EKS
         type.addon_version = params[:addon_version]
         type.service_account_role_arn = params[:service_account_role_arn]
         type.resolve_conflicts = params[:resolve_conflicts]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1411,7 +1411,7 @@ module AWS::SDK::EKS
         type.name = params[:name]
         type.resources_vpc_config = VpcConfigRequest.build(params[:resources_vpc_config], context: "#{context}[:resources_vpc_config]") unless params[:resources_vpc_config].nil?
         type.logging = Logging.build(params[:logging], context: "#{context}[:logging]") unless params[:logging].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1431,7 +1431,7 @@ module AWS::SDK::EKS
         type = Types::UpdateClusterVersionInput.new
         type.name = params[:name]
         type.version = params[:version]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1465,7 +1465,7 @@ module AWS::SDK::EKS
         type.taints = UpdateTaintsPayload.build(params[:taints], context: "#{context}[:taints]") unless params[:taints].nil?
         type.scaling_config = NodegroupScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
         type.update_config = NodegroupUpdateConfig.build(params[:update_config], context: "#{context}[:update_config]") unless params[:update_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1489,7 +1489,7 @@ module AWS::SDK::EKS
         type.release_version = params[:release_version]
         type.launch_template = LaunchTemplateSpecification.build(params[:launch_template], context: "#{context}[:launch_template]") unless params[:launch_template].nil?
         type.force = params[:force]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

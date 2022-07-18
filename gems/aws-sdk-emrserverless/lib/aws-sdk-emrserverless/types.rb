@@ -565,11 +565,11 @@ module AWS::SDK::EMRServerless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.worker_count ||= 0
       end
-
     end
 
     # <p>Request processing failed because of an error or failure with the service.</p>
@@ -870,7 +870,7 @@ module AWS::SDK::EMRServerless
     # @!attribute states
     #   <p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     ListApplicationsInput = ::Struct.new(
       :next_token,
@@ -928,7 +928,7 @@ module AWS::SDK::EMRServerless
     # @!attribute states
     #   <p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     ListJobRunsInput = ::Struct.new(
       :application_id,

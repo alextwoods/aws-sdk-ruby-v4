@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CognitoSync
   module Validators
 
@@ -73,7 +75,7 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Dataset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::CognitoSync
     class DeleteDatasetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDatasetOutput, context: context)
-        Validators::Dataset.validate!(input[:dataset], context: "#{context}[:dataset]") unless input[:dataset].nil?
+        Dataset.validate!(input[:dataset], context: "#{context}[:dataset]") unless input[:dataset].nil?
       end
     end
 
@@ -106,7 +108,7 @@ module AWS::SDK::CognitoSync
     class DescribeDatasetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDatasetOutput, context: context)
-        Validators::Dataset.validate!(input[:dataset], context: "#{context}[:dataset]") unless input[:dataset].nil?
+        Dataset.validate!(input[:dataset], context: "#{context}[:dataset]") unless input[:dataset].nil?
       end
     end
 
@@ -120,7 +122,7 @@ module AWS::SDK::CognitoSync
     class DescribeIdentityPoolUsageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIdentityPoolUsageOutput, context: context)
-        Validators::IdentityPoolUsage.validate!(input[:identity_pool_usage], context: "#{context}[:identity_pool_usage]") unless input[:identity_pool_usage].nil?
+        IdentityPoolUsage.validate!(input[:identity_pool_usage], context: "#{context}[:identity_pool_usage]") unless input[:identity_pool_usage].nil?
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::CognitoSync
     class DescribeIdentityUsageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIdentityUsageOutput, context: context)
-        Validators::IdentityUsage.validate!(input[:identity_usage], context: "#{context}[:identity_usage]") unless input[:identity_usage].nil?
+        IdentityUsage.validate!(input[:identity_usage], context: "#{context}[:identity_usage]") unless input[:identity_usage].nil?
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::CognitoSync
     class GetCognitoEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCognitoEventsOutput, context: context)
-        Validators::Events.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        Events.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -199,8 +201,8 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIdentityPoolConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:identity_pool_id], ::String, context: "#{context}[:identity_pool_id]")
-        Validators::PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
-        Validators::CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
+        PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
+        CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IdentityPoolUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IdentityPoolUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::CognitoSync
     class ListDatasetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatasetsOutput, context: context)
-        Validators::DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
+        DatasetList.validate!(input[:datasets], context: "#{context}[:datasets]") unless input[:datasets].nil?
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -306,7 +308,7 @@ module AWS::SDK::CognitoSync
     class ListIdentityPoolUsageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIdentityPoolUsageOutput, context: context)
-        Validators::IdentityPoolUsageList.validate!(input[:identity_pool_usages], context: "#{context}[:identity_pool_usages]") unless input[:identity_pool_usages].nil?
+        IdentityPoolUsageList.validate!(input[:identity_pool_usages], context: "#{context}[:identity_pool_usages]") unless input[:identity_pool_usages].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -329,12 +331,12 @@ module AWS::SDK::CognitoSync
     class ListRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecordsOutput, context: context)
-        Validators::RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Hearth::Validator.validate!(input[:dataset_sync_count], ::Integer, context: "#{context}[:dataset_sync_count]")
         Hearth::Validator.validate!(input[:last_modified_by], ::String, context: "#{context}[:last_modified_by]")
-        Validators::MergedDatasetNameList.validate!(input[:merged_dataset_names], context: "#{context}[:merged_dataset_names]") unless input[:merged_dataset_names].nil?
+        MergedDatasetNameList.validate!(input[:merged_dataset_names], context: "#{context}[:merged_dataset_names]") unless input[:merged_dataset_names].nil?
         Hearth::Validator.validate!(input[:dataset_exists], ::TrueClass, ::FalseClass, context: "#{context}[:dataset_exists]")
         Hearth::Validator.validate!(input[:dataset_deleted_after_requested_sync_count], ::TrueClass, ::FalseClass, context: "#{context}[:dataset_deleted_after_requested_sync_count]")
         Hearth::Validator.validate!(input[:sync_session_token], ::String, context: "#{context}[:sync_session_token]")
@@ -360,7 +362,7 @@ module AWS::SDK::CognitoSync
     class PushSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PushSync, context: context)
-        Validators::ApplicationArnList.validate!(input[:application_arns], context: "#{context}[:application_arns]") unless input[:application_arns].nil?
+        ApplicationArnList.validate!(input[:application_arns], context: "#{context}[:application_arns]") unless input[:application_arns].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -381,7 +383,7 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -401,7 +403,7 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecordPatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecordPatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetCognitoEventsInput, context: context)
         Hearth::Validator.validate!(input[:identity_pool_id], ::String, context: "#{context}[:identity_pool_id]")
-        Validators::Events.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        Events.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -455,8 +457,8 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetIdentityPoolConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:identity_pool_id], ::String, context: "#{context}[:identity_pool_id]")
-        Validators::PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
-        Validators::CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
+        PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
+        CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
       end
     end
 
@@ -464,8 +466,8 @@ module AWS::SDK::CognitoSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetIdentityPoolConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:identity_pool_id], ::String, context: "#{context}[:identity_pool_id]")
-        Validators::PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
-        Validators::CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
+        PushSync.validate!(input[:push_sync], context: "#{context}[:push_sync]") unless input[:push_sync].nil?
+        CognitoStreams.validate!(input[:cognito_streams], context: "#{context}[:cognito_streams]") unless input[:cognito_streams].nil?
       end
     end
 
@@ -515,7 +517,7 @@ module AWS::SDK::CognitoSync
         Hearth::Validator.validate!(input[:identity_id], ::String, context: "#{context}[:identity_id]")
         Hearth::Validator.validate!(input[:dataset_name], ::String, context: "#{context}[:dataset_name]")
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::RecordPatchList.validate!(input[:record_patches], context: "#{context}[:record_patches]") unless input[:record_patches].nil?
+        RecordPatchList.validate!(input[:record_patches], context: "#{context}[:record_patches]") unless input[:record_patches].nil?
         Hearth::Validator.validate!(input[:sync_session_token], ::String, context: "#{context}[:sync_session_token]")
         Hearth::Validator.validate!(input[:client_context], ::String, context: "#{context}[:client_context]")
       end
@@ -524,7 +526,7 @@ module AWS::SDK::CognitoSync
     class UpdateRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRecordsOutput, context: context)
-        Validators::RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        RecordList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
       end
     end
 

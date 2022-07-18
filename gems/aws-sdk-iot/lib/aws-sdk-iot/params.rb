@@ -1389,7 +1389,7 @@ module AWS::SDK::IoT
         type.expiration_date = params[:expiration_date]
         type.suppress_indefinitely = params[:suppress_indefinitely]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1479,7 +1479,7 @@ module AWS::SDK::IoT
         type.display_name = params[:display_name]
         type.metric_type = params[:metric_type]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1502,7 +1502,7 @@ module AWS::SDK::IoT
         type.type = params[:type]
         type.string_values = DimensionStringValues.build(params[:string_values], context: "#{context}[:string_values]") unless params[:string_values].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -7353,7 +7353,7 @@ module AWS::SDK::IoT
         type.task_id = params[:task_id]
         type.target = AuditMitigationActionsTaskTarget.build(params[:target], context: "#{context}[:target]") unless params[:target].nil?
         type.audit_check_to_actions_mapping = AuditCheckToActionsMapping.build(params[:audit_check_to_actions_mapping], context: "#{context}[:audit_check_to_actions_mapping]") unless params[:audit_check_to_actions_mapping].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -7377,7 +7377,7 @@ module AWS::SDK::IoT
         type.violation_event_occurrence_range = ViolationEventOccurrenceRange.build(params[:violation_event_occurrence_range], context: "#{context}[:violation_event_occurrence_range]") unless params[:violation_event_occurrence_range].nil?
         type.include_only_active_violations = params[:include_only_active_violations]
         type.include_suppressed_alerts = params[:include_suppressed_alerts]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

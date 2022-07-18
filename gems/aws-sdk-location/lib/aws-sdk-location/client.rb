@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Location
@@ -75,7 +77,7 @@ module AWS::SDK::Location
     def associate_tracker_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTrackerConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTrackerConsumerInput,
         validate_input: @config.validate_input
@@ -166,7 +168,7 @@ module AWS::SDK::Location
     def batch_delete_device_position_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteDevicePositionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteDevicePositionHistoryInput,
         validate_input: @config.validate_input
@@ -253,7 +255,7 @@ module AWS::SDK::Location
     def batch_delete_geofence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteGeofenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteGeofenceInput,
         validate_input: @config.validate_input
@@ -380,7 +382,7 @@ module AWS::SDK::Location
     def batch_evaluate_geofences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchEvaluateGeofencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchEvaluateGeofencesInput,
         validate_input: @config.validate_input
@@ -482,7 +484,7 @@ module AWS::SDK::Location
     def batch_get_device_position(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDevicePositionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDevicePositionInput,
         validate_input: @config.validate_input
@@ -583,7 +585,7 @@ module AWS::SDK::Location
     def batch_put_geofence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutGeofenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutGeofenceInput,
         validate_input: @config.validate_input
@@ -698,7 +700,7 @@ module AWS::SDK::Location
     def batch_update_device_position(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateDevicePositionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateDevicePositionInput,
         validate_input: @config.validate_input
@@ -976,7 +978,7 @@ module AWS::SDK::Location
     def calculate_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CalculateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CalculateRouteInput,
         validate_input: @config.validate_input
@@ -1235,7 +1237,7 @@ module AWS::SDK::Location
     def calculate_route_matrix(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CalculateRouteMatrixInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CalculateRouteMatrixInput,
         validate_input: @config.validate_input
@@ -1372,7 +1374,7 @@ module AWS::SDK::Location
     def create_geofence_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGeofenceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGeofenceCollectionInput,
         validate_input: @config.validate_input
@@ -1512,7 +1514,7 @@ module AWS::SDK::Location
     def create_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMapInput,
         validate_input: @config.validate_input
@@ -1684,7 +1686,7 @@ module AWS::SDK::Location
     def create_place_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlaceIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlaceIndexInput,
         validate_input: @config.validate_input
@@ -1850,7 +1852,7 @@ module AWS::SDK::Location
     def create_route_calculator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteCalculatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteCalculatorInput,
         validate_input: @config.validate_input
@@ -2020,7 +2022,7 @@ module AWS::SDK::Location
     def create_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrackerInput,
         validate_input: @config.validate_input
@@ -2096,7 +2098,7 @@ module AWS::SDK::Location
     def delete_geofence_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGeofenceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGeofenceCollectionInput,
         validate_input: @config.validate_input
@@ -2171,7 +2173,7 @@ module AWS::SDK::Location
     def delete_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMapInput,
         validate_input: @config.validate_input
@@ -2245,7 +2247,7 @@ module AWS::SDK::Location
     def delete_place_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlaceIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlaceIndexInput,
         validate_input: @config.validate_input
@@ -2319,7 +2321,7 @@ module AWS::SDK::Location
     def delete_route_calculator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteCalculatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteCalculatorInput,
         validate_input: @config.validate_input
@@ -2395,7 +2397,7 @@ module AWS::SDK::Location
     def delete_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrackerInput,
         validate_input: @config.validate_input
@@ -2476,7 +2478,7 @@ module AWS::SDK::Location
     def describe_geofence_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGeofenceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGeofenceCollectionInput,
         validate_input: @config.validate_input
@@ -2558,7 +2560,7 @@ module AWS::SDK::Location
     def describe_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMapInput,
         validate_input: @config.validate_input
@@ -2640,7 +2642,7 @@ module AWS::SDK::Location
     def describe_place_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePlaceIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePlaceIndexInput,
         validate_input: @config.validate_input
@@ -2720,7 +2722,7 @@ module AWS::SDK::Location
     def describe_route_calculator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRouteCalculatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRouteCalculatorInput,
         validate_input: @config.validate_input
@@ -2802,7 +2804,7 @@ module AWS::SDK::Location
     def describe_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrackerInput,
         validate_input: @config.validate_input
@@ -2889,7 +2891,7 @@ module AWS::SDK::Location
     def disassociate_tracker_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTrackerConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTrackerConsumerInput,
         validate_input: @config.validate_input
@@ -2976,7 +2978,7 @@ module AWS::SDK::Location
     def get_device_position(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicePositionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicePositionInput,
         validate_input: @config.validate_input
@@ -3106,7 +3108,7 @@ module AWS::SDK::Location
     def get_device_position_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDevicePositionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDevicePositionHistoryInput,
         validate_input: @config.validate_input
@@ -3191,7 +3193,7 @@ module AWS::SDK::Location
     def get_geofence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGeofenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGeofenceInput,
         validate_input: @config.validate_input
@@ -3320,7 +3322,7 @@ module AWS::SDK::Location
     def get_map_glyphs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMapGlyphsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMapGlyphsInput,
         validate_input: @config.validate_input
@@ -3422,7 +3424,7 @@ module AWS::SDK::Location
     def get_map_sprites(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMapSpritesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMapSpritesInput,
         validate_input: @config.validate_input
@@ -3498,7 +3500,7 @@ module AWS::SDK::Location
     def get_map_style_descriptor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMapStyleDescriptorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMapStyleDescriptorInput,
         validate_input: @config.validate_input
@@ -3588,7 +3590,7 @@ module AWS::SDK::Location
     def get_map_tile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMapTileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMapTileInput,
         validate_input: @config.validate_input
@@ -3683,7 +3685,7 @@ module AWS::SDK::Location
     def list_device_positions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicePositionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicePositionsInput,
         validate_input: @config.validate_input
@@ -3773,7 +3775,7 @@ module AWS::SDK::Location
     def list_geofence_collections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGeofenceCollectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGeofenceCollectionsInput,
         validate_input: @config.validate_input
@@ -3870,7 +3872,7 @@ module AWS::SDK::Location
     def list_geofences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGeofencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGeofencesInput,
         validate_input: @config.validate_input
@@ -3960,7 +3962,7 @@ module AWS::SDK::Location
     def list_maps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMapsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMapsInput,
         validate_input: @config.validate_input
@@ -4050,7 +4052,7 @@ module AWS::SDK::Location
     def list_place_indexes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlaceIndexesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlaceIndexesInput,
         validate_input: @config.validate_input
@@ -4140,7 +4142,7 @@ module AWS::SDK::Location
     def list_route_calculators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRouteCalculatorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRouteCalculatorsInput,
         validate_input: @config.validate_input
@@ -4220,7 +4222,7 @@ module AWS::SDK::Location
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4307,7 +4309,7 @@ module AWS::SDK::Location
     def list_tracker_consumers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrackerConsumersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrackerConsumersInput,
         validate_input: @config.validate_input
@@ -4397,7 +4399,7 @@ module AWS::SDK::Location
     def list_trackers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrackersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrackersInput,
         validate_input: @config.validate_input
@@ -4492,7 +4494,7 @@ module AWS::SDK::Location
     def put_geofence(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutGeofenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutGeofenceInput,
         validate_input: @config.validate_input
@@ -4624,7 +4626,7 @@ module AWS::SDK::Location
     def search_place_index_for_position(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchPlaceIndexForPositionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchPlaceIndexForPositionInput,
         validate_input: @config.validate_input
@@ -4799,7 +4801,7 @@ module AWS::SDK::Location
     def search_place_index_for_suggestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchPlaceIndexForSuggestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchPlaceIndexForSuggestionsInput,
         validate_input: @config.validate_input
@@ -4990,7 +4992,7 @@ module AWS::SDK::Location
     def search_place_index_for_text(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchPlaceIndexForTextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchPlaceIndexForTextInput,
         validate_input: @config.validate_input
@@ -5112,7 +5114,7 @@ module AWS::SDK::Location
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5196,7 +5198,7 @@ module AWS::SDK::Location
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5283,7 +5285,7 @@ module AWS::SDK::Location
     def update_geofence_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGeofenceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGeofenceCollectionInput,
         validate_input: @config.validate_input
@@ -5367,7 +5369,7 @@ module AWS::SDK::Location
     def update_map(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMapInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMapInput,
         validate_input: @config.validate_input
@@ -5457,7 +5459,7 @@ module AWS::SDK::Location
     def update_place_index(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePlaceIndexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePlaceIndexInput,
         validate_input: @config.validate_input
@@ -5541,7 +5543,7 @@ module AWS::SDK::Location
     def update_route_calculator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRouteCalculatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRouteCalculatorInput,
         validate_input: @config.validate_input
@@ -5662,7 +5664,7 @@ module AWS::SDK::Location
     def update_tracker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrackerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrackerInput,
         validate_input: @config.validate_input

@@ -106,7 +106,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AssociateFileSystemAliasesInput, context: context)
         type = Types::AssociateFileSystemAliasesInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.file_system_id = params[:file_system_id]
         type.aliases = AlternateDNSNames.build(params[:aliases], context: "#{context}[:aliases]") unless params[:aliases].nil?
         type
@@ -277,7 +277,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CopyBackupInput, context: context)
         type = Types::CopyBackupInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.source_backup_id = params[:source_backup_id]
         type.source_region = params[:source_region]
         type.kms_key_id = params[:kms_key_id]
@@ -301,7 +301,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::CreateBackupInput, context: context)
         type = Types::CreateBackupInput.new
         type.file_system_id = params[:file_system_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.volume_id = params[:volume_id]
         type
@@ -327,7 +327,7 @@ module AWS::SDK::FSx
         type.batch_import_meta_data_on_create = params[:batch_import_meta_data_on_create]
         type.imported_file_chunk_size = params[:imported_file_chunk_size]
         type.s3 = S3DataRepositoryConfiguration.build(params[:s3], context: "#{context}[:s3]") unless params[:s3].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -350,7 +350,7 @@ module AWS::SDK::FSx
         type.paths = DataRepositoryTaskPaths.build(params[:paths], context: "#{context}[:paths]") unless params[:paths].nil?
         type.file_system_id = params[:file_system_id]
         type.report = CompletionReport.build(params[:report], context: "#{context}[:report]") unless params[:report].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -370,7 +370,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFileSystemFromBackupInput, context: context)
         type = Types::CreateFileSystemFromBackupInput.new
         type.backup_id = params[:backup_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.subnet_ids = SubnetIds.build(params[:subnet_ids], context: "#{context}[:subnet_ids]") unless params[:subnet_ids].nil?
         type.security_group_ids = SecurityGroupIds.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -397,7 +397,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFileSystemInput, context: context)
         type = Types::CreateFileSystemInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.file_system_type = params[:file_system_type]
         type.storage_capacity = params[:storage_capacity]
         type.storage_type = params[:storage_type]
@@ -545,7 +545,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateSnapshotInput, context: context)
         type = Types::CreateSnapshotInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.volume_id = params[:volume_id]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -567,7 +567,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::CreateStorageVirtualMachineInput, context: context)
         type = Types::CreateStorageVirtualMachineInput.new
         type.active_directory_configuration = CreateSvmActiveDirectoryConfiguration.build(params[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless params[:active_directory_configuration].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.file_system_id = params[:file_system_id]
         type.name = params[:name]
         type.svm_admin_password = params[:svm_admin_password]
@@ -601,7 +601,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::CreateVolumeFromBackupInput, context: context)
         type = Types::CreateVolumeFromBackupInput.new
         type.backup_id = params[:backup_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.ontap_configuration = CreateOntapVolumeConfiguration.build(params[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless params[:ontap_configuration].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -622,7 +622,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateVolumeInput, context: context)
         type = Types::CreateVolumeInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_type = params[:volume_type]
         type.name = params[:name]
         type.ontap_configuration = CreateOntapVolumeConfiguration.build(params[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless params[:ontap_configuration].nil?
@@ -843,7 +843,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteBackupInput, context: context)
         type = Types::DeleteBackupInput.new
         type.backup_id = params[:backup_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteDataRepositoryAssociationInput, context: context)
         type = Types::DeleteDataRepositoryAssociationInput.new
         type.association_id = params[:association_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.delete_data_in_file_system = params[:delete_data_in_file_system]
         type
       end
@@ -885,7 +885,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteFileSystemInput, context: context)
         type = Types::DeleteFileSystemInput.new
         type.file_system_id = params[:file_system_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.windows_configuration = DeleteFileSystemWindowsConfiguration.build(params[:windows_configuration], context: "#{context}[:windows_configuration]") unless params[:windows_configuration].nil?
         type.lustre_configuration = DeleteFileSystemLustreConfiguration.build(params[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless params[:lustre_configuration].nil?
         type.open_zfs_configuration = DeleteFileSystemOpenZFSConfiguration.build(params[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless params[:open_zfs_configuration].nil?
@@ -993,7 +993,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteSnapshotInput, context: context)
         type = Types::DeleteSnapshotInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.snapshot_id = params[:snapshot_id]
         type
       end
@@ -1013,7 +1013,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteStorageVirtualMachineInput, context: context)
         type = Types::DeleteStorageVirtualMachineInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.storage_virtual_machine_id = params[:storage_virtual_machine_id]
         type
       end
@@ -1033,7 +1033,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteVolumeInput, context: context)
         type = Types::DeleteVolumeInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_id = params[:volume_id]
         type.ontap_configuration = DeleteVolumeOntapConfiguration.build(params[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless params[:ontap_configuration].nil?
         type.open_zfs_configuration = DeleteVolumeOpenZFSConfiguration.build(params[:open_zfs_configuration], context: "#{context}[:open_zfs_configuration]") unless params[:open_zfs_configuration].nil?
@@ -1151,7 +1151,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeFileSystemAliasesInput, context: context)
         type = Types::DescribeFileSystemAliasesInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.file_system_id = params[:file_system_id]
         type.max_results = params[:max_results]
         type.next_token = params[:next_token]
@@ -1260,7 +1260,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DisassociateFileSystemAliasesInput, context: context)
         type = Types::DisassociateFileSystemAliasesInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.file_system_id = params[:file_system_id]
         type.aliases = AlternateDNSNames.build(params[:aliases], context: "#{context}[:aliases]") unless params[:aliases].nil?
         type
@@ -1859,7 +1859,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::ReleaseFileSystemNfsV3LocksInput, context: context)
         type = Types::ReleaseFileSystemNfsV3LocksInput.new
         type.file_system_id = params[:file_system_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1908,7 +1908,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::RestoreVolumeFromSnapshotInput, context: context)
         type = Types::RestoreVolumeFromSnapshotInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_id = params[:volume_id]
         type.snapshot_id = params[:snapshot_id]
         type.options = RestoreOpenZFSVolumeOptions.build(params[:options], context: "#{context}[:options]") unless params[:options].nil?
@@ -2326,7 +2326,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateDataRepositoryAssociationInput, context: context)
         type = Types::UpdateDataRepositoryAssociationInput.new
         type.association_id = params[:association_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.imported_file_chunk_size = params[:imported_file_chunk_size]
         type.s3 = S3DataRepositoryConfiguration.build(params[:s3], context: "#{context}[:s3]") unless params[:s3].nil?
         type
@@ -2347,7 +2347,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateFileSystemInput, context: context)
         type = Types::UpdateFileSystemInput.new
         type.file_system_id = params[:file_system_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.storage_capacity = params[:storage_capacity]
         type.windows_configuration = UpdateFileSystemWindowsConfiguration.build(params[:windows_configuration], context: "#{context}[:windows_configuration]") unless params[:windows_configuration].nil?
         type.lustre_configuration = UpdateFileSystemLustreConfiguration.build(params[:lustre_configuration], context: "#{context}[:lustre_configuration]") unless params[:lustre_configuration].nil?
@@ -2456,7 +2456,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateSnapshotInput, context: context)
         type = Types::UpdateSnapshotInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.snapshot_id = params[:snapshot_id]
         type
@@ -2477,7 +2477,7 @@ module AWS::SDK::FSx
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateStorageVirtualMachineInput, context: context)
         type = Types::UpdateStorageVirtualMachineInput.new
         type.active_directory_configuration = UpdateSvmActiveDirectoryConfiguration.build(params[:active_directory_configuration], context: "#{context}[:active_directory_configuration]") unless params[:active_directory_configuration].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.storage_virtual_machine_id = params[:storage_virtual_machine_id]
         type.svm_admin_password = params[:svm_admin_password]
         type
@@ -2506,7 +2506,7 @@ module AWS::SDK::FSx
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateVolumeInput, context: context)
         type = Types::UpdateVolumeInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_id = params[:volume_id]
         type.ontap_configuration = UpdateOntapVolumeConfiguration.build(params[:ontap_configuration], context: "#{context}[:ontap_configuration]") unless params[:ontap_configuration].nil?
         type.name = params[:name]

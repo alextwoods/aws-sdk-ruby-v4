@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IotDeviceAdvisor
   module Validators
 
@@ -20,8 +22,8 @@ module AWS::SDK::IotDeviceAdvisor
     class CreateSuiteDefinitionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSuiteDefinitionInput, context: context)
-        Validators::SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceUnderTest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceUnderTest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -95,10 +97,10 @@ module AWS::SDK::IotDeviceAdvisor
         Hearth::Validator.validate!(input[:suite_definition_arn], ::String, context: "#{context}[:suite_definition_arn]")
         Hearth::Validator.validate!(input[:suite_definition_version], ::String, context: "#{context}[:suite_definition_version]")
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
-        Validators::SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
+        SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_modified_at], ::Time, context: "#{context}[:last_modified_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -117,13 +119,13 @@ module AWS::SDK::IotDeviceAdvisor
         Hearth::Validator.validate!(input[:suite_definition_version], ::String, context: "#{context}[:suite_definition_version]")
         Hearth::Validator.validate!(input[:suite_run_id], ::String, context: "#{context}[:suite_run_id]")
         Hearth::Validator.validate!(input[:suite_run_arn], ::String, context: "#{context}[:suite_run_arn]")
-        Validators::SuiteRunConfiguration.validate!(input[:suite_run_configuration], context: "#{context}[:suite_run_configuration]") unless input[:suite_run_configuration].nil?
-        Validators::TestResult.validate!(input[:test_result], context: "#{context}[:test_result]") unless input[:test_result].nil?
+        SuiteRunConfiguration.validate!(input[:suite_run_configuration], context: "#{context}[:suite_run_configuration]") unless input[:suite_run_configuration].nil?
+        TestResult.validate!(input[:test_result], context: "#{context}[:test_result]") unless input[:test_result].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:error_reason], ::String, context: "#{context}[:error_reason]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::IotDeviceAdvisor
         Hearth::Validator.validate!(input, Types::GroupResult, context: context)
         Hearth::Validator.validate!(input[:group_id], ::String, context: "#{context}[:group_id]")
         Hearth::Validator.validate!(input[:group_name], ::String, context: "#{context}[:group_name]")
-        Validators::TestCaseRuns.validate!(input[:tests], context: "#{context}[:tests]") unless input[:tests].nil?
+        TestCaseRuns.validate!(input[:tests], context: "#{context}[:tests]") unless input[:tests].nil?
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListSuiteDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSuiteDefinitionsOutput, context: context)
-        Validators::SuiteDefinitionInformationList.validate!(input[:suite_definition_information_list], context: "#{context}[:suite_definition_information_list]") unless input[:suite_definition_information_list].nil?
+        SuiteDefinitionInformationList.validate!(input[:suite_definition_information_list], context: "#{context}[:suite_definition_information_list]") unless input[:suite_definition_information_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -196,7 +198,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListSuiteRunsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSuiteRunsOutput, context: context)
-        Validators::SuiteRunsList.validate!(input[:suite_runs_list], context: "#{context}[:suite_runs_list]") unless input[:suite_runs_list].nil?
+        SuiteRunsList.validate!(input[:suite_runs_list], context: "#{context}[:suite_runs_list]") unless input[:suite_runs_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::IotDeviceAdvisor
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -236,8 +238,8 @@ module AWS::SDK::IotDeviceAdvisor
         Hearth::Validator.validate!(input, Types::StartSuiteRunInput, context: context)
         Hearth::Validator.validate!(input[:suite_definition_id], ::String, context: "#{context}[:suite_definition_id]")
         Hearth::Validator.validate!(input[:suite_definition_version], ::String, context: "#{context}[:suite_definition_version]")
-        Validators::SuiteRunConfiguration.validate!(input[:suite_run_configuration], context: "#{context}[:suite_run_configuration]") unless input[:suite_run_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SuiteRunConfiguration.validate!(input[:suite_run_configuration], context: "#{context}[:suite_run_configuration]") unless input[:suite_run_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuiteDefinitionConfiguration, context: context)
         Hearth::Validator.validate!(input[:suite_definition_name], ::String, context: "#{context}[:suite_definition_name]")
-        Validators::DeviceUnderTestList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceUnderTestList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:intended_for_qualification], ::TrueClass, ::FalseClass, context: "#{context}[:intended_for_qualification]")
         Hearth::Validator.validate!(input[:root_group], ::String, context: "#{context}[:root_group]")
         Hearth::Validator.validate!(input[:device_permission_role_arn], ::String, context: "#{context}[:device_permission_role_arn]")
@@ -280,7 +282,7 @@ module AWS::SDK::IotDeviceAdvisor
         Hearth::Validator.validate!(input, Types::SuiteDefinitionInformation, context: context)
         Hearth::Validator.validate!(input[:suite_definition_id], ::String, context: "#{context}[:suite_definition_id]")
         Hearth::Validator.validate!(input[:suite_definition_name], ::String, context: "#{context}[:suite_definition_name]")
-        Validators::DeviceUnderTestList.validate!(input[:default_devices], context: "#{context}[:default_devices]") unless input[:default_devices].nil?
+        DeviceUnderTestList.validate!(input[:default_devices], context: "#{context}[:default_devices]") unless input[:default_devices].nil?
         Hearth::Validator.validate!(input[:intended_for_qualification], ::TrueClass, ::FalseClass, context: "#{context}[:intended_for_qualification]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
       end
@@ -290,7 +292,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SuiteDefinitionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SuiteDefinitionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -298,8 +300,8 @@ module AWS::SDK::IotDeviceAdvisor
     class SuiteRunConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SuiteRunConfiguration, context: context)
-        Validators::DeviceUnderTest.validate!(input[:primary_device], context: "#{context}[:primary_device]") unless input[:primary_device].nil?
-        Validators::SelectedTestList.validate!(input[:selected_test_list], context: "#{context}[:selected_test_list]") unless input[:selected_test_list].nil?
+        DeviceUnderTest.validate!(input[:primary_device], context: "#{context}[:primary_device]") unless input[:primary_device].nil?
+        SelectedTestList.validate!(input[:selected_test_list], context: "#{context}[:selected_test_list]") unless input[:selected_test_list].nil?
         Hearth::Validator.validate!(input[:parallel_run], ::TrueClass, ::FalseClass, context: "#{context}[:parallel_run]")
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SuiteRunInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SuiteRunInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -352,7 +354,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestCaseRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestCaseRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::IotDeviceAdvisor
     class TestResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestResult, context: context)
-        Validators::GroupResultList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupResultList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
       end
     end
 
@@ -397,7 +399,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSuiteDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:suite_definition_id], ::String, context: "#{context}[:suite_definition_id]")
-        Validators::SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
+        SuiteDefinitionConfiguration.validate!(input[:suite_definition_configuration], context: "#{context}[:suite_definition_configuration]") unless input[:suite_definition_configuration].nil?
       end
     end
 

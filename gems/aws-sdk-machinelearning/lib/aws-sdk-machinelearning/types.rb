@@ -377,11 +377,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compute_statistics ||= false
       end
-
     end
 
     # <p> Represents the output of a <code>CreateDataSourceFromRDS</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
@@ -491,11 +491,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compute_statistics ||= false
       end
-
     end
 
     # <p> Represents the output of a <code>CreateDataSourceFromRedshift</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
@@ -563,11 +563,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compute_statistics ||= false
       end
-
     end
 
     # <p> Represents the output of a <code>CreateDataSourceFromS3</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
@@ -941,11 +941,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compute_statistics ||= false
       end
-
     end
 
     # Includes enum constants for DataSourceFilterVariable
@@ -2231,11 +2231,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.verbose ||= false
       end
-
     end
 
     # <p>Represents the output of a <code>GetDataSource</code> operation and describes a <code>DataSource</code>.</p>
@@ -2393,11 +2393,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compute_statistics ||= false
       end
-
     end
 
     # @!attribute evaluation_id
@@ -2567,11 +2567,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.verbose ||= false
       end
-
     end
 
     # <p>Represents the output of a <code>GetMLModel</code> operation, and provides detailed information about a <code>MLModel</code>.</p>
@@ -2820,11 +2820,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>An error on the server occurred when trying to process a request.</p>
@@ -2843,11 +2843,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
@@ -2866,11 +2866,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # @!attribute message
@@ -2900,11 +2900,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p> Represents the output of a <code>GetMLModel</code> operation. </p>
@@ -3662,11 +3662,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.peak_requests_per_second ||= 0
       end
-
     end
 
     # Includes enum constants for RealtimeEndpointStatus
@@ -3926,11 +3926,11 @@ module AWS::SDK::MachineLearning
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p> Describes the data specification of a <code>DataSource</code>.</p>

@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::SageMakerA2IRuntime
   module Parsers
 

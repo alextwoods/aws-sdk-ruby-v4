@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoT1ClickDevicesService
   module Validators
 
@@ -41,14 +43,14 @@ module AWS::SDK::IoT1ClickDevicesService
     class DescribeDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDeviceOutput, context: context)
-        Validators::DeviceDescription.validate!(input[:device_description], context: "#{context}[:device_description]") unless input[:device_description].nil?
+        DeviceDescription.validate!(input[:device_description], context: "#{context}[:device_description]") unless input[:device_description].nil?
       end
     end
 
     class Device
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Device, context: context)
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
@@ -68,19 +70,19 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceDescription, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::DeviceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        DeviceAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:remaining_life], ::Float, context: "#{context}[:remaining_life]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class DeviceEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceEvent, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
         Hearth::Validator.validate!(input[:std_event], ::String, context: "#{context}[:std_event]")
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FinalizeDeviceClaimInput, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -126,7 +128,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class GetDeviceMethodsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeviceMethodsOutput, context: context)
-        Validators::List____listOfDeviceMethod.validate!(input[:device_methods], context: "#{context}[:device_methods]") unless input[:device_methods].nil?
+        List____listOfDeviceMethod.validate!(input[:device_methods], context: "#{context}[:device_methods]") unless input[:device_methods].nil?
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InvokeDeviceMethodInput, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::DeviceMethod.validate!(input[:device_method], context: "#{context}[:device_method]") unless input[:device_method].nil?
+        DeviceMethod.validate!(input[:device_method], context: "#{context}[:device_method]") unless input[:device_method].nil?
         Hearth::Validator.validate!(input[:device_method_parameters], ::String, context: "#{context}[:device_method_parameters]")
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListDeviceEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceEventsOutput, context: context)
-        Validators::List____listOfDeviceEvent.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        List____listOfDeviceEvent.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicesOutput, context: context)
-        Validators::List____listOfDeviceDescription.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        List____listOfDeviceDescription.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -222,7 +224,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -262,7 +264,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -290,7 +292,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

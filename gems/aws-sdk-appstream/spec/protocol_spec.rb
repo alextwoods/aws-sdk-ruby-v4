@@ -9,9 +9,6 @@
 
 require 'aws-sdk-appstream'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::AppStream
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

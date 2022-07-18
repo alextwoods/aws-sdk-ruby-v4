@@ -346,7 +346,7 @@ module AWS::SDK::AmplifyUIBuilder
         type = Types::CreateComponentInput.new
         type.app_id = params[:app_id]
         type.environment_name = params[:environment_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.component_to_create = CreateComponentData.build(params[:component_to_create], context: "#{context}[:component_to_create]") unless params[:component_to_create].nil?
         type
       end
@@ -379,7 +379,7 @@ module AWS::SDK::AmplifyUIBuilder
         type = Types::CreateThemeInput.new
         type.app_id = params[:app_id]
         type.environment_name = params[:environment_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.theme_to_create = CreateThemeData.build(params[:theme_to_create], context: "#{context}[:theme_to_create]") unless params[:theme_to_create].nil?
         type
       end
@@ -871,7 +871,7 @@ module AWS::SDK::AmplifyUIBuilder
         type.app_id = params[:app_id]
         type.environment_name = params[:environment_name]
         type.id = params[:id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.updated_component = UpdateComponentData.build(params[:updated_component], context: "#{context}[:updated_component]") unless params[:updated_component].nil?
         type
       end
@@ -905,7 +905,7 @@ module AWS::SDK::AmplifyUIBuilder
         type.app_id = params[:app_id]
         type.environment_name = params[:environment_name]
         type.id = params[:id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.updated_theme = UpdateThemeData.build(params[:updated_theme], context: "#{context}[:updated_theme]") unless params[:updated_theme].nil?
         type
       end

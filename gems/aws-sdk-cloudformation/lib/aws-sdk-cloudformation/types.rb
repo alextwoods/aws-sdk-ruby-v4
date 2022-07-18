@@ -2162,11 +2162,11 @@ module AWS::SDK::CloudFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retain_stacks ||= false
       end
-
     end
 
     # @!attribute operation_id
@@ -8653,6 +8653,7 @@ module AWS::SDK::CloudFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_stack_instances_count ||= 0
@@ -8661,7 +8662,6 @@ module AWS::SDK::CloudFormation
         self.in_progress_stack_instances_count ||= 0
         self.failed_stack_instances_count ||= 0
       end
-
     end
 
     # Includes enum constants for StackSetDriftDetectionStatus

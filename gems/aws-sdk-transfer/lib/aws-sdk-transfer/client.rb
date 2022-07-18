@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Transfer
@@ -166,7 +168,7 @@ module AWS::SDK::Transfer
     def create_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessInput,
         validate_input: @config.validate_input
@@ -485,7 +487,7 @@ module AWS::SDK::Transfer
     def create_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServerInput,
         validate_input: @config.validate_input
@@ -677,7 +679,7 @@ module AWS::SDK::Transfer
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -839,7 +841,7 @@ module AWS::SDK::Transfer
     def create_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkflowInput,
         validate_input: @config.validate_input
@@ -924,7 +926,7 @@ module AWS::SDK::Transfer
     def delete_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessInput,
         validate_input: @config.validate_input
@@ -994,7 +996,7 @@ module AWS::SDK::Transfer
     def delete_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServerInput,
         validate_input: @config.validate_input
@@ -1071,7 +1073,7 @@ module AWS::SDK::Transfer
     def delete_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSshPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSshPublicKeyInput,
         validate_input: @config.validate_input
@@ -1150,7 +1152,7 @@ module AWS::SDK::Transfer
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -1218,7 +1220,7 @@ module AWS::SDK::Transfer
     def delete_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkflowInput,
         validate_input: @config.validate_input
@@ -1323,7 +1325,7 @@ module AWS::SDK::Transfer
     def describe_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccessInput,
         validate_input: @config.validate_input
@@ -1431,7 +1433,7 @@ module AWS::SDK::Transfer
     def describe_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExecutionInput,
         validate_input: @config.validate_input
@@ -1510,7 +1512,7 @@ module AWS::SDK::Transfer
     def describe_security_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityPolicyInput,
         validate_input: @config.validate_input
@@ -1626,7 +1628,7 @@ module AWS::SDK::Transfer
     def describe_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServerInput,
         validate_input: @config.validate_input
@@ -1729,7 +1731,7 @@ module AWS::SDK::Transfer
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -1835,7 +1837,7 @@ module AWS::SDK::Transfer
     def describe_workflow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkflowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkflowInput,
         validate_input: @config.validate_input
@@ -1919,7 +1921,7 @@ module AWS::SDK::Transfer
     def import_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportSshPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportSshPublicKeyInput,
         validate_input: @config.validate_input
@@ -2006,7 +2008,7 @@ module AWS::SDK::Transfer
     def list_accesses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessesInput,
         validate_input: @config.validate_input
@@ -2123,7 +2125,7 @@ module AWS::SDK::Transfer
     def list_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExecutionsInput,
         validate_input: @config.validate_input
@@ -2203,7 +2205,7 @@ module AWS::SDK::Transfer
     def list_security_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityPoliciesInput,
         validate_input: @config.validate_input
@@ -2291,7 +2293,7 @@ module AWS::SDK::Transfer
     def list_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServersInput,
         validate_input: @config.validate_input
@@ -2378,7 +2380,7 @@ module AWS::SDK::Transfer
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2469,7 +2471,7 @@ module AWS::SDK::Transfer
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -2550,7 +2552,7 @@ module AWS::SDK::Transfer
     def list_workflows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkflowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkflowsInput,
         validate_input: @config.validate_input
@@ -2634,7 +2636,7 @@ module AWS::SDK::Transfer
     def send_workflow_step_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendWorkflowStepStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendWorkflowStepStateInput,
         validate_input: @config.validate_input
@@ -2710,7 +2712,7 @@ module AWS::SDK::Transfer
     def start_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartServerInput,
         validate_input: @config.validate_input
@@ -2792,7 +2794,7 @@ module AWS::SDK::Transfer
     def stop_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopServerInput,
         validate_input: @config.validate_input
@@ -2874,7 +2876,7 @@ module AWS::SDK::Transfer
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3015,7 +3017,7 @@ module AWS::SDK::Transfer
     def test_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestIdentityProviderInput,
         validate_input: @config.validate_input
@@ -3094,7 +3096,7 @@ module AWS::SDK::Transfer
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3260,7 +3262,7 @@ module AWS::SDK::Transfer
     def update_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccessInput,
         validate_input: @config.validate_input
@@ -3548,7 +3550,7 @@ module AWS::SDK::Transfer
     def update_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServerInput,
         validate_input: @config.validate_input
@@ -3719,7 +3721,7 @@ module AWS::SDK::Transfer
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

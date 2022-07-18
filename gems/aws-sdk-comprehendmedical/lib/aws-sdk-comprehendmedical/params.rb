@@ -828,7 +828,7 @@ module AWS::SDK::ComprehendMedical
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.kms_key = params[:kms_key]
         type.language_code = params[:language_code]
         type
@@ -852,7 +852,7 @@ module AWS::SDK::ComprehendMedical
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.kms_key = params[:kms_key]
         type.language_code = params[:language_code]
         type
@@ -876,7 +876,7 @@ module AWS::SDK::ComprehendMedical
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.kms_key = params[:kms_key]
         type.language_code = params[:language_code]
         type
@@ -900,7 +900,7 @@ module AWS::SDK::ComprehendMedical
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.kms_key = params[:kms_key]
         type.language_code = params[:language_code]
         type
@@ -924,7 +924,7 @@ module AWS::SDK::ComprehendMedical
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.kms_key = params[:kms_key]
         type.language_code = params[:language_code]
         type

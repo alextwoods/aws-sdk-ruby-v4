@@ -16,9 +16,9 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           cell_arn: 'cell_arn',
           cell_name: 'cell_name',
-          cells: Stubs::List____listOf__string.default(visited),
-          parent_readiness_scopes: Stubs::List____listOf__string.default(visited),
-          tags: Stubs::Tags.default(visited),
+          cells: List____listOf__string.default(visited),
+          parent_readiness_scopes: List____listOf__string.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -99,7 +99,7 @@ module AWS::SDK::Route53RecoveryReadiness
           readiness_check_arn: 'readiness_check_arn',
           readiness_check_name: 'readiness_check_name',
           resource_set: 'resource_set',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -119,10 +119,10 @@ module AWS::SDK::Route53RecoveryReadiness
     class CreateRecoveryGroup
       def self.default(visited=[])
         {
-          cells: Stubs::List____listOf__string.default(visited),
+          cells: List____listOf__string.default(visited),
           recovery_group_arn: 'recovery_group_arn',
           recovery_group_name: 'recovery_group_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -145,8 +145,8 @@ module AWS::SDK::Route53RecoveryReadiness
           resource_set_arn: 'resource_set_arn',
           resource_set_name: 'resource_set_name',
           resource_set_type: 'resource_set_type',
-          resources: Stubs::List____listOfResource.default(visited),
-          tags: Stubs::Tags.default(visited),
+          resources: List____listOfResource.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -169,7 +169,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfResource')
         visited = visited + ['List____listOfResource']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -190,8 +190,8 @@ module AWS::SDK::Route53RecoveryReadiness
         visited = visited + ['Resource']
         {
           component_id: 'component_id',
-          dns_target_resource: Stubs::DNSTargetResource.default(visited),
-          readiness_scopes: Stubs::List____listOf__string.default(visited),
+          dns_target_resource: DNSTargetResource.default(visited),
+          readiness_scopes: List____listOf__string.default(visited),
           resource_arn: 'resource_arn',
         }
       end
@@ -217,7 +217,7 @@ module AWS::SDK::Route53RecoveryReadiness
           hosted_zone_arn: 'hosted_zone_arn',
           record_set_id: 'record_set_id',
           record_type: 'record_type',
-          target_resource: Stubs::TargetResource.default(visited),
+          target_resource: TargetResource.default(visited),
         }
       end
 
@@ -239,8 +239,8 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('TargetResource')
         visited = visited + ['TargetResource']
         {
-          nlb_resource: Stubs::NLBResource.default(visited),
-          r53_resource: Stubs::R53ResourceRecord.default(visited),
+          nlb_resource: NLBResource.default(visited),
+          r53_resource: R53ResourceRecord.default(visited),
         }
       end
 
@@ -362,7 +362,7 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           last_audit_timestamp: Time.now,
           next_token: 'next_token',
-          recommendations: Stubs::List____listOfRecommendation.default(visited),
+          recommendations: List____listOfRecommendation.default(visited),
         }
       end
 
@@ -383,7 +383,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfRecommendation')
         visited = visited + ['List____listOfRecommendation']
         [
-          Stubs::Recommendation.default(visited)
+          Recommendation.default(visited)
         ]
       end
 
@@ -421,9 +421,9 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           cell_arn: 'cell_arn',
           cell_name: 'cell_name',
-          cells: Stubs::List____listOf__string.default(visited),
-          parent_readiness_scopes: Stubs::List____listOf__string.default(visited),
-          tags: Stubs::Tags.default(visited),
+          cells: List____listOf__string.default(visited),
+          parent_readiness_scopes: List____listOf__string.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -446,7 +446,7 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           next_token: 'next_token',
           readiness: 'readiness',
-          readiness_checks: Stubs::List____listOfReadinessCheckSummary.default(visited),
+          readiness_checks: List____listOfReadinessCheckSummary.default(visited),
         }
       end
 
@@ -467,7 +467,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfReadinessCheckSummary')
         visited = visited + ['List____listOfReadinessCheckSummary']
         [
-          Stubs::ReadinessCheckSummary.default(visited)
+          ReadinessCheckSummary.default(visited)
         ]
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::Route53RecoveryReadiness
           readiness_check_arn: 'readiness_check_arn',
           readiness_check_name: 'readiness_check_name',
           resource_set: 'resource_set',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -530,7 +530,7 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           next_token: 'next_token',
           readiness: 'readiness',
-          rules: Stubs::List____listOfRuleResult.default(visited),
+          rules: List____listOfRuleResult.default(visited),
         }
       end
 
@@ -551,7 +551,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfRuleResult')
         visited = visited + ['List____listOfRuleResult']
         [
-          Stubs::RuleResult.default(visited)
+          RuleResult.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::Route53RecoveryReadiness
         visited = visited + ['RuleResult']
         {
           last_checked_timestamp: Time.now,
-          messages: Stubs::List____listOfMessage.default(visited),
+          messages: List____listOfMessage.default(visited),
           readiness: 'readiness',
           rule_id: 'rule_id',
         }
@@ -595,7 +595,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfMessage')
         visited = visited + ['List____listOfMessage']
         [
-          Stubs::Message.default(visited)
+          Message.default(visited)
         ]
       end
 
@@ -631,10 +631,10 @@ module AWS::SDK::Route53RecoveryReadiness
     class GetReadinessCheckStatus
       def self.default(visited=[])
         {
-          messages: Stubs::List____listOfMessage.default(visited),
+          messages: List____listOfMessage.default(visited),
           next_token: 'next_token',
           readiness: 'readiness',
-          resources: Stubs::List____listOfResourceResult.default(visited),
+          resources: List____listOfResourceResult.default(visited),
         }
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfResourceResult')
         visited = visited + ['List____listOfResourceResult']
         [
-          Stubs::ResourceResult.default(visited)
+          ResourceResult.default(visited)
         ]
       end
 
@@ -698,10 +698,10 @@ module AWS::SDK::Route53RecoveryReadiness
     class GetRecoveryGroup
       def self.default(visited=[])
         {
-          cells: Stubs::List____listOf__string.default(visited),
+          cells: List____listOf__string.default(visited),
           recovery_group_arn: 'recovery_group_arn',
           recovery_group_name: 'recovery_group_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -723,7 +723,7 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           next_token: 'next_token',
           readiness: 'readiness',
-          readiness_checks: Stubs::List____listOfReadinessCheckSummary.default(visited),
+          readiness_checks: List____listOfReadinessCheckSummary.default(visited),
         }
       end
 
@@ -745,8 +745,8 @@ module AWS::SDK::Route53RecoveryReadiness
           resource_set_arn: 'resource_set_arn',
           resource_set_name: 'resource_set_name',
           resource_set_type: 'resource_set_type',
-          resources: Stubs::List____listOfResource.default(visited),
-          tags: Stubs::Tags.default(visited),
+          resources: List____listOfResource.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -767,7 +767,7 @@ module AWS::SDK::Route53RecoveryReadiness
     class ListCells
       def self.default(visited=[])
         {
-          cells: Stubs::List____listOfCellOutput.default(visited),
+          cells: List____listOfCellOutput.default(visited),
           next_token: 'next_token',
         }
       end
@@ -788,7 +788,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfCellOutput')
         visited = visited + ['List____listOfCellOutput']
         [
-          Stubs::CellOutput.default(visited)
+          CellOutput.default(visited)
         ]
       end
 
@@ -810,9 +810,9 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           cell_arn: 'cell_arn',
           cell_name: 'cell_name',
-          cells: Stubs::List____listOf__string.default(visited),
-          parent_readiness_scopes: Stubs::List____listOf__string.default(visited),
-          tags: Stubs::Tags.default(visited),
+          cells: List____listOf__string.default(visited),
+          parent_readiness_scopes: List____listOf__string.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -832,7 +832,7 @@ module AWS::SDK::Route53RecoveryReadiness
     class ListCrossAccountAuthorizations
       def self.default(visited=[])
         {
-          cross_account_authorizations: Stubs::List____listOfCrossAccountAuthorization.default(visited),
+          cross_account_authorizations: List____listOfCrossAccountAuthorization.default(visited),
           next_token: 'next_token',
         }
       end
@@ -872,7 +872,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          readiness_checks: Stubs::List____listOfReadinessCheckOutput.default(visited),
+          readiness_checks: List____listOfReadinessCheckOutput.default(visited),
         }
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfReadinessCheckOutput')
         visited = visited + ['List____listOfReadinessCheckOutput']
         [
-          Stubs::ReadinessCheckOutput.default(visited)
+          ReadinessCheckOutput.default(visited)
         ]
       end
 
@@ -915,7 +915,7 @@ module AWS::SDK::Route53RecoveryReadiness
           readiness_check_arn: 'readiness_check_arn',
           readiness_check_name: 'readiness_check_name',
           resource_set: 'resource_set',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -935,7 +935,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          recovery_groups: Stubs::List____listOfRecoveryGroupOutput.default(visited),
+          recovery_groups: List____listOfRecoveryGroupOutput.default(visited),
         }
       end
 
@@ -955,7 +955,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfRecoveryGroupOutput')
         visited = visited + ['List____listOfRecoveryGroupOutput']
         [
-          Stubs::RecoveryGroupOutput.default(visited)
+          RecoveryGroupOutput.default(visited)
         ]
       end
 
@@ -975,10 +975,10 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('RecoveryGroupOutput')
         visited = visited + ['RecoveryGroupOutput']
         {
-          cells: Stubs::List____listOf__string.default(visited),
+          cells: List____listOf__string.default(visited),
           recovery_group_arn: 'recovery_group_arn',
           recovery_group_name: 'recovery_group_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -998,7 +998,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          resource_sets: Stubs::List____listOfResourceSetOutput.default(visited),
+          resource_sets: List____listOfResourceSetOutput.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfResourceSetOutput')
         visited = visited + ['List____listOfResourceSetOutput']
         [
-          Stubs::ResourceSetOutput.default(visited)
+          ResourceSetOutput.default(visited)
         ]
       end
 
@@ -1041,8 +1041,8 @@ module AWS::SDK::Route53RecoveryReadiness
           resource_set_arn: 'resource_set_arn',
           resource_set_name: 'resource_set_name',
           resource_set_type: 'resource_set_type',
-          resources: Stubs::List____listOfResource.default(visited),
-          tags: Stubs::Tags.default(visited),
+          resources: List____listOfResource.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1063,7 +1063,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          rules: Stubs::List____listOfListRulesOutput.default(visited),
+          rules: List____listOfListRulesOutput.default(visited),
         }
       end
 
@@ -1083,7 +1083,7 @@ module AWS::SDK::Route53RecoveryReadiness
         return nil if visited.include?('List____listOfListRulesOutput')
         visited = visited + ['List____listOfListRulesOutput']
         [
-          Stubs::ListRulesOutput.default(visited)
+          ListRulesOutput.default(visited)
         ]
       end
 
@@ -1123,7 +1123,7 @@ module AWS::SDK::Route53RecoveryReadiness
     class ListTagsForResources
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1168,9 +1168,9 @@ module AWS::SDK::Route53RecoveryReadiness
         {
           cell_arn: 'cell_arn',
           cell_name: 'cell_name',
-          cells: Stubs::List____listOf__string.default(visited),
-          parent_readiness_scopes: Stubs::List____listOf__string.default(visited),
-          tags: Stubs::Tags.default(visited),
+          cells: List____listOf__string.default(visited),
+          parent_readiness_scopes: List____listOf__string.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1194,7 +1194,7 @@ module AWS::SDK::Route53RecoveryReadiness
           readiness_check_arn: 'readiness_check_arn',
           readiness_check_name: 'readiness_check_name',
           resource_set: 'resource_set',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1214,10 +1214,10 @@ module AWS::SDK::Route53RecoveryReadiness
     class UpdateRecoveryGroup
       def self.default(visited=[])
         {
-          cells: Stubs::List____listOf__string.default(visited),
+          cells: List____listOf__string.default(visited),
           recovery_group_arn: 'recovery_group_arn',
           recovery_group_name: 'recovery_group_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1240,8 +1240,8 @@ module AWS::SDK::Route53RecoveryReadiness
           resource_set_arn: 'resource_set_arn',
           resource_set_name: 'resource_set_name',
           resource_set_type: 'resource_set_type',
-          resources: Stubs::List____listOfResource.default(visited),
-          tags: Stubs::Tags.default(visited),
+          resources: List____listOfResource.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

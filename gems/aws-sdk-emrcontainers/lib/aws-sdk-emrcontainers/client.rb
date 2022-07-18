@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EMRContainers
@@ -84,7 +86,7 @@ module AWS::SDK::EMRContainers
     def cancel_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobRunInput,
         validate_input: @config.validate_input
@@ -209,7 +211,7 @@ module AWS::SDK::EMRContainers
     def create_managed_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateManagedEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateManagedEndpointInput,
         validate_input: @config.validate_input
@@ -303,7 +305,7 @@ module AWS::SDK::EMRContainers
     def create_virtual_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualClusterInput,
         validate_input: @config.validate_input
@@ -377,7 +379,7 @@ module AWS::SDK::EMRContainers
     def delete_managed_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteManagedEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteManagedEndpointInput,
         validate_input: @config.validate_input
@@ -445,7 +447,7 @@ module AWS::SDK::EMRContainers
     def delete_virtual_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualClusterInput,
         validate_input: @config.validate_input
@@ -552,7 +554,7 @@ module AWS::SDK::EMRContainers
     def describe_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobRunInput,
         validate_input: @config.validate_input
@@ -659,7 +661,7 @@ module AWS::SDK::EMRContainers
     def describe_managed_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeManagedEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeManagedEndpointInput,
         validate_input: @config.validate_input
@@ -730,7 +732,9 @@ module AWS::SDK::EMRContainers
     #   resp.data.virtual_cluster.container_provider #=> Types::ContainerProvider
     #   resp.data.virtual_cluster.container_provider.type #=> String, one of ["EKS"]
     #   resp.data.virtual_cluster.container_provider.id #=> String
-    #   resp.data.virtual_cluster.container_provider.info #=> ContainerInfo
+    #   resp.data.virtual_cluster.container_provider.info #=> Types::ContainerInfo, one of [EksInfo]
+    #   resp.data.virtual_cluster.container_provider.info.eks_info #=> Types::EksInfo
+    #   resp.data.virtual_cluster.container_provider.info.eks_info.namespace #=> String
     #   resp.data.virtual_cluster.created_at #=> Time
     #   resp.data.virtual_cluster.tags #=> Hash<String, String>
     #   resp.data.virtual_cluster.tags['key'] #=> String
@@ -738,7 +742,7 @@ module AWS::SDK::EMRContainers
     def describe_virtual_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualClusterInput,
         validate_input: @config.validate_input
@@ -869,7 +873,7 @@ module AWS::SDK::EMRContainers
     def list_job_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobRunsInput,
         validate_input: @config.validate_input
@@ -1002,7 +1006,7 @@ module AWS::SDK::EMRContainers
     def list_managed_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedEndpointsInput,
         validate_input: @config.validate_input
@@ -1071,7 +1075,7 @@ module AWS::SDK::EMRContainers
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1169,7 +1173,9 @@ module AWS::SDK::EMRContainers
     #   resp.data.virtual_clusters[0].container_provider #=> Types::ContainerProvider
     #   resp.data.virtual_clusters[0].container_provider.type #=> String, one of ["EKS"]
     #   resp.data.virtual_clusters[0].container_provider.id #=> String
-    #   resp.data.virtual_clusters[0].container_provider.info #=> ContainerInfo
+    #   resp.data.virtual_clusters[0].container_provider.info #=> Types::ContainerInfo, one of [EksInfo]
+    #   resp.data.virtual_clusters[0].container_provider.info.eks_info #=> Types::EksInfo
+    #   resp.data.virtual_clusters[0].container_provider.info.eks_info.namespace #=> String
     #   resp.data.virtual_clusters[0].created_at #=> Time
     #   resp.data.virtual_clusters[0].tags #=> Hash<String, String>
     #   resp.data.virtual_clusters[0].tags['key'] #=> String
@@ -1178,7 +1184,7 @@ module AWS::SDK::EMRContainers
     def list_virtual_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualClustersInput,
         validate_input: @config.validate_input
@@ -1306,7 +1312,7 @@ module AWS::SDK::EMRContainers
     def start_job_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobRunInput,
         validate_input: @config.validate_input
@@ -1380,7 +1386,7 @@ module AWS::SDK::EMRContainers
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1454,7 +1460,7 @@ module AWS::SDK::EMRContainers
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

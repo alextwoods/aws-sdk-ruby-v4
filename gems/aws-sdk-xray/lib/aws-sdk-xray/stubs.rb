@@ -14,8 +14,8 @@ module AWS::SDK::XRay
     class BatchGetTraces
       def self.default(visited=[])
         {
-          traces: Stubs::TraceList.default(visited),
-          unprocessed_trace_ids: Stubs::UnprocessedTraceIdList.default(visited),
+          traces: TraceList.default(visited),
+          unprocessed_trace_ids: UnprocessedTraceIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -57,7 +57,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceList')
         visited = visited + ['TraceList']
         [
-          Stubs::Trace.default(visited)
+          Trace.default(visited)
         ]
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::XRay
           id: 'id',
           duration: 1.0,
           limit_exceeded: false,
-          segments: Stubs::SegmentList.default(visited),
+          segments: SegmentList.default(visited),
         }
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('SegmentList')
         visited = visited + ['SegmentList']
         [
-          Stubs::Segment.default(visited)
+          Segment.default(visited)
         ]
       end
 
@@ -139,7 +139,7 @@ module AWS::SDK::XRay
     class CreateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -161,7 +161,7 @@ module AWS::SDK::XRay
           group_name: 'group_name',
           group_arn: 'group_arn',
           filter_expression: 'filter_expression',
-          insights_configuration: Stubs::InsightsConfiguration.default(visited),
+          insights_configuration: InsightsConfiguration.default(visited),
         }
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::XRay
     class CreateSamplingRule
       def self.default(visited=[])
         {
-          sampling_rule_record: Stubs::SamplingRuleRecord.default(visited),
+          sampling_rule_record: SamplingRuleRecord.default(visited),
         }
       end
 
@@ -219,7 +219,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('SamplingRuleRecord')
         visited = visited + ['SamplingRuleRecord']
         {
-          sampling_rule: Stubs::SamplingRule.default(visited),
+          sampling_rule: SamplingRule.default(visited),
           created_at: Time.now,
           modified_at: Time.now,
         }
@@ -253,7 +253,7 @@ module AWS::SDK::XRay
           http_method: 'http_method',
           url_path: 'url_path',
           version: 1,
-          attributes: Stubs::AttributeMap.default(visited),
+          attributes: AttributeMap.default(visited),
         }
       end
 
@@ -314,7 +314,7 @@ module AWS::SDK::XRay
     class DeleteSamplingRule
       def self.default(visited=[])
         {
-          sampling_rule_record: Stubs::SamplingRuleRecord.default(visited),
+          sampling_rule_record: SamplingRuleRecord.default(visited),
         }
       end
 
@@ -331,7 +331,7 @@ module AWS::SDK::XRay
     class GetEncryptionConfig
       def self.default(visited=[])
         {
-          encryption_config: Stubs::EncryptionConfig.default(visited),
+          encryption_config: EncryptionConfig.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::XRay
     class GetGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -387,7 +387,7 @@ module AWS::SDK::XRay
     class GetGroups
       def self.default(visited=[])
         {
-          groups: Stubs::GroupSummaryList.default(visited),
+          groups: GroupSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -408,7 +408,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('GroupSummaryList')
         visited = visited + ['GroupSummaryList']
         [
-          Stubs::GroupSummary.default(visited)
+          GroupSummary.default(visited)
         ]
       end
 
@@ -431,7 +431,7 @@ module AWS::SDK::XRay
           group_name: 'group_name',
           group_arn: 'group_arn',
           filter_expression: 'filter_expression',
-          insights_configuration: Stubs::InsightsConfiguration.default(visited),
+          insights_configuration: InsightsConfiguration.default(visited),
         }
       end
 
@@ -450,7 +450,7 @@ module AWS::SDK::XRay
     class GetInsight
       def self.default(visited=[])
         {
-          insight: Stubs::Insight.default(visited),
+          insight: Insight.default(visited),
         }
       end
 
@@ -472,15 +472,15 @@ module AWS::SDK::XRay
           insight_id: 'insight_id',
           group_arn: 'group_arn',
           group_name: 'group_name',
-          root_cause_service_id: Stubs::ServiceId.default(visited),
-          categories: Stubs::InsightCategoryList.default(visited),
+          root_cause_service_id: ServiceId.default(visited),
+          categories: InsightCategoryList.default(visited),
           state: 'state',
           start_time: Time.now,
           end_time: Time.now,
           summary: 'summary',
-          client_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          root_cause_service_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          top_anomalous_services: Stubs::AnomalousServiceList.default(visited),
+          client_request_impact_statistics: RequestImpactStatistics.default(visited),
+          root_cause_service_request_impact_statistics: RequestImpactStatistics.default(visited),
+          top_anomalous_services: AnomalousServiceList.default(visited),
         }
       end
 
@@ -509,7 +509,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('AnomalousServiceList')
         visited = visited + ['AnomalousServiceList']
         [
-          Stubs::AnomalousService.default(visited)
+          AnomalousService.default(visited)
         ]
       end
 
@@ -529,7 +529,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('AnomalousService')
         visited = visited + ['AnomalousService']
         {
-          service_id: Stubs::ServiceId.default(visited),
+          service_id: ServiceId.default(visited),
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::XRay
         visited = visited + ['ServiceId']
         {
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           account_id: 'account_id',
           type: 'type',
         }
@@ -631,7 +631,7 @@ module AWS::SDK::XRay
     class GetInsightEvents
       def self.default(visited=[])
         {
-          insight_events: Stubs::InsightEventList.default(visited),
+          insight_events: InsightEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -652,7 +652,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('InsightEventList')
         visited = visited + ['InsightEventList']
         [
-          Stubs::InsightEvent.default(visited)
+          InsightEvent.default(visited)
         ]
       end
 
@@ -674,9 +674,9 @@ module AWS::SDK::XRay
         {
           summary: 'summary',
           event_time: Time.now,
-          client_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          root_cause_service_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          top_anomalous_services: Stubs::AnomalousServiceList.default(visited),
+          client_request_impact_statistics: RequestImpactStatistics.default(visited),
+          root_cause_service_request_impact_statistics: RequestImpactStatistics.default(visited),
+          top_anomalous_services: AnomalousServiceList.default(visited),
         }
       end
 
@@ -701,7 +701,7 @@ module AWS::SDK::XRay
           end_time: Time.now,
           service_graph_start_time: Time.now,
           service_graph_end_time: Time.now,
-          services: Stubs::InsightImpactGraphServiceList.default(visited),
+          services: InsightImpactGraphServiceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -727,7 +727,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('InsightImpactGraphServiceList')
         visited = visited + ['InsightImpactGraphServiceList']
         [
-          Stubs::InsightImpactGraphService.default(visited)
+          InsightImpactGraphService.default(visited)
         ]
       end
 
@@ -750,9 +750,9 @@ module AWS::SDK::XRay
           reference_id: 1,
           type: 'type',
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           account_id: 'account_id',
-          edges: Stubs::InsightImpactGraphEdgeList.default(visited),
+          edges: InsightImpactGraphEdgeList.default(visited),
         }
       end
 
@@ -775,7 +775,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('InsightImpactGraphEdgeList')
         visited = visited + ['InsightImpactGraphEdgeList']
         [
-          Stubs::InsightImpactGraphEdge.default(visited)
+          InsightImpactGraphEdge.default(visited)
         ]
       end
 
@@ -811,7 +811,7 @@ module AWS::SDK::XRay
     class GetInsightSummaries
       def self.default(visited=[])
         {
-          insight_summaries: Stubs::InsightSummaryList.default(visited),
+          insight_summaries: InsightSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -832,7 +832,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('InsightSummaryList')
         visited = visited + ['InsightSummaryList']
         [
-          Stubs::InsightSummary.default(visited)
+          InsightSummary.default(visited)
         ]
       end
 
@@ -855,15 +855,15 @@ module AWS::SDK::XRay
           insight_id: 'insight_id',
           group_arn: 'group_arn',
           group_name: 'group_name',
-          root_cause_service_id: Stubs::ServiceId.default(visited),
-          categories: Stubs::InsightCategoryList.default(visited),
+          root_cause_service_id: ServiceId.default(visited),
+          categories: InsightCategoryList.default(visited),
           state: 'state',
           start_time: Time.now,
           end_time: Time.now,
           summary: 'summary',
-          client_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          root_cause_service_request_impact_statistics: Stubs::RequestImpactStatistics.default(visited),
-          top_anomalous_services: Stubs::AnomalousServiceList.default(visited),
+          client_request_impact_statistics: RequestImpactStatistics.default(visited),
+          root_cause_service_request_impact_statistics: RequestImpactStatistics.default(visited),
+          top_anomalous_services: AnomalousServiceList.default(visited),
           last_update_time: Time.now,
         }
       end
@@ -892,7 +892,7 @@ module AWS::SDK::XRay
     class GetSamplingRules
       def self.default(visited=[])
         {
-          sampling_rule_records: Stubs::SamplingRuleRecordList.default(visited),
+          sampling_rule_records: SamplingRuleRecordList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -913,7 +913,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('SamplingRuleRecordList')
         visited = visited + ['SamplingRuleRecordList']
         [
-          Stubs::SamplingRuleRecord.default(visited)
+          SamplingRuleRecord.default(visited)
         ]
       end
 
@@ -931,7 +931,7 @@ module AWS::SDK::XRay
     class GetSamplingStatisticSummaries
       def self.default(visited=[])
         {
-          sampling_statistic_summaries: Stubs::SamplingStatisticSummaryList.default(visited),
+          sampling_statistic_summaries: SamplingStatisticSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -952,7 +952,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('SamplingStatisticSummaryList')
         visited = visited + ['SamplingStatisticSummaryList']
         [
-          Stubs::SamplingStatisticSummary.default(visited)
+          SamplingStatisticSummary.default(visited)
         ]
       end
 
@@ -996,9 +996,9 @@ module AWS::SDK::XRay
     class GetSamplingTargets
       def self.default(visited=[])
         {
-          sampling_target_documents: Stubs::SamplingTargetDocumentList.default(visited),
+          sampling_target_documents: SamplingTargetDocumentList.default(visited),
           last_rule_modification: Time.now,
-          unprocessed_statistics: Stubs::UnprocessedStatisticsList.default(visited),
+          unprocessed_statistics: UnprocessedStatisticsList.default(visited),
         }
       end
 
@@ -1019,7 +1019,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('UnprocessedStatisticsList')
         visited = visited + ['UnprocessedStatisticsList']
         [
-          Stubs::UnprocessedStatistics.default(visited)
+          UnprocessedStatistics.default(visited)
         ]
       end
 
@@ -1061,7 +1061,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('SamplingTargetDocumentList')
         visited = visited + ['SamplingTargetDocumentList']
         [
-          Stubs::SamplingTargetDocument.default(visited)
+          SamplingTargetDocument.default(visited)
         ]
       end
 
@@ -1107,7 +1107,7 @@ module AWS::SDK::XRay
         {
           start_time: Time.now,
           end_time: Time.now,
-          services: Stubs::ServiceList.default(visited),
+          services: ServiceList.default(visited),
           contains_old_group_versions: false,
           next_token: 'next_token',
         }
@@ -1132,7 +1132,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ServiceList')
         visited = visited + ['ServiceList']
         [
-          Stubs::Service.default(visited)
+          Service.default(visited)
         ]
       end
 
@@ -1154,17 +1154,17 @@ module AWS::SDK::XRay
         {
           reference_id: 1,
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           root: false,
           account_id: 'account_id',
           type: 'type',
           state: 'state',
           start_time: Time.now,
           end_time: Time.now,
-          edges: Stubs::EdgeList.default(visited),
-          summary_statistics: Stubs::ServiceStatistics.default(visited),
-          duration_histogram: Stubs::Histogram.default(visited),
-          response_time_histogram: Stubs::Histogram.default(visited),
+          edges: EdgeList.default(visited),
+          summary_statistics: ServiceStatistics.default(visited),
+          duration_histogram: Histogram.default(visited),
+          response_time_histogram: Histogram.default(visited),
         }
       end
 
@@ -1194,7 +1194,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('Histogram')
         visited = visited + ['Histogram']
         [
-          Stubs::HistogramEntry.default(visited)
+          HistogramEntry.default(visited)
         ]
       end
 
@@ -1235,8 +1235,8 @@ module AWS::SDK::XRay
         visited = visited + ['ServiceStatistics']
         {
           ok_count: 1,
-          error_statistics: Stubs::ErrorStatistics.default(visited),
-          fault_statistics: Stubs::FaultStatistics.default(visited),
+          error_statistics: ErrorStatistics.default(visited),
+          fault_statistics: FaultStatistics.default(visited),
           total_count: 1,
           total_response_time: 1.0,
         }
@@ -1302,7 +1302,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('EdgeList')
         visited = visited + ['EdgeList']
         [
-          Stubs::Edge.default(visited)
+          Edge.default(visited)
         ]
       end
 
@@ -1325,9 +1325,9 @@ module AWS::SDK::XRay
           reference_id: 1,
           start_time: Time.now,
           end_time: Time.now,
-          summary_statistics: Stubs::EdgeStatistics.default(visited),
-          response_time_histogram: Stubs::Histogram.default(visited),
-          aliases: Stubs::AliasList.default(visited),
+          summary_statistics: EdgeStatistics.default(visited),
+          response_time_histogram: Histogram.default(visited),
+          aliases: AliasList.default(visited),
         }
       end
 
@@ -1350,7 +1350,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('AliasList')
         visited = visited + ['AliasList']
         [
-          Stubs::Alias.default(visited)
+          Alias.default(visited)
         ]
       end
 
@@ -1371,7 +1371,7 @@ module AWS::SDK::XRay
         visited = visited + ['Alias']
         {
           name: 'name',
-          names: Stubs::AliasNames.default(visited),
+          names: AliasNames.default(visited),
           type: 'type',
         }
       end
@@ -1413,8 +1413,8 @@ module AWS::SDK::XRay
         visited = visited + ['EdgeStatistics']
         {
           ok_count: 1,
-          error_statistics: Stubs::ErrorStatistics.default(visited),
-          fault_statistics: Stubs::FaultStatistics.default(visited),
+          error_statistics: ErrorStatistics.default(visited),
+          fault_statistics: FaultStatistics.default(visited),
           total_count: 1,
           total_response_time: 1.0,
         }
@@ -1436,7 +1436,7 @@ module AWS::SDK::XRay
     class GetTimeSeriesServiceStatistics
       def self.default(visited=[])
         {
-          time_series_service_statistics: Stubs::TimeSeriesServiceStatisticsList.default(visited),
+          time_series_service_statistics: TimeSeriesServiceStatisticsList.default(visited),
           contains_old_group_versions: false,
           next_token: 'next_token',
         }
@@ -1459,7 +1459,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TimeSeriesServiceStatisticsList')
         visited = visited + ['TimeSeriesServiceStatisticsList']
         [
-          Stubs::TimeSeriesServiceStatistics.default(visited)
+          TimeSeriesServiceStatistics.default(visited)
         ]
       end
 
@@ -1480,10 +1480,10 @@ module AWS::SDK::XRay
         visited = visited + ['TimeSeriesServiceStatistics']
         {
           timestamp: Time.now,
-          edge_summary_statistics: Stubs::EdgeStatistics.default(visited),
-          service_summary_statistics: Stubs::ServiceStatistics.default(visited),
-          service_forecast_statistics: Stubs::ForecastStatistics.default(visited),
-          response_time_histogram: Stubs::Histogram.default(visited),
+          edge_summary_statistics: EdgeStatistics.default(visited),
+          service_summary_statistics: ServiceStatistics.default(visited),
+          service_forecast_statistics: ForecastStatistics.default(visited),
+          response_time_histogram: Histogram.default(visited),
         }
       end
 
@@ -1523,7 +1523,7 @@ module AWS::SDK::XRay
     class GetTraceGraph
       def self.default(visited=[])
         {
-          services: Stubs::ServiceList.default(visited),
+          services: ServiceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1542,7 +1542,7 @@ module AWS::SDK::XRay
     class GetTraceSummaries
       def self.default(visited=[])
         {
-          trace_summaries: Stubs::TraceSummaryList.default(visited),
+          trace_summaries: TraceSummaryList.default(visited),
           approximate_time: Time.now,
           traces_processed_count: 1,
           next_token: 'next_token',
@@ -1567,7 +1567,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceSummaryList')
         visited = visited + ['TraceSummaryList']
         [
-          Stubs::TraceSummary.default(visited)
+          TraceSummary.default(visited)
         ]
       end
 
@@ -1594,17 +1594,17 @@ module AWS::SDK::XRay
           has_error: false,
           has_throttle: false,
           is_partial: false,
-          http: Stubs::Http.default(visited),
-          annotations: Stubs::Annotations.default(visited),
-          users: Stubs::TraceUsers.default(visited),
-          service_ids: Stubs::ServiceIds.default(visited),
-          resource_ar_ns: Stubs::TraceResourceARNs.default(visited),
-          instance_ids: Stubs::TraceInstanceIds.default(visited),
-          availability_zones: Stubs::TraceAvailabilityZones.default(visited),
-          entry_point: Stubs::ServiceId.default(visited),
-          fault_root_causes: Stubs::FaultRootCauses.default(visited),
-          error_root_causes: Stubs::ErrorRootCauses.default(visited),
-          response_time_root_causes: Stubs::ResponseTimeRootCauses.default(visited),
+          http: Http.default(visited),
+          annotations: Annotations.default(visited),
+          users: TraceUsers.default(visited),
+          service_ids: ServiceIds.default(visited),
+          resource_ar_ns: TraceResourceARNs.default(visited),
+          instance_ids: TraceInstanceIds.default(visited),
+          availability_zones: TraceAvailabilityZones.default(visited),
+          entry_point: ServiceId.default(visited),
+          fault_root_causes: FaultRootCauses.default(visited),
+          error_root_causes: ErrorRootCauses.default(visited),
+          response_time_root_causes: ResponseTimeRootCauses.default(visited),
           revision: 1,
           matched_event_time: Time.now,
         }
@@ -1643,7 +1643,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ResponseTimeRootCauses')
         visited = visited + ['ResponseTimeRootCauses']
         [
-          Stubs::ResponseTimeRootCause.default(visited)
+          ResponseTimeRootCause.default(visited)
         ]
       end
 
@@ -1663,7 +1663,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ResponseTimeRootCause')
         visited = visited + ['ResponseTimeRootCause']
         {
-          services: Stubs::ResponseTimeRootCauseServices.default(visited),
+          services: ResponseTimeRootCauseServices.default(visited),
           client_impacting: false,
         }
       end
@@ -1683,7 +1683,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ResponseTimeRootCauseServices')
         visited = visited + ['ResponseTimeRootCauseServices']
         [
-          Stubs::ResponseTimeRootCauseService.default(visited)
+          ResponseTimeRootCauseService.default(visited)
         ]
       end
 
@@ -1704,10 +1704,10 @@ module AWS::SDK::XRay
         visited = visited + ['ResponseTimeRootCauseService']
         {
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           type: 'type',
           account_id: 'account_id',
-          entity_path: Stubs::ResponseTimeRootCauseEntityPath.default(visited),
+          entity_path: ResponseTimeRootCauseEntityPath.default(visited),
           inferred: false,
         }
       end
@@ -1731,7 +1731,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ResponseTimeRootCauseEntityPath')
         visited = visited + ['ResponseTimeRootCauseEntityPath']
         [
-          Stubs::ResponseTimeRootCauseEntity.default(visited)
+          ResponseTimeRootCauseEntity.default(visited)
         ]
       end
 
@@ -1773,7 +1773,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ErrorRootCauses')
         visited = visited + ['ErrorRootCauses']
         [
-          Stubs::ErrorRootCause.default(visited)
+          ErrorRootCause.default(visited)
         ]
       end
 
@@ -1793,7 +1793,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ErrorRootCause')
         visited = visited + ['ErrorRootCause']
         {
-          services: Stubs::ErrorRootCauseServices.default(visited),
+          services: ErrorRootCauseServices.default(visited),
           client_impacting: false,
         }
       end
@@ -1813,7 +1813,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ErrorRootCauseServices')
         visited = visited + ['ErrorRootCauseServices']
         [
-          Stubs::ErrorRootCauseService.default(visited)
+          ErrorRootCauseService.default(visited)
         ]
       end
 
@@ -1834,10 +1834,10 @@ module AWS::SDK::XRay
         visited = visited + ['ErrorRootCauseService']
         {
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           type: 'type',
           account_id: 'account_id',
-          entity_path: Stubs::ErrorRootCauseEntityPath.default(visited),
+          entity_path: ErrorRootCauseEntityPath.default(visited),
           inferred: false,
         }
       end
@@ -1861,7 +1861,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ErrorRootCauseEntityPath')
         visited = visited + ['ErrorRootCauseEntityPath']
         [
-          Stubs::ErrorRootCauseEntity.default(visited)
+          ErrorRootCauseEntity.default(visited)
         ]
       end
 
@@ -1882,7 +1882,7 @@ module AWS::SDK::XRay
         visited = visited + ['ErrorRootCauseEntity']
         {
           name: 'name',
-          exceptions: Stubs::RootCauseExceptions.default(visited),
+          exceptions: RootCauseExceptions.default(visited),
           remote: false,
         }
       end
@@ -1903,7 +1903,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('RootCauseExceptions')
         visited = visited + ['RootCauseExceptions']
         [
-          Stubs::RootCauseException.default(visited)
+          RootCauseException.default(visited)
         ]
       end
 
@@ -1943,7 +1943,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('FaultRootCauses')
         visited = visited + ['FaultRootCauses']
         [
-          Stubs::FaultRootCause.default(visited)
+          FaultRootCause.default(visited)
         ]
       end
 
@@ -1963,7 +1963,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('FaultRootCause')
         visited = visited + ['FaultRootCause']
         {
-          services: Stubs::FaultRootCauseServices.default(visited),
+          services: FaultRootCauseServices.default(visited),
           client_impacting: false,
         }
       end
@@ -1983,7 +1983,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('FaultRootCauseServices')
         visited = visited + ['FaultRootCauseServices']
         [
-          Stubs::FaultRootCauseService.default(visited)
+          FaultRootCauseService.default(visited)
         ]
       end
 
@@ -2004,10 +2004,10 @@ module AWS::SDK::XRay
         visited = visited + ['FaultRootCauseService']
         {
           name: 'name',
-          names: Stubs::ServiceNames.default(visited),
+          names: ServiceNames.default(visited),
           type: 'type',
           account_id: 'account_id',
-          entity_path: Stubs::FaultRootCauseEntityPath.default(visited),
+          entity_path: FaultRootCauseEntityPath.default(visited),
           inferred: false,
         }
       end
@@ -2031,7 +2031,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('FaultRootCauseEntityPath')
         visited = visited + ['FaultRootCauseEntityPath']
         [
-          Stubs::FaultRootCauseEntity.default(visited)
+          FaultRootCauseEntity.default(visited)
         ]
       end
 
@@ -2052,7 +2052,7 @@ module AWS::SDK::XRay
         visited = visited + ['FaultRootCauseEntity']
         {
           name: 'name',
-          exceptions: Stubs::RootCauseExceptions.default(visited),
+          exceptions: RootCauseExceptions.default(visited),
           remote: false,
         }
       end
@@ -2073,7 +2073,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceAvailabilityZones')
         visited = visited + ['TraceAvailabilityZones']
         [
-          Stubs::AvailabilityZoneDetail.default(visited)
+          AvailabilityZoneDetail.default(visited)
         ]
       end
 
@@ -2111,7 +2111,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceInstanceIds')
         visited = visited + ['TraceInstanceIds']
         [
-          Stubs::InstanceIdDetail.default(visited)
+          InstanceIdDetail.default(visited)
         ]
       end
 
@@ -2149,7 +2149,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceResourceARNs')
         visited = visited + ['TraceResourceARNs']
         [
-          Stubs::ResourceARNDetail.default(visited)
+          ResourceARNDetail.default(visited)
         ]
       end
 
@@ -2187,7 +2187,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ServiceIds')
         visited = visited + ['ServiceIds']
         [
-          Stubs::ServiceId.default(visited)
+          ServiceId.default(visited)
         ]
       end
 
@@ -2207,7 +2207,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TraceUsers')
         visited = visited + ['TraceUsers']
         [
-          Stubs::TraceUser.default(visited)
+          TraceUser.default(visited)
         ]
       end
 
@@ -2228,7 +2228,7 @@ module AWS::SDK::XRay
         visited = visited + ['TraceUser']
         {
           user_name: 'user_name',
-          service_ids: Stubs::ServiceIds.default(visited),
+          service_ids: ServiceIds.default(visited),
         }
       end
 
@@ -2247,7 +2247,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('Annotations')
         visited = visited + ['Annotations']
         {
-          test_key: Stubs::ValuesWithServiceIds.default(visited)
+          test_key: ValuesWithServiceIds.default(visited)
         }
       end
 
@@ -2267,7 +2267,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('ValuesWithServiceIds')
         visited = visited + ['ValuesWithServiceIds']
         [
-          Stubs::ValueWithServiceIds.default(visited)
+          ValueWithServiceIds.default(visited)
         ]
       end
 
@@ -2287,8 +2287,8 @@ module AWS::SDK::XRay
         return nil if visited.include?('ValueWithServiceIds')
         visited = visited + ['ValueWithServiceIds']
         {
-          annotation_value: Stubs::AnnotationValue.default(visited),
-          service_ids: Stubs::ServiceIds.default(visited),
+          annotation_value: AnnotationValue.default(visited),
+          service_ids: ServiceIds.default(visited),
         }
       end
 
@@ -2359,7 +2359,7 @@ module AWS::SDK::XRay
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2380,7 +2380,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2418,7 +2418,7 @@ module AWS::SDK::XRay
     class PutEncryptionConfig
       def self.default(visited=[])
         {
-          encryption_config: Stubs::EncryptionConfig.default(visited),
+          encryption_config: EncryptionConfig.default(visited),
         }
       end
 
@@ -2448,7 +2448,7 @@ module AWS::SDK::XRay
     class PutTraceSegments
       def self.default(visited=[])
         {
-          unprocessed_trace_segments: Stubs::UnprocessedTraceSegmentList.default(visited),
+          unprocessed_trace_segments: UnprocessedTraceSegmentList.default(visited),
         }
       end
 
@@ -2467,7 +2467,7 @@ module AWS::SDK::XRay
         return nil if visited.include?('UnprocessedTraceSegmentList')
         visited = visited + ['UnprocessedTraceSegmentList']
         [
-          Stubs::UnprocessedTraceSegment.default(visited)
+          UnprocessedTraceSegment.default(visited)
         ]
       end
 
@@ -2533,7 +2533,7 @@ module AWS::SDK::XRay
     class UpdateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -2550,7 +2550,7 @@ module AWS::SDK::XRay
     class UpdateSamplingRule
       def self.default(visited=[])
         {
-          sampling_rule_record: Stubs::SamplingRuleRecord.default(visited),
+          sampling_rule_record: SamplingRuleRecord.default(visited),
         }
       end
 

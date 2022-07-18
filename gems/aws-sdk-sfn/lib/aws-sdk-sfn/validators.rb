@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SFN
   module Validators
 
@@ -36,7 +38,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActivityListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActivityListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input, Types::ActivityScheduledEventDetails, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
         Hearth::Validator.validate!(input[:heartbeat_in_seconds], ::Integer, context: "#{context}[:heartbeat_in_seconds]")
       end
@@ -80,7 +82,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActivitySucceededEventDetails, context: context)
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateActivityInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -144,9 +146,9 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:definition], ::String, context: "#{context}[:definition]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
       end
     end
 
@@ -217,9 +219,9 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:start_date], ::Time, context: "#{context}[:start_date]")
         Hearth::Validator.validate!(input[:stop_date], ::Time, context: "#{context}[:stop_date]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::CloudWatchEventsExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        CloudWatchEventsExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::CloudWatchEventsExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        CloudWatchEventsExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
         Hearth::Validator.validate!(input[:trace_header], ::String, context: "#{context}[:trace_header]")
       end
     end
@@ -239,8 +241,8 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:definition], ::String, context: "#{context}[:definition]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:update_date], ::Time, context: "#{context}[:update_date]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
       end
     end
 
@@ -261,8 +263,8 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecutionStartedEventDetails, context: context)
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -337,7 +339,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecutionSucceededEventDetails, context: context)
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::SFN
     class GetExecutionHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExecutionHistoryOutput, context: context)
-        Validators::HistoryEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        HistoryEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -391,38 +393,38 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:id], ::Integer, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:previous_event_id], ::Integer, context: "#{context}[:previous_event_id]")
-        Validators::ActivityFailedEventDetails.validate!(input[:activity_failed_event_details], context: "#{context}[:activity_failed_event_details]") unless input[:activity_failed_event_details].nil?
-        Validators::ActivityScheduleFailedEventDetails.validate!(input[:activity_schedule_failed_event_details], context: "#{context}[:activity_schedule_failed_event_details]") unless input[:activity_schedule_failed_event_details].nil?
-        Validators::ActivityScheduledEventDetails.validate!(input[:activity_scheduled_event_details], context: "#{context}[:activity_scheduled_event_details]") unless input[:activity_scheduled_event_details].nil?
-        Validators::ActivityStartedEventDetails.validate!(input[:activity_started_event_details], context: "#{context}[:activity_started_event_details]") unless input[:activity_started_event_details].nil?
-        Validators::ActivitySucceededEventDetails.validate!(input[:activity_succeeded_event_details], context: "#{context}[:activity_succeeded_event_details]") unless input[:activity_succeeded_event_details].nil?
-        Validators::ActivityTimedOutEventDetails.validate!(input[:activity_timed_out_event_details], context: "#{context}[:activity_timed_out_event_details]") unless input[:activity_timed_out_event_details].nil?
-        Validators::TaskFailedEventDetails.validate!(input[:task_failed_event_details], context: "#{context}[:task_failed_event_details]") unless input[:task_failed_event_details].nil?
-        Validators::TaskScheduledEventDetails.validate!(input[:task_scheduled_event_details], context: "#{context}[:task_scheduled_event_details]") unless input[:task_scheduled_event_details].nil?
-        Validators::TaskStartFailedEventDetails.validate!(input[:task_start_failed_event_details], context: "#{context}[:task_start_failed_event_details]") unless input[:task_start_failed_event_details].nil?
-        Validators::TaskStartedEventDetails.validate!(input[:task_started_event_details], context: "#{context}[:task_started_event_details]") unless input[:task_started_event_details].nil?
-        Validators::TaskSubmitFailedEventDetails.validate!(input[:task_submit_failed_event_details], context: "#{context}[:task_submit_failed_event_details]") unless input[:task_submit_failed_event_details].nil?
-        Validators::TaskSubmittedEventDetails.validate!(input[:task_submitted_event_details], context: "#{context}[:task_submitted_event_details]") unless input[:task_submitted_event_details].nil?
-        Validators::TaskSucceededEventDetails.validate!(input[:task_succeeded_event_details], context: "#{context}[:task_succeeded_event_details]") unless input[:task_succeeded_event_details].nil?
-        Validators::TaskTimedOutEventDetails.validate!(input[:task_timed_out_event_details], context: "#{context}[:task_timed_out_event_details]") unless input[:task_timed_out_event_details].nil?
-        Validators::ExecutionFailedEventDetails.validate!(input[:execution_failed_event_details], context: "#{context}[:execution_failed_event_details]") unless input[:execution_failed_event_details].nil?
-        Validators::ExecutionStartedEventDetails.validate!(input[:execution_started_event_details], context: "#{context}[:execution_started_event_details]") unless input[:execution_started_event_details].nil?
-        Validators::ExecutionSucceededEventDetails.validate!(input[:execution_succeeded_event_details], context: "#{context}[:execution_succeeded_event_details]") unless input[:execution_succeeded_event_details].nil?
-        Validators::ExecutionAbortedEventDetails.validate!(input[:execution_aborted_event_details], context: "#{context}[:execution_aborted_event_details]") unless input[:execution_aborted_event_details].nil?
-        Validators::ExecutionTimedOutEventDetails.validate!(input[:execution_timed_out_event_details], context: "#{context}[:execution_timed_out_event_details]") unless input[:execution_timed_out_event_details].nil?
-        Validators::MapStateStartedEventDetails.validate!(input[:map_state_started_event_details], context: "#{context}[:map_state_started_event_details]") unless input[:map_state_started_event_details].nil?
-        Validators::MapIterationEventDetails.validate!(input[:map_iteration_started_event_details], context: "#{context}[:map_iteration_started_event_details]") unless input[:map_iteration_started_event_details].nil?
-        Validators::MapIterationEventDetails.validate!(input[:map_iteration_succeeded_event_details], context: "#{context}[:map_iteration_succeeded_event_details]") unless input[:map_iteration_succeeded_event_details].nil?
-        Validators::MapIterationEventDetails.validate!(input[:map_iteration_failed_event_details], context: "#{context}[:map_iteration_failed_event_details]") unless input[:map_iteration_failed_event_details].nil?
-        Validators::MapIterationEventDetails.validate!(input[:map_iteration_aborted_event_details], context: "#{context}[:map_iteration_aborted_event_details]") unless input[:map_iteration_aborted_event_details].nil?
-        Validators::LambdaFunctionFailedEventDetails.validate!(input[:lambda_function_failed_event_details], context: "#{context}[:lambda_function_failed_event_details]") unless input[:lambda_function_failed_event_details].nil?
-        Validators::LambdaFunctionScheduleFailedEventDetails.validate!(input[:lambda_function_schedule_failed_event_details], context: "#{context}[:lambda_function_schedule_failed_event_details]") unless input[:lambda_function_schedule_failed_event_details].nil?
-        Validators::LambdaFunctionScheduledEventDetails.validate!(input[:lambda_function_scheduled_event_details], context: "#{context}[:lambda_function_scheduled_event_details]") unless input[:lambda_function_scheduled_event_details].nil?
-        Validators::LambdaFunctionStartFailedEventDetails.validate!(input[:lambda_function_start_failed_event_details], context: "#{context}[:lambda_function_start_failed_event_details]") unless input[:lambda_function_start_failed_event_details].nil?
-        Validators::LambdaFunctionSucceededEventDetails.validate!(input[:lambda_function_succeeded_event_details], context: "#{context}[:lambda_function_succeeded_event_details]") unless input[:lambda_function_succeeded_event_details].nil?
-        Validators::LambdaFunctionTimedOutEventDetails.validate!(input[:lambda_function_timed_out_event_details], context: "#{context}[:lambda_function_timed_out_event_details]") unless input[:lambda_function_timed_out_event_details].nil?
-        Validators::StateEnteredEventDetails.validate!(input[:state_entered_event_details], context: "#{context}[:state_entered_event_details]") unless input[:state_entered_event_details].nil?
-        Validators::StateExitedEventDetails.validate!(input[:state_exited_event_details], context: "#{context}[:state_exited_event_details]") unless input[:state_exited_event_details].nil?
+        ActivityFailedEventDetails.validate!(input[:activity_failed_event_details], context: "#{context}[:activity_failed_event_details]") unless input[:activity_failed_event_details].nil?
+        ActivityScheduleFailedEventDetails.validate!(input[:activity_schedule_failed_event_details], context: "#{context}[:activity_schedule_failed_event_details]") unless input[:activity_schedule_failed_event_details].nil?
+        ActivityScheduledEventDetails.validate!(input[:activity_scheduled_event_details], context: "#{context}[:activity_scheduled_event_details]") unless input[:activity_scheduled_event_details].nil?
+        ActivityStartedEventDetails.validate!(input[:activity_started_event_details], context: "#{context}[:activity_started_event_details]") unless input[:activity_started_event_details].nil?
+        ActivitySucceededEventDetails.validate!(input[:activity_succeeded_event_details], context: "#{context}[:activity_succeeded_event_details]") unless input[:activity_succeeded_event_details].nil?
+        ActivityTimedOutEventDetails.validate!(input[:activity_timed_out_event_details], context: "#{context}[:activity_timed_out_event_details]") unless input[:activity_timed_out_event_details].nil?
+        TaskFailedEventDetails.validate!(input[:task_failed_event_details], context: "#{context}[:task_failed_event_details]") unless input[:task_failed_event_details].nil?
+        TaskScheduledEventDetails.validate!(input[:task_scheduled_event_details], context: "#{context}[:task_scheduled_event_details]") unless input[:task_scheduled_event_details].nil?
+        TaskStartFailedEventDetails.validate!(input[:task_start_failed_event_details], context: "#{context}[:task_start_failed_event_details]") unless input[:task_start_failed_event_details].nil?
+        TaskStartedEventDetails.validate!(input[:task_started_event_details], context: "#{context}[:task_started_event_details]") unless input[:task_started_event_details].nil?
+        TaskSubmitFailedEventDetails.validate!(input[:task_submit_failed_event_details], context: "#{context}[:task_submit_failed_event_details]") unless input[:task_submit_failed_event_details].nil?
+        TaskSubmittedEventDetails.validate!(input[:task_submitted_event_details], context: "#{context}[:task_submitted_event_details]") unless input[:task_submitted_event_details].nil?
+        TaskSucceededEventDetails.validate!(input[:task_succeeded_event_details], context: "#{context}[:task_succeeded_event_details]") unless input[:task_succeeded_event_details].nil?
+        TaskTimedOutEventDetails.validate!(input[:task_timed_out_event_details], context: "#{context}[:task_timed_out_event_details]") unless input[:task_timed_out_event_details].nil?
+        ExecutionFailedEventDetails.validate!(input[:execution_failed_event_details], context: "#{context}[:execution_failed_event_details]") unless input[:execution_failed_event_details].nil?
+        ExecutionStartedEventDetails.validate!(input[:execution_started_event_details], context: "#{context}[:execution_started_event_details]") unless input[:execution_started_event_details].nil?
+        ExecutionSucceededEventDetails.validate!(input[:execution_succeeded_event_details], context: "#{context}[:execution_succeeded_event_details]") unless input[:execution_succeeded_event_details].nil?
+        ExecutionAbortedEventDetails.validate!(input[:execution_aborted_event_details], context: "#{context}[:execution_aborted_event_details]") unless input[:execution_aborted_event_details].nil?
+        ExecutionTimedOutEventDetails.validate!(input[:execution_timed_out_event_details], context: "#{context}[:execution_timed_out_event_details]") unless input[:execution_timed_out_event_details].nil?
+        MapStateStartedEventDetails.validate!(input[:map_state_started_event_details], context: "#{context}[:map_state_started_event_details]") unless input[:map_state_started_event_details].nil?
+        MapIterationEventDetails.validate!(input[:map_iteration_started_event_details], context: "#{context}[:map_iteration_started_event_details]") unless input[:map_iteration_started_event_details].nil?
+        MapIterationEventDetails.validate!(input[:map_iteration_succeeded_event_details], context: "#{context}[:map_iteration_succeeded_event_details]") unless input[:map_iteration_succeeded_event_details].nil?
+        MapIterationEventDetails.validate!(input[:map_iteration_failed_event_details], context: "#{context}[:map_iteration_failed_event_details]") unless input[:map_iteration_failed_event_details].nil?
+        MapIterationEventDetails.validate!(input[:map_iteration_aborted_event_details], context: "#{context}[:map_iteration_aborted_event_details]") unless input[:map_iteration_aborted_event_details].nil?
+        LambdaFunctionFailedEventDetails.validate!(input[:lambda_function_failed_event_details], context: "#{context}[:lambda_function_failed_event_details]") unless input[:lambda_function_failed_event_details].nil?
+        LambdaFunctionScheduleFailedEventDetails.validate!(input[:lambda_function_schedule_failed_event_details], context: "#{context}[:lambda_function_schedule_failed_event_details]") unless input[:lambda_function_schedule_failed_event_details].nil?
+        LambdaFunctionScheduledEventDetails.validate!(input[:lambda_function_scheduled_event_details], context: "#{context}[:lambda_function_scheduled_event_details]") unless input[:lambda_function_scheduled_event_details].nil?
+        LambdaFunctionStartFailedEventDetails.validate!(input[:lambda_function_start_failed_event_details], context: "#{context}[:lambda_function_start_failed_event_details]") unless input[:lambda_function_start_failed_event_details].nil?
+        LambdaFunctionSucceededEventDetails.validate!(input[:lambda_function_succeeded_event_details], context: "#{context}[:lambda_function_succeeded_event_details]") unless input[:lambda_function_succeeded_event_details].nil?
+        LambdaFunctionTimedOutEventDetails.validate!(input[:lambda_function_timed_out_event_details], context: "#{context}[:lambda_function_timed_out_event_details]") unless input[:lambda_function_timed_out_event_details].nil?
+        StateEnteredEventDetails.validate!(input[:state_entered_event_details], context: "#{context}[:state_entered_event_details]") unless input[:state_entered_event_details].nil?
+        StateExitedEventDetails.validate!(input[:state_exited_event_details], context: "#{context}[:state_exited_event_details]") unless input[:state_exited_event_details].nil?
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HistoryEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HistoryEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input, Types::LambdaFunctionScheduledEventDetails, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
         Hearth::Validator.validate!(input[:timeout_in_seconds], ::Integer, context: "#{context}[:timeout_in_seconds]")
       end
     end
@@ -536,7 +538,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LambdaFunctionSucceededEventDetails, context: context)
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -559,7 +561,7 @@ module AWS::SDK::SFN
     class ListActivitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActivitiesOutput, context: context)
-        Validators::ActivityList.validate!(input[:activities], context: "#{context}[:activities]") unless input[:activities].nil?
+        ActivityList.validate!(input[:activities], context: "#{context}[:activities]") unless input[:activities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -577,7 +579,7 @@ module AWS::SDK::SFN
     class ListExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExecutionsOutput, context: context)
-        Validators::ExecutionList.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
+        ExecutionList.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::SFN
     class ListStateMachinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStateMachinesOutput, context: context)
-        Validators::StateMachineList.validate!(input[:state_machines], context: "#{context}[:state_machines]") unless input[:state_machines].nil?
+        StateMachineList.validate!(input[:state_machines], context: "#{context}[:state_machines]") unless input[:state_machines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -608,14 +610,14 @@ module AWS::SDK::SFN
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class LogDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogDestination, context: context)
-        Validators::CloudWatchLogsLogGroup.validate!(input[:cloud_watch_logs_log_group], context: "#{context}[:cloud_watch_logs_log_group]") unless input[:cloud_watch_logs_log_group].nil?
+        CloudWatchLogsLogGroup.validate!(input[:cloud_watch_logs_log_group], context: "#{context}[:cloud_watch_logs_log_group]") unless input[:cloud_watch_logs_log_group].nil?
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -633,7 +635,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input, Types::LoggingConfiguration, context: context)
         Hearth::Validator.validate!(input[:level], ::String, context: "#{context}[:level]")
         Hearth::Validator.validate!(input[:include_execution_data], ::TrueClass, ::FalseClass, context: "#{context}[:include_execution_data]")
-        Validators::LogDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        LogDestinationList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
       end
     end
 
@@ -749,11 +751,11 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
         Hearth::Validator.validate!(input[:cause], ::String, context: "#{context}[:cause]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::CloudWatchEventsExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        CloudWatchEventsExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::CloudWatchEventsExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        CloudWatchEventsExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
         Hearth::Validator.validate!(input[:trace_header], ::String, context: "#{context}[:trace_header]")
-        Validators::BillingDetails.validate!(input[:billing_details], context: "#{context}[:billing_details]") unless input[:billing_details].nil?
+        BillingDetails.validate!(input[:billing_details], context: "#{context}[:billing_details]") unless input[:billing_details].nil?
       end
     end
 
@@ -762,7 +764,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input, Types::StateEnteredEventDetails, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:input_details], context: "#{context}[:input_details]") unless input[:input_details].nil?
       end
     end
 
@@ -771,7 +773,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input, Types::StateExitedEventDetails, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -807,7 +809,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StateMachineListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StateMachineListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -866,7 +868,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -948,7 +950,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -958,7 +960,7 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:output], ::String, context: "#{context}[:output]")
-        Validators::HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
+        HistoryEventExecutionDataDetails.validate!(input[:output_details], context: "#{context}[:output_details]") unless input[:output_details].nil?
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::SFN
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1014,8 +1016,8 @@ module AWS::SDK::SFN
         Hearth::Validator.validate!(input[:state_machine_arn], ::String, context: "#{context}[:state_machine_arn]")
         Hearth::Validator.validate!(input[:definition], ::String, context: "#{context}[:definition]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
-        Validators::TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
+        LoggingConfiguration.validate!(input[:logging_configuration], context: "#{context}[:logging_configuration]") unless input[:logging_configuration].nil?
+        TracingConfiguration.validate!(input[:tracing_configuration], context: "#{context}[:tracing_configuration]") unless input[:tracing_configuration].nil?
       end
     end
 

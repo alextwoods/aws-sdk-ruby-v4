@@ -316,7 +316,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -343,15 +343,15 @@ module AWS::SDK::Imagebuilder
           change_description: 'change_description',
           type: 'type',
           platform: 'platform',
-          supported_os_versions: Stubs::OsVersionList.default(visited),
-          state: Stubs::ComponentState.default(visited),
-          parameters: Stubs::ComponentParameterDetailList.default(visited),
+          supported_os_versions: OsVersionList.default(visited),
+          state: ComponentState.default(visited),
+          parameters: ComponentParameterDetailList.default(visited),
           owner: 'owner',
           data: 'data',
           kms_key_id: 'kms_key_id',
           encrypted: false,
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -404,7 +404,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ComponentParameterDetailList')
         visited = visited + ['ComponentParameterDetailList']
         [
-          Stubs::ComponentParameterDetail.default(visited)
+          ComponentParameterDetail.default(visited)
         ]
       end
 
@@ -426,7 +426,7 @@ module AWS::SDK::Imagebuilder
         {
           name: 'name',
           type: 'type',
-          default_value: Stubs::ComponentParameterValueList.default(visited),
+          default_value: ComponentParameterValueList.default(visited),
           description: 'description',
         }
       end
@@ -526,7 +526,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          container_recipe: Stubs::ContainerRecipe.default(visited),
+          container_recipe: ContainerRecipe.default(visited),
         }
       end
 
@@ -553,16 +553,16 @@ module AWS::SDK::Imagebuilder
           platform: 'platform',
           owner: 'owner',
           version: 'version',
-          components: Stubs::ComponentConfigurationList.default(visited),
-          instance_configuration: Stubs::InstanceConfiguration.default(visited),
+          components: ComponentConfigurationList.default(visited),
+          instance_configuration: InstanceConfiguration.default(visited),
           dockerfile_template_data: 'dockerfile_template_data',
           kms_key_id: 'kms_key_id',
           encrypted: false,
           parent_image: 'parent_image',
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           working_directory: 'working_directory',
-          target_repository: Stubs::TargetContainerRepository.default(visited),
+          target_repository: TargetContainerRepository.default(visited),
         }
       end
 
@@ -617,7 +617,7 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['InstanceConfiguration']
         {
           image: 'image',
-          block_device_mappings: Stubs::InstanceBlockDeviceMappings.default(visited),
+          block_device_mappings: InstanceBlockDeviceMappings.default(visited),
         }
       end
 
@@ -636,7 +636,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('InstanceBlockDeviceMappings')
         visited = visited + ['InstanceBlockDeviceMappings']
         [
-          Stubs::InstanceBlockDeviceMapping.default(visited)
+          InstanceBlockDeviceMapping.default(visited)
         ]
       end
 
@@ -657,7 +657,7 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['InstanceBlockDeviceMapping']
         {
           device_name: 'device_name',
-          ebs: Stubs::EbsInstanceBlockDeviceSpecification.default(visited),
+          ebs: EbsInstanceBlockDeviceSpecification.default(visited),
           virtual_name: 'virtual_name',
           no_device: 'no_device',
         }
@@ -712,7 +712,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ComponentConfigurationList')
         visited = visited + ['ComponentConfigurationList']
         [
-          Stubs::ComponentConfiguration.default(visited)
+          ComponentConfiguration.default(visited)
         ]
       end
 
@@ -733,7 +733,7 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['ComponentConfiguration']
         {
           component_arn: 'component_arn',
-          parameters: Stubs::ComponentParameterList.default(visited),
+          parameters: ComponentParameterList.default(visited),
         }
       end
 
@@ -752,7 +752,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ComponentParameterList')
         visited = visited + ['ComponentParameterList']
         [
-          Stubs::ComponentParameter.default(visited)
+          ComponentParameter.default(visited)
         ]
       end
 
@@ -773,7 +773,7 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['ComponentParameter']
         {
           name: 'name',
-          value: Stubs::ComponentParameterValueList.default(visited),
+          value: ComponentParameterValueList.default(visited),
         }
       end
 
@@ -810,7 +810,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          distribution_configuration: Stubs::DistributionConfiguration.default(visited),
+          distribution_configuration: DistributionConfiguration.default(visited),
         }
       end
 
@@ -833,11 +833,11 @@ module AWS::SDK::Imagebuilder
           arn: 'arn',
           name: 'name',
           description: 'description',
-          distributions: Stubs::DistributionList.default(visited),
+          distributions: DistributionList.default(visited),
           timeout_minutes: 1,
           date_created: 'date_created',
           date_updated: 'date_updated',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -862,7 +862,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('DistributionList')
         visited = visited + ['DistributionList']
         [
-          Stubs::Distribution.default(visited)
+          Distribution.default(visited)
         ]
       end
 
@@ -883,12 +883,12 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['Distribution']
         {
           region: 'region',
-          ami_distribution_configuration: Stubs::AmiDistributionConfiguration.default(visited),
-          container_distribution_configuration: Stubs::ContainerDistributionConfiguration.default(visited),
-          license_configuration_arns: Stubs::LicenseConfigurationArnList.default(visited),
-          launch_template_configurations: Stubs::LaunchTemplateConfigurationList.default(visited),
-          s3_export_configuration: Stubs::S3ExportConfiguration.default(visited),
-          fast_launch_configurations: Stubs::FastLaunchConfigurationList.default(visited),
+          ami_distribution_configuration: AmiDistributionConfiguration.default(visited),
+          container_distribution_configuration: ContainerDistributionConfiguration.default(visited),
+          license_configuration_arns: LicenseConfigurationArnList.default(visited),
+          launch_template_configurations: LaunchTemplateConfigurationList.default(visited),
+          s3_export_configuration: S3ExportConfiguration.default(visited),
+          fast_launch_configurations: FastLaunchConfigurationList.default(visited),
         }
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('FastLaunchConfigurationList')
         visited = visited + ['FastLaunchConfigurationList']
         [
-          Stubs::FastLaunchConfiguration.default(visited)
+          FastLaunchConfiguration.default(visited)
         ]
       end
 
@@ -933,9 +933,9 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['FastLaunchConfiguration']
         {
           enabled: false,
-          snapshot_configuration: Stubs::FastLaunchSnapshotConfiguration.default(visited),
+          snapshot_configuration: FastLaunchSnapshotConfiguration.default(visited),
           max_parallel_launches: 1,
-          launch_template: Stubs::FastLaunchLaunchTemplateSpecification.default(visited),
+          launch_template: FastLaunchLaunchTemplateSpecification.default(visited),
           account_id: 'account_id',
         }
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('LaunchTemplateConfigurationList')
         visited = visited + ['LaunchTemplateConfigurationList']
         [
-          Stubs::LaunchTemplateConfiguration.default(visited)
+          LaunchTemplateConfiguration.default(visited)
         ]
       end
 
@@ -1085,8 +1085,8 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['ContainerDistributionConfiguration']
         {
           description: 'description',
-          container_tags: Stubs::StringList.default(visited),
-          target_repository: Stubs::TargetContainerRepository.default(visited),
+          container_tags: StringList.default(visited),
+          target_repository: TargetContainerRepository.default(visited),
         }
       end
 
@@ -1128,10 +1128,10 @@ module AWS::SDK::Imagebuilder
         {
           name: 'name',
           description: 'description',
-          target_account_ids: Stubs::AccountList.default(visited),
-          ami_tags: Stubs::TagMap.default(visited),
+          target_account_ids: AccountList.default(visited),
+          ami_tags: TagMap.default(visited),
           kms_key_id: 'kms_key_id',
-          launch_permission: Stubs::LaunchPermissionConfiguration.default(visited),
+          launch_permission: LaunchPermissionConfiguration.default(visited),
         }
       end
 
@@ -1154,10 +1154,10 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('LaunchPermissionConfiguration')
         visited = visited + ['LaunchPermissionConfiguration']
         {
-          user_ids: Stubs::AccountList.default(visited),
-          user_groups: Stubs::StringList.default(visited),
-          organization_arns: Stubs::OrganizationArnList.default(visited),
-          organizational_unit_arns: Stubs::OrganizationalUnitArnList.default(visited),
+          user_ids: AccountList.default(visited),
+          user_groups: StringList.default(visited),
+          organization_arns: OrganizationArnList.default(visited),
+          organizational_unit_arns: OrganizationalUnitArnList.default(visited),
         }
       end
 
@@ -1237,7 +1237,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image: Stubs::Image.default(visited),
+          image: Image.default(visited),
         }
       end
 
@@ -1264,17 +1264,17 @@ module AWS::SDK::Imagebuilder
           platform: 'platform',
           enhanced_image_metadata_enabled: false,
           os_version: 'os_version',
-          state: Stubs::ImageState.default(visited),
-          image_recipe: Stubs::ImageRecipe.default(visited),
-          container_recipe: Stubs::ContainerRecipe.default(visited),
+          state: ImageState.default(visited),
+          image_recipe: ImageRecipe.default(visited),
+          container_recipe: ContainerRecipe.default(visited),
           source_pipeline_name: 'source_pipeline_name',
           source_pipeline_arn: 'source_pipeline_arn',
-          infrastructure_configuration: Stubs::InfrastructureConfiguration.default(visited),
-          distribution_configuration: Stubs::DistributionConfiguration.default(visited),
-          image_tests_configuration: Stubs::ImageTestsConfiguration.default(visited),
+          infrastructure_configuration: InfrastructureConfiguration.default(visited),
+          distribution_configuration: DistributionConfiguration.default(visited),
+          image_tests_configuration: ImageTestsConfiguration.default(visited),
           date_created: 'date_created',
-          output_resources: Stubs::OutputResources.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          output_resources: OutputResources.default(visited),
+          tags: TagMap.default(visited),
           build_type: 'build_type',
         }
       end
@@ -1311,8 +1311,8 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('OutputResources')
         visited = visited + ['OutputResources']
         {
-          amis: Stubs::AmiList.default(visited),
-          containers: Stubs::ContainerList.default(visited),
+          amis: AmiList.default(visited),
+          containers: ContainerList.default(visited),
         }
       end
 
@@ -1331,7 +1331,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ContainerList')
         visited = visited + ['ContainerList']
         [
-          Stubs::Container.default(visited)
+          Container.default(visited)
         ]
       end
 
@@ -1352,7 +1352,7 @@ module AWS::SDK::Imagebuilder
         visited = visited + ['Container']
         {
           region: 'region',
-          image_uris: Stubs::StringList.default(visited),
+          image_uris: StringList.default(visited),
         }
       end
 
@@ -1371,7 +1371,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('AmiList')
         visited = visited + ['AmiList']
         [
-          Stubs::Ami.default(visited)
+          Ami.default(visited)
         ]
       end
 
@@ -1395,7 +1395,7 @@ module AWS::SDK::Imagebuilder
           image: 'image',
           name: 'name',
           description: 'description',
-          state: Stubs::ImageState.default(visited),
+          state: ImageState.default(visited),
           account_id: 'account_id',
         }
       end
@@ -1462,19 +1462,19 @@ module AWS::SDK::Imagebuilder
           arn: 'arn',
           name: 'name',
           description: 'description',
-          instance_types: Stubs::InstanceTypeList.default(visited),
+          instance_types: InstanceTypeList.default(visited),
           instance_profile_name: 'instance_profile_name',
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
           subnet_id: 'subnet_id',
-          logging: Stubs::Logging.default(visited),
+          logging: Logging.default(visited),
           key_pair: 'key_pair',
           terminate_instance_on_failure: false,
           sns_topic_arn: 'sns_topic_arn',
           date_created: 'date_created',
           date_updated: 'date_updated',
-          resource_tags: Stubs::ResourceTagMap.default(visited),
-          instance_metadata_options: Stubs::InstanceMetadataOptions.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          resource_tags: ResourceTagMap.default(visited),
+          instance_metadata_options: InstanceMetadataOptions.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1547,7 +1547,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('Logging')
         visited = visited + ['Logging']
         {
-          s3_logs: Stubs::S3Logs.default(visited),
+          s3_logs: S3Logs.default(visited),
         }
       end
 
@@ -1632,13 +1632,13 @@ module AWS::SDK::Imagebuilder
           platform: 'platform',
           owner: 'owner',
           version: 'version',
-          components: Stubs::ComponentConfigurationList.default(visited),
+          components: ComponentConfigurationList.default(visited),
           parent_image: 'parent_image',
-          block_device_mappings: Stubs::InstanceBlockDeviceMappings.default(visited),
+          block_device_mappings: InstanceBlockDeviceMappings.default(visited),
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           working_directory: 'working_directory',
-          additional_instance_configuration: Stubs::AdditionalInstanceConfiguration.default(visited),
+          additional_instance_configuration: AdditionalInstanceConfiguration.default(visited),
         }
       end
 
@@ -1669,7 +1669,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('AdditionalInstanceConfiguration')
         visited = visited + ['AdditionalInstanceConfiguration']
         {
-          systems_manager_agent: Stubs::SystemsManagerAgent.default(visited),
+          systems_manager_agent: SystemsManagerAgent.default(visited),
           user_data_override: 'user_data_override',
         }
       end
@@ -1706,7 +1706,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_pipeline: Stubs::ImagePipeline.default(visited),
+          image_pipeline: ImagePipeline.default(visited),
         }
       end
 
@@ -1735,14 +1735,14 @@ module AWS::SDK::Imagebuilder
           container_recipe_arn: 'container_recipe_arn',
           infrastructure_configuration_arn: 'infrastructure_configuration_arn',
           distribution_configuration_arn: 'distribution_configuration_arn',
-          image_tests_configuration: Stubs::ImageTestsConfiguration.default(visited),
-          schedule: Stubs::Schedule.default(visited),
+          image_tests_configuration: ImageTestsConfiguration.default(visited),
+          schedule: Schedule.default(visited),
           status: 'status',
           date_created: 'date_created',
           date_updated: 'date_updated',
           date_last_run: 'date_last_run',
           date_next_run: 'date_next_run',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1816,7 +1816,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_recipe: Stubs::ImageRecipe.default(visited),
+          image_recipe: ImageRecipe.default(visited),
         }
       end
 
@@ -1854,7 +1854,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          infrastructure_configuration: Stubs::InfrastructureConfiguration.default(visited),
+          infrastructure_configuration: InfrastructureConfiguration.default(visited),
         }
       end
 
@@ -1915,7 +1915,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          component_summary_list: Stubs::ComponentSummaryList.default(visited),
+          component_summary_list: ComponentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1937,7 +1937,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ComponentSummaryList')
         visited = visited + ['ComponentSummaryList']
         [
-          Stubs::ComponentSummary.default(visited)
+          ComponentSummary.default(visited)
         ]
       end
 
@@ -1961,14 +1961,14 @@ module AWS::SDK::Imagebuilder
           name: 'name',
           version: 'version',
           platform: 'platform',
-          supported_os_versions: Stubs::OsVersionList.default(visited),
-          state: Stubs::ComponentState.default(visited),
+          supported_os_versions: OsVersionList.default(visited),
+          state: ComponentState.default(visited),
           type: 'type',
           owner: 'owner',
           description: 'description',
           change_description: 'change_description',
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1996,7 +1996,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          component_version_list: Stubs::ComponentVersionList.default(visited),
+          component_version_list: ComponentVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2018,7 +2018,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ComponentVersionList')
         visited = visited + ['ComponentVersionList']
         [
-          Stubs::ComponentVersion.default(visited)
+          ComponentVersion.default(visited)
         ]
       end
 
@@ -2043,7 +2043,7 @@ module AWS::SDK::Imagebuilder
           version: 'version',
           description: 'description',
           platform: 'platform',
-          supported_os_versions: Stubs::OsVersionList.default(visited),
+          supported_os_versions: OsVersionList.default(visited),
           type: 'type',
           owner: 'owner',
           date_created: 'date_created',
@@ -2071,7 +2071,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          container_recipe_summary_list: Stubs::ContainerRecipeSummaryList.default(visited),
+          container_recipe_summary_list: ContainerRecipeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2093,7 +2093,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ContainerRecipeSummaryList')
         visited = visited + ['ContainerRecipeSummaryList']
         [
-          Stubs::ContainerRecipeSummary.default(visited)
+          ContainerRecipeSummary.default(visited)
         ]
       end
 
@@ -2120,7 +2120,7 @@ module AWS::SDK::Imagebuilder
           owner: 'owner',
           parent_image: 'parent_image',
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2144,7 +2144,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          distribution_configuration_summary_list: Stubs::DistributionConfigurationSummaryList.default(visited),
+          distribution_configuration_summary_list: DistributionConfigurationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2166,7 +2166,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('DistributionConfigurationSummaryList')
         visited = visited + ['DistributionConfigurationSummaryList']
         [
-          Stubs::DistributionConfigurationSummary.default(visited)
+          DistributionConfigurationSummary.default(visited)
         ]
       end
 
@@ -2191,8 +2191,8 @@ module AWS::SDK::Imagebuilder
           description: 'description',
           date_created: 'date_created',
           date_updated: 'date_updated',
-          tags: Stubs::TagMap.default(visited),
-          regions: Stubs::RegionList.default(visited),
+          tags: TagMap.default(visited),
+          regions: RegionList.default(visited),
         }
       end
 
@@ -2235,7 +2235,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_summary_list: Stubs::ImageSummaryList.default(visited),
+          image_summary_list: ImageSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2257,7 +2257,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ImageSummaryList')
         visited = visited + ['ImageSummaryList']
         [
-          Stubs::ImageSummary.default(visited)
+          ImageSummary.default(visited)
         ]
       end
 
@@ -2283,11 +2283,11 @@ module AWS::SDK::Imagebuilder
           version: 'version',
           platform: 'platform',
           os_version: 'os_version',
-          state: Stubs::ImageState.default(visited),
+          state: ImageState.default(visited),
           owner: 'owner',
           date_created: 'date_created',
-          output_resources: Stubs::OutputResources.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          output_resources: OutputResources.default(visited),
+          tags: TagMap.default(visited),
           build_type: 'build_type',
         }
       end
@@ -2316,7 +2316,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_package_list: Stubs::ImagePackageList.default(visited),
+          image_package_list: ImagePackageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2338,7 +2338,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ImagePackageList')
         visited = visited + ['ImagePackageList']
         [
-          Stubs::ImagePackage.default(visited)
+          ImagePackage.default(visited)
         ]
       end
 
@@ -2377,7 +2377,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_summary_list: Stubs::ImageSummaryList.default(visited),
+          image_summary_list: ImageSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2398,7 +2398,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_pipeline_list: Stubs::ImagePipelineList.default(visited),
+          image_pipeline_list: ImagePipelineList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2420,7 +2420,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ImagePipelineList')
         visited = visited + ['ImagePipelineList']
         [
-          Stubs::ImagePipeline.default(visited)
+          ImagePipeline.default(visited)
         ]
       end
 
@@ -2439,7 +2439,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_recipe_summary_list: Stubs::ImageRecipeSummaryList.default(visited),
+          image_recipe_summary_list: ImageRecipeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2461,7 +2461,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ImageRecipeSummaryList')
         visited = visited + ['ImageRecipeSummaryList']
         [
-          Stubs::ImageRecipeSummary.default(visited)
+          ImageRecipeSummary.default(visited)
         ]
       end
 
@@ -2487,7 +2487,7 @@ module AWS::SDK::Imagebuilder
           owner: 'owner',
           parent_image: 'parent_image',
           date_created: 'date_created',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2510,7 +2510,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          image_version_list: Stubs::ImageVersionList.default(visited),
+          image_version_list: ImageVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2532,7 +2532,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('ImageVersionList')
         visited = visited + ['ImageVersionList']
         [
-          Stubs::ImageVersion.default(visited)
+          ImageVersion.default(visited)
         ]
       end
 
@@ -2585,7 +2585,7 @@ module AWS::SDK::Imagebuilder
       def self.default(visited=[])
         {
           request_id: 'request_id',
-          infrastructure_configuration_summary_list: Stubs::InfrastructureConfigurationSummaryList.default(visited),
+          infrastructure_configuration_summary_list: InfrastructureConfigurationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2607,7 +2607,7 @@ module AWS::SDK::Imagebuilder
         return nil if visited.include?('InfrastructureConfigurationSummaryList')
         visited = visited + ['InfrastructureConfigurationSummaryList']
         [
-          Stubs::InfrastructureConfigurationSummary.default(visited)
+          InfrastructureConfigurationSummary.default(visited)
         ]
       end
 
@@ -2632,9 +2632,9 @@ module AWS::SDK::Imagebuilder
           description: 'description',
           date_created: 'date_created',
           date_updated: 'date_updated',
-          resource_tags: Stubs::ResourceTagMap.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          instance_types: Stubs::InstanceTypeList.default(visited),
+          resource_tags: ResourceTagMap.default(visited),
+          tags: TagMap.default(visited),
+          instance_types: InstanceTypeList.default(visited),
           instance_profile_name: 'instance_profile_name',
         }
       end
@@ -2659,7 +2659,7 @@ module AWS::SDK::Imagebuilder
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

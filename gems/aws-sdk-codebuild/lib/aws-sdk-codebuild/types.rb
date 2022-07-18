@@ -626,11 +626,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.build_complete ||= false
       end
-
     end
 
     # <p>Information about build output artifacts.</p>
@@ -999,11 +999,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.complete ||= false
       end
-
     end
 
     # <p>Specifies filters when retrieving batch builds.</p>
@@ -1203,11 +1203,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ignore_failure ||= false
       end
-
     end
 
     # <p>Information about a build that could not be successfully deleted.</p>
@@ -2146,11 +2146,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_reports ||= false
       end
-
     end
 
     DeleteReportGroupOutput = ::Struct.new(
@@ -4421,11 +4421,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.badge_enabled ||= false
       end
-
     end
 
     # <p>Contains configuration information about a batch build project.</p>
@@ -7290,11 +7290,11 @@ module AWS::SDK::CodeBuild
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rotate_secret ||= false
       end
-
     end
 
     # @!attribute webhook

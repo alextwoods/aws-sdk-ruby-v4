@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudFront
   module Validators
 
@@ -58,7 +60,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::ActiveTrustedKeyGroups, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::KGKeyPairIdsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        KGKeyPairIdsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::ActiveTrustedSigners, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::SignerList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        SignerList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AliasICPRecordal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AliasICPRecordal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Aliases, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AliasList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AliasList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -109,8 +111,8 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AllowedMethods, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::MethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
-        Validators::CachedMethods.validate!(input[:cached_methods], context: "#{context}[:cached_methods]") unless input[:cached_methods].nil?
+        MethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CachedMethods.validate!(input[:cached_methods], context: "#{context}[:cached_methods]") unless input[:cached_methods].nil?
       end
     end
 
@@ -156,20 +158,20 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::CacheBehavior, context: context)
         Hearth::Validator.validate!(input[:path_pattern], ::String, context: "#{context}[:path_pattern]")
         Hearth::Validator.validate!(input[:target_origin_id], ::String, context: "#{context}[:target_origin_id]")
-        Validators::TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
-        Validators::TrustedKeyGroups.validate!(input[:trusted_key_groups], context: "#{context}[:trusted_key_groups]") unless input[:trusted_key_groups].nil?
+        TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
+        TrustedKeyGroups.validate!(input[:trusted_key_groups], context: "#{context}[:trusted_key_groups]") unless input[:trusted_key_groups].nil?
         Hearth::Validator.validate!(input[:viewer_protocol_policy], ::String, context: "#{context}[:viewer_protocol_policy]")
-        Validators::AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
+        AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
         Hearth::Validator.validate!(input[:smooth_streaming], ::TrueClass, ::FalseClass, context: "#{context}[:smooth_streaming]")
         Hearth::Validator.validate!(input[:compress], ::TrueClass, ::FalseClass, context: "#{context}[:compress]")
-        Validators::LambdaFunctionAssociations.validate!(input[:lambda_function_associations], context: "#{context}[:lambda_function_associations]") unless input[:lambda_function_associations].nil?
-        Validators::FunctionAssociations.validate!(input[:function_associations], context: "#{context}[:function_associations]") unless input[:function_associations].nil?
+        LambdaFunctionAssociations.validate!(input[:lambda_function_associations], context: "#{context}[:lambda_function_associations]") unless input[:lambda_function_associations].nil?
+        FunctionAssociations.validate!(input[:function_associations], context: "#{context}[:function_associations]") unless input[:function_associations].nil?
         Hearth::Validator.validate!(input[:field_level_encryption_id], ::String, context: "#{context}[:field_level_encryption_id]")
         Hearth::Validator.validate!(input[:realtime_log_config_arn], ::String, context: "#{context}[:realtime_log_config_arn]")
         Hearth::Validator.validate!(input[:cache_policy_id], ::String, context: "#{context}[:cache_policy_id]")
         Hearth::Validator.validate!(input[:origin_request_policy_id], ::String, context: "#{context}[:origin_request_policy_id]")
         Hearth::Validator.validate!(input[:response_headers_policy_id], ::String, context: "#{context}[:response_headers_policy_id]")
-        Validators::ForwardedValues.validate!(input[:forwarded_values], context: "#{context}[:forwarded_values]") unless input[:forwarded_values].nil?
+        ForwardedValues.validate!(input[:forwarded_values], context: "#{context}[:forwarded_values]") unless input[:forwarded_values].nil?
         Hearth::Validator.validate!(input[:min_ttl], ::Integer, context: "#{context}[:min_ttl]")
         Hearth::Validator.validate!(input[:default_ttl], ::Integer, context: "#{context}[:default_ttl]")
         Hearth::Validator.validate!(input[:max_ttl], ::Integer, context: "#{context}[:max_ttl]")
@@ -180,7 +182,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheBehavior.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheBehavior.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CacheBehaviors, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::CacheBehaviorList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CacheBehaviorList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::CachePolicy, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
+        CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:default_ttl], ::Integer, context: "#{context}[:default_ttl]")
         Hearth::Validator.validate!(input[:max_ttl], ::Integer, context: "#{context}[:max_ttl]")
         Hearth::Validator.validate!(input[:min_ttl], ::Integer, context: "#{context}[:min_ttl]")
-        Validators::ParametersInCacheKeyAndForwardedToOrigin.validate!(input[:parameters_in_cache_key_and_forwarded_to_origin], context: "#{context}[:parameters_in_cache_key_and_forwarded_to_origin]") unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
+        ParametersInCacheKeyAndForwardedToOrigin.validate!(input[:parameters_in_cache_key_and_forwarded_to_origin], context: "#{context}[:parameters_in_cache_key_and_forwarded_to_origin]") unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
       end
     end
 
@@ -225,7 +227,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachePolicyCookiesConfig, context: context)
         Hearth::Validator.validate!(input[:cookie_behavior], ::String, context: "#{context}[:cookie_behavior]")
-        Validators::CookieNames.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
+        CookieNames.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachePolicyHeadersConfig, context: context)
         Hearth::Validator.validate!(input[:header_behavior], ::String, context: "#{context}[:header_behavior]")
-        Validators::Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::CachePolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CachePolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachePolicyQueryStringsConfig, context: context)
         Hearth::Validator.validate!(input[:query_string_behavior], ::String, context: "#{context}[:query_string_behavior]")
-        Validators::QueryStringNames.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
+        QueryStringNames.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
       end
     end
 
@@ -266,7 +268,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachePolicySummary, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
+        CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CachePolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CachePolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachedMethods, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::MethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        MethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -299,7 +301,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::CloudFrontOriginAccessIdentity, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:s3_canonical_user_id], ::String, context: "#{context}[:s3_canonical_user_id]")
-        Validators::CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
+        CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
       end
     end
 
@@ -333,7 +335,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::CloudFrontOriginAccessIdentitySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CloudFrontOriginAccessIdentitySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudFrontOriginAccessIdentitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudFrontOriginAccessIdentitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -368,7 +370,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConflictingAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConflictingAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::ConflictingAliases.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ConflictingAliases.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContentTypeProfileConfig, context: context)
         Hearth::Validator.validate!(input[:forward_when_content_type_is_unknown], ::TrueClass, ::FalseClass, context: "#{context}[:forward_when_content_type_is_unknown]")
-        Validators::ContentTypeProfiles.validate!(input[:content_type_profiles], context: "#{context}[:content_type_profiles]") unless input[:content_type_profiles].nil?
+        ContentTypeProfiles.validate!(input[:content_type_profiles], context: "#{context}[:content_type_profiles]") unless input[:content_type_profiles].nil?
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContentTypeProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContentTypeProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -413,7 +415,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContentTypeProfiles, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::ContentTypeProfileList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ContentTypeProfileList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -430,7 +432,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CookieNames, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::CookieNameList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CookieNameList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -438,21 +440,21 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CookiePreference, context: context)
         Hearth::Validator.validate!(input[:forward], ::String, context: "#{context}[:forward]")
-        Validators::CookieNames.validate!(input[:whitelisted_names], context: "#{context}[:whitelisted_names]") unless input[:whitelisted_names].nil?
+        CookieNames.validate!(input[:whitelisted_names], context: "#{context}[:whitelisted_names]") unless input[:whitelisted_names].nil?
       end
     end
 
     class CreateCachePolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCachePolicyInput, context: context)
-        Validators::CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
+        CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
       end
     end
 
     class CreateCachePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCachePolicyOutput, context: context)
-        Validators::CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
+        CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -461,14 +463,14 @@ module AWS::SDK::CloudFront
     class CreateCloudFrontOriginAccessIdentityInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCloudFrontOriginAccessIdentityInput, context: context)
-        Validators::CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
+        CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
       end
     end
 
     class CreateCloudFrontOriginAccessIdentityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCloudFrontOriginAccessIdentityOutput, context: context)
-        Validators::CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
+        CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -477,14 +479,14 @@ module AWS::SDK::CloudFront
     class CreateDistributionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionInput, context: context)
-        Validators::DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
+        DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
       end
     end
 
     class CreateDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionOutput, context: context)
-        Validators::Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
+        Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -493,14 +495,14 @@ module AWS::SDK::CloudFront
     class CreateDistributionWithTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionWithTagsInput, context: context)
-        Validators::DistributionConfigWithTags.validate!(input[:distribution_config_with_tags], context: "#{context}[:distribution_config_with_tags]") unless input[:distribution_config_with_tags].nil?
+        DistributionConfigWithTags.validate!(input[:distribution_config_with_tags], context: "#{context}[:distribution_config_with_tags]") unless input[:distribution_config_with_tags].nil?
       end
     end
 
     class CreateDistributionWithTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionWithTagsOutput, context: context)
-        Validators::Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
+        Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -509,14 +511,14 @@ module AWS::SDK::CloudFront
     class CreateFieldLevelEncryptionConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFieldLevelEncryptionConfigInput, context: context)
-        Validators::FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
+        FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
       end
     end
 
     class CreateFieldLevelEncryptionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFieldLevelEncryptionConfigOutput, context: context)
-        Validators::FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
+        FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -525,14 +527,14 @@ module AWS::SDK::CloudFront
     class CreateFieldLevelEncryptionProfileInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFieldLevelEncryptionProfileInput, context: context)
-        Validators::FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
+        FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
       end
     end
 
     class CreateFieldLevelEncryptionProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFieldLevelEncryptionProfileOutput, context: context)
-        Validators::FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
+        FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -542,7 +544,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
+        FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
         Hearth::Validator.validate!(input[:function_code], ::String, context: "#{context}[:function_code]")
       end
     end
@@ -550,7 +552,7 @@ module AWS::SDK::CloudFront
     class CreateFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionOutput, context: context)
-        Validators::FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
+        FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -560,7 +562,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInvalidationInput, context: context)
         Hearth::Validator.validate!(input[:distribution_id], ::String, context: "#{context}[:distribution_id]")
-        Validators::InvalidationBatch.validate!(input[:invalidation_batch], context: "#{context}[:invalidation_batch]") unless input[:invalidation_batch].nil?
+        InvalidationBatch.validate!(input[:invalidation_batch], context: "#{context}[:invalidation_batch]") unless input[:invalidation_batch].nil?
       end
     end
 
@@ -568,21 +570,21 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInvalidationOutput, context: context)
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
-        Validators::Invalidation.validate!(input[:invalidation], context: "#{context}[:invalidation]") unless input[:invalidation].nil?
+        Invalidation.validate!(input[:invalidation], context: "#{context}[:invalidation]") unless input[:invalidation].nil?
       end
     end
 
     class CreateKeyGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyGroupInput, context: context)
-        Validators::KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
+        KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
       end
     end
 
     class CreateKeyGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyGroupOutput, context: context)
-        Validators::KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
+        KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -592,28 +594,28 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMonitoringSubscriptionInput, context: context)
         Hearth::Validator.validate!(input[:distribution_id], ::String, context: "#{context}[:distribution_id]")
-        Validators::MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
+        MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
       end
     end
 
     class CreateMonitoringSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMonitoringSubscriptionOutput, context: context)
-        Validators::MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
+        MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
       end
     end
 
     class CreateOriginRequestPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOriginRequestPolicyInput, context: context)
-        Validators::OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
+        OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
       end
     end
 
     class CreateOriginRequestPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOriginRequestPolicyOutput, context: context)
-        Validators::OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
+        OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -622,14 +624,14 @@ module AWS::SDK::CloudFront
     class CreatePublicKeyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePublicKeyInput, context: context)
-        Validators::PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
+        PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
       end
     end
 
     class CreatePublicKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePublicKeyOutput, context: context)
-        Validators::PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
+        PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -638,8 +640,8 @@ module AWS::SDK::CloudFront
     class CreateRealtimeLogConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRealtimeLogConfigInput, context: context)
-        Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
-        Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
+        FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
       end
@@ -648,21 +650,21 @@ module AWS::SDK::CloudFront
     class CreateRealtimeLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRealtimeLogConfigOutput, context: context)
-        Validators::RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
+        RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
       end
     end
 
     class CreateResponseHeadersPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResponseHeadersPolicyInput, context: context)
-        Validators::ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
+        ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
       end
     end
 
     class CreateResponseHeadersPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResponseHeadersPolicyOutput, context: context)
-        Validators::ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
+        ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -671,14 +673,14 @@ module AWS::SDK::CloudFront
     class CreateStreamingDistributionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingDistributionInput, context: context)
-        Validators::StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
+        StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
       end
     end
 
     class CreateStreamingDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingDistributionOutput, context: context)
-        Validators::StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
+        StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -687,14 +689,14 @@ module AWS::SDK::CloudFront
     class CreateStreamingDistributionWithTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingDistributionWithTagsInput, context: context)
-        Validators::StreamingDistributionConfigWithTags.validate!(input[:streaming_distribution_config_with_tags], context: "#{context}[:streaming_distribution_config_with_tags]") unless input[:streaming_distribution_config_with_tags].nil?
+        StreamingDistributionConfigWithTags.validate!(input[:streaming_distribution_config_with_tags], context: "#{context}[:streaming_distribution_config_with_tags]") unless input[:streaming_distribution_config_with_tags].nil?
       end
     end
 
     class CreateStreamingDistributionWithTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateStreamingDistributionWithTagsOutput, context: context)
-        Validators::StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
+        StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
@@ -714,7 +716,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomErrorResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomErrorResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomErrorResponses, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::CustomErrorResponseList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        CustomErrorResponseList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -731,7 +733,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomHeaders, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::OriginCustomHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        OriginCustomHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:http_port], ::Integer, context: "#{context}[:http_port]")
         Hearth::Validator.validate!(input[:https_port], ::Integer, context: "#{context}[:https_port]")
         Hearth::Validator.validate!(input[:origin_protocol_policy], ::String, context: "#{context}[:origin_protocol_policy]")
-        Validators::OriginSslProtocols.validate!(input[:origin_ssl_protocols], context: "#{context}[:origin_ssl_protocols]") unless input[:origin_ssl_protocols].nil?
+        OriginSslProtocols.validate!(input[:origin_ssl_protocols], context: "#{context}[:origin_ssl_protocols]") unless input[:origin_ssl_protocols].nil?
         Hearth::Validator.validate!(input[:origin_read_timeout], ::Integer, context: "#{context}[:origin_read_timeout]")
         Hearth::Validator.validate!(input[:origin_keepalive_timeout], ::Integer, context: "#{context}[:origin_keepalive_timeout]")
       end
@@ -751,20 +753,20 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DefaultCacheBehavior, context: context)
         Hearth::Validator.validate!(input[:target_origin_id], ::String, context: "#{context}[:target_origin_id]")
-        Validators::TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
-        Validators::TrustedKeyGroups.validate!(input[:trusted_key_groups], context: "#{context}[:trusted_key_groups]") unless input[:trusted_key_groups].nil?
+        TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
+        TrustedKeyGroups.validate!(input[:trusted_key_groups], context: "#{context}[:trusted_key_groups]") unless input[:trusted_key_groups].nil?
         Hearth::Validator.validate!(input[:viewer_protocol_policy], ::String, context: "#{context}[:viewer_protocol_policy]")
-        Validators::AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
+        AllowedMethods.validate!(input[:allowed_methods], context: "#{context}[:allowed_methods]") unless input[:allowed_methods].nil?
         Hearth::Validator.validate!(input[:smooth_streaming], ::TrueClass, ::FalseClass, context: "#{context}[:smooth_streaming]")
         Hearth::Validator.validate!(input[:compress], ::TrueClass, ::FalseClass, context: "#{context}[:compress]")
-        Validators::LambdaFunctionAssociations.validate!(input[:lambda_function_associations], context: "#{context}[:lambda_function_associations]") unless input[:lambda_function_associations].nil?
-        Validators::FunctionAssociations.validate!(input[:function_associations], context: "#{context}[:function_associations]") unless input[:function_associations].nil?
+        LambdaFunctionAssociations.validate!(input[:lambda_function_associations], context: "#{context}[:lambda_function_associations]") unless input[:lambda_function_associations].nil?
+        FunctionAssociations.validate!(input[:function_associations], context: "#{context}[:function_associations]") unless input[:function_associations].nil?
         Hearth::Validator.validate!(input[:field_level_encryption_id], ::String, context: "#{context}[:field_level_encryption_id]")
         Hearth::Validator.validate!(input[:realtime_log_config_arn], ::String, context: "#{context}[:realtime_log_config_arn]")
         Hearth::Validator.validate!(input[:cache_policy_id], ::String, context: "#{context}[:cache_policy_id]")
         Hearth::Validator.validate!(input[:origin_request_policy_id], ::String, context: "#{context}[:origin_request_policy_id]")
         Hearth::Validator.validate!(input[:response_headers_policy_id], ::String, context: "#{context}[:response_headers_policy_id]")
-        Validators::ForwardedValues.validate!(input[:forwarded_values], context: "#{context}[:forwarded_values]") unless input[:forwarded_values].nil?
+        ForwardedValues.validate!(input[:forwarded_values], context: "#{context}[:forwarded_values]") unless input[:forwarded_values].nil?
         Hearth::Validator.validate!(input[:min_ttl], ::Integer, context: "#{context}[:min_ttl]")
         Hearth::Validator.validate!(input[:default_ttl], ::Integer, context: "#{context}[:default_ttl]")
         Hearth::Validator.validate!(input[:max_ttl], ::Integer, context: "#{context}[:max_ttl]")
@@ -963,7 +965,7 @@ module AWS::SDK::CloudFront
     class DescribeFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFunctionOutput, context: context)
-        Validators::FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
+        FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -977,10 +979,10 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:in_progress_invalidation_batches], ::Integer, context: "#{context}[:in_progress_invalidation_batches]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ActiveTrustedSigners.validate!(input[:active_trusted_signers], context: "#{context}[:active_trusted_signers]") unless input[:active_trusted_signers].nil?
-        Validators::ActiveTrustedKeyGroups.validate!(input[:active_trusted_key_groups], context: "#{context}[:active_trusted_key_groups]") unless input[:active_trusted_key_groups].nil?
-        Validators::DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
-        Validators::AliasICPRecordals.validate!(input[:alias_icp_recordals], context: "#{context}[:alias_icp_recordals]") unless input[:alias_icp_recordals].nil?
+        ActiveTrustedSigners.validate!(input[:active_trusted_signers], context: "#{context}[:active_trusted_signers]") unless input[:active_trusted_signers].nil?
+        ActiveTrustedKeyGroups.validate!(input[:active_trusted_key_groups], context: "#{context}[:active_trusted_key_groups]") unless input[:active_trusted_key_groups].nil?
+        DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
+        AliasICPRecordals.validate!(input[:alias_icp_recordals], context: "#{context}[:alias_icp_recordals]") unless input[:alias_icp_recordals].nil?
       end
     end
 
@@ -995,19 +997,19 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DistributionConfig, context: context)
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:default_root_object], ::String, context: "#{context}[:default_root_object]")
-        Validators::Origins.validate!(input[:origins], context: "#{context}[:origins]") unless input[:origins].nil?
-        Validators::OriginGroups.validate!(input[:origin_groups], context: "#{context}[:origin_groups]") unless input[:origin_groups].nil?
-        Validators::DefaultCacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
-        Validators::CacheBehaviors.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
-        Validators::CustomErrorResponses.validate!(input[:custom_error_responses], context: "#{context}[:custom_error_responses]") unless input[:custom_error_responses].nil?
+        Origins.validate!(input[:origins], context: "#{context}[:origins]") unless input[:origins].nil?
+        OriginGroups.validate!(input[:origin_groups], context: "#{context}[:origin_groups]") unless input[:origin_groups].nil?
+        DefaultCacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
+        CacheBehaviors.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
+        CustomErrorResponses.validate!(input[:custom_error_responses], context: "#{context}[:custom_error_responses]") unless input[:custom_error_responses].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::LoggingConfig.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        LoggingConfig.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
         Hearth::Validator.validate!(input[:price_class], ::String, context: "#{context}[:price_class]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::ViewerCertificate.validate!(input[:viewer_certificate], context: "#{context}[:viewer_certificate]") unless input[:viewer_certificate].nil?
-        Validators::Restrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
+        ViewerCertificate.validate!(input[:viewer_certificate], context: "#{context}[:viewer_certificate]") unless input[:viewer_certificate].nil?
+        Restrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
         Hearth::Validator.validate!(input[:web_acl_id], ::String, context: "#{context}[:web_acl_id]")
         Hearth::Validator.validate!(input[:http_version], ::String, context: "#{context}[:http_version]")
         Hearth::Validator.validate!(input[:is_ipv6_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_ipv6_enabled]")
@@ -1017,8 +1019,8 @@ module AWS::SDK::CloudFront
     class DistributionConfigWithTags
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DistributionConfigWithTags, context: context)
-        Validators::DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1030,7 +1032,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::DistributionIdListSummary.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        DistributionIdListSummary.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1051,7 +1053,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::DistributionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        DistributionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1070,21 +1072,21 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
-        Validators::Origins.validate!(input[:origins], context: "#{context}[:origins]") unless input[:origins].nil?
-        Validators::OriginGroups.validate!(input[:origin_groups], context: "#{context}[:origin_groups]") unless input[:origin_groups].nil?
-        Validators::DefaultCacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
-        Validators::CacheBehaviors.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
-        Validators::CustomErrorResponses.validate!(input[:custom_error_responses], context: "#{context}[:custom_error_responses]") unless input[:custom_error_responses].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Origins.validate!(input[:origins], context: "#{context}[:origins]") unless input[:origins].nil?
+        OriginGroups.validate!(input[:origin_groups], context: "#{context}[:origin_groups]") unless input[:origin_groups].nil?
+        DefaultCacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
+        CacheBehaviors.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
+        CustomErrorResponses.validate!(input[:custom_error_responses], context: "#{context}[:custom_error_responses]") unless input[:custom_error_responses].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:price_class], ::String, context: "#{context}[:price_class]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::ViewerCertificate.validate!(input[:viewer_certificate], context: "#{context}[:viewer_certificate]") unless input[:viewer_certificate].nil?
-        Validators::Restrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
+        ViewerCertificate.validate!(input[:viewer_certificate], context: "#{context}[:viewer_certificate]") unless input[:viewer_certificate].nil?
+        Restrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
         Hearth::Validator.validate!(input[:web_acl_id], ::String, context: "#{context}[:web_acl_id]")
         Hearth::Validator.validate!(input[:http_version], ::String, context: "#{context}[:http_version]")
         Hearth::Validator.validate!(input[:is_ipv6_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_ipv6_enabled]")
-        Validators::AliasICPRecordals.validate!(input[:alias_icp_recordals], context: "#{context}[:alias_icp_recordals]") unless input[:alias_icp_recordals].nil?
+        AliasICPRecordals.validate!(input[:alias_icp_recordals], context: "#{context}[:alias_icp_recordals]") unless input[:alias_icp_recordals].nil?
       end
     end
 
@@ -1092,7 +1094,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DistributionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DistributionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,7 +1103,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EncryptionEntities, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::EncryptionEntityList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        EncryptionEntityList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1110,7 +1112,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::EncryptionEntity, context: context)
         Hearth::Validator.validate!(input[:public_key_id], ::String, context: "#{context}[:public_key_id]")
         Hearth::Validator.validate!(input[:provider_id], ::String, context: "#{context}[:provider_id]")
-        Validators::FieldPatterns.validate!(input[:field_patterns], context: "#{context}[:field_patterns]") unless input[:field_patterns].nil?
+        FieldPatterns.validate!(input[:field_patterns], context: "#{context}[:field_patterns]") unless input[:field_patterns].nil?
       end
     end
 
@@ -1118,7 +1120,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EncryptionEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EncryptionEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1127,7 +1129,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EndPoint, context: context)
         Hearth::Validator.validate!(input[:stream_type], ::String, context: "#{context}[:stream_type]")
-        Validators::KinesisStreamConfig.validate!(input[:kinesis_stream_config], context: "#{context}[:kinesis_stream_config]") unless input[:kinesis_stream_config].nil?
+        KinesisStreamConfig.validate!(input[:kinesis_stream_config], context: "#{context}[:kinesis_stream_config]") unless input[:kinesis_stream_config].nil?
       end
     end
 
@@ -1135,7 +1137,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1145,7 +1147,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::FieldLevelEncryption, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
+        FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
       end
     end
 
@@ -1154,8 +1156,8 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::FieldLevelEncryptionConfig, context: context)
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::QueryArgProfileConfig.validate!(input[:query_arg_profile_config], context: "#{context}[:query_arg_profile_config]") unless input[:query_arg_profile_config].nil?
-        Validators::ContentTypeProfileConfig.validate!(input[:content_type_profile_config], context: "#{context}[:content_type_profile_config]") unless input[:content_type_profile_config].nil?
+        QueryArgProfileConfig.validate!(input[:query_arg_profile_config], context: "#{context}[:query_arg_profile_config]") unless input[:query_arg_profile_config].nil?
+        ContentTypeProfileConfig.validate!(input[:content_type_profile_config], context: "#{context}[:content_type_profile_config]") unless input[:content_type_profile_config].nil?
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::FieldLevelEncryptionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        FieldLevelEncryptionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1188,7 +1190,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::FieldLevelEncryptionProfile, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
+        FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
       end
     end
 
@@ -1205,7 +1207,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
+        EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
       end
     end
 
@@ -1222,7 +1224,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::FieldLevelEncryptionProfileSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        FieldLevelEncryptionProfileSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
+        EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
     end
@@ -1248,7 +1250,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldLevelEncryptionProfileSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldLevelEncryptionProfileSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1259,8 +1261,8 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::QueryArgProfileConfig.validate!(input[:query_arg_profile_config], context: "#{context}[:query_arg_profile_config]") unless input[:query_arg_profile_config].nil?
-        Validators::ContentTypeProfileConfig.validate!(input[:content_type_profile_config], context: "#{context}[:content_type_profile_config]") unless input[:content_type_profile_config].nil?
+        QueryArgProfileConfig.validate!(input[:query_arg_profile_config], context: "#{context}[:query_arg_profile_config]") unless input[:query_arg_profile_config].nil?
+        ContentTypeProfileConfig.validate!(input[:content_type_profile_config], context: "#{context}[:content_type_profile_config]") unless input[:content_type_profile_config].nil?
       end
     end
 
@@ -1268,7 +1270,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldLevelEncryptionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldLevelEncryptionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1295,7 +1297,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FieldPatterns, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::FieldPatternList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        FieldPatternList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1303,9 +1305,9 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ForwardedValues, context: context)
         Hearth::Validator.validate!(input[:query_string], ::TrueClass, ::FalseClass, context: "#{context}[:query_string]")
-        Validators::CookiePreference.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
-        Validators::Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
-        Validators::QueryStringCacheKeys.validate!(input[:query_string_cache_keys], context: "#{context}[:query_string_cache_keys]") unless input[:query_string_cache_keys].nil?
+        CookiePreference.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
+        Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        QueryStringCacheKeys.validate!(input[:query_string_cache_keys], context: "#{context}[:query_string_cache_keys]") unless input[:query_string_cache_keys].nil?
       end
     end
 
@@ -1328,7 +1330,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FunctionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FunctionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1337,7 +1339,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionAssociations, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::FunctionAssociationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        FunctionAssociationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1371,7 +1373,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::FunctionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        FunctionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1397,8 +1399,8 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::FunctionSummary, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
-        Validators::FunctionMetadata.validate!(input[:function_metadata], context: "#{context}[:function_metadata]") unless input[:function_metadata].nil?
+        FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
+        FunctionMetadata.validate!(input[:function_metadata], context: "#{context}[:function_metadata]") unless input[:function_metadata].nil?
       end
     end
 
@@ -1406,7 +1408,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FunctionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FunctionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1416,7 +1418,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::GeoRestriction, context: context)
         Hearth::Validator.validate!(input[:restriction_type], ::String, context: "#{context}[:restriction_type]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::LocationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        LocationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::CloudFront
     class GetCachePolicyConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCachePolicyConfigOutput, context: context)
-        Validators::CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
+        CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1445,7 +1447,7 @@ module AWS::SDK::CloudFront
     class GetCachePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCachePolicyOutput, context: context)
-        Validators::CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
+        CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1460,7 +1462,7 @@ module AWS::SDK::CloudFront
     class GetCloudFrontOriginAccessIdentityConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCloudFrontOriginAccessIdentityConfigOutput, context: context)
-        Validators::CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
+        CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::CloudFront
     class GetCloudFrontOriginAccessIdentityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCloudFrontOriginAccessIdentityOutput, context: context)
-        Validators::CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
+        CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1490,7 +1492,7 @@ module AWS::SDK::CloudFront
     class GetDistributionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionConfigOutput, context: context)
-        Validators::DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
+        DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1505,7 +1507,7 @@ module AWS::SDK::CloudFront
     class GetDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionOutput, context: context)
-        Validators::Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
+        Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1520,7 +1522,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFieldLevelEncryptionConfigOutput, context: context)
-        Validators::FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
+        FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1535,7 +1537,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFieldLevelEncryptionOutput, context: context)
-        Validators::FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
+        FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1550,7 +1552,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionProfileConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFieldLevelEncryptionProfileConfigOutput, context: context)
-        Validators::FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
+        FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1565,7 +1567,7 @@ module AWS::SDK::CloudFront
     class GetFieldLevelEncryptionProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFieldLevelEncryptionProfileOutput, context: context)
-        Validators::FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
+        FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::CloudFront
     class GetInvalidationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInvalidationOutput, context: context)
-        Validators::Invalidation.validate!(input[:invalidation], context: "#{context}[:invalidation]") unless input[:invalidation].nil?
+        Invalidation.validate!(input[:invalidation], context: "#{context}[:invalidation]") unless input[:invalidation].nil?
       end
     end
 
@@ -1612,7 +1614,7 @@ module AWS::SDK::CloudFront
     class GetKeyGroupConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetKeyGroupConfigOutput, context: context)
-        Validators::KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
+        KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1627,7 +1629,7 @@ module AWS::SDK::CloudFront
     class GetKeyGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetKeyGroupOutput, context: context)
-        Validators::KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
+        KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1642,7 +1644,7 @@ module AWS::SDK::CloudFront
     class GetMonitoringSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMonitoringSubscriptionOutput, context: context)
-        Validators::MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
+        MonitoringSubscription.validate!(input[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless input[:monitoring_subscription].nil?
       end
     end
 
@@ -1656,7 +1658,7 @@ module AWS::SDK::CloudFront
     class GetOriginRequestPolicyConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOriginRequestPolicyConfigOutput, context: context)
-        Validators::OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
+        OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1671,7 +1673,7 @@ module AWS::SDK::CloudFront
     class GetOriginRequestPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOriginRequestPolicyOutput, context: context)
-        Validators::OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
+        OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::CloudFront
     class GetPublicKeyConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPublicKeyConfigOutput, context: context)
-        Validators::PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
+        PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1701,7 +1703,7 @@ module AWS::SDK::CloudFront
     class GetPublicKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPublicKeyOutput, context: context)
-        Validators::PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
+        PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1717,7 +1719,7 @@ module AWS::SDK::CloudFront
     class GetRealtimeLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRealtimeLogConfigOutput, context: context)
-        Validators::RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
+        RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
       end
     end
 
@@ -1731,7 +1733,7 @@ module AWS::SDK::CloudFront
     class GetResponseHeadersPolicyConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResponseHeadersPolicyConfigOutput, context: context)
-        Validators::ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
+        ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1746,7 +1748,7 @@ module AWS::SDK::CloudFront
     class GetResponseHeadersPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResponseHeadersPolicyOutput, context: context)
-        Validators::ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
+        ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1761,7 +1763,7 @@ module AWS::SDK::CloudFront
     class GetStreamingDistributionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamingDistributionConfigOutput, context: context)
-        Validators::StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
+        StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1776,7 +1778,7 @@ module AWS::SDK::CloudFront
     class GetStreamingDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStreamingDistributionOutput, context: context)
-        Validators::StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
+        StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -1794,7 +1796,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Headers, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::HeaderList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        HeaderList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2000,14 +2002,14 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
-        Validators::InvalidationBatch.validate!(input[:invalidation_batch], context: "#{context}[:invalidation_batch]") unless input[:invalidation_batch].nil?
+        InvalidationBatch.validate!(input[:invalidation_batch], context: "#{context}[:invalidation_batch]") unless input[:invalidation_batch].nil?
       end
     end
 
     class InvalidationBatch
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InvalidationBatch, context: context)
-        Validators::Paths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
+        Paths.validate!(input[:paths], context: "#{context}[:paths]") unless input[:paths].nil?
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
       end
     end
@@ -2020,7 +2022,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::InvalidationSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        InvalidationSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2037,7 +2039,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InvalidationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InvalidationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2046,7 +2048,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KGKeyPairIds, context: context)
         Hearth::Validator.validate!(input[:key_group_id], ::String, context: "#{context}[:key_group_id]")
-        Validators::KeyPairIds.validate!(input[:key_pair_ids], context: "#{context}[:key_pair_ids]") unless input[:key_pair_ids].nil?
+        KeyPairIds.validate!(input[:key_pair_ids], context: "#{context}[:key_pair_ids]") unless input[:key_pair_ids].nil?
       end
     end
 
@@ -2054,7 +2056,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KGKeyPairIds.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KGKeyPairIds.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2064,7 +2066,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::KeyGroup, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
+        KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
       end
     end
 
@@ -2079,7 +2081,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyGroupConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::PublicKeyIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        PublicKeyIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
     end
@@ -2090,14 +2092,14 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::KeyGroupSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        KeyGroupSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
     class KeyGroupSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyGroupSummary, context: context)
-        Validators::KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
+        KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
       end
     end
 
@@ -2105,7 +2107,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2123,7 +2125,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyPairIds, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::KeyPairIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        KeyPairIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2148,7 +2150,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LambdaFunctionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LambdaFunctionAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2157,7 +2159,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LambdaFunctionAssociations, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::LambdaFunctionAssociationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        LambdaFunctionAssociationList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2173,7 +2175,7 @@ module AWS::SDK::CloudFront
     class ListCachePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCachePoliciesOutput, context: context)
-        Validators::CachePolicyList.validate!(input[:cache_policy_list], context: "#{context}[:cache_policy_list]") unless input[:cache_policy_list].nil?
+        CachePolicyList.validate!(input[:cache_policy_list], context: "#{context}[:cache_policy_list]") unless input[:cache_policy_list].nil?
       end
     end
 
@@ -2188,7 +2190,7 @@ module AWS::SDK::CloudFront
     class ListCloudFrontOriginAccessIdentitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCloudFrontOriginAccessIdentitiesOutput, context: context)
-        Validators::CloudFrontOriginAccessIdentityList.validate!(input[:cloud_front_origin_access_identity_list], context: "#{context}[:cloud_front_origin_access_identity_list]") unless input[:cloud_front_origin_access_identity_list].nil?
+        CloudFrontOriginAccessIdentityList.validate!(input[:cloud_front_origin_access_identity_list], context: "#{context}[:cloud_front_origin_access_identity_list]") unless input[:cloud_front_origin_access_identity_list].nil?
       end
     end
 
@@ -2205,7 +2207,7 @@ module AWS::SDK::CloudFront
     class ListConflictingAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConflictingAliasesOutput, context: context)
-        Validators::ConflictingAliasesList.validate!(input[:conflicting_aliases_list], context: "#{context}[:conflicting_aliases_list]") unless input[:conflicting_aliases_list].nil?
+        ConflictingAliasesList.validate!(input[:conflicting_aliases_list], context: "#{context}[:conflicting_aliases_list]") unless input[:conflicting_aliases_list].nil?
       end
     end
 
@@ -2221,7 +2223,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByCachePolicyIdOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByCachePolicyIdOutput, context: context)
-        Validators::DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
+        DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
       end
     end
 
@@ -2237,7 +2239,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByKeyGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByKeyGroupOutput, context: context)
-        Validators::DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
+        DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
       end
     end
 
@@ -2253,7 +2255,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByOriginRequestPolicyIdOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByOriginRequestPolicyIdOutput, context: context)
-        Validators::DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
+        DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
       end
     end
 
@@ -2270,7 +2272,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByRealtimeLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByRealtimeLogConfigOutput, context: context)
-        Validators::DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
+        DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
       end
     end
 
@@ -2286,7 +2288,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByResponseHeadersPolicyIdOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByResponseHeadersPolicyIdOutput, context: context)
-        Validators::DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
+        DistributionIdList.validate!(input[:distribution_id_list], context: "#{context}[:distribution_id_list]") unless input[:distribution_id_list].nil?
       end
     end
 
@@ -2302,7 +2304,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsByWebACLIdOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsByWebACLIdOutput, context: context)
-        Validators::DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
+        DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
       end
     end
 
@@ -2317,7 +2319,7 @@ module AWS::SDK::CloudFront
     class ListDistributionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionsOutput, context: context)
-        Validators::DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
+        DistributionList.validate!(input[:distribution_list], context: "#{context}[:distribution_list]") unless input[:distribution_list].nil?
       end
     end
 
@@ -2332,7 +2334,7 @@ module AWS::SDK::CloudFront
     class ListFieldLevelEncryptionConfigsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFieldLevelEncryptionConfigsOutput, context: context)
-        Validators::FieldLevelEncryptionList.validate!(input[:field_level_encryption_list], context: "#{context}[:field_level_encryption_list]") unless input[:field_level_encryption_list].nil?
+        FieldLevelEncryptionList.validate!(input[:field_level_encryption_list], context: "#{context}[:field_level_encryption_list]") unless input[:field_level_encryption_list].nil?
       end
     end
 
@@ -2347,7 +2349,7 @@ module AWS::SDK::CloudFront
     class ListFieldLevelEncryptionProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFieldLevelEncryptionProfilesOutput, context: context)
-        Validators::FieldLevelEncryptionProfileList.validate!(input[:field_level_encryption_profile_list], context: "#{context}[:field_level_encryption_profile_list]") unless input[:field_level_encryption_profile_list].nil?
+        FieldLevelEncryptionProfileList.validate!(input[:field_level_encryption_profile_list], context: "#{context}[:field_level_encryption_profile_list]") unless input[:field_level_encryption_profile_list].nil?
       end
     end
 
@@ -2363,7 +2365,7 @@ module AWS::SDK::CloudFront
     class ListFunctionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFunctionsOutput, context: context)
-        Validators::FunctionList.validate!(input[:function_list], context: "#{context}[:function_list]") unless input[:function_list].nil?
+        FunctionList.validate!(input[:function_list], context: "#{context}[:function_list]") unless input[:function_list].nil?
       end
     end
 
@@ -2379,7 +2381,7 @@ module AWS::SDK::CloudFront
     class ListInvalidationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInvalidationsOutput, context: context)
-        Validators::InvalidationList.validate!(input[:invalidation_list], context: "#{context}[:invalidation_list]") unless input[:invalidation_list].nil?
+        InvalidationList.validate!(input[:invalidation_list], context: "#{context}[:invalidation_list]") unless input[:invalidation_list].nil?
       end
     end
 
@@ -2394,7 +2396,7 @@ module AWS::SDK::CloudFront
     class ListKeyGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListKeyGroupsOutput, context: context)
-        Validators::KeyGroupList.validate!(input[:key_group_list], context: "#{context}[:key_group_list]") unless input[:key_group_list].nil?
+        KeyGroupList.validate!(input[:key_group_list], context: "#{context}[:key_group_list]") unless input[:key_group_list].nil?
       end
     end
 
@@ -2410,7 +2412,7 @@ module AWS::SDK::CloudFront
     class ListOriginRequestPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOriginRequestPoliciesOutput, context: context)
-        Validators::OriginRequestPolicyList.validate!(input[:origin_request_policy_list], context: "#{context}[:origin_request_policy_list]") unless input[:origin_request_policy_list].nil?
+        OriginRequestPolicyList.validate!(input[:origin_request_policy_list], context: "#{context}[:origin_request_policy_list]") unless input[:origin_request_policy_list].nil?
       end
     end
 
@@ -2425,7 +2427,7 @@ module AWS::SDK::CloudFront
     class ListPublicKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPublicKeysOutput, context: context)
-        Validators::PublicKeyList.validate!(input[:public_key_list], context: "#{context}[:public_key_list]") unless input[:public_key_list].nil?
+        PublicKeyList.validate!(input[:public_key_list], context: "#{context}[:public_key_list]") unless input[:public_key_list].nil?
       end
     end
 
@@ -2440,7 +2442,7 @@ module AWS::SDK::CloudFront
     class ListRealtimeLogConfigsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRealtimeLogConfigsOutput, context: context)
-        Validators::RealtimeLogConfigs.validate!(input[:realtime_log_configs], context: "#{context}[:realtime_log_configs]") unless input[:realtime_log_configs].nil?
+        RealtimeLogConfigs.validate!(input[:realtime_log_configs], context: "#{context}[:realtime_log_configs]") unless input[:realtime_log_configs].nil?
       end
     end
 
@@ -2456,7 +2458,7 @@ module AWS::SDK::CloudFront
     class ListResponseHeadersPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResponseHeadersPoliciesOutput, context: context)
-        Validators::ResponseHeadersPolicyList.validate!(input[:response_headers_policy_list], context: "#{context}[:response_headers_policy_list]") unless input[:response_headers_policy_list].nil?
+        ResponseHeadersPolicyList.validate!(input[:response_headers_policy_list], context: "#{context}[:response_headers_policy_list]") unless input[:response_headers_policy_list].nil?
       end
     end
 
@@ -2471,7 +2473,7 @@ module AWS::SDK::CloudFront
     class ListStreamingDistributionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamingDistributionsOutput, context: context)
-        Validators::StreamingDistributionList.validate!(input[:streaming_distribution_list], context: "#{context}[:streaming_distribution_list]") unless input[:streaming_distribution_list].nil?
+        StreamingDistributionList.validate!(input[:streaming_distribution_list], context: "#{context}[:streaming_distribution_list]") unless input[:streaming_distribution_list].nil?
       end
     end
 
@@ -2485,7 +2487,7 @@ module AWS::SDK::CloudFront
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2527,7 +2529,7 @@ module AWS::SDK::CloudFront
     class MonitoringSubscription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MonitoringSubscription, context: context)
-        Validators::RealtimeMetricsSubscriptionConfig.validate!(input[:realtime_metrics_subscription_config], context: "#{context}[:realtime_metrics_subscription_config]") unless input[:realtime_metrics_subscription_config].nil?
+        RealtimeMetricsSubscriptionConfig.validate!(input[:realtime_metrics_subscription_config], context: "#{context}[:realtime_metrics_subscription_config]") unless input[:realtime_metrics_subscription_config].nil?
       end
     end
 
@@ -2635,12 +2637,12 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:origin_path], ::String, context: "#{context}[:origin_path]")
-        Validators::CustomHeaders.validate!(input[:custom_headers], context: "#{context}[:custom_headers]") unless input[:custom_headers].nil?
-        Validators::S3OriginConfig.validate!(input[:s3_origin_config], context: "#{context}[:s3_origin_config]") unless input[:s3_origin_config].nil?
-        Validators::CustomOriginConfig.validate!(input[:custom_origin_config], context: "#{context}[:custom_origin_config]") unless input[:custom_origin_config].nil?
+        CustomHeaders.validate!(input[:custom_headers], context: "#{context}[:custom_headers]") unless input[:custom_headers].nil?
+        S3OriginConfig.validate!(input[:s3_origin_config], context: "#{context}[:s3_origin_config]") unless input[:s3_origin_config].nil?
+        CustomOriginConfig.validate!(input[:custom_origin_config], context: "#{context}[:custom_origin_config]") unless input[:custom_origin_config].nil?
         Hearth::Validator.validate!(input[:connection_attempts], ::Integer, context: "#{context}[:connection_attempts]")
         Hearth::Validator.validate!(input[:connection_timeout], ::Integer, context: "#{context}[:connection_timeout]")
-        Validators::OriginShield.validate!(input[:origin_shield], context: "#{context}[:origin_shield]") unless input[:origin_shield].nil?
+        OriginShield.validate!(input[:origin_shield], context: "#{context}[:origin_shield]") unless input[:origin_shield].nil?
       end
     end
 
@@ -2656,7 +2658,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginCustomHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginCustomHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2665,15 +2667,15 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginGroup, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::OriginGroupFailoverCriteria.validate!(input[:failover_criteria], context: "#{context}[:failover_criteria]") unless input[:failover_criteria].nil?
-        Validators::OriginGroupMembers.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        OriginGroupFailoverCriteria.validate!(input[:failover_criteria], context: "#{context}[:failover_criteria]") unless input[:failover_criteria].nil?
+        OriginGroupMembers.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
       end
     end
 
     class OriginGroupFailoverCriteria
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginGroupFailoverCriteria, context: context)
-        Validators::StatusCodes.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
+        StatusCodes.validate!(input[:status_codes], context: "#{context}[:status_codes]") unless input[:status_codes].nil?
       end
     end
 
@@ -2681,7 +2683,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2697,7 +2699,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginGroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2706,7 +2708,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginGroupMembers, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::OriginGroupMemberList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        OriginGroupMemberList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2714,7 +2716,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginGroups, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::OriginGroupList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        OriginGroupList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2722,7 +2724,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Origin.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Origin.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2732,7 +2734,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::OriginRequestPolicy, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
+        OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
       end
     end
 
@@ -2748,9 +2750,9 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::OriginRequestPolicyConfig, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::OriginRequestPolicyHeadersConfig.validate!(input[:headers_config], context: "#{context}[:headers_config]") unless input[:headers_config].nil?
-        Validators::OriginRequestPolicyCookiesConfig.validate!(input[:cookies_config], context: "#{context}[:cookies_config]") unless input[:cookies_config].nil?
-        Validators::OriginRequestPolicyQueryStringsConfig.validate!(input[:query_strings_config], context: "#{context}[:query_strings_config]") unless input[:query_strings_config].nil?
+        OriginRequestPolicyHeadersConfig.validate!(input[:headers_config], context: "#{context}[:headers_config]") unless input[:headers_config].nil?
+        OriginRequestPolicyCookiesConfig.validate!(input[:cookies_config], context: "#{context}[:cookies_config]") unless input[:cookies_config].nil?
+        OriginRequestPolicyQueryStringsConfig.validate!(input[:query_strings_config], context: "#{context}[:query_strings_config]") unless input[:query_strings_config].nil?
       end
     end
 
@@ -2758,7 +2760,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginRequestPolicyCookiesConfig, context: context)
         Hearth::Validator.validate!(input[:cookie_behavior], ::String, context: "#{context}[:cookie_behavior]")
-        Validators::CookieNames.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
+        CookieNames.validate!(input[:cookies], context: "#{context}[:cookies]") unless input[:cookies].nil?
       end
     end
 
@@ -2766,7 +2768,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginRequestPolicyHeadersConfig, context: context)
         Hearth::Validator.validate!(input[:header_behavior], ::String, context: "#{context}[:header_behavior]")
-        Validators::Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        Headers.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
       end
     end
 
@@ -2783,7 +2785,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::OriginRequestPolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        OriginRequestPolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2791,7 +2793,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginRequestPolicyQueryStringsConfig, context: context)
         Hearth::Validator.validate!(input[:query_string_behavior], ::String, context: "#{context}[:query_string_behavior]")
-        Validators::QueryStringNames.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
+        QueryStringNames.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
       end
     end
 
@@ -2799,7 +2801,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginRequestPolicySummary, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
+        OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
       end
     end
 
@@ -2807,7 +2809,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OriginRequestPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OriginRequestPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2824,7 +2826,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginSslProtocols, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::SslProtocolsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        SslProtocolsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2832,7 +2834,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Origins, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::OriginList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        OriginList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2841,9 +2843,9 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::ParametersInCacheKeyAndForwardedToOrigin, context: context)
         Hearth::Validator.validate!(input[:enable_accept_encoding_gzip], ::TrueClass, ::FalseClass, context: "#{context}[:enable_accept_encoding_gzip]")
         Hearth::Validator.validate!(input[:enable_accept_encoding_brotli], ::TrueClass, ::FalseClass, context: "#{context}[:enable_accept_encoding_brotli]")
-        Validators::CachePolicyHeadersConfig.validate!(input[:headers_config], context: "#{context}[:headers_config]") unless input[:headers_config].nil?
-        Validators::CachePolicyCookiesConfig.validate!(input[:cookies_config], context: "#{context}[:cookies_config]") unless input[:cookies_config].nil?
-        Validators::CachePolicyQueryStringsConfig.validate!(input[:query_strings_config], context: "#{context}[:query_strings_config]") unless input[:query_strings_config].nil?
+        CachePolicyHeadersConfig.validate!(input[:headers_config], context: "#{context}[:headers_config]") unless input[:headers_config].nil?
+        CachePolicyCookiesConfig.validate!(input[:cookies_config], context: "#{context}[:cookies_config]") unless input[:cookies_config].nil?
+        CachePolicyQueryStringsConfig.validate!(input[:query_strings_config], context: "#{context}[:query_strings_config]") unless input[:query_strings_config].nil?
       end
     end
 
@@ -2860,7 +2862,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Paths, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::PathList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        PathList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2876,7 +2878,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::PublicKey, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
-        Validators::PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
+        PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
       end
     end
 
@@ -2919,7 +2921,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::PublicKeySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        PublicKeySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -2938,7 +2940,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PublicKeySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PublicKeySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2954,7 +2956,7 @@ module AWS::SDK::CloudFront
     class PublishFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublishFunctionOutput, context: context)
-        Validators::FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
+        FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
       end
     end
 
@@ -2970,7 +2972,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryArgProfileConfig, context: context)
         Hearth::Validator.validate!(input[:forward_when_query_arg_profile_is_unknown], ::TrueClass, ::FalseClass, context: "#{context}[:forward_when_query_arg_profile_is_unknown]")
-        Validators::QueryArgProfiles.validate!(input[:query_arg_profiles], context: "#{context}[:query_arg_profiles]") unless input[:query_arg_profiles].nil?
+        QueryArgProfiles.validate!(input[:query_arg_profiles], context: "#{context}[:query_arg_profiles]") unless input[:query_arg_profiles].nil?
       end
     end
 
@@ -2985,7 +2987,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryArgProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryArgProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2994,7 +2996,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryArgProfiles, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::QueryArgProfileList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        QueryArgProfileList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3002,7 +3004,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryStringCacheKeys, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::QueryStringCacheKeysList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        QueryStringCacheKeysList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3019,7 +3021,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryStringNames, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::QueryStringNamesList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        QueryStringNamesList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3038,8 +3040,8 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
-        Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
-        Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
+        FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -3061,7 +3063,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RealtimeLogConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RealtimeLogConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3077,7 +3079,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RealtimeLogConfigs, context: context)
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
-        Validators::RealtimeLogConfigList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        RealtimeLogConfigList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
@@ -3103,7 +3105,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicy, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Validators::ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
+        ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
       end
     end
 
@@ -3111,7 +3113,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyAccessControlAllowHeaders, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AccessControlAllowHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AccessControlAllowHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3119,7 +3121,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyAccessControlAllowMethods, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AccessControlAllowMethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AccessControlAllowMethodsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3127,7 +3129,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyAccessControlAllowOrigins, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AccessControlAllowOriginsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AccessControlAllowOriginsList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3135,7 +3137,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyAccessControlExposeHeaders, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AccessControlExposeHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AccessControlExposeHeadersList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3151,10 +3153,10 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyConfig, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResponseHeadersPolicyCorsConfig.validate!(input[:cors_config], context: "#{context}[:cors_config]") unless input[:cors_config].nil?
-        Validators::ResponseHeadersPolicySecurityHeadersConfig.validate!(input[:security_headers_config], context: "#{context}[:security_headers_config]") unless input[:security_headers_config].nil?
-        Validators::ResponseHeadersPolicyCustomHeadersConfig.validate!(input[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless input[:custom_headers_config].nil?
-        Validators::ResponseHeadersPolicyServerTimingHeadersConfig.validate!(input[:server_timing_headers_config], context: "#{context}[:server_timing_headers_config]") unless input[:server_timing_headers_config].nil?
+        ResponseHeadersPolicyCorsConfig.validate!(input[:cors_config], context: "#{context}[:cors_config]") unless input[:cors_config].nil?
+        ResponseHeadersPolicySecurityHeadersConfig.validate!(input[:security_headers_config], context: "#{context}[:security_headers_config]") unless input[:security_headers_config].nil?
+        ResponseHeadersPolicyCustomHeadersConfig.validate!(input[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless input[:custom_headers_config].nil?
+        ResponseHeadersPolicyServerTimingHeadersConfig.validate!(input[:server_timing_headers_config], context: "#{context}[:server_timing_headers_config]") unless input[:server_timing_headers_config].nil?
       end
     end
 
@@ -3176,11 +3178,11 @@ module AWS::SDK::CloudFront
     class ResponseHeadersPolicyCorsConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyCorsConfig, context: context)
-        Validators::ResponseHeadersPolicyAccessControlAllowOrigins.validate!(input[:access_control_allow_origins], context: "#{context}[:access_control_allow_origins]") unless input[:access_control_allow_origins].nil?
-        Validators::ResponseHeadersPolicyAccessControlAllowHeaders.validate!(input[:access_control_allow_headers], context: "#{context}[:access_control_allow_headers]") unless input[:access_control_allow_headers].nil?
-        Validators::ResponseHeadersPolicyAccessControlAllowMethods.validate!(input[:access_control_allow_methods], context: "#{context}[:access_control_allow_methods]") unless input[:access_control_allow_methods].nil?
+        ResponseHeadersPolicyAccessControlAllowOrigins.validate!(input[:access_control_allow_origins], context: "#{context}[:access_control_allow_origins]") unless input[:access_control_allow_origins].nil?
+        ResponseHeadersPolicyAccessControlAllowHeaders.validate!(input[:access_control_allow_headers], context: "#{context}[:access_control_allow_headers]") unless input[:access_control_allow_headers].nil?
+        ResponseHeadersPolicyAccessControlAllowMethods.validate!(input[:access_control_allow_methods], context: "#{context}[:access_control_allow_methods]") unless input[:access_control_allow_methods].nil?
         Hearth::Validator.validate!(input[:access_control_allow_credentials], ::TrueClass, ::FalseClass, context: "#{context}[:access_control_allow_credentials]")
-        Validators::ResponseHeadersPolicyAccessControlExposeHeaders.validate!(input[:access_control_expose_headers], context: "#{context}[:access_control_expose_headers]") unless input[:access_control_expose_headers].nil?
+        ResponseHeadersPolicyAccessControlExposeHeaders.validate!(input[:access_control_expose_headers], context: "#{context}[:access_control_expose_headers]") unless input[:access_control_expose_headers].nil?
         Hearth::Validator.validate!(input[:access_control_max_age_sec], ::Integer, context: "#{context}[:access_control_max_age_sec]")
         Hearth::Validator.validate!(input[:origin_override], ::TrueClass, ::FalseClass, context: "#{context}[:origin_override]")
       end
@@ -3199,7 +3201,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponseHeadersPolicyCustomHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponseHeadersPolicyCustomHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3208,7 +3210,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyCustomHeadersConfig, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::ResponseHeadersPolicyCustomHeaderList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ResponseHeadersPolicyCustomHeaderList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3233,7 +3235,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::ResponseHeadersPolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ResponseHeadersPolicySummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3248,12 +3250,12 @@ module AWS::SDK::CloudFront
     class ResponseHeadersPolicySecurityHeadersConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicySecurityHeadersConfig, context: context)
-        Validators::ResponseHeadersPolicyXSSProtection.validate!(input[:xss_protection], context: "#{context}[:xss_protection]") unless input[:xss_protection].nil?
-        Validators::ResponseHeadersPolicyFrameOptions.validate!(input[:frame_options], context: "#{context}[:frame_options]") unless input[:frame_options].nil?
-        Validators::ResponseHeadersPolicyReferrerPolicy.validate!(input[:referrer_policy], context: "#{context}[:referrer_policy]") unless input[:referrer_policy].nil?
-        Validators::ResponseHeadersPolicyContentSecurityPolicy.validate!(input[:content_security_policy], context: "#{context}[:content_security_policy]") unless input[:content_security_policy].nil?
-        Validators::ResponseHeadersPolicyContentTypeOptions.validate!(input[:content_type_options], context: "#{context}[:content_type_options]") unless input[:content_type_options].nil?
-        Validators::ResponseHeadersPolicyStrictTransportSecurity.validate!(input[:strict_transport_security], context: "#{context}[:strict_transport_security]") unless input[:strict_transport_security].nil?
+        ResponseHeadersPolicyXSSProtection.validate!(input[:xss_protection], context: "#{context}[:xss_protection]") unless input[:xss_protection].nil?
+        ResponseHeadersPolicyFrameOptions.validate!(input[:frame_options], context: "#{context}[:frame_options]") unless input[:frame_options].nil?
+        ResponseHeadersPolicyReferrerPolicy.validate!(input[:referrer_policy], context: "#{context}[:referrer_policy]") unless input[:referrer_policy].nil?
+        ResponseHeadersPolicyContentSecurityPolicy.validate!(input[:content_security_policy], context: "#{context}[:content_security_policy]") unless input[:content_security_policy].nil?
+        ResponseHeadersPolicyContentTypeOptions.validate!(input[:content_type_options], context: "#{context}[:content_type_options]") unless input[:content_type_options].nil?
+        ResponseHeadersPolicyStrictTransportSecurity.validate!(input[:strict_transport_security], context: "#{context}[:strict_transport_security]") unless input[:strict_transport_security].nil?
       end
     end
 
@@ -3279,7 +3281,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicySummary, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
+        ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
       end
     end
 
@@ -3287,7 +3289,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResponseHeadersPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResponseHeadersPolicySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3305,7 +3307,7 @@ module AWS::SDK::CloudFront
     class Restrictions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Restrictions, context: context)
-        Validators::GeoRestriction.validate!(input[:geo_restriction], context: "#{context}[:geo_restriction]") unless input[:geo_restriction].nil?
+        GeoRestriction.validate!(input[:geo_restriction], context: "#{context}[:geo_restriction]") unless input[:geo_restriction].nil?
       end
     end
 
@@ -3328,7 +3330,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Signer, context: context)
         Hearth::Validator.validate!(input[:aws_account_number], ::String, context: "#{context}[:aws_account_number]")
-        Validators::KeyPairIds.validate!(input[:key_pair_ids], context: "#{context}[:key_pair_ids]") unless input[:key_pair_ids].nil?
+        KeyPairIds.validate!(input[:key_pair_ids], context: "#{context}[:key_pair_ids]") unless input[:key_pair_ids].nil?
       end
     end
 
@@ -3336,7 +3338,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Signer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Signer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3363,7 +3365,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StatusCodes, context: context)
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::StatusCodeList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        StatusCodeList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3375,8 +3377,8 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ActiveTrustedSigners.validate!(input[:active_trusted_signers], context: "#{context}[:active_trusted_signers]") unless input[:active_trusted_signers].nil?
-        Validators::StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
+        ActiveTrustedSigners.validate!(input[:active_trusted_signers], context: "#{context}[:active_trusted_signers]") unless input[:active_trusted_signers].nil?
+        StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
       end
     end
 
@@ -3391,11 +3393,11 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamingDistributionConfig, context: context)
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Validators::S3Origin.validate!(input[:s3_origin], context: "#{context}[:s3_origin]") unless input[:s3_origin].nil?
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        S3Origin.validate!(input[:s3_origin], context: "#{context}[:s3_origin]") unless input[:s3_origin].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::StreamingLoggingConfig.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
-        Validators::TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
+        StreamingLoggingConfig.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
         Hearth::Validator.validate!(input[:price_class], ::String, context: "#{context}[:price_class]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -3404,8 +3406,8 @@ module AWS::SDK::CloudFront
     class StreamingDistributionConfigWithTags
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamingDistributionConfigWithTags, context: context)
-        Validators::StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3417,7 +3419,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::StreamingDistributionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        StreamingDistributionSummaryList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3436,9 +3438,9 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::S3Origin.validate!(input[:s3_origin], context: "#{context}[:s3_origin]") unless input[:s3_origin].nil?
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
-        Validators::TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
+        S3Origin.validate!(input[:s3_origin], context: "#{context}[:s3_origin]") unless input[:s3_origin].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        TrustedSigners.validate!(input[:trusted_signers], context: "#{context}[:trusted_signers]") unless input[:trusted_signers].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:price_class], ::String, context: "#{context}[:price_class]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
@@ -3449,7 +3451,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamingDistributionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamingDistributionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3483,7 +3485,7 @@ module AWS::SDK::CloudFront
     class TagKeys
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagKeys, context: context)
-        Validators::TagKeyList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        TagKeyList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3491,7 +3493,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3500,7 +3502,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3513,7 +3515,7 @@ module AWS::SDK::CloudFront
     class Tags
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Tags, context: context)
-        Validators::TagList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        TagList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3537,16 +3539,16 @@ module AWS::SDK::CloudFront
     class TestFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestFunctionOutput, context: context)
-        Validators::TestResult.validate!(input[:test_result], context: "#{context}[:test_result]") unless input[:test_result].nil?
+        TestResult.validate!(input[:test_result], context: "#{context}[:test_result]") unless input[:test_result].nil?
       end
     end
 
     class TestResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestResult, context: context)
-        Validators::FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
+        FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
         Hearth::Validator.validate!(input[:compute_utilization], ::String, context: "#{context}[:compute_utilization]")
-        Validators::FunctionExecutionLogList.validate!(input[:function_execution_logs], context: "#{context}[:function_execution_logs]") unless input[:function_execution_logs].nil?
+        FunctionExecutionLogList.validate!(input[:function_execution_logs], context: "#{context}[:function_execution_logs]") unless input[:function_execution_logs].nil?
         Hearth::Validator.validate!(input[:function_error_message], ::String, context: "#{context}[:function_error_message]")
         Hearth::Validator.validate!(input[:function_output], ::String, context: "#{context}[:function_output]")
       end
@@ -3909,7 +3911,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::TrustedKeyGroups, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::TrustedKeyGroupIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        TrustedKeyGroupIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3925,7 +3927,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::TrustedSigners, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::AwsAccountNumberList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        AwsAccountNumberList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -3940,7 +3942,7 @@ module AWS::SDK::CloudFront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3953,7 +3955,7 @@ module AWS::SDK::CloudFront
     class UpdateCachePolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCachePolicyInput, context: context)
-        Validators::CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
+        CachePolicyConfig.validate!(input[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless input[:cache_policy_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -3962,7 +3964,7 @@ module AWS::SDK::CloudFront
     class UpdateCachePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCachePolicyOutput, context: context)
-        Validators::CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
+        CachePolicy.validate!(input[:cache_policy], context: "#{context}[:cache_policy]") unless input[:cache_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -3970,7 +3972,7 @@ module AWS::SDK::CloudFront
     class UpdateCloudFrontOriginAccessIdentityInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCloudFrontOriginAccessIdentityInput, context: context)
-        Validators::CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
+        CloudFrontOriginAccessIdentityConfig.validate!(input[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless input[:cloud_front_origin_access_identity_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -3979,7 +3981,7 @@ module AWS::SDK::CloudFront
     class UpdateCloudFrontOriginAccessIdentityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCloudFrontOriginAccessIdentityOutput, context: context)
-        Validators::CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
+        CloudFrontOriginAccessIdentity.validate!(input[:cloud_front_origin_access_identity], context: "#{context}[:cloud_front_origin_access_identity]") unless input[:cloud_front_origin_access_identity].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -3987,7 +3989,7 @@ module AWS::SDK::CloudFront
     class UpdateDistributionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDistributionInput, context: context)
-        Validators::DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
+        DistributionConfig.validate!(input[:distribution_config], context: "#{context}[:distribution_config]") unless input[:distribution_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -3996,7 +3998,7 @@ module AWS::SDK::CloudFront
     class UpdateDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDistributionOutput, context: context)
-        Validators::Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
+        Distribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4004,7 +4006,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFieldLevelEncryptionConfigInput, context: context)
-        Validators::FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
+        FieldLevelEncryptionConfig.validate!(input[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless input[:field_level_encryption_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4013,7 +4015,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFieldLevelEncryptionConfigOutput, context: context)
-        Validators::FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
+        FieldLevelEncryption.validate!(input[:field_level_encryption], context: "#{context}[:field_level_encryption]") unless input[:field_level_encryption].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4021,7 +4023,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionProfileInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFieldLevelEncryptionProfileInput, context: context)
-        Validators::FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
+        FieldLevelEncryptionProfileConfig.validate!(input[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless input[:field_level_encryption_profile_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4030,7 +4032,7 @@ module AWS::SDK::CloudFront
     class UpdateFieldLevelEncryptionProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFieldLevelEncryptionProfileOutput, context: context)
-        Validators::FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
+        FieldLevelEncryptionProfile.validate!(input[:field_level_encryption_profile], context: "#{context}[:field_level_encryption_profile]") unless input[:field_level_encryption_profile].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4040,7 +4042,7 @@ module AWS::SDK::CloudFront
         Hearth::Validator.validate!(input, Types::UpdateFunctionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
-        Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
+        FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
         Hearth::Validator.validate!(input[:function_code], ::String, context: "#{context}[:function_code]")
       end
     end
@@ -4048,7 +4050,7 @@ module AWS::SDK::CloudFront
     class UpdateFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFunctionOutput, context: context)
-        Validators::FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
+        FunctionSummary.validate!(input[:function_summary], context: "#{context}[:function_summary]") unless input[:function_summary].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4056,7 +4058,7 @@ module AWS::SDK::CloudFront
     class UpdateKeyGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateKeyGroupInput, context: context)
-        Validators::KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
+        KeyGroupConfig.validate!(input[:key_group_config], context: "#{context}[:key_group_config]") unless input[:key_group_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4065,7 +4067,7 @@ module AWS::SDK::CloudFront
     class UpdateKeyGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateKeyGroupOutput, context: context)
-        Validators::KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
+        KeyGroup.validate!(input[:key_group], context: "#{context}[:key_group]") unless input[:key_group].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4073,7 +4075,7 @@ module AWS::SDK::CloudFront
     class UpdateOriginRequestPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOriginRequestPolicyInput, context: context)
-        Validators::OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
+        OriginRequestPolicyConfig.validate!(input[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless input[:origin_request_policy_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4082,7 +4084,7 @@ module AWS::SDK::CloudFront
     class UpdateOriginRequestPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOriginRequestPolicyOutput, context: context)
-        Validators::OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
+        OriginRequestPolicy.validate!(input[:origin_request_policy], context: "#{context}[:origin_request_policy]") unless input[:origin_request_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4090,7 +4092,7 @@ module AWS::SDK::CloudFront
     class UpdatePublicKeyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePublicKeyInput, context: context)
-        Validators::PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
+        PublicKeyConfig.validate!(input[:public_key_config], context: "#{context}[:public_key_config]") unless input[:public_key_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4099,7 +4101,7 @@ module AWS::SDK::CloudFront
     class UpdatePublicKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePublicKeyOutput, context: context)
-        Validators::PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
+        PublicKey.validate!(input[:public_key], context: "#{context}[:public_key]") unless input[:public_key].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4107,8 +4109,8 @@ module AWS::SDK::CloudFront
     class UpdateRealtimeLogConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRealtimeLogConfigInput, context: context)
-        Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
-        Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
+        FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
@@ -4118,14 +4120,14 @@ module AWS::SDK::CloudFront
     class UpdateRealtimeLogConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRealtimeLogConfigOutput, context: context)
-        Validators::RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
+        RealtimeLogConfig.validate!(input[:realtime_log_config], context: "#{context}[:realtime_log_config]") unless input[:realtime_log_config].nil?
       end
     end
 
     class UpdateResponseHeadersPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResponseHeadersPolicyInput, context: context)
-        Validators::ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
+        ResponseHeadersPolicyConfig.validate!(input[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless input[:response_headers_policy_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4134,7 +4136,7 @@ module AWS::SDK::CloudFront
     class UpdateResponseHeadersPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResponseHeadersPolicyOutput, context: context)
-        Validators::ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
+        ResponseHeadersPolicy.validate!(input[:response_headers_policy], context: "#{context}[:response_headers_policy]") unless input[:response_headers_policy].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end
@@ -4142,7 +4144,7 @@ module AWS::SDK::CloudFront
     class UpdateStreamingDistributionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStreamingDistributionInput, context: context)
-        Validators::StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
+        StreamingDistributionConfig.validate!(input[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless input[:streaming_distribution_config].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
@@ -4151,7 +4153,7 @@ module AWS::SDK::CloudFront
     class UpdateStreamingDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateStreamingDistributionOutput, context: context)
-        Validators::StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
+        StreamingDistribution.validate!(input[:streaming_distribution], context: "#{context}[:streaming_distribution]") unless input[:streaming_distribution].nil?
         Hearth::Validator.validate!(input[:e_tag], ::String, context: "#{context}[:e_tag]")
       end
     end

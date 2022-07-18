@@ -1871,6 +1871,7 @@ module AWS::SDK::ACMPCA
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.digital_signature ||= false
@@ -1883,7 +1884,6 @@ module AWS::SDK::ACMPCA
         self.encipher_only ||= false
         self.decipher_only ||= false
       end
-
     end
 
     # <p>An ACM Private CA quota has been exceeded. See the exception message returned to determine

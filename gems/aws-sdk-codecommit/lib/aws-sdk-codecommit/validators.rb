@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeCommit
   module Validators
 
@@ -29,7 +31,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Approval.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Approval.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -44,7 +46,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_user], ::String, context: "#{context}[:last_modified_user]")
-        Validators::OriginApprovalRuleTemplate.validate!(input[:origin_approval_rule_template], context: "#{context}[:origin_approval_rule_template]") unless input[:origin_approval_rule_template].nil?
+        OriginApprovalRuleTemplate.validate!(input[:origin_approval_rule_template], context: "#{context}[:origin_approval_rule_template]") unless input[:origin_approval_rule_template].nil?
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApprovalRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApprovalRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchAssociateApprovalRuleTemplateWithRepositoriesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchAssociateApprovalRuleTemplateWithRepositoriesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -236,15 +238,15 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAssociateApprovalRuleTemplateWithRepositoriesInput, context: context)
         Hearth::Validator.validate!(input[:approval_rule_template_name], ::String, context: "#{context}[:approval_rule_template_name]")
-        Validators::RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
       end
     end
 
     class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAssociateApprovalRuleTemplateWithRepositoriesOutput, context: context)
-        Validators::RepositoryNameList.validate!(input[:associated_repository_names], context: "#{context}[:associated_repository_names]") unless input[:associated_repository_names].nil?
-        Validators::BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        RepositoryNameList.validate!(input[:associated_repository_names], context: "#{context}[:associated_repository_names]") unless input[:associated_repository_names].nil?
+        BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -261,7 +263,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDescribeMergeConflictsError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDescribeMergeConflictsError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:merge_option], ::String, context: "#{context}[:merge_option]")
         Hearth::Validator.validate!(input[:max_merge_hunks], ::Integer, context: "#{context}[:max_merge_hunks]")
         Hearth::Validator.validate!(input[:max_conflict_files], ::Integer, context: "#{context}[:max_conflict_files]")
-        Validators::FilePaths.validate!(input[:file_paths], context: "#{context}[:file_paths]") unless input[:file_paths].nil?
+        FilePaths.validate!(input[:file_paths], context: "#{context}[:file_paths]") unless input[:file_paths].nil?
         Hearth::Validator.validate!(input[:conflict_detail_level], ::String, context: "#{context}[:conflict_detail_level]")
         Hearth::Validator.validate!(input[:conflict_resolution_strategy], ::String, context: "#{context}[:conflict_resolution_strategy]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -285,9 +287,9 @@ module AWS::SDK::CodeCommit
     class BatchDescribeMergeConflictsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDescribeMergeConflictsOutput, context: context)
-        Validators::Conflicts.validate!(input[:conflicts], context: "#{context}[:conflicts]") unless input[:conflicts].nil?
+        Conflicts.validate!(input[:conflicts], context: "#{context}[:conflicts]") unless input[:conflicts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::BatchDescribeMergeConflictsErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchDescribeMergeConflictsErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:destination_commit_id], ::String, context: "#{context}[:destination_commit_id]")
         Hearth::Validator.validate!(input[:source_commit_id], ::String, context: "#{context}[:source_commit_id]")
         Hearth::Validator.validate!(input[:base_commit_id], ::String, context: "#{context}[:base_commit_id]")
@@ -307,7 +309,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDisassociateApprovalRuleTemplateFromRepositoriesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDisassociateApprovalRuleTemplateFromRepositoriesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -316,15 +318,15 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisassociateApprovalRuleTemplateFromRepositoriesInput, context: context)
         Hearth::Validator.validate!(input[:approval_rule_template_name], ::String, context: "#{context}[:approval_rule_template_name]")
-        Validators::RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
       end
     end
 
     class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput, context: context)
-        Validators::RepositoryNameList.validate!(input[:disassociated_repository_names], context: "#{context}[:disassociated_repository_names]") unless input[:disassociated_repository_names].nil?
-        Validators::BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        RepositoryNameList.validate!(input[:disassociated_repository_names], context: "#{context}[:disassociated_repository_names]") unless input[:disassociated_repository_names].nil?
+        BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetCommitsError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetCommitsError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -349,7 +351,7 @@ module AWS::SDK::CodeCommit
     class BatchGetCommitsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetCommitsInput, context: context)
-        Validators::CommitIdsInputList.validate!(input[:commit_ids], context: "#{context}[:commit_ids]") unless input[:commit_ids].nil?
+        CommitIdsInputList.validate!(input[:commit_ids], context: "#{context}[:commit_ids]") unless input[:commit_ids].nil?
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
       end
     end
@@ -357,23 +359,23 @@ module AWS::SDK::CodeCommit
     class BatchGetCommitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetCommitsOutput, context: context)
-        Validators::CommitObjectsList.validate!(input[:commits], context: "#{context}[:commits]") unless input[:commits].nil?
-        Validators::BatchGetCommitsErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        CommitObjectsList.validate!(input[:commits], context: "#{context}[:commits]") unless input[:commits].nil?
+        BatchGetCommitsErrorsList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
     class BatchGetRepositoriesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetRepositoriesInput, context: context)
-        Validators::RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
       end
     end
 
     class BatchGetRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetRepositoriesOutput, context: context)
-        Validators::RepositoryMetadataList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
-        Validators::RepositoryNotFoundList.validate!(input[:repositories_not_found], context: "#{context}[:repositories_not_found]") unless input[:repositories_not_found].nil?
+        RepositoryMetadataList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositoryNotFoundList.validate!(input[:repositories_not_found], context: "#{context}[:repositories_not_found]") unless input[:repositories_not_found].nil?
       end
     end
 
@@ -493,8 +495,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:author_arn], ::String, context: "#{context}[:author_arn]")
         Hearth::Validator.validate!(input[:deleted], ::TrueClass, ::FalseClass, context: "#{context}[:deleted]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::CallerReactions.validate!(input[:caller_reactions], context: "#{context}[:caller_reactions]") unless input[:caller_reactions].nil?
-        Validators::ReactionCountsMap.validate!(input[:reaction_counts], context: "#{context}[:reaction_counts]") unless input[:reaction_counts].nil?
+        CallerReactions.validate!(input[:caller_reactions], context: "#{context}[:caller_reactions]") unless input[:caller_reactions].nil?
+        ReactionCountsMap.validate!(input[:reaction_counts], context: "#{context}[:reaction_counts]") unless input[:reaction_counts].nil?
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Comment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Comment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -557,8 +559,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
         Hearth::Validator.validate!(input[:before_blob_id], ::String, context: "#{context}[:before_blob_id]")
         Hearth::Validator.validate!(input[:after_blob_id], ::String, context: "#{context}[:after_blob_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::Comments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Comments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CommentsForComparedCommit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CommentsForComparedCommit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -580,8 +582,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
         Hearth::Validator.validate!(input[:before_blob_id], ::String, context: "#{context}[:before_blob_id]")
         Hearth::Validator.validate!(input[:after_blob_id], ::String, context: "#{context}[:after_blob_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::Comments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Comments.validate!(input[:comments], context: "#{context}[:comments]") unless input[:comments].nil?
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CommentsForPullRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CommentsForPullRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -599,10 +601,10 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::Commit, context: context)
         Hearth::Validator.validate!(input[:commit_id], ::String, context: "#{context}[:commit_id]")
         Hearth::Validator.validate!(input[:tree_id], ::String, context: "#{context}[:tree_id]")
-        Validators::ParentList.validate!(input[:parents], context: "#{context}[:parents]") unless input[:parents].nil?
+        ParentList.validate!(input[:parents], context: "#{context}[:parents]") unless input[:parents].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::UserInfo.validate!(input[:author], context: "#{context}[:author]") unless input[:author].nil?
-        Validators::UserInfo.validate!(input[:committer], context: "#{context}[:committer]") unless input[:committer].nil?
+        UserInfo.validate!(input[:author], context: "#{context}[:author]") unless input[:author].nil?
+        UserInfo.validate!(input[:committer], context: "#{context}[:committer]") unless input[:committer].nil?
         Hearth::Validator.validate!(input[:additional_data], ::String, context: "#{context}[:additional_data]")
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Commit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Commit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -684,8 +686,8 @@ module AWS::SDK::CodeCommit
     class Conflict
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Conflict, context: context)
-        Validators::ConflictMetadata.validate!(input[:conflict_metadata], context: "#{context}[:conflict_metadata]") unless input[:conflict_metadata].nil?
-        Validators::MergeHunks.validate!(input[:merge_hunks], context: "#{context}[:merge_hunks]") unless input[:merge_hunks].nil?
+        ConflictMetadata.validate!(input[:conflict_metadata], context: "#{context}[:conflict_metadata]") unless input[:conflict_metadata].nil?
+        MergeHunks.validate!(input[:merge_hunks], context: "#{context}[:merge_hunks]") unless input[:merge_hunks].nil?
       end
     end
 
@@ -693,15 +695,15 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConflictMetadata, context: context)
         Hearth::Validator.validate!(input[:file_path], ::String, context: "#{context}[:file_path]")
-        Validators::FileSizes.validate!(input[:file_sizes], context: "#{context}[:file_sizes]") unless input[:file_sizes].nil?
-        Validators::FileModes.validate!(input[:file_modes], context: "#{context}[:file_modes]") unless input[:file_modes].nil?
-        Validators::ObjectTypes.validate!(input[:object_types], context: "#{context}[:object_types]") unless input[:object_types].nil?
+        FileSizes.validate!(input[:file_sizes], context: "#{context}[:file_sizes]") unless input[:file_sizes].nil?
+        FileModes.validate!(input[:file_modes], context: "#{context}[:file_modes]") unless input[:file_modes].nil?
+        ObjectTypes.validate!(input[:object_types], context: "#{context}[:object_types]") unless input[:object_types].nil?
         Hearth::Validator.validate!(input[:number_of_conflicts], ::Integer, context: "#{context}[:number_of_conflicts]")
-        Validators::IsBinaryFile.validate!(input[:is_binary_file], context: "#{context}[:is_binary_file]") unless input[:is_binary_file].nil?
+        IsBinaryFile.validate!(input[:is_binary_file], context: "#{context}[:is_binary_file]") unless input[:is_binary_file].nil?
         Hearth::Validator.validate!(input[:content_conflict], ::TrueClass, ::FalseClass, context: "#{context}[:content_conflict]")
         Hearth::Validator.validate!(input[:file_mode_conflict], ::TrueClass, ::FalseClass, context: "#{context}[:file_mode_conflict]")
         Hearth::Validator.validate!(input[:object_type_conflict], ::TrueClass, ::FalseClass, context: "#{context}[:object_type_conflict]")
-        Validators::MergeOperations.validate!(input[:merge_operations], context: "#{context}[:merge_operations]") unless input[:merge_operations].nil?
+        MergeOperations.validate!(input[:merge_operations], context: "#{context}[:merge_operations]") unless input[:merge_operations].nil?
       end
     end
 
@@ -709,7 +711,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConflictMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConflictMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -717,9 +719,9 @@ module AWS::SDK::CodeCommit
     class ConflictResolution
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConflictResolution, context: context)
-        Validators::ReplaceContentEntries.validate!(input[:replace_contents], context: "#{context}[:replace_contents]") unless input[:replace_contents].nil?
-        Validators::DeleteFileEntries.validate!(input[:delete_files], context: "#{context}[:delete_files]") unless input[:delete_files].nil?
-        Validators::SetFileModeEntries.validate!(input[:set_file_modes], context: "#{context}[:set_file_modes]") unless input[:set_file_modes].nil?
+        ReplaceContentEntries.validate!(input[:replace_contents], context: "#{context}[:replace_contents]") unless input[:replace_contents].nil?
+        DeleteFileEntries.validate!(input[:delete_files], context: "#{context}[:delete_files]") unless input[:delete_files].nil?
+        SetFileModeEntries.validate!(input[:set_file_modes], context: "#{context}[:set_file_modes]") unless input[:set_file_modes].nil?
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Conflict.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Conflict.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -744,7 +746,7 @@ module AWS::SDK::CodeCommit
     class CreateApprovalRuleTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApprovalRuleTemplateOutput, context: context)
-        Validators::ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
+        ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
       end
     end
 
@@ -773,9 +775,9 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:commit_message], ::String, context: "#{context}[:commit_message]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::PutFileEntries.validate!(input[:put_files], context: "#{context}[:put_files]") unless input[:put_files].nil?
-        Validators::DeleteFileEntries.validate!(input[:delete_files], context: "#{context}[:delete_files]") unless input[:delete_files].nil?
-        Validators::SetFileModeEntries.validate!(input[:set_file_modes], context: "#{context}[:set_file_modes]") unless input[:set_file_modes].nil?
+        PutFileEntries.validate!(input[:put_files], context: "#{context}[:put_files]") unless input[:put_files].nil?
+        DeleteFileEntries.validate!(input[:delete_files], context: "#{context}[:delete_files]") unless input[:delete_files].nil?
+        SetFileModeEntries.validate!(input[:set_file_modes], context: "#{context}[:set_file_modes]") unless input[:set_file_modes].nil?
       end
     end
 
@@ -784,9 +786,9 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::CreateCommitOutput, context: context)
         Hearth::Validator.validate!(input[:commit_id], ::String, context: "#{context}[:commit_id]")
         Hearth::Validator.validate!(input[:tree_id], ::String, context: "#{context}[:tree_id]")
-        Validators::FilesMetadata.validate!(input[:files_added], context: "#{context}[:files_added]") unless input[:files_added].nil?
-        Validators::FilesMetadata.validate!(input[:files_updated], context: "#{context}[:files_updated]") unless input[:files_updated].nil?
-        Validators::FilesMetadata.validate!(input[:files_deleted], context: "#{context}[:files_deleted]") unless input[:files_deleted].nil?
+        FilesMetadata.validate!(input[:files_added], context: "#{context}[:files_added]") unless input[:files_added].nil?
+        FilesMetadata.validate!(input[:files_updated], context: "#{context}[:files_updated]") unless input[:files_updated].nil?
+        FilesMetadata.validate!(input[:files_deleted], context: "#{context}[:files_deleted]") unless input[:files_deleted].nil?
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::CodeCommit
     class CreatePullRequestApprovalRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePullRequestApprovalRuleOutput, context: context)
-        Validators::ApprovalRule.validate!(input[:approval_rule], context: "#{context}[:approval_rule]") unless input[:approval_rule].nil?
+        ApprovalRule.validate!(input[:approval_rule], context: "#{context}[:approval_rule]") unless input[:approval_rule].nil?
       end
     end
 
@@ -811,7 +813,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::CreatePullRequestInput, context: context)
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -819,7 +821,7 @@ module AWS::SDK::CodeCommit
     class CreatePullRequestOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePullRequestOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -828,14 +830,14 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::CreateRepositoryInput, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:repository_description], ::String, context: "#{context}[:repository_description]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRepositoryOutput, context: context)
-        Validators::RepositoryMetadata.validate!(input[:repository_metadata], context: "#{context}[:repository_metadata]") unless input[:repository_metadata].nil?
+        RepositoryMetadata.validate!(input[:repository_metadata], context: "#{context}[:repository_metadata]") unless input[:repository_metadata].nil?
       end
     end
 
@@ -852,7 +854,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:commit_message], ::String, context: "#{context}[:commit_message]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
       end
     end
 
@@ -896,7 +898,7 @@ module AWS::SDK::CodeCommit
     class DeleteBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBranchOutput, context: context)
-        Validators::BranchInfo.validate!(input[:deleted_branch], context: "#{context}[:deleted_branch]") unless input[:deleted_branch].nil?
+        BranchInfo.validate!(input[:deleted_branch], context: "#{context}[:deleted_branch]") unless input[:deleted_branch].nil?
       end
     end
 
@@ -910,7 +912,7 @@ module AWS::SDK::CodeCommit
     class DeleteCommentContentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCommentContentOutput, context: context)
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -918,7 +920,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeleteFileEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeleteFileEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1001,8 +1003,8 @@ module AWS::SDK::CodeCommit
     class DescribeMergeConflictsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMergeConflictsOutput, context: context)
-        Validators::ConflictMetadata.validate!(input[:conflict_metadata], context: "#{context}[:conflict_metadata]") unless input[:conflict_metadata].nil?
-        Validators::MergeHunks.validate!(input[:merge_hunks], context: "#{context}[:merge_hunks]") unless input[:merge_hunks].nil?
+        ConflictMetadata.validate!(input[:conflict_metadata], context: "#{context}[:conflict_metadata]") unless input[:conflict_metadata].nil?
+        MergeHunks.validate!(input[:merge_hunks], context: "#{context}[:merge_hunks]") unless input[:merge_hunks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:destination_commit_id], ::String, context: "#{context}[:destination_commit_id]")
         Hearth::Validator.validate!(input[:source_commit_id], ::String, context: "#{context}[:source_commit_id]")
@@ -1024,7 +1026,7 @@ module AWS::SDK::CodeCommit
     class DescribePullRequestEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePullRequestEventsOutput, context: context)
-        Validators::PullRequestEventList.validate!(input[:pull_request_events], context: "#{context}[:pull_request_events]") unless input[:pull_request_events].nil?
+        PullRequestEventList.validate!(input[:pull_request_events], context: "#{context}[:pull_request_events]") unless input[:pull_request_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1032,8 +1034,8 @@ module AWS::SDK::CodeCommit
     class Difference
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Difference, context: context)
-        Validators::BlobMetadata.validate!(input[:before_blob], context: "#{context}[:before_blob]") unless input[:before_blob].nil?
-        Validators::BlobMetadata.validate!(input[:after_blob], context: "#{context}[:after_blob]") unless input[:after_blob].nil?
+        BlobMetadata.validate!(input[:before_blob], context: "#{context}[:before_blob]") unless input[:before_blob].nil?
+        BlobMetadata.validate!(input[:after_blob], context: "#{context}[:after_blob]") unless input[:after_blob].nil?
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
       end
     end
@@ -1042,7 +1044,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Difference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Difference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1114,7 +1116,7 @@ module AWS::SDK::CodeCommit
     class EvaluatePullRequestApprovalRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EvaluatePullRequestApprovalRulesOutput, context: context)
-        Validators::Evaluation.validate!(input[:evaluation], context: "#{context}[:evaluation]") unless input[:evaluation].nil?
+        Evaluation.validate!(input[:evaluation], context: "#{context}[:evaluation]") unless input[:evaluation].nil?
       end
     end
 
@@ -1123,8 +1125,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::Evaluation, context: context)
         Hearth::Validator.validate!(input[:approved], ::TrueClass, ::FalseClass, context: "#{context}[:approved]")
         Hearth::Validator.validate!(input[:overridden], ::TrueClass, ::FalseClass, context: "#{context}[:overridden]")
-        Validators::ApprovalRulesSatisfiedList.validate!(input[:approval_rules_satisfied], context: "#{context}[:approval_rules_satisfied]") unless input[:approval_rules_satisfied].nil?
-        Validators::ApprovalRulesNotSatisfiedList.validate!(input[:approval_rules_not_satisfied], context: "#{context}[:approval_rules_not_satisfied]") unless input[:approval_rules_not_satisfied].nil?
+        ApprovalRulesSatisfiedList.validate!(input[:approval_rules_satisfied], context: "#{context}[:approval_rules_satisfied]") unless input[:approval_rules_satisfied].nil?
+        ApprovalRulesNotSatisfiedList.validate!(input[:approval_rules_not_satisfied], context: "#{context}[:approval_rules_not_satisfied]") unless input[:approval_rules_not_satisfied].nil?
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::File.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          File.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Folder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Folder.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1297,7 +1299,7 @@ module AWS::SDK::CodeCommit
     class GetApprovalRuleTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApprovalRuleTemplateOutput, context: context)
-        Validators::ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
+        ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::CodeCommit
     class GetBranchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBranchOutput, context: context)
-        Validators::BranchInfo.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
+        BranchInfo.validate!(input[:branch], context: "#{context}[:branch]") unless input[:branch].nil?
       end
     end
 
@@ -1341,7 +1343,7 @@ module AWS::SDK::CodeCommit
     class GetCommentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCommentOutput, context: context)
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -1358,7 +1360,7 @@ module AWS::SDK::CodeCommit
     class GetCommentReactionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCommentReactionsOutput, context: context)
-        Validators::ReactionsForCommentList.validate!(input[:reactions_for_comment], context: "#{context}[:reactions_for_comment]") unless input[:reactions_for_comment].nil?
+        ReactionsForCommentList.validate!(input[:reactions_for_comment], context: "#{context}[:reactions_for_comment]") unless input[:reactions_for_comment].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1377,7 +1379,7 @@ module AWS::SDK::CodeCommit
     class GetCommentsForComparedCommitOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCommentsForComparedCommitOutput, context: context)
-        Validators::CommentsForComparedCommitData.validate!(input[:comments_for_compared_commit_data], context: "#{context}[:comments_for_compared_commit_data]") unless input[:comments_for_compared_commit_data].nil?
+        CommentsForComparedCommitData.validate!(input[:comments_for_compared_commit_data], context: "#{context}[:comments_for_compared_commit_data]") unless input[:comments_for_compared_commit_data].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1397,7 +1399,7 @@ module AWS::SDK::CodeCommit
     class GetCommentsForPullRequestOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCommentsForPullRequestOutput, context: context)
-        Validators::CommentsForPullRequestData.validate!(input[:comments_for_pull_request_data], context: "#{context}[:comments_for_pull_request_data]") unless input[:comments_for_pull_request_data].nil?
+        CommentsForPullRequestData.validate!(input[:comments_for_pull_request_data], context: "#{context}[:comments_for_pull_request_data]") unless input[:comments_for_pull_request_data].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1413,7 +1415,7 @@ module AWS::SDK::CodeCommit
     class GetCommitOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCommitOutput, context: context)
-        Validators::Commit.validate!(input[:commit], context: "#{context}[:commit]") unless input[:commit].nil?
+        Commit.validate!(input[:commit], context: "#{context}[:commit]") unless input[:commit].nil?
       end
     end
 
@@ -1433,7 +1435,7 @@ module AWS::SDK::CodeCommit
     class GetDifferencesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDifferencesOutput, context: context)
-        Validators::DifferenceList.validate!(input[:differences], context: "#{context}[:differences]") unless input[:differences].nil?
+        DifferenceList.validate!(input[:differences], context: "#{context}[:differences]") unless input[:differences].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1474,10 +1476,10 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:commit_id], ::String, context: "#{context}[:commit_id]")
         Hearth::Validator.validate!(input[:folder_path], ::String, context: "#{context}[:folder_path]")
         Hearth::Validator.validate!(input[:tree_id], ::String, context: "#{context}[:tree_id]")
-        Validators::FolderList.validate!(input[:sub_folders], context: "#{context}[:sub_folders]") unless input[:sub_folders].nil?
-        Validators::FileList.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
-        Validators::SymbolicLinkList.validate!(input[:symbolic_links], context: "#{context}[:symbolic_links]") unless input[:symbolic_links].nil?
-        Validators::SubModuleList.validate!(input[:sub_modules], context: "#{context}[:sub_modules]") unless input[:sub_modules].nil?
+        FolderList.validate!(input[:sub_folders], context: "#{context}[:sub_folders]") unless input[:sub_folders].nil?
+        FileList.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
+        SymbolicLinkList.validate!(input[:symbolic_links], context: "#{context}[:symbolic_links]") unless input[:symbolic_links].nil?
+        SubModuleList.validate!(input[:sub_modules], context: "#{context}[:sub_modules]") unless input[:sub_modules].nil?
       end
     end
 
@@ -1523,7 +1525,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:destination_commit_id], ::String, context: "#{context}[:destination_commit_id]")
         Hearth::Validator.validate!(input[:source_commit_id], ::String, context: "#{context}[:source_commit_id]")
         Hearth::Validator.validate!(input[:base_commit_id], ::String, context: "#{context}[:base_commit_id]")
-        Validators::ConflictMetadataList.validate!(input[:conflict_metadata_list], context: "#{context}[:conflict_metadata_list]") unless input[:conflict_metadata_list].nil?
+        ConflictMetadataList.validate!(input[:conflict_metadata_list], context: "#{context}[:conflict_metadata_list]") unless input[:conflict_metadata_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1542,7 +1544,7 @@ module AWS::SDK::CodeCommit
     class GetMergeOptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMergeOptionsOutput, context: context)
-        Validators::MergeOptions.validate!(input[:merge_options], context: "#{context}[:merge_options]") unless input[:merge_options].nil?
+        MergeOptions.validate!(input[:merge_options], context: "#{context}[:merge_options]") unless input[:merge_options].nil?
         Hearth::Validator.validate!(input[:source_commit_id], ::String, context: "#{context}[:source_commit_id]")
         Hearth::Validator.validate!(input[:destination_commit_id], ::String, context: "#{context}[:destination_commit_id]")
         Hearth::Validator.validate!(input[:base_commit_id], ::String, context: "#{context}[:base_commit_id]")
@@ -1560,7 +1562,7 @@ module AWS::SDK::CodeCommit
     class GetPullRequestApprovalStatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPullRequestApprovalStatesOutput, context: context)
-        Validators::ApprovalList.validate!(input[:approvals], context: "#{context}[:approvals]") unless input[:approvals].nil?
+        ApprovalList.validate!(input[:approvals], context: "#{context}[:approvals]") unless input[:approvals].nil?
       end
     end
 
@@ -1574,7 +1576,7 @@ module AWS::SDK::CodeCommit
     class GetPullRequestOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPullRequestOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -1604,7 +1606,7 @@ module AWS::SDK::CodeCommit
     class GetRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositoryOutput, context: context)
-        Validators::RepositoryMetadata.validate!(input[:repository_metadata], context: "#{context}[:repository_metadata]") unless input[:repository_metadata].nil?
+        RepositoryMetadata.validate!(input[:repository_metadata], context: "#{context}[:repository_metadata]") unless input[:repository_metadata].nil?
       end
     end
 
@@ -1619,7 +1621,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositoryTriggersOutput, context: context)
         Hearth::Validator.validate!(input[:configuration_id], ::String, context: "#{context}[:configuration_id]")
-        Validators::RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
+        RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
       end
     end
 
@@ -2091,7 +2093,7 @@ module AWS::SDK::CodeCommit
     class ListApprovalRuleTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApprovalRuleTemplatesOutput, context: context)
-        Validators::ApprovalRuleTemplateNameList.validate!(input[:approval_rule_template_names], context: "#{context}[:approval_rule_template_names]") unless input[:approval_rule_template_names].nil?
+        ApprovalRuleTemplateNameList.validate!(input[:approval_rule_template_names], context: "#{context}[:approval_rule_template_names]") unless input[:approval_rule_template_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2108,7 +2110,7 @@ module AWS::SDK::CodeCommit
     class ListAssociatedApprovalRuleTemplatesForRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssociatedApprovalRuleTemplatesForRepositoryOutput, context: context)
-        Validators::ApprovalRuleTemplateNameList.validate!(input[:approval_rule_template_names], context: "#{context}[:approval_rule_template_names]") unless input[:approval_rule_template_names].nil?
+        ApprovalRuleTemplateNameList.validate!(input[:approval_rule_template_names], context: "#{context}[:approval_rule_template_names]") unless input[:approval_rule_template_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2124,7 +2126,7 @@ module AWS::SDK::CodeCommit
     class ListBranchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBranchesOutput, context: context)
-        Validators::BranchNameList.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
+        BranchNameList.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2143,7 +2145,7 @@ module AWS::SDK::CodeCommit
     class ListPullRequestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPullRequestsOutput, context: context)
-        Validators::PullRequestIdList.validate!(input[:pull_request_ids], context: "#{context}[:pull_request_ids]") unless input[:pull_request_ids].nil?
+        PullRequestIdList.validate!(input[:pull_request_ids], context: "#{context}[:pull_request_ids]") unless input[:pull_request_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2160,7 +2162,7 @@ module AWS::SDK::CodeCommit
     class ListRepositoriesForApprovalRuleTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoriesForApprovalRuleTemplateOutput, context: context)
-        Validators::RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
+        RepositoryNameList.validate!(input[:repository_names], context: "#{context}[:repository_names]") unless input[:repository_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2177,7 +2179,7 @@ module AWS::SDK::CodeCommit
     class ListRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoriesOutput, context: context)
-        Validators::RepositoryNameIdPairList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositoryNameIdPairList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2193,7 +2195,7 @@ module AWS::SDK::CodeCommit
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2315,7 +2317,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:commit_message], ::String, context: "#{context}[:commit_message]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
       end
     end
 
@@ -2340,7 +2342,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:commit_message], ::String, context: "#{context}[:commit_message]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
       end
     end
 
@@ -2356,9 +2358,9 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MergeHunk, context: context)
         Hearth::Validator.validate!(input[:is_conflict], ::TrueClass, ::FalseClass, context: "#{context}[:is_conflict]")
-        Validators::MergeHunkDetail.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::MergeHunkDetail.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::MergeHunkDetail.validate!(input[:base], context: "#{context}[:base]") unless input[:base].nil?
+        MergeHunkDetail.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        MergeHunkDetail.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        MergeHunkDetail.validate!(input[:base], context: "#{context}[:base]") unless input[:base].nil?
       end
     end
 
@@ -2375,7 +2377,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MergeHunk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MergeHunk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2426,7 +2428,7 @@ module AWS::SDK::CodeCommit
     class MergePullRequestByFastForwardOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MergePullRequestByFastForwardOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -2442,14 +2444,14 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:author_name], ::String, context: "#{context}[:author_name]")
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
       end
     end
 
     class MergePullRequestBySquashOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MergePullRequestBySquashOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -2465,14 +2467,14 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:author_name], ::String, context: "#{context}[:author_name]")
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:keep_empty_folders], ::TrueClass, ::FalseClass, context: "#{context}[:keep_empty_folders]")
-        Validators::ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        ConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
       end
     end
 
     class MergePullRequestByThreeWayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MergePullRequestByThreeWayOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -2614,7 +2616,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:before_commit_id], ::String, context: "#{context}[:before_commit_id]")
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:content], ::String, context: "#{context}[:content]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
@@ -2628,8 +2630,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
         Hearth::Validator.validate!(input[:before_blob_id], ::String, context: "#{context}[:before_blob_id]")
         Hearth::Validator.validate!(input[:after_blob_id], ::String, context: "#{context}[:after_blob_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -2640,7 +2642,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:before_commit_id], ::String, context: "#{context}[:before_commit_id]")
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:content], ::String, context: "#{context}[:content]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
@@ -2655,8 +2657,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:after_commit_id], ::String, context: "#{context}[:after_commit_id]")
         Hearth::Validator.validate!(input[:before_blob_id], ::String, context: "#{context}[:before_blob_id]")
         Hearth::Validator.validate!(input[:after_blob_id], ::String, context: "#{context}[:after_blob_id]")
-        Validators::Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Location.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -2672,7 +2674,7 @@ module AWS::SDK::CodeCommit
     class PostCommentReplyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PostCommentReplyOutput, context: context)
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -2686,10 +2688,10 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:pull_request_status], ::String, context: "#{context}[:pull_request_status]")
         Hearth::Validator.validate!(input[:author_arn], ::String, context: "#{context}[:author_arn]")
-        Validators::PullRequestTargetList.validate!(input[:pull_request_targets], context: "#{context}[:pull_request_targets]") unless input[:pull_request_targets].nil?
+        PullRequestTargetList.validate!(input[:pull_request_targets], context: "#{context}[:pull_request_targets]") unless input[:pull_request_targets].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::ApprovalRulesList.validate!(input[:approval_rules], context: "#{context}[:approval_rules]") unless input[:approval_rules].nil?
+        ApprovalRulesList.validate!(input[:approval_rules], context: "#{context}[:approval_rules]") unless input[:approval_rules].nil?
       end
     end
 
@@ -2738,13 +2740,13 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:event_date], ::Time, context: "#{context}[:event_date]")
         Hearth::Validator.validate!(input[:pull_request_event_type], ::String, context: "#{context}[:pull_request_event_type]")
         Hearth::Validator.validate!(input[:actor_arn], ::String, context: "#{context}[:actor_arn]")
-        Validators::PullRequestCreatedEventMetadata.validate!(input[:pull_request_created_event_metadata], context: "#{context}[:pull_request_created_event_metadata]") unless input[:pull_request_created_event_metadata].nil?
-        Validators::PullRequestStatusChangedEventMetadata.validate!(input[:pull_request_status_changed_event_metadata], context: "#{context}[:pull_request_status_changed_event_metadata]") unless input[:pull_request_status_changed_event_metadata].nil?
-        Validators::PullRequestSourceReferenceUpdatedEventMetadata.validate!(input[:pull_request_source_reference_updated_event_metadata], context: "#{context}[:pull_request_source_reference_updated_event_metadata]") unless input[:pull_request_source_reference_updated_event_metadata].nil?
-        Validators::PullRequestMergedStateChangedEventMetadata.validate!(input[:pull_request_merged_state_changed_event_metadata], context: "#{context}[:pull_request_merged_state_changed_event_metadata]") unless input[:pull_request_merged_state_changed_event_metadata].nil?
-        Validators::ApprovalRuleEventMetadata.validate!(input[:approval_rule_event_metadata], context: "#{context}[:approval_rule_event_metadata]") unless input[:approval_rule_event_metadata].nil?
-        Validators::ApprovalStateChangedEventMetadata.validate!(input[:approval_state_changed_event_metadata], context: "#{context}[:approval_state_changed_event_metadata]") unless input[:approval_state_changed_event_metadata].nil?
-        Validators::ApprovalRuleOverriddenEventMetadata.validate!(input[:approval_rule_overridden_event_metadata], context: "#{context}[:approval_rule_overridden_event_metadata]") unless input[:approval_rule_overridden_event_metadata].nil?
+        PullRequestCreatedEventMetadata.validate!(input[:pull_request_created_event_metadata], context: "#{context}[:pull_request_created_event_metadata]") unless input[:pull_request_created_event_metadata].nil?
+        PullRequestStatusChangedEventMetadata.validate!(input[:pull_request_status_changed_event_metadata], context: "#{context}[:pull_request_status_changed_event_metadata]") unless input[:pull_request_status_changed_event_metadata].nil?
+        PullRequestSourceReferenceUpdatedEventMetadata.validate!(input[:pull_request_source_reference_updated_event_metadata], context: "#{context}[:pull_request_source_reference_updated_event_metadata]") unless input[:pull_request_source_reference_updated_event_metadata].nil?
+        PullRequestMergedStateChangedEventMetadata.validate!(input[:pull_request_merged_state_changed_event_metadata], context: "#{context}[:pull_request_merged_state_changed_event_metadata]") unless input[:pull_request_merged_state_changed_event_metadata].nil?
+        ApprovalRuleEventMetadata.validate!(input[:approval_rule_event_metadata], context: "#{context}[:approval_rule_event_metadata]") unless input[:approval_rule_event_metadata].nil?
+        ApprovalStateChangedEventMetadata.validate!(input[:approval_state_changed_event_metadata], context: "#{context}[:approval_state_changed_event_metadata]") unless input[:approval_state_changed_event_metadata].nil?
+        ApprovalRuleOverriddenEventMetadata.validate!(input[:approval_rule_overridden_event_metadata], context: "#{context}[:approval_rule_overridden_event_metadata]") unless input[:approval_rule_overridden_event_metadata].nil?
       end
     end
 
@@ -2752,7 +2754,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PullRequestEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PullRequestEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2778,7 +2780,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input, Types::PullRequestMergedStateChangedEventMetadata, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
         Hearth::Validator.validate!(input[:destination_reference], ::String, context: "#{context}[:destination_reference]")
-        Validators::MergeMetadata.validate!(input[:merge_metadata], context: "#{context}[:merge_metadata]") unless input[:merge_metadata].nil?
+        MergeMetadata.validate!(input[:merge_metadata], context: "#{context}[:merge_metadata]") unless input[:merge_metadata].nil?
       end
     end
 
@@ -2815,7 +2817,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:destination_commit], ::String, context: "#{context}[:destination_commit]")
         Hearth::Validator.validate!(input[:source_commit], ::String, context: "#{context}[:source_commit]")
         Hearth::Validator.validate!(input[:merge_base], ::String, context: "#{context}[:merge_base]")
-        Validators::MergeMetadata.validate!(input[:merge_metadata], context: "#{context}[:merge_metadata]") unless input[:merge_metadata].nil?
+        MergeMetadata.validate!(input[:merge_metadata], context: "#{context}[:merge_metadata]") unless input[:merge_metadata].nil?
       end
     end
 
@@ -2823,7 +2825,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PullRequestTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PullRequestTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2846,7 +2848,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutFileEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutFileEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2857,7 +2859,7 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:file_path], ::String, context: "#{context}[:file_path]")
         Hearth::Validator.validate!(input[:file_mode], ::String, context: "#{context}[:file_mode]")
         Hearth::Validator.validate!(input[:file_content], ::String, context: "#{context}[:file_content]")
-        Validators::SourceFileSpecifier.validate!(input[:source_file], context: "#{context}[:source_file]") unless input[:source_file].nil?
+        SourceFileSpecifier.validate!(input[:source_file], context: "#{context}[:source_file]") unless input[:source_file].nil?
       end
     end
 
@@ -2896,7 +2898,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRepositoryTriggersInput, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
+        RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
       end
     end
 
@@ -2920,8 +2922,8 @@ module AWS::SDK::CodeCommit
     class ReactionForComment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReactionForComment, context: context)
-        Validators::ReactionValueFormats.validate!(input[:reaction], context: "#{context}[:reaction]") unless input[:reaction].nil?
-        Validators::ReactionUsersList.validate!(input[:reaction_users], context: "#{context}[:reaction_users]") unless input[:reaction_users].nil?
+        ReactionValueFormats.validate!(input[:reaction], context: "#{context}[:reaction]") unless input[:reaction].nil?
+        ReactionUsersList.validate!(input[:reaction_users], context: "#{context}[:reaction_users]") unless input[:reaction_users].nil?
         Hearth::Validator.validate!(input[:reactions_from_deleted_users_count], ::Integer, context: "#{context}[:reactions_from_deleted_users_count]")
       end
     end
@@ -2962,7 +2964,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReactionForComment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReactionForComment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2992,7 +2994,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplaceContentEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplaceContentEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3055,7 +3057,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3079,7 +3081,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryNameIdPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryNameIdPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3129,8 +3131,8 @@ module AWS::SDK::CodeCommit
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:destination_arn], ::String, context: "#{context}[:destination_arn]")
         Hearth::Validator.validate!(input[:custom_data], ::String, context: "#{context}[:custom_data]")
-        Validators::BranchNameList.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
-        Validators::RepositoryTriggerEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        BranchNameList.validate!(input[:branches], context: "#{context}[:branches]") unless input[:branches].nil?
+        RepositoryTriggerEventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -3176,7 +3178,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryTriggerExecutionFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryTriggerExecutionFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3201,7 +3203,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryTrigger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryTrigger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3259,7 +3261,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SetFileModeEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SetFileModeEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3307,7 +3309,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubModule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubModule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3326,7 +3328,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SymbolicLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SymbolicLink.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3358,7 +3360,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagsMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3398,7 +3400,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3421,15 +3423,15 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestRepositoryTriggersInput, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
+        RepositoryTriggersList.validate!(input[:triggers], context: "#{context}[:triggers]") unless input[:triggers].nil?
       end
     end
 
     class TestRepositoryTriggersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestRepositoryTriggersOutput, context: context)
-        Validators::RepositoryTriggerNameList.validate!(input[:successful_executions], context: "#{context}[:successful_executions]") unless input[:successful_executions].nil?
-        Validators::RepositoryTriggerExecutionFailureList.validate!(input[:failed_executions], context: "#{context}[:failed_executions]") unless input[:failed_executions].nil?
+        RepositoryTriggerNameList.validate!(input[:successful_executions], context: "#{context}[:successful_executions]") unless input[:successful_executions].nil?
+        RepositoryTriggerExecutionFailureList.validate!(input[:failed_executions], context: "#{context}[:failed_executions]") unless input[:failed_executions].nil?
       end
     end
 
@@ -3465,7 +3467,7 @@ module AWS::SDK::CodeCommit
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeysList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeysList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3487,7 +3489,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateContentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApprovalRuleTemplateContentOutput, context: context)
-        Validators::ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
+        ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
       end
     end
 
@@ -3502,7 +3504,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateDescriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApprovalRuleTemplateDescriptionOutput, context: context)
-        Validators::ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
+        ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
       end
     end
 
@@ -3517,7 +3519,7 @@ module AWS::SDK::CodeCommit
     class UpdateApprovalRuleTemplateNameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApprovalRuleTemplateNameOutput, context: context)
-        Validators::ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
+        ApprovalRuleTemplate.validate!(input[:approval_rule_template], context: "#{context}[:approval_rule_template]") unless input[:approval_rule_template].nil?
       end
     end
 
@@ -3532,7 +3534,7 @@ module AWS::SDK::CodeCommit
     class UpdateCommentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCommentOutput, context: context)
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -3563,7 +3565,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestApprovalRuleContentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePullRequestApprovalRuleContentOutput, context: context)
-        Validators::ApprovalRule.validate!(input[:approval_rule], context: "#{context}[:approval_rule]") unless input[:approval_rule].nil?
+        ApprovalRule.validate!(input[:approval_rule], context: "#{context}[:approval_rule]") unless input[:approval_rule].nil?
       end
     end
 
@@ -3593,7 +3595,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestDescriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePullRequestDescriptionOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -3608,7 +3610,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePullRequestStatusOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 
@@ -3623,7 +3625,7 @@ module AWS::SDK::CodeCommit
     class UpdatePullRequestTitleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePullRequestTitleOutput, context: context)
-        Validators::PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
+        PullRequest.validate!(input[:pull_request], context: "#{context}[:pull_request]") unless input[:pull_request].nil?
       end
     end
 

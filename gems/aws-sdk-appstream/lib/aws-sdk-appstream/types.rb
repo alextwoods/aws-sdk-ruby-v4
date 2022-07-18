@@ -236,11 +236,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for ApplicationAttribute
@@ -293,11 +293,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes the persistent application settings for users of a stack.</p>
@@ -325,11 +325,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute fleet_name
@@ -1552,11 +1552,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute image
@@ -1575,11 +1575,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.can_update_image ||= false
       end
-
     end
 
     CreateUsageReportSubscriptionInput = ::Struct.new(
@@ -3584,11 +3584,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.image_builder_supported ||= false
       end
-
     end
 
     # <p>Describes a virtual machine that is used to create an image. </p>
@@ -5396,11 +5396,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_vpc_config ||= false
       end
-
     end
 
     # @!attribute fleet
@@ -5524,11 +5524,11 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_storage_connectors ||= false
       end
-
     end
 
     # @!attribute stack
@@ -5684,6 +5684,7 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -5762,6 +5763,7 @@ module AWS::SDK::AppStream
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.send_email_notification ||= false

@@ -320,11 +320,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # <p>Describes an attribute value.</p>
@@ -557,11 +557,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # @!attribute cluster_identifier
@@ -650,12 +650,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_all_vp_cs ||= false
         self.endpoint_count ||= 0
       end
-
     end
 
     # <p></p>
@@ -792,11 +792,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
@@ -1477,6 +1477,7 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.automated_snapshot_retention_period ||= 0
@@ -1487,7 +1488,6 @@ module AWS::SDK::Redshift
         self.encrypted ||= false
         self.enhanced_vpc_routing ||= false
       end
-
     end
 
     # <p>The account already has a cluster with the given identifier.</p>
@@ -1996,12 +1996,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention_period ||= 0
         self.manual_snapshot_retention_period ||= 0
       end
-
     end
 
     # <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
@@ -3085,11 +3085,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p></p>
@@ -3690,11 +3690,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # <p>Describes a usage limit object for a cluster. </p>
@@ -3773,11 +3773,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # @!attribute data_share_arn
@@ -3815,11 +3815,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # <p>The association of a datashare from a producer account with a data consumer.
@@ -3972,12 +3972,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_data_in_mega_bytes ||= 0
         self.data_transferred_in_mega_bytes ||= 0
       end
-
     end
 
     # @!attribute data_share_arn
@@ -4034,11 +4034,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # <p>Describes the default cluster parameters for a parameter group family.</p>
@@ -4194,11 +4194,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.skip_final_cluster_snapshot ||= false
       end
-
     end
 
     # @!attribute cluster
@@ -4427,11 +4427,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p></p>
@@ -6364,11 +6364,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.logging_enabled ||= false
       end
-
     end
 
     # @!attribute action_type
@@ -7172,12 +7172,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_backup_size_in_mega_bytes ||= 0
         self.total_provisioned_storage_in_mega_bytes ||= 0
       end
-
     end
 
     # <p></p>
@@ -7527,11 +7527,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.logging_enabled ||= false
       end
-
     end
 
     # <p></p>
@@ -7630,11 +7630,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # <p>Describes an Amazon EC2 security group.</p>
@@ -7825,11 +7825,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.logging_enabled ||= false
       end
-
     end
 
     # <p></p>
@@ -7918,11 +7918,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Describes a Redshift-managed VPC endpoint.</p>
@@ -7991,11 +7991,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
@@ -8073,12 +8073,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_all_vp_cs ||= false
         self.endpoint_count ||= 0
       end
-
     end
 
     # <p>The authorization already exists for this endpoint.</p>
@@ -8362,11 +8362,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The request would exceed the allowed number of event subscriptions for this
@@ -10087,11 +10087,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute snapshot
@@ -10263,11 +10263,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p></p>
@@ -10527,12 +10527,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention_period ||= 0
         self.manual ||= false
       end
-
     end
 
     # @!attribute cluster
@@ -10721,11 +10721,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # <p>Describes a network interface. </p>
@@ -10792,11 +10792,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_nodes ||= 0
       end
-
     end
 
     # <p>A set of elements to filter the returned node configurations.</p>
@@ -11019,11 +11019,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # Includes enum constants for ParameterApplyType
@@ -11321,11 +11321,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recurring_charge_amount ||= 0
       end
-
     end
 
     # @!attribute data_share_arn
@@ -11375,11 +11375,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_publicly_accessible_consumers ||= false
       end
-
     end
 
     # <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
@@ -11492,6 +11492,7 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -11499,7 +11500,6 @@ module AWS::SDK::Redshift
         self.usage_price ||= 0
         self.node_count ||= 0
       end
-
     end
 
     # <p>User already has a reservation with the given identifier.</p>
@@ -11554,11 +11554,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_reserved_node_count ||= 0
       end
-
     end
 
     # Includes enum constants for ReservedNodeExchangeActionType
@@ -11650,12 +11650,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_reserved_node_count ||= 0
         self.target_reserved_node_count ||= 0
       end
-
     end
 
     # Includes enum constants for ReservedNodeExchangeStatusType
@@ -11766,13 +11766,13 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # <p>Specified offering does not exist.</p>
@@ -11846,11 +11846,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # <p></p>
@@ -12009,11 +12009,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_cancel_resize ||= false
       end
-
     end
 
     # <p>A resize operation for the specified cluster is not found.</p>
@@ -12424,6 +12424,7 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_restore_rate_in_mega_bytes_per_second ||= 0
@@ -12432,7 +12433,6 @@ module AWS::SDK::Redshift
         self.elapsed_time_in_seconds ||= 0
         self.estimated_time_to_completion_in_seconds ||= 0
       end
-
     end
 
     # <p></p>
@@ -12668,11 +12668,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # <p>Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across Amazon Web Services accounts.</p>
@@ -12737,12 +12737,12 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allowed_all_vp_cs ||= false
         self.endpoint_count ||= 0
       end
-
     end
 
     # <p></p>
@@ -13353,6 +13353,7 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
@@ -13367,7 +13368,6 @@ module AWS::SDK::Redshift
         self.elapsed_time_in_seconds ||= 0
         self.enhanced_vpc_routing ||= false
       end
-
     end
 
     # Includes enum constants for SnapshotAttributeToSortBy
@@ -14322,11 +14322,11 @@ module AWS::SDK::Redshift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # <p>The usage limit already exists. </p>

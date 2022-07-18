@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LookoutVision
@@ -116,7 +118,7 @@ module AWS::SDK::LookoutVision
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -251,7 +253,7 @@ module AWS::SDK::LookoutVision
     def create_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelInput,
         validate_input: @config.validate_input
@@ -341,7 +343,7 @@ module AWS::SDK::LookoutVision
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::LookoutVision
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -536,7 +538,7 @@ module AWS::SDK::LookoutVision
     def delete_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelInput,
         validate_input: @config.validate_input
@@ -625,7 +627,7 @@ module AWS::SDK::LookoutVision
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -713,7 +715,7 @@ module AWS::SDK::LookoutVision
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -807,7 +809,7 @@ module AWS::SDK::LookoutVision
     def describe_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelInput,
         validate_input: @config.validate_input
@@ -920,7 +922,7 @@ module AWS::SDK::LookoutVision
     def describe_model_packaging_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelPackagingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelPackagingJobInput,
         validate_input: @config.validate_input
@@ -999,7 +1001,7 @@ module AWS::SDK::LookoutVision
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -1093,7 +1095,7 @@ module AWS::SDK::LookoutVision
     def detect_anomalies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectAnomaliesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectAnomaliesInput,
         validate_input: @config.validate_input
@@ -1208,7 +1210,7 @@ module AWS::SDK::LookoutVision
     def list_dataset_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetEntriesInput,
         validate_input: @config.validate_input
@@ -1309,7 +1311,7 @@ module AWS::SDK::LookoutVision
     def list_model_packaging_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelPackagingJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelPackagingJobsInput,
         validate_input: @config.validate_input
@@ -1406,7 +1408,7 @@ module AWS::SDK::LookoutVision
     def list_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelsInput,
         validate_input: @config.validate_input
@@ -1492,7 +1494,7 @@ module AWS::SDK::LookoutVision
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -1565,7 +1567,7 @@ module AWS::SDK::LookoutVision
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1671,7 +1673,7 @@ module AWS::SDK::LookoutVision
     def start_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartModelInput,
         validate_input: @config.validate_input
@@ -1847,7 +1849,7 @@ module AWS::SDK::LookoutVision
     def start_model_packaging_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartModelPackagingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartModelPackagingJobInput,
         validate_input: @config.validate_input
@@ -1941,7 +1943,7 @@ module AWS::SDK::LookoutVision
     def stop_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopModelInput,
         validate_input: @config.validate_input
@@ -2020,7 +2022,7 @@ module AWS::SDK::LookoutVision
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2097,7 +2099,7 @@ module AWS::SDK::LookoutVision
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2209,7 +2211,7 @@ module AWS::SDK::LookoutVision
     def update_dataset_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetEntriesInput,
         validate_input: @config.validate_input

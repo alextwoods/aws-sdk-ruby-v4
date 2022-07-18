@@ -1834,7 +1834,7 @@ module AWS::SDK::DevOpsGuru
         Hearth::Validator.validate!(params, ::Hash, Types::StartCostEstimationInput, context: context)
         type = Types::StartCostEstimationInput.new
         type.resource_collection = CostEstimationResourceCollectionFilter.build(params[:resource_collection], context: "#{context}[:resource_collection]") unless params[:resource_collection].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

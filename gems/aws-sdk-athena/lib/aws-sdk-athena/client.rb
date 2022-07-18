@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Athena
@@ -93,7 +95,7 @@ module AWS::SDK::Athena
     def batch_get_named_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetNamedQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetNamedQueryInput,
         validate_input: @config.validate_input
@@ -211,7 +213,7 @@ module AWS::SDK::Athena
     def batch_get_query_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetQueryExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetQueryExecutionInput,
         validate_input: @config.validate_input
@@ -375,7 +377,7 @@ module AWS::SDK::Athena
     def create_data_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataCatalogInput,
         validate_input: @config.validate_input
@@ -477,7 +479,7 @@ module AWS::SDK::Athena
     def create_named_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNamedQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNamedQueryInput,
         validate_input: @config.validate_input
@@ -557,7 +559,7 @@ module AWS::SDK::Athena
     def create_prepared_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePreparedStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePreparedStatementInput,
         validate_input: @config.validate_input
@@ -668,7 +670,7 @@ module AWS::SDK::Athena
     def create_work_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkGroupInput,
         validate_input: @config.validate_input
@@ -736,7 +738,7 @@ module AWS::SDK::Athena
     def delete_data_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataCatalogInput,
         validate_input: @config.validate_input
@@ -808,7 +810,7 @@ module AWS::SDK::Athena
     def delete_named_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNamedQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNamedQueryInput,
         validate_input: @config.validate_input
@@ -881,7 +883,7 @@ module AWS::SDK::Athena
     def delete_prepared_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePreparedStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePreparedStatementInput,
         validate_input: @config.validate_input
@@ -955,7 +957,7 @@ module AWS::SDK::Athena
     def delete_work_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkGroupInput,
         validate_input: @config.validate_input
@@ -1029,7 +1031,7 @@ module AWS::SDK::Athena
     def get_data_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataCatalogInput,
         validate_input: @config.validate_input
@@ -1106,7 +1108,7 @@ module AWS::SDK::Athena
     def get_database(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDatabaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDatabaseInput,
         validate_input: @config.validate_input
@@ -1183,7 +1185,7 @@ module AWS::SDK::Athena
     def get_named_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNamedQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNamedQueryInput,
         validate_input: @config.validate_input
@@ -1262,7 +1264,7 @@ module AWS::SDK::Athena
     def get_prepared_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPreparedStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPreparedStatementInput,
         validate_input: @config.validate_input
@@ -1369,7 +1371,7 @@ module AWS::SDK::Athena
     def get_query_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryExecutionInput,
         validate_input: @config.validate_input
@@ -1482,7 +1484,7 @@ module AWS::SDK::Athena
     def get_query_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryResultsInput,
         validate_input: @config.validate_input
@@ -1572,7 +1574,7 @@ module AWS::SDK::Athena
     def get_table_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableMetadataInput,
         validate_input: @config.validate_input
@@ -1661,7 +1663,7 @@ module AWS::SDK::Athena
     def get_work_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkGroupInput,
         validate_input: @config.validate_input
@@ -1740,7 +1742,7 @@ module AWS::SDK::Athena
     def list_data_catalogs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataCatalogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataCatalogsInput,
         validate_input: @config.validate_input
@@ -1825,7 +1827,7 @@ module AWS::SDK::Athena
     def list_databases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatabasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatabasesInput,
         validate_input: @config.validate_input
@@ -1905,7 +1907,7 @@ module AWS::SDK::Athena
     def list_engine_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEngineVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEngineVersionsInput,
         validate_input: @config.validate_input
@@ -1993,7 +1995,7 @@ module AWS::SDK::Athena
     def list_named_queries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNamedQueriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNamedQueriesInput,
         validate_input: @config.validate_input
@@ -2076,7 +2078,7 @@ module AWS::SDK::Athena
     def list_prepared_statements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPreparedStatementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPreparedStatementsInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::Athena
     def list_query_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueryExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueryExecutionsInput,
         validate_input: @config.validate_input
@@ -2267,7 +2269,7 @@ module AWS::SDK::Athena
     def list_table_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTableMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTableMetadataInput,
         validate_input: @config.validate_input
@@ -2352,7 +2354,7 @@ module AWS::SDK::Athena
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2436,7 +2438,7 @@ module AWS::SDK::Athena
     def list_work_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkGroupsInput,
         validate_input: @config.validate_input
@@ -2551,7 +2553,7 @@ module AWS::SDK::Athena
     def start_query_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartQueryExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartQueryExecutionInput,
         validate_input: @config.validate_input
@@ -2623,7 +2625,7 @@ module AWS::SDK::Athena
     def stop_query_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopQueryExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopQueryExecutionInput,
         validate_input: @config.validate_input
@@ -2711,7 +2713,7 @@ module AWS::SDK::Athena
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2786,7 +2788,7 @@ module AWS::SDK::Athena
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2911,7 +2913,7 @@ module AWS::SDK::Athena
     def update_data_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataCatalogInput,
         validate_input: @config.validate_input
@@ -2992,7 +2994,7 @@ module AWS::SDK::Athena
     def update_named_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNamedQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNamedQueryInput,
         validate_input: @config.validate_input
@@ -3072,7 +3074,7 @@ module AWS::SDK::Athena
     def update_prepared_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePreparedStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePreparedStatementInput,
         validate_input: @config.validate_input
@@ -3178,7 +3180,7 @@ module AWS::SDK::Athena
     def update_work_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkGroupInput,
         validate_input: @config.validate_input

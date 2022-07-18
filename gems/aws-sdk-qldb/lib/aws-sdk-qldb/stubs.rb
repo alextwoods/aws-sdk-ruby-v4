@@ -73,7 +73,7 @@ module AWS::SDK::QLDB
     class DescribeJournalKinesisStream
       def self.default(visited=[])
         {
-          stream: Stubs::JournalKinesisStreamDescription.default(visited),
+          stream: JournalKinesisStreamDescription.default(visited),
         }
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::QLDB
           stream_id: 'stream_id',
           arn: 'arn',
           status: 'status',
-          kinesis_configuration: Stubs::KinesisConfiguration.default(visited),
+          kinesis_configuration: KinesisConfiguration.default(visited),
           error_cause: 'error_cause',
           stream_name: 'stream_name',
         }
@@ -148,7 +148,7 @@ module AWS::SDK::QLDB
     class DescribeJournalS3Export
       def self.default(visited=[])
         {
-          export_description: Stubs::JournalS3ExportDescription.default(visited),
+          export_description: JournalS3ExportDescription.default(visited),
         }
       end
 
@@ -173,7 +173,7 @@ module AWS::SDK::QLDB
           status: 'status',
           inclusive_start_time: Time.now,
           exclusive_end_time: Time.now,
-          s3_export_configuration: Stubs::S3ExportConfiguration.default(visited),
+          s3_export_configuration: S3ExportConfiguration.default(visited),
           role_arn: 'role_arn',
           output_format: 'output_format',
         }
@@ -203,7 +203,7 @@ module AWS::SDK::QLDB
         {
           bucket: 'bucket',
           prefix: 'prefix',
-          encryption_configuration: Stubs::S3EncryptionConfiguration.default(visited),
+          encryption_configuration: S3EncryptionConfiguration.default(visited),
         }
       end
 
@@ -247,7 +247,7 @@ module AWS::SDK::QLDB
           creation_date_time: Time.now,
           permissions_mode: 'permissions_mode',
           deletion_protection: false,
-          encryption_description: Stubs::LedgerEncryptionDescription.default(visited),
+          encryption_description: LedgerEncryptionDescription.default(visited),
         }
       end
 
@@ -309,8 +309,8 @@ module AWS::SDK::QLDB
     class GetBlock
       def self.default(visited=[])
         {
-          block: Stubs::ValueHolder.default(visited),
-          proof: Stubs::ValueHolder.default(visited),
+          block: ValueHolder.default(visited),
+          proof: ValueHolder.default(visited),
         }
       end
 
@@ -347,7 +347,7 @@ module AWS::SDK::QLDB
       def self.default(visited=[])
         {
           digest: 'digest',
-          digest_tip_address: Stubs::ValueHolder.default(visited),
+          digest_tip_address: ValueHolder.default(visited),
         }
       end
 
@@ -365,8 +365,8 @@ module AWS::SDK::QLDB
     class GetRevision
       def self.default(visited=[])
         {
-          proof: Stubs::ValueHolder.default(visited),
-          revision: Stubs::ValueHolder.default(visited),
+          proof: ValueHolder.default(visited),
+          revision: ValueHolder.default(visited),
         }
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::QLDB
     class ListJournalKinesisStreamsForLedger
       def self.default(visited=[])
         {
-          streams: Stubs::JournalKinesisStreamDescriptionList.default(visited),
+          streams: JournalKinesisStreamDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -405,7 +405,7 @@ module AWS::SDK::QLDB
         return nil if visited.include?('JournalKinesisStreamDescriptionList')
         visited = visited + ['JournalKinesisStreamDescriptionList']
         [
-          Stubs::JournalKinesisStreamDescription.default(visited)
+          JournalKinesisStreamDescription.default(visited)
         ]
       end
 
@@ -423,7 +423,7 @@ module AWS::SDK::QLDB
     class ListJournalS3Exports
       def self.default(visited=[])
         {
-          journal_s3_exports: Stubs::JournalS3ExportList.default(visited),
+          journal_s3_exports: JournalS3ExportList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -444,7 +444,7 @@ module AWS::SDK::QLDB
         return nil if visited.include?('JournalS3ExportList')
         visited = visited + ['JournalS3ExportList']
         [
-          Stubs::JournalS3ExportDescription.default(visited)
+          JournalS3ExportDescription.default(visited)
         ]
       end
 
@@ -462,7 +462,7 @@ module AWS::SDK::QLDB
     class ListJournalS3ExportsForLedger
       def self.default(visited=[])
         {
-          journal_s3_exports: Stubs::JournalS3ExportList.default(visited),
+          journal_s3_exports: JournalS3ExportList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -481,7 +481,7 @@ module AWS::SDK::QLDB
     class ListLedgers
       def self.default(visited=[])
         {
-          ledgers: Stubs::LedgerList.default(visited),
+          ledgers: LedgerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -502,7 +502,7 @@ module AWS::SDK::QLDB
         return nil if visited.include?('LedgerList')
         visited = visited + ['LedgerList']
         [
-          Stubs::LedgerSummary.default(visited)
+          LedgerSummary.default(visited)
         ]
       end
 
@@ -542,7 +542,7 @@ module AWS::SDK::QLDB
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -627,7 +627,7 @@ module AWS::SDK::QLDB
           state: 'state',
           creation_date_time: Time.now,
           deletion_protection: false,
-          encryption_description: Stubs::LedgerEncryptionDescription.default(visited),
+          encryption_description: LedgerEncryptionDescription.default(visited),
         }
       end
 

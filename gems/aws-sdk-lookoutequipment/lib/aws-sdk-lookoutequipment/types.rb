@@ -96,11 +96,11 @@ module AWS::SDK::LookoutEquipment
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percentage ||= 0
       end
-
     end
 
     # @!attribute dataset_name
@@ -2459,11 +2459,11 @@ module AWS::SDK::LookoutEquipment
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_exists ||= false
       end
-
     end
 
     # <p>

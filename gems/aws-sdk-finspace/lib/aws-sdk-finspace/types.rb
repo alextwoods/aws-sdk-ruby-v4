@@ -409,11 +409,11 @@ module AWS::SDK::Finspace
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute environments

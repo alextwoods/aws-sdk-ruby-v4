@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppConfigData
@@ -128,7 +130,7 @@ module AWS::SDK::AppConfigData
     def get_latest_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLatestConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLatestConfigurationInput,
         validate_input: @config.validate_input
@@ -213,7 +215,7 @@ module AWS::SDK::AppConfigData
     def start_configuration_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartConfigurationSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartConfigurationSessionInput,
         validate_input: @config.validate_input

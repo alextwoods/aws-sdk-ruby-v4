@@ -15,7 +15,7 @@ module AWS::SDK::CodeStarConnections
       def self.default(visited=[])
         {
           connection_arn: 'connection_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::CodeStarConnections
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -73,7 +73,7 @@ module AWS::SDK::CodeStarConnections
       def self.default(visited=[])
         {
           host_arn: 'host_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::CodeStarConnections
     class GetConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::CodeStarConnections
           status: 'status',
           provider_type: 'provider_type',
           provider_endpoint: 'provider_endpoint',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
         }
       end
 
@@ -189,8 +189,8 @@ module AWS::SDK::CodeStarConnections
         visited = visited + ['VpcConfiguration']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
           tls_certificate: 'tls_certificate',
         }
       end
@@ -250,7 +250,7 @@ module AWS::SDK::CodeStarConnections
     class ListConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -270,7 +270,7 @@ module AWS::SDK::CodeStarConnections
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -288,7 +288,7 @@ module AWS::SDK::CodeStarConnections
     class ListHosts
       def self.default(visited=[])
         {
-          hosts: Stubs::HostList.default(visited),
+          hosts: HostList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -308,7 +308,7 @@ module AWS::SDK::CodeStarConnections
         return nil if visited.include?('HostList')
         visited = visited + ['HostList']
         [
-          Stubs::Host.default(visited)
+          Host.default(visited)
         ]
       end
 
@@ -332,7 +332,7 @@ module AWS::SDK::CodeStarConnections
           host_arn: 'host_arn',
           provider_type: 'provider_type',
           provider_endpoint: 'provider_endpoint',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
           status: 'status',
           status_message: 'status_message',
         }
@@ -356,7 +356,7 @@ module AWS::SDK::CodeStarConnections
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 

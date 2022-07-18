@@ -16,8 +16,8 @@ module AWS::SDK::PI
         {
           aligned_start_time: Time.now,
           aligned_end_time: Time.now,
-          partition_keys: Stubs::ResponsePartitionKeyList.default(visited),
-          keys: Stubs::DimensionKeyDescriptionList.default(visited),
+          partition_keys: ResponsePartitionKeyList.default(visited),
+          keys: DimensionKeyDescriptionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -40,7 +40,7 @@ module AWS::SDK::PI
         return nil if visited.include?('DimensionKeyDescriptionList')
         visited = visited + ['DimensionKeyDescriptionList']
         [
-          Stubs::DimensionKeyDescription.default(visited)
+          DimensionKeyDescription.default(visited)
         ]
       end
 
@@ -60,10 +60,10 @@ module AWS::SDK::PI
         return nil if visited.include?('DimensionKeyDescription')
         visited = visited + ['DimensionKeyDescription']
         {
-          dimensions: Stubs::DimensionMap.default(visited),
+          dimensions: DimensionMap.default(visited),
           total: 1.0,
-          additional_metrics: Stubs::AdditionalMetricsMap.default(visited),
-          partitions: Stubs::MetricValuesList.default(visited),
+          additional_metrics: AdditionalMetricsMap.default(visited),
+          partitions: MetricValuesList.default(visited),
         }
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::PI
         return nil if visited.include?('ResponsePartitionKeyList')
         visited = visited + ['ResponsePartitionKeyList']
         [
-          Stubs::ResponsePartitionKey.default(visited)
+          ResponsePartitionKey.default(visited)
         ]
       end
 
@@ -164,7 +164,7 @@ module AWS::SDK::PI
         return nil if visited.include?('ResponsePartitionKey')
         visited = visited + ['ResponsePartitionKey']
         {
-          dimensions: Stubs::DimensionMap.default(visited),
+          dimensions: DimensionMap.default(visited),
         }
       end
 
@@ -180,7 +180,7 @@ module AWS::SDK::PI
     class GetDimensionKeyDetails
       def self.default(visited=[])
         {
-          dimensions: Stubs::DimensionKeyDetailList.default(visited),
+          dimensions: DimensionKeyDetailList.default(visited),
         }
       end
 
@@ -198,7 +198,7 @@ module AWS::SDK::PI
         return nil if visited.include?('DimensionKeyDetailList')
         visited = visited + ['DimensionKeyDetailList']
         [
-          Stubs::DimensionKeyDetail.default(visited)
+          DimensionKeyDetail.default(visited)
         ]
       end
 
@@ -239,7 +239,7 @@ module AWS::SDK::PI
       def self.default(visited=[])
         {
           identifier: 'identifier',
-          features: Stubs::FeatureMetadataMap.default(visited),
+          features: FeatureMetadataMap.default(visited),
         }
       end
 
@@ -258,7 +258,7 @@ module AWS::SDK::PI
         return nil if visited.include?('FeatureMetadataMap')
         visited = visited + ['FeatureMetadataMap']
         {
-          test_key: Stubs::FeatureMetadata.default(visited)
+          test_key: FeatureMetadata.default(visited)
         }
       end
 
@@ -297,7 +297,7 @@ module AWS::SDK::PI
           aligned_start_time: Time.now,
           aligned_end_time: Time.now,
           identifier: 'identifier',
-          metric_list: Stubs::MetricKeyDataPointsList.default(visited),
+          metric_list: MetricKeyDataPointsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -320,7 +320,7 @@ module AWS::SDK::PI
         return nil if visited.include?('MetricKeyDataPointsList')
         visited = visited + ['MetricKeyDataPointsList']
         [
-          Stubs::MetricKeyDataPoints.default(visited)
+          MetricKeyDataPoints.default(visited)
         ]
       end
 
@@ -340,8 +340,8 @@ module AWS::SDK::PI
         return nil if visited.include?('MetricKeyDataPoints')
         visited = visited + ['MetricKeyDataPoints']
         {
-          key: Stubs::ResponseResourceMetricKey.default(visited),
-          data_points: Stubs::DataPointsList.default(visited),
+          key: ResponseResourceMetricKey.default(visited),
+          data_points: DataPointsList.default(visited),
         }
       end
 
@@ -360,7 +360,7 @@ module AWS::SDK::PI
         return nil if visited.include?('DataPointsList')
         visited = visited + ['DataPointsList']
         [
-          Stubs::DataPoint.default(visited)
+          DataPoint.default(visited)
         ]
       end
 
@@ -401,7 +401,7 @@ module AWS::SDK::PI
         visited = visited + ['ResponseResourceMetricKey']
         {
           metric: 'metric',
-          dimensions: Stubs::DimensionMap.default(visited),
+          dimensions: DimensionMap.default(visited),
         }
       end
 
@@ -418,7 +418,7 @@ module AWS::SDK::PI
     class ListAvailableResourceDimensions
       def self.default(visited=[])
         {
-          metric_dimensions: Stubs::MetricDimensionsList.default(visited),
+          metric_dimensions: MetricDimensionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -438,7 +438,7 @@ module AWS::SDK::PI
         return nil if visited.include?('MetricDimensionsList')
         visited = visited + ['MetricDimensionsList']
         [
-          Stubs::MetricDimensionGroups.default(visited)
+          MetricDimensionGroups.default(visited)
         ]
       end
 
@@ -459,7 +459,7 @@ module AWS::SDK::PI
         visited = visited + ['MetricDimensionGroups']
         {
           metric: 'metric',
-          groups: Stubs::DimensionGroupDetailList.default(visited),
+          groups: DimensionGroupDetailList.default(visited),
         }
       end
 
@@ -478,7 +478,7 @@ module AWS::SDK::PI
         return nil if visited.include?('DimensionGroupDetailList')
         visited = visited + ['DimensionGroupDetailList']
         [
-          Stubs::DimensionGroupDetail.default(visited)
+          DimensionGroupDetail.default(visited)
         ]
       end
 
@@ -499,7 +499,7 @@ module AWS::SDK::PI
         visited = visited + ['DimensionGroupDetail']
         {
           group: 'group',
-          dimensions: Stubs::DimensionDetailList.default(visited),
+          dimensions: DimensionDetailList.default(visited),
         }
       end
 
@@ -518,7 +518,7 @@ module AWS::SDK::PI
         return nil if visited.include?('DimensionDetailList')
         visited = visited + ['DimensionDetailList']
         [
-          Stubs::DimensionDetail.default(visited)
+          DimensionDetail.default(visited)
         ]
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::PI
     class ListAvailableResourceMetrics
       def self.default(visited=[])
         {
-          metrics: Stubs::ResponseResourceMetricList.default(visited),
+          metrics: ResponseResourceMetricList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -574,7 +574,7 @@ module AWS::SDK::PI
         return nil if visited.include?('ResponseResourceMetricList')
         visited = visited + ['ResponseResourceMetricList']
         [
-          Stubs::ResponseResourceMetric.default(visited)
+          ResponseResourceMetric.default(visited)
         ]
       end
 

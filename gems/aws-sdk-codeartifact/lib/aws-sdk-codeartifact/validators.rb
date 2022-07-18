@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Codeartifact
   module Validators
 
@@ -32,7 +34,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input, Types::AssetSummary, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
-        Validators::AssetHashes.validate!(input[:hashes], context: "#{context}[:hashes]") unless input[:hashes].nil?
+        AssetHashes.validate!(input[:hashes], context: "#{context}[:hashes]") unless input[:hashes].nil?
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::Codeartifact
     class AssociateExternalConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateExternalConnectionOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -81,8 +83,8 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:package], ::String, context: "#{context}[:package]")
-        Validators::PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
-        Validators::PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
+        PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
         Hearth::Validator.validate!(input[:allow_overwrite], ::TrueClass, ::FalseClass, context: "#{context}[:allow_overwrite]")
         Hearth::Validator.validate!(input[:include_from_upstream], ::TrueClass, ::FalseClass, context: "#{context}[:include_from_upstream]")
       end
@@ -91,8 +93,8 @@ module AWS::SDK::Codeartifact
     class CopyPackageVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyPackageVersionsOutput, context: context)
-        Validators::SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
-        Validators::PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
+        SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
+        PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
       end
     end
 
@@ -101,14 +103,14 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input, Types::CreateDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain], ::String, context: "#{context}[:domain]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainOutput, context: context)
-        Validators::DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -119,15 +121,15 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:domain_owner], ::String, context: "#{context}[:domain_owner]")
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::UpstreamRepositoryList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UpstreamRepositoryList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRepositoryOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -142,7 +144,7 @@ module AWS::SDK::Codeartifact
     class DeleteDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainOutput, context: context)
-        Validators::DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::Codeartifact
     class DeleteDomainPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:package], ::String, context: "#{context}[:package]")
-        Validators::PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:expected_status], ::String, context: "#{context}[:expected_status]")
       end
     end
@@ -179,8 +181,8 @@ module AWS::SDK::Codeartifact
     class DeletePackageVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeletePackageVersionsOutput, context: context)
-        Validators::SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
-        Validators::PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
+        SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
+        PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Codeartifact
     class DeleteRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRepositoryOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -213,7 +215,7 @@ module AWS::SDK::Codeartifact
     class DeleteRepositoryPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRepositoryPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::Codeartifact
     class DescribeDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainOutput, context: context)
-        Validators::DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        DomainDescription.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::Codeartifact
     class DescribePackageVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePackageVersionOutput, context: context)
-        Validators::PackageVersionDescription.validate!(input[:package_version], context: "#{context}[:package_version]") unless input[:package_version].nil?
+        PackageVersionDescription.validate!(input[:package_version], context: "#{context}[:package_version]") unless input[:package_version].nil?
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::Codeartifact
     class DescribeRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRepositoryOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::Codeartifact
     class DisassociateExternalConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateExternalConnectionOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -294,8 +296,8 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:package], ::String, context: "#{context}[:package]")
-        Validators::PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
-        Validators::PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
+        PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
         Hearth::Validator.validate!(input[:expected_status], ::String, context: "#{context}[:expected_status]")
       end
     end
@@ -303,8 +305,8 @@ module AWS::SDK::Codeartifact
     class DisposePackageVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisposePackageVersionsOutput, context: context)
-        Validators::SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
-        Validators::PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
+        SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
+        PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
       end
     end
 
@@ -339,7 +341,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::Codeartifact
     class GetDomainPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -457,7 +459,7 @@ module AWS::SDK::Codeartifact
     class GetRepositoryPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRepositoryPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -480,7 +482,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::Codeartifact
     class ListDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsOutput, context: context)
-        Validators::DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        DomainSummaryList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:version_revision], ::String, context: "#{context}[:version_revision]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::AssetSummaryList.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
+        AssetSummaryList.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
       end
     end
 
@@ -552,7 +554,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:version_revision], ::String, context: "#{context}[:version_revision]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PackageDependencyList.validate!(input[:dependencies], context: "#{context}[:dependencies]") unless input[:dependencies].nil?
+        PackageDependencyList.validate!(input[:dependencies], context: "#{context}[:dependencies]") unless input[:dependencies].nil?
       end
     end
 
@@ -579,7 +581,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:package], ::String, context: "#{context}[:package]")
-        Validators::PackageVersionSummaryList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PackageVersionSummaryList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -601,7 +603,7 @@ module AWS::SDK::Codeartifact
     class ListPackagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPackagesOutput, context: context)
-        Validators::PackageSummaryList.validate!(input[:packages], context: "#{context}[:packages]") unless input[:packages].nil?
+        PackageSummaryList.validate!(input[:packages], context: "#{context}[:packages]") unless input[:packages].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::Codeartifact
     class ListRepositoriesInDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoriesInDomainOutput, context: context)
-        Validators::RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -638,7 +640,7 @@ module AWS::SDK::Codeartifact
     class ListRepositoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRepositoriesOutput, context: context)
-        Validators::RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        RepositorySummaryList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -653,7 +655,7 @@ module AWS::SDK::Codeartifact
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -671,7 +673,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageDependency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageDependency.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -706,7 +708,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:home_page], ::String, context: "#{context}[:home_page]")
         Hearth::Validator.validate!(input[:source_code_repository], ::String, context: "#{context}[:source_code_repository]")
         Hearth::Validator.validate!(input[:published_time], ::Time, context: "#{context}[:published_time]")
-        Validators::LicenseInfoList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
+        LicenseInfoList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
         Hearth::Validator.validate!(input[:revision], ::String, context: "#{context}[:revision]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -725,7 +727,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PackageVersionError.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PackageVersionError.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -762,7 +764,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -780,7 +782,7 @@ module AWS::SDK::Codeartifact
     class PutDomainPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutDomainPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -798,7 +800,7 @@ module AWS::SDK::Codeartifact
     class PutRepositoryPermissionsPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRepositoryPermissionsPolicyOutput, context: context)
-        Validators::ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResourcePolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -811,8 +813,8 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:domain_owner], ::String, context: "#{context}[:domain_owner]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::UpstreamRepositoryInfoList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
-        Validators::RepositoryExternalConnectionInfoList.validate!(input[:external_connections], context: "#{context}[:external_connections]") unless input[:external_connections].nil?
+        UpstreamRepositoryInfoList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
+        RepositoryExternalConnectionInfoList.validate!(input[:external_connections], context: "#{context}[:external_connections]") unless input[:external_connections].nil?
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositoryExternalConnectionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositoryExternalConnectionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RepositorySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RepositorySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -895,7 +897,7 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::SuccessfulPackageVersionInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          SuccessfulPackageVersionInfo.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -930,7 +932,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -952,7 +954,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -971,8 +973,8 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:package], ::String, context: "#{context}[:package]")
-        Validators::PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
-        Validators::PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
+        PackageVersionList.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PackageVersionRevisionMap.validate!(input[:version_revisions], context: "#{context}[:version_revisions]") unless input[:version_revisions].nil?
         Hearth::Validator.validate!(input[:expected_status], ::String, context: "#{context}[:expected_status]")
         Hearth::Validator.validate!(input[:target_status], ::String, context: "#{context}[:target_status]")
       end
@@ -981,8 +983,8 @@ module AWS::SDK::Codeartifact
     class UpdatePackageVersionsStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePackageVersionsStatusOutput, context: context)
-        Validators::SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
-        Validators::PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
+        SuccessfulPackageVersionInfoMap.validate!(input[:successful_versions], context: "#{context}[:successful_versions]") unless input[:successful_versions].nil?
+        PackageVersionErrorMap.validate!(input[:failed_versions], context: "#{context}[:failed_versions]") unless input[:failed_versions].nil?
       end
     end
 
@@ -993,14 +995,14 @@ module AWS::SDK::Codeartifact
         Hearth::Validator.validate!(input[:domain_owner], ::String, context: "#{context}[:domain_owner]")
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::UpstreamRepositoryList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
+        UpstreamRepositoryList.validate!(input[:upstreams], context: "#{context}[:upstreams]") unless input[:upstreams].nil?
       end
     end
 
     class UpdateRepositoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRepositoryOutput, context: context)
-        Validators::RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
+        RepositoryDescription.validate!(input[:repository], context: "#{context}[:repository]") unless input[:repository].nil?
       end
     end
 
@@ -1022,7 +1024,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpstreamRepositoryInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpstreamRepositoryInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::Codeartifact
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpstreamRepository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpstreamRepository.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

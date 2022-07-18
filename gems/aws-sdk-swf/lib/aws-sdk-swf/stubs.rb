@@ -128,8 +128,8 @@ module AWS::SDK::SWF
     class DescribeActivityType
       def self.default(visited=[])
         {
-          type_info: Stubs::ActivityTypeInfo.default(visited),
-          configuration: Stubs::ActivityTypeConfiguration.default(visited),
+          type_info: ActivityTypeInfo.default(visited),
+          configuration: ActivityTypeConfiguration.default(visited),
         }
       end
 
@@ -150,7 +150,7 @@ module AWS::SDK::SWF
         {
           default_task_start_to_close_timeout: 'default_task_start_to_close_timeout',
           default_task_heartbeat_timeout: 'default_task_heartbeat_timeout',
-          default_task_list: Stubs::TaskList.default(visited),
+          default_task_list: TaskList.default(visited),
           default_task_priority: 'default_task_priority',
           default_task_schedule_to_start_timeout: 'default_task_schedule_to_start_timeout',
           default_task_schedule_to_close_timeout: 'default_task_schedule_to_close_timeout',
@@ -194,7 +194,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ActivityTypeInfo')
         visited = visited + ['ActivityTypeInfo']
         {
-          activity_type: Stubs::ActivityType.default(visited),
+          activity_type: ActivityType.default(visited),
           status: 'status',
           description: 'description',
           creation_date: Time.now,
@@ -238,8 +238,8 @@ module AWS::SDK::SWF
     class DescribeDomain
       def self.default(visited=[])
         {
-          domain_info: Stubs::DomainInfo.default(visited),
-          configuration: Stubs::DomainConfiguration.default(visited),
+          domain_info: DomainInfo.default(visited),
+          configuration: DomainConfiguration.default(visited),
         }
       end
 
@@ -298,9 +298,9 @@ module AWS::SDK::SWF
     class DescribeWorkflowExecution
       def self.default(visited=[])
         {
-          execution_info: Stubs::WorkflowExecutionInfo.default(visited),
-          execution_configuration: Stubs::WorkflowExecutionConfiguration.default(visited),
-          open_counts: Stubs::WorkflowExecutionOpenCounts.default(visited),
+          execution_info: WorkflowExecutionInfo.default(visited),
+          execution_configuration: WorkflowExecutionConfiguration.default(visited),
+          open_counts: WorkflowExecutionOpenCounts.default(visited),
           latest_activity_task_timestamp: Time.now,
           latest_execution_context: 'latest_execution_context',
         }
@@ -352,7 +352,7 @@ module AWS::SDK::SWF
         {
           task_start_to_close_timeout: 'task_start_to_close_timeout',
           execution_start_to_close_timeout: 'execution_start_to_close_timeout',
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
           child_policy: 'child_policy',
           lambda_role: 'lambda_role',
@@ -378,14 +378,14 @@ module AWS::SDK::SWF
         return nil if visited.include?('WorkflowExecutionInfo')
         visited = visited + ['WorkflowExecutionInfo']
         {
-          execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           start_timestamp: Time.now,
           close_timestamp: Time.now,
           execution_status: 'execution_status',
           close_status: 'close_status',
-          parent: Stubs::WorkflowExecution.default(visited),
-          tag_list: Stubs::TagList.default(visited),
+          parent: WorkflowExecution.default(visited),
+          tag_list: TagList.default(visited),
           cancel_requested: false,
         }
       end
@@ -470,8 +470,8 @@ module AWS::SDK::SWF
     class DescribeWorkflowType
       def self.default(visited=[])
         {
-          type_info: Stubs::WorkflowTypeInfo.default(visited),
-          configuration: Stubs::WorkflowTypeConfiguration.default(visited),
+          type_info: WorkflowTypeInfo.default(visited),
+          configuration: WorkflowTypeConfiguration.default(visited),
         }
       end
 
@@ -492,7 +492,7 @@ module AWS::SDK::SWF
         {
           default_task_start_to_close_timeout: 'default_task_start_to_close_timeout',
           default_execution_start_to_close_timeout: 'default_execution_start_to_close_timeout',
-          default_task_list: Stubs::TaskList.default(visited),
+          default_task_list: TaskList.default(visited),
           default_task_priority: 'default_task_priority',
           default_child_policy: 'default_child_policy',
           default_lambda_role: 'default_lambda_role',
@@ -518,7 +518,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('WorkflowTypeInfo')
         visited = visited + ['WorkflowTypeInfo']
         {
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_type: WorkflowType.default(visited),
           status: 'status',
           description: 'description',
           creation_date: Time.now,
@@ -542,7 +542,7 @@ module AWS::SDK::SWF
     class GetWorkflowExecutionHistory
       def self.default(visited=[])
         {
-          events: Stubs::HistoryEventList.default(visited),
+          events: HistoryEventList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -562,7 +562,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('HistoryEventList')
         visited = visited + ['HistoryEventList']
         [
-          Stubs::HistoryEvent.default(visited)
+          HistoryEvent.default(visited)
         ]
       end
 
@@ -585,60 +585,60 @@ module AWS::SDK::SWF
           event_timestamp: Time.now,
           event_type: 'event_type',
           event_id: 1,
-          workflow_execution_started_event_attributes: Stubs::WorkflowExecutionStartedEventAttributes.default(visited),
-          workflow_execution_completed_event_attributes: Stubs::WorkflowExecutionCompletedEventAttributes.default(visited),
-          complete_workflow_execution_failed_event_attributes: Stubs::CompleteWorkflowExecutionFailedEventAttributes.default(visited),
-          workflow_execution_failed_event_attributes: Stubs::WorkflowExecutionFailedEventAttributes.default(visited),
-          fail_workflow_execution_failed_event_attributes: Stubs::FailWorkflowExecutionFailedEventAttributes.default(visited),
-          workflow_execution_timed_out_event_attributes: Stubs::WorkflowExecutionTimedOutEventAttributes.default(visited),
-          workflow_execution_canceled_event_attributes: Stubs::WorkflowExecutionCanceledEventAttributes.default(visited),
-          cancel_workflow_execution_failed_event_attributes: Stubs::CancelWorkflowExecutionFailedEventAttributes.default(visited),
-          workflow_execution_continued_as_new_event_attributes: Stubs::WorkflowExecutionContinuedAsNewEventAttributes.default(visited),
-          continue_as_new_workflow_execution_failed_event_attributes: Stubs::ContinueAsNewWorkflowExecutionFailedEventAttributes.default(visited),
-          workflow_execution_terminated_event_attributes: Stubs::WorkflowExecutionTerminatedEventAttributes.default(visited),
-          workflow_execution_cancel_requested_event_attributes: Stubs::WorkflowExecutionCancelRequestedEventAttributes.default(visited),
-          decision_task_scheduled_event_attributes: Stubs::DecisionTaskScheduledEventAttributes.default(visited),
-          decision_task_started_event_attributes: Stubs::DecisionTaskStartedEventAttributes.default(visited),
-          decision_task_completed_event_attributes: Stubs::DecisionTaskCompletedEventAttributes.default(visited),
-          decision_task_timed_out_event_attributes: Stubs::DecisionTaskTimedOutEventAttributes.default(visited),
-          activity_task_scheduled_event_attributes: Stubs::ActivityTaskScheduledEventAttributes.default(visited),
-          activity_task_started_event_attributes: Stubs::ActivityTaskStartedEventAttributes.default(visited),
-          activity_task_completed_event_attributes: Stubs::ActivityTaskCompletedEventAttributes.default(visited),
-          activity_task_failed_event_attributes: Stubs::ActivityTaskFailedEventAttributes.default(visited),
-          activity_task_timed_out_event_attributes: Stubs::ActivityTaskTimedOutEventAttributes.default(visited),
-          activity_task_canceled_event_attributes: Stubs::ActivityTaskCanceledEventAttributes.default(visited),
-          activity_task_cancel_requested_event_attributes: Stubs::ActivityTaskCancelRequestedEventAttributes.default(visited),
-          workflow_execution_signaled_event_attributes: Stubs::WorkflowExecutionSignaledEventAttributes.default(visited),
-          marker_recorded_event_attributes: Stubs::MarkerRecordedEventAttributes.default(visited),
-          record_marker_failed_event_attributes: Stubs::RecordMarkerFailedEventAttributes.default(visited),
-          timer_started_event_attributes: Stubs::TimerStartedEventAttributes.default(visited),
-          timer_fired_event_attributes: Stubs::TimerFiredEventAttributes.default(visited),
-          timer_canceled_event_attributes: Stubs::TimerCanceledEventAttributes.default(visited),
-          start_child_workflow_execution_initiated_event_attributes: Stubs::StartChildWorkflowExecutionInitiatedEventAttributes.default(visited),
-          child_workflow_execution_started_event_attributes: Stubs::ChildWorkflowExecutionStartedEventAttributes.default(visited),
-          child_workflow_execution_completed_event_attributes: Stubs::ChildWorkflowExecutionCompletedEventAttributes.default(visited),
-          child_workflow_execution_failed_event_attributes: Stubs::ChildWorkflowExecutionFailedEventAttributes.default(visited),
-          child_workflow_execution_timed_out_event_attributes: Stubs::ChildWorkflowExecutionTimedOutEventAttributes.default(visited),
-          child_workflow_execution_canceled_event_attributes: Stubs::ChildWorkflowExecutionCanceledEventAttributes.default(visited),
-          child_workflow_execution_terminated_event_attributes: Stubs::ChildWorkflowExecutionTerminatedEventAttributes.default(visited),
-          signal_external_workflow_execution_initiated_event_attributes: Stubs::SignalExternalWorkflowExecutionInitiatedEventAttributes.default(visited),
-          external_workflow_execution_signaled_event_attributes: Stubs::ExternalWorkflowExecutionSignaledEventAttributes.default(visited),
-          signal_external_workflow_execution_failed_event_attributes: Stubs::SignalExternalWorkflowExecutionFailedEventAttributes.default(visited),
-          external_workflow_execution_cancel_requested_event_attributes: Stubs::ExternalWorkflowExecutionCancelRequestedEventAttributes.default(visited),
-          request_cancel_external_workflow_execution_initiated_event_attributes: Stubs::RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.default(visited),
-          request_cancel_external_workflow_execution_failed_event_attributes: Stubs::RequestCancelExternalWorkflowExecutionFailedEventAttributes.default(visited),
-          schedule_activity_task_failed_event_attributes: Stubs::ScheduleActivityTaskFailedEventAttributes.default(visited),
-          request_cancel_activity_task_failed_event_attributes: Stubs::RequestCancelActivityTaskFailedEventAttributes.default(visited),
-          start_timer_failed_event_attributes: Stubs::StartTimerFailedEventAttributes.default(visited),
-          cancel_timer_failed_event_attributes: Stubs::CancelTimerFailedEventAttributes.default(visited),
-          start_child_workflow_execution_failed_event_attributes: Stubs::StartChildWorkflowExecutionFailedEventAttributes.default(visited),
-          lambda_function_scheduled_event_attributes: Stubs::LambdaFunctionScheduledEventAttributes.default(visited),
-          lambda_function_started_event_attributes: Stubs::LambdaFunctionStartedEventAttributes.default(visited),
-          lambda_function_completed_event_attributes: Stubs::LambdaFunctionCompletedEventAttributes.default(visited),
-          lambda_function_failed_event_attributes: Stubs::LambdaFunctionFailedEventAttributes.default(visited),
-          lambda_function_timed_out_event_attributes: Stubs::LambdaFunctionTimedOutEventAttributes.default(visited),
-          schedule_lambda_function_failed_event_attributes: Stubs::ScheduleLambdaFunctionFailedEventAttributes.default(visited),
-          start_lambda_function_failed_event_attributes: Stubs::StartLambdaFunctionFailedEventAttributes.default(visited),
+          workflow_execution_started_event_attributes: WorkflowExecutionStartedEventAttributes.default(visited),
+          workflow_execution_completed_event_attributes: WorkflowExecutionCompletedEventAttributes.default(visited),
+          complete_workflow_execution_failed_event_attributes: CompleteWorkflowExecutionFailedEventAttributes.default(visited),
+          workflow_execution_failed_event_attributes: WorkflowExecutionFailedEventAttributes.default(visited),
+          fail_workflow_execution_failed_event_attributes: FailWorkflowExecutionFailedEventAttributes.default(visited),
+          workflow_execution_timed_out_event_attributes: WorkflowExecutionTimedOutEventAttributes.default(visited),
+          workflow_execution_canceled_event_attributes: WorkflowExecutionCanceledEventAttributes.default(visited),
+          cancel_workflow_execution_failed_event_attributes: CancelWorkflowExecutionFailedEventAttributes.default(visited),
+          workflow_execution_continued_as_new_event_attributes: WorkflowExecutionContinuedAsNewEventAttributes.default(visited),
+          continue_as_new_workflow_execution_failed_event_attributes: ContinueAsNewWorkflowExecutionFailedEventAttributes.default(visited),
+          workflow_execution_terminated_event_attributes: WorkflowExecutionTerminatedEventAttributes.default(visited),
+          workflow_execution_cancel_requested_event_attributes: WorkflowExecutionCancelRequestedEventAttributes.default(visited),
+          decision_task_scheduled_event_attributes: DecisionTaskScheduledEventAttributes.default(visited),
+          decision_task_started_event_attributes: DecisionTaskStartedEventAttributes.default(visited),
+          decision_task_completed_event_attributes: DecisionTaskCompletedEventAttributes.default(visited),
+          decision_task_timed_out_event_attributes: DecisionTaskTimedOutEventAttributes.default(visited),
+          activity_task_scheduled_event_attributes: ActivityTaskScheduledEventAttributes.default(visited),
+          activity_task_started_event_attributes: ActivityTaskStartedEventAttributes.default(visited),
+          activity_task_completed_event_attributes: ActivityTaskCompletedEventAttributes.default(visited),
+          activity_task_failed_event_attributes: ActivityTaskFailedEventAttributes.default(visited),
+          activity_task_timed_out_event_attributes: ActivityTaskTimedOutEventAttributes.default(visited),
+          activity_task_canceled_event_attributes: ActivityTaskCanceledEventAttributes.default(visited),
+          activity_task_cancel_requested_event_attributes: ActivityTaskCancelRequestedEventAttributes.default(visited),
+          workflow_execution_signaled_event_attributes: WorkflowExecutionSignaledEventAttributes.default(visited),
+          marker_recorded_event_attributes: MarkerRecordedEventAttributes.default(visited),
+          record_marker_failed_event_attributes: RecordMarkerFailedEventAttributes.default(visited),
+          timer_started_event_attributes: TimerStartedEventAttributes.default(visited),
+          timer_fired_event_attributes: TimerFiredEventAttributes.default(visited),
+          timer_canceled_event_attributes: TimerCanceledEventAttributes.default(visited),
+          start_child_workflow_execution_initiated_event_attributes: StartChildWorkflowExecutionInitiatedEventAttributes.default(visited),
+          child_workflow_execution_started_event_attributes: ChildWorkflowExecutionStartedEventAttributes.default(visited),
+          child_workflow_execution_completed_event_attributes: ChildWorkflowExecutionCompletedEventAttributes.default(visited),
+          child_workflow_execution_failed_event_attributes: ChildWorkflowExecutionFailedEventAttributes.default(visited),
+          child_workflow_execution_timed_out_event_attributes: ChildWorkflowExecutionTimedOutEventAttributes.default(visited),
+          child_workflow_execution_canceled_event_attributes: ChildWorkflowExecutionCanceledEventAttributes.default(visited),
+          child_workflow_execution_terminated_event_attributes: ChildWorkflowExecutionTerminatedEventAttributes.default(visited),
+          signal_external_workflow_execution_initiated_event_attributes: SignalExternalWorkflowExecutionInitiatedEventAttributes.default(visited),
+          external_workflow_execution_signaled_event_attributes: ExternalWorkflowExecutionSignaledEventAttributes.default(visited),
+          signal_external_workflow_execution_failed_event_attributes: SignalExternalWorkflowExecutionFailedEventAttributes.default(visited),
+          external_workflow_execution_cancel_requested_event_attributes: ExternalWorkflowExecutionCancelRequestedEventAttributes.default(visited),
+          request_cancel_external_workflow_execution_initiated_event_attributes: RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.default(visited),
+          request_cancel_external_workflow_execution_failed_event_attributes: RequestCancelExternalWorkflowExecutionFailedEventAttributes.default(visited),
+          schedule_activity_task_failed_event_attributes: ScheduleActivityTaskFailedEventAttributes.default(visited),
+          request_cancel_activity_task_failed_event_attributes: RequestCancelActivityTaskFailedEventAttributes.default(visited),
+          start_timer_failed_event_attributes: StartTimerFailedEventAttributes.default(visited),
+          cancel_timer_failed_event_attributes: CancelTimerFailedEventAttributes.default(visited),
+          start_child_workflow_execution_failed_event_attributes: StartChildWorkflowExecutionFailedEventAttributes.default(visited),
+          lambda_function_scheduled_event_attributes: LambdaFunctionScheduledEventAttributes.default(visited),
+          lambda_function_started_event_attributes: LambdaFunctionStartedEventAttributes.default(visited),
+          lambda_function_completed_event_attributes: LambdaFunctionCompletedEventAttributes.default(visited),
+          lambda_function_failed_event_attributes: LambdaFunctionFailedEventAttributes.default(visited),
+          lambda_function_timed_out_event_attributes: LambdaFunctionTimedOutEventAttributes.default(visited),
+          schedule_lambda_function_failed_event_attributes: ScheduleLambdaFunctionFailedEventAttributes.default(visited),
+          start_lambda_function_failed_event_attributes: StartLambdaFunctionFailedEventAttributes.default(visited),
         }
       end
 
@@ -872,7 +872,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('StartChildWorkflowExecutionFailedEventAttributes')
         visited = visited + ['StartChildWorkflowExecutionFailedEventAttributes']
         {
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_type: WorkflowType.default(visited),
           cause: 'cause',
           workflow_id: 'workflow_id',
           initiated_event_id: 1,
@@ -966,7 +966,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ScheduleActivityTaskFailedEventAttributes')
         visited = visited + ['ScheduleActivityTaskFailedEventAttributes']
         {
-          activity_type: Stubs::ActivityType.default(visited),
+          activity_type: ActivityType.default(visited),
           activity_id: 'activity_id',
           cause: 'cause',
           decision_task_completed_event_id: 1,
@@ -1042,7 +1042,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ExternalWorkflowExecutionCancelRequestedEventAttributes')
         visited = visited + ['ExternalWorkflowExecutionCancelRequestedEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
           initiated_event_id: 1,
         }
       end
@@ -1090,7 +1090,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ExternalWorkflowExecutionSignaledEventAttributes')
         visited = visited + ['ExternalWorkflowExecutionSignaledEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
           initiated_event_id: 1,
         }
       end
@@ -1138,8 +1138,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionTerminatedEventAttributes')
         visited = visited + ['ChildWorkflowExecutionTerminatedEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           initiated_event_id: 1,
           started_event_id: 1,
         }
@@ -1162,8 +1162,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionCanceledEventAttributes')
         visited = visited + ['ChildWorkflowExecutionCanceledEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           details: 'details',
           initiated_event_id: 1,
           started_event_id: 1,
@@ -1188,8 +1188,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionTimedOutEventAttributes')
         visited = visited + ['ChildWorkflowExecutionTimedOutEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           timeout_type: 'timeout_type',
           initiated_event_id: 1,
           started_event_id: 1,
@@ -1214,8 +1214,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionFailedEventAttributes')
         visited = visited + ['ChildWorkflowExecutionFailedEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           reason: 'reason',
           details: 'details',
           initiated_event_id: 1,
@@ -1242,8 +1242,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionCompletedEventAttributes')
         visited = visited + ['ChildWorkflowExecutionCompletedEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           result: 'result',
           initiated_event_id: 1,
           started_event_id: 1,
@@ -1268,8 +1268,8 @@ module AWS::SDK::SWF
         return nil if visited.include?('ChildWorkflowExecutionStartedEventAttributes')
         visited = visited + ['ChildWorkflowExecutionStartedEventAttributes']
         {
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
           initiated_event_id: 1,
         }
       end
@@ -1291,16 +1291,16 @@ module AWS::SDK::SWF
         visited = visited + ['StartChildWorkflowExecutionInitiatedEventAttributes']
         {
           workflow_id: 'workflow_id',
-          workflow_type: Stubs::WorkflowType.default(visited),
+          workflow_type: WorkflowType.default(visited),
           control: 'control',
           input: 'input',
           execution_start_to_close_timeout: 'execution_start_to_close_timeout',
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
           decision_task_completed_event_id: 1,
           child_policy: 'child_policy',
           task_start_to_close_timeout: 'task_start_to_close_timeout',
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           lambda_role: 'lambda_role',
         }
       end
@@ -1442,7 +1442,7 @@ module AWS::SDK::SWF
         {
           signal_name: 'signal_name',
           input: 'input',
-          external_workflow_execution: Stubs::WorkflowExecution.default(visited),
+          external_workflow_execution: WorkflowExecution.default(visited),
           external_initiated_event_id: 1,
         }
       end
@@ -1598,14 +1598,14 @@ module AWS::SDK::SWF
         return nil if visited.include?('ActivityTaskScheduledEventAttributes')
         visited = visited + ['ActivityTaskScheduledEventAttributes']
         {
-          activity_type: Stubs::ActivityType.default(visited),
+          activity_type: ActivityType.default(visited),
           activity_id: 'activity_id',
           input: 'input',
           control: 'control',
           schedule_to_start_timeout: 'schedule_to_start_timeout',
           schedule_to_close_timeout: 'schedule_to_close_timeout',
           start_to_close_timeout: 'start_to_close_timeout',
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
           decision_task_completed_event_id: 1,
           heartbeat_timeout: 'heartbeat_timeout',
@@ -1700,7 +1700,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('DecisionTaskScheduledEventAttributes')
         visited = visited + ['DecisionTaskScheduledEventAttributes']
         {
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
           start_to_close_timeout: 'start_to_close_timeout',
         }
@@ -1722,7 +1722,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('WorkflowExecutionCancelRequestedEventAttributes')
         visited = visited + ['WorkflowExecutionCancelRequestedEventAttributes']
         {
-          external_workflow_execution: Stubs::WorkflowExecution.default(visited),
+          external_workflow_execution: WorkflowExecution.default(visited),
           external_initiated_event_id: 1,
           cause: 'cause',
         }
@@ -1792,12 +1792,12 @@ module AWS::SDK::SWF
           decision_task_completed_event_id: 1,
           new_execution_run_id: 'new_execution_run_id',
           execution_start_to_close_timeout: 'execution_start_to_close_timeout',
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
           task_start_to_close_timeout: 'task_start_to_close_timeout',
           child_policy: 'child_policy',
-          tag_list: Stubs::TagList.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
+          tag_list: TagList.default(visited),
+          workflow_type: WorkflowType.default(visited),
           lambda_role: 'lambda_role',
         }
       end
@@ -1972,12 +1972,12 @@ module AWS::SDK::SWF
           execution_start_to_close_timeout: 'execution_start_to_close_timeout',
           task_start_to_close_timeout: 'task_start_to_close_timeout',
           child_policy: 'child_policy',
-          task_list: Stubs::TaskList.default(visited),
+          task_list: TaskList.default(visited),
           task_priority: 'task_priority',
-          workflow_type: Stubs::WorkflowType.default(visited),
-          tag_list: Stubs::TagList.default(visited),
+          workflow_type: WorkflowType.default(visited),
+          tag_list: TagList.default(visited),
           continued_execution_run_id: 'continued_execution_run_id',
-          parent_workflow_execution: Stubs::WorkflowExecution.default(visited),
+          parent_workflow_execution: WorkflowExecution.default(visited),
           parent_initiated_event_id: 1,
           lambda_role: 'lambda_role',
         }
@@ -2006,7 +2006,7 @@ module AWS::SDK::SWF
     class ListActivityTypes
       def self.default(visited=[])
         {
-          type_infos: Stubs::ActivityTypeInfoList.default(visited),
+          type_infos: ActivityTypeInfoList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2026,7 +2026,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ActivityTypeInfoList')
         visited = visited + ['ActivityTypeInfoList']
         [
-          Stubs::ActivityTypeInfo.default(visited)
+          ActivityTypeInfo.default(visited)
         ]
       end
 
@@ -2044,7 +2044,7 @@ module AWS::SDK::SWF
     class ListClosedWorkflowExecutions
       def self.default(visited=[])
         {
-          execution_infos: Stubs::WorkflowExecutionInfoList.default(visited),
+          execution_infos: WorkflowExecutionInfoList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2064,7 +2064,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('WorkflowExecutionInfoList')
         visited = visited + ['WorkflowExecutionInfoList']
         [
-          Stubs::WorkflowExecutionInfo.default(visited)
+          WorkflowExecutionInfo.default(visited)
         ]
       end
 
@@ -2082,7 +2082,7 @@ module AWS::SDK::SWF
     class ListDomains
       def self.default(visited=[])
         {
-          domain_infos: Stubs::DomainInfoList.default(visited),
+          domain_infos: DomainInfoList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2102,7 +2102,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('DomainInfoList')
         visited = visited + ['DomainInfoList']
         [
-          Stubs::DomainInfo.default(visited)
+          DomainInfo.default(visited)
         ]
       end
 
@@ -2120,7 +2120,7 @@ module AWS::SDK::SWF
     class ListOpenWorkflowExecutions
       def self.default(visited=[])
         {
-          execution_infos: Stubs::WorkflowExecutionInfoList.default(visited),
+          execution_infos: WorkflowExecutionInfoList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2138,7 +2138,7 @@ module AWS::SDK::SWF
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::ResourceTagList.default(visited),
+          tags: ResourceTagList.default(visited),
         }
       end
 
@@ -2156,7 +2156,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('ResourceTagList')
         visited = visited + ['ResourceTagList']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -2194,7 +2194,7 @@ module AWS::SDK::SWF
     class ListWorkflowTypes
       def self.default(visited=[])
         {
-          type_infos: Stubs::WorkflowTypeInfoList.default(visited),
+          type_infos: WorkflowTypeInfoList.default(visited),
           next_page_token: 'next_page_token',
         }
       end
@@ -2214,7 +2214,7 @@ module AWS::SDK::SWF
         return nil if visited.include?('WorkflowTypeInfoList')
         visited = visited + ['WorkflowTypeInfoList']
         [
-          Stubs::WorkflowTypeInfo.default(visited)
+          WorkflowTypeInfo.default(visited)
         ]
       end
 
@@ -2235,8 +2235,8 @@ module AWS::SDK::SWF
           task_token: 'task_token',
           activity_id: 'activity_id',
           started_event_id: 1,
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          activity_type: Stubs::ActivityType.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          activity_type: ActivityType.default(visited),
           input: 'input',
         }
       end
@@ -2260,9 +2260,9 @@ module AWS::SDK::SWF
         {
           task_token: 'task_token',
           started_event_id: 1,
-          workflow_execution: Stubs::WorkflowExecution.default(visited),
-          workflow_type: Stubs::WorkflowType.default(visited),
-          events: Stubs::HistoryEventList.default(visited),
+          workflow_execution: WorkflowExecution.default(visited),
+          workflow_type: WorkflowType.default(visited),
+          events: HistoryEventList.default(visited),
           next_page_token: 'next_page_token',
           previous_started_event_id: 1,
         }

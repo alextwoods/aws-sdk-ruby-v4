@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AppMesh
@@ -215,7 +217,14 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.http_route.match.headers[0] #=> Types::HttpGatewayRouteHeader
     #   resp.data.gateway_route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.gateway_route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.http_route.action #=> Types::HttpGatewayRouteAction
     #   resp.data.gateway_route.spec.http_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.http_route.action.target.virtual_service #=> Types::GatewayRouteVirtualService
@@ -237,7 +246,12 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0] #=> Types::GrpcGatewayRouteMetadata
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> GrpcMetadataMatchMethod
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.grpc_route.action #=> Types::GrpcGatewayRouteAction
     #   resp.data.gateway_route.spec.grpc_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.grpc_route.action.rewrite #=> Types::GrpcGatewayRouteRewrite
@@ -256,7 +270,7 @@ module AWS::SDK::AppMesh
     def create_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGatewayRouteInput,
         validate_input: @config.validate_input
@@ -374,7 +388,7 @@ module AWS::SDK::AppMesh
     def create_mesh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeshInput,
         validate_input: @config.validate_input
@@ -596,7 +610,14 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.http_route.match.headers[0] #=> Types::HttpRouteHeader
     #   resp.data.route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.route.spec.http_route.action #=> Types::HttpRouteAction
     #   resp.data.route.spec.http_route.action.weighted_targets #=> Array<WeightedTarget>
     #   resp.data.route.spec.http_route.action.weighted_targets[0] #=> Types::WeightedTarget
@@ -630,7 +651,12 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.grpc_route.match.metadata[0] #=> Types::GrpcRouteMetadata
     #   resp.data.route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> GrpcRouteMetadataMatchMethod
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcRouteMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.route.spec.grpc_route.retry_policy #=> Types::GrpcRetryPolicy
     #   resp.data.route.spec.grpc_route.retry_policy.per_retry_timeout #=> Types::Duration
     #   resp.data.route.spec.grpc_route.retry_policy.max_retries #=> Integer
@@ -655,7 +681,7 @@ module AWS::SDK::AppMesh
     def create_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteInput,
         validate_input: @config.validate_input
@@ -859,11 +885,23 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy #=> Types::VirtualGatewayClientPolicy
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls #=> Types::VirtualGatewayClientPolicyTls
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Array<Integer>
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> VirtualGatewayClientTlsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> Types::VirtualGatewayClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation #=> Types::VirtualGatewayTlsValidationContext
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> VirtualGatewayTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> Types::VirtualGatewayTlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm #=> Types::VirtualGatewayTlsValidationContextAcmTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -884,12 +922,27 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.listeners[0].tls #=> Types::VirtualGatewayListenerTls
     #   resp.data.virtual_gateway.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation #=> Types::VirtualGatewayListenerTlsValidationContext
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> VirtualGatewayListenerTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> Types::VirtualGatewayListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> VirtualGatewayListenerTlsCertificate
-    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> VirtualGatewayConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> Types::VirtualGatewayListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm #=> Types::VirtualGatewayListenerTlsAcmCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> Types::VirtualGatewayConnectionPool, one of [Http, Http2, Grpc]
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http #=> Types::VirtualGatewayHttpConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2 #=> Types::VirtualGatewayHttp2ConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc #=> Types::VirtualGatewayGrpcConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_gateway.spec.logging #=> Types::VirtualGatewayLogging
-    #   resp.data.virtual_gateway.spec.logging.access_log #=> VirtualGatewayAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log #=> Types::VirtualGatewayAccessLog, one of [File]
+    #   resp.data.virtual_gateway.spec.logging.access_log.file #=> Types::VirtualGatewayFileAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_gateway.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_gateway.metadata.arn #=> String
     #   resp.data.virtual_gateway.metadata.version #=> Integer
@@ -904,7 +957,7 @@ module AWS::SDK::AppMesh
     def create_virtual_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualGatewayInput,
         validate_input: @config.validate_input
@@ -1169,7 +1222,19 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.mesh_name #=> String
     #   resp.data.virtual_node.virtual_node_name #=> String
     #   resp.data.virtual_node.spec #=> Types::VirtualNodeSpec
-    #   resp.data.virtual_node.spec.service_discovery #=> ServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery #=> Types::ServiceDiscovery, one of [Dns, AwsCloudMap]
+    #   resp.data.virtual_node.spec.service_discovery.dns #=> Types::DnsServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.dns.hostname #=> String
+    #   resp.data.virtual_node.spec.service_discovery.dns.response_type #=> String, one of ["LOADBALANCER", "ENDPOINTS"]
+    #   resp.data.virtual_node.spec.service_discovery.dns.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map #=> Types::AwsCloudMapServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.namespace_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.service_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes #=> Array<AwsCloudMapInstanceAttribute>
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0] #=> Types::AwsCloudMapInstanceAttribute
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].key #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].value #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
     #   resp.data.virtual_node.spec.listeners #=> Array<Listener>
     #   resp.data.virtual_node.spec.listeners[0] #=> Types::Listener
     #   resp.data.virtual_node.spec.listeners[0].port_mapping #=> Types::PortMapping
@@ -1177,9 +1242,20 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].port_mapping.protocol #=> String, one of ["http", "tcp", "http2", "grpc"]
     #   resp.data.virtual_node.spec.listeners[0].tls #=> Types::ListenerTls
     #   resp.data.virtual_node.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
-    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> ListenerTlsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> Types::ListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm #=> Types::ListenerTlsAcmCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation #=> Types::ListenerTlsValidationContext
-    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> ListenerTlsValidationContextTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> Types::ListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -1192,29 +1268,59 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].health_check.path #=> String
     #   resp.data.virtual_node.spec.listeners[0].health_check.healthy_threshold #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].health_check.unhealthy_threshold #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].timeout #=> ListenerTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout #=> Types::ListenerTimeout, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp #=> Types::TcpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.value #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.unit #=> String, one of ["s", "ms"]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http2 #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc #=> Types::GrpcTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.idle #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection #=> Types::OutlierDetection
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_server_errors #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval #=> Types::Duration
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.value #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.unit #=> String, one of ["s", "ms"]
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.base_ejection_duration #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_ejection_percent #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> VirtualNodeConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> Types::VirtualNodeConnectionPool, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp #=> Types::VirtualNodeTcpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http #=> Types::VirtualNodeHttpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2 #=> Types::VirtualNodeHttp2ConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc #=> Types::VirtualNodeGrpcConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_node.spec.backends #=> Array<Backend>
-    #   resp.data.virtual_node.spec.backends[0] #=> Backend
+    #   resp.data.virtual_node.spec.backends[0] #=> Types::Backend, one of [VirtualService]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service #=> Types::VirtualServiceBackend
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.virtual_service_name #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy #=> Types::ClientPolicy
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls #=> Types::ClientPolicyTls
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.enforce #=> Boolean
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports #=> Array<Integer>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports[0] #=> Integer
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate #=> Types::ClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation #=> Types::TlsValidationContext
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust #=> Types::TlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm #=> Types::TlsValidationContextAcmTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.backend_defaults #=> Types::BackendDefaults
     #   resp.data.virtual_node.spec.backend_defaults.client_policy #=> Types::ClientPolicy
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls #=> Types::ClientPolicyTls
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.certificate #=> ClientTlsCertificate
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation #=> Types::TlsValidationContext
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.member_trust #=> TlsValidationContextTrust
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.logging #=> Types::Logging
-    #   resp.data.virtual_node.spec.logging.access_log #=> AccessLog
+    #   resp.data.virtual_node.spec.logging.access_log #=> Types::AccessLog, one of [File]
+    #   resp.data.virtual_node.spec.logging.access_log.file #=> Types::FileAccessLog
+    #   resp.data.virtual_node.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_node.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_node.metadata.arn #=> String
     #   resp.data.virtual_node.metadata.version #=> Integer
@@ -1229,7 +1335,7 @@ module AWS::SDK::AppMesh
     def create_virtual_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualNodeInput,
         validate_input: @config.validate_input
@@ -1362,7 +1468,7 @@ module AWS::SDK::AppMesh
     def create_virtual_router(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualRouterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualRouterInput,
         validate_input: @config.validate_input
@@ -1477,7 +1583,11 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_service.mesh_name #=> String
     #   resp.data.virtual_service.virtual_service_name #=> String
     #   resp.data.virtual_service.spec #=> Types::VirtualServiceSpec
-    #   resp.data.virtual_service.spec.provider #=> VirtualServiceProvider
+    #   resp.data.virtual_service.spec.provider #=> Types::VirtualServiceProvider, one of [VirtualNode, VirtualRouter]
+    #   resp.data.virtual_service.spec.provider.virtual_node #=> Types::VirtualNodeServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_node.virtual_node_name #=> String
+    #   resp.data.virtual_service.spec.provider.virtual_router #=> Types::VirtualRouterServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_router.virtual_router_name #=> String
     #   resp.data.virtual_service.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_service.metadata.arn #=> String
     #   resp.data.virtual_service.metadata.version #=> Integer
@@ -1492,7 +1602,7 @@ module AWS::SDK::AppMesh
     def create_virtual_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVirtualServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVirtualServiceInput,
         validate_input: @config.validate_input
@@ -1594,7 +1704,14 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.http_route.match.headers[0] #=> Types::HttpGatewayRouteHeader
     #   resp.data.gateway_route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.gateway_route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.http_route.action #=> Types::HttpGatewayRouteAction
     #   resp.data.gateway_route.spec.http_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.http_route.action.target.virtual_service #=> Types::GatewayRouteVirtualService
@@ -1616,7 +1733,12 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0] #=> Types::GrpcGatewayRouteMetadata
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> GrpcMetadataMatchMethod
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.grpc_route.action #=> Types::GrpcGatewayRouteAction
     #   resp.data.gateway_route.spec.grpc_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.grpc_route.action.rewrite #=> Types::GrpcGatewayRouteRewrite
@@ -1635,7 +1757,7 @@ module AWS::SDK::AppMesh
     def delete_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGatewayRouteInput,
         validate_input: @config.validate_input
@@ -1721,7 +1843,7 @@ module AWS::SDK::AppMesh
     def delete_mesh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMeshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMeshInput,
         validate_input: @config.validate_input
@@ -1820,7 +1942,14 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.http_route.match.headers[0] #=> Types::HttpRouteHeader
     #   resp.data.route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.route.spec.http_route.action #=> Types::HttpRouteAction
     #   resp.data.route.spec.http_route.action.weighted_targets #=> Array<WeightedTarget>
     #   resp.data.route.spec.http_route.action.weighted_targets[0] #=> Types::WeightedTarget
@@ -1854,7 +1983,12 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.grpc_route.match.metadata[0] #=> Types::GrpcRouteMetadata
     #   resp.data.route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> GrpcRouteMetadataMatchMethod
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcRouteMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.route.spec.grpc_route.retry_policy #=> Types::GrpcRetryPolicy
     #   resp.data.route.spec.grpc_route.retry_policy.per_retry_timeout #=> Types::Duration
     #   resp.data.route.spec.grpc_route.retry_policy.max_retries #=> Integer
@@ -1879,7 +2013,7 @@ module AWS::SDK::AppMesh
     def delete_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteInput,
         validate_input: @config.validate_input
@@ -1960,11 +2094,23 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy #=> Types::VirtualGatewayClientPolicy
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls #=> Types::VirtualGatewayClientPolicyTls
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Array<Integer>
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> VirtualGatewayClientTlsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> Types::VirtualGatewayClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation #=> Types::VirtualGatewayTlsValidationContext
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> VirtualGatewayTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> Types::VirtualGatewayTlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm #=> Types::VirtualGatewayTlsValidationContextAcmTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -1985,12 +2131,27 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.listeners[0].tls #=> Types::VirtualGatewayListenerTls
     #   resp.data.virtual_gateway.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation #=> Types::VirtualGatewayListenerTlsValidationContext
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> VirtualGatewayListenerTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> Types::VirtualGatewayListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> VirtualGatewayListenerTlsCertificate
-    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> VirtualGatewayConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> Types::VirtualGatewayListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm #=> Types::VirtualGatewayListenerTlsAcmCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> Types::VirtualGatewayConnectionPool, one of [Http, Http2, Grpc]
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http #=> Types::VirtualGatewayHttpConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2 #=> Types::VirtualGatewayHttp2ConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc #=> Types::VirtualGatewayGrpcConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_gateway.spec.logging #=> Types::VirtualGatewayLogging
-    #   resp.data.virtual_gateway.spec.logging.access_log #=> VirtualGatewayAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log #=> Types::VirtualGatewayAccessLog, one of [File]
+    #   resp.data.virtual_gateway.spec.logging.access_log.file #=> Types::VirtualGatewayFileAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_gateway.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_gateway.metadata.arn #=> String
     #   resp.data.virtual_gateway.metadata.version #=> Integer
@@ -2005,7 +2166,7 @@ module AWS::SDK::AppMesh
     def delete_virtual_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualGatewayInput,
         validate_input: @config.validate_input
@@ -2083,7 +2244,19 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.mesh_name #=> String
     #   resp.data.virtual_node.virtual_node_name #=> String
     #   resp.data.virtual_node.spec #=> Types::VirtualNodeSpec
-    #   resp.data.virtual_node.spec.service_discovery #=> ServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery #=> Types::ServiceDiscovery, one of [Dns, AwsCloudMap]
+    #   resp.data.virtual_node.spec.service_discovery.dns #=> Types::DnsServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.dns.hostname #=> String
+    #   resp.data.virtual_node.spec.service_discovery.dns.response_type #=> String, one of ["LOADBALANCER", "ENDPOINTS"]
+    #   resp.data.virtual_node.spec.service_discovery.dns.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map #=> Types::AwsCloudMapServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.namespace_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.service_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes #=> Array<AwsCloudMapInstanceAttribute>
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0] #=> Types::AwsCloudMapInstanceAttribute
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].key #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].value #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
     #   resp.data.virtual_node.spec.listeners #=> Array<Listener>
     #   resp.data.virtual_node.spec.listeners[0] #=> Types::Listener
     #   resp.data.virtual_node.spec.listeners[0].port_mapping #=> Types::PortMapping
@@ -2091,9 +2264,20 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].port_mapping.protocol #=> String, one of ["http", "tcp", "http2", "grpc"]
     #   resp.data.virtual_node.spec.listeners[0].tls #=> Types::ListenerTls
     #   resp.data.virtual_node.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
-    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> ListenerTlsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> Types::ListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm #=> Types::ListenerTlsAcmCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation #=> Types::ListenerTlsValidationContext
-    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> ListenerTlsValidationContextTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> Types::ListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -2106,29 +2290,59 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].health_check.path #=> String
     #   resp.data.virtual_node.spec.listeners[0].health_check.healthy_threshold #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].health_check.unhealthy_threshold #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].timeout #=> ListenerTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout #=> Types::ListenerTimeout, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp #=> Types::TcpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.value #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.unit #=> String, one of ["s", "ms"]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http2 #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc #=> Types::GrpcTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.idle #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection #=> Types::OutlierDetection
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_server_errors #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval #=> Types::Duration
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.value #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.unit #=> String, one of ["s", "ms"]
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.base_ejection_duration #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_ejection_percent #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> VirtualNodeConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> Types::VirtualNodeConnectionPool, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp #=> Types::VirtualNodeTcpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http #=> Types::VirtualNodeHttpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2 #=> Types::VirtualNodeHttp2ConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc #=> Types::VirtualNodeGrpcConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_node.spec.backends #=> Array<Backend>
-    #   resp.data.virtual_node.spec.backends[0] #=> Backend
+    #   resp.data.virtual_node.spec.backends[0] #=> Types::Backend, one of [VirtualService]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service #=> Types::VirtualServiceBackend
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.virtual_service_name #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy #=> Types::ClientPolicy
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls #=> Types::ClientPolicyTls
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.enforce #=> Boolean
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports #=> Array<Integer>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports[0] #=> Integer
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate #=> Types::ClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation #=> Types::TlsValidationContext
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust #=> Types::TlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm #=> Types::TlsValidationContextAcmTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.backend_defaults #=> Types::BackendDefaults
     #   resp.data.virtual_node.spec.backend_defaults.client_policy #=> Types::ClientPolicy
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls #=> Types::ClientPolicyTls
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.certificate #=> ClientTlsCertificate
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation #=> Types::TlsValidationContext
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.member_trust #=> TlsValidationContextTrust
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.logging #=> Types::Logging
-    #   resp.data.virtual_node.spec.logging.access_log #=> AccessLog
+    #   resp.data.virtual_node.spec.logging.access_log #=> Types::AccessLog, one of [File]
+    #   resp.data.virtual_node.spec.logging.access_log.file #=> Types::FileAccessLog
+    #   resp.data.virtual_node.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_node.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_node.metadata.arn #=> String
     #   resp.data.virtual_node.metadata.version #=> Integer
@@ -2143,7 +2357,7 @@ module AWS::SDK::AppMesh
     def delete_virtual_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualNodeInput,
         validate_input: @config.validate_input
@@ -2240,7 +2454,7 @@ module AWS::SDK::AppMesh
     def delete_virtual_router(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualRouterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualRouterInput,
         validate_input: @config.validate_input
@@ -2316,7 +2530,11 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_service.mesh_name #=> String
     #   resp.data.virtual_service.virtual_service_name #=> String
     #   resp.data.virtual_service.spec #=> Types::VirtualServiceSpec
-    #   resp.data.virtual_service.spec.provider #=> VirtualServiceProvider
+    #   resp.data.virtual_service.spec.provider #=> Types::VirtualServiceProvider, one of [VirtualNode, VirtualRouter]
+    #   resp.data.virtual_service.spec.provider.virtual_node #=> Types::VirtualNodeServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_node.virtual_node_name #=> String
+    #   resp.data.virtual_service.spec.provider.virtual_router #=> Types::VirtualRouterServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_router.virtual_router_name #=> String
     #   resp.data.virtual_service.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_service.metadata.arn #=> String
     #   resp.data.virtual_service.metadata.version #=> Integer
@@ -2331,7 +2549,7 @@ module AWS::SDK::AppMesh
     def delete_virtual_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVirtualServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVirtualServiceInput,
         validate_input: @config.validate_input
@@ -2432,7 +2650,14 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.http_route.match.headers[0] #=> Types::HttpGatewayRouteHeader
     #   resp.data.gateway_route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.gateway_route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.http_route.action #=> Types::HttpGatewayRouteAction
     #   resp.data.gateway_route.spec.http_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.http_route.action.target.virtual_service #=> Types::GatewayRouteVirtualService
@@ -2454,7 +2679,12 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0] #=> Types::GrpcGatewayRouteMetadata
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> GrpcMetadataMatchMethod
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.grpc_route.action #=> Types::GrpcGatewayRouteAction
     #   resp.data.gateway_route.spec.grpc_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.grpc_route.action.rewrite #=> Types::GrpcGatewayRouteRewrite
@@ -2473,7 +2703,7 @@ module AWS::SDK::AppMesh
     def describe_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGatewayRouteInput,
         validate_input: @config.validate_input
@@ -2562,7 +2792,7 @@ module AWS::SDK::AppMesh
     def describe_mesh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMeshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMeshInput,
         validate_input: @config.validate_input
@@ -2661,7 +2891,14 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.http_route.match.headers[0] #=> Types::HttpRouteHeader
     #   resp.data.route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.route.spec.http_route.action #=> Types::HttpRouteAction
     #   resp.data.route.spec.http_route.action.weighted_targets #=> Array<WeightedTarget>
     #   resp.data.route.spec.http_route.action.weighted_targets[0] #=> Types::WeightedTarget
@@ -2695,7 +2932,12 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.grpc_route.match.metadata[0] #=> Types::GrpcRouteMetadata
     #   resp.data.route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> GrpcRouteMetadataMatchMethod
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcRouteMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.route.spec.grpc_route.retry_policy #=> Types::GrpcRetryPolicy
     #   resp.data.route.spec.grpc_route.retry_policy.per_retry_timeout #=> Types::Duration
     #   resp.data.route.spec.grpc_route.retry_policy.max_retries #=> Integer
@@ -2720,7 +2962,7 @@ module AWS::SDK::AppMesh
     def describe_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRouteInput,
         validate_input: @config.validate_input
@@ -2800,11 +3042,23 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy #=> Types::VirtualGatewayClientPolicy
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls #=> Types::VirtualGatewayClientPolicyTls
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Array<Integer>
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> VirtualGatewayClientTlsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> Types::VirtualGatewayClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation #=> Types::VirtualGatewayTlsValidationContext
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> VirtualGatewayTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> Types::VirtualGatewayTlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm #=> Types::VirtualGatewayTlsValidationContextAcmTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -2825,12 +3079,27 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.listeners[0].tls #=> Types::VirtualGatewayListenerTls
     #   resp.data.virtual_gateway.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation #=> Types::VirtualGatewayListenerTlsValidationContext
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> VirtualGatewayListenerTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> Types::VirtualGatewayListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> VirtualGatewayListenerTlsCertificate
-    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> VirtualGatewayConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> Types::VirtualGatewayListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm #=> Types::VirtualGatewayListenerTlsAcmCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> Types::VirtualGatewayConnectionPool, one of [Http, Http2, Grpc]
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http #=> Types::VirtualGatewayHttpConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2 #=> Types::VirtualGatewayHttp2ConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc #=> Types::VirtualGatewayGrpcConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_gateway.spec.logging #=> Types::VirtualGatewayLogging
-    #   resp.data.virtual_gateway.spec.logging.access_log #=> VirtualGatewayAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log #=> Types::VirtualGatewayAccessLog, one of [File]
+    #   resp.data.virtual_gateway.spec.logging.access_log.file #=> Types::VirtualGatewayFileAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_gateway.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_gateway.metadata.arn #=> String
     #   resp.data.virtual_gateway.metadata.version #=> Integer
@@ -2845,7 +3114,7 @@ module AWS::SDK::AppMesh
     def describe_virtual_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualGatewayInput,
         validate_input: @config.validate_input
@@ -2921,7 +3190,19 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.mesh_name #=> String
     #   resp.data.virtual_node.virtual_node_name #=> String
     #   resp.data.virtual_node.spec #=> Types::VirtualNodeSpec
-    #   resp.data.virtual_node.spec.service_discovery #=> ServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery #=> Types::ServiceDiscovery, one of [Dns, AwsCloudMap]
+    #   resp.data.virtual_node.spec.service_discovery.dns #=> Types::DnsServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.dns.hostname #=> String
+    #   resp.data.virtual_node.spec.service_discovery.dns.response_type #=> String, one of ["LOADBALANCER", "ENDPOINTS"]
+    #   resp.data.virtual_node.spec.service_discovery.dns.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map #=> Types::AwsCloudMapServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.namespace_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.service_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes #=> Array<AwsCloudMapInstanceAttribute>
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0] #=> Types::AwsCloudMapInstanceAttribute
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].key #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].value #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
     #   resp.data.virtual_node.spec.listeners #=> Array<Listener>
     #   resp.data.virtual_node.spec.listeners[0] #=> Types::Listener
     #   resp.data.virtual_node.spec.listeners[0].port_mapping #=> Types::PortMapping
@@ -2929,9 +3210,20 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].port_mapping.protocol #=> String, one of ["http", "tcp", "http2", "grpc"]
     #   resp.data.virtual_node.spec.listeners[0].tls #=> Types::ListenerTls
     #   resp.data.virtual_node.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
-    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> ListenerTlsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> Types::ListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm #=> Types::ListenerTlsAcmCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation #=> Types::ListenerTlsValidationContext
-    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> ListenerTlsValidationContextTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> Types::ListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -2944,29 +3236,59 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].health_check.path #=> String
     #   resp.data.virtual_node.spec.listeners[0].health_check.healthy_threshold #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].health_check.unhealthy_threshold #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].timeout #=> ListenerTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout #=> Types::ListenerTimeout, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp #=> Types::TcpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.value #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.unit #=> String, one of ["s", "ms"]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http2 #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc #=> Types::GrpcTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.idle #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection #=> Types::OutlierDetection
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_server_errors #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval #=> Types::Duration
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.value #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.unit #=> String, one of ["s", "ms"]
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.base_ejection_duration #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_ejection_percent #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> VirtualNodeConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> Types::VirtualNodeConnectionPool, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp #=> Types::VirtualNodeTcpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http #=> Types::VirtualNodeHttpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2 #=> Types::VirtualNodeHttp2ConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc #=> Types::VirtualNodeGrpcConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_node.spec.backends #=> Array<Backend>
-    #   resp.data.virtual_node.spec.backends[0] #=> Backend
+    #   resp.data.virtual_node.spec.backends[0] #=> Types::Backend, one of [VirtualService]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service #=> Types::VirtualServiceBackend
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.virtual_service_name #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy #=> Types::ClientPolicy
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls #=> Types::ClientPolicyTls
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.enforce #=> Boolean
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports #=> Array<Integer>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports[0] #=> Integer
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate #=> Types::ClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation #=> Types::TlsValidationContext
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust #=> Types::TlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm #=> Types::TlsValidationContextAcmTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.backend_defaults #=> Types::BackendDefaults
     #   resp.data.virtual_node.spec.backend_defaults.client_policy #=> Types::ClientPolicy
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls #=> Types::ClientPolicyTls
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.certificate #=> ClientTlsCertificate
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation #=> Types::TlsValidationContext
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.member_trust #=> TlsValidationContextTrust
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.logging #=> Types::Logging
-    #   resp.data.virtual_node.spec.logging.access_log #=> AccessLog
+    #   resp.data.virtual_node.spec.logging.access_log #=> Types::AccessLog, one of [File]
+    #   resp.data.virtual_node.spec.logging.access_log.file #=> Types::FileAccessLog
+    #   resp.data.virtual_node.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_node.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_node.metadata.arn #=> String
     #   resp.data.virtual_node.metadata.version #=> Integer
@@ -2981,7 +3303,7 @@ module AWS::SDK::AppMesh
     def describe_virtual_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualNodeInput,
         validate_input: @config.validate_input
@@ -3076,7 +3398,7 @@ module AWS::SDK::AppMesh
     def describe_virtual_router(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualRouterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualRouterInput,
         validate_input: @config.validate_input
@@ -3152,7 +3474,11 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_service.mesh_name #=> String
     #   resp.data.virtual_service.virtual_service_name #=> String
     #   resp.data.virtual_service.spec #=> Types::VirtualServiceSpec
-    #   resp.data.virtual_service.spec.provider #=> VirtualServiceProvider
+    #   resp.data.virtual_service.spec.provider #=> Types::VirtualServiceProvider, one of [VirtualNode, VirtualRouter]
+    #   resp.data.virtual_service.spec.provider.virtual_node #=> Types::VirtualNodeServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_node.virtual_node_name #=> String
+    #   resp.data.virtual_service.spec.provider.virtual_router #=> Types::VirtualRouterServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_router.virtual_router_name #=> String
     #   resp.data.virtual_service.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_service.metadata.arn #=> String
     #   resp.data.virtual_service.metadata.version #=> Integer
@@ -3167,7 +3493,7 @@ module AWS::SDK::AppMesh
     def describe_virtual_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVirtualServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVirtualServiceInput,
         validate_input: @config.validate_input
@@ -3274,7 +3600,7 @@ module AWS::SDK::AppMesh
     def list_gateway_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewayRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewayRoutesInput,
         validate_input: @config.validate_input
@@ -3369,7 +3695,7 @@ module AWS::SDK::AppMesh
     def list_meshes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMeshesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMeshesInput,
         validate_input: @config.validate_input
@@ -3475,7 +3801,7 @@ module AWS::SDK::AppMesh
     def list_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutesInput,
         validate_input: @config.validate_input
@@ -3567,7 +3893,7 @@ module AWS::SDK::AppMesh
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3668,7 +3994,7 @@ module AWS::SDK::AppMesh
     def list_virtual_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualGatewaysInput,
         validate_input: @config.validate_input
@@ -3769,7 +4095,7 @@ module AWS::SDK::AppMesh
     def list_virtual_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualNodesInput,
         validate_input: @config.validate_input
@@ -3870,7 +4196,7 @@ module AWS::SDK::AppMesh
     def list_virtual_routers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualRoutersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualRoutersInput,
         validate_input: @config.validate_input
@@ -3971,7 +4297,7 @@ module AWS::SDK::AppMesh
     def list_virtual_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVirtualServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVirtualServicesInput,
         validate_input: @config.validate_input
@@ -4054,7 +4380,7 @@ module AWS::SDK::AppMesh
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4130,7 +4456,7 @@ module AWS::SDK::AppMesh
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4324,7 +4650,14 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.http_route.match.headers[0] #=> Types::HttpGatewayRouteHeader
     #   resp.data.gateway_route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.gateway_route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.http_route.action #=> Types::HttpGatewayRouteAction
     #   resp.data.gateway_route.spec.http_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.http_route.action.target.virtual_service #=> Types::GatewayRouteVirtualService
@@ -4346,7 +4679,12 @@ module AWS::SDK::AppMesh
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0] #=> Types::GrpcGatewayRouteMetadata
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> GrpcMetadataMatchMethod
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.gateway_route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.gateway_route.spec.grpc_route.action #=> Types::GrpcGatewayRouteAction
     #   resp.data.gateway_route.spec.grpc_route.action.target #=> Types::GatewayRouteTarget
     #   resp.data.gateway_route.spec.grpc_route.action.rewrite #=> Types::GrpcGatewayRouteRewrite
@@ -4365,7 +4703,7 @@ module AWS::SDK::AppMesh
     def update_gateway_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayRouteInput,
         validate_input: @config.validate_input
@@ -4466,7 +4804,7 @@ module AWS::SDK::AppMesh
     def update_mesh(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMeshInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMeshInput,
         validate_input: @config.validate_input
@@ -4671,7 +5009,14 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.http_route.match.headers[0] #=> Types::HttpRouteHeader
     #   resp.data.route.spec.http_route.match.headers[0].name #=> String
     #   resp.data.route.spec.http_route.match.headers[0].invert #=> Boolean
-    #   resp.data.route.spec.http_route.match.headers[0].match #=> HeaderMatchMethod
+    #   resp.data.route.spec.http_route.match.headers[0].match #=> Types::HeaderMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.http_route.match.headers[0].match.exact #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.regex #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.start #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.range.end #=> Integer
+    #   resp.data.route.spec.http_route.match.headers[0].match.prefix #=> String
+    #   resp.data.route.spec.http_route.match.headers[0].match.suffix #=> String
     #   resp.data.route.spec.http_route.action #=> Types::HttpRouteAction
     #   resp.data.route.spec.http_route.action.weighted_targets #=> Array<WeightedTarget>
     #   resp.data.route.spec.http_route.action.weighted_targets[0] #=> Types::WeightedTarget
@@ -4705,7 +5050,12 @@ module AWS::SDK::AppMesh
     #   resp.data.route.spec.grpc_route.match.metadata[0] #=> Types::GrpcRouteMetadata
     #   resp.data.route.spec.grpc_route.match.metadata[0].name #=> String
     #   resp.data.route.spec.grpc_route.match.metadata[0].invert #=> Boolean
-    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> GrpcRouteMetadataMatchMethod
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match #=> Types::GrpcRouteMetadataMatchMethod, one of [Exact, Regex, Range, Prefix, Suffix]
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.exact #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.regex #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.range #=> Types::MatchRange
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.prefix #=> String
+    #   resp.data.route.spec.grpc_route.match.metadata[0].match.suffix #=> String
     #   resp.data.route.spec.grpc_route.retry_policy #=> Types::GrpcRetryPolicy
     #   resp.data.route.spec.grpc_route.retry_policy.per_retry_timeout #=> Types::Duration
     #   resp.data.route.spec.grpc_route.retry_policy.max_retries #=> Integer
@@ -4730,7 +5080,7 @@ module AWS::SDK::AppMesh
     def update_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRouteInput,
         validate_input: @config.validate_input
@@ -4917,11 +5267,23 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy #=> Types::VirtualGatewayClientPolicy
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls #=> Types::VirtualGatewayClientPolicyTls
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports #=> Array<Integer>
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> VirtualGatewayClientTlsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate #=> Types::VirtualGatewayClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation #=> Types::VirtualGatewayTlsValidationContext
-    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> VirtualGatewayTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust #=> Types::VirtualGatewayTlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm #=> Types::VirtualGatewayTlsValidationContextAcmTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
+    #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_gateway.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -4942,12 +5304,27 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_gateway.spec.listeners[0].tls #=> Types::VirtualGatewayListenerTls
     #   resp.data.virtual_gateway.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation #=> Types::VirtualGatewayListenerTlsValidationContext
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> VirtualGatewayListenerTlsValidationContextTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust #=> Types::VirtualGatewayListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.file #=> Types::VirtualGatewayTlsValidationContextFileTrust
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.member_trust.sds #=> Types::VirtualGatewayTlsValidationContextSdsTrust
     #   resp.data.virtual_gateway.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
-    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> VirtualGatewayListenerTlsCertificate
-    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> VirtualGatewayConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate #=> Types::VirtualGatewayListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm #=> Types::VirtualGatewayListenerTlsAcmCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.file #=> Types::VirtualGatewayListenerTlsFileCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].tls.certificate.sds #=> Types::VirtualGatewayListenerTlsSdsCertificate
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool #=> Types::VirtualGatewayConnectionPool, one of [Http, Http2, Grpc]
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http #=> Types::VirtualGatewayHttpConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2 #=> Types::VirtualGatewayHttp2ConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc #=> Types::VirtualGatewayGrpcConnectionPool
+    #   resp.data.virtual_gateway.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_gateway.spec.logging #=> Types::VirtualGatewayLogging
-    #   resp.data.virtual_gateway.spec.logging.access_log #=> VirtualGatewayAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log #=> Types::VirtualGatewayAccessLog, one of [File]
+    #   resp.data.virtual_gateway.spec.logging.access_log.file #=> Types::VirtualGatewayFileAccessLog
+    #   resp.data.virtual_gateway.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_gateway.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_gateway.metadata.arn #=> String
     #   resp.data.virtual_gateway.metadata.version #=> Integer
@@ -4962,7 +5339,7 @@ module AWS::SDK::AppMesh
     def update_virtual_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVirtualGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVirtualGatewayInput,
         validate_input: @config.validate_input
@@ -5191,7 +5568,19 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.mesh_name #=> String
     #   resp.data.virtual_node.virtual_node_name #=> String
     #   resp.data.virtual_node.spec #=> Types::VirtualNodeSpec
-    #   resp.data.virtual_node.spec.service_discovery #=> ServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery #=> Types::ServiceDiscovery, one of [Dns, AwsCloudMap]
+    #   resp.data.virtual_node.spec.service_discovery.dns #=> Types::DnsServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.dns.hostname #=> String
+    #   resp.data.virtual_node.spec.service_discovery.dns.response_type #=> String, one of ["LOADBALANCER", "ENDPOINTS"]
+    #   resp.data.virtual_node.spec.service_discovery.dns.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map #=> Types::AwsCloudMapServiceDiscovery
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.namespace_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.service_name #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes #=> Array<AwsCloudMapInstanceAttribute>
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0] #=> Types::AwsCloudMapInstanceAttribute
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].key #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.attributes[0].value #=> String
+    #   resp.data.virtual_node.spec.service_discovery.aws_cloud_map.ip_preference #=> String, one of ["IPv6_PREFERRED", "IPv4_PREFERRED", "IPv4_ONLY", "IPv6_ONLY"]
     #   resp.data.virtual_node.spec.listeners #=> Array<Listener>
     #   resp.data.virtual_node.spec.listeners[0] #=> Types::Listener
     #   resp.data.virtual_node.spec.listeners[0].port_mapping #=> Types::PortMapping
@@ -5199,9 +5588,20 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].port_mapping.protocol #=> String, one of ["http", "tcp", "http2", "grpc"]
     #   resp.data.virtual_node.spec.listeners[0].tls #=> Types::ListenerTls
     #   resp.data.virtual_node.spec.listeners[0].tls.mode #=> String, one of ["STRICT", "PERMISSIVE", "DISABLED"]
-    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> ListenerTlsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate #=> Types::ListenerTlsCertificate, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm #=> Types::ListenerTlsAcmCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.acm.certificate_arn #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.file.private_key #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.listeners[0].tls.certificate.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation #=> Types::ListenerTlsValidationContext
-    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> ListenerTlsValidationContextTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust #=> Types::ListenerTlsValidationContextTrust, one of [File, Sds]
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.file.certificate_chain #=> String
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.listeners[0].tls.validation.member_trust.sds.secret_name #=> String
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match #=> Types::SubjectAlternativeNameMatchers
     #   resp.data.virtual_node.spec.listeners[0].tls.validation.subject_alternative_names.match.exact #=> Array<String>
@@ -5214,29 +5614,59 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_node.spec.listeners[0].health_check.path #=> String
     #   resp.data.virtual_node.spec.listeners[0].health_check.healthy_threshold #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].health_check.unhealthy_threshold #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].timeout #=> ListenerTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout #=> Types::ListenerTimeout, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp #=> Types::TcpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.value #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].timeout.tcp.idle.unit #=> String, one of ["s", "ms"]
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http.idle #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.http2 #=> Types::HttpTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc #=> Types::GrpcTimeout
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.per_request #=> Types::Duration
+    #   resp.data.virtual_node.spec.listeners[0].timeout.grpc.idle #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection #=> Types::OutlierDetection
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_server_errors #=> Integer
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval #=> Types::Duration
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.value #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].outlier_detection.interval.unit #=> String, one of ["s", "ms"]
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.base_ejection_duration #=> Types::Duration
     #   resp.data.virtual_node.spec.listeners[0].outlier_detection.max_ejection_percent #=> Integer
-    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> VirtualNodeConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool #=> Types::VirtualNodeConnectionPool, one of [Tcp, Http, Http2, Grpc]
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp #=> Types::VirtualNodeTcpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.tcp.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http #=> Types::VirtualNodeHttpConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_connections #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http.max_pending_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2 #=> Types::VirtualNodeHttp2ConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.http2.max_requests #=> Integer
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc #=> Types::VirtualNodeGrpcConnectionPool
+    #   resp.data.virtual_node.spec.listeners[0].connection_pool.grpc.max_requests #=> Integer
     #   resp.data.virtual_node.spec.backends #=> Array<Backend>
-    #   resp.data.virtual_node.spec.backends[0] #=> Backend
+    #   resp.data.virtual_node.spec.backends[0] #=> Types::Backend, one of [VirtualService]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service #=> Types::VirtualServiceBackend
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.virtual_service_name #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy #=> Types::ClientPolicy
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls #=> Types::ClientPolicyTls
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.enforce #=> Boolean
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports #=> Array<Integer>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.ports[0] #=> Integer
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate #=> Types::ClientTlsCertificate, one of [File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.file #=> Types::ListenerTlsFileCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.certificate.sds #=> Types::ListenerTlsSdsCertificate
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation #=> Types::TlsValidationContext
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust #=> Types::TlsValidationContextTrust, one of [Acm, File, Sds]
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm #=> Types::TlsValidationContextAcmTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns #=> Array<String>
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.acm.certificate_authority_arns[0] #=> String
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.file #=> Types::TlsValidationContextFileTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.member_trust.sds #=> Types::TlsValidationContextSdsTrust
+    #   resp.data.virtual_node.spec.backends[0].virtual_service.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.backend_defaults #=> Types::BackendDefaults
     #   resp.data.virtual_node.spec.backend_defaults.client_policy #=> Types::ClientPolicy
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls #=> Types::ClientPolicyTls
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.enforce #=> Boolean
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports #=> Set<Integer>
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.ports[0] #=> Integer
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.certificate #=> ClientTlsCertificate
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation #=> Types::TlsValidationContext
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.member_trust #=> TlsValidationContextTrust
-    #   resp.data.virtual_node.spec.backend_defaults.client_policy.tls.validation.subject_alternative_names #=> Types::SubjectAlternativeNames
     #   resp.data.virtual_node.spec.logging #=> Types::Logging
-    #   resp.data.virtual_node.spec.logging.access_log #=> AccessLog
+    #   resp.data.virtual_node.spec.logging.access_log #=> Types::AccessLog, one of [File]
+    #   resp.data.virtual_node.spec.logging.access_log.file #=> Types::FileAccessLog
+    #   resp.data.virtual_node.spec.logging.access_log.file.path #=> String
     #   resp.data.virtual_node.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_node.metadata.arn #=> String
     #   resp.data.virtual_node.metadata.version #=> Integer
@@ -5251,7 +5681,7 @@ module AWS::SDK::AppMesh
     def update_virtual_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVirtualNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVirtualNodeInput,
         validate_input: @config.validate_input
@@ -5365,7 +5795,7 @@ module AWS::SDK::AppMesh
     def update_virtual_router(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVirtualRouterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVirtualRouterInput,
         validate_input: @config.validate_input
@@ -5462,7 +5892,11 @@ module AWS::SDK::AppMesh
     #   resp.data.virtual_service.mesh_name #=> String
     #   resp.data.virtual_service.virtual_service_name #=> String
     #   resp.data.virtual_service.spec #=> Types::VirtualServiceSpec
-    #   resp.data.virtual_service.spec.provider #=> VirtualServiceProvider
+    #   resp.data.virtual_service.spec.provider #=> Types::VirtualServiceProvider, one of [VirtualNode, VirtualRouter]
+    #   resp.data.virtual_service.spec.provider.virtual_node #=> Types::VirtualNodeServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_node.virtual_node_name #=> String
+    #   resp.data.virtual_service.spec.provider.virtual_router #=> Types::VirtualRouterServiceProvider
+    #   resp.data.virtual_service.spec.provider.virtual_router.virtual_router_name #=> String
     #   resp.data.virtual_service.metadata #=> Types::ResourceMetadata
     #   resp.data.virtual_service.metadata.arn #=> String
     #   resp.data.virtual_service.metadata.version #=> Integer
@@ -5477,7 +5911,7 @@ module AWS::SDK::AppMesh
     def update_virtual_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVirtualServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVirtualServiceInput,
         validate_input: @config.validate_input

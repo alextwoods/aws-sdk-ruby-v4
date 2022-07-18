@@ -72,8 +72,8 @@ module AWS::SDK::RedshiftData
           result_rows: 1,
           result_size: 1,
           redshift_query_id: 1,
-          query_parameters: Stubs::SqlParametersList.default(visited),
-          sub_statements: Stubs::SubStatementList.default(visited),
+          query_parameters: SqlParametersList.default(visited),
+          sub_statements: SubStatementList.default(visited),
         }
       end
 
@@ -108,7 +108,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('SubStatementList')
         visited = visited + ['SubStatementList']
         [
-          Stubs::SubStatementData.default(visited)
+          SubStatementData.default(visited)
         ]
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('SqlParametersList')
         visited = visited + ['SqlParametersList']
         [
-          Stubs::SqlParameter.default(visited)
+          SqlParameter.default(visited)
         ]
       end
 
@@ -205,7 +205,7 @@ module AWS::SDK::RedshiftData
       def self.default(visited=[])
         {
           table_name: 'table_name',
-          column_list: Stubs::ColumnList.default(visited),
+          column_list: ColumnList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -226,7 +226,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('ColumnList')
         visited = visited + ['ColumnList']
         [
-          Stubs::ColumnMetadata.default(visited)
+          ColumnMetadata.default(visited)
         ]
       end
 
@@ -312,8 +312,8 @@ module AWS::SDK::RedshiftData
     class GetStatementResult
       def self.default(visited=[])
         {
-          records: Stubs::SqlRecords.default(visited),
-          column_metadata: Stubs::ColumnMetadataList.default(visited),
+          records: SqlRecords.default(visited),
+          column_metadata: ColumnMetadataList.default(visited),
           total_num_rows: 1,
           next_token: 'next_token',
         }
@@ -336,7 +336,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('ColumnMetadataList')
         visited = visited + ['ColumnMetadataList']
         [
-          Stubs::ColumnMetadata.default(visited)
+          ColumnMetadata.default(visited)
         ]
       end
 
@@ -356,7 +356,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('SqlRecords')
         visited = visited + ['SqlRecords']
         [
-          Stubs::FieldList.default(visited)
+          FieldList.default(visited)
         ]
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('FieldList')
         visited = visited + ['FieldList']
         [
-          Stubs::Field.default(visited)
+          Field.default(visited)
         ]
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::RedshiftData
     class ListDatabases
       def self.default(visited=[])
         {
-          databases: Stubs::DatabaseList.default(visited),
+          databases: DatabaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -466,7 +466,7 @@ module AWS::SDK::RedshiftData
     class ListSchemas
       def self.default(visited=[])
         {
-          schemas: Stubs::SchemaList.default(visited),
+          schemas: SchemaList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -504,7 +504,7 @@ module AWS::SDK::RedshiftData
     class ListStatements
       def self.default(visited=[])
         {
-          statements: Stubs::StatementList.default(visited),
+          statements: StatementList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -524,7 +524,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('StatementList')
         visited = visited + ['StatementList']
         [
-          Stubs::StatementData.default(visited)
+          StatementData.default(visited)
         ]
       end
 
@@ -546,13 +546,13 @@ module AWS::SDK::RedshiftData
         {
           id: 'id',
           query_string: 'query_string',
-          query_strings: Stubs::StatementStringList.default(visited),
+          query_strings: StatementStringList.default(visited),
           secret_arn: 'secret_arn',
           status: 'status',
           statement_name: 'statement_name',
           created_at: Time.now,
           updated_at: Time.now,
-          query_parameters: Stubs::SqlParametersList.default(visited),
+          query_parameters: SqlParametersList.default(visited),
           is_batch_statement: false,
         }
       end
@@ -598,7 +598,7 @@ module AWS::SDK::RedshiftData
     class ListTables
       def self.default(visited=[])
         {
-          tables: Stubs::TableList.default(visited),
+          tables: TableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -618,7 +618,7 @@ module AWS::SDK::RedshiftData
         return nil if visited.include?('TableList')
         visited = visited + ['TableList']
         [
-          Stubs::TableMember.default(visited)
+          TableMember.default(visited)
         ]
       end
 

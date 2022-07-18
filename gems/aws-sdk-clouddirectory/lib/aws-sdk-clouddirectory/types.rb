@@ -555,11 +555,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_unique ||= false
       end
-
     end
 
     # <p>Represents the output of a <a>CreateIndex</a> response operation.</p>
@@ -1907,11 +1907,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index ||= 0
       end
-
     end
 
     # Includes enum constants for BatchWriteExceptionType
@@ -2403,11 +2403,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_unique ||= false
       end
-
     end
 
     # @!attribute object_identifier
@@ -3052,11 +3052,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_immutable ||= false
       end
-
     end
 
     # <p>The facet attribute reference that specifies the attribute definition that contains the
@@ -4363,11 +4363,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_all_links_to_each_parent ||= false
       end
-
     end
 
     # @!attribute parents
@@ -5565,11 +5565,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_immutable ||= false
       end
-
     end
 
     # <p>Identifies the range of attributes that are used by a specified filter.</p>
@@ -5956,11 +5956,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute upgraded_schema_arn
@@ -6009,11 +6009,11 @@ module AWS::SDK::CloudDirectory
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute upgraded_schema_arn

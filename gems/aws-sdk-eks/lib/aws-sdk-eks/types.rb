@@ -654,11 +654,11 @@ module AWS::SDK::EKS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_version ||= false
       end
-
     end
 
     # Includes enum constants for ConnectorConfigProvider
@@ -1214,11 +1214,11 @@ module AWS::SDK::EKS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.preserve ||= false
       end
-
     end
 
     # @!attribute addon
@@ -4103,11 +4103,11 @@ module AWS::SDK::EKS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute update
@@ -4470,12 +4470,12 @@ module AWS::SDK::EKS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.endpoint_public_access ||= false
         self.endpoint_private_access ||= false
       end
-
     end
 
     # Includes enum constants for ConfigStatus

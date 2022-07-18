@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Support
@@ -167,7 +169,7 @@ module AWS::SDK::Support
     def add_attachments_to_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddAttachmentsToSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddAttachmentsToSetInput,
         validate_input: @config.validate_input
@@ -274,7 +276,7 @@ module AWS::SDK::Support
     def add_communication_to_case(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddCommunicationToCaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddCommunicationToCaseInput,
         validate_input: @config.validate_input
@@ -428,7 +430,7 @@ module AWS::SDK::Support
     def create_case(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCaseInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::Support
     def describe_attachment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAttachmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAttachmentInput,
         validate_input: @config.validate_input
@@ -683,7 +685,7 @@ module AWS::SDK::Support
     def describe_cases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCasesInput,
         validate_input: @config.validate_input
@@ -806,7 +808,7 @@ module AWS::SDK::Support
     def describe_communications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCommunicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCommunicationsInput,
         validate_input: @config.validate_input
@@ -912,7 +914,7 @@ module AWS::SDK::Support
     def describe_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServicesInput,
         validate_input: @config.validate_input
@@ -1002,7 +1004,7 @@ module AWS::SDK::Support
     def describe_severity_levels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSeverityLevelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSeverityLevelsInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::Support
     def describe_trusted_advisor_check_refresh_statuses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrustedAdvisorCheckRefreshStatusesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrustedAdvisorCheckRefreshStatusesInput,
         validate_input: @config.validate_input
@@ -1250,7 +1252,7 @@ module AWS::SDK::Support
     def describe_trusted_advisor_check_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrustedAdvisorCheckResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrustedAdvisorCheckResultInput,
         validate_input: @config.validate_input
@@ -1352,7 +1354,7 @@ module AWS::SDK::Support
     def describe_trusted_advisor_check_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrustedAdvisorCheckSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrustedAdvisorCheckSummariesInput,
         validate_input: @config.validate_input
@@ -1453,7 +1455,7 @@ module AWS::SDK::Support
     def describe_trusted_advisor_checks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrustedAdvisorChecksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrustedAdvisorChecksInput,
         validate_input: @config.validate_input
@@ -1552,7 +1554,7 @@ module AWS::SDK::Support
     def refresh_trusted_advisor_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RefreshTrustedAdvisorCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RefreshTrustedAdvisorCheckInput,
         validate_input: @config.validate_input
@@ -1640,7 +1642,7 @@ module AWS::SDK::Support
     def resolve_case(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResolveCaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResolveCaseInput,
         validate_input: @config.validate_input

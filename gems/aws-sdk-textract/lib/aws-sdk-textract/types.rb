@@ -549,6 +549,7 @@ module AWS::SDK::Textract
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.width ||= 0
@@ -556,7 +557,6 @@ module AWS::SDK::Textract
         self.left ||= 0
         self.top ||= 0
       end
-
     end
 
     # Includes enum constants for ContentClassifier
@@ -1559,12 +1559,12 @@ module AWS::SDK::Textract
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.x ||= 0
         self.y ||= 0
       end
-
     end
 
     # <p>The number of requests exceeded your throughput limit. If you want to increase this limit,

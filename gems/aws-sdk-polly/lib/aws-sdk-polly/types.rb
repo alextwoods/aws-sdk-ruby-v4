@@ -73,11 +73,11 @@ module AWS::SDK::Polly
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_additional_language_codes ||= false
       end
-
     end
 
     # @!attribute voices
@@ -536,12 +536,12 @@ module AWS::SDK::Polly
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.lexemes_count ||= 0
         self.size ||= 0
       end
-
     end
 
     # <p>Describes the content of the lexicon.</p>
@@ -1077,11 +1077,11 @@ module AWS::SDK::Polly
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.request_characters ||= 0
       end
-
     end
 
     # <p>The Speech Synthesis task with requested Task ID cannot be
@@ -1261,11 +1261,11 @@ module AWS::SDK::Polly
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.request_characters ||= 0
       end
-
     end
 
     # Includes enum constants for TaskStatus

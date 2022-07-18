@@ -58,11 +58,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cores ||= 0
       end
-
     end
 
     # @!attribute source_server_id
@@ -315,6 +315,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -438,6 +439,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -641,6 +643,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_storage_bytes ||= 0
@@ -648,7 +651,6 @@ module AWS::SDK::Mgn
         self.rescanned_storage_bytes ||= 0
         self.backlogged_storage_bytes ||= 0
       end
-
     end
 
     # <p>Data replication initiation.</p>
@@ -923,11 +925,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -970,11 +972,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1043,11 +1045,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1090,11 +1092,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1163,11 +1165,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1300,11 +1302,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes ||= 0
       end
-
     end
 
     # @!attribute source_server_id
@@ -1611,6 +1613,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -1725,11 +1728,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>Job.</p>
@@ -2550,12 +2553,12 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.iops ||= 0
         self.throughput ||= 0
       end
-
     end
 
     # Includes enum constants for ReplicationConfigurationReplicatedDiskStagingDiskType
@@ -2694,6 +2697,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -2901,11 +2905,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quota_value ||= 0
       end
-
     end
 
     # <p>Source server properties.</p>
@@ -2962,11 +2966,11 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ram_bytes ||= 0
       end
-
     end
 
     # @!attribute source_server_id
@@ -3602,6 +3606,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -3727,6 +3732,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -3846,6 +3852,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -3970,6 +3977,7 @@ module AWS::SDK::Mgn
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0

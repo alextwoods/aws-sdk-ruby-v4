@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::VoiceID
   module Validators
 
@@ -34,7 +36,7 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:generated_speaker_id], ::String, context: "#{context}[:generated_speaker_id]")
         Hearth::Validator.validate!(input[:decision], ::String, context: "#{context}[:decision]")
         Hearth::Validator.validate!(input[:score], ::Integer, context: "#{context}[:score]")
-        Validators::AuthenticationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        AuthenticationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -51,16 +53,16 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input, Types::CreateDomainInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainOutput, context: context)
-        Validators::Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -115,7 +117,7 @@ module AWS::SDK::VoiceID
     class DescribeDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDomainOutput, context: context)
-        Validators::Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -130,7 +132,7 @@ module AWS::SDK::VoiceID
     class DescribeFraudsterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFraudsterOutput, context: context)
-        Validators::Fraudster.validate!(input[:fraudster], context: "#{context}[:fraudster]") unless input[:fraudster].nil?
+        Fraudster.validate!(input[:fraudster], context: "#{context}[:fraudster]") unless input[:fraudster].nil?
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::VoiceID
     class DescribeFraudsterRegistrationJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFraudsterRegistrationJobOutput, context: context)
-        Validators::FraudsterRegistrationJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        FraudsterRegistrationJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::VoiceID
     class DescribeSpeakerEnrollmentJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSpeakerEnrollmentJobOutput, context: context)
-        Validators::SpeakerEnrollmentJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        SpeakerEnrollmentJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -175,7 +177,7 @@ module AWS::SDK::VoiceID
     class DescribeSpeakerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSpeakerOutput, context: context)
-        Validators::Speaker.validate!(input[:speaker], context: "#{context}[:speaker]") unless input[:speaker].nil?
+        Speaker.validate!(input[:speaker], context: "#{context}[:speaker]") unless input[:speaker].nil?
       end
     end
 
@@ -187,10 +189,10 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:domain_status], ::String, context: "#{context}[:domain_status]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::ServerSideEncryptionUpdateDetails.validate!(input[:server_side_encryption_update_details], context: "#{context}[:server_side_encryption_update_details]") unless input[:server_side_encryption_update_details].nil?
+        ServerSideEncryptionUpdateDetails.validate!(input[:server_side_encryption_update_details], context: "#{context}[:server_side_encryption_update_details]") unless input[:server_side_encryption_update_details].nil?
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -211,10 +213,10 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:domain_status], ::String, context: "#{context}[:domain_status]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::ServerSideEncryptionUpdateDetails.validate!(input[:server_side_encryption_update_details], context: "#{context}[:server_side_encryption_update_details]") unless input[:server_side_encryption_update_details].nil?
+        ServerSideEncryptionUpdateDetails.validate!(input[:server_side_encryption_update_details], context: "#{context}[:server_side_encryption_update_details]") unless input[:server_side_encryption_update_details].nil?
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnrollmentConfig, context: context)
         Hearth::Validator.validate!(input[:existing_enrollment_action], ::String, context: "#{context}[:existing_enrollment_action]")
-        Validators::EnrollmentJobFraudDetectionConfig.validate!(input[:fraud_detection_config], context: "#{context}[:fraud_detection_config]") unless input[:fraud_detection_config].nil?
+        EnrollmentJobFraudDetectionConfig.validate!(input[:fraud_detection_config], context: "#{context}[:fraud_detection_config]") unless input[:fraud_detection_config].nil?
       end
     end
 
@@ -249,8 +251,8 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
         Hearth::Validator.validate!(input[:session_name], ::String, context: "#{context}[:session_name]")
         Hearth::Validator.validate!(input[:streaming_status], ::String, context: "#{context}[:streaming_status]")
-        Validators::AuthenticationResult.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
-        Validators::FraudDetectionResult.validate!(input[:fraud_detection_result], context: "#{context}[:fraud_detection_result]") unless input[:fraud_detection_result].nil?
+        AuthenticationResult.validate!(input[:authentication_result], context: "#{context}[:authentication_result]") unless input[:authentication_result].nil?
+        FraudDetectionResult.validate!(input[:fraud_detection_result], context: "#{context}[:fraud_detection_result]") unless input[:fraud_detection_result].nil?
       end
     end
 
@@ -284,17 +286,17 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:fraud_detection_result_id], ::String, context: "#{context}[:fraud_detection_result_id]")
         Hearth::Validator.validate!(input[:audio_aggregation_started_at], ::Time, context: "#{context}[:audio_aggregation_started_at]")
         Hearth::Validator.validate!(input[:audio_aggregation_ended_at], ::Time, context: "#{context}[:audio_aggregation_ended_at]")
-        Validators::FraudDetectionConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        FraudDetectionConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:decision], ::String, context: "#{context}[:decision]")
-        Validators::FraudDetectionReasons.validate!(input[:reasons], context: "#{context}[:reasons]") unless input[:reasons].nil?
-        Validators::FraudRiskDetails.validate!(input[:risk_details], context: "#{context}[:risk_details]") unless input[:risk_details].nil?
+        FraudDetectionReasons.validate!(input[:reasons], context: "#{context}[:reasons]") unless input[:reasons].nil?
+        FraudRiskDetails.validate!(input[:risk_details], context: "#{context}[:risk_details]") unless input[:risk_details].nil?
       end
     end
 
     class FraudRiskDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FraudRiskDetails, context: context)
-        Validators::KnownFraudsterRisk.validate!(input[:known_fraudster_risk], context: "#{context}[:known_fraudster_risk]") unless input[:known_fraudster_risk].nil?
+        KnownFraudsterRisk.validate!(input[:known_fraudster_risk], context: "#{context}[:known_fraudster_risk]") unless input[:known_fraudster_risk].nil?
       end
     end
 
@@ -315,13 +317,13 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
-        Validators::RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FraudsterRegistrationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FraudsterRegistrationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -343,8 +345,8 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::VoiceID
     class ListDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainsOutput, context: context)
-        Validators::DomainSummaries.validate!(input[:domain_summaries], context: "#{context}[:domain_summaries]") unless input[:domain_summaries].nil?
+        DomainSummaries.validate!(input[:domain_summaries], context: "#{context}[:domain_summaries]") unless input[:domain_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -406,7 +408,7 @@ module AWS::SDK::VoiceID
     class ListFraudsterRegistrationJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFraudsterRegistrationJobsOutput, context: context)
-        Validators::FraudsterRegistrationJobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
+        FraudsterRegistrationJobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -424,7 +426,7 @@ module AWS::SDK::VoiceID
     class ListSpeakerEnrollmentJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSpeakerEnrollmentJobsOutput, context: context)
-        Validators::SpeakerEnrollmentJobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
+        SpeakerEnrollmentJobSummaries.validate!(input[:job_summaries], context: "#{context}[:job_summaries]") unless input[:job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::VoiceID
     class ListSpeakersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSpeakersOutput, context: context)
-        Validators::SpeakerSummaries.validate!(input[:speaker_summaries], context: "#{context}[:speaker_summaries]") unless input[:speaker_summaries].nil?
+        SpeakerSummaries.validate!(input[:speaker_summaries], context: "#{context}[:speaker_summaries]") unless input[:speaker_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -456,7 +458,7 @@ module AWS::SDK::VoiceID
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::VoiceID
     class OptOutSpeakerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OptOutSpeakerOutput, context: context)
-        Validators::Speaker.validate!(input[:speaker], context: "#{context}[:speaker]") unless input[:speaker].nil?
+        Speaker.validate!(input[:speaker], context: "#{context}[:speaker]") unless input[:speaker].nil?
       end
     end
 
@@ -543,13 +545,13 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
-        Validators::EnrollmentConfig.validate!(input[:enrollment_config], context: "#{context}[:enrollment_config]") unless input[:enrollment_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        EnrollmentConfig.validate!(input[:enrollment_config], context: "#{context}[:enrollment_config]") unless input[:enrollment_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
       end
     end
 
@@ -557,7 +559,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SpeakerEnrollmentJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SpeakerEnrollmentJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -571,8 +573,8 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:ended_at], ::Time, context: "#{context}[:ended_at]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        JobProgress.validate!(input[:job_progress], context: "#{context}[:job_progress]") unless input[:job_progress].nil?
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SpeakerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SpeakerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -605,16 +607,16 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
-        Validators::RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
       end
     end
 
     class StartFraudsterRegistrationJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartFraudsterRegistrationJobOutput, context: context)
-        Validators::FraudsterRegistrationJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        FraudsterRegistrationJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -625,16 +627,16 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
-        Validators::EnrollmentConfig.validate!(input[:enrollment_config], context: "#{context}[:enrollment_config]") unless input[:enrollment_config].nil?
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        EnrollmentConfig.validate!(input[:enrollment_config], context: "#{context}[:enrollment_config]") unless input[:enrollment_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
       end
     end
 
     class StartSpeakerEnrollmentJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSpeakerEnrollmentJobOutput, context: context)
-        Validators::SpeakerEnrollmentJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        SpeakerEnrollmentJob.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -668,7 +670,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::VoiceID
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -705,14 +707,14 @@ module AWS::SDK::VoiceID
         Hearth::Validator.validate!(input[:domain_id], ::String, context: "#{context}[:domain_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
+        ServerSideEncryptionConfiguration.validate!(input[:server_side_encryption_configuration], context: "#{context}[:server_side_encryption_configuration]") unless input[:server_side_encryption_configuration].nil?
       end
     end
 
     class UpdateDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainOutput, context: context)
-        Validators::Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 

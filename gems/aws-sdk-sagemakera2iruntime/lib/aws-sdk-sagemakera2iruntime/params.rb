@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'securerandom'
-
 module AWS::SDK::SageMakerA2IRuntime
   module Params
 

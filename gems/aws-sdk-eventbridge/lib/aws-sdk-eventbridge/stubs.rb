@@ -116,9 +116,9 @@ module AWS::SDK::EventBridge
         {
           name: 'name',
           arn: 'arn',
-          routing_config: Stubs::RoutingConfig.default(visited),
-          replication_config: Stubs::ReplicationConfig.default(visited),
-          event_buses: Stubs::EndpointEventBusList.default(visited),
+          routing_config: RoutingConfig.default(visited),
+          replication_config: ReplicationConfig.default(visited),
+          event_buses: EndpointEventBusList.default(visited),
           role_arn: 'role_arn',
           state: 'state',
         }
@@ -144,7 +144,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('EndpointEventBusList')
         visited = visited + ['EndpointEventBusList']
         [
-          Stubs::EndpointEventBus.default(visited)
+          EndpointEventBus.default(visited)
         ]
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('RoutingConfig')
         visited = visited + ['RoutingConfig']
         {
-          failover_config: Stubs::FailoverConfig.default(visited),
+          failover_config: FailoverConfig.default(visited),
         }
       end
 
@@ -218,8 +218,8 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('FailoverConfig')
         visited = visited + ['FailoverConfig']
         {
-          primary: Stubs::Primary.default(visited),
-          secondary: Stubs::Secondary.default(visited),
+          primary: Primary.default(visited),
+          secondary: Secondary.default(visited),
         }
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::EventBridge
           state_reason: 'state_reason',
           authorization_type: 'authorization_type',
           secret_arn: 'secret_arn',
-          auth_parameters: Stubs::ConnectionAuthResponseParameters.default(visited),
+          auth_parameters: ConnectionAuthResponseParameters.default(visited),
           creation_time: Time.now,
           last_modified_time: Time.now,
           last_authorized_time: Time.now,
@@ -558,10 +558,10 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionAuthResponseParameters')
         visited = visited + ['ConnectionAuthResponseParameters']
         {
-          basic_auth_parameters: Stubs::ConnectionBasicAuthResponseParameters.default(visited),
-          o_auth_parameters: Stubs::ConnectionOAuthResponseParameters.default(visited),
-          api_key_auth_parameters: Stubs::ConnectionApiKeyAuthResponseParameters.default(visited),
-          invocation_http_parameters: Stubs::ConnectionHttpParameters.default(visited),
+          basic_auth_parameters: ConnectionBasicAuthResponseParameters.default(visited),
+          o_auth_parameters: ConnectionOAuthResponseParameters.default(visited),
+          api_key_auth_parameters: ConnectionApiKeyAuthResponseParameters.default(visited),
+          invocation_http_parameters: ConnectionHttpParameters.default(visited),
         }
       end
 
@@ -582,9 +582,9 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionHttpParameters')
         visited = visited + ['ConnectionHttpParameters']
         {
-          header_parameters: Stubs::ConnectionHeaderParametersList.default(visited),
-          query_string_parameters: Stubs::ConnectionQueryStringParametersList.default(visited),
-          body_parameters: Stubs::ConnectionBodyParametersList.default(visited),
+          header_parameters: ConnectionHeaderParametersList.default(visited),
+          query_string_parameters: ConnectionQueryStringParametersList.default(visited),
+          body_parameters: ConnectionBodyParametersList.default(visited),
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionBodyParametersList')
         visited = visited + ['ConnectionBodyParametersList']
         [
-          Stubs::ConnectionBodyParameter.default(visited)
+          ConnectionBodyParameter.default(visited)
         ]
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionQueryStringParametersList')
         visited = visited + ['ConnectionQueryStringParametersList']
         [
-          Stubs::ConnectionQueryStringParameter.default(visited)
+          ConnectionQueryStringParameter.default(visited)
         ]
       end
 
@@ -688,7 +688,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionHeaderParametersList')
         visited = visited + ['ConnectionHeaderParametersList']
         [
-          Stubs::ConnectionHeaderParameter.default(visited)
+          ConnectionHeaderParameter.default(visited)
         ]
       end
 
@@ -748,10 +748,10 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionOAuthResponseParameters')
         visited = visited + ['ConnectionOAuthResponseParameters']
         {
-          client_parameters: Stubs::ConnectionOAuthClientResponseParameters.default(visited),
+          client_parameters: ConnectionOAuthClientResponseParameters.default(visited),
           authorization_endpoint: 'authorization_endpoint',
           http_method: 'http_method',
-          o_auth_http_parameters: Stubs::ConnectionHttpParameters.default(visited),
+          o_auth_http_parameters: ConnectionHttpParameters.default(visited),
         }
       end
 
@@ -809,9 +809,9 @@ module AWS::SDK::EventBridge
           name: 'name',
           description: 'description',
           arn: 'arn',
-          routing_config: Stubs::RoutingConfig.default(visited),
-          replication_config: Stubs::ReplicationConfig.default(visited),
-          event_buses: Stubs::EndpointEventBusList.default(visited),
+          routing_config: RoutingConfig.default(visited),
+          replication_config: ReplicationConfig.default(visited),
+          event_buses: EndpointEventBusList.default(visited),
           role_arn: 'role_arn',
           endpoint_id: 'endpoint_id',
           endpoint_url: 'endpoint_url',
@@ -916,7 +916,7 @@ module AWS::SDK::EventBridge
           state: 'state',
           state_reason: 'state_reason',
           event_source_arn: 'event_source_arn',
-          destination: Stubs::ReplayDestination.default(visited),
+          destination: ReplayDestination.default(visited),
           event_start_time: Time.now,
           event_end_time: Time.now,
           event_last_replayed_time: Time.now,
@@ -951,7 +951,7 @@ module AWS::SDK::EventBridge
         visited = visited + ['ReplayDestination']
         {
           arn: 'arn',
-          filter_arns: Stubs::ReplayDestinationFilters.default(visited),
+          filter_arns: ReplayDestinationFilters.default(visited),
         }
       end
 
@@ -1050,7 +1050,7 @@ module AWS::SDK::EventBridge
     class ListApiDestinations
       def self.default(visited=[])
         {
-          api_destinations: Stubs::ApiDestinationResponseList.default(visited),
+          api_destinations: ApiDestinationResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1070,7 +1070,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ApiDestinationResponseList')
         visited = visited + ['ApiDestinationResponseList']
         [
-          Stubs::ApiDestination.default(visited)
+          ApiDestination.default(visited)
         ]
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::EventBridge
     class ListArchives
       def self.default(visited=[])
         {
-          archives: Stubs::ArchiveResponseList.default(visited),
+          archives: ArchiveResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1142,7 +1142,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ArchiveResponseList')
         visited = visited + ['ArchiveResponseList']
         [
-          Stubs::Archive.default(visited)
+          Archive.default(visited)
         ]
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::EventBridge
     class ListConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionResponseList.default(visited),
+          connections: ConnectionResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1212,7 +1212,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ConnectionResponseList')
         visited = visited + ['ConnectionResponseList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -1262,7 +1262,7 @@ module AWS::SDK::EventBridge
     class ListEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::EndpointList.default(visited),
+          endpoints: EndpointList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1282,7 +1282,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('EndpointList')
         visited = visited + ['EndpointList']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -1305,9 +1305,9 @@ module AWS::SDK::EventBridge
           name: 'name',
           description: 'description',
           arn: 'arn',
-          routing_config: Stubs::RoutingConfig.default(visited),
-          replication_config: Stubs::ReplicationConfig.default(visited),
-          event_buses: Stubs::EndpointEventBusList.default(visited),
+          routing_config: RoutingConfig.default(visited),
+          replication_config: ReplicationConfig.default(visited),
+          event_buses: EndpointEventBusList.default(visited),
           role_arn: 'role_arn',
           endpoint_id: 'endpoint_id',
           endpoint_url: 'endpoint_url',
@@ -1342,7 +1342,7 @@ module AWS::SDK::EventBridge
     class ListEventBuses
       def self.default(visited=[])
         {
-          event_buses: Stubs::EventBusList.default(visited),
+          event_buses: EventBusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1362,7 +1362,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('EventBusList')
         visited = visited + ['EventBusList']
         [
-          Stubs::EventBus.default(visited)
+          EventBus.default(visited)
         ]
       end
 
@@ -1402,7 +1402,7 @@ module AWS::SDK::EventBridge
     class ListEventSources
       def self.default(visited=[])
         {
-          event_sources: Stubs::EventSourceList.default(visited),
+          event_sources: EventSourceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1422,7 +1422,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('EventSourceList')
         visited = visited + ['EventSourceList']
         [
-          Stubs::EventSource.default(visited)
+          EventSource.default(visited)
         ]
       end
 
@@ -1468,7 +1468,7 @@ module AWS::SDK::EventBridge
     class ListPartnerEventSourceAccounts
       def self.default(visited=[])
         {
-          partner_event_source_accounts: Stubs::PartnerEventSourceAccountList.default(visited),
+          partner_event_source_accounts: PartnerEventSourceAccountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1488,7 +1488,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PartnerEventSourceAccountList')
         visited = visited + ['PartnerEventSourceAccountList']
         [
-          Stubs::PartnerEventSourceAccount.default(visited)
+          PartnerEventSourceAccount.default(visited)
         ]
       end
 
@@ -1530,7 +1530,7 @@ module AWS::SDK::EventBridge
     class ListPartnerEventSources
       def self.default(visited=[])
         {
-          partner_event_sources: Stubs::PartnerEventSourceList.default(visited),
+          partner_event_sources: PartnerEventSourceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1550,7 +1550,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PartnerEventSourceList')
         visited = visited + ['PartnerEventSourceList']
         [
-          Stubs::PartnerEventSource.default(visited)
+          PartnerEventSource.default(visited)
         ]
       end
 
@@ -1588,7 +1588,7 @@ module AWS::SDK::EventBridge
     class ListReplays
       def self.default(visited=[])
         {
-          replays: Stubs::ReplayList.default(visited),
+          replays: ReplayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1608,7 +1608,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('ReplayList')
         visited = visited + ['ReplayList']
         [
-          Stubs::Replay.default(visited)
+          Replay.default(visited)
         ]
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::EventBridge
     class ListRuleNamesByTarget
       def self.default(visited=[])
         {
-          rule_names: Stubs::RuleNameList.default(visited),
+          rule_names: RuleNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1698,7 +1698,7 @@ module AWS::SDK::EventBridge
     class ListRules
       def self.default(visited=[])
         {
-          rules: Stubs::RuleResponseList.default(visited),
+          rules: RuleResponseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1718,7 +1718,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('RuleResponseList')
         visited = visited + ['RuleResponseList']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -1770,7 +1770,7 @@ module AWS::SDK::EventBridge
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1788,7 +1788,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::EventBridge
     class ListTargetsByRule
       def self.default(visited=[])
         {
-          targets: Stubs::TargetList.default(visited),
+          targets: TargetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1846,7 +1846,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('TargetList')
         visited = visited + ['TargetList']
         [
-          Stubs::Target.default(visited)
+          Target.default(visited)
         ]
       end
 
@@ -1871,17 +1871,17 @@ module AWS::SDK::EventBridge
           role_arn: 'role_arn',
           input: 'input',
           input_path: 'input_path',
-          input_transformer: Stubs::InputTransformer.default(visited),
-          kinesis_parameters: Stubs::KinesisParameters.default(visited),
-          run_command_parameters: Stubs::RunCommandParameters.default(visited),
-          ecs_parameters: Stubs::EcsParameters.default(visited),
-          batch_parameters: Stubs::BatchParameters.default(visited),
-          sqs_parameters: Stubs::SqsParameters.default(visited),
-          http_parameters: Stubs::HttpParameters.default(visited),
-          redshift_data_parameters: Stubs::RedshiftDataParameters.default(visited),
-          sage_maker_pipeline_parameters: Stubs::SageMakerPipelineParameters.default(visited),
-          dead_letter_config: Stubs::DeadLetterConfig.default(visited),
-          retry_policy: Stubs::RetryPolicy.default(visited),
+          input_transformer: InputTransformer.default(visited),
+          kinesis_parameters: KinesisParameters.default(visited),
+          run_command_parameters: RunCommandParameters.default(visited),
+          ecs_parameters: EcsParameters.default(visited),
+          batch_parameters: BatchParameters.default(visited),
+          sqs_parameters: SqsParameters.default(visited),
+          http_parameters: HttpParameters.default(visited),
+          redshift_data_parameters: RedshiftDataParameters.default(visited),
+          sage_maker_pipeline_parameters: SageMakerPipelineParameters.default(visited),
+          dead_letter_config: DeadLetterConfig.default(visited),
+          retry_policy: RetryPolicy.default(visited),
         }
       end
 
@@ -1952,7 +1952,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('SageMakerPipelineParameters')
         visited = visited + ['SageMakerPipelineParameters']
         {
-          pipeline_parameter_list: Stubs::SageMakerPipelineParameterList.default(visited),
+          pipeline_parameter_list: SageMakerPipelineParameterList.default(visited),
         }
       end
 
@@ -1970,7 +1970,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('SageMakerPipelineParameterList')
         visited = visited + ['SageMakerPipelineParameterList']
         [
-          Stubs::SageMakerPipelineParameter.default(visited)
+          SageMakerPipelineParameter.default(visited)
         ]
       end
 
@@ -2038,9 +2038,9 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('HttpParameters')
         visited = visited + ['HttpParameters']
         {
-          path_parameter_values: Stubs::PathParameterList.default(visited),
-          header_parameters: Stubs::HeaderParametersMap.default(visited),
-          query_string_parameters: Stubs::QueryStringParametersMap.default(visited),
+          path_parameter_values: PathParameterList.default(visited),
+          header_parameters: HeaderParametersMap.default(visited),
+          query_string_parameters: QueryStringParametersMap.default(visited),
         }
       end
 
@@ -2140,8 +2140,8 @@ module AWS::SDK::EventBridge
         {
           job_definition: 'job_definition',
           job_name: 'job_name',
-          array_properties: Stubs::BatchArrayProperties.default(visited),
-          retry_strategy: Stubs::BatchRetryStrategy.default(visited),
+          array_properties: BatchArrayProperties.default(visited),
+          retry_strategy: BatchRetryStrategy.default(visited),
         }
       end
 
@@ -2201,17 +2201,17 @@ module AWS::SDK::EventBridge
           task_definition_arn: 'task_definition_arn',
           task_count: 1,
           launch_type: 'launch_type',
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
           platform_version: 'platform_version',
           group: 'group',
-          capacity_provider_strategy: Stubs::CapacityProviderStrategy.default(visited),
+          capacity_provider_strategy: CapacityProviderStrategy.default(visited),
           enable_ecs_managed_tags: false,
           enable_execute_command: false,
-          placement_constraints: Stubs::PlacementConstraints.default(visited),
-          placement_strategy: Stubs::PlacementStrategies.default(visited),
+          placement_constraints: PlacementConstraints.default(visited),
+          placement_strategy: PlacementStrategies.default(visited),
           propagate_tags: 'propagate_tags',
           reference_id: 'reference_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2242,7 +2242,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PlacementStrategies')
         visited = visited + ['PlacementStrategies']
         [
-          Stubs::PlacementStrategy.default(visited)
+          PlacementStrategy.default(visited)
         ]
       end
 
@@ -2282,7 +2282,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PlacementConstraints')
         visited = visited + ['PlacementConstraints']
         [
-          Stubs::PlacementConstraint.default(visited)
+          PlacementConstraint.default(visited)
         ]
       end
 
@@ -2322,7 +2322,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('CapacityProviderStrategy')
         visited = visited + ['CapacityProviderStrategy']
         [
-          Stubs::CapacityProviderStrategyItem.default(visited)
+          CapacityProviderStrategyItem.default(visited)
         ]
       end
 
@@ -2364,7 +2364,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('NetworkConfiguration')
         visited = visited + ['NetworkConfiguration']
         {
-          awsvpc_configuration: Stubs::AwsVpcConfiguration.default(visited),
+          awsvpc_configuration: AwsVpcConfiguration.default(visited),
         }
       end
 
@@ -2382,8 +2382,8 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('AwsVpcConfiguration')
         visited = visited + ['AwsVpcConfiguration']
         {
-          subnets: Stubs::StringList.default(visited),
-          security_groups: Stubs::StringList.default(visited),
+          subnets: StringList.default(visited),
+          security_groups: StringList.default(visited),
           assign_public_ip: 'assign_public_ip',
         }
       end
@@ -2424,7 +2424,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('RunCommandParameters')
         visited = visited + ['RunCommandParameters']
         {
-          run_command_targets: Stubs::RunCommandTargets.default(visited),
+          run_command_targets: RunCommandTargets.default(visited),
         }
       end
 
@@ -2442,7 +2442,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('RunCommandTargets')
         visited = visited + ['RunCommandTargets']
         [
-          Stubs::RunCommandTarget.default(visited)
+          RunCommandTarget.default(visited)
         ]
       end
 
@@ -2463,7 +2463,7 @@ module AWS::SDK::EventBridge
         visited = visited + ['RunCommandTarget']
         {
           key: 'key',
-          values: Stubs::RunCommandTargetValues.default(visited),
+          values: RunCommandTargetValues.default(visited),
         }
       end
 
@@ -2520,7 +2520,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('InputTransformer')
         visited = visited + ['InputTransformer']
         {
-          input_paths_map: Stubs::TransformerPaths.default(visited),
+          input_paths_map: TransformerPaths.default(visited),
           input_template: 'input_template',
         }
       end
@@ -2559,7 +2559,7 @@ module AWS::SDK::EventBridge
       def self.default(visited=[])
         {
           failed_entry_count: 1,
-          entries: Stubs::PutEventsResultEntryList.default(visited),
+          entries: PutEventsResultEntryList.default(visited),
         }
       end
 
@@ -2578,7 +2578,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PutEventsResultEntryList')
         visited = visited + ['PutEventsResultEntryList']
         [
-          Stubs::PutEventsResultEntry.default(visited)
+          PutEventsResultEntry.default(visited)
         ]
       end
 
@@ -2619,7 +2619,7 @@ module AWS::SDK::EventBridge
       def self.default(visited=[])
         {
           failed_entry_count: 1,
-          entries: Stubs::PutPartnerEventsResultEntryList.default(visited),
+          entries: PutPartnerEventsResultEntryList.default(visited),
         }
       end
 
@@ -2638,7 +2638,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PutPartnerEventsResultEntryList')
         visited = visited + ['PutPartnerEventsResultEntryList']
         [
-          Stubs::PutPartnerEventsResultEntry.default(visited)
+          PutPartnerEventsResultEntry.default(visited)
         ]
       end
 
@@ -2709,7 +2709,7 @@ module AWS::SDK::EventBridge
       def self.default(visited=[])
         {
           failed_entry_count: 1,
-          failed_entries: Stubs::PutTargetsResultEntryList.default(visited),
+          failed_entries: PutTargetsResultEntryList.default(visited),
         }
       end
 
@@ -2728,7 +2728,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('PutTargetsResultEntryList')
         visited = visited + ['PutTargetsResultEntryList']
         [
-          Stubs::PutTargetsResultEntry.default(visited)
+          PutTargetsResultEntry.default(visited)
         ]
       end
 
@@ -2783,7 +2783,7 @@ module AWS::SDK::EventBridge
       def self.default(visited=[])
         {
           failed_entry_count: 1,
-          failed_entries: Stubs::RemoveTargetsResultEntryList.default(visited),
+          failed_entries: RemoveTargetsResultEntryList.default(visited),
         }
       end
 
@@ -2802,7 +2802,7 @@ module AWS::SDK::EventBridge
         return nil if visited.include?('RemoveTargetsResultEntryList')
         visited = visited + ['RemoveTargetsResultEntryList']
         [
-          Stubs::RemoveTargetsResultEntry.default(visited)
+          RemoveTargetsResultEntry.default(visited)
         ]
       end
 
@@ -2978,9 +2978,9 @@ module AWS::SDK::EventBridge
         {
           name: 'name',
           arn: 'arn',
-          routing_config: Stubs::RoutingConfig.default(visited),
-          replication_config: Stubs::ReplicationConfig.default(visited),
-          event_buses: Stubs::EndpointEventBusList.default(visited),
+          routing_config: RoutingConfig.default(visited),
+          replication_config: ReplicationConfig.default(visited),
+          event_buses: EndpointEventBusList.default(visited),
           role_arn: 'role_arn',
           endpoint_id: 'endpoint_id',
           endpoint_url: 'endpoint_url',

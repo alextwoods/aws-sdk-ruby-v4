@@ -7,21 +7,23 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AmplifyUIBuilder
   module Validators
 
     class ActionParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionParameters, context: context)
-        Validators::ComponentProperty.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
-        Validators::ComponentProperty.validate!(input[:url], context: "#{context}[:url]") unless input[:url].nil?
-        Validators::ComponentProperty.validate!(input[:anchor], context: "#{context}[:anchor]") unless input[:anchor].nil?
-        Validators::ComponentProperty.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::ComponentProperty.validate!(input[:global], context: "#{context}[:global]") unless input[:global].nil?
+        ComponentProperty.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        ComponentProperty.validate!(input[:url], context: "#{context}[:url]") unless input[:url].nil?
+        ComponentProperty.validate!(input[:anchor], context: "#{context}[:anchor]") unless input[:anchor].nil?
+        ComponentProperty.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        ComponentProperty.validate!(input[:global], context: "#{context}[:global]") unless input[:global].nil?
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
-        Validators::ComponentProperty.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
-        Validators::ComponentProperties.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
-        Validators::MutationActionSetStateParameter.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ComponentProperty.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
+        ComponentProperties.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        MutationActionSetStateParameter.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
       end
     end
 
@@ -34,16 +36,16 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:component_type], ::String, context: "#{context}[:component_type]")
-        Validators::ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
-        Validators::ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
-        Validators::ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
-        Validators::ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
+        ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
+        ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
+        ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:modified_at], ::Time, context: "#{context}[:modified_at]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentBindingPropertiesValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentBindingPropertiesValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -62,7 +64,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentBindingPropertiesValue, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ComponentBindingPropertiesValueProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
+        ComponentBindingPropertiesValueProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, Types::ComponentBindingPropertiesValueProperties, context: context)
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
         Hearth::Validator.validate!(input[:field], ::String, context: "#{context}[:field]")
-        Validators::PredicateList.validate!(input[:predicates], context: "#{context}[:predicates]") unless input[:predicates].nil?
+        PredicateList.validate!(input[:predicates], context: "#{context}[:predicates]") unless input[:predicates].nil?
         Hearth::Validator.validate!(input[:user_attribute], ::String, context: "#{context}[:user_attribute]")
         Hearth::Validator.validate!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
@@ -85,9 +87,9 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, Types::ComponentChild, context: context)
         Hearth::Validator.validate!(input[:component_type], ::String, context: "#{context}[:component_type]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
-        Validators::ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
       end
     end
@@ -96,7 +98,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentChild.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentChild.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,7 +108,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentDataConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentDataConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -118,8 +120,8 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:field], ::String, context: "#{context}[:field]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
         Hearth::Validator.validate!(input[:operand], ::String, context: "#{context}[:operand]")
-        Validators::ComponentProperty.validate!(input[:member_then], context: "#{context}[:member_then]") unless input[:member_then].nil?
-        Validators::ComponentProperty.validate!(input[:else], context: "#{context}[:else]") unless input[:else].nil?
+        ComponentProperty.validate!(input[:member_then], context: "#{context}[:member_then]") unless input[:member_then].nil?
+        ComponentProperty.validate!(input[:else], context: "#{context}[:else]") unless input[:else].nil?
         Hearth::Validator.validate!(input[:operand_type], ::String, context: "#{context}[:operand_type]")
       end
     end
@@ -128,9 +130,9 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentDataConfiguration, context: context)
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
-        Validators::SortPropertyList.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
-        Validators::Predicate.validate!(input[:predicate], context: "#{context}[:predicate]") unless input[:predicate].nil?
-        Validators::IdentifierList.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
+        SortPropertyList.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
+        Predicate.validate!(input[:predicate], context: "#{context}[:predicate]") unless input[:predicate].nil?
+        IdentifierList.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
       end
     end
 
@@ -138,7 +140,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentEvent, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
-        Validators::ActionParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ActionParameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:binding_event], ::String, context: "#{context}[:binding_event]")
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentEvent.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentEvent.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Component.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Component.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentOverridesValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentOverridesValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -187,7 +189,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ComponentProperty.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ComponentProperty.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -196,15 +198,15 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentProperty, context: context)
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::ComponentPropertyBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
-        Validators::ComponentPropertyBindingProperties.validate!(input[:collection_binding_properties], context: "#{context}[:collection_binding_properties]") unless input[:collection_binding_properties].nil?
+        ComponentPropertyBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
+        ComponentPropertyBindingProperties.validate!(input[:collection_binding_properties], context: "#{context}[:collection_binding_properties]") unless input[:collection_binding_properties].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
         Hearth::Validator.validate!(input[:model], ::String, context: "#{context}[:model]")
-        Validators::FormBindings.validate!(input[:bindings], context: "#{context}[:bindings]") unless input[:bindings].nil?
+        FormBindings.validate!(input[:bindings], context: "#{context}[:bindings]") unless input[:bindings].nil?
         Hearth::Validator.validate!(input[:event], ::String, context: "#{context}[:event]")
         Hearth::Validator.validate!(input[:user_attribute], ::String, context: "#{context}[:user_attribute]")
-        Validators::ComponentPropertyList.validate!(input[:concat], context: "#{context}[:concat]") unless input[:concat].nil?
-        Validators::ComponentConditionProperty.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        ComponentPropertyList.validate!(input[:concat], context: "#{context}[:concat]") unless input[:concat].nil?
+        ComponentConditionProperty.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
         Hearth::Validator.validate!(input[:configured], ::TrueClass, ::FalseClass, context: "#{context}[:configured]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:imported_value], ::String, context: "#{context}[:imported_value]")
@@ -225,7 +227,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -245,7 +247,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -253,8 +255,8 @@ module AWS::SDK::AmplifyUIBuilder
     class ComponentVariant
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentVariant, context: context)
-        Validators::ComponentVariantValues.validate!(input[:variant_values], context: "#{context}[:variant_values]") unless input[:variant_values].nil?
-        Validators::ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        ComponentVariantValues.validate!(input[:variant_values], context: "#{context}[:variant_values]") unless input[:variant_values].nil?
+        ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentVariant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentVariant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -283,14 +285,14 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
         Hearth::Validator.validate!(input[:component_type], ::String, context: "#{context}[:component_type]")
-        Validators::ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
-        Validators::ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
-        Validators::ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
-        Validators::ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
+        ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
+        ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
       end
     end
@@ -301,14 +303,14 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::CreateComponentData.validate!(input[:component_to_create], context: "#{context}[:component_to_create]") unless input[:component_to_create].nil?
+        CreateComponentData.validate!(input[:component_to_create], context: "#{context}[:component_to_create]") unless input[:component_to_create].nil?
       end
     end
 
     class CreateComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateComponentOutput, context: context)
-        Validators::Component.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Component.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
       end
     end
 
@@ -316,9 +318,9 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateThemeData, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -328,14 +330,14 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::CreateThemeData.validate!(input[:theme_to_create], context: "#{context}[:theme_to_create]") unless input[:theme_to_create].nil?
+        CreateThemeData.validate!(input[:theme_to_create], context: "#{context}[:theme_to_create]") unless input[:theme_to_create].nil?
       end
     end
 
     class CreateThemeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateThemeOutput, context: context)
-        Validators::Theme.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Theme.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExchangeCodeForTokenInput, context: context)
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
-        Validators::ExchangeCodeForTokenRequestBody.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
+        ExchangeCodeForTokenRequestBody.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ExportComponentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportComponentsOutput, context: context)
-        Validators::ComponentList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ComponentList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -423,7 +425,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ExportThemesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportThemesOutput, context: context)
-        Validators::ThemeList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ThemeList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FormBindingElement.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FormBindingElement.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -458,7 +460,7 @@ module AWS::SDK::AmplifyUIBuilder
     class GetComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComponentOutput, context: context)
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -474,7 +476,7 @@ module AWS::SDK::AmplifyUIBuilder
     class GetThemeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetThemeOutput, context: context)
-        Validators::Theme.validate!(input[:theme], context: "#{context}[:theme]") unless input[:theme].nil?
+        Theme.validate!(input[:theme], context: "#{context}[:theme]") unless input[:theme].nil?
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ListComponentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentsOutput, context: context)
-        Validators::ComponentSummaryList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ComponentSummaryList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -532,7 +534,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ListThemesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThemesOutput, context: context)
-        Validators::ThemeSummaryList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ThemeSummaryList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -542,15 +544,15 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, Types::MutationActionSetStateParameter, context: context)
         Hearth::Validator.validate!(input[:component_name], ::String, context: "#{context}[:component_name]")
         Hearth::Validator.validate!(input[:property], ::String, context: "#{context}[:property]")
-        Validators::ComponentProperty.validate!(input[:set], context: "#{context}[:set]") unless input[:set].nil?
+        ComponentProperty.validate!(input[:set], context: "#{context}[:set]") unless input[:set].nil?
       end
     end
 
     class Predicate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Predicate, context: context)
-        Validators::PredicateList.validate!(input[:or], context: "#{context}[:or]") unless input[:or].nil?
-        Validators::PredicateList.validate!(input[:and], context: "#{context}[:and]") unless input[:and].nil?
+        PredicateList.validate!(input[:or], context: "#{context}[:or]") unless input[:or].nil?
+        PredicateList.validate!(input[:and], context: "#{context}[:and]") unless input[:and].nil?
         Hearth::Validator.validate!(input[:field], ::String, context: "#{context}[:field]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
         Hearth::Validator.validate!(input[:operand], ::String, context: "#{context}[:operand]")
@@ -561,7 +563,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Predicate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Predicate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -570,7 +572,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RefreshTokenInput, context: context)
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
-        Validators::RefreshTokenRequestBody.validate!(input[:refresh_token_body], context: "#{context}[:refresh_token_body]") unless input[:refresh_token_body].nil?
+        RefreshTokenRequestBody.validate!(input[:refresh_token_body], context: "#{context}[:refresh_token_body]") unless input[:refresh_token_body].nil?
       end
     end
 
@@ -622,7 +624,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SortProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SortProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -646,9 +648,9 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:modified_at], ::Time, context: "#{context}[:modified_at]")
-        Validators::ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -656,7 +658,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Theme.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Theme.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -675,7 +677,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -684,7 +686,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThemeValue, context: context)
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::ThemeValuesList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        ThemeValuesList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
       end
     end
 
@@ -692,7 +694,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThemeValues, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::ThemeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        ThemeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeValues.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeValues.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -712,13 +714,13 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
         Hearth::Validator.validate!(input[:component_type], ::String, context: "#{context}[:component_type]")
-        Validators::ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
-        Validators::ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
-        Validators::ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
-        Validators::ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
-        Validators::ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
-        Validators::ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        ComponentProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ComponentChildList.validate!(input[:children], context: "#{context}[:children]") unless input[:children].nil?
+        ComponentVariants.validate!(input[:variants], context: "#{context}[:variants]") unless input[:variants].nil?
+        ComponentOverrides.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        ComponentBindingProperties.validate!(input[:binding_properties], context: "#{context}[:binding_properties]") unless input[:binding_properties].nil?
+        ComponentCollectionProperties.validate!(input[:collection_properties], context: "#{context}[:collection_properties]") unless input[:collection_properties].nil?
+        ComponentEvents.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:schema_version], ::String, context: "#{context}[:schema_version]")
       end
     end
@@ -730,14 +732,14 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::UpdateComponentData.validate!(input[:updated_component], context: "#{context}[:updated_component]") unless input[:updated_component].nil?
+        UpdateComponentData.validate!(input[:updated_component], context: "#{context}[:updated_component]") unless input[:updated_component].nil?
       end
     end
 
     class UpdateComponentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateComponentOutput, context: context)
-        Validators::Component.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Component.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
       end
     end
 
@@ -746,8 +748,8 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input, Types::UpdateThemeData, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        ThemeValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ThemeValuesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
       end
     end
 
@@ -758,14 +760,14 @@ module AWS::SDK::AmplifyUIBuilder
         Hearth::Validator.validate!(input[:environment_name], ::String, context: "#{context}[:environment_name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::UpdateThemeData.validate!(input[:updated_theme], context: "#{context}[:updated_theme]") unless input[:updated_theme].nil?
+        UpdateThemeData.validate!(input[:updated_theme], context: "#{context}[:updated_theme]") unless input[:updated_theme].nil?
       end
     end
 
     class UpdateThemeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateThemeOutput, context: context)
-        Validators::Theme.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Theme.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::S3Control
@@ -120,7 +122,7 @@ module AWS::SDK::S3Control
     def create_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessPointInput,
         validate_input: @config.validate_input
@@ -241,7 +243,7 @@ module AWS::SDK::S3Control
     def create_access_point_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessPointForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessPointForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -435,7 +437,7 @@ module AWS::SDK::S3Control
     def create_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBucketInput,
         validate_input: @config.validate_input
@@ -712,7 +714,7 @@ module AWS::SDK::S3Control
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -840,7 +842,7 @@ module AWS::SDK::S3Control
     def create_multi_region_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMultiRegionAccessPointOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMultiRegionAccessPointOperationInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::S3Control
     def delete_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPointInput,
         validate_input: @config.validate_input
@@ -1034,7 +1036,7 @@ module AWS::SDK::S3Control
     def delete_access_point_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPointForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPointForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -1127,7 +1129,7 @@ module AWS::SDK::S3Control
     def delete_access_point_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPointPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPointPolicyInput,
         validate_input: @config.validate_input
@@ -1217,7 +1219,7 @@ module AWS::SDK::S3Control
     def delete_access_point_policy_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPointPolicyForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPointPolicyForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -1322,7 +1324,7 @@ module AWS::SDK::S3Control
     def delete_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketInput,
         validate_input: @config.validate_input
@@ -1429,7 +1431,7 @@ module AWS::SDK::S3Control
     def delete_bucket_lifecycle_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketLifecycleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketLifecycleConfigurationInput,
         validate_input: @config.validate_input
@@ -1548,7 +1550,7 @@ module AWS::SDK::S3Control
     def delete_bucket_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketPolicyInput,
         validate_input: @config.validate_input
@@ -1651,7 +1653,7 @@ module AWS::SDK::S3Control
     def delete_bucket_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketTaggingInput,
         validate_input: @config.validate_input
@@ -1750,7 +1752,7 @@ module AWS::SDK::S3Control
     def delete_job_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteJobTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteJobTaggingInput,
         validate_input: @config.validate_input
@@ -1865,7 +1867,7 @@ module AWS::SDK::S3Control
     def delete_multi_region_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMultiRegionAccessPointOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMultiRegionAccessPointOperationInput,
         validate_input: @config.validate_input
@@ -1954,7 +1956,7 @@ module AWS::SDK::S3Control
     def delete_public_access_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicAccessBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicAccessBlockInput,
         validate_input: @config.validate_input
@@ -2038,7 +2040,7 @@ module AWS::SDK::S3Control
     def delete_storage_lens_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStorageLensConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStorageLensConfigurationInput,
         validate_input: @config.validate_input
@@ -2123,7 +2125,7 @@ module AWS::SDK::S3Control
     def delete_storage_lens_configuration_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStorageLensConfigurationTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStorageLensConfigurationTaggingInput,
         validate_input: @config.validate_input
@@ -2324,7 +2326,26 @@ module AWS::SDK::S3Control
     #   resp.data.job.role_arn #=> String
     #   resp.data.job.suspended_date #=> Time
     #   resp.data.job.suspended_cause #=> String
-    #   resp.data.job.manifest_generator #=> JobManifestGenerator
+    #   resp.data.job.manifest_generator #=> Types::JobManifestGenerator, one of [S3JobManifestGenerator]
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator #=> Types::S3JobManifestGenerator
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.expected_bucket_owner #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.source_bucket #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location #=> Types::S3ManifestOutputLocation
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.expected_manifest_bucket_owner #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.bucket #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_prefix #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_encryption #=> Types::GeneratedManifestEncryption
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_encryption.sses3 #=> Types::SSES3Encryption
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_encryption.ssekms #=> Types::SSEKMSEncryption
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_encryption.ssekms.key_id #=> String
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.manifest_output_location.manifest_format #=> String, one of ["S3InventoryReport_CSV_20211130"]
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter #=> Types::JobManifestGeneratorFilter
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter.eligible_for_replication #=> Boolean
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter.created_after #=> Time
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter.created_before #=> Time
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter.object_replication_statuses #=> Array<String>
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.filter.object_replication_statuses[0] #=> String, one of ["COMPLETED", "FAILED", "REPLICA", "NONE"]
+    #   resp.data.job.manifest_generator.s3_job_manifest_generator.enable_manifest_output #=> Boolean
     #   resp.data.job.generated_manifest_descriptor #=> Types::S3GeneratedManifestDescriptor
     #   resp.data.job.generated_manifest_descriptor.format #=> String, one of ["S3InventoryReport_CSV_20211130"]
     #   resp.data.job.generated_manifest_descriptor.location #=> Types::JobManifestLocation
@@ -2332,7 +2353,7 @@ module AWS::SDK::S3Control
     def describe_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeJobInput,
         validate_input: @config.validate_input
@@ -2467,7 +2488,7 @@ module AWS::SDK::S3Control
     def describe_multi_region_access_point_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMultiRegionAccessPointOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMultiRegionAccessPointOperationInput,
         validate_input: @config.validate_input
@@ -2582,7 +2603,7 @@ module AWS::SDK::S3Control
     def get_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointInput,
         validate_input: @config.validate_input
@@ -2672,12 +2693,15 @@ module AWS::SDK::S3Control
     #   resp.data.configuration.transformation_configurations[0] #=> Types::ObjectLambdaTransformationConfiguration
     #   resp.data.configuration.transformation_configurations[0].actions #=> Array<String>
     #   resp.data.configuration.transformation_configurations[0].actions[0] #=> String, one of ["GetObject"]
-    #   resp.data.configuration.transformation_configurations[0].content_transformation #=> ObjectLambdaContentTransformation
+    #   resp.data.configuration.transformation_configurations[0].content_transformation #=> Types::ObjectLambdaContentTransformation, one of [AwsLambda]
+    #   resp.data.configuration.transformation_configurations[0].content_transformation.aws_lambda #=> Types::AwsLambdaTransformation
+    #   resp.data.configuration.transformation_configurations[0].content_transformation.aws_lambda.function_arn #=> String
+    #   resp.data.configuration.transformation_configurations[0].content_transformation.aws_lambda.function_payload #=> String
     #
     def get_access_point_configuration_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointConfigurationForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointConfigurationForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -2778,7 +2802,7 @@ module AWS::SDK::S3Control
     def get_access_point_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -2870,7 +2894,7 @@ module AWS::SDK::S3Control
     def get_access_point_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointPolicyInput,
         validate_input: @config.validate_input
@@ -2961,7 +2985,7 @@ module AWS::SDK::S3Control
     def get_access_point_policy_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointPolicyForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointPolicyForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -3041,7 +3065,7 @@ module AWS::SDK::S3Control
     def get_access_point_policy_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointPolicyStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointPolicyStatusInput,
         validate_input: @config.validate_input
@@ -3119,7 +3143,7 @@ module AWS::SDK::S3Control
     def get_access_point_policy_status_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPointPolicyStatusForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPointPolicyStatusForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -3228,7 +3252,7 @@ module AWS::SDK::S3Control
     def get_bucket(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketInput,
         validate_input: @config.validate_input
@@ -3385,7 +3409,7 @@ module AWS::SDK::S3Control
     def get_bucket_lifecycle_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketLifecycleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketLifecycleConfigurationInput,
         validate_input: @config.validate_input
@@ -3509,7 +3533,7 @@ module AWS::SDK::S3Control
     def get_bucket_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketPolicyInput,
         validate_input: @config.validate_input
@@ -3629,7 +3653,7 @@ module AWS::SDK::S3Control
     def get_bucket_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketTaggingInput,
         validate_input: @config.validate_input
@@ -3732,7 +3756,7 @@ module AWS::SDK::S3Control
     def get_job_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobTaggingInput,
         validate_input: @config.validate_input
@@ -3851,7 +3875,7 @@ module AWS::SDK::S3Control
     def get_multi_region_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMultiRegionAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMultiRegionAccessPointInput,
         validate_input: @config.validate_input
@@ -3952,7 +3976,7 @@ module AWS::SDK::S3Control
     def get_multi_region_access_point_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMultiRegionAccessPointPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMultiRegionAccessPointPolicyInput,
         validate_input: @config.validate_input
@@ -4051,7 +4075,7 @@ module AWS::SDK::S3Control
     def get_multi_region_access_point_policy_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMultiRegionAccessPointPolicyStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMultiRegionAccessPointPolicyStatusInput,
         validate_input: @config.validate_input
@@ -4145,7 +4169,7 @@ module AWS::SDK::S3Control
     def get_public_access_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicAccessBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicAccessBlockInput,
         validate_input: @config.validate_input
@@ -4267,7 +4291,7 @@ module AWS::SDK::S3Control
     def get_storage_lens_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStorageLensConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStorageLensConfigurationInput,
         validate_input: @config.validate_input
@@ -4356,7 +4380,7 @@ module AWS::SDK::S3Control
     def get_storage_lens_configuration_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStorageLensConfigurationTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStorageLensConfigurationTaggingInput,
         validate_input: @config.validate_input
@@ -4480,7 +4504,7 @@ module AWS::SDK::S3Control
     def list_access_points(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessPointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessPointsInput,
         validate_input: @config.validate_input
@@ -4591,7 +4615,7 @@ module AWS::SDK::S3Control
     def list_access_points_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessPointsForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessPointsForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -4725,7 +4749,7 @@ module AWS::SDK::S3Control
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -4849,7 +4873,7 @@ module AWS::SDK::S3Control
     def list_multi_region_access_points(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMultiRegionAccessPointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMultiRegionAccessPointsInput,
         validate_input: @config.validate_input
@@ -4949,7 +4973,7 @@ module AWS::SDK::S3Control
     def list_regional_buckets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRegionalBucketsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRegionalBucketsInput,
         validate_input: @config.validate_input
@@ -5041,7 +5065,7 @@ module AWS::SDK::S3Control
     def list_storage_lens_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStorageLensConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStorageLensConfigurationsInput,
         validate_input: @config.validate_input
@@ -5150,7 +5174,7 @@ module AWS::SDK::S3Control
     def put_access_point_configuration_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccessPointConfigurationForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccessPointConfigurationForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -5251,7 +5275,7 @@ module AWS::SDK::S3Control
     def put_access_point_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccessPointPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccessPointPolicyInput,
         validate_input: @config.validate_input
@@ -5345,7 +5369,7 @@ module AWS::SDK::S3Control
     def put_access_point_policy_for_object_lambda(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccessPointPolicyForObjectLambdaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccessPointPolicyForObjectLambdaInput,
         validate_input: @config.validate_input
@@ -5490,7 +5514,7 @@ module AWS::SDK::S3Control
     def put_bucket_lifecycle_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketLifecycleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketLifecycleConfigurationInput,
         validate_input: @config.validate_input
@@ -5622,7 +5646,7 @@ module AWS::SDK::S3Control
     def put_bucket_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketPolicyInput,
         validate_input: @config.validate_input
@@ -5797,7 +5821,7 @@ module AWS::SDK::S3Control
     def put_bucket_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketTaggingInput,
         validate_input: @config.validate_input
@@ -5947,7 +5971,7 @@ module AWS::SDK::S3Control
     def put_job_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutJobTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutJobTaggingInput,
         validate_input: @config.validate_input
@@ -6051,7 +6075,7 @@ module AWS::SDK::S3Control
     def put_multi_region_access_point_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMultiRegionAccessPointPolicyOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMultiRegionAccessPointPolicyOperationInput,
         validate_input: @config.validate_input
@@ -6151,7 +6175,7 @@ module AWS::SDK::S3Control
     def put_public_access_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPublicAccessBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPublicAccessBlockInput,
         validate_input: @config.validate_input
@@ -6301,7 +6325,7 @@ module AWS::SDK::S3Control
     def put_storage_lens_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutStorageLensConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutStorageLensConfigurationInput,
         validate_input: @config.validate_input
@@ -6397,7 +6421,7 @@ module AWS::SDK::S3Control
     def put_storage_lens_configuration_tagging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutStorageLensConfigurationTaggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutStorageLensConfigurationTaggingInput,
         validate_input: @config.validate_input
@@ -6503,7 +6527,7 @@ module AWS::SDK::S3Control
     def update_job_priority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobPriorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobPriorityInput,
         validate_input: @config.validate_input
@@ -6616,7 +6640,7 @@ module AWS::SDK::S3Control
     def update_job_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateJobStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateJobStatusInput,
         validate_input: @config.validate_input

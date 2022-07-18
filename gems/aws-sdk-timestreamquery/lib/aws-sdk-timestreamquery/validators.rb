@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::TimestreamQuery
   module Validators
 
@@ -35,7 +37,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnInfo, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -60,14 +62,14 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input, Types::CreateScheduledQueryInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
-        Validators::TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
+        ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:scheduled_query_execution_role_arn], ::String, context: "#{context}[:scheduled_query_execution_role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
+        ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
       end
     end
 
@@ -82,9 +84,9 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Datum, context: context)
         Hearth::Validator.validate!(input[:scalar_value], ::String, context: "#{context}[:scalar_value]")
-        Validators::TimeSeriesDataPointList.validate!(input[:time_series_value], context: "#{context}[:time_series_value]") unless input[:time_series_value].nil?
-        Validators::DatumList.validate!(input[:array_value], context: "#{context}[:array_value]") unless input[:array_value].nil?
-        Validators::Row.validate!(input[:row_value], context: "#{context}[:row_value]") unless input[:row_value].nil?
+        TimeSeriesDataPointList.validate!(input[:time_series_value], context: "#{context}[:time_series_value]") unless input[:time_series_value].nil?
+        DatumList.validate!(input[:array_value], context: "#{context}[:array_value]") unless input[:array_value].nil?
+        Row.validate!(input[:row_value], context: "#{context}[:row_value]") unless input[:row_value].nil?
         Hearth::Validator.validate!(input[:null_value], ::TrueClass, ::FalseClass, context: "#{context}[:null_value]")
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Datum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Datum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -120,7 +122,7 @@ module AWS::SDK::TimestreamQuery
     class DescribeEndpointsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointsOutput, context: context)
-        Validators::Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        Endpoints.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
@@ -134,7 +136,7 @@ module AWS::SDK::TimestreamQuery
     class DescribeScheduledQueryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScheduledQueryOutput, context: context)
-        Validators::ScheduledQueryDescription.validate!(input[:scheduled_query], context: "#{context}[:scheduled_query]") unless input[:scheduled_query].nil?
+        ScheduledQueryDescription.validate!(input[:scheduled_query], context: "#{context}[:scheduled_query]") unless input[:scheduled_query].nil?
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -175,14 +177,14 @@ module AWS::SDK::TimestreamQuery
     class ErrorReportConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ErrorReportConfiguration, context: context)
-        Validators::S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        S3Configuration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
       end
     end
 
     class ErrorReportLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ErrorReportLocation, context: context)
-        Validators::S3ReportLocation.validate!(input[:s3_report_location], context: "#{context}[:s3_report_location]") unless input[:s3_report_location].nil?
+        S3ReportLocation.validate!(input[:s3_report_location], context: "#{context}[:s3_report_location]") unless input[:s3_report_location].nil?
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::TimestreamQuery
     class ListScheduledQueriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListScheduledQueriesOutput, context: context)
-        Validators::ScheduledQueryList.validate!(input[:scheduled_queries], context: "#{context}[:scheduled_queries]") unless input[:scheduled_queries].nil?
+        ScheduledQueryList.validate!(input[:scheduled_queries], context: "#{context}[:scheduled_queries]") unless input[:scheduled_queries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::TimestreamQuery
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input[:source_column], ::String, context: "#{context}[:source_column]")
         Hearth::Validator.validate!(input[:target_measure_name], ::String, context: "#{context}[:target_measure_name]")
         Hearth::Validator.validate!(input[:measure_value_type], ::String, context: "#{context}[:measure_value_type]")
-        Validators::MultiMeasureAttributeMappingList.validate!(input[:multi_measure_attribute_mappings], context: "#{context}[:multi_measure_attribute_mappings]") unless input[:multi_measure_attribute_mappings].nil?
+        MultiMeasureAttributeMappingList.validate!(input[:multi_measure_attribute_mappings], context: "#{context}[:multi_measure_attribute_mappings]") unless input[:multi_measure_attribute_mappings].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MixedMeasureMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MixedMeasureMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -292,7 +294,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiMeasureAttributeMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiMeasureAttributeMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -301,14 +303,14 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiMeasureMappings, context: context)
         Hearth::Validator.validate!(input[:target_multi_measure_name], ::String, context: "#{context}[:target_multi_measure_name]")
-        Validators::MultiMeasureAttributeMappingList.validate!(input[:multi_measure_attribute_mappings], context: "#{context}[:multi_measure_attribute_mappings]") unless input[:multi_measure_attribute_mappings].nil?
+        MultiMeasureAttributeMappingList.validate!(input[:multi_measure_attribute_mappings], context: "#{context}[:multi_measure_attribute_mappings]") unless input[:multi_measure_attribute_mappings].nil?
       end
     end
 
     class NotificationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotificationConfiguration, context: context)
-        Validators::SnsConfiguration.validate!(input[:sns_configuration], context: "#{context}[:sns_configuration]") unless input[:sns_configuration].nil?
+        SnsConfiguration.validate!(input[:sns_configuration], context: "#{context}[:sns_configuration]") unless input[:sns_configuration].nil?
       end
     end
 
@@ -316,7 +318,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ParameterMapping, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -341,8 +343,8 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrepareQueryOutput, context: context)
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::SelectColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
-        Validators::ParameterMappingList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        SelectColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        ParameterMappingList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -368,9 +370,9 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input, Types::QueryOutput, context: context)
         Hearth::Validator.validate!(input[:query_id], ::String, context: "#{context}[:query_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RowList.validate!(input[:rows], context: "#{context}[:rows]") unless input[:rows].nil?
-        Validators::ColumnInfoList.validate!(input[:column_info], context: "#{context}[:column_info]") unless input[:column_info].nil?
-        Validators::QueryStatus.validate!(input[:query_status], context: "#{context}[:query_status]") unless input[:query_status].nil?
+        RowList.validate!(input[:rows], context: "#{context}[:rows]") unless input[:rows].nil?
+        ColumnInfoList.validate!(input[:column_info], context: "#{context}[:column_info]") unless input[:column_info].nil?
+        QueryStatus.validate!(input[:query_status], context: "#{context}[:query_status]") unless input[:query_status].nil?
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::TimestreamQuery
     class Row
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Row, context: context)
-        Validators::DatumList.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
+        DatumList.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
       end
     end
 
@@ -402,7 +404,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Row.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Row.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -440,8 +442,8 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:previous_invocation_time], ::Time, context: "#{context}[:previous_invocation_time]")
         Hearth::Validator.validate!(input[:next_invocation_time], ::Time, context: "#{context}[:next_invocation_time]")
-        Validators::ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
-        Validators::TargetDestination.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
+        ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
+        TargetDestination.validate!(input[:target_destination], context: "#{context}[:target_destination]") unless input[:target_destination].nil?
         Hearth::Validator.validate!(input[:last_run_status], ::String, context: "#{context}[:last_run_status]")
       end
     end
@@ -456,14 +458,14 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:previous_invocation_time], ::Time, context: "#{context}[:previous_invocation_time]")
         Hearth::Validator.validate!(input[:next_invocation_time], ::Time, context: "#{context}[:next_invocation_time]")
-        Validators::ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
-        Validators::TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
+        ScheduleConfiguration.validate!(input[:schedule_configuration], context: "#{context}[:schedule_configuration]") unless input[:schedule_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        TargetConfiguration.validate!(input[:target_configuration], context: "#{context}[:target_configuration]") unless input[:target_configuration].nil?
         Hearth::Validator.validate!(input[:scheduled_query_execution_role_arn], ::String, context: "#{context}[:scheduled_query_execution_role_arn]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
-        Validators::ScheduledQueryRunSummary.validate!(input[:last_run_summary], context: "#{context}[:last_run_summary]") unless input[:last_run_summary].nil?
-        Validators::ScheduledQueryRunSummaryList.validate!(input[:recently_failed_runs], context: "#{context}[:recently_failed_runs]") unless input[:recently_failed_runs].nil?
+        ErrorReportConfiguration.validate!(input[:error_report_configuration], context: "#{context}[:error_report_configuration]") unless input[:error_report_configuration].nil?
+        ScheduledQueryRunSummary.validate!(input[:last_run_summary], context: "#{context}[:last_run_summary]") unless input[:last_run_summary].nil?
+        ScheduledQueryRunSummaryList.validate!(input[:recently_failed_runs], context: "#{context}[:recently_failed_runs]") unless input[:recently_failed_runs].nil?
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledQuery.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -482,8 +484,8 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input[:invocation_time], ::Time, context: "#{context}[:invocation_time]")
         Hearth::Validator.validate!(input[:trigger_time], ::Time, context: "#{context}[:trigger_time]")
         Hearth::Validator.validate!(input[:run_status], ::String, context: "#{context}[:run_status]")
-        Validators::ExecutionStats.validate!(input[:execution_stats], context: "#{context}[:execution_stats]") unless input[:execution_stats].nil?
-        Validators::ErrorReportLocation.validate!(input[:error_report_location], context: "#{context}[:error_report_location]") unless input[:error_report_location].nil?
+        ExecutionStats.validate!(input[:execution_stats], context: "#{context}[:execution_stats]") unless input[:execution_stats].nil?
+        ErrorReportLocation.validate!(input[:error_report_location], context: "#{context}[:error_report_location]") unless input[:error_report_location].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
       end
     end
@@ -492,7 +494,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledQueryRunSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledQueryRunSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -501,7 +503,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SelectColumn, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:aliased], ::TrueClass, ::FalseClass, context: "#{context}[:aliased]")
@@ -512,7 +514,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SelectColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SelectColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -552,7 +554,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -561,7 +563,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -574,14 +576,14 @@ module AWS::SDK::TimestreamQuery
     class TargetConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetConfiguration, context: context)
-        Validators::TimestreamConfiguration.validate!(input[:timestream_configuration], context: "#{context}[:timestream_configuration]") unless input[:timestream_configuration].nil?
+        TimestreamConfiguration.validate!(input[:timestream_configuration], context: "#{context}[:timestream_configuration]") unless input[:timestream_configuration].nil?
       end
     end
 
     class TargetDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TargetDestination, context: context)
-        Validators::TimestreamDestination.validate!(input[:timestream_destination], context: "#{context}[:timestream_destination]") unless input[:timestream_destination].nil?
+        TimestreamDestination.validate!(input[:timestream_destination], context: "#{context}[:timestream_destination]") unless input[:timestream_destination].nil?
       end
     end
 
@@ -596,7 +598,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TimeSeriesDataPoint, context: context)
         Hearth::Validator.validate!(input[:time], ::String, context: "#{context}[:time]")
-        Validators::Datum.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        Datum.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -604,7 +606,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimeSeriesDataPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimeSeriesDataPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -615,9 +617,9 @@ module AWS::SDK::TimestreamQuery
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:time_column], ::String, context: "#{context}[:time_column]")
-        Validators::DimensionMappingList.validate!(input[:dimension_mappings], context: "#{context}[:dimension_mappings]") unless input[:dimension_mappings].nil?
-        Validators::MultiMeasureMappings.validate!(input[:multi_measure_mappings], context: "#{context}[:multi_measure_mappings]") unless input[:multi_measure_mappings].nil?
-        Validators::MixedMeasureMappingList.validate!(input[:mixed_measure_mappings], context: "#{context}[:mixed_measure_mappings]") unless input[:mixed_measure_mappings].nil?
+        DimensionMappingList.validate!(input[:dimension_mappings], context: "#{context}[:dimension_mappings]") unless input[:dimension_mappings].nil?
+        MultiMeasureMappings.validate!(input[:multi_measure_mappings], context: "#{context}[:multi_measure_mappings]") unless input[:multi_measure_mappings].nil?
+        MixedMeasureMappingList.validate!(input[:mixed_measure_mappings], context: "#{context}[:mixed_measure_mappings]") unless input[:mixed_measure_mappings].nil?
         Hearth::Validator.validate!(input[:measure_name_column], ::String, context: "#{context}[:measure_name_column]")
       end
     end
@@ -634,9 +636,9 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Type, context: context)
         Hearth::Validator.validate!(input[:scalar_type], ::String, context: "#{context}[:scalar_type]")
-        Validators::ColumnInfo.validate!(input[:array_column_info], context: "#{context}[:array_column_info]") unless input[:array_column_info].nil?
-        Validators::ColumnInfo.validate!(input[:time_series_measure_value_column_info], context: "#{context}[:time_series_measure_value_column_info]") unless input[:time_series_measure_value_column_info].nil?
-        Validators::ColumnInfoList.validate!(input[:row_column_info], context: "#{context}[:row_column_info]") unless input[:row_column_info].nil?
+        ColumnInfo.validate!(input[:array_column_info], context: "#{context}[:array_column_info]") unless input[:array_column_info].nil?
+        ColumnInfo.validate!(input[:time_series_measure_value_column_info], context: "#{context}[:time_series_measure_value_column_info]") unless input[:time_series_measure_value_column_info].nil?
+        ColumnInfoList.validate!(input[:row_column_info], context: "#{context}[:row_column_info]") unless input[:row_column_info].nil?
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::TimestreamQuery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

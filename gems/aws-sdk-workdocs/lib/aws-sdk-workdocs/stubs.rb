@@ -27,7 +27,7 @@ module AWS::SDK::WorkDocs
     class ActivateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -60,7 +60,7 @@ module AWS::SDK::WorkDocs
           modified_timestamp: Time.now,
           time_zone_id: 'time_zone_id',
           locale: 'locale',
-          storage: Stubs::UserStorageMetadata.default(visited),
+          storage: UserStorageMetadata.default(visited),
         }
       end
 
@@ -93,7 +93,7 @@ module AWS::SDK::WorkDocs
         visited = visited + ['UserStorageMetadata']
         {
           storage_utilized_in_bytes: 1,
-          storage_rule: Stubs::StorageRuleType.default(visited),
+          storage_rule: StorageRuleType.default(visited),
         }
       end
 
@@ -130,7 +130,7 @@ module AWS::SDK::WorkDocs
     class AddResourcePermissions
       def self.default(visited=[])
         {
-          share_results: Stubs::ShareResultsList.default(visited),
+          share_results: ShareResultsList.default(visited),
         }
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('ShareResultsList')
         visited = visited + ['ShareResultsList']
         [
-          Stubs::ShareResult.default(visited)
+          ShareResult.default(visited)
         ]
       end
 
@@ -195,7 +195,7 @@ module AWS::SDK::WorkDocs
     class CreateComment
       def self.default(visited=[])
         {
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -218,7 +218,7 @@ module AWS::SDK::WorkDocs
           parent_id: 'parent_id',
           thread_id: 'thread_id',
           text: 'text',
-          contributor: Stubs::User.default(visited),
+          contributor: User.default(visited),
           created_timestamp: Time.now,
           status: 'status',
           visibility: 'visibility',
@@ -259,7 +259,7 @@ module AWS::SDK::WorkDocs
     class CreateFolder
       def self.default(visited=[])
         {
-          metadata: Stubs::FolderMetadata.default(visited),
+          metadata: FolderMetadata.default(visited),
         }
       end
 
@@ -286,7 +286,7 @@ module AWS::SDK::WorkDocs
           modified_timestamp: Time.now,
           resource_state: 'resource_state',
           signature: 'signature',
-          labels: Stubs::SharedLabels.default(visited),
+          labels: SharedLabels.default(visited),
           size: 1,
           latest_version_size: 1,
         }
@@ -347,7 +347,7 @@ module AWS::SDK::WorkDocs
     class CreateNotificationSubscription
       def self.default(visited=[])
         {
-          subscription: Stubs::Subscription.default(visited),
+          subscription: Subscription.default(visited),
         }
       end
 
@@ -386,7 +386,7 @@ module AWS::SDK::WorkDocs
     class CreateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::WorkDocs
     class DescribeActivities
       def self.default(visited=[])
         {
-          user_activities: Stubs::UserActivities.default(visited),
+          user_activities: UserActivities.default(visited),
           marker: 'marker',
         }
       end
@@ -541,7 +541,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('UserActivities')
         visited = visited + ['UserActivities']
         [
-          Stubs::Activity.default(visited)
+          Activity.default(visited)
         ]
       end
 
@@ -565,11 +565,11 @@ module AWS::SDK::WorkDocs
           time_stamp: Time.now,
           is_indirect_activity: false,
           organization_id: 'organization_id',
-          initiator: Stubs::UserMetadata.default(visited),
-          participants: Stubs::Participants.default(visited),
-          resource_metadata: Stubs::ResourceMetadata.default(visited),
-          original_parent: Stubs::ResourceMetadata.default(visited),
-          comment_metadata: Stubs::CommentMetadata.default(visited),
+          initiator: UserMetadata.default(visited),
+          participants: Participants.default(visited),
+          resource_metadata: ResourceMetadata.default(visited),
+          original_parent: ResourceMetadata.default(visited),
+          comment_metadata: CommentMetadata.default(visited),
         }
       end
 
@@ -596,7 +596,7 @@ module AWS::SDK::WorkDocs
         visited = visited + ['CommentMetadata']
         {
           comment_id: 'comment_id',
-          contributor: Stubs::User.default(visited),
+          contributor: User.default(visited),
           created_timestamp: Time.now,
           comment_status: 'comment_status',
           recipient_id: 'recipient_id',
@@ -626,7 +626,7 @@ module AWS::SDK::WorkDocs
           original_name: 'original_name',
           id: 'id',
           version_id: 'version_id',
-          owner: Stubs::UserMetadata.default(visited),
+          owner: UserMetadata.default(visited),
           parent_id: 'parent_id',
         }
       end
@@ -677,8 +677,8 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('Participants')
         visited = visited + ['Participants']
         {
-          users: Stubs::UserMetadataList.default(visited),
-          groups: Stubs::GroupMetadataList.default(visited),
+          users: UserMetadataList.default(visited),
+          groups: GroupMetadataList.default(visited),
         }
       end
 
@@ -697,7 +697,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('GroupMetadataList')
         visited = visited + ['GroupMetadataList']
         [
-          Stubs::GroupMetadata.default(visited)
+          GroupMetadata.default(visited)
         ]
       end
 
@@ -737,7 +737,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('UserMetadataList')
         visited = visited + ['UserMetadataList']
         [
-          Stubs::UserMetadata.default(visited)
+          UserMetadata.default(visited)
         ]
       end
 
@@ -755,7 +755,7 @@ module AWS::SDK::WorkDocs
     class DescribeComments
       def self.default(visited=[])
         {
-          comments: Stubs::CommentList.default(visited),
+          comments: CommentList.default(visited),
           marker: 'marker',
         }
       end
@@ -776,7 +776,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('CommentList')
         visited = visited + ['CommentList']
         [
-          Stubs::Comment.default(visited)
+          Comment.default(visited)
         ]
       end
 
@@ -794,7 +794,7 @@ module AWS::SDK::WorkDocs
     class DescribeDocumentVersions
       def self.default(visited=[])
         {
-          document_versions: Stubs::DocumentVersionMetadataList.default(visited),
+          document_versions: DocumentVersionMetadataList.default(visited),
           marker: 'marker',
         }
       end
@@ -815,7 +815,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('DocumentVersionMetadataList')
         visited = visited + ['DocumentVersionMetadataList']
         [
-          Stubs::DocumentVersionMetadata.default(visited)
+          DocumentVersionMetadata.default(visited)
         ]
       end
 
@@ -846,8 +846,8 @@ module AWS::SDK::WorkDocs
           content_created_timestamp: Time.now,
           content_modified_timestamp: Time.now,
           creator_id: 'creator_id',
-          thumbnail: Stubs::DocumentThumbnailUrlMap.default(visited),
-          source: Stubs::DocumentSourceUrlMap.default(visited),
+          thumbnail: DocumentThumbnailUrlMap.default(visited),
+          source: DocumentSourceUrlMap.default(visited),
         }
       end
 
@@ -915,8 +915,8 @@ module AWS::SDK::WorkDocs
     class DescribeFolderContents
       def self.default(visited=[])
         {
-          folders: Stubs::FolderMetadataList.default(visited),
-          documents: Stubs::DocumentMetadataList.default(visited),
+          folders: FolderMetadataList.default(visited),
+          documents: DocumentMetadataList.default(visited),
           marker: 'marker',
         }
       end
@@ -938,7 +938,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('DocumentMetadataList')
         visited = visited + ['DocumentMetadataList']
         [
-          Stubs::DocumentMetadata.default(visited)
+          DocumentMetadata.default(visited)
         ]
       end
 
@@ -963,9 +963,9 @@ module AWS::SDK::WorkDocs
           parent_folder_id: 'parent_folder_id',
           created_timestamp: Time.now,
           modified_timestamp: Time.now,
-          latest_version_metadata: Stubs::DocumentVersionMetadata.default(visited),
+          latest_version_metadata: DocumentVersionMetadata.default(visited),
           resource_state: 'resource_state',
-          labels: Stubs::SharedLabels.default(visited),
+          labels: SharedLabels.default(visited),
         }
       end
 
@@ -990,7 +990,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('FolderMetadataList')
         visited = visited + ['FolderMetadataList']
         [
-          Stubs::FolderMetadata.default(visited)
+          FolderMetadata.default(visited)
         ]
       end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::WorkDocs
     class DescribeGroups
       def self.default(visited=[])
         {
-          groups: Stubs::GroupMetadataList.default(visited),
+          groups: GroupMetadataList.default(visited),
           marker: 'marker',
         }
       end
@@ -1027,7 +1027,7 @@ module AWS::SDK::WorkDocs
     class DescribeNotificationSubscriptions
       def self.default(visited=[])
         {
-          subscriptions: Stubs::SubscriptionList.default(visited),
+          subscriptions: SubscriptionList.default(visited),
           marker: 'marker',
         }
       end
@@ -1048,7 +1048,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('SubscriptionList')
         visited = visited + ['SubscriptionList']
         [
-          Stubs::Subscription.default(visited)
+          Subscription.default(visited)
         ]
       end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::WorkDocs
     class DescribeResourcePermissions
       def self.default(visited=[])
         {
-          principals: Stubs::PrincipalList.default(visited),
+          principals: PrincipalList.default(visited),
           marker: 'marker',
         }
       end
@@ -1087,7 +1087,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('PrincipalList')
         visited = visited + ['PrincipalList']
         [
-          Stubs::Principal.default(visited)
+          Principal.default(visited)
         ]
       end
 
@@ -1109,7 +1109,7 @@ module AWS::SDK::WorkDocs
         {
           id: 'id',
           type: 'type',
-          roles: Stubs::PermissionInfoList.default(visited),
+          roles: PermissionInfoList.default(visited),
         }
       end
 
@@ -1129,7 +1129,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('PermissionInfoList')
         visited = visited + ['PermissionInfoList']
         [
-          Stubs::PermissionInfo.default(visited)
+          PermissionInfo.default(visited)
         ]
       end
 
@@ -1167,7 +1167,7 @@ module AWS::SDK::WorkDocs
     class DescribeRootFolders
       def self.default(visited=[])
         {
-          folders: Stubs::FolderMetadataList.default(visited),
+          folders: FolderMetadataList.default(visited),
           marker: 'marker',
         }
       end
@@ -1186,7 +1186,7 @@ module AWS::SDK::WorkDocs
     class DescribeUsers
       def self.default(visited=[])
         {
-          users: Stubs::OrganizationUserList.default(visited),
+          users: OrganizationUserList.default(visited),
           total_number_of_users: 1,
           marker: 'marker',
         }
@@ -1209,7 +1209,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('OrganizationUserList')
         visited = visited + ['OrganizationUserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::WorkDocs
     class GetCurrentUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -1244,8 +1244,8 @@ module AWS::SDK::WorkDocs
     class GetDocument
       def self.default(visited=[])
         {
-          metadata: Stubs::DocumentMetadata.default(visited),
-          custom_metadata: Stubs::CustomMetadataMap.default(visited),
+          metadata: DocumentMetadata.default(visited),
+          custom_metadata: CustomMetadataMap.default(visited),
         }
       end
 
@@ -1283,7 +1283,7 @@ module AWS::SDK::WorkDocs
     class GetDocumentPath
       def self.default(visited=[])
         {
-          path: Stubs::ResourcePath.default(visited),
+          path: ResourcePath.default(visited),
         }
       end
 
@@ -1302,7 +1302,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('ResourcePath')
         visited = visited + ['ResourcePath']
         {
-          components: Stubs::ResourcePathComponentList.default(visited),
+          components: ResourcePathComponentList.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::WorkDocs
         return nil if visited.include?('ResourcePathComponentList')
         visited = visited + ['ResourcePathComponentList']
         [
-          Stubs::ResourcePathComponent.default(visited)
+          ResourcePathComponent.default(visited)
         ]
       end
 
@@ -1358,8 +1358,8 @@ module AWS::SDK::WorkDocs
     class GetDocumentVersion
       def self.default(visited=[])
         {
-          metadata: Stubs::DocumentVersionMetadata.default(visited),
-          custom_metadata: Stubs::CustomMetadataMap.default(visited),
+          metadata: DocumentVersionMetadata.default(visited),
+          custom_metadata: CustomMetadataMap.default(visited),
         }
       end
 
@@ -1377,8 +1377,8 @@ module AWS::SDK::WorkDocs
     class GetFolder
       def self.default(visited=[])
         {
-          metadata: Stubs::FolderMetadata.default(visited),
-          custom_metadata: Stubs::CustomMetadataMap.default(visited),
+          metadata: FolderMetadata.default(visited),
+          custom_metadata: CustomMetadataMap.default(visited),
         }
       end
 
@@ -1396,7 +1396,7 @@ module AWS::SDK::WorkDocs
     class GetFolderPath
       def self.default(visited=[])
         {
-          path: Stubs::ResourcePath.default(visited),
+          path: ResourcePath.default(visited),
         }
       end
 
@@ -1413,8 +1413,8 @@ module AWS::SDK::WorkDocs
     class GetResources
       def self.default(visited=[])
         {
-          folders: Stubs::FolderMetadataList.default(visited),
-          documents: Stubs::DocumentMetadataList.default(visited),
+          folders: FolderMetadataList.default(visited),
+          documents: DocumentMetadataList.default(visited),
           marker: 'marker',
         }
       end
@@ -1434,8 +1434,8 @@ module AWS::SDK::WorkDocs
     class InitiateDocumentVersionUpload
       def self.default(visited=[])
         {
-          metadata: Stubs::DocumentMetadata.default(visited),
-          upload_metadata: Stubs::UploadMetadata.default(visited),
+          metadata: DocumentMetadata.default(visited),
+          upload_metadata: UploadMetadata.default(visited),
         }
       end
 
@@ -1456,7 +1456,7 @@ module AWS::SDK::WorkDocs
         visited = visited + ['UploadMetadata']
         {
           upload_url: 'upload_url',
-          signed_headers: Stubs::SignedHeaderMap.default(visited),
+          signed_headers: SignedHeaderMap.default(visited),
         }
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::WorkDocs
     class UpdateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 

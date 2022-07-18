@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Polly
@@ -66,7 +68,7 @@ module AWS::SDK::Polly
     def delete_lexicon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLexiconInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLexiconInput,
         validate_input: @config.validate_input
@@ -186,7 +188,7 @@ module AWS::SDK::Polly
     def describe_voices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVoicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVoicesInput,
         validate_input: @config.validate_input
@@ -264,7 +266,7 @@ module AWS::SDK::Polly
     def get_lexicon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLexiconInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLexiconInput,
         validate_input: @config.validate_input
@@ -352,7 +354,7 @@ module AWS::SDK::Polly
     def get_speech_synthesis_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSpeechSynthesisTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSpeechSynthesisTaskInput,
         validate_input: @config.validate_input
@@ -432,7 +434,7 @@ module AWS::SDK::Polly
     def list_lexicons(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLexiconsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLexiconsInput,
         validate_input: @config.validate_input
@@ -532,7 +534,7 @@ module AWS::SDK::Polly
     def list_speech_synthesis_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSpeechSynthesisTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSpeechSynthesisTasksInput,
         validate_input: @config.validate_input
@@ -610,7 +612,7 @@ module AWS::SDK::Polly
     def put_lexicon(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLexiconInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLexiconInput,
         validate_input: @config.validate_input
@@ -775,7 +777,7 @@ module AWS::SDK::Polly
     def start_speech_synthesis_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSpeechSynthesisTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSpeechSynthesisTaskInput,
         validate_input: @config.validate_input
@@ -989,7 +991,7 @@ module AWS::SDK::Polly
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

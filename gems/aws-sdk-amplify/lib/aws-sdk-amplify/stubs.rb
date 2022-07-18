@@ -14,7 +14,7 @@ module AWS::SDK::Amplify
     class CreateApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -36,26 +36,26 @@ module AWS::SDK::Amplify
           app_id: 'app_id',
           app_arn: 'app_arn',
           name: 'name',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           description: 'description',
           repository: 'repository',
           platform: 'platform',
           create_time: Time.now,
           update_time: Time.now,
           iam_service_role_arn: 'iam_service_role_arn',
-          environment_variables: Stubs::EnvironmentVariables.default(visited),
+          environment_variables: EnvironmentVariables.default(visited),
           default_domain: 'default_domain',
           enable_branch_auto_build: false,
           enable_branch_auto_deletion: false,
           enable_basic_auth: false,
           basic_auth_credentials: 'basic_auth_credentials',
-          custom_rules: Stubs::CustomRules.default(visited),
-          production_branch: Stubs::ProductionBranch.default(visited),
+          custom_rules: CustomRules.default(visited),
+          production_branch: ProductionBranch.default(visited),
           build_spec: 'build_spec',
           custom_headers: 'custom_headers',
           enable_auto_branch_creation: false,
-          auto_branch_creation_patterns: Stubs::AutoBranchCreationPatterns.default(visited),
-          auto_branch_creation_config: Stubs::AutoBranchCreationConfig.default(visited),
+          auto_branch_creation_patterns: AutoBranchCreationPatterns.default(visited),
+          auto_branch_creation_config: AutoBranchCreationConfig.default(visited),
           repository_clone_method: 'repository_clone_method',
         }
       end
@@ -100,7 +100,7 @@ module AWS::SDK::Amplify
           stage: 'stage',
           framework: 'framework',
           enable_auto_build: false,
-          environment_variables: Stubs::EnvironmentVariables.default(visited),
+          environment_variables: EnvironmentVariables.default(visited),
           basic_auth_credentials: 'basic_auth_credentials',
           enable_basic_auth: false,
           enable_performance_mode: false,
@@ -197,7 +197,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('CustomRules')
         visited = visited + ['CustomRules']
         [
-          Stubs::CustomRule.default(visited)
+          CustomRule.default(visited)
         ]
       end
 
@@ -259,7 +259,7 @@ module AWS::SDK::Amplify
     class CreateBackendEnvironment
       def self.default(visited=[])
         {
-          backend_environment: Stubs::BackendEnvironment.default(visited),
+          backend_environment: BackendEnvironment.default(visited),
         }
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::Amplify
     class CreateBranch
       def self.default(visited=[])
         {
-          branch: Stubs::Branch.default(visited),
+          branch: Branch.default(visited),
         }
       end
 
@@ -326,15 +326,15 @@ module AWS::SDK::Amplify
           branch_arn: 'branch_arn',
           branch_name: 'branch_name',
           description: 'description',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           stage: 'stage',
           display_name: 'display_name',
           enable_notification: false,
           create_time: Time.now,
           update_time: Time.now,
-          environment_variables: Stubs::EnvironmentVariables.default(visited),
+          environment_variables: EnvironmentVariables.default(visited),
           enable_auto_build: false,
-          custom_domains: Stubs::CustomDomains.default(visited),
+          custom_domains: CustomDomains.default(visited),
           framework: 'framework',
           active_job_id: 'active_job_id',
           total_number_of_jobs: 'total_number_of_jobs',
@@ -344,7 +344,7 @@ module AWS::SDK::Amplify
           basic_auth_credentials: 'basic_auth_credentials',
           build_spec: 'build_spec',
           ttl: 'ttl',
-          associated_resources: Stubs::AssociatedResources.default(visited),
+          associated_resources: AssociatedResources.default(visited),
           enable_pull_request_preview: false,
           pull_request_environment_name: 'pull_request_environment_name',
           destination_branch: 'destination_branch',
@@ -432,7 +432,7 @@ module AWS::SDK::Amplify
       def self.default(visited=[])
         {
           job_id: 'job_id',
-          file_upload_urls: Stubs::FileUploadUrls.default(visited),
+          file_upload_urls: FileUploadUrls.default(visited),
           zip_upload_url: 'zip_upload_url',
         }
       end
@@ -472,7 +472,7 @@ module AWS::SDK::Amplify
     class CreateDomainAssociation
       def self.default(visited=[])
         {
-          domain_association: Stubs::DomainAssociation.default(visited),
+          domain_association: DomainAssociation.default(visited),
         }
       end
 
@@ -494,12 +494,12 @@ module AWS::SDK::Amplify
           domain_association_arn: 'domain_association_arn',
           domain_name: 'domain_name',
           enable_auto_sub_domain: false,
-          auto_sub_domain_creation_patterns: Stubs::AutoSubDomainCreationPatterns.default(visited),
+          auto_sub_domain_creation_patterns: AutoSubDomainCreationPatterns.default(visited),
           auto_sub_domain_iam_role: 'auto_sub_domain_iam_role',
           domain_status: 'domain_status',
           status_reason: 'status_reason',
           certificate_verification_dns_record: 'certificate_verification_dns_record',
-          sub_domains: Stubs::SubDomains.default(visited),
+          sub_domains: SubDomains.default(visited),
         }
       end
 
@@ -525,7 +525,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('SubDomains')
         visited = visited + ['SubDomains']
         [
-          Stubs::SubDomain.default(visited)
+          SubDomain.default(visited)
         ]
       end
 
@@ -545,7 +545,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('SubDomain')
         visited = visited + ['SubDomain']
         {
-          sub_domain_setting: Stubs::SubDomainSetting.default(visited),
+          sub_domain_setting: SubDomainSetting.default(visited),
           verified: false,
           dns_record: 'dns_record',
         }
@@ -605,7 +605,7 @@ module AWS::SDK::Amplify
     class CreateWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::Amplify
     class DeleteApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -669,7 +669,7 @@ module AWS::SDK::Amplify
     class DeleteBackendEnvironment
       def self.default(visited=[])
         {
-          backend_environment: Stubs::BackendEnvironment.default(visited),
+          backend_environment: BackendEnvironment.default(visited),
         }
       end
 
@@ -686,7 +686,7 @@ module AWS::SDK::Amplify
     class DeleteBranch
       def self.default(visited=[])
         {
-          branch: Stubs::Branch.default(visited),
+          branch: Branch.default(visited),
         }
       end
 
@@ -703,7 +703,7 @@ module AWS::SDK::Amplify
     class DeleteDomainAssociation
       def self.default(visited=[])
         {
-          domain_association: Stubs::DomainAssociation.default(visited),
+          domain_association: DomainAssociation.default(visited),
         }
       end
 
@@ -720,7 +720,7 @@ module AWS::SDK::Amplify
     class DeleteJob
       def self.default(visited=[])
         {
-          job_summary: Stubs::JobSummary.default(visited),
+          job_summary: JobSummary.default(visited),
         }
       end
 
@@ -771,7 +771,7 @@ module AWS::SDK::Amplify
     class DeleteWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 
@@ -805,7 +805,7 @@ module AWS::SDK::Amplify
     class GetApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -841,7 +841,7 @@ module AWS::SDK::Amplify
     class GetBackendEnvironment
       def self.default(visited=[])
         {
-          backend_environment: Stubs::BackendEnvironment.default(visited),
+          backend_environment: BackendEnvironment.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::Amplify
     class GetBranch
       def self.default(visited=[])
         {
-          branch: Stubs::Branch.default(visited),
+          branch: Branch.default(visited),
         }
       end
 
@@ -875,7 +875,7 @@ module AWS::SDK::Amplify
     class GetDomainAssociation
       def self.default(visited=[])
         {
-          domain_association: Stubs::DomainAssociation.default(visited),
+          domain_association: DomainAssociation.default(visited),
         }
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Amplify
     class GetJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -911,8 +911,8 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Job')
         visited = visited + ['Job']
         {
-          summary: Stubs::JobSummary.default(visited),
-          steps: Stubs::Steps.default(visited),
+          summary: JobSummary.default(visited),
+          steps: Steps.default(visited),
         }
       end
 
@@ -931,7 +931,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Steps')
         visited = visited + ['Steps']
         [
-          Stubs::Step.default(visited)
+          Step.default(visited)
         ]
       end
 
@@ -959,7 +959,7 @@ module AWS::SDK::Amplify
           artifacts_url: 'artifacts_url',
           test_artifacts_url: 'test_artifacts_url',
           test_config_url: 'test_config_url',
-          screenshots: Stubs::Screenshots.default(visited),
+          screenshots: Screenshots.default(visited),
           status_reason: 'status_reason',
           context: 'context',
         }
@@ -1007,7 +1007,7 @@ module AWS::SDK::Amplify
     class GetWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 
@@ -1024,7 +1024,7 @@ module AWS::SDK::Amplify
     class ListApps
       def self.default(visited=[])
         {
-          apps: Stubs::Apps.default(visited),
+          apps: Apps.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1045,7 +1045,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Apps')
         visited = visited + ['Apps']
         [
-          Stubs::App.default(visited)
+          App.default(visited)
         ]
       end
 
@@ -1063,7 +1063,7 @@ module AWS::SDK::Amplify
     class ListArtifacts
       def self.default(visited=[])
         {
-          artifacts: Stubs::Artifacts.default(visited),
+          artifacts: Artifacts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1084,7 +1084,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Artifacts')
         visited = visited + ['Artifacts']
         [
-          Stubs::Artifact.default(visited)
+          Artifact.default(visited)
         ]
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::Amplify
     class ListBackendEnvironments
       def self.default(visited=[])
         {
-          backend_environments: Stubs::BackendEnvironments.default(visited),
+          backend_environments: BackendEnvironments.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1143,7 +1143,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('BackendEnvironments')
         visited = visited + ['BackendEnvironments']
         [
-          Stubs::BackendEnvironment.default(visited)
+          BackendEnvironment.default(visited)
         ]
       end
 
@@ -1161,7 +1161,7 @@ module AWS::SDK::Amplify
     class ListBranches
       def self.default(visited=[])
         {
-          branches: Stubs::Branches.default(visited),
+          branches: Branches.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1182,7 +1182,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Branches')
         visited = visited + ['Branches']
         [
-          Stubs::Branch.default(visited)
+          Branch.default(visited)
         ]
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::Amplify
     class ListDomainAssociations
       def self.default(visited=[])
         {
-          domain_associations: Stubs::DomainAssociations.default(visited),
+          domain_associations: DomainAssociations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1221,7 +1221,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('DomainAssociations')
         visited = visited + ['DomainAssociations']
         [
-          Stubs::DomainAssociation.default(visited)
+          DomainAssociation.default(visited)
         ]
       end
 
@@ -1239,7 +1239,7 @@ module AWS::SDK::Amplify
     class ListJobs
       def self.default(visited=[])
         {
-          job_summaries: Stubs::JobSummaries.default(visited),
+          job_summaries: JobSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1260,7 +1260,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('JobSummaries')
         visited = visited + ['JobSummaries']
         [
-          Stubs::JobSummary.default(visited)
+          JobSummary.default(visited)
         ]
       end
 
@@ -1278,7 +1278,7 @@ module AWS::SDK::Amplify
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1295,7 +1295,7 @@ module AWS::SDK::Amplify
     class ListWebhooks
       def self.default(visited=[])
         {
-          webhooks: Stubs::Webhooks.default(visited),
+          webhooks: Webhooks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1316,7 +1316,7 @@ module AWS::SDK::Amplify
         return nil if visited.include?('Webhooks')
         visited = visited + ['Webhooks']
         [
-          Stubs::Webhook.default(visited)
+          Webhook.default(visited)
         ]
       end
 
@@ -1334,7 +1334,7 @@ module AWS::SDK::Amplify
     class StartDeployment
       def self.default(visited=[])
         {
-          job_summary: Stubs::JobSummary.default(visited),
+          job_summary: JobSummary.default(visited),
         }
       end
 
@@ -1351,7 +1351,7 @@ module AWS::SDK::Amplify
     class StartJob
       def self.default(visited=[])
         {
-          job_summary: Stubs::JobSummary.default(visited),
+          job_summary: JobSummary.default(visited),
         }
       end
 
@@ -1368,7 +1368,7 @@ module AWS::SDK::Amplify
     class StopJob
       def self.default(visited=[])
         {
-          job_summary: Stubs::JobSummary.default(visited),
+          job_summary: JobSummary.default(visited),
         }
       end
 
@@ -1411,7 +1411,7 @@ module AWS::SDK::Amplify
     class UpdateApp
       def self.default(visited=[])
         {
-          app: Stubs::App.default(visited),
+          app: App.default(visited),
         }
       end
 
@@ -1428,7 +1428,7 @@ module AWS::SDK::Amplify
     class UpdateBranch
       def self.default(visited=[])
         {
-          branch: Stubs::Branch.default(visited),
+          branch: Branch.default(visited),
         }
       end
 
@@ -1445,7 +1445,7 @@ module AWS::SDK::Amplify
     class UpdateDomainAssociation
       def self.default(visited=[])
         {
-          domain_association: Stubs::DomainAssociation.default(visited),
+          domain_association: DomainAssociation.default(visited),
         }
       end
 
@@ -1462,7 +1462,7 @@ module AWS::SDK::Amplify
     class UpdateWebhook
       def self.default(visited=[])
         {
-          webhook: Stubs::Webhook.default(visited),
+          webhook: Webhook.default(visited),
         }
       end
 

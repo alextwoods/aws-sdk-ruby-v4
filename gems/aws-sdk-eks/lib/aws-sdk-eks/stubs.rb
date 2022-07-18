@@ -14,7 +14,7 @@ module AWS::SDK::EKS
     class AssociateEncryptionConfig
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -36,9 +36,9 @@ module AWS::SDK::EKS
           id: 'id',
           status: 'status',
           type: 'type',
-          params: Stubs::UpdateParams.default(visited),
+          params: UpdateParams.default(visited),
           created_at: Time.now,
-          errors: Stubs::ErrorDetails.default(visited),
+          errors: ErrorDetails.default(visited),
         }
       end
 
@@ -61,7 +61,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('ErrorDetails')
         visited = visited + ['ErrorDetails']
         [
-          Stubs::ErrorDetail.default(visited)
+          ErrorDetail.default(visited)
         ]
       end
 
@@ -83,7 +83,7 @@ module AWS::SDK::EKS
         {
           error_code: 'error_code',
           error_message: 'error_message',
-          resource_ids: Stubs::StringList.default(visited),
+          resource_ids: StringList.default(visited),
         }
       end
 
@@ -123,7 +123,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('UpdateParams')
         visited = visited + ['UpdateParams']
         [
-          Stubs::UpdateParam.default(visited)
+          UpdateParam.default(visited)
         ]
       end
 
@@ -161,8 +161,8 @@ module AWS::SDK::EKS
     class AssociateIdentityProviderConfig
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          update: Update.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::EKS
     class CreateAddon
       def self.default(visited=[])
         {
-          addon: Stubs::Addon.default(visited),
+          addon: Addon.default(visited),
         }
       end
 
@@ -223,12 +223,12 @@ module AWS::SDK::EKS
           cluster_name: 'cluster_name',
           status: 'status',
           addon_version: 'addon_version',
-          health: Stubs::AddonHealth.default(visited),
+          health: AddonHealth.default(visited),
           addon_arn: 'addon_arn',
           created_at: Time.now,
           modified_at: Time.now,
           service_account_role_arn: 'service_account_role_arn',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -255,7 +255,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('AddonHealth')
         visited = visited + ['AddonHealth']
         {
-          issues: Stubs::AddonIssueList.default(visited),
+          issues: AddonIssueList.default(visited),
         }
       end
 
@@ -273,7 +273,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('AddonIssueList')
         visited = visited + ['AddonIssueList']
         [
-          Stubs::AddonIssue.default(visited)
+          AddonIssue.default(visited)
         ]
       end
 
@@ -295,7 +295,7 @@ module AWS::SDK::EKS
         {
           code: 'code',
           message: 'message',
-          resource_ids: Stubs::StringList.default(visited),
+          resource_ids: StringList.default(visited),
         }
       end
 
@@ -313,7 +313,7 @@ module AWS::SDK::EKS
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -338,17 +338,17 @@ module AWS::SDK::EKS
           version: 'version',
           endpoint: 'endpoint',
           role_arn: 'role_arn',
-          resources_vpc_config: Stubs::VpcConfigResponse.default(visited),
-          kubernetes_network_config: Stubs::KubernetesNetworkConfigResponse.default(visited),
-          logging: Stubs::Logging.default(visited),
-          identity: Stubs::Identity.default(visited),
+          resources_vpc_config: VpcConfigResponse.default(visited),
+          kubernetes_network_config: KubernetesNetworkConfigResponse.default(visited),
+          logging: Logging.default(visited),
+          identity: Identity.default(visited),
           status: 'status',
-          certificate_authority: Stubs::Certificate.default(visited),
+          certificate_authority: Certificate.default(visited),
           client_request_token: 'client_request_token',
           platform_version: 'platform_version',
-          tags: Stubs::TagMap.default(visited),
-          encryption_config: Stubs::EncryptionConfigList.default(visited),
-          connector_config: Stubs::ConnectorConfigResponse.default(visited),
+          tags: TagMap.default(visited),
+          encryption_config: EncryptionConfigList.default(visited),
+          connector_config: ConnectorConfigResponse.default(visited),
         }
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('EncryptionConfigList')
         visited = visited + ['EncryptionConfigList']
         [
-          Stubs::EncryptionConfig.default(visited)
+          EncryptionConfig.default(visited)
         ]
       end
 
@@ -428,8 +428,8 @@ module AWS::SDK::EKS
         return nil if visited.include?('EncryptionConfig')
         visited = visited + ['EncryptionConfig']
         {
-          resources: Stubs::StringList.default(visited),
-          provider: Stubs::Provider.default(visited),
+          resources: StringList.default(visited),
+          provider: Provider.default(visited),
         }
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('Identity')
         visited = visited + ['Identity']
         {
-          oidc: Stubs::OIDC.default(visited),
+          oidc: OIDC.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('Logging')
         visited = visited + ['Logging']
         {
-          cluster_logging: Stubs::LogSetups.default(visited),
+          cluster_logging: LogSetups.default(visited),
         }
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('LogSetups')
         visited = visited + ['LogSetups']
         [
-          Stubs::LogSetup.default(visited)
+          LogSetup.default(visited)
         ]
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('LogSetup')
         visited = visited + ['LogSetup']
         {
-          types: Stubs::LogTypes.default(visited),
+          types: LogTypes.default(visited),
           enabled: false,
         }
       end
@@ -620,13 +620,13 @@ module AWS::SDK::EKS
         return nil if visited.include?('VpcConfigResponse')
         visited = visited + ['VpcConfigResponse']
         {
-          subnet_ids: Stubs::StringList.default(visited),
-          security_group_ids: Stubs::StringList.default(visited),
+          subnet_ids: StringList.default(visited),
+          security_group_ids: StringList.default(visited),
           cluster_security_group_id: 'cluster_security_group_id',
           vpc_id: 'vpc_id',
           endpoint_public_access: false,
           endpoint_private_access: false,
-          public_access_cidrs: Stubs::StringList.default(visited),
+          public_access_cidrs: StringList.default(visited),
         }
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::EKS
     class CreateFargateProfile
       def self.default(visited=[])
         {
-          fargate_profile: Stubs::FargateProfile.default(visited),
+          fargate_profile: FargateProfile.default(visited),
         }
       end
 
@@ -672,10 +672,10 @@ module AWS::SDK::EKS
           cluster_name: 'cluster_name',
           created_at: Time.now,
           pod_execution_role_arn: 'pod_execution_role_arn',
-          subnets: Stubs::StringList.default(visited),
-          selectors: Stubs::FargateProfileSelectors.default(visited),
+          subnets: StringList.default(visited),
+          selectors: FargateProfileSelectors.default(visited),
           status: 'status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -701,7 +701,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('FargateProfileSelectors')
         visited = visited + ['FargateProfileSelectors']
         [
-          Stubs::FargateProfileSelector.default(visited)
+          FargateProfileSelector.default(visited)
         ]
       end
 
@@ -722,7 +722,7 @@ module AWS::SDK::EKS
         visited = visited + ['FargateProfileSelector']
         {
           namespace: 'namespace',
-          labels: Stubs::FargateProfileLabel.default(visited),
+          labels: FargateProfileLabel.default(visited),
         }
       end
 
@@ -759,7 +759,7 @@ module AWS::SDK::EKS
     class CreateNodegroup
       def self.default(visited=[])
         {
-          nodegroup: Stubs::Nodegroup.default(visited),
+          nodegroup: Nodegroup.default(visited),
         }
       end
 
@@ -787,20 +787,20 @@ module AWS::SDK::EKS
           modified_at: Time.now,
           status: 'status',
           capacity_type: 'capacity_type',
-          scaling_config: Stubs::NodegroupScalingConfig.default(visited),
-          instance_types: Stubs::StringList.default(visited),
-          subnets: Stubs::StringList.default(visited),
-          remote_access: Stubs::RemoteAccessConfig.default(visited),
+          scaling_config: NodegroupScalingConfig.default(visited),
+          instance_types: StringList.default(visited),
+          subnets: StringList.default(visited),
+          remote_access: RemoteAccessConfig.default(visited),
           ami_type: 'ami_type',
           node_role: 'node_role',
-          labels: Stubs::LabelsMap.default(visited),
-          taints: Stubs::TaintsList.default(visited),
-          resources: Stubs::NodegroupResources.default(visited),
+          labels: LabelsMap.default(visited),
+          taints: TaintsList.default(visited),
+          resources: NodegroupResources.default(visited),
           disk_size: 1,
-          health: Stubs::NodegroupHealth.default(visited),
-          update_config: Stubs::NodegroupUpdateConfig.default(visited),
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          health: NodegroupHealth.default(visited),
+          update_config: NodegroupUpdateConfig.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -882,7 +882,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('NodegroupHealth')
         visited = visited + ['NodegroupHealth']
         {
-          issues: Stubs::IssueList.default(visited),
+          issues: IssueList.default(visited),
         }
       end
 
@@ -900,7 +900,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('IssueList')
         visited = visited + ['IssueList']
         [
-          Stubs::Issue.default(visited)
+          Issue.default(visited)
         ]
       end
 
@@ -922,7 +922,7 @@ module AWS::SDK::EKS
         {
           code: 'code',
           message: 'message',
-          resource_ids: Stubs::StringList.default(visited),
+          resource_ids: StringList.default(visited),
         }
       end
 
@@ -942,7 +942,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('NodegroupResources')
         visited = visited + ['NodegroupResources']
         {
-          auto_scaling_groups: Stubs::AutoScalingGroupList.default(visited),
+          auto_scaling_groups: AutoScalingGroupList.default(visited),
           remote_access_security_group: 'remote_access_security_group',
         }
       end
@@ -962,7 +962,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('AutoScalingGroupList')
         visited = visited + ['AutoScalingGroupList']
         [
-          Stubs::AutoScalingGroup.default(visited)
+          AutoScalingGroup.default(visited)
         ]
       end
 
@@ -1000,7 +1000,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('TaintsList')
         visited = visited + ['TaintsList']
         [
-          Stubs::Taint.default(visited)
+          Taint.default(visited)
         ]
       end
 
@@ -1063,7 +1063,7 @@ module AWS::SDK::EKS
         visited = visited + ['RemoteAccessConfig']
         {
           ec2_ssh_key: 'ec2_ssh_key',
-          source_security_groups: Stubs::StringList.default(visited),
+          source_security_groups: StringList.default(visited),
         }
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::EKS
     class DeleteAddon
       def self.default(visited=[])
         {
-          addon: Stubs::Addon.default(visited),
+          addon: Addon.default(visited),
         }
       end
 
@@ -1119,7 +1119,7 @@ module AWS::SDK::EKS
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1136,7 +1136,7 @@ module AWS::SDK::EKS
     class DeleteFargateProfile
       def self.default(visited=[])
         {
-          fargate_profile: Stubs::FargateProfile.default(visited),
+          fargate_profile: FargateProfile.default(visited),
         }
       end
 
@@ -1153,7 +1153,7 @@ module AWS::SDK::EKS
     class DeleteNodegroup
       def self.default(visited=[])
         {
-          nodegroup: Stubs::Nodegroup.default(visited),
+          nodegroup: Nodegroup.default(visited),
         }
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::EKS
     class DeregisterCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1187,7 +1187,7 @@ module AWS::SDK::EKS
     class DescribeAddon
       def self.default(visited=[])
         {
-          addon: Stubs::Addon.default(visited),
+          addon: Addon.default(visited),
         }
       end
 
@@ -1204,7 +1204,7 @@ module AWS::SDK::EKS
     class DescribeAddonVersions
       def self.default(visited=[])
         {
-          addons: Stubs::Addons.default(visited),
+          addons: Addons.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1225,7 +1225,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('Addons')
         visited = visited + ['Addons']
         [
-          Stubs::AddonInfo.default(visited)
+          AddonInfo.default(visited)
         ]
       end
 
@@ -1247,7 +1247,7 @@ module AWS::SDK::EKS
         {
           addon_name: 'addon_name',
           type: 'type',
-          addon_versions: Stubs::AddonVersionInfoList.default(visited),
+          addon_versions: AddonVersionInfoList.default(visited),
         }
       end
 
@@ -1267,7 +1267,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('AddonVersionInfoList')
         visited = visited + ['AddonVersionInfoList']
         [
-          Stubs::AddonVersionInfo.default(visited)
+          AddonVersionInfo.default(visited)
         ]
       end
 
@@ -1288,8 +1288,8 @@ module AWS::SDK::EKS
         visited = visited + ['AddonVersionInfo']
         {
           addon_version: 'addon_version',
-          architecture: Stubs::StringList.default(visited),
-          compatibilities: Stubs::Compatibilities.default(visited),
+          architecture: StringList.default(visited),
+          compatibilities: Compatibilities.default(visited),
         }
       end
 
@@ -1309,7 +1309,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('Compatibilities')
         visited = visited + ['Compatibilities']
         [
-          Stubs::Compatibility.default(visited)
+          Compatibility.default(visited)
         ]
       end
 
@@ -1330,7 +1330,7 @@ module AWS::SDK::EKS
         visited = visited + ['Compatibility']
         {
           cluster_version: 'cluster_version',
-          platform_versions: Stubs::StringList.default(visited),
+          platform_versions: StringList.default(visited),
           default_version: false,
         }
       end
@@ -1349,7 +1349,7 @@ module AWS::SDK::EKS
     class DescribeCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1366,7 +1366,7 @@ module AWS::SDK::EKS
     class DescribeFargateProfile
       def self.default(visited=[])
         {
-          fargate_profile: Stubs::FargateProfile.default(visited),
+          fargate_profile: FargateProfile.default(visited),
         }
       end
 
@@ -1383,7 +1383,7 @@ module AWS::SDK::EKS
     class DescribeIdentityProviderConfig
       def self.default(visited=[])
         {
-          identity_provider_config: Stubs::IdentityProviderConfigResponse.default(visited),
+          identity_provider_config: IdentityProviderConfigResponse.default(visited),
         }
       end
 
@@ -1402,7 +1402,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('IdentityProviderConfigResponse')
         visited = visited + ['IdentityProviderConfigResponse']
         {
-          oidc: Stubs::OidcIdentityProviderConfig.default(visited),
+          oidc: OidcIdentityProviderConfig.default(visited),
         }
       end
 
@@ -1429,8 +1429,8 @@ module AWS::SDK::EKS
           username_prefix: 'username_prefix',
           groups_claim: 'groups_claim',
           groups_prefix: 'groups_prefix',
-          required_claims: Stubs::RequiredClaimsMap.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          required_claims: RequiredClaimsMap.default(visited),
+          tags: TagMap.default(visited),
           status: 'status',
         }
       end
@@ -1478,7 +1478,7 @@ module AWS::SDK::EKS
     class DescribeNodegroup
       def self.default(visited=[])
         {
-          nodegroup: Stubs::Nodegroup.default(visited),
+          nodegroup: Nodegroup.default(visited),
         }
       end
 
@@ -1495,7 +1495,7 @@ module AWS::SDK::EKS
     class DescribeUpdate
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1512,7 +1512,7 @@ module AWS::SDK::EKS
     class DisassociateIdentityProviderConfig
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1529,7 +1529,7 @@ module AWS::SDK::EKS
     class ListAddons
       def self.default(visited=[])
         {
-          addons: Stubs::StringList.default(visited),
+          addons: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1548,7 +1548,7 @@ module AWS::SDK::EKS
     class ListClusters
       def self.default(visited=[])
         {
-          clusters: Stubs::StringList.default(visited),
+          clusters: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1567,7 +1567,7 @@ module AWS::SDK::EKS
     class ListFargateProfiles
       def self.default(visited=[])
         {
-          fargate_profile_names: Stubs::StringList.default(visited),
+          fargate_profile_names: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1586,7 +1586,7 @@ module AWS::SDK::EKS
     class ListIdentityProviderConfigs
       def self.default(visited=[])
         {
-          identity_provider_configs: Stubs::IdentityProviderConfigs.default(visited),
+          identity_provider_configs: IdentityProviderConfigs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1607,7 +1607,7 @@ module AWS::SDK::EKS
         return nil if visited.include?('IdentityProviderConfigs')
         visited = visited + ['IdentityProviderConfigs']
         [
-          Stubs::IdentityProviderConfig.default(visited)
+          IdentityProviderConfig.default(visited)
         ]
       end
 
@@ -1645,7 +1645,7 @@ module AWS::SDK::EKS
     class ListNodegroups
       def self.default(visited=[])
         {
-          nodegroups: Stubs::StringList.default(visited),
+          nodegroups: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1664,7 +1664,7 @@ module AWS::SDK::EKS
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1681,7 +1681,7 @@ module AWS::SDK::EKS
     class ListUpdates
       def self.default(visited=[])
         {
-          update_ids: Stubs::StringList.default(visited),
+          update_ids: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1700,7 +1700,7 @@ module AWS::SDK::EKS
     class RegisterCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -1743,7 +1743,7 @@ module AWS::SDK::EKS
     class UpdateAddon
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1760,7 +1760,7 @@ module AWS::SDK::EKS
     class UpdateClusterConfig
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1777,7 +1777,7 @@ module AWS::SDK::EKS
     class UpdateClusterVersion
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1794,7 +1794,7 @@ module AWS::SDK::EKS
     class UpdateNodegroupConfig
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 
@@ -1811,7 +1811,7 @@ module AWS::SDK::EKS
     class UpdateNodegroupVersion
       def self.default(visited=[])
         {
-          update: Stubs::Update.default(visited),
+          update: Update.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudControl
   module Validators
 
@@ -27,7 +29,7 @@ module AWS::SDK::CloudControl
     class CancelResourceRequestOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelResourceRequestOutput, context: context)
-        Validators::ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
+        ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::CloudControl
     class CreateResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResourceOutput, context: context)
-        Validators::ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
+        ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::CloudControl
     class DeleteResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteResourceOutput, context: context)
-        Validators::ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
+        ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::CloudControl
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourceOutput, context: context)
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
-        Validators::ResourceDescription.validate!(input[:resource_description], context: "#{context}[:resource_description]") unless input[:resource_description].nil?
+        ResourceDescription.validate!(input[:resource_description], context: "#{context}[:resource_description]") unless input[:resource_description].nil?
       end
     end
 
@@ -123,7 +125,7 @@ module AWS::SDK::CloudControl
     class GetResourceRequestStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResourceRequestStatusOutput, context: context)
-        Validators::ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
+        ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
       end
     end
 
@@ -160,14 +162,14 @@ module AWS::SDK::CloudControl
         Hearth::Validator.validate!(input, Types::ListResourceRequestsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ResourceRequestStatusFilter.validate!(input[:resource_request_status_filter], context: "#{context}[:resource_request_status_filter]") unless input[:resource_request_status_filter].nil?
+        ResourceRequestStatusFilter.validate!(input[:resource_request_status_filter], context: "#{context}[:resource_request_status_filter]") unless input[:resource_request_status_filter].nil?
       end
     end
 
     class ListResourceRequestsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceRequestsOutput, context: context)
-        Validators::ResourceRequestStatusSummaries.validate!(input[:resource_request_status_summaries], context: "#{context}[:resource_request_status_summaries]") unless input[:resource_request_status_summaries].nil?
+        ResourceRequestStatusSummaries.validate!(input[:resource_request_status_summaries], context: "#{context}[:resource_request_status_summaries]") unless input[:resource_request_status_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::CloudControl
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
-        Validators::ResourceDescriptions.validate!(input[:resource_descriptions], context: "#{context}[:resource_descriptions]") unless input[:resource_descriptions].nil?
+        ResourceDescriptions.validate!(input[:resource_descriptions], context: "#{context}[:resource_descriptions]") unless input[:resource_descriptions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::CloudControl
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -296,8 +298,8 @@ module AWS::SDK::CloudControl
     class ResourceRequestStatusFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceRequestStatusFilter, context: context)
-        Validators::Operations.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
-        Validators::OperationStatuses.validate!(input[:operation_statuses], context: "#{context}[:operation_statuses]") unless input[:operation_statuses].nil?
+        Operations.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationStatuses.validate!(input[:operation_statuses], context: "#{context}[:operation_statuses]") unless input[:operation_statuses].nil?
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::CloudControl
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProgressEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProgressEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -360,7 +362,7 @@ module AWS::SDK::CloudControl
     class UpdateResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResourceOutput, context: context)
-        Validators::ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
+        ProgressEvent.validate!(input[:progress_event], context: "#{context}[:progress_event]") unless input[:progress_event].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Greengrass
@@ -62,7 +64,7 @@ module AWS::SDK::Greengrass
     def associate_role_to_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateRoleToGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateRoleToGroupInput,
         validate_input: @config.validate_input
@@ -131,7 +133,7 @@ module AWS::SDK::Greengrass
     def associate_service_role_to_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateServiceRoleToAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateServiceRoleToAccountInput,
         validate_input: @config.validate_input
@@ -230,7 +232,7 @@ module AWS::SDK::Greengrass
     def create_connector_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectorDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectorDefinitionInput,
         validate_input: @config.validate_input
@@ -318,7 +320,7 @@ module AWS::SDK::Greengrass
     def create_connector_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectorDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectorDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -416,7 +418,7 @@ module AWS::SDK::Greengrass
     def create_core_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCoreDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCoreDefinitionInput,
         validate_input: @config.validate_input
@@ -503,7 +505,7 @@ module AWS::SDK::Greengrass
     def create_core_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCoreDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCoreDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -589,7 +591,7 @@ module AWS::SDK::Greengrass
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -687,7 +689,7 @@ module AWS::SDK::Greengrass
     def create_device_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeviceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeviceDefinitionInput,
         validate_input: @config.validate_input
@@ -774,7 +776,7 @@ module AWS::SDK::Greengrass
     def create_device_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeviceDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeviceDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -902,7 +904,7 @@ module AWS::SDK::Greengrass
     def create_function_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionDefinitionInput,
         validate_input: @config.validate_input
@@ -1022,7 +1024,7 @@ module AWS::SDK::Greengrass
     def create_function_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -1119,7 +1121,7 @@ module AWS::SDK::Greengrass
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -1192,7 +1194,7 @@ module AWS::SDK::Greengrass
     def create_group_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -1295,7 +1297,7 @@ module AWS::SDK::Greengrass
     def create_group_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupVersionInput,
         validate_input: @config.validate_input
@@ -1394,7 +1396,7 @@ module AWS::SDK::Greengrass
     def create_logger_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoggerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoggerDefinitionInput,
         validate_input: @config.validate_input
@@ -1482,7 +1484,7 @@ module AWS::SDK::Greengrass
     def create_logger_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoggerDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoggerDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -1609,7 +1611,7 @@ module AWS::SDK::Greengrass
     def create_resource_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceDefinitionInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::Greengrass
     def create_resource_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -1822,7 +1824,7 @@ module AWS::SDK::Greengrass
     def create_software_update_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSoftwareUpdateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSoftwareUpdateJobInput,
         validate_input: @config.validate_input
@@ -1920,7 +1922,7 @@ module AWS::SDK::Greengrass
     def create_subscription_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubscriptionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubscriptionDefinitionInput,
         validate_input: @config.validate_input
@@ -2007,7 +2009,7 @@ module AWS::SDK::Greengrass
     def create_subscription_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubscriptionDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubscriptionDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -2075,7 +2077,7 @@ module AWS::SDK::Greengrass
     def delete_connector_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectorDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectorDefinitionInput,
         validate_input: @config.validate_input
@@ -2142,7 +2144,7 @@ module AWS::SDK::Greengrass
     def delete_core_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCoreDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCoreDefinitionInput,
         validate_input: @config.validate_input
@@ -2209,7 +2211,7 @@ module AWS::SDK::Greengrass
     def delete_device_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceDefinitionInput,
         validate_input: @config.validate_input
@@ -2276,7 +2278,7 @@ module AWS::SDK::Greengrass
     def delete_function_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionDefinitionInput,
         validate_input: @config.validate_input
@@ -2343,7 +2345,7 @@ module AWS::SDK::Greengrass
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -2410,7 +2412,7 @@ module AWS::SDK::Greengrass
     def delete_logger_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoggerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoggerDefinitionInput,
         validate_input: @config.validate_input
@@ -2477,7 +2479,7 @@ module AWS::SDK::Greengrass
     def delete_resource_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceDefinitionInput,
         validate_input: @config.validate_input
@@ -2544,7 +2546,7 @@ module AWS::SDK::Greengrass
     def delete_subscription_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubscriptionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubscriptionDefinitionInput,
         validate_input: @config.validate_input
@@ -2612,7 +2614,7 @@ module AWS::SDK::Greengrass
     def disassociate_role_from_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateRoleFromGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateRoleFromGroupInput,
         validate_input: @config.validate_input
@@ -2675,7 +2677,7 @@ module AWS::SDK::Greengrass
     def disassociate_service_role_from_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateServiceRoleFromAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateServiceRoleFromAccountInput,
         validate_input: @config.validate_input
@@ -2744,7 +2746,7 @@ module AWS::SDK::Greengrass
     def get_associated_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssociatedRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssociatedRoleInput,
         validate_input: @config.validate_input
@@ -2824,7 +2826,7 @@ module AWS::SDK::Greengrass
     def get_bulk_deployment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBulkDeploymentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBulkDeploymentStatusInput,
         validate_input: @config.validate_input
@@ -2898,7 +2900,7 @@ module AWS::SDK::Greengrass
     def get_connectivity_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectivityInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectivityInfoInput,
         validate_input: @config.validate_input
@@ -2974,7 +2976,7 @@ module AWS::SDK::Greengrass
     def get_connector_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectorDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectorDefinitionInput,
         validate_input: @config.validate_input
@@ -3061,7 +3063,7 @@ module AWS::SDK::Greengrass
     def get_connector_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectorDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectorDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -3137,7 +3139,7 @@ module AWS::SDK::Greengrass
     def get_core_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoreDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoreDefinitionInput,
         validate_input: @config.validate_input
@@ -3220,7 +3222,7 @@ module AWS::SDK::Greengrass
     def get_core_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCoreDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCoreDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -3299,7 +3301,7 @@ module AWS::SDK::Greengrass
     def get_deployment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentStatusInput,
         validate_input: @config.validate_input
@@ -3375,7 +3377,7 @@ module AWS::SDK::Greengrass
     def get_device_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceDefinitionInput,
         validate_input: @config.validate_input
@@ -3462,7 +3464,7 @@ module AWS::SDK::Greengrass
     def get_device_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -3538,7 +3540,7 @@ module AWS::SDK::Greengrass
     def get_function_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionDefinitionInput,
         validate_input: @config.validate_input
@@ -3647,7 +3649,7 @@ module AWS::SDK::Greengrass
     def get_function_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -3723,7 +3725,7 @@ module AWS::SDK::Greengrass
     def get_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupInput,
         validate_input: @config.validate_input
@@ -3797,7 +3799,7 @@ module AWS::SDK::Greengrass
     def get_group_certificate_authority(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupCertificateAuthorityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupCertificateAuthorityInput,
         validate_input: @config.validate_input
@@ -3867,7 +3869,7 @@ module AWS::SDK::Greengrass
     def get_group_certificate_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupCertificateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupCertificateConfigurationInput,
         validate_input: @config.validate_input
@@ -3950,7 +3952,7 @@ module AWS::SDK::Greengrass
     def get_group_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupVersionInput,
         validate_input: @config.validate_input
@@ -4026,7 +4028,7 @@ module AWS::SDK::Greengrass
     def get_logger_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoggerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoggerDefinitionInput,
         validate_input: @config.validate_input
@@ -4113,7 +4115,7 @@ module AWS::SDK::Greengrass
     def get_logger_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLoggerDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLoggerDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -4189,7 +4191,7 @@ module AWS::SDK::Greengrass
     def get_resource_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceDefinitionInput,
         validate_input: @config.validate_input
@@ -4293,7 +4295,7 @@ module AWS::SDK::Greengrass
     def get_resource_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -4357,7 +4359,7 @@ module AWS::SDK::Greengrass
     def get_service_role_for_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceRoleForAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceRoleForAccountInput,
         validate_input: @config.validate_input
@@ -4433,7 +4435,7 @@ module AWS::SDK::Greengrass
     def get_subscription_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSubscriptionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSubscriptionDefinitionInput,
         validate_input: @config.validate_input
@@ -4520,7 +4522,7 @@ module AWS::SDK::Greengrass
     def get_subscription_definition_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSubscriptionDefinitionVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSubscriptionDefinitionVersionInput,
         validate_input: @config.validate_input
@@ -4591,7 +4593,7 @@ module AWS::SDK::Greengrass
     def get_thing_runtime_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThingRuntimeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThingRuntimeConfigurationInput,
         validate_input: @config.validate_input
@@ -4680,7 +4682,7 @@ module AWS::SDK::Greengrass
     def list_bulk_deployment_detailed_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBulkDeploymentDetailedReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBulkDeploymentDetailedReportsInput,
         validate_input: @config.validate_input
@@ -4757,7 +4759,7 @@ module AWS::SDK::Greengrass
     def list_bulk_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBulkDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBulkDeploymentsInput,
         validate_input: @config.validate_input
@@ -4839,7 +4841,7 @@ module AWS::SDK::Greengrass
     def list_connector_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectorDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectorDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -4922,7 +4924,7 @@ module AWS::SDK::Greengrass
     def list_connector_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectorDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectorDefinitionsInput,
         validate_input: @config.validate_input
@@ -5004,7 +5006,7 @@ module AWS::SDK::Greengrass
     def list_core_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoreDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoreDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -5087,7 +5089,7 @@ module AWS::SDK::Greengrass
     def list_core_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCoreDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCoreDefinitionsInput,
         validate_input: @config.validate_input
@@ -5170,7 +5172,7 @@ module AWS::SDK::Greengrass
     def list_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentsInput,
         validate_input: @config.validate_input
@@ -5252,7 +5254,7 @@ module AWS::SDK::Greengrass
     def list_device_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -5335,7 +5337,7 @@ module AWS::SDK::Greengrass
     def list_device_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceDefinitionsInput,
         validate_input: @config.validate_input
@@ -5417,7 +5419,7 @@ module AWS::SDK::Greengrass
     def list_function_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -5500,7 +5502,7 @@ module AWS::SDK::Greengrass
     def list_function_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionDefinitionsInput,
         validate_input: @config.validate_input
@@ -5571,7 +5573,7 @@ module AWS::SDK::Greengrass
     def list_group_certificate_authorities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupCertificateAuthoritiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupCertificateAuthoritiesInput,
         validate_input: @config.validate_input
@@ -5653,7 +5655,7 @@ module AWS::SDK::Greengrass
     def list_group_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupVersionsInput,
         validate_input: @config.validate_input
@@ -5734,7 +5736,7 @@ module AWS::SDK::Greengrass
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -5816,7 +5818,7 @@ module AWS::SDK::Greengrass
     def list_logger_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLoggerDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLoggerDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -5899,7 +5901,7 @@ module AWS::SDK::Greengrass
     def list_logger_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLoggerDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLoggerDefinitionsInput,
         validate_input: @config.validate_input
@@ -5981,7 +5983,7 @@ module AWS::SDK::Greengrass
     def list_resource_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -6064,7 +6066,7 @@ module AWS::SDK::Greengrass
     def list_resource_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceDefinitionsInput,
         validate_input: @config.validate_input
@@ -6146,7 +6148,7 @@ module AWS::SDK::Greengrass
     def list_subscription_definition_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSubscriptionDefinitionVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSubscriptionDefinitionVersionsInput,
         validate_input: @config.validate_input
@@ -6229,7 +6231,7 @@ module AWS::SDK::Greengrass
     def list_subscription_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSubscriptionDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSubscriptionDefinitionsInput,
         validate_input: @config.validate_input
@@ -6298,7 +6300,7 @@ module AWS::SDK::Greengrass
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6375,7 +6377,7 @@ module AWS::SDK::Greengrass
     def reset_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetDeploymentsInput,
         validate_input: @config.validate_input
@@ -6459,7 +6461,7 @@ module AWS::SDK::Greengrass
     def start_bulk_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBulkDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBulkDeploymentInput,
         validate_input: @config.validate_input
@@ -6527,7 +6529,7 @@ module AWS::SDK::Greengrass
     def stop_bulk_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopBulkDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopBulkDeploymentInput,
         validate_input: @config.validate_input
@@ -6600,7 +6602,7 @@ module AWS::SDK::Greengrass
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6674,7 +6676,7 @@ module AWS::SDK::Greengrass
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6754,7 +6756,7 @@ module AWS::SDK::Greengrass
     def update_connectivity_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectivityInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectivityInfoInput,
         validate_input: @config.validate_input
@@ -6826,7 +6828,7 @@ module AWS::SDK::Greengrass
     def update_connector_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectorDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectorDefinitionInput,
         validate_input: @config.validate_input
@@ -6898,7 +6900,7 @@ module AWS::SDK::Greengrass
     def update_core_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCoreDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCoreDefinitionInput,
         validate_input: @config.validate_input
@@ -6970,7 +6972,7 @@ module AWS::SDK::Greengrass
     def update_device_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceDefinitionInput,
         validate_input: @config.validate_input
@@ -7042,7 +7044,7 @@ module AWS::SDK::Greengrass
     def update_function_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionDefinitionInput,
         validate_input: @config.validate_input
@@ -7114,7 +7116,7 @@ module AWS::SDK::Greengrass
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -7189,7 +7191,7 @@ module AWS::SDK::Greengrass
     def update_group_certificate_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupCertificateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupCertificateConfigurationInput,
         validate_input: @config.validate_input
@@ -7261,7 +7263,7 @@ module AWS::SDK::Greengrass
     def update_logger_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLoggerDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLoggerDefinitionInput,
         validate_input: @config.validate_input
@@ -7333,7 +7335,7 @@ module AWS::SDK::Greengrass
     def update_resource_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceDefinitionInput,
         validate_input: @config.validate_input
@@ -7405,7 +7407,7 @@ module AWS::SDK::Greengrass
     def update_subscription_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubscriptionDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubscriptionDefinitionInput,
         validate_input: @config.validate_input
@@ -7479,7 +7481,7 @@ module AWS::SDK::Greengrass
     def update_thing_runtime_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateThingRuntimeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateThingRuntimeConfigurationInput,
         validate_input: @config.validate_input

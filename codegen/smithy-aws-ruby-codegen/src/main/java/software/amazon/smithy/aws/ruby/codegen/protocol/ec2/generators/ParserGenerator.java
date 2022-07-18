@@ -155,24 +155,6 @@ public class ParserGenerator extends ParserGeneratorBase {
     }
 
     @Override
-    protected void renderSetParseMethod(SetShape s) {
-        writer
-                .openBlock("def self.parse(xml)")
-                .write("data = Set.new")
-                .openBlock("xml.each do |node|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(s.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberDeserializer(s.getMember(),
-                                    "data << "));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderListParseMethod(ListShape s) {
         writer
                 .openBlock("def self.parse(xml)")

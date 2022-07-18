@@ -912,11 +912,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_create_tasks ||= false
       end
-
     end
 
     # @!attribute id
@@ -2216,11 +2216,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.account_linked ||= false
       end
-
     end
 
     # @!attribute identifier
@@ -2729,11 +2729,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_create_tasks ||= false
       end
-
     end
 
     # @!attribute id
@@ -2876,11 +2876,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2917,11 +2917,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -2967,11 +2967,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3009,11 +3009,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3056,11 +3056,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3097,11 +3097,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3138,11 +3138,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3179,11 +3179,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3235,11 +3235,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3277,11 +3277,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3380,11 +3380,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3429,11 +3429,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3470,11 +3470,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -3747,13 +3747,13 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.supports_class_b ||= false
         self.supports_class_c ||= false
         self.supports32_bit_f_cnt ||= false
       end
-
     end
 
     # <p>The LoRaWAN information used with a FUOTA task.</p>
@@ -4016,6 +4016,7 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.add_gw_metadata ||= false
@@ -4029,7 +4030,6 @@ module AWS::SDK::IoTWireless
         self.nwk_geo_loc ||= false
         self.target_per ||= 0
       end
-
     end
 
     # <p>Object for LoRaWAN join resource type event configuration.</p>
@@ -4210,11 +4210,11 @@ module AWS::SDK::IoTWireless
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.add_gw_metadata ||= false
       end
-
     end
 
     # <p>The LoRaWAN information used to start a FUOTA task.</p>

@@ -301,11 +301,11 @@ module AWS::SDK::CloudSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.options ||= false
       end
-
     end
 
     # <p>An error occurred while processing the request.</p>
@@ -1277,12 +1277,12 @@ module AWS::SDK::CloudSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.search_partition_count ||= 0
         self.search_instance_count ||= 0
       end
-
     end
 
     # <p>Options for a field that contains an array of double-precision 64-bit floating point values.  Present if <code>IndexFieldType</code> specifies the field is of type <code>double-array</code>.  All options are enabled by default.</p>
@@ -1819,12 +1819,12 @@ module AWS::SDK::CloudSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_replication_count ||= 0
         self.maximum_partition_count ||= 0
       end
-
     end
 
     ListDomainNamesInput = ::Struct.new(
@@ -2006,11 +2006,11 @@ module AWS::SDK::CloudSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_version ||= 0
       end
-
     end
 
     # Includes enum constants for PartitionInstanceType
@@ -2152,12 +2152,12 @@ module AWS::SDK::CloudSearch
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_replication_count ||= 0
         self.desired_partition_count ||= 0
       end
-
     end
 
     # <p>The status and configuration of a search domain's scaling parameters. </p>

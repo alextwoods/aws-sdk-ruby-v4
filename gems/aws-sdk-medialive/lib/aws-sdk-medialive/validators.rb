@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MediaLive
   module Validators
 
@@ -61,23 +63,23 @@ module AWS::SDK::MediaLive
     class ArchiveCdnSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArchiveCdnSettings, context: context)
-        Validators::ArchiveS3Settings.validate!(input[:archive_s3_settings], context: "#{context}[:archive_s3_settings]") unless input[:archive_s3_settings].nil?
+        ArchiveS3Settings.validate!(input[:archive_s3_settings], context: "#{context}[:archive_s3_settings]") unless input[:archive_s3_settings].nil?
       end
     end
 
     class ArchiveContainerSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArchiveContainerSettings, context: context)
-        Validators::M2tsSettings.validate!(input[:m2ts_settings], context: "#{context}[:m2ts_settings]") unless input[:m2ts_settings].nil?
-        Validators::RawSettings.validate!(input[:raw_settings], context: "#{context}[:raw_settings]") unless input[:raw_settings].nil?
+        M2tsSettings.validate!(input[:m2ts_settings], context: "#{context}[:m2ts_settings]") unless input[:m2ts_settings].nil?
+        RawSettings.validate!(input[:raw_settings], context: "#{context}[:raw_settings]") unless input[:raw_settings].nil?
       end
     end
 
     class ArchiveGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArchiveGroupSettings, context: context)
-        Validators::ArchiveCdnSettings.validate!(input[:archive_cdn_settings], context: "#{context}[:archive_cdn_settings]") unless input[:archive_cdn_settings].nil?
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        ArchiveCdnSettings.validate!(input[:archive_cdn_settings], context: "#{context}[:archive_cdn_settings]") unless input[:archive_cdn_settings].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:rollover_interval], ::Integer, context: "#{context}[:rollover_interval]")
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::MediaLive
     class ArchiveOutputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArchiveOutputSettings, context: context)
-        Validators::ArchiveContainerSettings.validate!(input[:container_settings], context: "#{context}[:container_settings]") unless input[:container_settings].nil?
+        ArchiveContainerSettings.validate!(input[:container_settings], context: "#{context}[:container_settings]") unless input[:container_settings].nil?
         Hearth::Validator.validate!(input[:extension], ::String, context: "#{context}[:extension]")
         Hearth::Validator.validate!(input[:name_modifier], ::String, context: "#{context}[:name_modifier]")
       end
@@ -113,7 +115,7 @@ module AWS::SDK::MediaLive
     class AudioChannelMapping
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioChannelMapping, context: context)
-        Validators::List____listOfInputChannelLevel.validate!(input[:input_channel_levels], context: "#{context}[:input_channel_levels]") unless input[:input_channel_levels].nil?
+        List____listOfInputChannelLevel.validate!(input[:input_channel_levels], context: "#{context}[:input_channel_levels]") unless input[:input_channel_levels].nil?
         Hearth::Validator.validate!(input[:output_channel], ::Integer, context: "#{context}[:output_channel]")
       end
     end
@@ -121,28 +123,28 @@ module AWS::SDK::MediaLive
     class AudioCodecSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioCodecSettings, context: context)
-        Validators::AacSettings.validate!(input[:aac_settings], context: "#{context}[:aac_settings]") unless input[:aac_settings].nil?
-        Validators::Ac3Settings.validate!(input[:ac3_settings], context: "#{context}[:ac3_settings]") unless input[:ac3_settings].nil?
-        Validators::Eac3Settings.validate!(input[:eac3_settings], context: "#{context}[:eac3_settings]") unless input[:eac3_settings].nil?
-        Validators::Mp2Settings.validate!(input[:mp2_settings], context: "#{context}[:mp2_settings]") unless input[:mp2_settings].nil?
-        Validators::PassThroughSettings.validate!(input[:pass_through_settings], context: "#{context}[:pass_through_settings]") unless input[:pass_through_settings].nil?
-        Validators::WavSettings.validate!(input[:wav_settings], context: "#{context}[:wav_settings]") unless input[:wav_settings].nil?
+        AacSettings.validate!(input[:aac_settings], context: "#{context}[:aac_settings]") unless input[:aac_settings].nil?
+        Ac3Settings.validate!(input[:ac3_settings], context: "#{context}[:ac3_settings]") unless input[:ac3_settings].nil?
+        Eac3Settings.validate!(input[:eac3_settings], context: "#{context}[:eac3_settings]") unless input[:eac3_settings].nil?
+        Mp2Settings.validate!(input[:mp2_settings], context: "#{context}[:mp2_settings]") unless input[:mp2_settings].nil?
+        PassThroughSettings.validate!(input[:pass_through_settings], context: "#{context}[:pass_through_settings]") unless input[:pass_through_settings].nil?
+        WavSettings.validate!(input[:wav_settings], context: "#{context}[:wav_settings]") unless input[:wav_settings].nil?
       end
     end
 
     class AudioDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioDescription, context: context)
-        Validators::AudioNormalizationSettings.validate!(input[:audio_normalization_settings], context: "#{context}[:audio_normalization_settings]") unless input[:audio_normalization_settings].nil?
+        AudioNormalizationSettings.validate!(input[:audio_normalization_settings], context: "#{context}[:audio_normalization_settings]") unless input[:audio_normalization_settings].nil?
         Hearth::Validator.validate!(input[:audio_selector_name], ::String, context: "#{context}[:audio_selector_name]")
         Hearth::Validator.validate!(input[:audio_type], ::String, context: "#{context}[:audio_type]")
         Hearth::Validator.validate!(input[:audio_type_control], ::String, context: "#{context}[:audio_type_control]")
-        Validators::AudioWatermarkSettings.validate!(input[:audio_watermarking_settings], context: "#{context}[:audio_watermarking_settings]") unless input[:audio_watermarking_settings].nil?
-        Validators::AudioCodecSettings.validate!(input[:codec_settings], context: "#{context}[:codec_settings]") unless input[:codec_settings].nil?
+        AudioWatermarkSettings.validate!(input[:audio_watermarking_settings], context: "#{context}[:audio_watermarking_settings]") unless input[:audio_watermarking_settings].nil?
+        AudioCodecSettings.validate!(input[:codec_settings], context: "#{context}[:codec_settings]") unless input[:codec_settings].nil?
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
         Hearth::Validator.validate!(input[:language_code_control], ::String, context: "#{context}[:language_code_control]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RemixSettings.validate!(input[:remix_settings], context: "#{context}[:remix_settings]") unless input[:remix_settings].nil?
+        RemixSettings.validate!(input[:remix_settings], context: "#{context}[:remix_settings]") unless input[:remix_settings].nil?
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
       end
     end
@@ -176,7 +178,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioOnlyHlsSettings, context: context)
         Hearth::Validator.validate!(input[:audio_group_id], ::String, context: "#{context}[:audio_group_id]")
-        Validators::InputLocation.validate!(input[:audio_only_image], context: "#{context}[:audio_only_image]") unless input[:audio_only_image].nil?
+        InputLocation.validate!(input[:audio_only_image], context: "#{context}[:audio_only_image]") unless input[:audio_only_image].nil?
         Hearth::Validator.validate!(input[:audio_track_type], ::String, context: "#{context}[:audio_track_type]")
         Hearth::Validator.validate!(input[:segment_type], ::String, context: "#{context}[:segment_type]")
       end
@@ -193,17 +195,17 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioSelector, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AudioSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
+        AudioSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
       end
     end
 
     class AudioSelectorSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioSelectorSettings, context: context)
-        Validators::AudioHlsRenditionSelection.validate!(input[:audio_hls_rendition_selection], context: "#{context}[:audio_hls_rendition_selection]") unless input[:audio_hls_rendition_selection].nil?
-        Validators::AudioLanguageSelection.validate!(input[:audio_language_selection], context: "#{context}[:audio_language_selection]") unless input[:audio_language_selection].nil?
-        Validators::AudioPidSelection.validate!(input[:audio_pid_selection], context: "#{context}[:audio_pid_selection]") unless input[:audio_pid_selection].nil?
-        Validators::AudioTrackSelection.validate!(input[:audio_track_selection], context: "#{context}[:audio_track_selection]") unless input[:audio_track_selection].nil?
+        AudioHlsRenditionSelection.validate!(input[:audio_hls_rendition_selection], context: "#{context}[:audio_hls_rendition_selection]") unless input[:audio_hls_rendition_selection].nil?
+        AudioLanguageSelection.validate!(input[:audio_language_selection], context: "#{context}[:audio_language_selection]") unless input[:audio_language_selection].nil?
+        AudioPidSelection.validate!(input[:audio_pid_selection], context: "#{context}[:audio_pid_selection]") unless input[:audio_pid_selection].nil?
+        AudioTrackSelection.validate!(input[:audio_track_selection], context: "#{context}[:audio_track_selection]") unless input[:audio_track_selection].nil?
       end
     end
 
@@ -225,14 +227,14 @@ module AWS::SDK::MediaLive
     class AudioTrackSelection
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioTrackSelection, context: context)
-        Validators::List____listOfAudioTrack.validate!(input[:tracks], context: "#{context}[:tracks]") unless input[:tracks].nil?
+        List____listOfAudioTrack.validate!(input[:tracks], context: "#{context}[:tracks]") unless input[:tracks].nil?
       end
     end
 
     class AudioWatermarkSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AudioWatermarkSettings, context: context)
-        Validators::NielsenWatermarksSettings.validate!(input[:nielsen_watermarks_settings], context: "#{context}[:nielsen_watermarks_settings]") unless input[:nielsen_watermarks_settings].nil?
+        NielsenWatermarksSettings.validate!(input[:nielsen_watermarks_settings], context: "#{context}[:nielsen_watermarks_settings]") unless input[:nielsen_watermarks_settings].nil?
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutomaticInputFailoverSettings, context: context)
         Hearth::Validator.validate!(input[:error_clear_time_msec], ::Integer, context: "#{context}[:error_clear_time_msec]")
-        Validators::List____listOfFailoverCondition.validate!(input[:failover_conditions], context: "#{context}[:failover_conditions]") unless input[:failover_conditions].nil?
+        List____listOfFailoverCondition.validate!(input[:failover_conditions], context: "#{context}[:failover_conditions]") unless input[:failover_conditions].nil?
         Hearth::Validator.validate!(input[:input_preference], ::String, context: "#{context}[:input_preference]")
         Hearth::Validator.validate!(input[:secondary_input_id], ::String, context: "#{context}[:secondary_input_id]")
       end
@@ -249,7 +251,7 @@ module AWS::SDK::MediaLive
     class AvailBlanking
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AvailBlanking, context: context)
-        Validators::InputLocation.validate!(input[:avail_blanking_image], context: "#{context}[:avail_blanking_image]") unless input[:avail_blanking_image].nil?
+        InputLocation.validate!(input[:avail_blanking_image], context: "#{context}[:avail_blanking_image]") unless input[:avail_blanking_image].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
@@ -257,15 +259,15 @@ module AWS::SDK::MediaLive
     class AvailConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AvailConfiguration, context: context)
-        Validators::AvailSettings.validate!(input[:avail_settings], context: "#{context}[:avail_settings]") unless input[:avail_settings].nil?
+        AvailSettings.validate!(input[:avail_settings], context: "#{context}[:avail_settings]") unless input[:avail_settings].nil?
       end
     end
 
     class AvailSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AvailSettings, context: context)
-        Validators::Scte35SpliceInsert.validate!(input[:scte35_splice_insert], context: "#{context}[:scte35_splice_insert]") unless input[:scte35_splice_insert].nil?
-        Validators::Scte35TimeSignalApos.validate!(input[:scte35_time_signal_apos], context: "#{context}[:scte35_time_signal_apos]") unless input[:scte35_time_signal_apos].nil?
+        Scte35SpliceInsert.validate!(input[:scte35_splice_insert], context: "#{context}[:scte35_splice_insert]") unless input[:scte35_splice_insert].nil?
+        Scte35TimeSignalApos.validate!(input[:scte35_time_signal_apos], context: "#{context}[:scte35_time_signal_apos]") unless input[:scte35_time_signal_apos].nil?
       end
     end
 
@@ -286,18 +288,18 @@ module AWS::SDK::MediaLive
     class BatchDeleteInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteInput, context: context)
-        Validators::List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
-        Validators::List____listOf__string.validate!(input[:input_ids], context: "#{context}[:input_ids]") unless input[:input_ids].nil?
-        Validators::List____listOf__string.validate!(input[:input_security_group_ids], context: "#{context}[:input_security_group_ids]") unless input[:input_security_group_ids].nil?
-        Validators::List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
+        List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
+        List____listOf__string.validate!(input[:input_ids], context: "#{context}[:input_ids]") unless input[:input_ids].nil?
+        List____listOf__string.validate!(input[:input_security_group_ids], context: "#{context}[:input_security_group_ids]") unless input[:input_security_group_ids].nil?
+        List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
       end
     end
 
     class BatchDeleteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteOutput, context: context)
-        Validators::List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
-        Validators::List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
       end
     end
 
@@ -314,60 +316,60 @@ module AWS::SDK::MediaLive
     class BatchScheduleActionCreateRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchScheduleActionCreateRequest, context: context)
-        Validators::List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
+        List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
       end
     end
 
     class BatchScheduleActionCreateResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchScheduleActionCreateResult, context: context)
-        Validators::List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
+        List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
       end
     end
 
     class BatchScheduleActionDeleteRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchScheduleActionDeleteRequest, context: context)
-        Validators::List____listOf__string.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
+        List____listOf__string.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
       end
     end
 
     class BatchScheduleActionDeleteResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchScheduleActionDeleteResult, context: context)
-        Validators::List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
+        List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
       end
     end
 
     class BatchStartInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStartInput, context: context)
-        Validators::List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
-        Validators::List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
+        List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
+        List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
       end
     end
 
     class BatchStartOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStartOutput, context: context)
-        Validators::List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
-        Validators::List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
       end
     end
 
     class BatchStopInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStopInput, context: context)
-        Validators::List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
-        Validators::List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
+        List____listOf__string.validate!(input[:channel_ids], context: "#{context}[:channel_ids]") unless input[:channel_ids].nil?
+        List____listOf__string.validate!(input[:multiplex_ids], context: "#{context}[:multiplex_ids]") unless input[:multiplex_ids].nil?
       end
     end
 
     class BatchStopOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchStopOutput, context: context)
-        Validators::List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
-        Validators::List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
+        List____listOfBatchFailedResultModel.validate!(input[:failed], context: "#{context}[:failed]") unless input[:failed].nil?
+        List____listOfBatchSuccessfulResultModel.validate!(input[:successful], context: "#{context}[:successful]") unless input[:successful].nil?
       end
     end
 
@@ -384,25 +386,25 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateScheduleInput, context: context)
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::BatchScheduleActionCreateRequest.validate!(input[:creates], context: "#{context}[:creates]") unless input[:creates].nil?
-        Validators::BatchScheduleActionDeleteRequest.validate!(input[:deletes], context: "#{context}[:deletes]") unless input[:deletes].nil?
+        BatchScheduleActionCreateRequest.validate!(input[:creates], context: "#{context}[:creates]") unless input[:creates].nil?
+        BatchScheduleActionDeleteRequest.validate!(input[:deletes], context: "#{context}[:deletes]") unless input[:deletes].nil?
       end
     end
 
     class BatchUpdateScheduleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateScheduleOutput, context: context)
-        Validators::BatchScheduleActionCreateResult.validate!(input[:creates], context: "#{context}[:creates]") unless input[:creates].nil?
-        Validators::BatchScheduleActionDeleteResult.validate!(input[:deletes], context: "#{context}[:deletes]") unless input[:deletes].nil?
+        BatchScheduleActionCreateResult.validate!(input[:creates], context: "#{context}[:creates]") unless input[:creates].nil?
+        BatchScheduleActionDeleteResult.validate!(input[:deletes], context: "#{context}[:deletes]") unless input[:deletes].nil?
       end
     end
 
     class BlackoutSlate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BlackoutSlate, context: context)
-        Validators::InputLocation.validate!(input[:blackout_slate_image], context: "#{context}[:blackout_slate_image]") unless input[:blackout_slate_image].nil?
+        InputLocation.validate!(input[:blackout_slate_image], context: "#{context}[:blackout_slate_image]") unless input[:blackout_slate_image].nil?
         Hearth::Validator.validate!(input[:network_end_blackout], ::String, context: "#{context}[:network_end_blackout]")
-        Validators::InputLocation.validate!(input[:network_end_blackout_image], context: "#{context}[:network_end_blackout_image]") unless input[:network_end_blackout_image].nil?
+        InputLocation.validate!(input[:network_end_blackout_image], context: "#{context}[:network_end_blackout_image]") unless input[:network_end_blackout_image].nil?
         Hearth::Validator.validate!(input[:network_id], ::String, context: "#{context}[:network_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
@@ -414,7 +416,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:alignment], ::String, context: "#{context}[:alignment]")
         Hearth::Validator.validate!(input[:background_color], ::String, context: "#{context}[:background_color]")
         Hearth::Validator.validate!(input[:background_opacity], ::Integer, context: "#{context}[:background_opacity]")
-        Validators::InputLocation.validate!(input[:font], context: "#{context}[:font]") unless input[:font].nil?
+        InputLocation.validate!(input[:font], context: "#{context}[:font]") unless input[:font].nil?
         Hearth::Validator.validate!(input[:font_color], ::String, context: "#{context}[:font_color]")
         Hearth::Validator.validate!(input[:font_opacity], ::Integer, context: "#{context}[:font_opacity]")
         Hearth::Validator.validate!(input[:font_resolution], ::Integer, context: "#{context}[:font_resolution]")
@@ -448,7 +450,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CaptionDescription, context: context)
         Hearth::Validator.validate!(input[:caption_selector_name], ::String, context: "#{context}[:caption_selector_name]")
-        Validators::CaptionDestinationSettings.validate!(input[:destination_settings], context: "#{context}[:destination_settings]") unless input[:destination_settings].nil?
+        CaptionDestinationSettings.validate!(input[:destination_settings], context: "#{context}[:destination_settings]") unless input[:destination_settings].nil?
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
         Hearth::Validator.validate!(input[:language_description], ::String, context: "#{context}[:language_description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
@@ -458,19 +460,19 @@ module AWS::SDK::MediaLive
     class CaptionDestinationSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CaptionDestinationSettings, context: context)
-        Validators::AribDestinationSettings.validate!(input[:arib_destination_settings], context: "#{context}[:arib_destination_settings]") unless input[:arib_destination_settings].nil?
-        Validators::BurnInDestinationSettings.validate!(input[:burn_in_destination_settings], context: "#{context}[:burn_in_destination_settings]") unless input[:burn_in_destination_settings].nil?
-        Validators::DvbSubDestinationSettings.validate!(input[:dvb_sub_destination_settings], context: "#{context}[:dvb_sub_destination_settings]") unless input[:dvb_sub_destination_settings].nil?
-        Validators::EbuTtDDestinationSettings.validate!(input[:ebu_tt_d_destination_settings], context: "#{context}[:ebu_tt_d_destination_settings]") unless input[:ebu_tt_d_destination_settings].nil?
-        Validators::EmbeddedDestinationSettings.validate!(input[:embedded_destination_settings], context: "#{context}[:embedded_destination_settings]") unless input[:embedded_destination_settings].nil?
-        Validators::EmbeddedPlusScte20DestinationSettings.validate!(input[:embedded_plus_scte20_destination_settings], context: "#{context}[:embedded_plus_scte20_destination_settings]") unless input[:embedded_plus_scte20_destination_settings].nil?
-        Validators::RtmpCaptionInfoDestinationSettings.validate!(input[:rtmp_caption_info_destination_settings], context: "#{context}[:rtmp_caption_info_destination_settings]") unless input[:rtmp_caption_info_destination_settings].nil?
-        Validators::Scte20PlusEmbeddedDestinationSettings.validate!(input[:scte20_plus_embedded_destination_settings], context: "#{context}[:scte20_plus_embedded_destination_settings]") unless input[:scte20_plus_embedded_destination_settings].nil?
-        Validators::Scte27DestinationSettings.validate!(input[:scte27_destination_settings], context: "#{context}[:scte27_destination_settings]") unless input[:scte27_destination_settings].nil?
-        Validators::SmpteTtDestinationSettings.validate!(input[:smpte_tt_destination_settings], context: "#{context}[:smpte_tt_destination_settings]") unless input[:smpte_tt_destination_settings].nil?
-        Validators::TeletextDestinationSettings.validate!(input[:teletext_destination_settings], context: "#{context}[:teletext_destination_settings]") unless input[:teletext_destination_settings].nil?
-        Validators::TtmlDestinationSettings.validate!(input[:ttml_destination_settings], context: "#{context}[:ttml_destination_settings]") unless input[:ttml_destination_settings].nil?
-        Validators::WebvttDestinationSettings.validate!(input[:webvtt_destination_settings], context: "#{context}[:webvtt_destination_settings]") unless input[:webvtt_destination_settings].nil?
+        AribDestinationSettings.validate!(input[:arib_destination_settings], context: "#{context}[:arib_destination_settings]") unless input[:arib_destination_settings].nil?
+        BurnInDestinationSettings.validate!(input[:burn_in_destination_settings], context: "#{context}[:burn_in_destination_settings]") unless input[:burn_in_destination_settings].nil?
+        DvbSubDestinationSettings.validate!(input[:dvb_sub_destination_settings], context: "#{context}[:dvb_sub_destination_settings]") unless input[:dvb_sub_destination_settings].nil?
+        EbuTtDDestinationSettings.validate!(input[:ebu_tt_d_destination_settings], context: "#{context}[:ebu_tt_d_destination_settings]") unless input[:ebu_tt_d_destination_settings].nil?
+        EmbeddedDestinationSettings.validate!(input[:embedded_destination_settings], context: "#{context}[:embedded_destination_settings]") unless input[:embedded_destination_settings].nil?
+        EmbeddedPlusScte20DestinationSettings.validate!(input[:embedded_plus_scte20_destination_settings], context: "#{context}[:embedded_plus_scte20_destination_settings]") unless input[:embedded_plus_scte20_destination_settings].nil?
+        RtmpCaptionInfoDestinationSettings.validate!(input[:rtmp_caption_info_destination_settings], context: "#{context}[:rtmp_caption_info_destination_settings]") unless input[:rtmp_caption_info_destination_settings].nil?
+        Scte20PlusEmbeddedDestinationSettings.validate!(input[:scte20_plus_embedded_destination_settings], context: "#{context}[:scte20_plus_embedded_destination_settings]") unless input[:scte20_plus_embedded_destination_settings].nil?
+        Scte27DestinationSettings.validate!(input[:scte27_destination_settings], context: "#{context}[:scte27_destination_settings]") unless input[:scte27_destination_settings].nil?
+        SmpteTtDestinationSettings.validate!(input[:smpte_tt_destination_settings], context: "#{context}[:smpte_tt_destination_settings]") unless input[:smpte_tt_destination_settings].nil?
+        TeletextDestinationSettings.validate!(input[:teletext_destination_settings], context: "#{context}[:teletext_destination_settings]") unless input[:teletext_destination_settings].nil?
+        TtmlDestinationSettings.validate!(input[:ttml_destination_settings], context: "#{context}[:ttml_destination_settings]") unless input[:ttml_destination_settings].nil?
+        WebvttDestinationSettings.validate!(input[:webvtt_destination_settings], context: "#{context}[:webvtt_destination_settings]") unless input[:webvtt_destination_settings].nil?
       end
     end
 
@@ -498,20 +500,20 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::CaptionSelector, context: context)
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::CaptionSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
+        CaptionSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
       end
     end
 
     class CaptionSelectorSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CaptionSelectorSettings, context: context)
-        Validators::AncillarySourceSettings.validate!(input[:ancillary_source_settings], context: "#{context}[:ancillary_source_settings]") unless input[:ancillary_source_settings].nil?
-        Validators::AribSourceSettings.validate!(input[:arib_source_settings], context: "#{context}[:arib_source_settings]") unless input[:arib_source_settings].nil?
-        Validators::DvbSubSourceSettings.validate!(input[:dvb_sub_source_settings], context: "#{context}[:dvb_sub_source_settings]") unless input[:dvb_sub_source_settings].nil?
-        Validators::EmbeddedSourceSettings.validate!(input[:embedded_source_settings], context: "#{context}[:embedded_source_settings]") unless input[:embedded_source_settings].nil?
-        Validators::Scte20SourceSettings.validate!(input[:scte20_source_settings], context: "#{context}[:scte20_source_settings]") unless input[:scte20_source_settings].nil?
-        Validators::Scte27SourceSettings.validate!(input[:scte27_source_settings], context: "#{context}[:scte27_source_settings]") unless input[:scte27_source_settings].nil?
-        Validators::TeletextSourceSettings.validate!(input[:teletext_source_settings], context: "#{context}[:teletext_source_settings]") unless input[:teletext_source_settings].nil?
+        AncillarySourceSettings.validate!(input[:ancillary_source_settings], context: "#{context}[:ancillary_source_settings]") unless input[:ancillary_source_settings].nil?
+        AribSourceSettings.validate!(input[:arib_source_settings], context: "#{context}[:arib_source_settings]") unless input[:arib_source_settings].nil?
+        DvbSubSourceSettings.validate!(input[:dvb_sub_source_settings], context: "#{context}[:dvb_sub_source_settings]") unless input[:dvb_sub_source_settings].nil?
+        EmbeddedSourceSettings.validate!(input[:embedded_source_settings], context: "#{context}[:embedded_source_settings]") unless input[:embedded_source_settings].nil?
+        Scte20SourceSettings.validate!(input[:scte20_source_settings], context: "#{context}[:scte20_source_settings]") unless input[:scte20_source_settings].nil?
+        Scte27SourceSettings.validate!(input[:scte27_source_settings], context: "#{context}[:scte27_source_settings]") unless input[:scte27_source_settings].nil?
+        TeletextSourceSettings.validate!(input[:teletext_source_settings], context: "#{context}[:teletext_source_settings]") unless input[:teletext_source_settings].nil?
       end
     end
 
@@ -526,23 +528,23 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Channel, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -557,21 +559,21 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChannelSummary, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -604,84 +606,84 @@ module AWS::SDK::MediaLive
     class CreateChannelInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelInput, context: context)
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceCreateSettings.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceCreateSettings.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:reserved], ::String, context: "#{context}[:reserved]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettings.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettings.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
     class CreateChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
     class CreateInputInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInputInput, context: context)
-        Validators::List____listOfInputDestinationRequest.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
-        Validators::List____listOf__string.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
-        Validators::List____listOfMediaConnectFlowRequest.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
+        List____listOfInputDestinationRequest.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
+        List____listOf__string.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
+        List____listOfMediaConnectFlowRequest.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOfInputSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfInputSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::InputVpcRequest.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        InputVpcRequest.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
     class CreateInputOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInputOutput, context: context)
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
       end
     end
 
     class CreateInputSecurityGroupInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInputSecurityGroupInput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfInputWhitelistRuleCidr.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfInputWhitelistRuleCidr.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
       end
     end
 
     class CreateInputSecurityGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInputSecurityGroupOutput, context: context)
-        Validators::InputSecurityGroup.validate!(input[:security_group], context: "#{context}[:security_group]") unless input[:security_group].nil?
+        InputSecurityGroup.validate!(input[:security_group], context: "#{context}[:security_group]") unless input[:security_group].nil?
       end
     end
 
     class CreateMultiplexInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMultiplexInput, context: context)
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateMultiplexOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMultiplexOutput, context: context)
-        Validators::Multiplex.validate!(input[:multiplex], context: "#{context}[:multiplex]") unless input[:multiplex].nil?
+        Multiplex.validate!(input[:multiplex], context: "#{context}[:multiplex]") unless input[:multiplex].nil?
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMultiplexProgramInput, context: context)
         Hearth::Validator.validate!(input[:multiplex_id], ::String, context: "#{context}[:multiplex_id]")
-        Validators::MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
+        MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
         Hearth::Validator.validate!(input[:program_name], ::String, context: "#{context}[:program_name]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -698,7 +700,7 @@ module AWS::SDK::MediaLive
     class CreateMultiplexProgramOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMultiplexProgramOutput, context: context)
-        Validators::MultiplexProgram.validate!(input[:multiplex_program], context: "#{context}[:multiplex_program]") unless input[:multiplex_program].nil?
+        MultiplexProgram.validate!(input[:multiplex_program], context: "#{context}[:multiplex_program]") unless input[:multiplex_program].nil?
       end
     end
 
@@ -707,14 +709,14 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::CreatePartnerInputInput, context: context)
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePartnerInputOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePartnerInputOutput, context: context)
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
       end
     end
 
@@ -722,7 +724,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -743,23 +745,23 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteChannelOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -800,15 +802,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMultiplexOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -824,9 +826,9 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteMultiplexProgramOutput, context: context)
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
-        Validators::MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
-        Validators::List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
+        MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
+        List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:program_name], ::String, context: "#{context}[:program_name]")
       end
     end
@@ -854,10 +856,10 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
         Hearth::Validator.validate!(input[:reservation_id], ::String, context: "#{context}[:reservation_id]")
-        Validators::ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:start], ::String, context: "#{context}[:start]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
       end
     end
@@ -879,7 +881,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -900,23 +902,23 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeChannelOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -934,14 +936,14 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:connection_state], ::String, context: "#{context}[:connection_state]")
         Hearth::Validator.validate!(input[:device_settings_sync_state], ::String, context: "#{context}[:device_settings_sync_state]")
         Hearth::Validator.validate!(input[:device_update_status], ::String, context: "#{context}[:device_update_status]")
-        Validators::InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
+        InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:mac_address], ::String, context: "#{context}[:mac_address]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
+        InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
       end
     end
 
@@ -977,20 +979,20 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeInputOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:attached_channels], context: "#{context}[:attached_channels]") unless input[:attached_channels].nil?
-        Validators::List____listOfInputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:attached_channels], context: "#{context}[:attached_channels]") unless input[:attached_channels].nil?
+        List____listOfInputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:input_class], ::String, context: "#{context}[:input_class]")
-        Validators::List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
-        Validators::List____listOf__string.validate!(input[:input_partner_ids], context: "#{context}[:input_partner_ids]") unless input[:input_partner_ids].nil?
+        List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
+        List____listOf__string.validate!(input[:input_partner_ids], context: "#{context}[:input_partner_ids]") unless input[:input_partner_ids].nil?
         Hearth::Validator.validate!(input[:input_source_type], ::String, context: "#{context}[:input_source_type]")
-        Validators::List____listOfMediaConnectFlow.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
+        List____listOfMediaConnectFlow.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::List____listOfInputSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOfInputSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -1007,10 +1009,10 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::DescribeInputSecurityGroupOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOf__string.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        List____listOf__string.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfInputWhitelistRule.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfInputWhitelistRule.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
       end
     end
 
@@ -1025,15 +1027,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMultiplexOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1049,9 +1051,9 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMultiplexProgramOutput, context: context)
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
-        Validators::MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
-        Validators::List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
+        MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
+        List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:program_name], ::String, context: "#{context}[:program_name]")
       end
     end
@@ -1075,7 +1077,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_id], ::String, context: "#{context}[:offering_id]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
       end
     end
@@ -1103,10 +1105,10 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
         Hearth::Validator.validate!(input[:reservation_id], ::String, context: "#{context}[:reservation_id]")
-        Validators::ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:start], ::String, context: "#{context}[:start]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
       end
     end
@@ -1124,7 +1126,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScheduleOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
+        List____listOfScheduleAction.validate!(input[:schedule_actions], context: "#{context}[:schedule_actions]") unless input[:schedule_actions].nil?
       end
     end
 
@@ -1153,7 +1155,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:alignment], ::String, context: "#{context}[:alignment]")
         Hearth::Validator.validate!(input[:background_color], ::String, context: "#{context}[:background_color]")
         Hearth::Validator.validate!(input[:background_opacity], ::Integer, context: "#{context}[:background_opacity]")
-        Validators::InputLocation.validate!(input[:font], context: "#{context}[:font]") unless input[:font].nil?
+        InputLocation.validate!(input[:font], context: "#{context}[:font]") unless input[:font].nil?
         Hearth::Validator.validate!(input[:font_color], ::String, context: "#{context}[:font_color]")
         Hearth::Validator.validate!(input[:font_opacity], ::Integer, context: "#{context}[:font_opacity]")
         Hearth::Validator.validate!(input[:font_resolution], ::Integer, context: "#{context}[:font_resolution]")
@@ -1246,34 +1248,34 @@ module AWS::SDK::MediaLive
     class EncoderSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EncoderSettings, context: context)
-        Validators::List____listOfAudioDescription.validate!(input[:audio_descriptions], context: "#{context}[:audio_descriptions]") unless input[:audio_descriptions].nil?
-        Validators::AvailBlanking.validate!(input[:avail_blanking], context: "#{context}[:avail_blanking]") unless input[:avail_blanking].nil?
-        Validators::AvailConfiguration.validate!(input[:avail_configuration], context: "#{context}[:avail_configuration]") unless input[:avail_configuration].nil?
-        Validators::BlackoutSlate.validate!(input[:blackout_slate], context: "#{context}[:blackout_slate]") unless input[:blackout_slate].nil?
-        Validators::List____listOfCaptionDescription.validate!(input[:caption_descriptions], context: "#{context}[:caption_descriptions]") unless input[:caption_descriptions].nil?
-        Validators::FeatureActivations.validate!(input[:feature_activations], context: "#{context}[:feature_activations]") unless input[:feature_activations].nil?
-        Validators::GlobalConfiguration.validate!(input[:global_configuration], context: "#{context}[:global_configuration]") unless input[:global_configuration].nil?
-        Validators::MotionGraphicsConfiguration.validate!(input[:motion_graphics_configuration], context: "#{context}[:motion_graphics_configuration]") unless input[:motion_graphics_configuration].nil?
-        Validators::NielsenConfiguration.validate!(input[:nielsen_configuration], context: "#{context}[:nielsen_configuration]") unless input[:nielsen_configuration].nil?
-        Validators::List____listOfOutputGroup.validate!(input[:output_groups], context: "#{context}[:output_groups]") unless input[:output_groups].nil?
-        Validators::TimecodeConfig.validate!(input[:timecode_config], context: "#{context}[:timecode_config]") unless input[:timecode_config].nil?
-        Validators::List____listOfVideoDescription.validate!(input[:video_descriptions], context: "#{context}[:video_descriptions]") unless input[:video_descriptions].nil?
+        List____listOfAudioDescription.validate!(input[:audio_descriptions], context: "#{context}[:audio_descriptions]") unless input[:audio_descriptions].nil?
+        AvailBlanking.validate!(input[:avail_blanking], context: "#{context}[:avail_blanking]") unless input[:avail_blanking].nil?
+        AvailConfiguration.validate!(input[:avail_configuration], context: "#{context}[:avail_configuration]") unless input[:avail_configuration].nil?
+        BlackoutSlate.validate!(input[:blackout_slate], context: "#{context}[:blackout_slate]") unless input[:blackout_slate].nil?
+        List____listOfCaptionDescription.validate!(input[:caption_descriptions], context: "#{context}[:caption_descriptions]") unless input[:caption_descriptions].nil?
+        FeatureActivations.validate!(input[:feature_activations], context: "#{context}[:feature_activations]") unless input[:feature_activations].nil?
+        GlobalConfiguration.validate!(input[:global_configuration], context: "#{context}[:global_configuration]") unless input[:global_configuration].nil?
+        MotionGraphicsConfiguration.validate!(input[:motion_graphics_configuration], context: "#{context}[:motion_graphics_configuration]") unless input[:motion_graphics_configuration].nil?
+        NielsenConfiguration.validate!(input[:nielsen_configuration], context: "#{context}[:nielsen_configuration]") unless input[:nielsen_configuration].nil?
+        List____listOfOutputGroup.validate!(input[:output_groups], context: "#{context}[:output_groups]") unless input[:output_groups].nil?
+        TimecodeConfig.validate!(input[:timecode_config], context: "#{context}[:timecode_config]") unless input[:timecode_config].nil?
+        List____listOfVideoDescription.validate!(input[:video_descriptions], context: "#{context}[:video_descriptions]") unless input[:video_descriptions].nil?
       end
     end
 
     class FailoverCondition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailoverCondition, context: context)
-        Validators::FailoverConditionSettings.validate!(input[:failover_condition_settings], context: "#{context}[:failover_condition_settings]") unless input[:failover_condition_settings].nil?
+        FailoverConditionSettings.validate!(input[:failover_condition_settings], context: "#{context}[:failover_condition_settings]") unless input[:failover_condition_settings].nil?
       end
     end
 
     class FailoverConditionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailoverConditionSettings, context: context)
-        Validators::AudioSilenceFailoverSettings.validate!(input[:audio_silence_settings], context: "#{context}[:audio_silence_settings]") unless input[:audio_silence_settings].nil?
-        Validators::InputLossFailoverSettings.validate!(input[:input_loss_settings], context: "#{context}[:input_loss_settings]") unless input[:input_loss_settings].nil?
-        Validators::VideoBlackFailoverSettings.validate!(input[:video_black_settings], context: "#{context}[:video_black_settings]") unless input[:video_black_settings].nil?
+        AudioSilenceFailoverSettings.validate!(input[:audio_silence_settings], context: "#{context}[:audio_silence_settings]") unless input[:audio_silence_settings].nil?
+        InputLossFailoverSettings.validate!(input[:input_loss_settings], context: "#{context}[:input_loss_settings]") unless input[:input_loss_settings].nil?
+        VideoBlackFailoverSettings.validate!(input[:video_black_settings], context: "#{context}[:video_black_settings]") unless input[:video_black_settings].nil?
       end
     end
 
@@ -1327,15 +1329,15 @@ module AWS::SDK::MediaLive
     class FrameCaptureCdnSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FrameCaptureCdnSettings, context: context)
-        Validators::FrameCaptureS3Settings.validate!(input[:frame_capture_s3_settings], context: "#{context}[:frame_capture_s3_settings]") unless input[:frame_capture_s3_settings].nil?
+        FrameCaptureS3Settings.validate!(input[:frame_capture_s3_settings], context: "#{context}[:frame_capture_s3_settings]") unless input[:frame_capture_s3_settings].nil?
       end
     end
 
     class FrameCaptureGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FrameCaptureGroupSettings, context: context)
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::FrameCaptureCdnSettings.validate!(input[:frame_capture_cdn_settings], context: "#{context}[:frame_capture_cdn_settings]") unless input[:frame_capture_cdn_settings].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        FrameCaptureCdnSettings.validate!(input[:frame_capture_cdn_settings], context: "#{context}[:frame_capture_cdn_settings]") unless input[:frame_capture_cdn_settings].nil?
       end
     end
 
@@ -1379,7 +1381,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::GlobalConfiguration, context: context)
         Hearth::Validator.validate!(input[:initial_audio_gain], ::Integer, context: "#{context}[:initial_audio_gain]")
         Hearth::Validator.validate!(input[:input_end_action], ::String, context: "#{context}[:input_end_action]")
-        Validators::InputLossBehavior.validate!(input[:input_loss_behavior], context: "#{context}[:input_loss_behavior]") unless input[:input_loss_behavior].nil?
+        InputLossBehavior.validate!(input[:input_loss_behavior], context: "#{context}[:input_loss_behavior]") unless input[:input_loss_behavior].nil?
         Hearth::Validator.validate!(input[:output_locking_mode], ::String, context: "#{context}[:output_locking_mode]")
         Hearth::Validator.validate!(input[:output_timing_source], ::String, context: "#{context}[:output_timing_source]")
         Hearth::Validator.validate!(input[:support_low_framerate_inputs], ::String, context: "#{context}[:support_low_framerate_inputs]")
@@ -1389,16 +1391,16 @@ module AWS::SDK::MediaLive
     class H264ColorSpaceSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::H264ColorSpaceSettings, context: context)
-        Validators::ColorSpacePassthroughSettings.validate!(input[:color_space_passthrough_settings], context: "#{context}[:color_space_passthrough_settings]") unless input[:color_space_passthrough_settings].nil?
-        Validators::Rec601Settings.validate!(input[:rec601_settings], context: "#{context}[:rec601_settings]") unless input[:rec601_settings].nil?
-        Validators::Rec709Settings.validate!(input[:rec709_settings], context: "#{context}[:rec709_settings]") unless input[:rec709_settings].nil?
+        ColorSpacePassthroughSettings.validate!(input[:color_space_passthrough_settings], context: "#{context}[:color_space_passthrough_settings]") unless input[:color_space_passthrough_settings].nil?
+        Rec601Settings.validate!(input[:rec601_settings], context: "#{context}[:rec601_settings]") unless input[:rec601_settings].nil?
+        Rec709Settings.validate!(input[:rec709_settings], context: "#{context}[:rec709_settings]") unless input[:rec709_settings].nil?
       end
     end
 
     class H264FilterSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::H264FilterSettings, context: context)
-        Validators::TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
+        TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
       end
     end
 
@@ -1411,9 +1413,9 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:buf_fill_pct], ::Integer, context: "#{context}[:buf_fill_pct]")
         Hearth::Validator.validate!(input[:buf_size], ::Integer, context: "#{context}[:buf_size]")
         Hearth::Validator.validate!(input[:color_metadata], ::String, context: "#{context}[:color_metadata]")
-        Validators::H264ColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
+        H264ColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
         Hearth::Validator.validate!(input[:entropy_encoding], ::String, context: "#{context}[:entropy_encoding]")
-        Validators::H264FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
+        H264FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
         Hearth::Validator.validate!(input[:fixed_afd], ::String, context: "#{context}[:fixed_afd]")
         Hearth::Validator.validate!(input[:flicker_aq], ::String, context: "#{context}[:flicker_aq]")
         Hearth::Validator.validate!(input[:force_field_pictures], ::String, context: "#{context}[:force_field_pictures]")
@@ -1452,17 +1454,17 @@ module AWS::SDK::MediaLive
     class H265ColorSpaceSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::H265ColorSpaceSettings, context: context)
-        Validators::ColorSpacePassthroughSettings.validate!(input[:color_space_passthrough_settings], context: "#{context}[:color_space_passthrough_settings]") unless input[:color_space_passthrough_settings].nil?
-        Validators::Hdr10Settings.validate!(input[:hdr10_settings], context: "#{context}[:hdr10_settings]") unless input[:hdr10_settings].nil?
-        Validators::Rec601Settings.validate!(input[:rec601_settings], context: "#{context}[:rec601_settings]") unless input[:rec601_settings].nil?
-        Validators::Rec709Settings.validate!(input[:rec709_settings], context: "#{context}[:rec709_settings]") unless input[:rec709_settings].nil?
+        ColorSpacePassthroughSettings.validate!(input[:color_space_passthrough_settings], context: "#{context}[:color_space_passthrough_settings]") unless input[:color_space_passthrough_settings].nil?
+        Hdr10Settings.validate!(input[:hdr10_settings], context: "#{context}[:hdr10_settings]") unless input[:hdr10_settings].nil?
+        Rec601Settings.validate!(input[:rec601_settings], context: "#{context}[:rec601_settings]") unless input[:rec601_settings].nil?
+        Rec709Settings.validate!(input[:rec709_settings], context: "#{context}[:rec709_settings]") unless input[:rec709_settings].nil?
       end
     end
 
     class H265FilterSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::H265FilterSettings, context: context)
-        Validators::TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
+        TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
       end
     end
 
@@ -1475,8 +1477,8 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:bitrate], ::Integer, context: "#{context}[:bitrate]")
         Hearth::Validator.validate!(input[:buf_size], ::Integer, context: "#{context}[:buf_size]")
         Hearth::Validator.validate!(input[:color_metadata], ::String, context: "#{context}[:color_metadata]")
-        Validators::H265ColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
-        Validators::H265FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
+        H265ColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
+        H265FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
         Hearth::Validator.validate!(input[:fixed_afd], ::String, context: "#{context}[:fixed_afd]")
         Hearth::Validator.validate!(input[:flicker_aq], ::String, context: "#{context}[:flicker_aq]")
         Hearth::Validator.validate!(input[:framerate_denominator], ::Integer, context: "#{context}[:framerate_denominator]")
@@ -1535,32 +1537,32 @@ module AWS::SDK::MediaLive
     class HlsCdnSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HlsCdnSettings, context: context)
-        Validators::HlsAkamaiSettings.validate!(input[:hls_akamai_settings], context: "#{context}[:hls_akamai_settings]") unless input[:hls_akamai_settings].nil?
-        Validators::HlsBasicPutSettings.validate!(input[:hls_basic_put_settings], context: "#{context}[:hls_basic_put_settings]") unless input[:hls_basic_put_settings].nil?
-        Validators::HlsMediaStoreSettings.validate!(input[:hls_media_store_settings], context: "#{context}[:hls_media_store_settings]") unless input[:hls_media_store_settings].nil?
-        Validators::HlsS3Settings.validate!(input[:hls_s3_settings], context: "#{context}[:hls_s3_settings]") unless input[:hls_s3_settings].nil?
-        Validators::HlsWebdavSettings.validate!(input[:hls_webdav_settings], context: "#{context}[:hls_webdav_settings]") unless input[:hls_webdav_settings].nil?
+        HlsAkamaiSettings.validate!(input[:hls_akamai_settings], context: "#{context}[:hls_akamai_settings]") unless input[:hls_akamai_settings].nil?
+        HlsBasicPutSettings.validate!(input[:hls_basic_put_settings], context: "#{context}[:hls_basic_put_settings]") unless input[:hls_basic_put_settings].nil?
+        HlsMediaStoreSettings.validate!(input[:hls_media_store_settings], context: "#{context}[:hls_media_store_settings]") unless input[:hls_media_store_settings].nil?
+        HlsS3Settings.validate!(input[:hls_s3_settings], context: "#{context}[:hls_s3_settings]") unless input[:hls_s3_settings].nil?
+        HlsWebdavSettings.validate!(input[:hls_webdav_settings], context: "#{context}[:hls_webdav_settings]") unless input[:hls_webdav_settings].nil?
       end
     end
 
     class HlsGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HlsGroupSettings, context: context)
-        Validators::List____listOfHlsAdMarkers.validate!(input[:ad_markers], context: "#{context}[:ad_markers]") unless input[:ad_markers].nil?
+        List____listOfHlsAdMarkers.validate!(input[:ad_markers], context: "#{context}[:ad_markers]") unless input[:ad_markers].nil?
         Hearth::Validator.validate!(input[:base_url_content], ::String, context: "#{context}[:base_url_content]")
         Hearth::Validator.validate!(input[:base_url_content1], ::String, context: "#{context}[:base_url_content1]")
         Hearth::Validator.validate!(input[:base_url_manifest], ::String, context: "#{context}[:base_url_manifest]")
         Hearth::Validator.validate!(input[:base_url_manifest1], ::String, context: "#{context}[:base_url_manifest1]")
-        Validators::List____listOfCaptionLanguageMapping.validate!(input[:caption_language_mappings], context: "#{context}[:caption_language_mappings]") unless input[:caption_language_mappings].nil?
+        List____listOfCaptionLanguageMapping.validate!(input[:caption_language_mappings], context: "#{context}[:caption_language_mappings]") unless input[:caption_language_mappings].nil?
         Hearth::Validator.validate!(input[:caption_language_setting], ::String, context: "#{context}[:caption_language_setting]")
         Hearth::Validator.validate!(input[:client_cache], ::String, context: "#{context}[:client_cache]")
         Hearth::Validator.validate!(input[:codec_specification], ::String, context: "#{context}[:codec_specification]")
         Hearth::Validator.validate!(input[:constant_iv], ::String, context: "#{context}[:constant_iv]")
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:directory_structure], ::String, context: "#{context}[:directory_structure]")
         Hearth::Validator.validate!(input[:discontinuity_tags], ::String, context: "#{context}[:discontinuity_tags]")
         Hearth::Validator.validate!(input[:encryption_type], ::String, context: "#{context}[:encryption_type]")
-        Validators::HlsCdnSettings.validate!(input[:hls_cdn_settings], context: "#{context}[:hls_cdn_settings]") unless input[:hls_cdn_settings].nil?
+        HlsCdnSettings.validate!(input[:hls_cdn_settings], context: "#{context}[:hls_cdn_settings]") unless input[:hls_cdn_settings].nil?
         Hearth::Validator.validate!(input[:hls_id3_segment_tagging], ::String, context: "#{context}[:hls_id3_segment_tagging]")
         Hearth::Validator.validate!(input[:i_frame_only_playlists], ::String, context: "#{context}[:i_frame_only_playlists]")
         Hearth::Validator.validate!(input[:incomplete_segment_behavior], ::String, context: "#{context}[:incomplete_segment_behavior]")
@@ -1571,7 +1573,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:keep_segments], ::Integer, context: "#{context}[:keep_segments]")
         Hearth::Validator.validate!(input[:key_format], ::String, context: "#{context}[:key_format]")
         Hearth::Validator.validate!(input[:key_format_versions], ::String, context: "#{context}[:key_format_versions]")
-        Validators::KeyProviderSettings.validate!(input[:key_provider_settings], context: "#{context}[:key_provider_settings]") unless input[:key_provider_settings].nil?
+        KeyProviderSettings.validate!(input[:key_provider_settings], context: "#{context}[:key_provider_settings]") unless input[:key_provider_settings].nil?
         Hearth::Validator.validate!(input[:manifest_compression], ::String, context: "#{context}[:manifest_compression]")
         Hearth::Validator.validate!(input[:manifest_duration_format], ::String, context: "#{context}[:manifest_duration_format]")
         Hearth::Validator.validate!(input[:min_segment_length], ::Integer, context: "#{context}[:min_segment_length]")
@@ -1625,7 +1627,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HlsOutputSettings, context: context)
         Hearth::Validator.validate!(input[:h265_packaging_type], ::String, context: "#{context}[:h265_packaging_type]")
-        Validators::HlsSettings.validate!(input[:hls_settings], context: "#{context}[:hls_settings]") unless input[:hls_settings].nil?
+        HlsSettings.validate!(input[:hls_settings], context: "#{context}[:hls_settings]") unless input[:hls_settings].nil?
         Hearth::Validator.validate!(input[:name_modifier], ::String, context: "#{context}[:name_modifier]")
         Hearth::Validator.validate!(input[:segment_modifier], ::String, context: "#{context}[:segment_modifier]")
       end
@@ -1641,10 +1643,10 @@ module AWS::SDK::MediaLive
     class HlsSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HlsSettings, context: context)
-        Validators::AudioOnlyHlsSettings.validate!(input[:audio_only_hls_settings], context: "#{context}[:audio_only_hls_settings]") unless input[:audio_only_hls_settings].nil?
-        Validators::Fmp4HlsSettings.validate!(input[:fmp4_hls_settings], context: "#{context}[:fmp4_hls_settings]") unless input[:fmp4_hls_settings].nil?
-        Validators::FrameCaptureHlsSettings.validate!(input[:frame_capture_hls_settings], context: "#{context}[:frame_capture_hls_settings]") unless input[:frame_capture_hls_settings].nil?
-        Validators::StandardHlsSettings.validate!(input[:standard_hls_settings], context: "#{context}[:standard_hls_settings]") unless input[:standard_hls_settings].nil?
+        AudioOnlyHlsSettings.validate!(input[:audio_only_hls_settings], context: "#{context}[:audio_only_hls_settings]") unless input[:audio_only_hls_settings].nil?
+        Fmp4HlsSettings.validate!(input[:fmp4_hls_settings], context: "#{context}[:fmp4_hls_settings]") unless input[:fmp4_hls_settings].nil?
+        FrameCaptureHlsSettings.validate!(input[:frame_capture_hls_settings], context: "#{context}[:frame_capture_hls_settings]") unless input[:frame_capture_hls_settings].nil?
+        StandardHlsSettings.validate!(input[:standard_hls_settings], context: "#{context}[:standard_hls_settings]") unless input[:standard_hls_settings].nil?
       end
     end
 
@@ -1682,20 +1684,20 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Input, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:attached_channels], context: "#{context}[:attached_channels]") unless input[:attached_channels].nil?
-        Validators::List____listOfInputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:attached_channels], context: "#{context}[:attached_channels]") unless input[:attached_channels].nil?
+        List____listOfInputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:input_class], ::String, context: "#{context}[:input_class]")
-        Validators::List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
-        Validators::List____listOf__string.validate!(input[:input_partner_ids], context: "#{context}[:input_partner_ids]") unless input[:input_partner_ids].nil?
+        List____listOfInputDeviceSettings.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
+        List____listOf__string.validate!(input[:input_partner_ids], context: "#{context}[:input_partner_ids]") unless input[:input_partner_ids].nil?
         Hearth::Validator.validate!(input[:input_source_type], ::String, context: "#{context}[:input_source_type]")
-        Validators::List____listOfMediaConnectFlow.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
+        List____listOfMediaConnectFlow.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::List____listOfInputSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOfInputSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -1703,10 +1705,10 @@ module AWS::SDK::MediaLive
     class InputAttachment
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputAttachment, context: context)
-        Validators::AutomaticInputFailoverSettings.validate!(input[:automatic_input_failover_settings], context: "#{context}[:automatic_input_failover_settings]") unless input[:automatic_input_failover_settings].nil?
+        AutomaticInputFailoverSettings.validate!(input[:automatic_input_failover_settings], context: "#{context}[:automatic_input_failover_settings]") unless input[:automatic_input_failover_settings].nil?
         Hearth::Validator.validate!(input[:input_attachment_name], ::String, context: "#{context}[:input_attachment_name]")
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
-        Validators::InputSettings.validate!(input[:input_settings], context: "#{context}[:input_settings]") unless input[:input_settings].nil?
+        InputSettings.validate!(input[:input_settings], context: "#{context}[:input_settings]") unless input[:input_settings].nil?
       end
     end
 
@@ -1722,8 +1724,8 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputClippingSettings, context: context)
         Hearth::Validator.validate!(input[:input_timecode_source], ::String, context: "#{context}[:input_timecode_source]")
-        Validators::StartTimecode.validate!(input[:start_timecode], context: "#{context}[:start_timecode]") unless input[:start_timecode].nil?
-        Validators::StopTimecode.validate!(input[:stop_timecode], context: "#{context}[:stop_timecode]") unless input[:stop_timecode].nil?
+        StartTimecode.validate!(input[:start_timecode], context: "#{context}[:start_timecode]") unless input[:start_timecode].nil?
+        StopTimecode.validate!(input[:stop_timecode], context: "#{context}[:stop_timecode]") unless input[:stop_timecode].nil?
       end
     end
 
@@ -1733,7 +1735,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:ip], ::String, context: "#{context}[:ip]")
         Hearth::Validator.validate!(input[:port], ::String, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
-        Validators::InputDestinationVpc.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        InputDestinationVpc.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -1777,7 +1779,7 @@ module AWS::SDK::MediaLive
     class InputDeviceNetworkSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputDeviceNetworkSettings, context: context)
-        Validators::List____listOf__string.validate!(input[:dns_addresses], context: "#{context}[:dns_addresses]") unless input[:dns_addresses].nil?
+        List____listOf__string.validate!(input[:dns_addresses], context: "#{context}[:dns_addresses]") unless input[:dns_addresses].nil?
         Hearth::Validator.validate!(input[:gateway], ::String, context: "#{context}[:gateway]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:ip_scheme], ::String, context: "#{context}[:ip_scheme]")
@@ -1806,14 +1808,14 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:connection_state], ::String, context: "#{context}[:connection_state]")
         Hearth::Validator.validate!(input[:device_settings_sync_state], ::String, context: "#{context}[:device_settings_sync_state]")
         Hearth::Validator.validate!(input[:device_update_status], ::String, context: "#{context}[:device_update_status]")
-        Validators::InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
+        InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:mac_address], ::String, context: "#{context}[:mac_address]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
+        InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
       end
     end
 
@@ -1845,7 +1847,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::InputLossBehavior, context: context)
         Hearth::Validator.validate!(input[:black_frame_msec], ::Integer, context: "#{context}[:black_frame_msec]")
         Hearth::Validator.validate!(input[:input_loss_image_color], ::String, context: "#{context}[:input_loss_image_color]")
-        Validators::InputLocation.validate!(input[:input_loss_image_slate], context: "#{context}[:input_loss_image_slate]") unless input[:input_loss_image_slate].nil?
+        InputLocation.validate!(input[:input_loss_image_slate], context: "#{context}[:input_loss_image_slate]") unless input[:input_loss_image_slate].nil?
         Hearth::Validator.validate!(input[:input_loss_image_type], ::String, context: "#{context}[:input_loss_image_type]")
         Hearth::Validator.validate!(input[:repeat_frame_msec], ::Integer, context: "#{context}[:repeat_frame_msec]")
       end
@@ -1862,8 +1864,8 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputPrepareScheduleActionSettings, context: context)
         Hearth::Validator.validate!(input[:input_attachment_name_reference], ::String, context: "#{context}[:input_attachment_name_reference]")
-        Validators::InputClippingSettings.validate!(input[:input_clipping_settings], context: "#{context}[:input_clipping_settings]") unless input[:input_clipping_settings].nil?
-        Validators::List____listOf__string.validate!(input[:url_path], context: "#{context}[:url_path]") unless input[:url_path].nil?
+        InputClippingSettings.validate!(input[:input_clipping_settings], context: "#{context}[:input_clipping_settings]") unless input[:input_clipping_settings].nil?
+        List____listOf__string.validate!(input[:url_path], context: "#{context}[:url_path]") unless input[:url_path].nil?
       end
     end
 
@@ -1872,27 +1874,27 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::InputSecurityGroup, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOf__string.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        List____listOf__string.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfInputWhitelistRule.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfInputWhitelistRule.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
       end
     end
 
     class InputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputSettings, context: context)
-        Validators::List____listOfAudioSelector.validate!(input[:audio_selectors], context: "#{context}[:audio_selectors]") unless input[:audio_selectors].nil?
-        Validators::List____listOfCaptionSelector.validate!(input[:caption_selectors], context: "#{context}[:caption_selectors]") unless input[:caption_selectors].nil?
+        List____listOfAudioSelector.validate!(input[:audio_selectors], context: "#{context}[:audio_selectors]") unless input[:audio_selectors].nil?
+        List____listOfCaptionSelector.validate!(input[:caption_selectors], context: "#{context}[:caption_selectors]") unless input[:caption_selectors].nil?
         Hearth::Validator.validate!(input[:deblock_filter], ::String, context: "#{context}[:deblock_filter]")
         Hearth::Validator.validate!(input[:denoise_filter], ::String, context: "#{context}[:denoise_filter]")
         Hearth::Validator.validate!(input[:filter_strength], ::Integer, context: "#{context}[:filter_strength]")
         Hearth::Validator.validate!(input[:input_filter], ::String, context: "#{context}[:input_filter]")
-        Validators::NetworkInputSettings.validate!(input[:network_input_settings], context: "#{context}[:network_input_settings]") unless input[:network_input_settings].nil?
+        NetworkInputSettings.validate!(input[:network_input_settings], context: "#{context}[:network_input_settings]") unless input[:network_input_settings].nil?
         Hearth::Validator.validate!(input[:scte35_pid], ::Integer, context: "#{context}[:scte35_pid]")
         Hearth::Validator.validate!(input[:smpte2038_data_preference], ::String, context: "#{context}[:smpte2038_data_preference]")
         Hearth::Validator.validate!(input[:source_end_behavior], ::String, context: "#{context}[:source_end_behavior]")
-        Validators::VideoSelector.validate!(input[:video_selector], context: "#{context}[:video_selector]") unless input[:video_selector].nil?
+        VideoSelector.validate!(input[:video_selector], context: "#{context}[:video_selector]") unless input[:video_selector].nil?
       end
     end
 
@@ -1927,16 +1929,16 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputSwitchScheduleActionSettings, context: context)
         Hearth::Validator.validate!(input[:input_attachment_name_reference], ::String, context: "#{context}[:input_attachment_name_reference]")
-        Validators::InputClippingSettings.validate!(input[:input_clipping_settings], context: "#{context}[:input_clipping_settings]") unless input[:input_clipping_settings].nil?
-        Validators::List____listOf__string.validate!(input[:url_path], context: "#{context}[:url_path]") unless input[:url_path].nil?
+        InputClippingSettings.validate!(input[:input_clipping_settings], context: "#{context}[:input_clipping_settings]") unless input[:input_clipping_settings].nil?
+        List____listOf__string.validate!(input[:url_path], context: "#{context}[:url_path]") unless input[:url_path].nil?
       end
     end
 
     class InputVpcRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputVpcRequest, context: context)
-        Validators::List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
@@ -1964,7 +1966,7 @@ module AWS::SDK::MediaLive
     class KeyProviderSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyProviderSettings, context: context)
-        Validators::StaticKeySettings.validate!(input[:static_key_settings], context: "#{context}[:static_key_settings]") unless input[:static_key_settings].nil?
+        StaticKeySettings.validate!(input[:static_key_settings], context: "#{context}[:static_key_settings]") unless input[:static_key_settings].nil?
       end
     end
 
@@ -1979,7 +1981,7 @@ module AWS::SDK::MediaLive
     class ListChannelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChannelsOutput, context: context)
-        Validators::List____listOfChannelSummary.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
+        List____listOfChannelSummary.validate!(input[:channels], context: "#{context}[:channels]") unless input[:channels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1996,7 +1998,7 @@ module AWS::SDK::MediaLive
     class ListInputDeviceTransfersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInputDeviceTransfersOutput, context: context)
-        Validators::List____listOfTransferringInputDeviceSummary.validate!(input[:input_device_transfers], context: "#{context}[:input_device_transfers]") unless input[:input_device_transfers].nil?
+        List____listOfTransferringInputDeviceSummary.validate!(input[:input_device_transfers], context: "#{context}[:input_device_transfers]") unless input[:input_device_transfers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2012,7 +2014,7 @@ module AWS::SDK::MediaLive
     class ListInputDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInputDevicesOutput, context: context)
-        Validators::List____listOfInputDeviceSummary.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
+        List____listOfInputDeviceSummary.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2028,7 +2030,7 @@ module AWS::SDK::MediaLive
     class ListInputSecurityGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInputSecurityGroupsOutput, context: context)
-        Validators::List____listOfInputSecurityGroup.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
+        List____listOfInputSecurityGroup.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2044,7 +2046,7 @@ module AWS::SDK::MediaLive
     class ListInputsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInputsOutput, context: context)
-        Validators::List____listOfInput.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        List____listOfInput.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2061,7 +2063,7 @@ module AWS::SDK::MediaLive
     class ListMultiplexProgramsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMultiplexProgramsOutput, context: context)
-        Validators::List____listOfMultiplexProgramSummary.validate!(input[:multiplex_programs], context: "#{context}[:multiplex_programs]") unless input[:multiplex_programs].nil?
+        List____listOfMultiplexProgramSummary.validate!(input[:multiplex_programs], context: "#{context}[:multiplex_programs]") unless input[:multiplex_programs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2077,7 +2079,7 @@ module AWS::SDK::MediaLive
     class ListMultiplexesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMultiplexesOutput, context: context)
-        Validators::List____listOfMultiplexSummary.validate!(input[:multiplexes], context: "#{context}[:multiplexes]") unless input[:multiplexes].nil?
+        List____listOfMultiplexSummary.validate!(input[:multiplexes], context: "#{context}[:multiplexes]") unless input[:multiplexes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -2104,7 +2106,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfOffering.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
+        List____listOfOffering.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
       end
     end
 
@@ -2128,7 +2130,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReservationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfReservation.validate!(input[:reservations], context: "#{context}[:reservations]") unless input[:reservations].nil?
+        List____listOfReservation.validate!(input[:reservations], context: "#{context}[:reservations]") unless input[:reservations].nil?
       end
     end
 
@@ -2142,7 +2144,7 @@ module AWS::SDK::MediaLive
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2160,10 +2162,10 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:bitrate], ::Integer, context: "#{context}[:bitrate]")
         Hearth::Validator.validate!(input[:buffer_model], ::String, context: "#{context}[:buffer_model]")
         Hearth::Validator.validate!(input[:cc_descriptor], ::String, context: "#{context}[:cc_descriptor]")
-        Validators::DvbNitSettings.validate!(input[:dvb_nit_settings], context: "#{context}[:dvb_nit_settings]") unless input[:dvb_nit_settings].nil?
-        Validators::DvbSdtSettings.validate!(input[:dvb_sdt_settings], context: "#{context}[:dvb_sdt_settings]") unless input[:dvb_sdt_settings].nil?
+        DvbNitSettings.validate!(input[:dvb_nit_settings], context: "#{context}[:dvb_nit_settings]") unless input[:dvb_nit_settings].nil?
+        DvbSdtSettings.validate!(input[:dvb_sdt_settings], context: "#{context}[:dvb_sdt_settings]") unless input[:dvb_sdt_settings].nil?
         Hearth::Validator.validate!(input[:dvb_sub_pids], ::String, context: "#{context}[:dvb_sub_pids]")
-        Validators::DvbTdtSettings.validate!(input[:dvb_tdt_settings], context: "#{context}[:dvb_tdt_settings]") unless input[:dvb_tdt_settings].nil?
+        DvbTdtSettings.validate!(input[:dvb_tdt_settings], context: "#{context}[:dvb_tdt_settings]") unless input[:dvb_tdt_settings].nil?
         Hearth::Validator.validate!(input[:dvb_teletext_pid], ::String, context: "#{context}[:dvb_teletext_pid]")
         Hearth::Validator.validate!(input[:ebif], ::String, context: "#{context}[:ebif]")
         Hearth::Validator.validate!(input[:ebp_audio_interval], ::String, context: "#{context}[:ebp_audio_interval]")
@@ -2266,7 +2268,7 @@ module AWS::SDK::MediaLive
     class MediaPackageGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaPackageGroupSettings, context: context)
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -2297,7 +2299,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MotionGraphicsConfiguration, context: context)
         Hearth::Validator.validate!(input[:motion_graphics_insertion], ::String, context: "#{context}[:motion_graphics_insertion]")
-        Validators::MotionGraphicsSettings.validate!(input[:motion_graphics_settings], context: "#{context}[:motion_graphics_settings]") unless input[:motion_graphics_settings].nil?
+        MotionGraphicsSettings.validate!(input[:motion_graphics_settings], context: "#{context}[:motion_graphics_settings]") unless input[:motion_graphics_settings].nil?
       end
     end
 
@@ -2310,7 +2312,7 @@ module AWS::SDK::MediaLive
     class MotionGraphicsSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MotionGraphicsSettings, context: context)
-        Validators::HtmlMotionGraphicsSettings.validate!(input[:html_motion_graphics_settings], context: "#{context}[:html_motion_graphics_settings]") unless input[:html_motion_graphics_settings].nil?
+        HtmlMotionGraphicsSettings.validate!(input[:html_motion_graphics_settings], context: "#{context}[:html_motion_graphics_settings]") unless input[:html_motion_graphics_settings].nil?
       end
     end
 
@@ -2326,7 +2328,7 @@ module AWS::SDK::MediaLive
     class Mpeg2FilterSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Mpeg2FilterSettings, context: context)
-        Validators::TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
+        TemporalFilterSettings.validate!(input[:temporal_filter_settings], context: "#{context}[:temporal_filter_settings]") unless input[:temporal_filter_settings].nil?
       end
     end
 
@@ -2338,7 +2340,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:color_metadata], ::String, context: "#{context}[:color_metadata]")
         Hearth::Validator.validate!(input[:color_space], ::String, context: "#{context}[:color_space]")
         Hearth::Validator.validate!(input[:display_aspect_ratio], ::String, context: "#{context}[:display_aspect_ratio]")
-        Validators::Mpeg2FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
+        Mpeg2FilterSettings.validate!(input[:filter_settings], context: "#{context}[:filter_settings]") unless input[:filter_settings].nil?
         Hearth::Validator.validate!(input[:fixed_afd], ::String, context: "#{context}[:fixed_afd]")
         Hearth::Validator.validate!(input[:framerate_denominator], ::Integer, context: "#{context}[:framerate_denominator]")
         Hearth::Validator.validate!(input[:framerate_numerator], ::Integer, context: "#{context}[:framerate_numerator]")
@@ -2359,7 +2361,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:audio_only_timecode_control], ::String, context: "#{context}[:audio_only_timecode_control]")
         Hearth::Validator.validate!(input[:certificate_mode], ::String, context: "#{context}[:certificate_mode]")
         Hearth::Validator.validate!(input[:connection_retry_interval], ::Integer, context: "#{context}[:connection_retry_interval]")
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
         Hearth::Validator.validate!(input[:event_id_mode], ::String, context: "#{context}[:event_id_mode]")
         Hearth::Validator.validate!(input[:event_stop_behavior], ::String, context: "#{context}[:event_stop_behavior]")
@@ -2389,15 +2391,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Multiplex, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2417,14 +2419,14 @@ module AWS::SDK::MediaLive
     class MultiplexOutputDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexOutputDestination, context: context)
-        Validators::MultiplexMediaConnectOutputDestinationSettings.validate!(input[:media_connect_settings], context: "#{context}[:media_connect_settings]") unless input[:media_connect_settings].nil?
+        MultiplexMediaConnectOutputDestinationSettings.validate!(input[:media_connect_settings], context: "#{context}[:media_connect_settings]") unless input[:media_connect_settings].nil?
       end
     end
 
     class MultiplexOutputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexOutputSettings, context: context)
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -2432,9 +2434,9 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexProgram, context: context)
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
-        Validators::MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
-        Validators::List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
+        MultiplexProgramPacketIdentifiersMap.validate!(input[:packet_identifiers_map], context: "#{context}[:packet_identifiers_map]") unless input[:packet_identifiers_map].nil?
+        List____listOfMultiplexProgramPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:program_name], ::String, context: "#{context}[:program_name]")
       end
     end
@@ -2450,16 +2452,16 @@ module AWS::SDK::MediaLive
     class MultiplexProgramPacketIdentifiersMap
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexProgramPacketIdentifiersMap, context: context)
-        Validators::List____listOf__integer.validate!(input[:audio_pids], context: "#{context}[:audio_pids]") unless input[:audio_pids].nil?
-        Validators::List____listOf__integer.validate!(input[:dvb_sub_pids], context: "#{context}[:dvb_sub_pids]") unless input[:dvb_sub_pids].nil?
+        List____listOf__integer.validate!(input[:audio_pids], context: "#{context}[:audio_pids]") unless input[:audio_pids].nil?
+        List____listOf__integer.validate!(input[:dvb_sub_pids], context: "#{context}[:dvb_sub_pids]") unless input[:dvb_sub_pids].nil?
         Hearth::Validator.validate!(input[:dvb_teletext_pid], ::Integer, context: "#{context}[:dvb_teletext_pid]")
         Hearth::Validator.validate!(input[:etv_platform_pid], ::Integer, context: "#{context}[:etv_platform_pid]")
         Hearth::Validator.validate!(input[:etv_signal_pid], ::Integer, context: "#{context}[:etv_signal_pid]")
-        Validators::List____listOf__integer.validate!(input[:klv_data_pids], context: "#{context}[:klv_data_pids]") unless input[:klv_data_pids].nil?
+        List____listOf__integer.validate!(input[:klv_data_pids], context: "#{context}[:klv_data_pids]") unless input[:klv_data_pids].nil?
         Hearth::Validator.validate!(input[:pcr_pid], ::Integer, context: "#{context}[:pcr_pid]")
         Hearth::Validator.validate!(input[:pmt_pid], ::Integer, context: "#{context}[:pmt_pid]")
         Hearth::Validator.validate!(input[:private_metadata_pid], ::Integer, context: "#{context}[:private_metadata_pid]")
-        Validators::List____listOf__integer.validate!(input[:scte27_pids], context: "#{context}[:scte27_pids]") unless input[:scte27_pids].nil?
+        List____listOf__integer.validate!(input[:scte27_pids], context: "#{context}[:scte27_pids]") unless input[:scte27_pids].nil?
         Hearth::Validator.validate!(input[:scte35_pid], ::Integer, context: "#{context}[:scte35_pid]")
         Hearth::Validator.validate!(input[:timed_metadata_pid], ::Integer, context: "#{context}[:timed_metadata_pid]")
         Hearth::Validator.validate!(input[:video_pid], ::Integer, context: "#{context}[:video_pid]")
@@ -2487,8 +2489,8 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::MultiplexProgramSettings, context: context)
         Hearth::Validator.validate!(input[:preferred_channel_pipeline], ::String, context: "#{context}[:preferred_channel_pipeline]")
         Hearth::Validator.validate!(input[:program_number], ::Integer, context: "#{context}[:program_number]")
-        Validators::MultiplexProgramServiceDescriptor.validate!(input[:service_descriptor], context: "#{context}[:service_descriptor]") unless input[:service_descriptor].nil?
-        Validators::MultiplexVideoSettings.validate!(input[:video_settings], context: "#{context}[:video_settings]") unless input[:video_settings].nil?
+        MultiplexProgramServiceDescriptor.validate!(input[:service_descriptor], context: "#{context}[:service_descriptor]") unless input[:service_descriptor].nil?
+        MultiplexVideoSettings.validate!(input[:video_settings], context: "#{context}[:video_settings]") unless input[:video_settings].nil?
       end
     end
 
@@ -2530,14 +2532,14 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexSummary, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettingsSummary.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettingsSummary.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2545,14 +2547,14 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiplexVideoSettings, context: context)
         Hearth::Validator.validate!(input[:constant_bitrate], ::Integer, context: "#{context}[:constant_bitrate]")
-        Validators::MultiplexStatmuxVideoSettings.validate!(input[:statmux_settings], context: "#{context}[:statmux_settings]") unless input[:statmux_settings].nil?
+        MultiplexStatmuxVideoSettings.validate!(input[:statmux_settings], context: "#{context}[:statmux_settings]") unless input[:statmux_settings].nil?
       end
     end
 
     class NetworkInputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkInputSettings, context: context)
-        Validators::HlsInputSettings.validate!(input[:hls_input_settings], context: "#{context}[:hls_input_settings]") unless input[:hls_input_settings].nil?
+        HlsInputSettings.validate!(input[:hls_input_settings], context: "#{context}[:hls_input_settings]") unless input[:hls_input_settings].nil?
         Hearth::Validator.validate!(input[:server_validation], ::String, context: "#{context}[:server_validation]")
       end
     end
@@ -2585,9 +2587,9 @@ module AWS::SDK::MediaLive
     class NielsenWatermarksSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NielsenWatermarksSettings, context: context)
-        Validators::NielsenCBET.validate!(input[:nielsen_cbet_settings], context: "#{context}[:nielsen_cbet_settings]") unless input[:nielsen_cbet_settings].nil?
+        NielsenCBET.validate!(input[:nielsen_cbet_settings], context: "#{context}[:nielsen_cbet_settings]") unless input[:nielsen_cbet_settings].nil?
         Hearth::Validator.validate!(input[:nielsen_distribution_type], ::String, context: "#{context}[:nielsen_distribution_type]")
-        Validators::NielsenNaesIiNw.validate!(input[:nielsen_naes_ii_nw_settings], context: "#{context}[:nielsen_naes_ii_nw_settings]") unless input[:nielsen_naes_ii_nw_settings].nil?
+        NielsenNaesIiNw.validate!(input[:nielsen_naes_ii_nw_settings], context: "#{context}[:nielsen_naes_ii_nw_settings]") unless input[:nielsen_naes_ii_nw_settings].nil?
       end
     end
 
@@ -2610,7 +2612,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_id], ::String, context: "#{context}[:offering_id]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
       end
     end
@@ -2618,10 +2620,10 @@ module AWS::SDK::MediaLive
     class Output
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Output, context: context)
-        Validators::List____listOf__string.validate!(input[:audio_description_names], context: "#{context}[:audio_description_names]") unless input[:audio_description_names].nil?
-        Validators::List____listOf__string.validate!(input[:caption_description_names], context: "#{context}[:caption_description_names]") unless input[:caption_description_names].nil?
+        List____listOf__string.validate!(input[:audio_description_names], context: "#{context}[:audio_description_names]") unless input[:audio_description_names].nil?
+        List____listOf__string.validate!(input[:caption_description_names], context: "#{context}[:caption_description_names]") unless input[:caption_description_names].nil?
         Hearth::Validator.validate!(input[:output_name], ::String, context: "#{context}[:output_name]")
-        Validators::OutputSettings.validate!(input[:output_settings], context: "#{context}[:output_settings]") unless input[:output_settings].nil?
+        OutputSettings.validate!(input[:output_settings], context: "#{context}[:output_settings]") unless input[:output_settings].nil?
         Hearth::Validator.validate!(input[:video_description_name], ::String, context: "#{context}[:video_description_name]")
       end
     end
@@ -2630,9 +2632,9 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputDestination, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfMediaPackageOutputDestinationSettings.validate!(input[:media_package_settings], context: "#{context}[:media_package_settings]") unless input[:media_package_settings].nil?
-        Validators::MultiplexProgramChannelDestinationSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
-        Validators::List____listOfOutputDestinationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        List____listOfMediaPackageOutputDestinationSettings.validate!(input[:media_package_settings], context: "#{context}[:media_package_settings]") unless input[:media_package_settings].nil?
+        MultiplexProgramChannelDestinationSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        List____listOfOutputDestinationSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -2650,22 +2652,22 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputGroup, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::OutputGroupSettings.validate!(input[:output_group_settings], context: "#{context}[:output_group_settings]") unless input[:output_group_settings].nil?
-        Validators::List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        OutputGroupSettings.validate!(input[:output_group_settings], context: "#{context}[:output_group_settings]") unless input[:output_group_settings].nil?
+        List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
     class OutputGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputGroupSettings, context: context)
-        Validators::ArchiveGroupSettings.validate!(input[:archive_group_settings], context: "#{context}[:archive_group_settings]") unless input[:archive_group_settings].nil?
-        Validators::FrameCaptureGroupSettings.validate!(input[:frame_capture_group_settings], context: "#{context}[:frame_capture_group_settings]") unless input[:frame_capture_group_settings].nil?
-        Validators::HlsGroupSettings.validate!(input[:hls_group_settings], context: "#{context}[:hls_group_settings]") unless input[:hls_group_settings].nil?
-        Validators::MediaPackageGroupSettings.validate!(input[:media_package_group_settings], context: "#{context}[:media_package_group_settings]") unless input[:media_package_group_settings].nil?
-        Validators::MsSmoothGroupSettings.validate!(input[:ms_smooth_group_settings], context: "#{context}[:ms_smooth_group_settings]") unless input[:ms_smooth_group_settings].nil?
-        Validators::MultiplexGroupSettings.validate!(input[:multiplex_group_settings], context: "#{context}[:multiplex_group_settings]") unless input[:multiplex_group_settings].nil?
-        Validators::RtmpGroupSettings.validate!(input[:rtmp_group_settings], context: "#{context}[:rtmp_group_settings]") unless input[:rtmp_group_settings].nil?
-        Validators::UdpGroupSettings.validate!(input[:udp_group_settings], context: "#{context}[:udp_group_settings]") unless input[:udp_group_settings].nil?
+        ArchiveGroupSettings.validate!(input[:archive_group_settings], context: "#{context}[:archive_group_settings]") unless input[:archive_group_settings].nil?
+        FrameCaptureGroupSettings.validate!(input[:frame_capture_group_settings], context: "#{context}[:frame_capture_group_settings]") unless input[:frame_capture_group_settings].nil?
+        HlsGroupSettings.validate!(input[:hls_group_settings], context: "#{context}[:hls_group_settings]") unless input[:hls_group_settings].nil?
+        MediaPackageGroupSettings.validate!(input[:media_package_group_settings], context: "#{context}[:media_package_group_settings]") unless input[:media_package_group_settings].nil?
+        MsSmoothGroupSettings.validate!(input[:ms_smooth_group_settings], context: "#{context}[:ms_smooth_group_settings]") unless input[:ms_smooth_group_settings].nil?
+        MultiplexGroupSettings.validate!(input[:multiplex_group_settings], context: "#{context}[:multiplex_group_settings]") unless input[:multiplex_group_settings].nil?
+        RtmpGroupSettings.validate!(input[:rtmp_group_settings], context: "#{context}[:rtmp_group_settings]") unless input[:rtmp_group_settings].nil?
+        UdpGroupSettings.validate!(input[:udp_group_settings], context: "#{context}[:udp_group_settings]") unless input[:udp_group_settings].nil?
       end
     end
 
@@ -2679,14 +2681,14 @@ module AWS::SDK::MediaLive
     class OutputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputSettings, context: context)
-        Validators::ArchiveOutputSettings.validate!(input[:archive_output_settings], context: "#{context}[:archive_output_settings]") unless input[:archive_output_settings].nil?
-        Validators::FrameCaptureOutputSettings.validate!(input[:frame_capture_output_settings], context: "#{context}[:frame_capture_output_settings]") unless input[:frame_capture_output_settings].nil?
-        Validators::HlsOutputSettings.validate!(input[:hls_output_settings], context: "#{context}[:hls_output_settings]") unless input[:hls_output_settings].nil?
-        Validators::MediaPackageOutputSettings.validate!(input[:media_package_output_settings], context: "#{context}[:media_package_output_settings]") unless input[:media_package_output_settings].nil?
-        Validators::MsSmoothOutputSettings.validate!(input[:ms_smooth_output_settings], context: "#{context}[:ms_smooth_output_settings]") unless input[:ms_smooth_output_settings].nil?
-        Validators::MultiplexOutputSettings.validate!(input[:multiplex_output_settings], context: "#{context}[:multiplex_output_settings]") unless input[:multiplex_output_settings].nil?
-        Validators::RtmpOutputSettings.validate!(input[:rtmp_output_settings], context: "#{context}[:rtmp_output_settings]") unless input[:rtmp_output_settings].nil?
-        Validators::UdpOutputSettings.validate!(input[:udp_output_settings], context: "#{context}[:udp_output_settings]") unless input[:udp_output_settings].nil?
+        ArchiveOutputSettings.validate!(input[:archive_output_settings], context: "#{context}[:archive_output_settings]") unless input[:archive_output_settings].nil?
+        FrameCaptureOutputSettings.validate!(input[:frame_capture_output_settings], context: "#{context}[:frame_capture_output_settings]") unless input[:frame_capture_output_settings].nil?
+        HlsOutputSettings.validate!(input[:hls_output_settings], context: "#{context}[:hls_output_settings]") unless input[:hls_output_settings].nil?
+        MediaPackageOutputSettings.validate!(input[:media_package_output_settings], context: "#{context}[:media_package_output_settings]") unless input[:media_package_output_settings].nil?
+        MsSmoothOutputSettings.validate!(input[:ms_smooth_output_settings], context: "#{context}[:ms_smooth_output_settings]") unless input[:ms_smooth_output_settings].nil?
+        MultiplexOutputSettings.validate!(input[:multiplex_output_settings], context: "#{context}[:multiplex_output_settings]") unless input[:multiplex_output_settings].nil?
+        RtmpOutputSettings.validate!(input[:rtmp_output_settings], context: "#{context}[:rtmp_output_settings]") unless input[:rtmp_output_settings].nil?
+        UdpOutputSettings.validate!(input[:udp_output_settings], context: "#{context}[:udp_output_settings]") unless input[:udp_output_settings].nil?
       end
     end
 
@@ -2699,7 +2701,7 @@ module AWS::SDK::MediaLive
     class PauseStateScheduleActionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PauseStateScheduleActionSettings, context: context)
-        Validators::List____listOfPipelinePauseStateSettings.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
+        List____listOfPipelinePauseStateSettings.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
       end
     end
 
@@ -2729,14 +2731,14 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_id], ::String, context: "#{context}[:offering_id]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:start], ::String, context: "#{context}[:start]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class PurchaseOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PurchaseOfferingOutput, context: context)
-        Validators::Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
+        Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
       end
     end
 
@@ -2774,7 +2776,7 @@ module AWS::SDK::MediaLive
     class RemixSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemixSettings, context: context)
-        Validators::List____listOfAudioChannelMapping.validate!(input[:channel_mappings], context: "#{context}[:channel_mappings]") unless input[:channel_mappings].nil?
+        List____listOfAudioChannelMapping.validate!(input[:channel_mappings], context: "#{context}[:channel_mappings]") unless input[:channel_mappings].nil?
         Hearth::Validator.validate!(input[:channels_in], ::Integer, context: "#{context}[:channels_in]")
         Hearth::Validator.validate!(input[:channels_out], ::Integer, context: "#{context}[:channels_out]")
       end
@@ -2796,10 +2798,10 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
         Hearth::Validator.validate!(input[:reservation_id], ::String, context: "#{context}[:reservation_id]")
-        Validators::ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ReservationResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:start], ::String, context: "#{context}[:start]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
       end
     end
@@ -2827,7 +2829,7 @@ module AWS::SDK::MediaLive
     class RtmpGroupSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RtmpGroupSettings, context: context)
-        Validators::List____listOfRtmpAdMarkers.validate!(input[:ad_markers], context: "#{context}[:ad_markers]") unless input[:ad_markers].nil?
+        List____listOfRtmpAdMarkers.validate!(input[:ad_markers], context: "#{context}[:ad_markers]") unless input[:ad_markers].nil?
         Hearth::Validator.validate!(input[:authentication_scheme], ::String, context: "#{context}[:authentication_scheme]")
         Hearth::Validator.validate!(input[:cache_full_behavior], ::String, context: "#{context}[:cache_full_behavior]")
         Hearth::Validator.validate!(input[:cache_length], ::Integer, context: "#{context}[:cache_length]")
@@ -2842,7 +2844,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::RtmpOutputSettings, context: context)
         Hearth::Validator.validate!(input[:certificate_mode], ::String, context: "#{context}[:certificate_mode]")
         Hearth::Validator.validate!(input[:connection_retry_interval], ::Integer, context: "#{context}[:connection_retry_interval]")
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:num_retries], ::Integer, context: "#{context}[:num_retries]")
       end
     end
@@ -2851,35 +2853,35 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduleAction, context: context)
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
-        Validators::ScheduleActionSettings.validate!(input[:schedule_action_settings], context: "#{context}[:schedule_action_settings]") unless input[:schedule_action_settings].nil?
-        Validators::ScheduleActionStartSettings.validate!(input[:schedule_action_start_settings], context: "#{context}[:schedule_action_start_settings]") unless input[:schedule_action_start_settings].nil?
+        ScheduleActionSettings.validate!(input[:schedule_action_settings], context: "#{context}[:schedule_action_settings]") unless input[:schedule_action_settings].nil?
+        ScheduleActionStartSettings.validate!(input[:schedule_action_start_settings], context: "#{context}[:schedule_action_start_settings]") unless input[:schedule_action_start_settings].nil?
       end
     end
 
     class ScheduleActionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduleActionSettings, context: context)
-        Validators::HlsId3SegmentTaggingScheduleActionSettings.validate!(input[:hls_id3_segment_tagging_settings], context: "#{context}[:hls_id3_segment_tagging_settings]") unless input[:hls_id3_segment_tagging_settings].nil?
-        Validators::HlsTimedMetadataScheduleActionSettings.validate!(input[:hls_timed_metadata_settings], context: "#{context}[:hls_timed_metadata_settings]") unless input[:hls_timed_metadata_settings].nil?
-        Validators::InputPrepareScheduleActionSettings.validate!(input[:input_prepare_settings], context: "#{context}[:input_prepare_settings]") unless input[:input_prepare_settings].nil?
-        Validators::InputSwitchScheduleActionSettings.validate!(input[:input_switch_settings], context: "#{context}[:input_switch_settings]") unless input[:input_switch_settings].nil?
-        Validators::MotionGraphicsActivateScheduleActionSettings.validate!(input[:motion_graphics_image_activate_settings], context: "#{context}[:motion_graphics_image_activate_settings]") unless input[:motion_graphics_image_activate_settings].nil?
-        Validators::MotionGraphicsDeactivateScheduleActionSettings.validate!(input[:motion_graphics_image_deactivate_settings], context: "#{context}[:motion_graphics_image_deactivate_settings]") unless input[:motion_graphics_image_deactivate_settings].nil?
-        Validators::PauseStateScheduleActionSettings.validate!(input[:pause_state_settings], context: "#{context}[:pause_state_settings]") unless input[:pause_state_settings].nil?
-        Validators::Scte35ReturnToNetworkScheduleActionSettings.validate!(input[:scte35_return_to_network_settings], context: "#{context}[:scte35_return_to_network_settings]") unless input[:scte35_return_to_network_settings].nil?
-        Validators::Scte35SpliceInsertScheduleActionSettings.validate!(input[:scte35_splice_insert_settings], context: "#{context}[:scte35_splice_insert_settings]") unless input[:scte35_splice_insert_settings].nil?
-        Validators::Scte35TimeSignalScheduleActionSettings.validate!(input[:scte35_time_signal_settings], context: "#{context}[:scte35_time_signal_settings]") unless input[:scte35_time_signal_settings].nil?
-        Validators::StaticImageActivateScheduleActionSettings.validate!(input[:static_image_activate_settings], context: "#{context}[:static_image_activate_settings]") unless input[:static_image_activate_settings].nil?
-        Validators::StaticImageDeactivateScheduleActionSettings.validate!(input[:static_image_deactivate_settings], context: "#{context}[:static_image_deactivate_settings]") unless input[:static_image_deactivate_settings].nil?
+        HlsId3SegmentTaggingScheduleActionSettings.validate!(input[:hls_id3_segment_tagging_settings], context: "#{context}[:hls_id3_segment_tagging_settings]") unless input[:hls_id3_segment_tagging_settings].nil?
+        HlsTimedMetadataScheduleActionSettings.validate!(input[:hls_timed_metadata_settings], context: "#{context}[:hls_timed_metadata_settings]") unless input[:hls_timed_metadata_settings].nil?
+        InputPrepareScheduleActionSettings.validate!(input[:input_prepare_settings], context: "#{context}[:input_prepare_settings]") unless input[:input_prepare_settings].nil?
+        InputSwitchScheduleActionSettings.validate!(input[:input_switch_settings], context: "#{context}[:input_switch_settings]") unless input[:input_switch_settings].nil?
+        MotionGraphicsActivateScheduleActionSettings.validate!(input[:motion_graphics_image_activate_settings], context: "#{context}[:motion_graphics_image_activate_settings]") unless input[:motion_graphics_image_activate_settings].nil?
+        MotionGraphicsDeactivateScheduleActionSettings.validate!(input[:motion_graphics_image_deactivate_settings], context: "#{context}[:motion_graphics_image_deactivate_settings]") unless input[:motion_graphics_image_deactivate_settings].nil?
+        PauseStateScheduleActionSettings.validate!(input[:pause_state_settings], context: "#{context}[:pause_state_settings]") unless input[:pause_state_settings].nil?
+        Scte35ReturnToNetworkScheduleActionSettings.validate!(input[:scte35_return_to_network_settings], context: "#{context}[:scte35_return_to_network_settings]") unless input[:scte35_return_to_network_settings].nil?
+        Scte35SpliceInsertScheduleActionSettings.validate!(input[:scte35_splice_insert_settings], context: "#{context}[:scte35_splice_insert_settings]") unless input[:scte35_splice_insert_settings].nil?
+        Scte35TimeSignalScheduleActionSettings.validate!(input[:scte35_time_signal_settings], context: "#{context}[:scte35_time_signal_settings]") unless input[:scte35_time_signal_settings].nil?
+        StaticImageActivateScheduleActionSettings.validate!(input[:static_image_activate_settings], context: "#{context}[:static_image_activate_settings]") unless input[:static_image_activate_settings].nil?
+        StaticImageDeactivateScheduleActionSettings.validate!(input[:static_image_deactivate_settings], context: "#{context}[:static_image_deactivate_settings]") unless input[:static_image_deactivate_settings].nil?
       end
     end
 
     class ScheduleActionStartSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduleActionStartSettings, context: context)
-        Validators::FixedModeScheduleActionStartSettings.validate!(input[:fixed_mode_schedule_action_start_settings], context: "#{context}[:fixed_mode_schedule_action_start_settings]") unless input[:fixed_mode_schedule_action_start_settings].nil?
-        Validators::FollowModeScheduleActionStartSettings.validate!(input[:follow_mode_schedule_action_start_settings], context: "#{context}[:follow_mode_schedule_action_start_settings]") unless input[:follow_mode_schedule_action_start_settings].nil?
-        Validators::ImmediateModeScheduleActionStartSettings.validate!(input[:immediate_mode_schedule_action_start_settings], context: "#{context}[:immediate_mode_schedule_action_start_settings]") unless input[:immediate_mode_schedule_action_start_settings].nil?
+        FixedModeScheduleActionStartSettings.validate!(input[:fixed_mode_schedule_action_start_settings], context: "#{context}[:fixed_mode_schedule_action_start_settings]") unless input[:fixed_mode_schedule_action_start_settings].nil?
+        FollowModeScheduleActionStartSettings.validate!(input[:follow_mode_schedule_action_start_settings], context: "#{context}[:follow_mode_schedule_action_start_settings]") unless input[:follow_mode_schedule_action_start_settings].nil?
+        ImmediateModeScheduleActionStartSettings.validate!(input[:immediate_mode_schedule_action_start_settings], context: "#{context}[:immediate_mode_schedule_action_start_settings]") unless input[:immediate_mode_schedule_action_start_settings].nil?
       end
     end
 
@@ -2924,14 +2926,14 @@ module AWS::SDK::MediaLive
     class Scte35Descriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Scte35Descriptor, context: context)
-        Validators::Scte35DescriptorSettings.validate!(input[:scte35_descriptor_settings], context: "#{context}[:scte35_descriptor_settings]") unless input[:scte35_descriptor_settings].nil?
+        Scte35DescriptorSettings.validate!(input[:scte35_descriptor_settings], context: "#{context}[:scte35_descriptor_settings]") unless input[:scte35_descriptor_settings].nil?
       end
     end
 
     class Scte35DescriptorSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Scte35DescriptorSettings, context: context)
-        Validators::Scte35SegmentationDescriptor.validate!(input[:segmentation_descriptor_scte35_descriptor_settings], context: "#{context}[:segmentation_descriptor_scte35_descriptor_settings]") unless input[:segmentation_descriptor_scte35_descriptor_settings].nil?
+        Scte35SegmentationDescriptor.validate!(input[:segmentation_descriptor_scte35_descriptor_settings], context: "#{context}[:segmentation_descriptor_scte35_descriptor_settings]") unless input[:segmentation_descriptor_scte35_descriptor_settings].nil?
       end
     end
 
@@ -2945,7 +2947,7 @@ module AWS::SDK::MediaLive
     class Scte35SegmentationDescriptor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Scte35SegmentationDescriptor, context: context)
-        Validators::Scte35DeliveryRestrictions.validate!(input[:delivery_restrictions], context: "#{context}[:delivery_restrictions]") unless input[:delivery_restrictions].nil?
+        Scte35DeliveryRestrictions.validate!(input[:delivery_restrictions], context: "#{context}[:delivery_restrictions]") unless input[:delivery_restrictions].nil?
         Hearth::Validator.validate!(input[:segment_num], ::Integer, context: "#{context}[:segment_num]")
         Hearth::Validator.validate!(input[:segmentation_cancel_indicator], ::String, context: "#{context}[:segmentation_cancel_indicator]")
         Hearth::Validator.validate!(input[:segmentation_duration], ::Integer, context: "#{context}[:segmentation_duration]")
@@ -2988,7 +2990,7 @@ module AWS::SDK::MediaLive
     class Scte35TimeSignalScheduleActionSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Scte35TimeSignalScheduleActionSettings, context: context)
-        Validators::List____listOfScte35Descriptor.validate!(input[:scte35_descriptors], context: "#{context}[:scte35_descriptors]") unless input[:scte35_descriptors].nil?
+        List____listOfScte35Descriptor.validate!(input[:scte35_descriptors], context: "#{context}[:scte35_descriptors]") unless input[:scte35_descriptors].nil?
       end
     end
 
@@ -3002,7 +3004,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StandardHlsSettings, context: context)
         Hearth::Validator.validate!(input[:audio_rendition_sets], ::String, context: "#{context}[:audio_rendition_sets]")
-        Validators::M3u8Settings.validate!(input[:m3u8_settings], context: "#{context}[:m3u8_settings]") unless input[:m3u8_settings].nil?
+        M3u8Settings.validate!(input[:m3u8_settings], context: "#{context}[:m3u8_settings]") unless input[:m3u8_settings].nil?
       end
     end
 
@@ -3017,23 +3019,23 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartChannelOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -3048,15 +3050,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartMultiplexOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3074,7 +3076,7 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:fade_in], ::Integer, context: "#{context}[:fade_in]")
         Hearth::Validator.validate!(input[:fade_out], ::Integer, context: "#{context}[:fade_out]")
         Hearth::Validator.validate!(input[:height], ::Integer, context: "#{context}[:height]")
-        Validators::InputLocation.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
+        InputLocation.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
         Hearth::Validator.validate!(input[:image_x], ::Integer, context: "#{context}[:image_x]")
         Hearth::Validator.validate!(input[:image_y], ::Integer, context: "#{context}[:image_y]")
         Hearth::Validator.validate!(input[:layer], ::Integer, context: "#{context}[:layer]")
@@ -3094,7 +3096,7 @@ module AWS::SDK::MediaLive
     class StaticKeySettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StaticKeySettings, context: context)
-        Validators::InputLocation.validate!(input[:key_provider_server], context: "#{context}[:key_provider_server]") unless input[:key_provider_server].nil?
+        InputLocation.validate!(input[:key_provider_server], context: "#{context}[:key_provider_server]") unless input[:key_provider_server].nil?
         Hearth::Validator.validate!(input[:static_key_value], ::String, context: "#{context}[:static_key_value]")
       end
     end
@@ -3110,23 +3112,23 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopChannelOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfChannelEgressEndpoint.validate!(input[:egress_endpoints], context: "#{context}[:egress_endpoints]") unless input[:egress_endpoints].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceStatus.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
+        List____listOfPipelineDetail.validate!(input[:pipeline_details], context: "#{context}[:pipeline_details]") unless input[:pipeline_details].nil?
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcOutputSettingsDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -3141,15 +3143,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopMultiplexOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfMultiplexOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:pipelines_running_count], ::Integer, context: "#{context}[:pipelines_running_count]")
         Hearth::Validator.validate!(input[:program_count], ::Integer, context: "#{context}[:program_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3180,7 +3182,7 @@ module AWS::SDK::MediaLive
     class TeletextSourceSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TeletextSourceSettings, context: context)
-        Validators::CaptionRectangle.validate!(input[:output_rectangle], context: "#{context}[:output_rectangle]") unless input[:output_rectangle].nil?
+        CaptionRectangle.validate!(input[:output_rectangle], context: "#{context}[:output_rectangle]") unless input[:output_rectangle].nil?
         Hearth::Validator.validate!(input[:page_number], ::String, context: "#{context}[:page_number]")
       end
     end
@@ -3244,7 +3246,7 @@ module AWS::SDK::MediaLive
     class UdpContainerSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UdpContainerSettings, context: context)
-        Validators::M2tsSettings.validate!(input[:m2ts_settings], context: "#{context}[:m2ts_settings]") unless input[:m2ts_settings].nil?
+        M2tsSettings.validate!(input[:m2ts_settings], context: "#{context}[:m2ts_settings]") unless input[:m2ts_settings].nil?
       end
     end
 
@@ -3261,9 +3263,9 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UdpOutputSettings, context: context)
         Hearth::Validator.validate!(input[:buffer_msec], ::Integer, context: "#{context}[:buffer_msec]")
-        Validators::UdpContainerSettings.validate!(input[:container_settings], context: "#{context}[:container_settings]") unless input[:container_settings].nil?
-        Validators::OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::FecOutputSettings.validate!(input[:fec_output_settings], context: "#{context}[:fec_output_settings]") unless input[:fec_output_settings].nil?
+        UdpContainerSettings.validate!(input[:container_settings], context: "#{context}[:container_settings]") unless input[:container_settings].nil?
+        OutputLocationRef.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        FecOutputSettings.validate!(input[:fec_output_settings], context: "#{context}[:fec_output_settings]") unless input[:fec_output_settings].nil?
       end
     end
 
@@ -3271,7 +3273,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnprocessableEntityException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::List____listOfValidationError.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
+        List____listOfValidationError.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
       end
     end
 
@@ -3280,28 +3282,28 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input, Types::UpdateChannelClassInput, context: context)
         Hearth::Validator.validate!(input[:channel_class], ::String, context: "#{context}[:channel_class]")
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
       end
     end
 
     class UpdateChannelClassOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateChannelClassOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
     class UpdateChannelInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateChannelInput, context: context)
-        Validators::CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
+        CdiInputSpecification.validate!(input[:cdi_input_specification], context: "#{context}[:cdi_input_specification]") unless input[:cdi_input_specification].nil?
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
-        Validators::List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
-        Validators::List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
-        Validators::InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
+        List____listOfOutputDestination.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        EncoderSettings.validate!(input[:encoder_settings], context: "#{context}[:encoder_settings]") unless input[:encoder_settings].nil?
+        List____listOfInputAttachment.validate!(input[:input_attachments], context: "#{context}[:input_attachments]") unless input[:input_attachments].nil?
+        InputSpecification.validate!(input[:input_specification], context: "#{context}[:input_specification]") unless input[:input_specification].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
-        Validators::MaintenanceUpdateSettings.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        MaintenanceUpdateSettings.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
@@ -3310,17 +3312,17 @@ module AWS::SDK::MediaLive
     class UpdateChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateChannelOutput, context: context)
-        Validators::Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
+        Channel.validate!(input[:channel], context: "#{context}[:channel]") unless input[:channel].nil?
       end
     end
 
     class UpdateInputDeviceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInputDeviceInput, context: context)
-        Validators::InputDeviceConfigurableSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
+        InputDeviceConfigurableSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
         Hearth::Validator.validate!(input[:input_device_id], ::String, context: "#{context}[:input_device_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputDeviceConfigurableSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
+        InputDeviceConfigurableSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
       end
     end
 
@@ -3331,35 +3333,35 @@ module AWS::SDK::MediaLive
         Hearth::Validator.validate!(input[:connection_state], ::String, context: "#{context}[:connection_state]")
         Hearth::Validator.validate!(input[:device_settings_sync_state], ::String, context: "#{context}[:device_settings_sync_state]")
         Hearth::Validator.validate!(input[:device_update_status], ::String, context: "#{context}[:device_update_status]")
-        Validators::InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
+        InputDeviceHdSettings.validate!(input[:hd_device_settings], context: "#{context}[:hd_device_settings]") unless input[:hd_device_settings].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:mac_address], ::String, context: "#{context}[:mac_address]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        InputDeviceNetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
+        InputDeviceUhdSettings.validate!(input[:uhd_device_settings], context: "#{context}[:uhd_device_settings]") unless input[:uhd_device_settings].nil?
       end
     end
 
     class UpdateInputInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInputInput, context: context)
-        Validators::List____listOfInputDestinationRequest.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
-        Validators::List____listOfInputDeviceRequest.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
+        List____listOfInputDestinationRequest.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        List____listOfInputDeviceRequest.validate!(input[:input_devices], context: "#{context}[:input_devices]") unless input[:input_devices].nil?
         Hearth::Validator.validate!(input[:input_id], ::String, context: "#{context}[:input_id]")
-        Validators::List____listOf__string.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
-        Validators::List____listOfMediaConnectFlowRequest.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
+        List____listOf__string.validate!(input[:input_security_groups], context: "#{context}[:input_security_groups]") unless input[:input_security_groups].nil?
+        List____listOfMediaConnectFlowRequest.validate!(input[:media_connect_flows], context: "#{context}[:media_connect_flows]") unless input[:media_connect_flows].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOfInputSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOfInputSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
     class UpdateInputOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInputOutput, context: context)
-        Validators::Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        Input.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
       end
     end
 
@@ -3367,15 +3369,15 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInputSecurityGroupInput, context: context)
         Hearth::Validator.validate!(input[:input_security_group_id], ::String, context: "#{context}[:input_security_group_id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfInputWhitelistRuleCidr.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfInputWhitelistRuleCidr.validate!(input[:whitelist_rules], context: "#{context}[:whitelist_rules]") unless input[:whitelist_rules].nil?
       end
     end
 
     class UpdateInputSecurityGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInputSecurityGroupOutput, context: context)
-        Validators::InputSecurityGroup.validate!(input[:security_group], context: "#{context}[:security_group]") unless input[:security_group].nil?
+        InputSecurityGroup.validate!(input[:security_group], context: "#{context}[:security_group]") unless input[:security_group].nil?
       end
     end
 
@@ -3383,7 +3385,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMultiplexInput, context: context)
         Hearth::Validator.validate!(input[:multiplex_id], ::String, context: "#{context}[:multiplex_id]")
-        Validators::MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
+        MultiplexSettings.validate!(input[:multiplex_settings], context: "#{context}[:multiplex_settings]") unless input[:multiplex_settings].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -3391,7 +3393,7 @@ module AWS::SDK::MediaLive
     class UpdateMultiplexOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMultiplexOutput, context: context)
-        Validators::Multiplex.validate!(input[:multiplex], context: "#{context}[:multiplex]") unless input[:multiplex].nil?
+        Multiplex.validate!(input[:multiplex], context: "#{context}[:multiplex]") unless input[:multiplex].nil?
       end
     end
 
@@ -3399,7 +3401,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMultiplexProgramInput, context: context)
         Hearth::Validator.validate!(input[:multiplex_id], ::String, context: "#{context}[:multiplex_id]")
-        Validators::MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
+        MultiplexProgramSettings.validate!(input[:multiplex_program_settings], context: "#{context}[:multiplex_program_settings]") unless input[:multiplex_program_settings].nil?
         Hearth::Validator.validate!(input[:program_name], ::String, context: "#{context}[:program_name]")
       end
     end
@@ -3407,7 +3409,7 @@ module AWS::SDK::MediaLive
     class UpdateMultiplexProgramOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMultiplexProgramOutput, context: context)
-        Validators::MultiplexProgram.validate!(input[:multiplex_program], context: "#{context}[:multiplex_program]") unless input[:multiplex_program].nil?
+        MultiplexProgram.validate!(input[:multiplex_program], context: "#{context}[:multiplex_program]") unless input[:multiplex_program].nil?
       end
     end
 
@@ -3422,7 +3424,7 @@ module AWS::SDK::MediaLive
     class UpdateReservationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateReservationOutput, context: context)
-        Validators::Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
+        Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
       end
     end
 
@@ -3445,17 +3447,17 @@ module AWS::SDK::MediaLive
     class VideoCodecSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoCodecSettings, context: context)
-        Validators::FrameCaptureSettings.validate!(input[:frame_capture_settings], context: "#{context}[:frame_capture_settings]") unless input[:frame_capture_settings].nil?
-        Validators::H264Settings.validate!(input[:h264_settings], context: "#{context}[:h264_settings]") unless input[:h264_settings].nil?
-        Validators::H265Settings.validate!(input[:h265_settings], context: "#{context}[:h265_settings]") unless input[:h265_settings].nil?
-        Validators::Mpeg2Settings.validate!(input[:mpeg2_settings], context: "#{context}[:mpeg2_settings]") unless input[:mpeg2_settings].nil?
+        FrameCaptureSettings.validate!(input[:frame_capture_settings], context: "#{context}[:frame_capture_settings]") unless input[:frame_capture_settings].nil?
+        H264Settings.validate!(input[:h264_settings], context: "#{context}[:h264_settings]") unless input[:h264_settings].nil?
+        H265Settings.validate!(input[:h265_settings], context: "#{context}[:h265_settings]") unless input[:h265_settings].nil?
+        Mpeg2Settings.validate!(input[:mpeg2_settings], context: "#{context}[:mpeg2_settings]") unless input[:mpeg2_settings].nil?
       end
     end
 
     class VideoDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoDescription, context: context)
-        Validators::VideoCodecSettings.validate!(input[:codec_settings], context: "#{context}[:codec_settings]") unless input[:codec_settings].nil?
+        VideoCodecSettings.validate!(input[:codec_settings], context: "#{context}[:codec_settings]") unless input[:codec_settings].nil?
         Hearth::Validator.validate!(input[:height], ::Integer, context: "#{context}[:height]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:respond_to_afd], ::String, context: "#{context}[:respond_to_afd]")
@@ -3469,16 +3471,16 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoSelector, context: context)
         Hearth::Validator.validate!(input[:color_space], ::String, context: "#{context}[:color_space]")
-        Validators::VideoSelectorColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
+        VideoSelectorColorSpaceSettings.validate!(input[:color_space_settings], context: "#{context}[:color_space_settings]") unless input[:color_space_settings].nil?
         Hearth::Validator.validate!(input[:color_space_usage], ::String, context: "#{context}[:color_space_usage]")
-        Validators::VideoSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
+        VideoSelectorSettings.validate!(input[:selector_settings], context: "#{context}[:selector_settings]") unless input[:selector_settings].nil?
       end
     end
 
     class VideoSelectorColorSpaceSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoSelectorColorSpaceSettings, context: context)
-        Validators::Hdr10Settings.validate!(input[:hdr10_settings], context: "#{context}[:hdr10_settings]") unless input[:hdr10_settings].nil?
+        Hdr10Settings.validate!(input[:hdr10_settings], context: "#{context}[:hdr10_settings]") unless input[:hdr10_settings].nil?
       end
     end
 
@@ -3499,27 +3501,27 @@ module AWS::SDK::MediaLive
     class VideoSelectorSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoSelectorSettings, context: context)
-        Validators::VideoSelectorPid.validate!(input[:video_selector_pid], context: "#{context}[:video_selector_pid]") unless input[:video_selector_pid].nil?
-        Validators::VideoSelectorProgramId.validate!(input[:video_selector_program_id], context: "#{context}[:video_selector_program_id]") unless input[:video_selector_program_id].nil?
+        VideoSelectorPid.validate!(input[:video_selector_pid], context: "#{context}[:video_selector_pid]") unless input[:video_selector_pid].nil?
+        VideoSelectorProgramId.validate!(input[:video_selector_program_id], context: "#{context}[:video_selector_program_id]") unless input[:video_selector_program_id].nil?
       end
     end
 
     class VpcOutputSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcOutputSettings, context: context)
-        Validators::List____listOf__string.validate!(input[:public_address_allocation_ids], context: "#{context}[:public_address_allocation_ids]") unless input[:public_address_allocation_ids].nil?
-        Validators::List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        List____listOf__string.validate!(input[:public_address_allocation_ids], context: "#{context}[:public_address_allocation_ids]") unless input[:public_address_allocation_ids].nil?
+        List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
     class VpcOutputSettingsDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcOutputSettingsDescription, context: context)
-        Validators::List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::List____listOf__string.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
-        Validators::List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        List____listOf__string.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOf__string.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
+        List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
@@ -3543,7 +3545,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AudioChannelMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AudioChannelMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3552,7 +3554,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AudioDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AudioDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3561,7 +3563,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AudioSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AudioSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3570,7 +3572,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AudioTrack.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AudioTrack.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3579,7 +3581,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchFailedResultModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchFailedResultModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3588,7 +3590,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchSuccessfulResultModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchSuccessfulResultModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3597,7 +3599,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CaptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CaptionDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3606,7 +3608,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CaptionLanguageMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CaptionLanguageMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3615,7 +3617,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CaptionSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CaptionSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3624,7 +3626,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelEgressEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelEgressEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3633,7 +3635,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3642,7 +3644,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailoverCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailoverCondition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3660,7 +3662,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Input.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Input.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3669,7 +3671,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputAttachment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3678,7 +3680,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputChannelLevel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputChannelLevel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3687,7 +3689,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3696,7 +3698,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDestinationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDestinationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3705,7 +3707,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDeviceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDeviceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3714,7 +3716,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDeviceSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDeviceSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3723,7 +3725,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputDeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputDeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3732,7 +3734,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3741,7 +3743,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3750,7 +3752,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputSourceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputSourceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3759,7 +3761,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputWhitelistRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputWhitelistRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3768,7 +3770,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputWhitelistRuleCidr.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputWhitelistRuleCidr.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3777,7 +3779,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaConnectFlow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaConnectFlow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3786,7 +3788,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaConnectFlowRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaConnectFlowRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3795,7 +3797,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaPackageOutputDestinationSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaPackageOutputDestinationSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3804,7 +3806,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiplexOutputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiplexOutputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3813,7 +3815,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiplexProgramPipelineDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiplexProgramPipelineDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3822,7 +3824,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiplexProgramSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiplexProgramSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3831,7 +3833,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiplexSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiplexSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3840,7 +3842,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3849,7 +3851,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3858,7 +3860,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3867,7 +3869,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputDestinationSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputDestinationSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3876,7 +3878,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3885,7 +3887,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PipelineDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PipelineDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3894,7 +3896,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PipelinePauseStateSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PipelinePauseStateSettings.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3903,7 +3905,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Reservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Reservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3921,7 +3923,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduleAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduleAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3930,7 +3932,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Scte35Descriptor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Scte35Descriptor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3939,7 +3941,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransferringInputDeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransferringInputDeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3948,7 +3950,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3957,7 +3959,7 @@ module AWS::SDK::MediaLive
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VideoDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VideoDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

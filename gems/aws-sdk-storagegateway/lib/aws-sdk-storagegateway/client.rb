@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::StorageGateway
@@ -214,7 +216,7 @@ module AWS::SDK::StorageGateway
     def activate_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateGatewayInput,
         validate_input: @config.validate_input
@@ -296,7 +298,7 @@ module AWS::SDK::StorageGateway
     def add_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddCacheInput,
         validate_input: @config.validate_input
@@ -406,7 +408,7 @@ module AWS::SDK::StorageGateway
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -490,7 +492,7 @@ module AWS::SDK::StorageGateway
     def add_upload_buffer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddUploadBufferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddUploadBufferInput,
         validate_input: @config.validate_input
@@ -580,7 +582,7 @@ module AWS::SDK::StorageGateway
     def add_working_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddWorkingStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddWorkingStorageInput,
         validate_input: @config.validate_input
@@ -672,7 +674,7 @@ module AWS::SDK::StorageGateway
     def assign_tape_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssignTapePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssignTapePoolInput,
         validate_input: @config.validate_input
@@ -798,7 +800,7 @@ module AWS::SDK::StorageGateway
     def associate_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateFileSystemInput,
         validate_input: @config.validate_input
@@ -901,7 +903,7 @@ module AWS::SDK::StorageGateway
     def attach_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachVolumeInput,
         validate_input: @config.validate_input
@@ -977,7 +979,7 @@ module AWS::SDK::StorageGateway
     def cancel_archival(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelArchivalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelArchivalInput,
         validate_input: @config.validate_input
@@ -1054,7 +1056,7 @@ module AWS::SDK::StorageGateway
     def cancel_retrieval(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelRetrievalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelRetrievalInput,
         validate_input: @config.validate_input
@@ -1215,7 +1217,7 @@ module AWS::SDK::StorageGateway
     def create_cachedi_scsi_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCachediSCSIVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCachediSCSIVolumeInput,
         validate_input: @config.validate_input
@@ -1521,7 +1523,7 @@ module AWS::SDK::StorageGateway
     def create_nfs_file_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNFSFileShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNFSFileShareInput,
         validate_input: @config.validate_input
@@ -1862,7 +1864,7 @@ module AWS::SDK::StorageGateway
     def create_smb_file_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSMBFileShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSMBFileShareInput,
         validate_input: @config.validate_input
@@ -1984,7 +1986,7 @@ module AWS::SDK::StorageGateway
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -2100,7 +2102,7 @@ module AWS::SDK::StorageGateway
     def create_snapshot_from_volume_recovery_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotFromVolumeRecoveryPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotFromVolumeRecoveryPointInput,
         validate_input: @config.validate_input
@@ -2254,7 +2256,7 @@ module AWS::SDK::StorageGateway
     def create_storedi_scsi_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStorediSCSIVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStorediSCSIVolumeInput,
         validate_input: @config.validate_input
@@ -2359,7 +2361,7 @@ module AWS::SDK::StorageGateway
     def create_tape_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTapePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTapePoolInput,
         validate_input: @config.validate_input
@@ -2498,7 +2500,7 @@ module AWS::SDK::StorageGateway
     def create_tape_with_barcode(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTapeWithBarcodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTapeWithBarcodeInput,
         validate_input: @config.validate_input
@@ -2651,7 +2653,7 @@ module AWS::SDK::StorageGateway
     def create_tapes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTapesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTapesInput,
         validate_input: @config.validate_input
@@ -2723,7 +2725,7 @@ module AWS::SDK::StorageGateway
     def delete_automatic_tape_creation_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAutomaticTapeCreationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAutomaticTapeCreationPolicyInput,
         validate_input: @config.validate_input
@@ -2805,7 +2807,7 @@ module AWS::SDK::StorageGateway
     def delete_bandwidth_rate_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBandwidthRateLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBandwidthRateLimitInput,
         validate_input: @config.validate_input
@@ -2882,7 +2884,7 @@ module AWS::SDK::StorageGateway
     def delete_chap_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChapCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChapCredentialsInput,
         validate_input: @config.validate_input
@@ -2962,7 +2964,7 @@ module AWS::SDK::StorageGateway
     def delete_file_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFileShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFileShareInput,
         validate_input: @config.validate_input
@@ -3049,7 +3051,7 @@ module AWS::SDK::StorageGateway
     def delete_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGatewayInput,
         validate_input: @config.validate_input
@@ -3132,7 +3134,7 @@ module AWS::SDK::StorageGateway
     def delete_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -3215,7 +3217,7 @@ module AWS::SDK::StorageGateway
     def delete_tape(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTapeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTapeInput,
         validate_input: @config.validate_input
@@ -3293,7 +3295,7 @@ module AWS::SDK::StorageGateway
     def delete_tape_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTapeArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTapeArchiveInput,
         validate_input: @config.validate_input
@@ -3364,7 +3366,7 @@ module AWS::SDK::StorageGateway
     def delete_tape_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTapePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTapePoolInput,
         validate_input: @config.validate_input
@@ -3446,7 +3448,7 @@ module AWS::SDK::StorageGateway
     def delete_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVolumeInput,
         validate_input: @config.validate_input
@@ -3520,7 +3522,7 @@ module AWS::SDK::StorageGateway
     def describe_availability_monitor_test(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAvailabilityMonitorTestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAvailabilityMonitorTestInput,
         validate_input: @config.validate_input
@@ -3600,7 +3602,7 @@ module AWS::SDK::StorageGateway
     def describe_bandwidth_rate_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBandwidthRateLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBandwidthRateLimitInput,
         validate_input: @config.validate_input
@@ -3696,7 +3698,7 @@ module AWS::SDK::StorageGateway
     def describe_bandwidth_rate_limit_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBandwidthRateLimitScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBandwidthRateLimitScheduleInput,
         validate_input: @config.validate_input
@@ -3777,7 +3779,7 @@ module AWS::SDK::StorageGateway
     def describe_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCacheInput,
         validate_input: @config.validate_input
@@ -3873,7 +3875,7 @@ module AWS::SDK::StorageGateway
     def describe_cachedi_scsi_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCachediSCSIVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCachediSCSIVolumesInput,
         validate_input: @config.validate_input
@@ -3950,7 +3952,7 @@ module AWS::SDK::StorageGateway
     def describe_chap_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChapCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChapCredentialsInput,
         validate_input: @config.validate_input
@@ -4041,7 +4043,7 @@ module AWS::SDK::StorageGateway
     def describe_file_system_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFileSystemAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFileSystemAssociationsInput,
         validate_input: @config.validate_input
@@ -4141,7 +4143,7 @@ module AWS::SDK::StorageGateway
     def describe_gateway_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGatewayInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGatewayInformationInput,
         validate_input: @config.validate_input
@@ -4217,7 +4219,7 @@ module AWS::SDK::StorageGateway
     def describe_maintenance_start_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMaintenanceStartTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMaintenanceStartTimeInput,
         validate_input: @config.validate_input
@@ -4324,7 +4326,7 @@ module AWS::SDK::StorageGateway
     def describe_nfs_file_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNFSFileSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNFSFileSharesInput,
         validate_input: @config.validate_input
@@ -4432,7 +4434,7 @@ module AWS::SDK::StorageGateway
     def describe_smb_file_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSMBFileSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSMBFileSharesInput,
         validate_input: @config.validate_input
@@ -4511,7 +4513,7 @@ module AWS::SDK::StorageGateway
     def describe_smb_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSMBSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSMBSettingsInput,
         validate_input: @config.validate_input
@@ -4592,7 +4594,7 @@ module AWS::SDK::StorageGateway
     def describe_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -4687,7 +4689,7 @@ module AWS::SDK::StorageGateway
     def describe_storedi_scsi_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStorediSCSIVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStorediSCSIVolumesInput,
         validate_input: @config.validate_input
@@ -4788,7 +4790,7 @@ module AWS::SDK::StorageGateway
     def describe_tape_archives(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTapeArchivesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTapeArchivesInput,
         validate_input: @config.validate_input
@@ -4881,7 +4883,7 @@ module AWS::SDK::StorageGateway
     def describe_tape_recovery_points(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTapeRecoveryPointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTapeRecoveryPointsInput,
         validate_input: @config.validate_input
@@ -4993,7 +4995,7 @@ module AWS::SDK::StorageGateway
     def describe_tapes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTapesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTapesInput,
         validate_input: @config.validate_input
@@ -5071,7 +5073,7 @@ module AWS::SDK::StorageGateway
     def describe_upload_buffer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUploadBufferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUploadBufferInput,
         validate_input: @config.validate_input
@@ -5178,7 +5180,7 @@ module AWS::SDK::StorageGateway
     def describe_vtl_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVTLDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVTLDevicesInput,
         validate_input: @config.validate_input
@@ -5262,7 +5264,7 @@ module AWS::SDK::StorageGateway
     def describe_working_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkingStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkingStorageInput,
         validate_input: @config.validate_input
@@ -5345,7 +5347,7 @@ module AWS::SDK::StorageGateway
     def detach_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachVolumeInput,
         validate_input: @config.validate_input
@@ -5423,7 +5425,7 @@ module AWS::SDK::StorageGateway
     def disable_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableGatewayInput,
         validate_input: @config.validate_input
@@ -5501,7 +5503,7 @@ module AWS::SDK::StorageGateway
     def disassociate_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFileSystemInput,
         validate_input: @config.validate_input
@@ -5608,7 +5610,7 @@ module AWS::SDK::StorageGateway
     def join_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::JoinDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::JoinDomainInput,
         validate_input: @config.validate_input
@@ -5690,7 +5692,7 @@ module AWS::SDK::StorageGateway
     def list_automatic_tape_creation_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAutomaticTapeCreationPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAutomaticTapeCreationPoliciesInput,
         validate_input: @config.validate_input
@@ -5781,7 +5783,7 @@ module AWS::SDK::StorageGateway
     def list_file_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFileSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFileSharesInput,
         validate_input: @config.validate_input
@@ -5871,7 +5873,7 @@ module AWS::SDK::StorageGateway
     def list_file_system_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFileSystemAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFileSystemAssociationsInput,
         validate_input: @config.validate_input
@@ -5967,7 +5969,7 @@ module AWS::SDK::StorageGateway
     def list_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGatewaysInput,
         validate_input: @config.validate_input
@@ -6056,7 +6058,7 @@ module AWS::SDK::StorageGateway
     def list_local_disks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLocalDisksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLocalDisksInput,
         validate_input: @config.validate_input
@@ -6141,7 +6143,7 @@ module AWS::SDK::StorageGateway
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6238,7 +6240,7 @@ module AWS::SDK::StorageGateway
     def list_tape_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTapePoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTapePoolsInput,
         validate_input: @config.validate_input
@@ -6339,7 +6341,7 @@ module AWS::SDK::StorageGateway
     def list_tapes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTapesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTapesInput,
         validate_input: @config.validate_input
@@ -6412,7 +6414,7 @@ module AWS::SDK::StorageGateway
     def list_volume_initiators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVolumeInitiatorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVolumeInitiatorsInput,
         validate_input: @config.validate_input
@@ -6494,7 +6496,7 @@ module AWS::SDK::StorageGateway
     def list_volume_recovery_points(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVolumeRecoveryPointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVolumeRecoveryPointsInput,
         validate_input: @config.validate_input
@@ -6593,7 +6595,7 @@ module AWS::SDK::StorageGateway
     def list_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVolumesInput,
         validate_input: @config.validate_input
@@ -6675,7 +6677,7 @@ module AWS::SDK::StorageGateway
     def notify_when_uploaded(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyWhenUploadedInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyWhenUploadedInput,
         validate_input: @config.validate_input
@@ -6815,7 +6817,7 @@ module AWS::SDK::StorageGateway
     def refresh_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RefreshCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RefreshCacheInput,
         validate_input: @config.validate_input
@@ -6892,7 +6894,7 @@ module AWS::SDK::StorageGateway
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -6974,7 +6976,7 @@ module AWS::SDK::StorageGateway
     def reset_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetCacheInput,
         validate_input: @config.validate_input
@@ -7060,7 +7062,7 @@ module AWS::SDK::StorageGateway
     def retrieve_tape_archive(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetrieveTapeArchiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetrieveTapeArchiveInput,
         validate_input: @config.validate_input
@@ -7146,7 +7148,7 @@ module AWS::SDK::StorageGateway
     def retrieve_tape_recovery_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetrieveTapeRecoveryPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetrieveTapeRecoveryPointInput,
         validate_input: @config.validate_input
@@ -7223,7 +7225,7 @@ module AWS::SDK::StorageGateway
     def set_local_console_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetLocalConsolePasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetLocalConsolePasswordInput,
         validate_input: @config.validate_input
@@ -7299,7 +7301,7 @@ module AWS::SDK::StorageGateway
     def set_smb_guest_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSMBGuestPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSMBGuestPasswordInput,
         validate_input: @config.validate_input
@@ -7392,7 +7394,7 @@ module AWS::SDK::StorageGateway
     def shutdown_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ShutdownGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ShutdownGatewayInput,
         validate_input: @config.validate_input
@@ -7469,7 +7471,7 @@ module AWS::SDK::StorageGateway
     def start_availability_monitor_test(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAvailabilityMonitorTestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAvailabilityMonitorTestInput,
         validate_input: @config.validate_input
@@ -7551,7 +7553,7 @@ module AWS::SDK::StorageGateway
     def start_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartGatewayInput,
         validate_input: @config.validate_input
@@ -7642,7 +7644,7 @@ module AWS::SDK::StorageGateway
     def update_automatic_tape_creation_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAutomaticTapeCreationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAutomaticTapeCreationPolicyInput,
         validate_input: @config.validate_input
@@ -7731,7 +7733,7 @@ module AWS::SDK::StorageGateway
     def update_bandwidth_rate_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBandwidthRateLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBandwidthRateLimitInput,
         validate_input: @config.validate_input
@@ -7822,7 +7824,7 @@ module AWS::SDK::StorageGateway
     def update_bandwidth_rate_limit_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBandwidthRateLimitScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBandwidthRateLimitScheduleInput,
         validate_input: @config.validate_input
@@ -7925,7 +7927,7 @@ module AWS::SDK::StorageGateway
     def update_chap_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChapCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChapCredentialsInput,
         validate_input: @config.validate_input
@@ -8016,7 +8018,7 @@ module AWS::SDK::StorageGateway
     def update_file_system_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFileSystemAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFileSystemAssociationInput,
         validate_input: @config.validate_input
@@ -8116,7 +8118,7 @@ module AWS::SDK::StorageGateway
     def update_gateway_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewayInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewayInformationInput,
         validate_input: @config.validate_input
@@ -8201,7 +8203,7 @@ module AWS::SDK::StorageGateway
     def update_gateway_software_now(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGatewaySoftwareNowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGatewaySoftwareNowInput,
         validate_input: @config.validate_input
@@ -8295,7 +8297,7 @@ module AWS::SDK::StorageGateway
     def update_maintenance_start_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMaintenanceStartTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMaintenanceStartTimeInput,
         validate_input: @config.validate_input
@@ -8536,7 +8538,7 @@ module AWS::SDK::StorageGateway
     def update_nfs_file_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNFSFileShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNFSFileShareInput,
         validate_input: @config.validate_input
@@ -8794,7 +8796,7 @@ module AWS::SDK::StorageGateway
     def update_smb_file_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSMBFileShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSMBFileShareInput,
         validate_input: @config.validate_input
@@ -8869,7 +8871,7 @@ module AWS::SDK::StorageGateway
     def update_smb_file_share_visibility(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSMBFileShareVisibilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSMBFileShareVisibilityInput,
         validate_input: @config.validate_input
@@ -8949,7 +8951,7 @@ module AWS::SDK::StorageGateway
     def update_smb_local_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSMBLocalGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSMBLocalGroupsInput,
         validate_input: @config.validate_input
@@ -9044,7 +9046,7 @@ module AWS::SDK::StorageGateway
     def update_smb_security_strategy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSMBSecurityStrategyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSMBSecurityStrategyInput,
         validate_input: @config.validate_input
@@ -9154,7 +9156,7 @@ module AWS::SDK::StorageGateway
     def update_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -9234,7 +9236,7 @@ module AWS::SDK::StorageGateway
     def update_vtl_device_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVTLDeviceTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVTLDeviceTypeInput,
         validate_input: @config.validate_input

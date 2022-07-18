@@ -14,7 +14,7 @@ module AWS::SDK::RDSData
     class BatchExecuteStatement
       def self.default(visited=[])
         {
-          update_results: Stubs::UpdateResults.default(visited),
+          update_results: UpdateResults.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('UpdateResults')
         visited = visited + ['UpdateResults']
         [
-          Stubs::UpdateResult.default(visited)
+          UpdateResult.default(visited)
         ]
       end
 
@@ -53,7 +53,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('UpdateResult')
         visited = visited + ['UpdateResult']
         {
-          generated_fields: Stubs::FieldList.default(visited),
+          generated_fields: FieldList.default(visited),
         }
       end
 
@@ -71,7 +71,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('FieldList')
         visited = visited + ['FieldList']
         [
-          Stubs::Field.default(visited)
+          Field.default(visited)
         ]
       end
 
@@ -127,7 +127,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('ArrayValue')
         visited = visited + ['ArrayValue']
         {
-          boolean_values: Stubs::BooleanArray.default(visited),
+          boolean_values: BooleanArray.default(visited),
         }
       end
 
@@ -159,7 +159,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('ArrayOfArray')
         visited = visited + ['ArrayOfArray']
         [
-          Stubs::ArrayValue.default(visited)
+          ArrayValue.default(visited)
         ]
       end
 
@@ -291,7 +291,7 @@ module AWS::SDK::RDSData
     class ExecuteSql
       def self.default(visited=[])
         {
-          sql_statement_results: Stubs::SqlStatementResults.default(visited),
+          sql_statement_results: SqlStatementResults.default(visited),
         }
       end
 
@@ -310,7 +310,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('SqlStatementResults')
         visited = visited + ['SqlStatementResults']
         [
-          Stubs::SqlStatementResult.default(visited)
+          SqlStatementResult.default(visited)
         ]
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('SqlStatementResult')
         visited = visited + ['SqlStatementResult']
         {
-          result_frame: Stubs::ResultFrame.default(visited),
+          result_frame: ResultFrame.default(visited),
           number_of_records_updated: 1,
         }
       end
@@ -350,8 +350,8 @@ module AWS::SDK::RDSData
         return nil if visited.include?('ResultFrame')
         visited = visited + ['ResultFrame']
         {
-          result_set_metadata: Stubs::ResultSetMetadata.default(visited),
-          records: Stubs::Records.default(visited),
+          result_set_metadata: ResultSetMetadata.default(visited),
+          records: Records.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('Records')
         visited = visited + ['Records']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -390,7 +390,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('Record')
         visited = visited + ['Record']
         {
-          values: Stubs::Row.default(visited),
+          values: Row.default(visited),
         }
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('Row')
         visited = visited + ['Row']
         [
-          Stubs::Value.default(visited)
+          Value.default(visited)
         ]
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('StructValue')
         visited = visited + ['StructValue']
         {
-          attributes: Stubs::ArrayValueList.default(visited),
+          attributes: ArrayValueList.default(visited),
         }
       end
 
@@ -488,7 +488,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('ArrayValueList')
         visited = visited + ['ArrayValueList']
         [
-          Stubs::Value.default(visited)
+          Value.default(visited)
         ]
       end
 
@@ -509,7 +509,7 @@ module AWS::SDK::RDSData
         visited = visited + ['ResultSetMetadata']
         {
           column_count: 1,
-          column_metadata: Stubs::Metadata.default(visited),
+          column_metadata: Metadata.default(visited),
         }
       end
 
@@ -528,7 +528,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('Metadata')
         visited = visited + ['Metadata']
         [
-          Stubs::ColumnMetadata.default(visited)
+          ColumnMetadata.default(visited)
         ]
       end
 
@@ -590,10 +590,10 @@ module AWS::SDK::RDSData
     class ExecuteStatement
       def self.default(visited=[])
         {
-          records: Stubs::SqlRecords.default(visited),
-          column_metadata: Stubs::Metadata.default(visited),
+          records: SqlRecords.default(visited),
+          column_metadata: Metadata.default(visited),
           number_of_records_updated: 1,
-          generated_fields: Stubs::FieldList.default(visited),
+          generated_fields: FieldList.default(visited),
           formatted_records: 'formatted_records',
         }
       end
@@ -617,7 +617,7 @@ module AWS::SDK::RDSData
         return nil if visited.include?('SqlRecords')
         visited = visited + ['SqlRecords']
         [
-          Stubs::FieldList.default(visited)
+          FieldList.default(visited)
         ]
       end
 

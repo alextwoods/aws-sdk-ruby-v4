@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ServiceDiscovery
   module Validators
 
@@ -26,7 +28,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -44,8 +46,8 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:vpc], ::String, context: "#{context}[:vpc]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::PrivateDnsNamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PrivateDnsNamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -62,8 +64,8 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::PublicDnsNamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PublicDnsNamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -81,10 +83,10 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
-        Validators::HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -92,7 +94,7 @@ module AWS::SDK::ServiceDiscovery
     class CreateServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -151,8 +153,8 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:namespace_name], ::String, context: "#{context}[:namespace_name]")
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Attributes.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
-        Validators::Attributes.validate!(input[:optional_parameters], context: "#{context}[:optional_parameters]") unless input[:optional_parameters].nil?
+        Attributes.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
+        Attributes.validate!(input[:optional_parameters], context: "#{context}[:optional_parameters]") unless input[:optional_parameters].nil?
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::ServiceDiscovery
     class DiscoverInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DiscoverInstancesOutput, context: context)
-        Validators::HttpInstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        HttpInstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
       end
     end
 
@@ -169,14 +171,14 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::DnsConfig, context: context)
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
         Hearth::Validator.validate!(input[:routing_policy], ::String, context: "#{context}[:routing_policy]")
-        Validators::DnsRecordList.validate!(input[:dns_records], context: "#{context}[:dns_records]") unless input[:dns_records].nil?
+        DnsRecordList.validate!(input[:dns_records], context: "#{context}[:dns_records]") unless input[:dns_records].nil?
       end
     end
 
     class DnsConfigChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DnsConfigChange, context: context)
-        Validators::DnsRecordList.validate!(input[:dns_records], context: "#{context}[:dns_records]") unless input[:dns_records].nil?
+        DnsRecordList.validate!(input[:dns_records], context: "#{context}[:dns_records]") unless input[:dns_records].nil?
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DnsProperties, context: context)
         Hearth::Validator.validate!(input[:hosted_zone_id], ::String, context: "#{context}[:hosted_zone_id]")
-        Validators::SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
+        SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DnsRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DnsRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::ServiceDiscovery
     class GetInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceOutput, context: context)
-        Validators::Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
+        Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstancesHealthStatusInput, context: context)
         Hearth::Validator.validate!(input[:service_id], ::String, context: "#{context}[:service_id]")
-        Validators::InstanceIdList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceIdList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -250,7 +252,7 @@ module AWS::SDK::ServiceDiscovery
     class GetInstancesHealthStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstancesHealthStatusOutput, context: context)
-        Validators::InstanceHealthStatusMap.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        InstanceHealthStatusMap.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::ServiceDiscovery
     class GetNamespaceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNamespaceOutput, context: context)
-        Validators::Namespace.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
+        Namespace.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::ServiceDiscovery
     class GetOperationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOperationOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::ServiceDiscovery
     class GetServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceOutput, context: context)
-        Validators::Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        Service.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:namespace_name], ::String, context: "#{context}[:namespace_name]")
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
         Hearth::Validator.validate!(input[:health_status], ::String, context: "#{context}[:health_status]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpInstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -352,7 +354,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::Instance, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -386,7 +388,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::ServiceDiscovery
     class ListInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstancesOutput, context: context)
-        Validators::InstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -428,14 +430,14 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::ListNamespacesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::NamespaceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        NamespaceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListNamespacesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNamespacesOutput, context: context)
-        Validators::NamespaceSummariesList.validate!(input[:namespaces], context: "#{context}[:namespaces]") unless input[:namespaces].nil?
+        NamespaceSummariesList.validate!(input[:namespaces], context: "#{context}[:namespaces]") unless input[:namespaces].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -445,14 +447,14 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::ListOperationsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::OperationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        OperationFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListOperationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOperationsOutput, context: context)
-        Validators::OperationSummaryList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationSummaryList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -462,14 +464,14 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::ListServicesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ServiceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ServiceFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicesOutput, context: context)
-        Validators::ServiceSummariesList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
+        ServiceSummariesList.validate!(input[:services], context: "#{context}[:services]") unless input[:services].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -484,7 +486,7 @@ module AWS::SDK::ServiceDiscovery
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -497,7 +499,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:service_count], ::Integer, context: "#{context}[:service_count]")
-        Validators::NamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        NamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
       end
@@ -516,7 +518,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NamespaceFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:condition], ::String, context: "#{context}[:condition]")
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NamespaceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NamespaceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -540,8 +542,8 @@ module AWS::SDK::ServiceDiscovery
     class NamespaceProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NamespaceProperties, context: context)
-        Validators::DnsProperties.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
-        Validators::HttpProperties.validate!(input[:http_properties], context: "#{context}[:http_properties]") unless input[:http_properties].nil?
+        DnsProperties.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
+        HttpProperties.validate!(input[:http_properties], context: "#{context}[:http_properties]") unless input[:http_properties].nil?
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NamespaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NamespaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:service_count], ::Integer, context: "#{context}[:service_count]")
-        Validators::NamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        NamespaceProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
       end
     end
@@ -578,7 +580,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:update_date], ::Time, context: "#{context}[:update_date]")
-        Validators::OperationTargetsMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        OperationTargetsMap.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OperationFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:condition], ::String, context: "#{context}[:condition]")
       end
     end
@@ -595,7 +597,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OperationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OperationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -619,7 +621,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OperationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -638,35 +640,35 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateDnsNamespaceChange, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PrivateDnsNamespacePropertiesChange.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        PrivateDnsNamespacePropertiesChange.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
     class PrivateDnsNamespaceProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateDnsNamespaceProperties, context: context)
-        Validators::PrivateDnsPropertiesMutable.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
+        PrivateDnsPropertiesMutable.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
       end
     end
 
     class PrivateDnsNamespacePropertiesChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateDnsNamespacePropertiesChange, context: context)
-        Validators::PrivateDnsPropertiesMutableChange.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
+        PrivateDnsPropertiesMutableChange.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
       end
     end
 
     class PrivateDnsPropertiesMutable
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateDnsPropertiesMutable, context: context)
-        Validators::SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
+        SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
       end
     end
 
     class PrivateDnsPropertiesMutableChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateDnsPropertiesMutableChange, context: context)
-        Validators::SOAChange.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
+        SOAChange.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
       end
     end
 
@@ -674,35 +676,35 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicDnsNamespaceChange, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PublicDnsNamespacePropertiesChange.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        PublicDnsNamespacePropertiesChange.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
     class PublicDnsNamespaceProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicDnsNamespaceProperties, context: context)
-        Validators::PublicDnsPropertiesMutable.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
+        PublicDnsPropertiesMutable.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
       end
     end
 
     class PublicDnsNamespacePropertiesChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicDnsNamespacePropertiesChange, context: context)
-        Validators::PublicDnsPropertiesMutableChange.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
+        PublicDnsPropertiesMutableChange.validate!(input[:dns_properties], context: "#{context}[:dns_properties]") unless input[:dns_properties].nil?
       end
     end
 
     class PublicDnsPropertiesMutable
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicDnsPropertiesMutable, context: context)
-        Validators::SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
+        SOA.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
       end
     end
 
     class PublicDnsPropertiesMutableChange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicDnsPropertiesMutableChange, context: context)
-        Validators::SOAChange.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
+        SOAChange.validate!(input[:soa], context: "#{context}[:soa]") unless input[:soa].nil?
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:service_id], ::String, context: "#{context}[:service_id]")
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -774,10 +776,10 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
+        DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
-        Validators::HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
       end
@@ -796,8 +798,8 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceChange, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DnsConfigChange.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        DnsConfigChange.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
       end
     end
 
@@ -805,7 +807,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:condition], ::String, context: "#{context}[:condition]")
       end
     end
@@ -814,7 +816,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -830,7 +832,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -844,9 +846,9 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
-        Validators::HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
-        Validators::HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
+        DnsConfig.validate!(input[:dns_config], context: "#{context}[:dns_config]") unless input[:dns_config].nil?
+        HealthCheckConfig.validate!(input[:health_check_config], context: "#{context}[:health_check_config]") unless input[:health_check_config].nil?
+        HealthCheckCustomConfig.validate!(input[:health_check_custom_config], context: "#{context}[:health_check_custom_config]") unless input[:health_check_custom_config].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -918,7 +920,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::UpdateHttpNamespaceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updater_request_id], ::String, context: "#{context}[:updater_request_id]")
-        Validators::HttpNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
+        HttpNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::UpdatePrivateDnsNamespaceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updater_request_id], ::String, context: "#{context}[:updater_request_id]")
-        Validators::PrivateDnsNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
+        PrivateDnsNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
       end
     end
 
@@ -965,7 +967,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(input, Types::UpdatePublicDnsNamespaceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updater_request_id], ::String, context: "#{context}[:updater_request_id]")
-        Validators::PublicDnsNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
+        PublicDnsNamespaceChange.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
       end
     end
 
@@ -980,7 +982,7 @@ module AWS::SDK::ServiceDiscovery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateServiceInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ServiceChange.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
+        ServiceChange.validate!(input[:service], context: "#{context}[:service]") unless input[:service].nil?
       end
     end
 

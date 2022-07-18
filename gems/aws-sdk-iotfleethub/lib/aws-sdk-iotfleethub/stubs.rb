@@ -57,7 +57,7 @@ module AWS::SDK::IoTFleetHub
           role_arn: 'role_arn',
           sso_client_id: 'sso_client_id',
           error_message: 'error_message',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -105,7 +105,7 @@ module AWS::SDK::IoTFleetHub
     class ListApplications
       def self.default(visited=[])
         {
-          application_summaries: Stubs::ApplicationSummaries.default(visited),
+          application_summaries: ApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -126,7 +126,7 @@ module AWS::SDK::IoTFleetHub
         return nil if visited.include?('ApplicationSummaries')
         visited = visited + ['ApplicationSummaries']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -174,7 +174,7 @@ module AWS::SDK::IoTFleetHub
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

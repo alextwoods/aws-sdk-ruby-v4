@@ -93,7 +93,7 @@ module AWS::SDK::CloudDirectory
     class AttachTypedLink
       def self.default(visited=[])
         {
-          typed_link_specifier: Stubs::TypedLinkSpecifier.default(visited),
+          typed_link_specifier: TypedLinkSpecifier.default(visited),
         }
       end
 
@@ -112,10 +112,10 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('TypedLinkSpecifier')
         visited = visited + ['TypedLinkSpecifier']
         {
-          typed_link_facet: Stubs::TypedLinkSchemaAndFacetName.default(visited),
-          source_object_reference: Stubs::ObjectReference.default(visited),
-          target_object_reference: Stubs::ObjectReference.default(visited),
-          identity_attribute_values: Stubs::AttributeNameAndValueList.default(visited),
+          typed_link_facet: TypedLinkSchemaAndFacetName.default(visited),
+          source_object_reference: ObjectReference.default(visited),
+          target_object_reference: ObjectReference.default(visited),
+          identity_attribute_values: AttributeNameAndValueList.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('AttributeNameAndValueList')
         visited = visited + ['AttributeNameAndValueList']
         [
-          Stubs::AttributeNameAndValue.default(visited)
+          AttributeNameAndValue.default(visited)
         ]
       end
 
@@ -157,7 +157,7 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['AttributeNameAndValue']
         {
           attribute_name: 'attribute_name',
-          value: Stubs::TypedAttributeValue.default(visited),
+          value: TypedAttributeValue.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::CloudDirectory
     class BatchRead
       def self.default(visited=[])
         {
-          responses: Stubs::BatchReadOperationResponseList.default(visited),
+          responses: BatchReadOperationResponseList.default(visited),
         }
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchReadOperationResponseList')
         visited = visited + ['BatchReadOperationResponseList']
         [
-          Stubs::BatchReadOperationResponse.default(visited)
+          BatchReadOperationResponse.default(visited)
         ]
       end
 
@@ -283,8 +283,8 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchReadOperationResponse')
         visited = visited + ['BatchReadOperationResponse']
         {
-          successful_response: Stubs::BatchReadSuccessfulResponse.default(visited),
-          exception_response: Stubs::BatchReadException.default(visited),
+          successful_response: BatchReadSuccessfulResponse.default(visited),
+          exception_response: BatchReadException.default(visited),
         }
       end
 
@@ -323,20 +323,20 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchReadSuccessfulResponse')
         visited = visited + ['BatchReadSuccessfulResponse']
         {
-          list_object_attributes: Stubs::BatchListObjectAttributesResponse.default(visited),
-          list_object_children: Stubs::BatchListObjectChildrenResponse.default(visited),
-          get_object_information: Stubs::BatchGetObjectInformationResponse.default(visited),
-          get_object_attributes: Stubs::BatchGetObjectAttributesResponse.default(visited),
-          list_attached_indices: Stubs::BatchListAttachedIndicesResponse.default(visited),
-          list_object_parent_paths: Stubs::BatchListObjectParentPathsResponse.default(visited),
-          list_object_policies: Stubs::BatchListObjectPoliciesResponse.default(visited),
-          list_policy_attachments: Stubs::BatchListPolicyAttachmentsResponse.default(visited),
-          lookup_policy: Stubs::BatchLookupPolicyResponse.default(visited),
-          list_index: Stubs::BatchListIndexResponse.default(visited),
-          list_outgoing_typed_links: Stubs::BatchListOutgoingTypedLinksResponse.default(visited),
-          list_incoming_typed_links: Stubs::BatchListIncomingTypedLinksResponse.default(visited),
-          get_link_attributes: Stubs::BatchGetLinkAttributesResponse.default(visited),
-          list_object_parents: Stubs::BatchListObjectParentsResponse.default(visited),
+          list_object_attributes: BatchListObjectAttributesResponse.default(visited),
+          list_object_children: BatchListObjectChildrenResponse.default(visited),
+          get_object_information: BatchGetObjectInformationResponse.default(visited),
+          get_object_attributes: BatchGetObjectAttributesResponse.default(visited),
+          list_attached_indices: BatchListAttachedIndicesResponse.default(visited),
+          list_object_parent_paths: BatchListObjectParentPathsResponse.default(visited),
+          list_object_policies: BatchListObjectPoliciesResponse.default(visited),
+          list_policy_attachments: BatchListPolicyAttachmentsResponse.default(visited),
+          lookup_policy: BatchLookupPolicyResponse.default(visited),
+          list_index: BatchListIndexResponse.default(visited),
+          list_outgoing_typed_links: BatchListOutgoingTypedLinksResponse.default(visited),
+          list_incoming_typed_links: BatchListIncomingTypedLinksResponse.default(visited),
+          get_link_attributes: BatchGetLinkAttributesResponse.default(visited),
+          list_object_parents: BatchListObjectParentsResponse.default(visited),
         }
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListObjectParentsResponse')
         visited = visited + ['BatchListObjectParentsResponse']
         {
-          parent_links: Stubs::ObjectIdentifierAndLinkNameList.default(visited),
+          parent_links: ObjectIdentifierAndLinkNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -387,7 +387,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('ObjectIdentifierAndLinkNameList')
         visited = visited + ['ObjectIdentifierAndLinkNameList']
         [
-          Stubs::ObjectIdentifierAndLinkNameTuple.default(visited)
+          ObjectIdentifierAndLinkNameTuple.default(visited)
         ]
       end
 
@@ -427,7 +427,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchGetLinkAttributesResponse')
         visited = visited + ['BatchGetLinkAttributesResponse']
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
         }
       end
 
@@ -445,7 +445,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('AttributeKeyAndValueList')
         visited = visited + ['AttributeKeyAndValueList']
         [
-          Stubs::AttributeKeyAndValue.default(visited)
+          AttributeKeyAndValue.default(visited)
         ]
       end
 
@@ -465,8 +465,8 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('AttributeKeyAndValue')
         visited = visited + ['AttributeKeyAndValue']
         {
-          key: Stubs::AttributeKey.default(visited),
-          value: Stubs::TypedAttributeValue.default(visited),
+          key: AttributeKey.default(visited),
+          value: TypedAttributeValue.default(visited),
         }
       end
 
@@ -507,7 +507,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListIncomingTypedLinksResponse')
         visited = visited + ['BatchListIncomingTypedLinksResponse']
         {
-          link_specifiers: Stubs::TypedLinkSpecifierList.default(visited),
+          link_specifiers: TypedLinkSpecifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -527,7 +527,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('TypedLinkSpecifierList')
         visited = visited + ['TypedLinkSpecifierList']
         [
-          Stubs::TypedLinkSpecifier.default(visited)
+          TypedLinkSpecifier.default(visited)
         ]
       end
 
@@ -547,7 +547,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListOutgoingTypedLinksResponse')
         visited = visited + ['BatchListOutgoingTypedLinksResponse']
         {
-          typed_link_specifiers: Stubs::TypedLinkSpecifierList.default(visited),
+          typed_link_specifiers: TypedLinkSpecifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -567,7 +567,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListIndexResponse')
         visited = visited + ['BatchListIndexResponse']
         {
-          index_attachments: Stubs::IndexAttachmentList.default(visited),
+          index_attachments: IndexAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -587,7 +587,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('IndexAttachmentList')
         visited = visited + ['IndexAttachmentList']
         [
-          Stubs::IndexAttachment.default(visited)
+          IndexAttachment.default(visited)
         ]
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('IndexAttachment')
         visited = visited + ['IndexAttachment']
         {
-          indexed_attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          indexed_attributes: AttributeKeyAndValueList.default(visited),
           object_identifier: 'object_identifier',
         }
       end
@@ -627,7 +627,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchLookupPolicyResponse')
         visited = visited + ['BatchLookupPolicyResponse']
         {
-          policy_to_path_list: Stubs::PolicyToPathList.default(visited),
+          policy_to_path_list: PolicyToPathList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -647,7 +647,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('PolicyToPathList')
         visited = visited + ['PolicyToPathList']
         [
-          Stubs::PolicyToPath.default(visited)
+          PolicyToPath.default(visited)
         ]
       end
 
@@ -668,7 +668,7 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['PolicyToPath']
         {
           path: 'path',
-          policies: Stubs::PolicyAttachmentList.default(visited),
+          policies: PolicyAttachmentList.default(visited),
         }
       end
 
@@ -687,7 +687,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('PolicyAttachmentList')
         visited = visited + ['PolicyAttachmentList']
         [
-          Stubs::PolicyAttachment.default(visited)
+          PolicyAttachment.default(visited)
         ]
       end
 
@@ -729,7 +729,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListPolicyAttachmentsResponse')
         visited = visited + ['BatchListPolicyAttachmentsResponse']
         {
-          object_identifiers: Stubs::ObjectIdentifierList.default(visited),
+          object_identifiers: ObjectIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -769,7 +769,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListObjectPoliciesResponse')
         visited = visited + ['BatchListObjectPoliciesResponse']
         {
-          attached_policy_ids: Stubs::ObjectIdentifierList.default(visited),
+          attached_policy_ids: ObjectIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -789,7 +789,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListObjectParentPathsResponse')
         visited = visited + ['BatchListObjectParentPathsResponse']
         {
-          path_to_object_identifiers_list: Stubs::PathToObjectIdentifiersList.default(visited),
+          path_to_object_identifiers_list: PathToObjectIdentifiersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -809,7 +809,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('PathToObjectIdentifiersList')
         visited = visited + ['PathToObjectIdentifiersList']
         [
-          Stubs::PathToObjectIdentifiers.default(visited)
+          PathToObjectIdentifiers.default(visited)
         ]
       end
 
@@ -830,7 +830,7 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['PathToObjectIdentifiers']
         {
           path: 'path',
-          object_identifiers: Stubs::ObjectIdentifierList.default(visited),
+          object_identifiers: ObjectIdentifierList.default(visited),
         }
       end
 
@@ -849,7 +849,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListAttachedIndicesResponse')
         visited = visited + ['BatchListAttachedIndicesResponse']
         {
-          index_attachments: Stubs::IndexAttachmentList.default(visited),
+          index_attachments: IndexAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -869,7 +869,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchGetObjectAttributesResponse')
         visited = visited + ['BatchGetObjectAttributesResponse']
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
         }
       end
 
@@ -887,7 +887,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchGetObjectInformationResponse')
         visited = visited + ['BatchGetObjectInformationResponse']
         {
-          schema_facets: Stubs::SchemaFacetList.default(visited),
+          schema_facets: SchemaFacetList.default(visited),
           object_identifier: 'object_identifier',
         }
       end
@@ -907,7 +907,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('SchemaFacetList')
         visited = visited + ['SchemaFacetList']
         [
-          Stubs::SchemaFacet.default(visited)
+          SchemaFacet.default(visited)
         ]
       end
 
@@ -947,7 +947,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListObjectChildrenResponse')
         visited = visited + ['BatchListObjectChildrenResponse']
         {
-          children: Stubs::LinkNameToObjectIdentifierMap.default(visited),
+          children: LinkNameToObjectIdentifierMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -987,7 +987,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchListObjectAttributesResponse')
         visited = visited + ['BatchListObjectAttributesResponse']
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1005,7 +1005,7 @@ module AWS::SDK::CloudDirectory
     class BatchWrite
       def self.default(visited=[])
         {
-          responses: Stubs::BatchWriteOperationResponseList.default(visited),
+          responses: BatchWriteOperationResponseList.default(visited),
         }
       end
 
@@ -1024,7 +1024,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchWriteOperationResponseList')
         visited = visited + ['BatchWriteOperationResponseList']
         [
-          Stubs::BatchWriteOperationResponse.default(visited)
+          BatchWriteOperationResponse.default(visited)
         ]
       end
 
@@ -1044,21 +1044,21 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchWriteOperationResponse')
         visited = visited + ['BatchWriteOperationResponse']
         {
-          create_object: Stubs::BatchCreateObjectResponse.default(visited),
-          attach_object: Stubs::BatchAttachObjectResponse.default(visited),
-          detach_object: Stubs::BatchDetachObjectResponse.default(visited),
-          update_object_attributes: Stubs::BatchUpdateObjectAttributesResponse.default(visited),
-          delete_object: Stubs::BatchDeleteObjectResponse.default(visited),
-          add_facet_to_object: Stubs::BatchAddFacetToObjectResponse.default(visited),
-          remove_facet_from_object: Stubs::BatchRemoveFacetFromObjectResponse.default(visited),
-          attach_policy: Stubs::BatchAttachPolicyResponse.default(visited),
-          detach_policy: Stubs::BatchDetachPolicyResponse.default(visited),
-          create_index: Stubs::BatchCreateIndexResponse.default(visited),
-          attach_to_index: Stubs::BatchAttachToIndexResponse.default(visited),
-          detach_from_index: Stubs::BatchDetachFromIndexResponse.default(visited),
-          attach_typed_link: Stubs::BatchAttachTypedLinkResponse.default(visited),
-          detach_typed_link: Stubs::BatchDetachTypedLinkResponse.default(visited),
-          update_link_attributes: Stubs::BatchUpdateLinkAttributesResponse.default(visited),
+          create_object: BatchCreateObjectResponse.default(visited),
+          attach_object: BatchAttachObjectResponse.default(visited),
+          detach_object: BatchDetachObjectResponse.default(visited),
+          update_object_attributes: BatchUpdateObjectAttributesResponse.default(visited),
+          delete_object: BatchDeleteObjectResponse.default(visited),
+          add_facet_to_object: BatchAddFacetToObjectResponse.default(visited),
+          remove_facet_from_object: BatchRemoveFacetFromObjectResponse.default(visited),
+          attach_policy: BatchAttachPolicyResponse.default(visited),
+          detach_policy: BatchDetachPolicyResponse.default(visited),
+          create_index: BatchCreateIndexResponse.default(visited),
+          attach_to_index: BatchAttachToIndexResponse.default(visited),
+          detach_from_index: BatchDetachFromIndexResponse.default(visited),
+          attach_typed_link: BatchAttachTypedLinkResponse.default(visited),
+          detach_typed_link: BatchDetachTypedLinkResponse.default(visited),
+          update_link_attributes: BatchUpdateLinkAttributesResponse.default(visited),
         }
       end
 
@@ -1122,7 +1122,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('BatchAttachTypedLinkResponse')
         visited = visited + ['BatchAttachTypedLinkResponse']
         {
-          typed_link_specifier: Stubs::TypedLinkSpecifier.default(visited),
+          typed_link_specifier: TypedLinkSpecifier.default(visited),
         }
       end
 
@@ -1628,7 +1628,7 @@ module AWS::SDK::CloudDirectory
     class GetDirectory
       def self.default(visited=[])
         {
-          directory: Stubs::Directory.default(visited),
+          directory: Directory.default(visited),
         }
       end
 
@@ -1669,7 +1669,7 @@ module AWS::SDK::CloudDirectory
     class GetFacet
       def self.default(visited=[])
         {
-          facet: Stubs::Facet.default(visited),
+          facet: Facet.default(visited),
         }
       end
 
@@ -1708,7 +1708,7 @@ module AWS::SDK::CloudDirectory
     class GetLinkAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
         }
       end
 
@@ -1725,7 +1725,7 @@ module AWS::SDK::CloudDirectory
     class GetObjectAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
         }
       end
 
@@ -1742,7 +1742,7 @@ module AWS::SDK::CloudDirectory
     class GetObjectInformation
       def self.default(visited=[])
         {
-          schema_facets: Stubs::SchemaFacetList.default(visited),
+          schema_facets: SchemaFacetList.default(visited),
           object_identifier: 'object_identifier',
         }
       end
@@ -1780,7 +1780,7 @@ module AWS::SDK::CloudDirectory
     class GetTypedLinkFacetInformation
       def self.default(visited=[])
         {
-          identity_attribute_order: Stubs::AttributeNameList.default(visited),
+          identity_attribute_order: AttributeNameList.default(visited),
         }
       end
 
@@ -1817,7 +1817,7 @@ module AWS::SDK::CloudDirectory
     class ListAppliedSchemaArns
       def self.default(visited=[])
         {
-          schema_arns: Stubs::Arns.default(visited),
+          schema_arns: Arns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1856,7 +1856,7 @@ module AWS::SDK::CloudDirectory
     class ListAttachedIndices
       def self.default(visited=[])
         {
-          index_attachments: Stubs::IndexAttachmentList.default(visited),
+          index_attachments: IndexAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1875,7 +1875,7 @@ module AWS::SDK::CloudDirectory
     class ListDevelopmentSchemaArns
       def self.default(visited=[])
         {
-          schema_arns: Stubs::Arns.default(visited),
+          schema_arns: Arns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1894,7 +1894,7 @@ module AWS::SDK::CloudDirectory
     class ListDirectories
       def self.default(visited=[])
         {
-          directories: Stubs::DirectoryList.default(visited),
+          directories: DirectoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1915,7 +1915,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('DirectoryList')
         visited = visited + ['DirectoryList']
         [
-          Stubs::Directory.default(visited)
+          Directory.default(visited)
         ]
       end
 
@@ -1933,7 +1933,7 @@ module AWS::SDK::CloudDirectory
     class ListFacetAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::FacetAttributeList.default(visited),
+          attributes: FacetAttributeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1954,7 +1954,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('FacetAttributeList')
         visited = visited + ['FacetAttributeList']
         [
-          Stubs::FacetAttribute.default(visited)
+          FacetAttribute.default(visited)
         ]
       end
 
@@ -1975,8 +1975,8 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['FacetAttribute']
         {
           name: 'name',
-          attribute_definition: Stubs::FacetAttributeDefinition.default(visited),
-          attribute_reference: Stubs::FacetAttributeReference.default(visited),
+          attribute_definition: FacetAttributeDefinition.default(visited),
+          attribute_reference: FacetAttributeReference.default(visited),
           required_behavior: 'required_behavior',
         }
       end
@@ -2019,9 +2019,9 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['FacetAttributeDefinition']
         {
           type: 'type',
-          default_value: Stubs::TypedAttributeValue.default(visited),
+          default_value: TypedAttributeValue.default(visited),
           is_immutable: false,
-          rules: Stubs::RuleMap.default(visited),
+          rules: RuleMap.default(visited),
         }
       end
 
@@ -2042,7 +2042,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('RuleMap')
         visited = visited + ['RuleMap']
         {
-          test_key: Stubs::Rule.default(visited)
+          test_key: Rule.default(visited)
         }
       end
 
@@ -2063,7 +2063,7 @@ module AWS::SDK::CloudDirectory
         visited = visited + ['Rule']
         {
           type: 'type',
-          parameters: Stubs::RuleParameterMap.default(visited),
+          parameters: RuleParameterMap.default(visited),
         }
       end
 
@@ -2100,7 +2100,7 @@ module AWS::SDK::CloudDirectory
     class ListFacetNames
       def self.default(visited=[])
         {
-          facet_names: Stubs::FacetNameList.default(visited),
+          facet_names: FacetNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2139,7 +2139,7 @@ module AWS::SDK::CloudDirectory
     class ListIncomingTypedLinks
       def self.default(visited=[])
         {
-          link_specifiers: Stubs::TypedLinkSpecifierList.default(visited),
+          link_specifiers: TypedLinkSpecifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2158,7 +2158,7 @@ module AWS::SDK::CloudDirectory
     class ListIndex
       def self.default(visited=[])
         {
-          index_attachments: Stubs::IndexAttachmentList.default(visited),
+          index_attachments: IndexAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2177,7 +2177,7 @@ module AWS::SDK::CloudDirectory
     class ListManagedSchemaArns
       def self.default(visited=[])
         {
-          schema_arns: Stubs::Arns.default(visited),
+          schema_arns: Arns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2196,7 +2196,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::AttributeKeyAndValueList.default(visited),
+          attributes: AttributeKeyAndValueList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2215,7 +2215,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectChildren
       def self.default(visited=[])
         {
-          children: Stubs::LinkNameToObjectIdentifierMap.default(visited),
+          children: LinkNameToObjectIdentifierMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2234,7 +2234,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectParentPaths
       def self.default(visited=[])
         {
-          path_to_object_identifiers_list: Stubs::PathToObjectIdentifiersList.default(visited),
+          path_to_object_identifiers_list: PathToObjectIdentifiersList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2253,9 +2253,9 @@ module AWS::SDK::CloudDirectory
     class ListObjectParents
       def self.default(visited=[])
         {
-          parents: Stubs::ObjectIdentifierToLinkNameMap.default(visited),
+          parents: ObjectIdentifierToLinkNameMap.default(visited),
           next_token: 'next_token',
-          parent_links: Stubs::ObjectIdentifierAndLinkNameList.default(visited),
+          parent_links: ObjectIdentifierAndLinkNameList.default(visited),
         }
       end
 
@@ -2294,7 +2294,7 @@ module AWS::SDK::CloudDirectory
     class ListObjectPolicies
       def self.default(visited=[])
         {
-          attached_policy_ids: Stubs::ObjectIdentifierList.default(visited),
+          attached_policy_ids: ObjectIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2313,7 +2313,7 @@ module AWS::SDK::CloudDirectory
     class ListOutgoingTypedLinks
       def self.default(visited=[])
         {
-          typed_link_specifiers: Stubs::TypedLinkSpecifierList.default(visited),
+          typed_link_specifiers: TypedLinkSpecifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2332,7 +2332,7 @@ module AWS::SDK::CloudDirectory
     class ListPolicyAttachments
       def self.default(visited=[])
         {
-          object_identifiers: Stubs::ObjectIdentifierList.default(visited),
+          object_identifiers: ObjectIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2351,7 +2351,7 @@ module AWS::SDK::CloudDirectory
     class ListPublishedSchemaArns
       def self.default(visited=[])
         {
-          schema_arns: Stubs::Arns.default(visited),
+          schema_arns: Arns.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2370,7 +2370,7 @@ module AWS::SDK::CloudDirectory
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2391,7 +2391,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2429,7 +2429,7 @@ module AWS::SDK::CloudDirectory
     class ListTypedLinkFacetAttributes
       def self.default(visited=[])
         {
-          attributes: Stubs::TypedLinkAttributeDefinitionList.default(visited),
+          attributes: TypedLinkAttributeDefinitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2450,7 +2450,7 @@ module AWS::SDK::CloudDirectory
         return nil if visited.include?('TypedLinkAttributeDefinitionList')
         visited = visited + ['TypedLinkAttributeDefinitionList']
         [
-          Stubs::TypedLinkAttributeDefinition.default(visited)
+          TypedLinkAttributeDefinition.default(visited)
         ]
       end
 
@@ -2472,9 +2472,9 @@ module AWS::SDK::CloudDirectory
         {
           name: 'name',
           type: 'type',
-          default_value: Stubs::TypedAttributeValue.default(visited),
+          default_value: TypedAttributeValue.default(visited),
           is_immutable: false,
-          rules: Stubs::RuleMap.default(visited),
+          rules: RuleMap.default(visited),
           required_behavior: 'required_behavior',
         }
       end
@@ -2496,7 +2496,7 @@ module AWS::SDK::CloudDirectory
     class ListTypedLinkFacetNames
       def self.default(visited=[])
         {
-          facet_names: Stubs::TypedLinkNameList.default(visited),
+          facet_names: TypedLinkNameList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2535,7 +2535,7 @@ module AWS::SDK::CloudDirectory
     class LookupPolicy
       def self.default(visited=[])
         {
-          policy_to_path_list: Stubs::PolicyToPathList.default(visited),
+          policy_to_path_list: PolicyToPathList.default(visited),
           next_token: 'next_token',
         }
       end

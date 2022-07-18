@@ -52,15 +52,15 @@ module AWS::SDK::SnowDeviceManagement
         {
           last_reached_out_at: Time.now,
           last_updated_at: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           managed_device_id: 'managed_device_id',
           managed_device_arn: 'managed_device_arn',
           device_type: 'device_type',
           associated_with_job: 'associated_with_job',
           device_state: 'device_state',
-          physical_network_interfaces: Stubs::PhysicalNetworkInterfaceList.default(visited),
-          device_capacities: Stubs::CapacityList.default(visited),
-          software: Stubs::SoftwareInformation.default(visited),
+          physical_network_interfaces: PhysicalNetworkInterfaceList.default(visited),
+          device_capacities: CapacityList.default(visited),
+          software: SoftwareInformation.default(visited),
         }
       end
 
@@ -111,7 +111,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('CapacityList')
         visited = visited + ['CapacityList']
         [
-          Stubs::Capacity.default(visited)
+          Capacity.default(visited)
         ]
       end
 
@@ -157,7 +157,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('PhysicalNetworkInterfaceList')
         visited = visited + ['PhysicalNetworkInterfaceList']
         [
-          Stubs::PhysicalNetworkInterface.default(visited)
+          PhysicalNetworkInterface.default(visited)
         ]
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::SnowDeviceManagement
     class DescribeDeviceEc2Instances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceSummaryList.default(visited),
+          instances: InstanceSummaryList.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('InstanceSummaryList')
         visited = visited + ['InstanceSummaryList']
         [
-          Stubs::InstanceSummary.default(visited)
+          InstanceSummary.default(visited)
         ]
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('InstanceSummary')
         visited = visited + ['InstanceSummary']
         {
-          instance: Stubs::Instance.default(visited),
+          instance: Instance.default(visited),
           last_updated_at: Time.now,
         }
       end
@@ -287,15 +287,15 @@ module AWS::SDK::SnowDeviceManagement
           image_id: 'image_id',
           ami_launch_index: 1,
           instance_id: 'instance_id',
-          state: Stubs::InstanceState.default(visited),
+          state: InstanceState.default(visited),
           instance_type: 'instance_type',
           private_ip_address: 'private_ip_address',
           public_ip_address: 'public_ip_address',
           created_at: Time.now,
           updated_at: Time.now,
-          block_device_mappings: Stubs::InstanceBlockDeviceMappingList.default(visited),
-          security_groups: Stubs::SecurityGroupIdentifierList.default(visited),
-          cpu_options: Stubs::CpuOptions.default(visited),
+          block_device_mappings: InstanceBlockDeviceMappingList.default(visited),
+          security_groups: SecurityGroupIdentifierList.default(visited),
+          cpu_options: CpuOptions.default(visited),
           root_device_name: 'root_device_name',
         }
       end
@@ -346,7 +346,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('SecurityGroupIdentifierList')
         visited = visited + ['SecurityGroupIdentifierList']
         [
-          Stubs::SecurityGroupIdentifier.default(visited)
+          SecurityGroupIdentifier.default(visited)
         ]
       end
 
@@ -386,7 +386,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('InstanceBlockDeviceMappingList')
         visited = visited + ['InstanceBlockDeviceMappingList']
         [
-          Stubs::InstanceBlockDeviceMapping.default(visited)
+          InstanceBlockDeviceMapping.default(visited)
         ]
       end
 
@@ -407,7 +407,7 @@ module AWS::SDK::SnowDeviceManagement
         visited = visited + ['InstanceBlockDeviceMapping']
         {
           device_name: 'device_name',
-          ebs: Stubs::EbsInstanceBlockDevice.default(visited),
+          ebs: EbsInstanceBlockDevice.default(visited),
         }
       end
 
@@ -497,13 +497,13 @@ module AWS::SDK::SnowDeviceManagement
         {
           task_id: 'task_id',
           task_arn: 'task_arn',
-          targets: Stubs::TargetList.default(visited),
+          targets: TargetList.default(visited),
           state: 'state',
           created_at: Time.now,
           last_updated_at: Time.now,
           completed_at: Time.now,
           description: 'description',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListDeviceResources
       def self.default(visited=[])
         {
-          resources: Stubs::ResourceSummaryList.default(visited),
+          resources: ResourceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -569,7 +569,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('ResourceSummaryList')
         visited = visited + ['ResourceSummaryList']
         [
-          Stubs::ResourceSummary.default(visited)
+          ResourceSummary.default(visited)
         ]
       end
 
@@ -609,7 +609,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceSummaryList.default(visited),
+          devices: DeviceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -630,7 +630,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('DeviceSummaryList')
         visited = visited + ['DeviceSummaryList']
         [
-          Stubs::DeviceSummary.default(visited)
+          DeviceSummary.default(visited)
         ]
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::SnowDeviceManagement
           managed_device_id: 'managed_device_id',
           managed_device_arn: 'managed_device_arn',
           associated_with_job: 'associated_with_job',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -672,7 +672,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListExecutions
       def self.default(visited=[])
         {
-          executions: Stubs::ExecutionSummaryList.default(visited),
+          executions: ExecutionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -693,7 +693,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('ExecutionSummaryList')
         visited = visited + ['ExecutionSummaryList']
         [
-          Stubs::ExecutionSummary.default(visited)
+          ExecutionSummary.default(visited)
         ]
       end
 
@@ -735,7 +735,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -752,7 +752,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::TaskSummaryList.default(visited),
+          tasks: TaskSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -773,7 +773,7 @@ module AWS::SDK::SnowDeviceManagement
         return nil if visited.include?('TaskSummaryList')
         visited = visited + ['TaskSummaryList']
         [
-          Stubs::TaskSummary.default(visited)
+          TaskSummary.default(visited)
         ]
       end
 
@@ -796,7 +796,7 @@ module AWS::SDK::SnowDeviceManagement
           task_id: 'task_id',
           task_arn: 'task_arn',
           state: 'state',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

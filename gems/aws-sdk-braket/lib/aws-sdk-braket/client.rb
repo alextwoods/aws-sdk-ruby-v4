@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Braket
@@ -68,7 +70,7 @@ module AWS::SDK::Braket
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -141,7 +143,7 @@ module AWS::SDK::Braket
     def cancel_quantum_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelQuantumTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelQuantumTaskInput,
         validate_input: @config.validate_input
@@ -301,7 +303,7 @@ module AWS::SDK::Braket
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -404,7 +406,7 @@ module AWS::SDK::Braket
     def create_quantum_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQuantumTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQuantumTaskInput,
         validate_input: @config.validate_input
@@ -487,7 +489,7 @@ module AWS::SDK::Braket
     def get_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceInput,
         validate_input: @config.validate_input
@@ -600,7 +602,7 @@ module AWS::SDK::Braket
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -680,7 +682,7 @@ module AWS::SDK::Braket
     def get_quantum_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQuantumTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQuantumTaskInput,
         validate_input: @config.validate_input
@@ -749,7 +751,7 @@ module AWS::SDK::Braket
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -840,7 +842,7 @@ module AWS::SDK::Braket
     def search_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchDevicesInput,
         validate_input: @config.validate_input
@@ -937,7 +939,7 @@ module AWS::SDK::Braket
     def search_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchJobsInput,
         validate_input: @config.validate_input
@@ -1035,7 +1037,7 @@ module AWS::SDK::Braket
     def search_quantum_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchQuantumTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchQuantumTasksInput,
         validate_input: @config.validate_input
@@ -1110,7 +1112,7 @@ module AWS::SDK::Braket
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::Braket
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

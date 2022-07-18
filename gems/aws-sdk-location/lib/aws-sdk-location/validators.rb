@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Location
   module Validators
 
@@ -44,7 +46,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDevicePositionHistoryError, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -52,7 +54,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDeleteDevicePositionHistoryError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDeleteDevicePositionHistoryError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -61,14 +63,14 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDevicePositionHistoryInput, context: context)
         Hearth::Validator.validate!(input[:tracker_name], ::String, context: "#{context}[:tracker_name]")
-        Validators::DeviceIdsList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
+        DeviceIdsList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
       end
     end
 
     class BatchDeleteDevicePositionHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDevicePositionHistoryOutput, context: context)
-        Validators::BatchDeleteDevicePositionHistoryErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchDeleteDevicePositionHistoryErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteGeofenceError, context: context)
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDeleteGeofenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDeleteGeofenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -93,14 +95,14 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteGeofenceInput, context: context)
         Hearth::Validator.validate!(input[:collection_name], ::String, context: "#{context}[:collection_name]")
-        Validators::IdList.validate!(input[:geofence_ids], context: "#{context}[:geofence_ids]") unless input[:geofence_ids].nil?
+        IdList.validate!(input[:geofence_ids], context: "#{context}[:geofence_ids]") unless input[:geofence_ids].nil?
       end
     end
 
     class BatchDeleteGeofenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteGeofenceOutput, context: context)
-        Validators::BatchDeleteGeofenceErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchDeleteGeofenceErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::BatchEvaluateGeofencesError, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchEvaluateGeofencesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchEvaluateGeofencesError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -126,14 +128,14 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchEvaluateGeofencesInput, context: context)
         Hearth::Validator.validate!(input[:collection_name], ::String, context: "#{context}[:collection_name]")
-        Validators::DevicePositionUpdateList.validate!(input[:device_position_updates], context: "#{context}[:device_position_updates]") unless input[:device_position_updates].nil?
+        DevicePositionUpdateList.validate!(input[:device_position_updates], context: "#{context}[:device_position_updates]") unless input[:device_position_updates].nil?
       end
     end
 
     class BatchEvaluateGeofencesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchEvaluateGeofencesOutput, context: context)
-        Validators::BatchEvaluateGeofencesErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchEvaluateGeofencesErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -141,7 +143,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDevicePositionError, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetDevicePositionError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetDevicePositionError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -158,15 +160,15 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDevicePositionInput, context: context)
         Hearth::Validator.validate!(input[:tracker_name], ::String, context: "#{context}[:tracker_name]")
-        Validators::IdList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
+        IdList.validate!(input[:device_ids], context: "#{context}[:device_ids]") unless input[:device_ids].nil?
       end
     end
 
     class BatchGetDevicePositionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetDevicePositionOutput, context: context)
-        Validators::BatchGetDevicePositionErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
-        Validators::DevicePositionList.validate!(input[:device_positions], context: "#{context}[:device_positions]") unless input[:device_positions].nil?
+        BatchGetDevicePositionErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        DevicePositionList.validate!(input[:device_positions], context: "#{context}[:device_positions]") unless input[:device_positions].nil?
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutGeofenceError, context: context)
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutGeofenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutGeofenceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -199,15 +201,15 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutGeofenceInput, context: context)
         Hearth::Validator.validate!(input[:collection_name], ::String, context: "#{context}[:collection_name]")
-        Validators::BatchPutGeofenceRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        BatchPutGeofenceRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
     class BatchPutGeofenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutGeofenceOutput, context: context)
-        Validators::BatchPutGeofenceSuccessList.validate!(input[:successes], context: "#{context}[:successes]") unless input[:successes].nil?
-        Validators::BatchPutGeofenceErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchPutGeofenceSuccessList.validate!(input[:successes], context: "#{context}[:successes]") unless input[:successes].nil?
+        BatchPutGeofenceErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutGeofenceRequestEntry, context: context)
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
       end
     end
 
@@ -223,7 +225,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutGeofenceRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutGeofenceRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -241,7 +243,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutGeofenceSuccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutGeofenceSuccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -251,7 +253,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::BatchUpdateDevicePositionError, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
-        Validators::BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        BatchItemError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchUpdateDevicePositionError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchUpdateDevicePositionError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -268,14 +270,14 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateDevicePositionInput, context: context)
         Hearth::Validator.validate!(input[:tracker_name], ::String, context: "#{context}[:tracker_name]")
-        Validators::DevicePositionUpdateList.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
+        DevicePositionUpdateList.validate!(input[:updates], context: "#{context}[:updates]") unless input[:updates].nil?
       end
     end
 
     class BatchUpdateDevicePositionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateDevicePositionOutput, context: context)
-        Validators::BatchUpdateDevicePositionErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchUpdateDevicePositionErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -300,16 +302,16 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculateRouteInput, context: context)
         Hearth::Validator.validate!(input[:calculator_name], ::String, context: "#{context}[:calculator_name]")
-        Validators::Position.validate!(input[:departure_position], context: "#{context}[:departure_position]") unless input[:departure_position].nil?
-        Validators::Position.validate!(input[:destination_position], context: "#{context}[:destination_position]") unless input[:destination_position].nil?
-        Validators::WaypointPositionList.validate!(input[:waypoint_positions], context: "#{context}[:waypoint_positions]") unless input[:waypoint_positions].nil?
+        Position.validate!(input[:departure_position], context: "#{context}[:departure_position]") unless input[:departure_position].nil?
+        Position.validate!(input[:destination_position], context: "#{context}[:destination_position]") unless input[:destination_position].nil?
+        WaypointPositionList.validate!(input[:waypoint_positions], context: "#{context}[:waypoint_positions]") unless input[:waypoint_positions].nil?
         Hearth::Validator.validate!(input[:travel_mode], ::String, context: "#{context}[:travel_mode]")
         Hearth::Validator.validate!(input[:departure_time], ::Time, context: "#{context}[:departure_time]")
         Hearth::Validator.validate!(input[:depart_now], ::TrueClass, ::FalseClass, context: "#{context}[:depart_now]")
         Hearth::Validator.validate!(input[:distance_unit], ::String, context: "#{context}[:distance_unit]")
         Hearth::Validator.validate!(input[:include_leg_geometry], ::TrueClass, ::FalseClass, context: "#{context}[:include_leg_geometry]")
-        Validators::CalculateRouteCarModeOptions.validate!(input[:car_mode_options], context: "#{context}[:car_mode_options]") unless input[:car_mode_options].nil?
-        Validators::CalculateRouteTruckModeOptions.validate!(input[:truck_mode_options], context: "#{context}[:truck_mode_options]") unless input[:truck_mode_options].nil?
+        CalculateRouteCarModeOptions.validate!(input[:car_mode_options], context: "#{context}[:car_mode_options]") unless input[:car_mode_options].nil?
+        CalculateRouteTruckModeOptions.validate!(input[:truck_mode_options], context: "#{context}[:truck_mode_options]") unless input[:truck_mode_options].nil?
       end
     end
 
@@ -317,24 +319,24 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculateRouteMatrixInput, context: context)
         Hearth::Validator.validate!(input[:calculator_name], ::String, context: "#{context}[:calculator_name]")
-        Validators::PositionList.validate!(input[:departure_positions], context: "#{context}[:departure_positions]") unless input[:departure_positions].nil?
-        Validators::PositionList.validate!(input[:destination_positions], context: "#{context}[:destination_positions]") unless input[:destination_positions].nil?
+        PositionList.validate!(input[:departure_positions], context: "#{context}[:departure_positions]") unless input[:departure_positions].nil?
+        PositionList.validate!(input[:destination_positions], context: "#{context}[:destination_positions]") unless input[:destination_positions].nil?
         Hearth::Validator.validate!(input[:travel_mode], ::String, context: "#{context}[:travel_mode]")
         Hearth::Validator.validate!(input[:departure_time], ::Time, context: "#{context}[:departure_time]")
         Hearth::Validator.validate!(input[:depart_now], ::TrueClass, ::FalseClass, context: "#{context}[:depart_now]")
         Hearth::Validator.validate!(input[:distance_unit], ::String, context: "#{context}[:distance_unit]")
-        Validators::CalculateRouteCarModeOptions.validate!(input[:car_mode_options], context: "#{context}[:car_mode_options]") unless input[:car_mode_options].nil?
-        Validators::CalculateRouteTruckModeOptions.validate!(input[:truck_mode_options], context: "#{context}[:truck_mode_options]") unless input[:truck_mode_options].nil?
+        CalculateRouteCarModeOptions.validate!(input[:car_mode_options], context: "#{context}[:car_mode_options]") unless input[:car_mode_options].nil?
+        CalculateRouteTruckModeOptions.validate!(input[:truck_mode_options], context: "#{context}[:truck_mode_options]") unless input[:truck_mode_options].nil?
       end
     end
 
     class CalculateRouteMatrixOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculateRouteMatrixOutput, context: context)
-        Validators::RouteMatrix.validate!(input[:route_matrix], context: "#{context}[:route_matrix]") unless input[:route_matrix].nil?
-        Validators::PositionList.validate!(input[:snapped_departure_positions], context: "#{context}[:snapped_departure_positions]") unless input[:snapped_departure_positions].nil?
-        Validators::PositionList.validate!(input[:snapped_destination_positions], context: "#{context}[:snapped_destination_positions]") unless input[:snapped_destination_positions].nil?
-        Validators::CalculateRouteMatrixSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        RouteMatrix.validate!(input[:route_matrix], context: "#{context}[:route_matrix]") unless input[:route_matrix].nil?
+        PositionList.validate!(input[:snapped_departure_positions], context: "#{context}[:snapped_departure_positions]") unless input[:snapped_departure_positions].nil?
+        PositionList.validate!(input[:snapped_destination_positions], context: "#{context}[:snapped_destination_positions]") unless input[:snapped_destination_positions].nil?
+        CalculateRouteMatrixSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
@@ -351,15 +353,15 @@ module AWS::SDK::Location
     class CalculateRouteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculateRouteOutput, context: context)
-        Validators::LegList.validate!(input[:legs], context: "#{context}[:legs]") unless input[:legs].nil?
-        Validators::CalculateRouteSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        LegList.validate!(input[:legs], context: "#{context}[:legs]") unless input[:legs].nil?
+        CalculateRouteSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
       end
     end
 
     class CalculateRouteSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CalculateRouteSummary, context: context)
-        Validators::BoundingBox.validate!(input[:route_b_box], context: "#{context}[:route_b_box]") unless input[:route_b_box].nil?
+        BoundingBox.validate!(input[:route_b_box], context: "#{context}[:route_b_box]") unless input[:route_b_box].nil?
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Float, context: "#{context}[:duration_seconds]")
@@ -372,8 +374,8 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::CalculateRouteTruckModeOptions, context: context)
         Hearth::Validator.validate!(input[:avoid_ferries], ::TrueClass, ::FalseClass, context: "#{context}[:avoid_ferries]")
         Hearth::Validator.validate!(input[:avoid_tolls], ::TrueClass, ::FalseClass, context: "#{context}[:avoid_tolls]")
-        Validators::TruckDimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
-        Validators::TruckWeight.validate!(input[:weight], context: "#{context}[:weight]") unless input[:weight].nil?
+        TruckDimensions.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        TruckWeight.validate!(input[:weight], context: "#{context}[:weight]") unless input[:weight].nil?
       end
     end
 
@@ -400,7 +402,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:pricing_plan_data_source], ::String, context: "#{context}[:pricing_plan_data_source]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
       end
     end
@@ -418,10 +420,10 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMapInput, context: context)
         Hearth::Validator.validate!(input[:map_name], ::String, context: "#{context}[:map_name]")
-        Validators::MapConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        MapConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -441,8 +443,8 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:pricing_plan_data_source], ::String, context: "#{context}[:pricing_plan_data_source]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:position_filtering], ::String, context: "#{context}[:position_filtering]")
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:pricing_plan_data_source], ::String, context: "#{context}[:pricing_plan_data_source]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
       end
@@ -605,9 +607,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:map_arn], ::String, context: "#{context}[:map_arn]")
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
-        Validators::MapConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        MapConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
       end
@@ -630,8 +632,8 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
-        Validators::DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -671,7 +673,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:pricing_plan_data_source], ::String, context: "#{context}[:pricing_plan_data_source]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
@@ -694,9 +696,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
         Hearth::Validator.validate!(input[:received_time], ::Time, context: "#{context}[:received_time]")
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
-        Validators::PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
-        Validators::PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
+        PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
       end
     end
 
@@ -704,7 +706,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DevicePosition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DevicePosition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -714,9 +716,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::DevicePositionUpdate, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
-        Validators::PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
-        Validators::PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
+        PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
       end
     end
 
@@ -724,7 +726,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DevicePositionUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DevicePositionUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -746,7 +748,7 @@ module AWS::SDK::Location
     class GeofenceGeometry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GeofenceGeometry, context: context)
-        Validators::LinearRings.validate!(input[:polygon], context: "#{context}[:polygon]") unless input[:polygon].nil?
+        LinearRings.validate!(input[:polygon], context: "#{context}[:polygon]") unless input[:polygon].nil?
       end
     end
 
@@ -765,7 +767,7 @@ module AWS::SDK::Location
     class GetDevicePositionHistoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDevicePositionHistoryOutput, context: context)
-        Validators::DevicePositionList.validate!(input[:device_positions], context: "#{context}[:device_positions]") unless input[:device_positions].nil?
+        DevicePositionList.validate!(input[:device_positions], context: "#{context}[:device_positions]") unless input[:device_positions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -784,9 +786,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
         Hearth::Validator.validate!(input[:received_time], ::Time, context: "#{context}[:received_time]")
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
-        Validators::PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
-        Validators::PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
+        PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGeofenceOutput, context: context)
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
@@ -894,19 +896,19 @@ module AWS::SDK::Location
     class Leg
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Leg, context: context)
-        Validators::Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
-        Validators::Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
+        Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
+        Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Float, context: "#{context}[:duration_seconds]")
-        Validators::LegGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
-        Validators::StepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        LegGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        StepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
       end
     end
 
     class LegGeometry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LegGeometry, context: context)
-        Validators::LineString.validate!(input[:line_string], context: "#{context}[:line_string]") unless input[:line_string].nil?
+        LineString.validate!(input[:line_string], context: "#{context}[:line_string]") unless input[:line_string].nil?
       end
     end
 
@@ -914,7 +916,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Leg.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Leg.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -923,7 +925,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LinearRing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LinearRing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::Location
     class ListDevicePositionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicePositionsOutput, context: context)
-        Validators::ListDevicePositionsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListDevicePositionsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -968,9 +970,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::ListDevicePositionsResponseEntry, context: context)
         Hearth::Validator.validate!(input[:device_id], ::String, context: "#{context}[:device_id]")
         Hearth::Validator.validate!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
-        Validators::PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
-        Validators::PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        PositionalAccuracy.validate!(input[:accuracy], context: "#{context}[:accuracy]") unless input[:accuracy].nil?
+        PropertyMap.validate!(input[:position_properties], context: "#{context}[:position_properties]") unless input[:position_properties].nil?
       end
     end
 
@@ -978,7 +980,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListDevicePositionsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListDevicePositionsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::Location
     class ListGeofenceCollectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeofenceCollectionsOutput, context: context)
-        Validators::ListGeofenceCollectionsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListGeofenceCollectionsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1015,7 +1017,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListGeofenceCollectionsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListGeofenceCollectionsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1024,7 +1026,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeofenceResponseEntry, context: context)
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
@@ -1035,7 +1037,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListGeofenceResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListGeofenceResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1052,7 +1054,7 @@ module AWS::SDK::Location
     class ListGeofencesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGeofencesOutput, context: context)
-        Validators::ListGeofenceResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListGeofenceResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::Location
     class ListMapsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMapsOutput, context: context)
-        Validators::ListMapsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListMapsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1089,7 +1091,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListMapsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListMapsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1105,7 +1107,7 @@ module AWS::SDK::Location
     class ListPlaceIndexesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPlaceIndexesOutput, context: context)
-        Validators::ListPlaceIndexesResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListPlaceIndexesResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1126,7 +1128,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListPlaceIndexesResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListPlaceIndexesResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1142,7 +1144,7 @@ module AWS::SDK::Location
     class ListRouteCalculatorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRouteCalculatorsOutput, context: context)
-        Validators::ListRouteCalculatorsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListRouteCalculatorsResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1163,7 +1165,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListRouteCalculatorsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListRouteCalculatorsResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::Location
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1194,7 +1196,7 @@ module AWS::SDK::Location
     class ListTrackerConsumersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrackerConsumersOutput, context: context)
-        Validators::ArnList.validate!(input[:consumer_arns], context: "#{context}[:consumer_arns]") unless input[:consumer_arns].nil?
+        ArnList.validate!(input[:consumer_arns], context: "#{context}[:consumer_arns]") unless input[:consumer_arns].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1210,7 +1212,7 @@ module AWS::SDK::Location
     class ListTrackersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrackersOutput, context: context)
-        Validators::ListTrackersResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        ListTrackersResponseEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1231,7 +1233,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListTrackersResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListTrackersResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1247,7 +1249,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Place, context: context)
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::PlaceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        PlaceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
         Hearth::Validator.validate!(input[:address_number], ::String, context: "#{context}[:address_number]")
         Hearth::Validator.validate!(input[:street], ::String, context: "#{context}[:street]")
         Hearth::Validator.validate!(input[:neighborhood], ::String, context: "#{context}[:neighborhood]")
@@ -1257,14 +1259,14 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:country], ::String, context: "#{context}[:country]")
         Hearth::Validator.validate!(input[:postal_code], ::String, context: "#{context}[:postal_code]")
         Hearth::Validator.validate!(input[:interpolated], ::TrueClass, ::FalseClass, context: "#{context}[:interpolated]")
-        Validators::TimeZone.validate!(input[:time_zone], context: "#{context}[:time_zone]") unless input[:time_zone].nil?
+        TimeZone.validate!(input[:time_zone], context: "#{context}[:time_zone]") unless input[:time_zone].nil?
       end
     end
 
     class PlaceGeometry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PlaceGeometry, context: context)
-        Validators::Position.validate!(input[:point], context: "#{context}[:point]") unless input[:point].nil?
+        Position.validate!(input[:point], context: "#{context}[:point]") unless input[:point].nil?
       end
     end
 
@@ -1281,7 +1283,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::PutGeofenceInput, context: context)
         Hearth::Validator.validate!(input[:collection_name], ::String, context: "#{context}[:collection_name]")
         Hearth::Validator.validate!(input[:geofence_id], ::String, context: "#{context}[:geofence_id]")
-        Validators::GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
+        GeofenceGeometry.validate!(input[:geometry], context: "#{context}[:geometry]") unless input[:geometry].nil?
       end
     end
 
@@ -1332,7 +1334,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RouteMatrixRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RouteMatrixRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1342,7 +1344,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::RouteMatrixEntry, context: context)
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Float, context: "#{context}[:duration_seconds]")
-        Validators::RouteMatrixEntryError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        RouteMatrixEntryError.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1358,7 +1360,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RouteMatrixEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RouteMatrixEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1366,7 +1368,7 @@ module AWS::SDK::Location
     class SearchForPositionResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchForPositionResult, context: context)
-        Validators::Place.validate!(input[:place], context: "#{context}[:place]") unless input[:place].nil?
+        Place.validate!(input[:place], context: "#{context}[:place]") unless input[:place].nil?
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
       end
     end
@@ -1375,7 +1377,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchForPositionResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchForPositionResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchForSuggestionsResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchForSuggestionsResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1399,7 +1401,7 @@ module AWS::SDK::Location
     class SearchForTextResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchForTextResult, context: context)
-        Validators::Place.validate!(input[:place], context: "#{context}[:place]") unless input[:place].nil?
+        Place.validate!(input[:place], context: "#{context}[:place]") unless input[:place].nil?
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
         Hearth::Validator.validate!(input[:relevance], ::Float, context: "#{context}[:relevance]")
       end
@@ -1409,7 +1411,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SearchForTextResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SearchForTextResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForPositionInput, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
       end
@@ -1427,15 +1429,15 @@ module AWS::SDK::Location
     class SearchPlaceIndexForPositionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForPositionOutput, context: context)
-        Validators::SearchPlaceIndexForPositionSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::SearchForPositionResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        SearchPlaceIndexForPositionSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SearchForPositionResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
     class SearchPlaceIndexForPositionSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForPositionSummary, context: context)
-        Validators::Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
+        Position.validate!(input[:position], context: "#{context}[:position]") unless input[:position].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
@@ -1447,9 +1449,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForSuggestionsInput, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
-        Validators::BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
-        Validators::CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
+        Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
+        BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
+        CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
       end
@@ -1458,8 +1460,8 @@ module AWS::SDK::Location
     class SearchPlaceIndexForSuggestionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForSuggestionsOutput, context: context)
-        Validators::SearchPlaceIndexForSuggestionsSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::SearchForSuggestionsResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        SearchPlaceIndexForSuggestionsSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SearchForSuggestionsResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
@@ -1467,9 +1469,9 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForSuggestionsSummary, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
-        Validators::BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
-        Validators::CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
+        Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
+        BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
+        CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
@@ -1481,9 +1483,9 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForTextInput, context: context)
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
-        Validators::BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
-        Validators::CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
+        Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
+        BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
+        CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
       end
@@ -1492,8 +1494,8 @@ module AWS::SDK::Location
     class SearchPlaceIndexForTextOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForTextOutput, context: context)
-        Validators::SearchPlaceIndexForTextSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::SearchForTextResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        SearchPlaceIndexForTextSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        SearchForTextResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
@@ -1501,11 +1503,11 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchPlaceIndexForTextSummary, context: context)
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
-        Validators::BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
-        Validators::CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
+        Position.validate!(input[:bias_position], context: "#{context}[:bias_position]") unless input[:bias_position].nil?
+        BoundingBox.validate!(input[:filter_b_box], context: "#{context}[:filter_b_box]") unless input[:filter_b_box].nil?
+        CountryCodeList.validate!(input[:filter_countries], context: "#{context}[:filter_countries]") unless input[:filter_countries].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::BoundingBox.validate!(input[:result_b_box], context: "#{context}[:result_b_box]") unless input[:result_b_box].nil?
+        BoundingBox.validate!(input[:result_b_box], context: "#{context}[:result_b_box]") unless input[:result_b_box].nil?
         Hearth::Validator.validate!(input[:data_source], ::String, context: "#{context}[:data_source]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
       end
@@ -1521,8 +1523,8 @@ module AWS::SDK::Location
     class Step
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Step, context: context)
-        Validators::Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
-        Validators::Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
+        Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
+        Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
         Hearth::Validator.validate!(input[:distance], ::Float, context: "#{context}[:distance]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Float, context: "#{context}[:duration_seconds]")
         Hearth::Validator.validate!(input[:geometry_offset], ::Integer, context: "#{context}[:geometry_offset]")
@@ -1533,7 +1535,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1608,7 +1610,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1661,7 +1663,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:pricing_plan], ::String, context: "#{context}[:pricing_plan]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
+        DataSourceConfiguration.validate!(input[:data_source_configuration], context: "#{context}[:data_source_configuration]") unless input[:data_source_configuration].nil?
       end
     end
 
@@ -1717,7 +1719,7 @@ module AWS::SDK::Location
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
+        ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
       end
     end
 
@@ -1733,7 +1735,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1742,7 +1744,7 @@ module AWS::SDK::Location
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Position.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -35,7 +35,7 @@ module AWS::SDK::ApplicationCostProfiler
           report_description: 'report_description',
           report_frequency: 'report_frequency',
           format: 'format',
-          destination_s3_location: Stubs::S3Location.default(visited),
+          destination_s3_location: S3Location.default(visited),
           created_at: Time.now,
           last_updated: Time.now,
         }
@@ -97,7 +97,7 @@ module AWS::SDK::ApplicationCostProfiler
     class ListReportDefinitions
       def self.default(visited=[])
         {
-          report_definitions: Stubs::ReportDefinitionList.default(visited),
+          report_definitions: ReportDefinitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -118,7 +118,7 @@ module AWS::SDK::ApplicationCostProfiler
         return nil if visited.include?('ReportDefinitionList')
         visited = visited + ['ReportDefinitionList']
         [
-          Stubs::ReportDefinition.default(visited)
+          ReportDefinition.default(visited)
         ]
       end
 
@@ -142,7 +142,7 @@ module AWS::SDK::ApplicationCostProfiler
           report_description: 'report_description',
           report_frequency: 'report_frequency',
           format: 'format',
-          destination_s3_location: Stubs::S3Location.default(visited),
+          destination_s3_location: S3Location.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
         }

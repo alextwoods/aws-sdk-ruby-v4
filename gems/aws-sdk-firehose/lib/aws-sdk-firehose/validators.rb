@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Firehose
   module Validators
 
@@ -27,13 +29,13 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -46,13 +48,13 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::VpcConfigurationDescription.validate!(input[:vpc_configuration_description], context: "#{context}[:vpc_configuration_description]") unless input[:vpc_configuration_description].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        VpcConfigurationDescription.validate!(input[:vpc_configuration_description], context: "#{context}[:vpc_configuration_description]") unless input[:vpc_configuration_description].nil?
       end
     end
 
@@ -65,11 +67,11 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
-        Validators::S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        AmazonopensearchserviceBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        AmazonopensearchserviceRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -128,16 +130,16 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::CreateDeliveryStreamInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
         Hearth::Validator.validate!(input[:delivery_stream_type], ::String, context: "#{context}[:delivery_stream_type]")
-        Validators::KinesisStreamSourceConfiguration.validate!(input[:kinesis_stream_source_configuration], context: "#{context}[:kinesis_stream_source_configuration]") unless input[:kinesis_stream_source_configuration].nil?
-        Validators::DeliveryStreamEncryptionConfigurationInput.validate!(input[:delivery_stream_encryption_configuration_input], context: "#{context}[:delivery_stream_encryption_configuration_input]") unless input[:delivery_stream_encryption_configuration_input].nil?
-        Validators::S3DestinationConfiguration.validate!(input[:s3_destination_configuration], context: "#{context}[:s3_destination_configuration]") unless input[:s3_destination_configuration].nil?
-        Validators::ExtendedS3DestinationConfiguration.validate!(input[:extended_s3_destination_configuration], context: "#{context}[:extended_s3_destination_configuration]") unless input[:extended_s3_destination_configuration].nil?
-        Validators::RedshiftDestinationConfiguration.validate!(input[:redshift_destination_configuration], context: "#{context}[:redshift_destination_configuration]") unless input[:redshift_destination_configuration].nil?
-        Validators::ElasticsearchDestinationConfiguration.validate!(input[:elasticsearch_destination_configuration], context: "#{context}[:elasticsearch_destination_configuration]") unless input[:elasticsearch_destination_configuration].nil?
-        Validators::AmazonopensearchserviceDestinationConfiguration.validate!(input[:amazonopensearchservice_destination_configuration], context: "#{context}[:amazonopensearchservice_destination_configuration]") unless input[:amazonopensearchservice_destination_configuration].nil?
-        Validators::SplunkDestinationConfiguration.validate!(input[:splunk_destination_configuration], context: "#{context}[:splunk_destination_configuration]") unless input[:splunk_destination_configuration].nil?
-        Validators::HttpEndpointDestinationConfiguration.validate!(input[:http_endpoint_destination_configuration], context: "#{context}[:http_endpoint_destination_configuration]") unless input[:http_endpoint_destination_configuration].nil?
-        Validators::TagDeliveryStreamInputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        KinesisStreamSourceConfiguration.validate!(input[:kinesis_stream_source_configuration], context: "#{context}[:kinesis_stream_source_configuration]") unless input[:kinesis_stream_source_configuration].nil?
+        DeliveryStreamEncryptionConfigurationInput.validate!(input[:delivery_stream_encryption_configuration_input], context: "#{context}[:delivery_stream_encryption_configuration_input]") unless input[:delivery_stream_encryption_configuration_input].nil?
+        S3DestinationConfiguration.validate!(input[:s3_destination_configuration], context: "#{context}[:s3_destination_configuration]") unless input[:s3_destination_configuration].nil?
+        ExtendedS3DestinationConfiguration.validate!(input[:extended_s3_destination_configuration], context: "#{context}[:extended_s3_destination_configuration]") unless input[:extended_s3_destination_configuration].nil?
+        RedshiftDestinationConfiguration.validate!(input[:redshift_destination_configuration], context: "#{context}[:redshift_destination_configuration]") unless input[:redshift_destination_configuration].nil?
+        ElasticsearchDestinationConfiguration.validate!(input[:elasticsearch_destination_configuration], context: "#{context}[:elasticsearch_destination_configuration]") unless input[:elasticsearch_destination_configuration].nil?
+        AmazonopensearchserviceDestinationConfiguration.validate!(input[:amazonopensearchservice_destination_configuration], context: "#{context}[:amazonopensearchservice_destination_configuration]") unless input[:amazonopensearchservice_destination_configuration].nil?
+        SplunkDestinationConfiguration.validate!(input[:splunk_destination_configuration], context: "#{context}[:splunk_destination_configuration]") unless input[:splunk_destination_configuration].nil?
+        HttpEndpointDestinationConfiguration.validate!(input[:http_endpoint_destination_configuration], context: "#{context}[:http_endpoint_destination_configuration]") unless input[:http_endpoint_destination_configuration].nil?
+        TagDeliveryStreamInputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -151,9 +153,9 @@ module AWS::SDK::Firehose
     class DataFormatConversionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataFormatConversionConfiguration, context: context)
-        Validators::SchemaConfiguration.validate!(input[:schema_configuration], context: "#{context}[:schema_configuration]") unless input[:schema_configuration].nil?
-        Validators::InputFormatConfiguration.validate!(input[:input_format_configuration], context: "#{context}[:input_format_configuration]") unless input[:input_format_configuration].nil?
-        Validators::OutputFormatConfiguration.validate!(input[:output_format_configuration], context: "#{context}[:output_format_configuration]") unless input[:output_format_configuration].nil?
+        SchemaConfiguration.validate!(input[:schema_configuration], context: "#{context}[:schema_configuration]") unless input[:schema_configuration].nil?
+        InputFormatConfiguration.validate!(input[:input_format_configuration], context: "#{context}[:input_format_configuration]") unless input[:input_format_configuration].nil?
+        OutputFormatConfiguration.validate!(input[:output_format_configuration], context: "#{context}[:output_format_configuration]") unless input[:output_format_configuration].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
     end
@@ -178,14 +180,14 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
         Hearth::Validator.validate!(input[:delivery_stream_arn], ::String, context: "#{context}[:delivery_stream_arn]")
         Hearth::Validator.validate!(input[:delivery_stream_status], ::String, context: "#{context}[:delivery_stream_status]")
-        Validators::FailureDescription.validate!(input[:failure_description], context: "#{context}[:failure_description]") unless input[:failure_description].nil?
-        Validators::DeliveryStreamEncryptionConfiguration.validate!(input[:delivery_stream_encryption_configuration], context: "#{context}[:delivery_stream_encryption_configuration]") unless input[:delivery_stream_encryption_configuration].nil?
+        FailureDescription.validate!(input[:failure_description], context: "#{context}[:failure_description]") unless input[:failure_description].nil?
+        DeliveryStreamEncryptionConfiguration.validate!(input[:delivery_stream_encryption_configuration], context: "#{context}[:delivery_stream_encryption_configuration]") unless input[:delivery_stream_encryption_configuration].nil?
         Hearth::Validator.validate!(input[:delivery_stream_type], ::String, context: "#{context}[:delivery_stream_type]")
         Hearth::Validator.validate!(input[:version_id], ::String, context: "#{context}[:version_id]")
         Hearth::Validator.validate!(input[:create_timestamp], ::Time, context: "#{context}[:create_timestamp]")
         Hearth::Validator.validate!(input[:last_update_timestamp], ::Time, context: "#{context}[:last_update_timestamp]")
-        Validators::SourceDescription.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::DestinationDescriptionList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
+        SourceDescription.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        DestinationDescriptionList.validate!(input[:destinations], context: "#{context}[:destinations]") unless input[:destinations].nil?
         Hearth::Validator.validate!(input[:has_more_destinations], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_destinations]")
       end
     end
@@ -196,7 +198,7 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:key_arn], ::String, context: "#{context}[:key_arn]")
         Hearth::Validator.validate!(input[:key_type], ::String, context: "#{context}[:key_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::FailureDescription.validate!(input[:failure_description], context: "#{context}[:failure_description]") unless input[:failure_description].nil?
+        FailureDescription.validate!(input[:failure_description], context: "#{context}[:failure_description]") unless input[:failure_description].nil?
       end
     end
 
@@ -229,15 +231,15 @@ module AWS::SDK::Firehose
     class DescribeDeliveryStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDeliveryStreamOutput, context: context)
-        Validators::DeliveryStreamDescription.validate!(input[:delivery_stream_description], context: "#{context}[:delivery_stream_description]") unless input[:delivery_stream_description].nil?
+        DeliveryStreamDescription.validate!(input[:delivery_stream_description], context: "#{context}[:delivery_stream_description]") unless input[:delivery_stream_description].nil?
       end
     end
 
     class Deserializer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Deserializer, context: context)
-        Validators::OpenXJsonSerDe.validate!(input[:open_x_json_ser_de], context: "#{context}[:open_x_json_ser_de]") unless input[:open_x_json_ser_de].nil?
-        Validators::HiveJsonSerDe.validate!(input[:hive_json_ser_de], context: "#{context}[:hive_json_ser_de]") unless input[:hive_json_ser_de].nil?
+        OpenXJsonSerDe.validate!(input[:open_x_json_ser_de], context: "#{context}[:open_x_json_ser_de]") unless input[:open_x_json_ser_de].nil?
+        HiveJsonSerDe.validate!(input[:hive_json_ser_de], context: "#{context}[:hive_json_ser_de]") unless input[:hive_json_ser_de].nil?
       end
     end
 
@@ -245,13 +247,13 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationDescription, context: context)
         Hearth::Validator.validate!(input[:destination_id], ::String, context: "#{context}[:destination_id]")
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
-        Validators::ExtendedS3DestinationDescription.validate!(input[:extended_s3_destination_description], context: "#{context}[:extended_s3_destination_description]") unless input[:extended_s3_destination_description].nil?
-        Validators::RedshiftDestinationDescription.validate!(input[:redshift_destination_description], context: "#{context}[:redshift_destination_description]") unless input[:redshift_destination_description].nil?
-        Validators::ElasticsearchDestinationDescription.validate!(input[:elasticsearch_destination_description], context: "#{context}[:elasticsearch_destination_description]") unless input[:elasticsearch_destination_description].nil?
-        Validators::AmazonopensearchserviceDestinationDescription.validate!(input[:amazonopensearchservice_destination_description], context: "#{context}[:amazonopensearchservice_destination_description]") unless input[:amazonopensearchservice_destination_description].nil?
-        Validators::SplunkDestinationDescription.validate!(input[:splunk_destination_description], context: "#{context}[:splunk_destination_description]") unless input[:splunk_destination_description].nil?
-        Validators::HttpEndpointDestinationDescription.validate!(input[:http_endpoint_destination_description], context: "#{context}[:http_endpoint_destination_description]") unless input[:http_endpoint_destination_description].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        ExtendedS3DestinationDescription.validate!(input[:extended_s3_destination_description], context: "#{context}[:extended_s3_destination_description]") unless input[:extended_s3_destination_description].nil?
+        RedshiftDestinationDescription.validate!(input[:redshift_destination_description], context: "#{context}[:redshift_destination_description]") unless input[:redshift_destination_description].nil?
+        ElasticsearchDestinationDescription.validate!(input[:elasticsearch_destination_description], context: "#{context}[:elasticsearch_destination_description]") unless input[:elasticsearch_destination_description].nil?
+        AmazonopensearchserviceDestinationDescription.validate!(input[:amazonopensearchservice_destination_description], context: "#{context}[:amazonopensearchservice_destination_description]") unless input[:amazonopensearchservice_destination_description].nil?
+        SplunkDestinationDescription.validate!(input[:splunk_destination_description], context: "#{context}[:splunk_destination_description]") unless input[:splunk_destination_description].nil?
+        HttpEndpointDestinationDescription.validate!(input[:http_endpoint_destination_description], context: "#{context}[:http_endpoint_destination_description]") unless input[:http_endpoint_destination_description].nil?
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DestinationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DestinationDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::Firehose
     class DynamicPartitioningConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DynamicPartitioningConfiguration, context: context)
-        Validators::RetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        RetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
     end
@@ -289,13 +291,13 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        VpcConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -308,13 +310,13 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::VpcConfigurationDescription.validate!(input[:vpc_configuration_description], context: "#{context}[:vpc_configuration_description]") unless input[:vpc_configuration_description].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        VpcConfigurationDescription.validate!(input[:vpc_configuration_description], context: "#{context}[:vpc_configuration_description]") unless input[:vpc_configuration_description].nil?
       end
     end
 
@@ -327,11 +329,11 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:type_name], ::String, context: "#{context}[:type_name]")
         Hearth::Validator.validate!(input[:index_rotation_period], ::String, context: "#{context}[:index_rotation_period]")
-        Validators::ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
-        Validators::S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        ElasticsearchBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        ElasticsearchRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -346,7 +348,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EncryptionConfiguration, context: context)
         Hearth::Validator.validate!(input[:no_encryption_config], ::String, context: "#{context}[:no_encryption_config]")
-        Validators::KMSEncryptionConfig.validate!(input[:kms_encryption_config], context: "#{context}[:kms_encryption_config]") unless input[:kms_encryption_config].nil?
+        KMSEncryptionConfig.validate!(input[:kms_encryption_config], context: "#{context}[:kms_encryption_config]") unless input[:kms_encryption_config].nil?
       end
     end
 
@@ -357,15 +359,15 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_backup_configuration], context: "#{context}[:s3_backup_configuration]") unless input[:s3_backup_configuration].nil?
-        Validators::DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
-        Validators::DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
+        S3DestinationConfiguration.validate!(input[:s3_backup_configuration], context: "#{context}[:s3_backup_configuration]") unless input[:s3_backup_configuration].nil?
+        DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
+        DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
       end
     end
 
@@ -376,15 +378,15 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_backup_description], context: "#{context}[:s3_backup_description]") unless input[:s3_backup_description].nil?
-        Validators::DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
-        Validators::DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
+        S3DestinationDescription.validate!(input[:s3_backup_description], context: "#{context}[:s3_backup_description]") unless input[:s3_backup_description].nil?
+        DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
+        DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
       end
     end
 
@@ -395,15 +397,15 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationUpdate.validate!(input[:s3_backup_update], context: "#{context}[:s3_backup_update]") unless input[:s3_backup_update].nil?
-        Validators::DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
-        Validators::DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
+        S3DestinationUpdate.validate!(input[:s3_backup_update], context: "#{context}[:s3_backup_update]") unless input[:s3_backup_update].nil?
+        DataFormatConversionConfiguration.validate!(input[:data_format_conversion_configuration], context: "#{context}[:data_format_conversion_configuration]") unless input[:data_format_conversion_configuration].nil?
+        DynamicPartitioningConfiguration.validate!(input[:dynamic_partitioning_configuration], context: "#{context}[:dynamic_partitioning_configuration]") unless input[:dynamic_partitioning_configuration].nil?
       end
     end
 
@@ -418,7 +420,7 @@ module AWS::SDK::Firehose
     class HiveJsonSerDe
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HiveJsonSerDe, context: context)
-        Validators::ListOfNonEmptyStrings.validate!(input[:timestamp_formats], context: "#{context}[:timestamp_formats]") unless input[:timestamp_formats].nil?
+        ListOfNonEmptyStrings.validate!(input[:timestamp_formats], context: "#{context}[:timestamp_formats]") unless input[:timestamp_formats].nil?
       end
     end
 
@@ -442,7 +444,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpEndpointCommonAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpEndpointCommonAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -467,45 +469,45 @@ module AWS::SDK::Firehose
     class HttpEndpointDestinationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpEndpointDestinationConfiguration, context: context)
-        Validators::HttpEndpointConfiguration.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
-        Validators::HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        HttpEndpointConfiguration.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
+        HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
       end
     end
 
     class HttpEndpointDestinationDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpEndpointDestinationDescription, context: context)
-        Validators::HttpEndpointDescription.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
-        Validators::HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        HttpEndpointDescription.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
+        HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
       end
     end
 
     class HttpEndpointDestinationUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpEndpointDestinationUpdate, context: context)
-        Validators::HttpEndpointConfiguration.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
-        Validators::HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
-        Validators::HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        HttpEndpointConfiguration.validate!(input[:endpoint_configuration], context: "#{context}[:endpoint_configuration]") unless input[:endpoint_configuration].nil?
+        HttpEndpointBufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        HttpEndpointRequestConfiguration.validate!(input[:request_configuration], context: "#{context}[:request_configuration]") unless input[:request_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        HttpEndpointRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
+        S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpEndpointRequestConfiguration, context: context)
         Hearth::Validator.validate!(input[:content_encoding], ::String, context: "#{context}[:content_encoding]")
-        Validators::HttpEndpointCommonAttributesList.validate!(input[:common_attributes], context: "#{context}[:common_attributes]") unless input[:common_attributes].nil?
+        HttpEndpointCommonAttributesList.validate!(input[:common_attributes], context: "#{context}[:common_attributes]") unless input[:common_attributes].nil?
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::Firehose
     class InputFormatConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputFormatConfiguration, context: context)
-        Validators::Deserializer.validate!(input[:deserializer], context: "#{context}[:deserializer]") unless input[:deserializer].nil?
+        Deserializer.validate!(input[:deserializer], context: "#{context}[:deserializer]") unless input[:deserializer].nil?
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::Firehose
     class ListDeliveryStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeliveryStreamsOutput, context: context)
-        Validators::DeliveryStreamNameList.validate!(input[:delivery_stream_names], context: "#{context}[:delivery_stream_names]") unless input[:delivery_stream_names].nil?
+        DeliveryStreamNameList.validate!(input[:delivery_stream_names], context: "#{context}[:delivery_stream_names]") unless input[:delivery_stream_names].nil?
         Hearth::Validator.validate!(input[:has_more_delivery_streams], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_delivery_streams]")
       end
     end
@@ -624,7 +626,7 @@ module AWS::SDK::Firehose
     class ListTagsForDeliveryStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForDeliveryStreamOutput, context: context)
-        Validators::ListTagsForDeliveryStreamOutputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ListTagsForDeliveryStreamOutputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:has_more_tags], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_tags]")
       end
     end
@@ -633,7 +635,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::OpenXJsonSerDe, context: context)
         Hearth::Validator.validate!(input[:convert_dots_in_json_keys_to_underscores], ::TrueClass, ::FalseClass, context: "#{context}[:convert_dots_in_json_keys_to_underscores]")
         Hearth::Validator.validate!(input[:case_insensitive], ::TrueClass, ::FalseClass, context: "#{context}[:case_insensitive]")
-        Validators::ColumnToJsonKeyMappings.validate!(input[:column_to_json_key_mappings], context: "#{context}[:column_to_json_key_mappings]") unless input[:column_to_json_key_mappings].nil?
+        ColumnToJsonKeyMappings.validate!(input[:column_to_json_key_mappings], context: "#{context}[:column_to_json_key_mappings]") unless input[:column_to_json_key_mappings].nil?
       end
     end
 
@@ -656,7 +658,7 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:enable_padding], ::TrueClass, ::FalseClass, context: "#{context}[:enable_padding]")
         Hearth::Validator.validate!(input[:padding_tolerance], ::Float, context: "#{context}[:padding_tolerance]")
         Hearth::Validator.validate!(input[:compression], ::String, context: "#{context}[:compression]")
-        Validators::ListOfNonEmptyStringsWithoutWhitespace.validate!(input[:bloom_filter_columns], context: "#{context}[:bloom_filter_columns]") unless input[:bloom_filter_columns].nil?
+        ListOfNonEmptyStringsWithoutWhitespace.validate!(input[:bloom_filter_columns], context: "#{context}[:bloom_filter_columns]") unless input[:bloom_filter_columns].nil?
         Hearth::Validator.validate!(input[:bloom_filter_false_positive_probability], ::Float, context: "#{context}[:bloom_filter_false_positive_probability]")
         Hearth::Validator.validate!(input[:dictionary_key_threshold], ::Float, context: "#{context}[:dictionary_key_threshold]")
         Hearth::Validator.validate!(input[:format_version], ::String, context: "#{context}[:format_version]")
@@ -666,7 +668,7 @@ module AWS::SDK::Firehose
     class OutputFormatConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputFormatConfiguration, context: context)
-        Validators::Serializer.validate!(input[:serializer], context: "#{context}[:serializer]") unless input[:serializer].nil?
+        Serializer.validate!(input[:serializer], context: "#{context}[:serializer]") unless input[:serializer].nil?
       end
     end
 
@@ -686,7 +688,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProcessingConfiguration, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::ProcessorList.validate!(input[:processors], context: "#{context}[:processors]") unless input[:processors].nil?
+        ProcessorList.validate!(input[:processors], context: "#{context}[:processors]") unless input[:processors].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Processor, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ProcessorParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ProcessorParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -702,7 +704,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Processor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Processor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -719,7 +721,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProcessorParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProcessorParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -728,7 +730,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecordBatchInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
-        Validators::PutRecordBatchRequestEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        PutRecordBatchRequestEntryList.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
       end
     end
 
@@ -737,7 +739,7 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::PutRecordBatchOutput, context: context)
         Hearth::Validator.validate!(input[:failed_put_count], ::Integer, context: "#{context}[:failed_put_count]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
-        Validators::PutRecordBatchResponseEntryList.validate!(input[:request_responses], context: "#{context}[:request_responses]") unless input[:request_responses].nil?
+        PutRecordBatchResponseEntryList.validate!(input[:request_responses], context: "#{context}[:request_responses]") unless input[:request_responses].nil?
       end
     end
 
@@ -745,7 +747,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -763,7 +765,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutRecordBatchResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutRecordBatchResponseEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -772,7 +774,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecordInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
-        Validators::Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
+        Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
       end
     end
 
@@ -796,15 +798,15 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::RedshiftDestinationConfiguration, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:cluster_jdbcurl], ::String, context: "#{context}[:cluster_jdbcurl]")
-        Validators::CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
+        CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
-        Validators::S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_backup_configuration], context: "#{context}[:s3_backup_configuration]") unless input[:s3_backup_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationConfiguration.validate!(input[:s3_backup_configuration], context: "#{context}[:s3_backup_configuration]") unless input[:s3_backup_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -813,14 +815,14 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::RedshiftDestinationDescription, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:cluster_jdbcurl], ::String, context: "#{context}[:cluster_jdbcurl]")
-        Validators::CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
+        CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_backup_description], context: "#{context}[:s3_backup_description]") unless input[:s3_backup_description].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationDescription.validate!(input[:s3_backup_description], context: "#{context}[:s3_backup_description]") unless input[:s3_backup_description].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -829,15 +831,15 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input, Types::RedshiftDestinationUpdate, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:cluster_jdbcurl], ::String, context: "#{context}[:cluster_jdbcurl]")
-        Validators::CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
+        CopyCommand.validate!(input[:copy_command], context: "#{context}[:copy_command]") unless input[:copy_command].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
-        Validators::S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        RedshiftRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationUpdate.validate!(input[:s3_backup_update], context: "#{context}[:s3_backup_update]") unless input[:s3_backup_update].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationUpdate.validate!(input[:s3_backup_update], context: "#{context}[:s3_backup_update]") unless input[:s3_backup_update].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -876,10 +878,10 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -890,10 +892,10 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -904,10 +906,10 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:bucket_arn], ::String, context: "#{context}[:bucket_arn]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate!(input[:error_output_prefix], ::String, context: "#{context}[:error_output_prefix]")
-        Validators::BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
+        BufferingHints.validate!(input[:buffering_hints], context: "#{context}[:buffering_hints]") unless input[:buffering_hints].nil?
         Hearth::Validator.validate!(input[:compression_format], ::String, context: "#{context}[:compression_format]")
-        Validators::EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        EncryptionConfiguration.validate!(input[:encryption_configuration], context: "#{context}[:encryption_configuration]") unless input[:encryption_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -935,8 +937,8 @@ module AWS::SDK::Firehose
     class Serializer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Serializer, context: context)
-        Validators::ParquetSerDe.validate!(input[:parquet_ser_de], context: "#{context}[:parquet_ser_de]") unless input[:parquet_ser_de].nil?
-        Validators::OrcSerDe.validate!(input[:orc_ser_de], context: "#{context}[:orc_ser_de]") unless input[:orc_ser_de].nil?
+        ParquetSerDe.validate!(input[:parquet_ser_de], context: "#{context}[:parquet_ser_de]") unless input[:parquet_ser_de].nil?
+        OrcSerDe.validate!(input[:orc_ser_de], context: "#{context}[:orc_ser_de]") unless input[:orc_ser_de].nil?
       end
     end
 
@@ -950,7 +952,7 @@ module AWS::SDK::Firehose
     class SourceDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceDescription, context: context)
-        Validators::KinesisStreamSourceDescription.validate!(input[:kinesis_stream_source_description], context: "#{context}[:kinesis_stream_source_description]") unless input[:kinesis_stream_source_description].nil?
+        KinesisStreamSourceDescription.validate!(input[:kinesis_stream_source_description], context: "#{context}[:kinesis_stream_source_description]") unless input[:kinesis_stream_source_description].nil?
       end
     end
 
@@ -961,11 +963,11 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:hec_endpoint_type], ::String, context: "#{context}[:hec_endpoint_type]")
         Hearth::Validator.validate!(input[:hec_token], ::String, context: "#{context}[:hec_token]")
         Hearth::Validator.validate!(input[:hec_acknowledgment_timeout_in_seconds], ::Integer, context: "#{context}[:hec_acknowledgment_timeout_in_seconds]")
-        Validators::SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationConfiguration.validate!(input[:s3_configuration], context: "#{context}[:s3_configuration]") unless input[:s3_configuration].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -976,11 +978,11 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:hec_endpoint_type], ::String, context: "#{context}[:hec_endpoint_type]")
         Hearth::Validator.validate!(input[:hec_token], ::String, context: "#{context}[:hec_token]")
         Hearth::Validator.validate!(input[:hec_acknowledgment_timeout_in_seconds], ::Integer, context: "#{context}[:hec_acknowledgment_timeout_in_seconds]")
-        Validators::SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationDescription.validate!(input[:s3_destination_description], context: "#{context}[:s3_destination_description]") unless input[:s3_destination_description].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -991,11 +993,11 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:hec_endpoint_type], ::String, context: "#{context}[:hec_endpoint_type]")
         Hearth::Validator.validate!(input[:hec_token], ::String, context: "#{context}[:hec_token]")
         Hearth::Validator.validate!(input[:hec_acknowledgment_timeout_in_seconds], ::Integer, context: "#{context}[:hec_acknowledgment_timeout_in_seconds]")
-        Validators::SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
+        SplunkRetryOptions.validate!(input[:retry_options], context: "#{context}[:retry_options]") unless input[:retry_options].nil?
         Hearth::Validator.validate!(input[:s3_backup_mode], ::String, context: "#{context}[:s3_backup_mode]")
-        Validators::S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
-        Validators::ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
-        Validators::CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
+        S3DestinationUpdate.validate!(input[:s3_update], context: "#{context}[:s3_update]") unless input[:s3_update].nil?
+        ProcessingConfiguration.validate!(input[:processing_configuration], context: "#{context}[:processing_configuration]") unless input[:processing_configuration].nil?
+        CloudWatchLoggingOptions.validate!(input[:cloud_watch_logging_options], context: "#{context}[:cloud_watch_logging_options]") unless input[:cloud_watch_logging_options].nil?
       end
     end
 
@@ -1010,7 +1012,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDeliveryStreamEncryptionInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
-        Validators::DeliveryStreamEncryptionConfigurationInput.validate!(input[:delivery_stream_encryption_configuration_input], context: "#{context}[:delivery_stream_encryption_configuration_input]") unless input[:delivery_stream_encryption_configuration_input].nil?
+        DeliveryStreamEncryptionConfigurationInput.validate!(input[:delivery_stream_encryption_configuration_input], context: "#{context}[:delivery_stream_encryption_configuration_input]") unless input[:delivery_stream_encryption_configuration_input].nil?
       end
     end
 
@@ -1054,7 +1056,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagDeliveryStreamInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
-        Validators::TagDeliveryStreamInputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagDeliveryStreamInputTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1062,7 +1064,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::Firehose
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagDeliveryStreamInput, context: context)
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1102,13 +1104,13 @@ module AWS::SDK::Firehose
         Hearth::Validator.validate!(input[:delivery_stream_name], ::String, context: "#{context}[:delivery_stream_name]")
         Hearth::Validator.validate!(input[:current_delivery_stream_version_id], ::String, context: "#{context}[:current_delivery_stream_version_id]")
         Hearth::Validator.validate!(input[:destination_id], ::String, context: "#{context}[:destination_id]")
-        Validators::S3DestinationUpdate.validate!(input[:s3_destination_update], context: "#{context}[:s3_destination_update]") unless input[:s3_destination_update].nil?
-        Validators::ExtendedS3DestinationUpdate.validate!(input[:extended_s3_destination_update], context: "#{context}[:extended_s3_destination_update]") unless input[:extended_s3_destination_update].nil?
-        Validators::RedshiftDestinationUpdate.validate!(input[:redshift_destination_update], context: "#{context}[:redshift_destination_update]") unless input[:redshift_destination_update].nil?
-        Validators::ElasticsearchDestinationUpdate.validate!(input[:elasticsearch_destination_update], context: "#{context}[:elasticsearch_destination_update]") unless input[:elasticsearch_destination_update].nil?
-        Validators::AmazonopensearchserviceDestinationUpdate.validate!(input[:amazonopensearchservice_destination_update], context: "#{context}[:amazonopensearchservice_destination_update]") unless input[:amazonopensearchservice_destination_update].nil?
-        Validators::SplunkDestinationUpdate.validate!(input[:splunk_destination_update], context: "#{context}[:splunk_destination_update]") unless input[:splunk_destination_update].nil?
-        Validators::HttpEndpointDestinationUpdate.validate!(input[:http_endpoint_destination_update], context: "#{context}[:http_endpoint_destination_update]") unless input[:http_endpoint_destination_update].nil?
+        S3DestinationUpdate.validate!(input[:s3_destination_update], context: "#{context}[:s3_destination_update]") unless input[:s3_destination_update].nil?
+        ExtendedS3DestinationUpdate.validate!(input[:extended_s3_destination_update], context: "#{context}[:extended_s3_destination_update]") unless input[:extended_s3_destination_update].nil?
+        RedshiftDestinationUpdate.validate!(input[:redshift_destination_update], context: "#{context}[:redshift_destination_update]") unless input[:redshift_destination_update].nil?
+        ElasticsearchDestinationUpdate.validate!(input[:elasticsearch_destination_update], context: "#{context}[:elasticsearch_destination_update]") unless input[:elasticsearch_destination_update].nil?
+        AmazonopensearchserviceDestinationUpdate.validate!(input[:amazonopensearchservice_destination_update], context: "#{context}[:amazonopensearchservice_destination_update]") unless input[:amazonopensearchservice_destination_update].nil?
+        SplunkDestinationUpdate.validate!(input[:splunk_destination_update], context: "#{context}[:splunk_destination_update]") unless input[:splunk_destination_update].nil?
+        HttpEndpointDestinationUpdate.validate!(input[:http_endpoint_destination_update], context: "#{context}[:http_endpoint_destination_update]") unless input[:http_endpoint_destination_update].nil?
       end
     end
 
@@ -1121,18 +1123,18 @@ module AWS::SDK::Firehose
     class VpcConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfiguration, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
     class VpcConfigurationDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfigurationDescription, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
       end
     end

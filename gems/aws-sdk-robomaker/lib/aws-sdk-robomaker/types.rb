@@ -1121,11 +1121,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_job_duration_in_seconds ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -1311,12 +1311,12 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_job_duration_in_seconds ||= 0
         self.simulation_time_millis ||= 0
       end
-
     end
 
     # @!attribute client_request_token
@@ -3079,12 +3079,12 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_job_duration_in_seconds ||= 0
         self.simulation_time_millis ||= 0
       end
-
     end
 
     # @!attribute job
@@ -3577,11 +3577,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_failure_count ||= 0
       end
-
     end
 
     # <p>Information about a filter.</p>
@@ -3628,11 +3628,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.finished_count ||= 0
       end
-
     end
 
     # <p>Information about a fleet.</p>
@@ -3798,11 +3798,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.stream_ui ||= false
       end
-
     end
 
     # <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
@@ -4611,13 +4611,13 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.job_port ||= 0
         self.application_port ||= 0
         self.enable_on_public_ip ||= false
       end
-
     end
 
     # <p>Information about the progress of a deployment job.</p>
@@ -5481,12 +5481,12 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_job_duration_in_seconds ||= 0
         self.simulation_time_millis ||= 0
       end
-
     end
 
     # Includes enum constants for SimulationJobBatchErrorCode
@@ -5638,13 +5638,13 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.failed_request_count ||= 0
         self.pending_request_count ||= 0
         self.created_request_count ||= 0
       end
-
     end
 
     # Includes enum constants for SimulationJobErrorCode
@@ -5878,11 +5878,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_job_duration_in_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for SimulationJobStatus
@@ -6923,11 +6923,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.assign_public_ip ||= false
       end
-
     end
 
     # <p>VPC configuration associated with your simulation job.</p>
@@ -6960,11 +6960,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.assign_public_ip ||= false
       end
-
     end
 
     # <p>Configuration information for a world.</p>
@@ -7180,11 +7180,11 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.failure_count ||= 0
       end
-
     end
 
     # Includes enum constants for WorldGenerationJobErrorCode
@@ -7329,12 +7329,12 @@ module AWS::SDK::RoboMaker
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.succeeded_world_count ||= 0
         self.failed_world_count ||= 0
       end
-
     end
 
     # <p>Information about a world.</p>

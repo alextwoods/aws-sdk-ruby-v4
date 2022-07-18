@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EBS
@@ -102,7 +104,7 @@ module AWS::SDK::EBS
     def complete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteSnapshotInput,
         validate_input: @config.validate_input
@@ -307,7 +309,7 @@ module AWS::SDK::EBS
     def list_changed_blocks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChangedBlocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChangedBlocksInput,
         validate_input: @config.validate_input
@@ -406,7 +408,7 @@ module AWS::SDK::EBS
     def list_snapshot_blocks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSnapshotBlocksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSnapshotBlocksInput,
         validate_input: @config.validate_input
@@ -528,7 +530,7 @@ module AWS::SDK::EBS
     def put_snapshot_block(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSnapshotBlockInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSnapshotBlockInput,
         validate_input: @config.validate_input
@@ -719,7 +721,7 @@ module AWS::SDK::EBS
     def start_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSnapshotInput,
         validate_input: @config.validate_input
@@ -776,7 +778,7 @@ module AWS::SDK::EBS
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

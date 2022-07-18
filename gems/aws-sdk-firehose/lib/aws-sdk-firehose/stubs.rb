@@ -44,7 +44,7 @@ module AWS::SDK::Firehose
     class DescribeDeliveryStream
       def self.default(visited=[])
         {
-          delivery_stream_description: Stubs::DeliveryStreamDescription.default(visited),
+          delivery_stream_description: DeliveryStreamDescription.default(visited),
         }
       end
 
@@ -65,14 +65,14 @@ module AWS::SDK::Firehose
           delivery_stream_name: 'delivery_stream_name',
           delivery_stream_arn: 'delivery_stream_arn',
           delivery_stream_status: 'delivery_stream_status',
-          failure_description: Stubs::FailureDescription.default(visited),
-          delivery_stream_encryption_configuration: Stubs::DeliveryStreamEncryptionConfiguration.default(visited),
+          failure_description: FailureDescription.default(visited),
+          delivery_stream_encryption_configuration: DeliveryStreamEncryptionConfiguration.default(visited),
           delivery_stream_type: 'delivery_stream_type',
           version_id: 'version_id',
           create_timestamp: Time.now,
           last_update_timestamp: Time.now,
-          source: Stubs::SourceDescription.default(visited),
-          destinations: Stubs::DestinationDescriptionList.default(visited),
+          source: SourceDescription.default(visited),
+          destinations: DestinationDescriptionList.default(visited),
           has_more_destinations: false,
         }
       end
@@ -102,7 +102,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('DestinationDescriptionList')
         visited = visited + ['DestinationDescriptionList']
         [
-          Stubs::DestinationDescription.default(visited)
+          DestinationDescription.default(visited)
         ]
       end
 
@@ -123,13 +123,13 @@ module AWS::SDK::Firehose
         visited = visited + ['DestinationDescription']
         {
           destination_id: 'destination_id',
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
-          extended_s3_destination_description: Stubs::ExtendedS3DestinationDescription.default(visited),
-          redshift_destination_description: Stubs::RedshiftDestinationDescription.default(visited),
-          elasticsearch_destination_description: Stubs::ElasticsearchDestinationDescription.default(visited),
-          amazonopensearchservice_destination_description: Stubs::AmazonopensearchserviceDestinationDescription.default(visited),
-          splunk_destination_description: Stubs::SplunkDestinationDescription.default(visited),
-          http_endpoint_destination_description: Stubs::HttpEndpointDestinationDescription.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
+          extended_s3_destination_description: ExtendedS3DestinationDescription.default(visited),
+          redshift_destination_description: RedshiftDestinationDescription.default(visited),
+          elasticsearch_destination_description: ElasticsearchDestinationDescription.default(visited),
+          amazonopensearchservice_destination_description: AmazonopensearchserviceDestinationDescription.default(visited),
+          splunk_destination_description: SplunkDestinationDescription.default(visited),
+          http_endpoint_destination_description: HttpEndpointDestinationDescription.default(visited),
         }
       end
 
@@ -154,15 +154,15 @@ module AWS::SDK::Firehose
         return nil if visited.include?('HttpEndpointDestinationDescription')
         visited = visited + ['HttpEndpointDestinationDescription']
         {
-          endpoint_configuration: Stubs::HttpEndpointDescription.default(visited),
-          buffering_hints: Stubs::HttpEndpointBufferingHints.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
-          request_configuration: Stubs::HttpEndpointRequestConfiguration.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
+          endpoint_configuration: HttpEndpointDescription.default(visited),
+          buffering_hints: HttpEndpointBufferingHints.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
+          request_configuration: HttpEndpointRequestConfiguration.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
           role_arn: 'role_arn',
-          retry_options: Stubs::HttpEndpointRetryOptions.default(visited),
+          retry_options: HttpEndpointRetryOptions.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
         }
       end
 
@@ -192,10 +192,10 @@ module AWS::SDK::Firehose
           bucket_arn: 'bucket_arn',
           prefix: 'prefix',
           error_output_prefix: 'error_output_prefix',
-          buffering_hints: Stubs::BufferingHints.default(visited),
+          buffering_hints: BufferingHints.default(visited),
           compression_format: 'compression_format',
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
         }
       end
 
@@ -243,7 +243,7 @@ module AWS::SDK::Firehose
         visited = visited + ['EncryptionConfiguration']
         {
           no_encryption_config: 'no_encryption_config',
-          kms_encryption_config: Stubs::KMSEncryptionConfig.default(visited),
+          kms_encryption_config: KMSEncryptionConfig.default(visited),
         }
       end
 
@@ -319,7 +319,7 @@ module AWS::SDK::Firehose
         visited = visited + ['ProcessingConfiguration']
         {
           enabled: false,
-          processors: Stubs::ProcessorList.default(visited),
+          processors: ProcessorList.default(visited),
         }
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('ProcessorList')
         visited = visited + ['ProcessorList']
         [
-          Stubs::Processor.default(visited)
+          Processor.default(visited)
         ]
       end
 
@@ -359,7 +359,7 @@ module AWS::SDK::Firehose
         visited = visited + ['Processor']
         {
           type: 'type',
-          parameters: Stubs::ProcessorParameterList.default(visited),
+          parameters: ProcessorParameterList.default(visited),
         }
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('ProcessorParameterList')
         visited = visited + ['ProcessorParameterList']
         [
-          Stubs::ProcessorParameter.default(visited)
+          ProcessorParameter.default(visited)
         ]
       end
 
@@ -419,7 +419,7 @@ module AWS::SDK::Firehose
         visited = visited + ['HttpEndpointRequestConfiguration']
         {
           content_encoding: 'content_encoding',
-          common_attributes: Stubs::HttpEndpointCommonAttributesList.default(visited),
+          common_attributes: HttpEndpointCommonAttributesList.default(visited),
         }
       end
 
@@ -438,7 +438,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('HttpEndpointCommonAttributesList')
         visited = visited + ['HttpEndpointCommonAttributesList']
         [
-          Stubs::HttpEndpointCommonAttribute.default(visited)
+          HttpEndpointCommonAttribute.default(visited)
         ]
       end
 
@@ -522,11 +522,11 @@ module AWS::SDK::Firehose
           hec_endpoint_type: 'hec_endpoint_type',
           hec_token: 'hec_token',
           hec_acknowledgment_timeout_in_seconds: 1,
-          retry_options: Stubs::SplunkRetryOptions.default(visited),
+          retry_options: SplunkRetryOptions.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
         }
       end
 
@@ -576,13 +576,13 @@ module AWS::SDK::Firehose
           index_name: 'index_name',
           type_name: 'type_name',
           index_rotation_period: 'index_rotation_period',
-          buffering_hints: Stubs::AmazonopensearchserviceBufferingHints.default(visited),
-          retry_options: Stubs::AmazonopensearchserviceRetryOptions.default(visited),
+          buffering_hints: AmazonopensearchserviceBufferingHints.default(visited),
+          retry_options: AmazonopensearchserviceRetryOptions.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
-          vpc_configuration_description: Stubs::VpcConfigurationDescription.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
+          vpc_configuration_description: VpcConfigurationDescription.default(visited),
         }
       end
 
@@ -612,9 +612,9 @@ module AWS::SDK::Firehose
         return nil if visited.include?('VpcConfigurationDescription')
         visited = visited + ['VpcConfigurationDescription']
         {
-          subnet_ids: Stubs::SubnetIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
           role_arn: 'role_arn',
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -720,13 +720,13 @@ module AWS::SDK::Firehose
           index_name: 'index_name',
           type_name: 'type_name',
           index_rotation_period: 'index_rotation_period',
-          buffering_hints: Stubs::ElasticsearchBufferingHints.default(visited),
-          retry_options: Stubs::ElasticsearchRetryOptions.default(visited),
+          buffering_hints: ElasticsearchBufferingHints.default(visited),
+          retry_options: ElasticsearchRetryOptions.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
-          vpc_configuration_description: Stubs::VpcConfigurationDescription.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
+          vpc_configuration_description: VpcConfigurationDescription.default(visited),
         }
       end
 
@@ -796,14 +796,14 @@ module AWS::SDK::Firehose
         {
           role_arn: 'role_arn',
           cluster_jdbcurl: 'cluster_jdbcurl',
-          copy_command: Stubs::CopyCommand.default(visited),
+          copy_command: CopyCommand.default(visited),
           username: 'username',
-          retry_options: Stubs::RedshiftRetryOptions.default(visited),
-          s3_destination_description: Stubs::S3DestinationDescription.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
+          retry_options: RedshiftRetryOptions.default(visited),
+          s3_destination_description: S3DestinationDescription.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_backup_description: Stubs::S3DestinationDescription.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
+          s3_backup_description: S3DestinationDescription.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
         }
       end
 
@@ -874,15 +874,15 @@ module AWS::SDK::Firehose
           bucket_arn: 'bucket_arn',
           prefix: 'prefix',
           error_output_prefix: 'error_output_prefix',
-          buffering_hints: Stubs::BufferingHints.default(visited),
+          buffering_hints: BufferingHints.default(visited),
           compression_format: 'compression_format',
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          cloud_watch_logging_options: Stubs::CloudWatchLoggingOptions.default(visited),
-          processing_configuration: Stubs::ProcessingConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          cloud_watch_logging_options: CloudWatchLoggingOptions.default(visited),
+          processing_configuration: ProcessingConfiguration.default(visited),
           s3_backup_mode: 's3_backup_mode',
-          s3_backup_description: Stubs::S3DestinationDescription.default(visited),
-          data_format_conversion_configuration: Stubs::DataFormatConversionConfiguration.default(visited),
-          dynamic_partitioning_configuration: Stubs::DynamicPartitioningConfiguration.default(visited),
+          s3_backup_description: S3DestinationDescription.default(visited),
+          data_format_conversion_configuration: DataFormatConversionConfiguration.default(visited),
+          dynamic_partitioning_configuration: DynamicPartitioningConfiguration.default(visited),
         }
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('DynamicPartitioningConfiguration')
         visited = visited + ['DynamicPartitioningConfiguration']
         {
-          retry_options: Stubs::RetryOptions.default(visited),
+          retry_options: RetryOptions.default(visited),
           enabled: false,
         }
       end
@@ -950,9 +950,9 @@ module AWS::SDK::Firehose
         return nil if visited.include?('DataFormatConversionConfiguration')
         visited = visited + ['DataFormatConversionConfiguration']
         {
-          schema_configuration: Stubs::SchemaConfiguration.default(visited),
-          input_format_configuration: Stubs::InputFormatConfiguration.default(visited),
-          output_format_configuration: Stubs::OutputFormatConfiguration.default(visited),
+          schema_configuration: SchemaConfiguration.default(visited),
+          input_format_configuration: InputFormatConfiguration.default(visited),
+          output_format_configuration: OutputFormatConfiguration.default(visited),
           enabled: false,
         }
       end
@@ -974,7 +974,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('OutputFormatConfiguration')
         visited = visited + ['OutputFormatConfiguration']
         {
-          serializer: Stubs::Serializer.default(visited),
+          serializer: Serializer.default(visited),
         }
       end
 
@@ -992,8 +992,8 @@ module AWS::SDK::Firehose
         return nil if visited.include?('Serializer')
         visited = visited + ['Serializer']
         {
-          parquet_ser_de: Stubs::ParquetSerDe.default(visited),
-          orc_ser_de: Stubs::OrcSerDe.default(visited),
+          parquet_ser_de: ParquetSerDe.default(visited),
+          orc_ser_de: OrcSerDe.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Firehose
           enable_padding: false,
           padding_tolerance: 1.0,
           compression: 'compression',
-          bloom_filter_columns: Stubs::ListOfNonEmptyStringsWithoutWhitespace.default(visited),
+          bloom_filter_columns: ListOfNonEmptyStringsWithoutWhitespace.default(visited),
           bloom_filter_false_positive_probability: 1.0,
           dictionary_key_threshold: 1.0,
           format_version: 'format_version',
@@ -1096,7 +1096,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('InputFormatConfiguration')
         visited = visited + ['InputFormatConfiguration']
         {
-          deserializer: Stubs::Deserializer.default(visited),
+          deserializer: Deserializer.default(visited),
         }
       end
 
@@ -1114,8 +1114,8 @@ module AWS::SDK::Firehose
         return nil if visited.include?('Deserializer')
         visited = visited + ['Deserializer']
         {
-          open_x_json_ser_de: Stubs::OpenXJsonSerDe.default(visited),
-          hive_json_ser_de: Stubs::HiveJsonSerDe.default(visited),
+          open_x_json_ser_de: OpenXJsonSerDe.default(visited),
+          hive_json_ser_de: HiveJsonSerDe.default(visited),
         }
       end
 
@@ -1134,7 +1134,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('HiveJsonSerDe')
         visited = visited + ['HiveJsonSerDe']
         {
-          timestamp_formats: Stubs::ListOfNonEmptyStrings.default(visited),
+          timestamp_formats: ListOfNonEmptyStrings.default(visited),
         }
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::Firehose
         {
           convert_dots_in_json_keys_to_underscores: false,
           case_insensitive: false,
-          column_to_json_key_mappings: Stubs::ColumnToJsonKeyMappings.default(visited),
+          column_to_json_key_mappings: ColumnToJsonKeyMappings.default(visited),
         }
       end
 
@@ -1242,7 +1242,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('SourceDescription')
         visited = visited + ['SourceDescription']
         {
-          kinesis_stream_source_description: Stubs::KinesisStreamSourceDescription.default(visited),
+          kinesis_stream_source_description: KinesisStreamSourceDescription.default(visited),
         }
       end
 
@@ -1285,7 +1285,7 @@ module AWS::SDK::Firehose
           key_arn: 'key_arn',
           key_type: 'key_type',
           status: 'status',
-          failure_description: Stubs::FailureDescription.default(visited),
+          failure_description: FailureDescription.default(visited),
         }
       end
 
@@ -1324,7 +1324,7 @@ module AWS::SDK::Firehose
     class ListDeliveryStreams
       def self.default(visited=[])
         {
-          delivery_stream_names: Stubs::DeliveryStreamNameList.default(visited),
+          delivery_stream_names: DeliveryStreamNameList.default(visited),
           has_more_delivery_streams: false,
         }
       end
@@ -1362,7 +1362,7 @@ module AWS::SDK::Firehose
     class ListTagsForDeliveryStream
       def self.default(visited=[])
         {
-          tags: Stubs::ListTagsForDeliveryStreamOutputTagList.default(visited),
+          tags: ListTagsForDeliveryStreamOutputTagList.default(visited),
           has_more_tags: false,
         }
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('ListTagsForDeliveryStreamOutputTagList')
         visited = visited + ['ListTagsForDeliveryStreamOutputTagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1440,7 +1440,7 @@ module AWS::SDK::Firehose
         {
           failed_put_count: 1,
           encrypted: false,
-          request_responses: Stubs::PutRecordBatchResponseEntryList.default(visited),
+          request_responses: PutRecordBatchResponseEntryList.default(visited),
         }
       end
 
@@ -1460,7 +1460,7 @@ module AWS::SDK::Firehose
         return nil if visited.include?('PutRecordBatchResponseEntryList')
         visited = visited + ['PutRecordBatchResponseEntryList']
         [
-          Stubs::PutRecordBatchResponseEntry.default(visited)
+          PutRecordBatchResponseEntry.default(visited)
         ]
       end
 

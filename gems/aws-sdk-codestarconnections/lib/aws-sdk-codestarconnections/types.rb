@@ -431,11 +431,11 @@ module AWS::SDK::CodeStarConnections
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute connections
@@ -477,11 +477,11 @@ module AWS::SDK::CodeStarConnections
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute hosts

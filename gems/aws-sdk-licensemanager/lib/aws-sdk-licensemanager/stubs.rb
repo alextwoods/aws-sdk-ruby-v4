@@ -50,12 +50,12 @@ module AWS::SDK::LicenseManager
         {
           license_arn: 'license_arn',
           license_consumption_token: 'license_consumption_token',
-          entitlements_allowed: Stubs::EntitlementDataList.default(visited),
+          entitlements_allowed: EntitlementDataList.default(visited),
           node_id: 'node_id',
           signed_token: 'signed_token',
           issued_at: 'issued_at',
           expiration: 'expiration',
-          checkout_metadata: Stubs::MetadataList.default(visited),
+          checkout_metadata: MetadataList.default(visited),
         }
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('MetadataList')
         visited = visited + ['MetadataList']
         [
-          Stubs::Metadata.default(visited)
+          Metadata.default(visited)
         ]
       end
 
@@ -120,7 +120,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('EntitlementDataList')
         visited = visited + ['EntitlementDataList']
         [
-          Stubs::EntitlementData.default(visited)
+          EntitlementData.default(visited)
         ]
       end
 
@@ -162,7 +162,7 @@ module AWS::SDK::LicenseManager
         {
           checkout_type: 'checkout_type',
           license_consumption_token: 'license_consumption_token',
-          entitlements_allowed: Stubs::EntitlementDataList.default(visited),
+          entitlements_allowed: EntitlementDataList.default(visited),
           signed_token: 'signed_token',
           node_id: 'node_id',
           issued_at: 'issued_at',
@@ -452,7 +452,7 @@ module AWS::SDK::LicenseManager
     class GetGrant
       def self.default(visited=[])
         {
-          grant: Stubs::Grant.default(visited),
+          grant: Grant.default(visited),
         }
       end
 
@@ -479,7 +479,7 @@ module AWS::SDK::LicenseManager
           grant_status: 'grant_status',
           status_reason: 'status_reason',
           version: 'version',
-          granted_operations: Stubs::AllowedOperationList.default(visited),
+          granted_operations: AllowedOperationList.default(visited),
         }
       end
 
@@ -524,7 +524,7 @@ module AWS::SDK::LicenseManager
     class GetLicense
       def self.default(visited=[])
         {
-          license: Stubs::License.default(visited),
+          license: License.default(visited),
         }
       end
 
@@ -546,14 +546,14 @@ module AWS::SDK::LicenseManager
           license_name: 'license_name',
           product_name: 'product_name',
           product_sku: 'product_sku',
-          issuer: Stubs::IssuerDetails.default(visited),
+          issuer: IssuerDetails.default(visited),
           home_region: 'home_region',
           status: 'status',
-          validity: Stubs::DatetimeRange.default(visited),
+          validity: DatetimeRange.default(visited),
           beneficiary: 'beneficiary',
-          entitlements: Stubs::EntitlementList.default(visited),
-          consumption_configuration: Stubs::ConsumptionConfiguration.default(visited),
-          license_metadata: Stubs::MetadataList.default(visited),
+          entitlements: EntitlementList.default(visited),
+          consumption_configuration: ConsumptionConfiguration.default(visited),
+          license_metadata: MetadataList.default(visited),
           create_time: 'create_time',
           version: 'version',
         }
@@ -587,8 +587,8 @@ module AWS::SDK::LicenseManager
         visited = visited + ['ConsumptionConfiguration']
         {
           renew_type: 'renew_type',
-          provisional_configuration: Stubs::ProvisionalConfiguration.default(visited),
-          borrow_configuration: Stubs::BorrowConfiguration.default(visited),
+          provisional_configuration: ProvisionalConfiguration.default(visited),
+          borrow_configuration: BorrowConfiguration.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('EntitlementList')
         visited = visited + ['EntitlementList']
         [
-          Stubs::Entitlement.default(visited)
+          Entitlement.default(visited)
         ]
       end
 
@@ -739,17 +739,17 @@ module AWS::SDK::LicenseManager
           name: 'name',
           description: 'description',
           license_counting_type: 'license_counting_type',
-          license_rules: Stubs::StringList.default(visited),
+          license_rules: StringList.default(visited),
           license_count: 1,
           license_count_hard_limit: false,
           consumed_licenses: 1,
           status: 'status',
           owner_account_id: 'owner_account_id',
-          consumed_license_summary_list: Stubs::ConsumedLicenseSummaryList.default(visited),
-          managed_resource_summary_list: Stubs::ManagedResourceSummaryList.default(visited),
-          tags: Stubs::TagList.default(visited),
-          product_information_list: Stubs::ProductInformationList.default(visited),
-          automated_discovery_information: Stubs::AutomatedDiscoveryInformation.default(visited),
+          consumed_license_summary_list: ConsumedLicenseSummaryList.default(visited),
+          managed_resource_summary_list: ManagedResourceSummaryList.default(visited),
+          tags: TagList.default(visited),
+          product_information_list: ProductInformationList.default(visited),
+          automated_discovery_information: AutomatedDiscoveryInformation.default(visited),
           disassociate_when_not_found: false,
         }
       end
@@ -802,7 +802,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ProductInformationList')
         visited = visited + ['ProductInformationList']
         [
-          Stubs::ProductInformation.default(visited)
+          ProductInformation.default(visited)
         ]
       end
 
@@ -823,7 +823,7 @@ module AWS::SDK::LicenseManager
         visited = visited + ['ProductInformation']
         {
           resource_type: 'resource_type',
-          product_information_filter_list: Stubs::ProductInformationFilterList.default(visited),
+          product_information_filter_list: ProductInformationFilterList.default(visited),
         }
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ProductInformationFilterList')
         visited = visited + ['ProductInformationFilterList']
         [
-          Stubs::ProductInformationFilter.default(visited)
+          ProductInformationFilter.default(visited)
         ]
       end
 
@@ -863,7 +863,7 @@ module AWS::SDK::LicenseManager
         visited = visited + ['ProductInformationFilter']
         {
           product_information_filter_name: 'product_information_filter_name',
-          product_information_filter_value: Stubs::StringList.default(visited),
+          product_information_filter_value: StringList.default(visited),
           product_information_filter_comparator: 'product_information_filter_comparator',
         }
       end
@@ -904,7 +904,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -944,7 +944,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ManagedResourceSummaryList')
         visited = visited + ['ManagedResourceSummaryList']
         [
-          Stubs::ManagedResourceSummary.default(visited)
+          ManagedResourceSummary.default(visited)
         ]
       end
 
@@ -984,7 +984,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ConsumedLicenseSummaryList')
         visited = visited + ['ConsumedLicenseSummaryList']
         [
-          Stubs::ConsumedLicenseSummary.default(visited)
+          ConsumedLicenseSummary.default(visited)
         ]
       end
 
@@ -1024,8 +1024,8 @@ module AWS::SDK::LicenseManager
         {
           license_conversion_task_id: 'license_conversion_task_id',
           resource_arn: 'resource_arn',
-          source_license_context: Stubs::LicenseConversionContext.default(visited),
-          destination_license_context: Stubs::LicenseConversionContext.default(visited),
+          source_license_context: LicenseConversionContext.default(visited),
+          destination_license_context: LicenseConversionContext.default(visited),
           status_message: 'status_message',
           status: 'status',
           start_time: Time.now,
@@ -1072,7 +1072,7 @@ module AWS::SDK::LicenseManager
     class GetLicenseManagerReportGenerator
       def self.default(visited=[])
         {
-          report_generator: Stubs::ReportGenerator.default(visited),
+          report_generator: ReportGenerator.default(visited),
         }
       end
 
@@ -1091,18 +1091,18 @@ module AWS::SDK::LicenseManager
         visited = visited + ['ReportGenerator']
         {
           report_generator_name: 'report_generator_name',
-          report_type: Stubs::ReportTypeList.default(visited),
-          report_context: Stubs::ReportContext.default(visited),
-          report_frequency: Stubs::ReportFrequency.default(visited),
+          report_type: ReportTypeList.default(visited),
+          report_context: ReportContext.default(visited),
+          report_frequency: ReportFrequency.default(visited),
           license_manager_report_generator_arn: 'license_manager_report_generator_arn',
           last_run_status: 'last_run_status',
           last_run_failure_reason: 'last_run_failure_reason',
           last_report_generation_time: 'last_report_generation_time',
           report_creator_account: 'report_creator_account',
           description: 'description',
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
           create_time: 'create_time',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1172,7 +1172,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ReportContext')
         visited = visited + ['ReportContext']
         {
-          license_configuration_arns: Stubs::ArnList.default(visited),
+          license_configuration_arns: ArnList.default(visited),
         }
       end
 
@@ -1228,7 +1228,7 @@ module AWS::SDK::LicenseManager
     class GetLicenseUsage
       def self.default(visited=[])
         {
-          license_usage: Stubs::LicenseUsage.default(visited),
+          license_usage: LicenseUsage.default(visited),
         }
       end
 
@@ -1246,7 +1246,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseUsage')
         visited = visited + ['LicenseUsage']
         {
-          entitlement_usages: Stubs::EntitlementUsageList.default(visited),
+          entitlement_usages: EntitlementUsageList.default(visited),
         }
       end
 
@@ -1264,7 +1264,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('EntitlementUsageList')
         visited = visited + ['EntitlementUsageList']
         [
-          Stubs::EntitlementUsage.default(visited)
+          EntitlementUsage.default(visited)
         ]
       end
 
@@ -1308,7 +1308,7 @@ module AWS::SDK::LicenseManager
         {
           s3_bucket_arn: 's3_bucket_arn',
           sns_topic_arn: 'sns_topic_arn',
-          organization_configuration: Stubs::OrganizationConfiguration.default(visited),
+          organization_configuration: OrganizationConfiguration.default(visited),
           enable_cross_accounts_discovery: false,
           license_manager_resource_share_arn: 'license_manager_resource_share_arn',
         }
@@ -1348,7 +1348,7 @@ module AWS::SDK::LicenseManager
     class ListAssociationsForLicenseConfiguration
       def self.default(visited=[])
         {
-          license_configuration_associations: Stubs::LicenseConfigurationAssociations.default(visited),
+          license_configuration_associations: LicenseConfigurationAssociations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseConfigurationAssociations')
         visited = visited + ['LicenseConfigurationAssociations']
         [
-          Stubs::LicenseConfigurationAssociation.default(visited)
+          LicenseConfigurationAssociation.default(visited)
         ]
       end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::LicenseManager
     class ListDistributedGrants
       def self.default(visited=[])
         {
-          grants: Stubs::GrantList.default(visited),
+          grants: GrantList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1432,7 +1432,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('GrantList')
         visited = visited + ['GrantList']
         [
-          Stubs::Grant.default(visited)
+          Grant.default(visited)
         ]
       end
 
@@ -1450,7 +1450,7 @@ module AWS::SDK::LicenseManager
     class ListFailuresForLicenseConfigurationOperations
       def self.default(visited=[])
         {
-          license_operation_failure_list: Stubs::LicenseOperationFailureList.default(visited),
+          license_operation_failure_list: LicenseOperationFailureList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseOperationFailureList')
         visited = visited + ['LicenseOperationFailureList']
         [
-          Stubs::LicenseOperationFailure.default(visited)
+          LicenseOperationFailure.default(visited)
         ]
       end
 
@@ -1497,7 +1497,7 @@ module AWS::SDK::LicenseManager
           operation_name: 'operation_name',
           resource_owner_id: 'resource_owner_id',
           operation_requested_by: 'operation_requested_by',
-          metadata_list: Stubs::MetadataList.default(visited),
+          metadata_list: MetadataList.default(visited),
         }
       end
 
@@ -1520,7 +1520,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseConfigurations
       def self.default(visited=[])
         {
-          license_configurations: Stubs::LicenseConfigurations.default(visited),
+          license_configurations: LicenseConfigurations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1540,7 +1540,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseConfigurations')
         visited = visited + ['LicenseConfigurations']
         [
-          Stubs::LicenseConfiguration.default(visited)
+          LicenseConfiguration.default(visited)
         ]
       end
 
@@ -1565,17 +1565,17 @@ module AWS::SDK::LicenseManager
           name: 'name',
           description: 'description',
           license_counting_type: 'license_counting_type',
-          license_rules: Stubs::StringList.default(visited),
+          license_rules: StringList.default(visited),
           license_count: 1,
           license_count_hard_limit: false,
           disassociate_when_not_found: false,
           consumed_licenses: 1,
           status: 'status',
           owner_account_id: 'owner_account_id',
-          consumed_license_summary_list: Stubs::ConsumedLicenseSummaryList.default(visited),
-          managed_resource_summary_list: Stubs::ManagedResourceSummaryList.default(visited),
-          product_information_list: Stubs::ProductInformationList.default(visited),
-          automated_discovery_information: Stubs::AutomatedDiscoveryInformation.default(visited),
+          consumed_license_summary_list: ConsumedLicenseSummaryList.default(visited),
+          managed_resource_summary_list: ManagedResourceSummaryList.default(visited),
+          product_information_list: ProductInformationList.default(visited),
+          automated_discovery_information: AutomatedDiscoveryInformation.default(visited),
         }
       end
 
@@ -1606,7 +1606,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseConversionTasks
       def self.default(visited=[])
         {
-          license_conversion_tasks: Stubs::LicenseConversionTasks.default(visited),
+          license_conversion_tasks: LicenseConversionTasks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1626,7 +1626,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseConversionTasks')
         visited = visited + ['LicenseConversionTasks']
         [
-          Stubs::LicenseConversionTask.default(visited)
+          LicenseConversionTask.default(visited)
         ]
       end
 
@@ -1648,8 +1648,8 @@ module AWS::SDK::LicenseManager
         {
           license_conversion_task_id: 'license_conversion_task_id',
           resource_arn: 'resource_arn',
-          source_license_context: Stubs::LicenseConversionContext.default(visited),
-          destination_license_context: Stubs::LicenseConversionContext.default(visited),
+          source_license_context: LicenseConversionContext.default(visited),
+          destination_license_context: LicenseConversionContext.default(visited),
           status: 'status',
           status_message: 'status_message',
           start_time: Time.now,
@@ -1678,7 +1678,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseManagerReportGenerators
       def self.default(visited=[])
         {
-          report_generators: Stubs::ReportGeneratorList.default(visited),
+          report_generators: ReportGeneratorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1698,7 +1698,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ReportGeneratorList')
         visited = visited + ['ReportGeneratorList']
         [
-          Stubs::ReportGenerator.default(visited)
+          ReportGenerator.default(visited)
         ]
       end
 
@@ -1716,7 +1716,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseSpecificationsForResource
       def self.default(visited=[])
         {
-          license_specifications: Stubs::LicenseSpecifications.default(visited),
+          license_specifications: LicenseSpecifications.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1736,7 +1736,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseSpecifications')
         visited = visited + ['LicenseSpecifications']
         [
-          Stubs::LicenseSpecification.default(visited)
+          LicenseSpecification.default(visited)
         ]
       end
 
@@ -1774,7 +1774,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseVersions
       def self.default(visited=[])
         {
-          licenses: Stubs::LicenseList.default(visited),
+          licenses: LicenseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1794,7 +1794,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseList')
         visited = visited + ['LicenseList']
         [
-          Stubs::License.default(visited)
+          License.default(visited)
         ]
       end
 
@@ -1812,7 +1812,7 @@ module AWS::SDK::LicenseManager
     class ListLicenses
       def self.default(visited=[])
         {
-          licenses: Stubs::LicenseList.default(visited),
+          licenses: LicenseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1830,7 +1830,7 @@ module AWS::SDK::LicenseManager
     class ListReceivedGrants
       def self.default(visited=[])
         {
-          grants: Stubs::GrantList.default(visited),
+          grants: GrantList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1848,7 +1848,7 @@ module AWS::SDK::LicenseManager
     class ListReceivedLicenses
       def self.default(visited=[])
         {
-          licenses: Stubs::GrantedLicenseList.default(visited),
+          licenses: GrantedLicenseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1868,7 +1868,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('GrantedLicenseList')
         visited = visited + ['GrantedLicenseList']
         [
-          Stubs::GrantedLicense.default(visited)
+          GrantedLicense.default(visited)
         ]
       end
 
@@ -1892,17 +1892,17 @@ module AWS::SDK::LicenseManager
           license_name: 'license_name',
           product_name: 'product_name',
           product_sku: 'product_sku',
-          issuer: Stubs::IssuerDetails.default(visited),
+          issuer: IssuerDetails.default(visited),
           home_region: 'home_region',
           status: 'status',
-          validity: Stubs::DatetimeRange.default(visited),
+          validity: DatetimeRange.default(visited),
           beneficiary: 'beneficiary',
-          entitlements: Stubs::EntitlementList.default(visited),
-          consumption_configuration: Stubs::ConsumptionConfiguration.default(visited),
-          license_metadata: Stubs::MetadataList.default(visited),
+          entitlements: EntitlementList.default(visited),
+          consumption_configuration: ConsumptionConfiguration.default(visited),
+          license_metadata: MetadataList.default(visited),
           create_time: 'create_time',
           version: 'version',
-          received_metadata: Stubs::ReceivedMetadata.default(visited),
+          received_metadata: ReceivedMetadata.default(visited),
         }
       end
 
@@ -1936,7 +1936,7 @@ module AWS::SDK::LicenseManager
         {
           received_status: 'received_status',
           received_status_reason: 'received_status_reason',
-          allowed_operations: Stubs::AllowedOperationList.default(visited),
+          allowed_operations: AllowedOperationList.default(visited),
         }
       end
 
@@ -1954,7 +1954,7 @@ module AWS::SDK::LicenseManager
     class ListResourceInventory
       def self.default(visited=[])
         {
-          resource_inventory_list: Stubs::ResourceInventoryList.default(visited),
+          resource_inventory_list: ResourceInventoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1974,7 +1974,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('ResourceInventoryList')
         visited = visited + ['ResourceInventoryList']
         [
-          Stubs::ResourceInventory.default(visited)
+          ResourceInventory.default(visited)
         ]
       end
 
@@ -2020,7 +2020,7 @@ module AWS::SDK::LicenseManager
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2036,7 +2036,7 @@ module AWS::SDK::LicenseManager
     class ListTokens
       def self.default(visited=[])
         {
-          tokens: Stubs::TokenList.default(visited),
+          tokens: TokenList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2056,7 +2056,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('TokenList')
         visited = visited + ['TokenList']
         [
-          Stubs::TokenData.default(visited)
+          TokenData.default(visited)
         ]
       end
 
@@ -2080,8 +2080,8 @@ module AWS::SDK::LicenseManager
           token_type: 'token_type',
           license_arn: 'license_arn',
           expiration_time: 'expiration_time',
-          token_properties: Stubs::MaxSize3StringList.default(visited),
-          role_arns: Stubs::ArnList.default(visited),
+          token_properties: MaxSize3StringList.default(visited),
+          role_arns: ArnList.default(visited),
           status: 'status',
         }
       end
@@ -2124,7 +2124,7 @@ module AWS::SDK::LicenseManager
     class ListUsageForLicenseConfiguration
       def self.default(visited=[])
         {
-          license_configuration_usage_list: Stubs::LicenseConfigurationUsageList.default(visited),
+          license_configuration_usage_list: LicenseConfigurationUsageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2144,7 +2144,7 @@ module AWS::SDK::LicenseManager
         return nil if visited.include?('LicenseConfigurationUsageList')
         visited = visited + ['LicenseConfigurationUsageList']
         [
-          Stubs::LicenseConfigurationUsage.default(visited)
+          LicenseConfigurationUsage.default(visited)
         ]
       end
 

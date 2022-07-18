@@ -60,7 +60,7 @@ module AWS::SDK::ConnectParticipant
         Hearth::Validator.validate!(params, ::Hash, Types::CompleteAttachmentUploadInput, context: context)
         type = Types::CompleteAttachmentUploadInput.new
         type.attachment_ids = AttachmentIdList.build(params[:attachment_ids], context: "#{context}[:attachment_ids]") unless params[:attachment_ids].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.connection_token = params[:connection_token]
         type
       end
@@ -129,7 +129,7 @@ module AWS::SDK::ConnectParticipant
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DisconnectParticipantInput, context: context)
         type = Types::DisconnectParticipantInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.connection_token = params[:connection_token]
         type
       end
@@ -221,7 +221,7 @@ module AWS::SDK::ConnectParticipant
         type = Types::SendEventInput.new
         type.content_type = params[:content_type]
         type.content = params[:content]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.connection_token = params[:connection_token]
         type
       end
@@ -243,7 +243,7 @@ module AWS::SDK::ConnectParticipant
         type = Types::SendMessageInput.new
         type.content_type = params[:content_type]
         type.content = params[:content]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.connection_token = params[:connection_token]
         type
       end
@@ -275,7 +275,7 @@ module AWS::SDK::ConnectParticipant
         type.content_type = params[:content_type]
         type.attachment_size_in_bytes = params[:attachment_size_in_bytes]
         type.attachment_name = params[:attachment_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.connection_token = params[:connection_token]
         type
       end

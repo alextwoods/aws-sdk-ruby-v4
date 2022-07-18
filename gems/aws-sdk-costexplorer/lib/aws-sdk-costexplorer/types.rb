@@ -245,11 +245,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dimensional_value_count ||= 0
       end
-
     end
 
     # <p>Quantifies the anomaly. The higher score means that it's more anomalous. </p>
@@ -270,12 +270,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_score ||= 0
         self.current_score ||= 0
       end
-
     end
 
     # <p>The association between a monitor, threshold, and list of subscribers used to deliver
@@ -657,11 +657,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_rules ||= 0
       end
-
     end
 
     # <p>Rules are processed in order. If there are multiple rules that match the line item,
@@ -1762,12 +1762,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_generation ||= false
         self.size_flex_eligible ||= false
       end
-
     end
 
     # <p>Details on the Amazon EC2 Resource.</p>
@@ -1937,12 +1937,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_generation ||= false
         self.size_flex_eligible ||= false
       end
-
     end
 
     # <p>Details about the Amazon ElastiCache instances that Amazon Web Services recommends that
@@ -1988,12 +1988,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_generation ||= false
         self.size_flex_eligible ||= false
       end
-
     end
 
     # <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
@@ -2713,11 +2713,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_page_token
@@ -3275,11 +3275,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute dimension_values
@@ -3771,11 +3771,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute metadata
@@ -4110,11 +4110,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute metadata
@@ -4372,11 +4372,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.page_size ||= 0
       end
-
     end
 
     # @!attribute metadata
@@ -4814,11 +4814,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_page_token
@@ -5139,12 +5139,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_impact ||= 0
         self.total_impact ||= 0
       end
-
     end
 
     # <p>Details about the instances that Amazon Web Services recommends that you
@@ -5701,12 +5701,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_generation ||= false
         self.size_flex_eligible ||= false
       end
-
     end
 
     # Includes enum constants for RecommendationTarget
@@ -5758,12 +5758,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_generation ||= false
         self.size_flex_eligible ||= false
       end
-
     end
 
     # <p>Your request parameters changed between pages. Try again with the old parameters or
@@ -6316,11 +6316,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated ||= false
       end
-
     end
 
     # <p>Recommendations to rightsize resources.</p>
@@ -6399,11 +6399,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.benefits_considered ||= false
       end
-
     end
 
     # <p>Metadata for this recommendation set.</p>
@@ -7394,11 +7394,11 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_target_instance ||= false
       end
-
     end
 
     # Includes enum constants for TermInYears
@@ -7478,12 +7478,12 @@ module AWS::SDK::CostExplorer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_value ||= 0
         self.end_value ||= 0
       end
-
     end
 
     # <p>The cost anomaly monitor does not exist for the account.

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KinesisAnalytics
@@ -85,7 +87,7 @@ module AWS::SDK::KinesisAnalytics
     def add_application_cloud_watch_logging_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddApplicationCloudWatchLoggingOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddApplicationCloudWatchLoggingOptionInput,
         validate_input: @config.validate_input
@@ -219,7 +221,7 @@ module AWS::SDK::KinesisAnalytics
     def add_application_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddApplicationInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddApplicationInputInput,
         validate_input: @config.validate_input
@@ -312,7 +314,7 @@ module AWS::SDK::KinesisAnalytics
     def add_application_input_processing_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddApplicationInputProcessingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddApplicationInputProcessingConfigurationInput,
         validate_input: @config.validate_input
@@ -430,7 +432,7 @@ module AWS::SDK::KinesisAnalytics
     def add_application_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddApplicationOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddApplicationOutputInput,
         validate_input: @config.validate_input
@@ -551,7 +553,7 @@ module AWS::SDK::KinesisAnalytics
     def add_application_reference_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddApplicationReferenceDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddApplicationReferenceDataSourceInput,
         validate_input: @config.validate_input
@@ -776,7 +778,7 @@ module AWS::SDK::KinesisAnalytics
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -855,7 +857,7 @@ module AWS::SDK::KinesisAnalytics
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -937,7 +939,7 @@ module AWS::SDK::KinesisAnalytics
     def delete_application_cloud_watch_logging_option(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationCloudWatchLoggingOptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationCloudWatchLoggingOptionInput,
         validate_input: @config.validate_input
@@ -1017,7 +1019,7 @@ module AWS::SDK::KinesisAnalytics
     def delete_application_input_processing_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInputProcessingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInputProcessingConfigurationInput,
         validate_input: @config.validate_input
@@ -1109,7 +1111,7 @@ module AWS::SDK::KinesisAnalytics
     def delete_application_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationOutputInput,
         validate_input: @config.validate_input
@@ -1200,7 +1202,7 @@ module AWS::SDK::KinesisAnalytics
     def delete_application_reference_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationReferenceDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationReferenceDataSourceInput,
         validate_input: @config.validate_input
@@ -1350,7 +1352,7 @@ module AWS::SDK::KinesisAnalytics
     def describe_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationInput,
         validate_input: @config.validate_input
@@ -1482,7 +1484,7 @@ module AWS::SDK::KinesisAnalytics
     def discover_input_schema(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DiscoverInputSchemaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DiscoverInputSchemaInput,
         validate_input: @config.validate_input
@@ -1576,7 +1578,7 @@ module AWS::SDK::KinesisAnalytics
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1648,7 +1650,7 @@ module AWS::SDK::KinesisAnalytics
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1738,7 +1740,7 @@ module AWS::SDK::KinesisAnalytics
     def start_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartApplicationInput,
         validate_input: @config.validate_input
@@ -1816,7 +1818,7 @@ module AWS::SDK::KinesisAnalytics
     def stop_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopApplicationInput,
         validate_input: @config.validate_input
@@ -1894,7 +1896,7 @@ module AWS::SDK::KinesisAnalytics
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1968,7 +1970,7 @@ module AWS::SDK::KinesisAnalytics
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2143,7 +2145,7 @@ module AWS::SDK::KinesisAnalytics
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input

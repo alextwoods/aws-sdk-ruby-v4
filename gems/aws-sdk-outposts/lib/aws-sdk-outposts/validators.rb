@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Outposts
   module Validators
 
@@ -40,7 +42,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:asset_id], ::String, context: "#{context}[:asset_id]")
         Hearth::Validator.validate!(input[:rack_id], ::String, context: "#{context}[:rack_id]")
         Hearth::Validator.validate!(input[:asset_type], ::String, context: "#{context}[:asset_type]")
-        Validators::ComputeAttributes.validate!(input[:compute_attributes], context: "#{context}[:compute_attributes]") unless input[:compute_attributes].nil?
+        ComputeAttributes.validate!(input[:compute_attributes], context: "#{context}[:compute_attributes]") unless input[:compute_attributes].nil?
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -98,11 +100,11 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::CatalogItem, context: context)
         Hearth::Validator.validate!(input[:catalog_item_id], ::String, context: "#{context}[:catalog_item_id]")
         Hearth::Validator.validate!(input[:item_status], ::String, context: "#{context}[:item_status]")
-        Validators::EC2CapacityListDefinition.validate!(input[:ec2_capacities], context: "#{context}[:ec2_capacities]") unless input[:ec2_capacities].nil?
+        EC2CapacityListDefinition.validate!(input[:ec2_capacities], context: "#{context}[:ec2_capacities]") unless input[:ec2_capacities].nil?
         Hearth::Validator.validate!(input[:power_kva], ::Float, context: "#{context}[:power_kva]")
         Hearth::Validator.validate!(input[:weight_lbs], ::Integer, context: "#{context}[:weight_lbs]")
-        Validators::SupportedUplinkGbpsListDefinition.validate!(input[:supported_uplink_gbps], context: "#{context}[:supported_uplink_gbps]") unless input[:supported_uplink_gbps].nil?
-        Validators::SupportedStorageList.validate!(input[:supported_storage], context: "#{context}[:supported_storage]") unless input[:supported_storage].nil?
+        SupportedUplinkGbpsListDefinition.validate!(input[:supported_uplink_gbps], context: "#{context}[:supported_uplink_gbps]") unless input[:supported_uplink_gbps].nil?
+        SupportedStorageList.validate!(input[:supported_storage], context: "#{context}[:supported_storage]") unless input[:supported_storage].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CatalogItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CatalogItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:server_endpoint], ::String, context: "#{context}[:server_endpoint]")
         Hearth::Validator.validate!(input[:client_tunnel_address], ::String, context: "#{context}[:client_tunnel_address]")
         Hearth::Validator.validate!(input[:server_tunnel_address], ::String, context: "#{context}[:server_tunnel_address]")
-        Validators::CIDRList.validate!(input[:allowed_ips], context: "#{context}[:allowed_ips]") unless input[:allowed_ips].nil?
+        CIDRList.validate!(input[:allowed_ips], context: "#{context}[:allowed_ips]") unless input[:allowed_ips].nil?
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOrderInput, context: context)
         Hearth::Validator.validate!(input[:outpost_identifier], ::String, context: "#{context}[:outpost_identifier]")
-        Validators::LineItemRequestListDefinition.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
+        LineItemRequestListDefinition.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
         Hearth::Validator.validate!(input[:payment_term], ::String, context: "#{context}[:payment_term]")
       end
@@ -183,7 +185,7 @@ module AWS::SDK::Outposts
     class CreateOrderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOrderOutput, context: context)
-        Validators::Order.validate!(input[:order], context: "#{context}[:order]") unless input[:order].nil?
+        Order.validate!(input[:order], context: "#{context}[:order]") unless input[:order].nil?
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:availability_zone_id], ::String, context: "#{context}[:availability_zone_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:supported_hardware_type], ::String, context: "#{context}[:supported_hardware_type]")
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::Outposts
     class CreateOutpostOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOutpostOutput, context: context)
-        Validators::Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
+        Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
       end
     end
 
@@ -213,17 +215,17 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Address.validate!(input[:operating_address], context: "#{context}[:operating_address]") unless input[:operating_address].nil?
-        Validators::Address.validate!(input[:shipping_address], context: "#{context}[:shipping_address]") unless input[:shipping_address].nil?
-        Validators::RackPhysicalProperties.validate!(input[:rack_physical_properties], context: "#{context}[:rack_physical_properties]") unless input[:rack_physical_properties].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Address.validate!(input[:operating_address], context: "#{context}[:operating_address]") unless input[:operating_address].nil?
+        Address.validate!(input[:shipping_address], context: "#{context}[:shipping_address]") unless input[:shipping_address].nil?
+        RackPhysicalProperties.validate!(input[:rack_physical_properties], context: "#{context}[:rack_physical_properties]") unless input[:rack_physical_properties].nil?
       end
     end
 
     class CreateSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -266,7 +268,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2Capacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2Capacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::Outposts
     class GetCatalogItemOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCatalogItemOutput, context: context)
-        Validators::CatalogItem.validate!(input[:catalog_item], context: "#{context}[:catalog_item]") unless input[:catalog_item].nil?
+        CatalogItem.validate!(input[:catalog_item], context: "#{context}[:catalog_item]") unless input[:catalog_item].nil?
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectionOutput, context: context)
         Hearth::Validator.validate!(input[:connection_id], ::String, context: "#{context}[:connection_id]")
-        Validators::ConnectionDetails.validate!(input[:connection_details], context: "#{context}[:connection_details]") unless input[:connection_details].nil?
+        ConnectionDetails.validate!(input[:connection_details], context: "#{context}[:connection_details]") unless input[:connection_details].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::Outposts
     class GetOrderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOrderOutput, context: context)
-        Validators::Order.validate!(input[:order], context: "#{context}[:order]") unless input[:order].nil?
+        Order.validate!(input[:order], context: "#{context}[:order]") unless input[:order].nil?
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::Outposts
     class GetOutpostInstanceTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOutpostInstanceTypesOutput, context: context)
-        Validators::InstanceTypeListDefinition.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        InstanceTypeListDefinition.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:outpost_id], ::String, context: "#{context}[:outpost_id]")
         Hearth::Validator.validate!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
@@ -352,7 +354,7 @@ module AWS::SDK::Outposts
     class GetOutpostOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOutpostOutput, context: context)
-        Validators::Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
+        Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::GetSiteAddressOutput, context: context)
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:address_type], ::String, context: "#{context}[:address_type]")
-        Validators::Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::Outposts
     class GetSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -407,7 +409,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceTypeItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceTypeItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -442,7 +444,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LineItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LineItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -459,7 +461,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LineItemRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LineItemRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssetsInput, context: context)
         Hearth::Validator.validate!(input[:outpost_identifier], ::String, context: "#{context}[:outpost_identifier]")
-        Validators::HostIdList.validate!(input[:host_id_filter], context: "#{context}[:host_id_filter]") unless input[:host_id_filter].nil?
+        HostIdList.validate!(input[:host_id_filter], context: "#{context}[:host_id_filter]") unless input[:host_id_filter].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -487,7 +489,7 @@ module AWS::SDK::Outposts
     class ListAssetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssetsOutput, context: context)
-        Validators::AssetListDefinition.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
+        AssetListDefinition.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -497,16 +499,16 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::ListCatalogItemsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::CatalogItemClassList.validate!(input[:item_class_filter], context: "#{context}[:item_class_filter]") unless input[:item_class_filter].nil?
-        Validators::SupportedStorageList.validate!(input[:supported_storage_filter], context: "#{context}[:supported_storage_filter]") unless input[:supported_storage_filter].nil?
-        Validators::EC2FamilyList.validate!(input[:ec2_family_filter], context: "#{context}[:ec2_family_filter]") unless input[:ec2_family_filter].nil?
+        CatalogItemClassList.validate!(input[:item_class_filter], context: "#{context}[:item_class_filter]") unless input[:item_class_filter].nil?
+        SupportedStorageList.validate!(input[:supported_storage_filter], context: "#{context}[:supported_storage_filter]") unless input[:supported_storage_filter].nil?
+        EC2FamilyList.validate!(input[:ec2_family_filter], context: "#{context}[:ec2_family_filter]") unless input[:ec2_family_filter].nil?
       end
     end
 
     class ListCatalogItemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCatalogItemsOutput, context: context)
-        Validators::CatalogItemListDefinition.validate!(input[:catalog_items], context: "#{context}[:catalog_items]") unless input[:catalog_items].nil?
+        CatalogItemListDefinition.validate!(input[:catalog_items], context: "#{context}[:catalog_items]") unless input[:catalog_items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::Outposts
     class ListOrdersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOrdersOutput, context: context)
-        Validators::OrderSummaryListDefinition.validate!(input[:orders], context: "#{context}[:orders]") unless input[:orders].nil?
+        OrderSummaryListDefinition.validate!(input[:orders], context: "#{context}[:orders]") unless input[:orders].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -533,16 +535,16 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::ListOutpostsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::LifeCycleStatusList.validate!(input[:life_cycle_status_filter], context: "#{context}[:life_cycle_status_filter]") unless input[:life_cycle_status_filter].nil?
-        Validators::AvailabilityZoneList.validate!(input[:availability_zone_filter], context: "#{context}[:availability_zone_filter]") unless input[:availability_zone_filter].nil?
-        Validators::AvailabilityZoneIdList.validate!(input[:availability_zone_id_filter], context: "#{context}[:availability_zone_id_filter]") unless input[:availability_zone_id_filter].nil?
+        LifeCycleStatusList.validate!(input[:life_cycle_status_filter], context: "#{context}[:life_cycle_status_filter]") unless input[:life_cycle_status_filter].nil?
+        AvailabilityZoneList.validate!(input[:availability_zone_filter], context: "#{context}[:availability_zone_filter]") unless input[:availability_zone_filter].nil?
+        AvailabilityZoneIdList.validate!(input[:availability_zone_id_filter], context: "#{context}[:availability_zone_id_filter]") unless input[:availability_zone_id_filter].nil?
       end
     end
 
     class ListOutpostsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOutpostsOutput, context: context)
-        Validators::OutpostListDefinition.validate!(input[:outposts], context: "#{context}[:outposts]") unless input[:outposts].nil?
+        OutpostListDefinition.validate!(input[:outposts], context: "#{context}[:outposts]") unless input[:outposts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -552,16 +554,16 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::ListSitesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::CountryCodeList.validate!(input[:operating_address_country_code_filter], context: "#{context}[:operating_address_country_code_filter]") unless input[:operating_address_country_code_filter].nil?
-        Validators::StateOrRegionList.validate!(input[:operating_address_state_or_region_filter], context: "#{context}[:operating_address_state_or_region_filter]") unless input[:operating_address_state_or_region_filter].nil?
-        Validators::CityList.validate!(input[:operating_address_city_filter], context: "#{context}[:operating_address_city_filter]") unless input[:operating_address_city_filter].nil?
+        CountryCodeList.validate!(input[:operating_address_country_code_filter], context: "#{context}[:operating_address_country_code_filter]") unless input[:operating_address_country_code_filter].nil?
+        StateOrRegionList.validate!(input[:operating_address_state_or_region_filter], context: "#{context}[:operating_address_state_or_region_filter]") unless input[:operating_address_state_or_region_filter].nil?
+        CityList.validate!(input[:operating_address_city_filter], context: "#{context}[:operating_address_city_filter]") unless input[:operating_address_city_filter].nil?
       end
     end
 
     class ListSitesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSitesOutput, context: context)
-        Validators::SiteListDefinition.validate!(input[:sites], context: "#{context}[:sites]") unless input[:sites].nil?
+        SiteListDefinition.validate!(input[:sites], context: "#{context}[:sites]") unless input[:sites].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -576,7 +578,7 @@ module AWS::SDK::Outposts
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:outpost_id], ::String, context: "#{context}[:outpost_id]")
         Hearth::Validator.validate!(input[:order_id], ::String, context: "#{context}[:order_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::LineItemListDefinition.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
+        LineItemListDefinition.validate!(input[:line_items], context: "#{context}[:line_items]") unless input[:line_items].nil?
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
         Hearth::Validator.validate!(input[:order_submission_date], ::Time, context: "#{context}[:order_submission_date]")
         Hearth::Validator.validate!(input[:order_fulfilled_date], ::Time, context: "#{context}[:order_fulfilled_date]")
@@ -607,7 +609,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:order_id], ::String, context: "#{context}[:order_id]")
         Hearth::Validator.validate!(input[:order_type], ::String, context: "#{context}[:order_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::LineItemStatusCounts.validate!(input[:line_item_counts_by_status], context: "#{context}[:line_item_counts_by_status]") unless input[:line_item_counts_by_status].nil?
+        LineItemStatusCounts.validate!(input[:line_item_counts_by_status], context: "#{context}[:line_item_counts_by_status]") unless input[:line_item_counts_by_status].nil?
         Hearth::Validator.validate!(input[:order_submission_date], ::Time, context: "#{context}[:order_submission_date]")
         Hearth::Validator.validate!(input[:order_fulfilled_date], ::Time, context: "#{context}[:order_fulfilled_date]")
       end
@@ -617,7 +619,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:life_cycle_status], ::String, context: "#{context}[:life_cycle_status]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:availability_zone_id], ::String, context: "#{context}[:availability_zone_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:site_arn], ::String, context: "#{context}[:site_arn]")
         Hearth::Validator.validate!(input[:supported_hardware_type], ::String, context: "#{context}[:supported_hardware_type]")
       end
@@ -669,13 +671,13 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:site_arn], ::String, context: "#{context}[:site_arn]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
         Hearth::Validator.validate!(input[:operating_address_country_code], ::String, context: "#{context}[:operating_address_country_code]")
         Hearth::Validator.validate!(input[:operating_address_state_or_region], ::String, context: "#{context}[:operating_address_state_or_region]")
         Hearth::Validator.validate!(input[:operating_address_city], ::String, context: "#{context}[:operating_address_city]")
-        Validators::RackPhysicalProperties.validate!(input[:rack_physical_properties], context: "#{context}[:rack_physical_properties]") unless input[:rack_physical_properties].nil?
+        RackPhysicalProperties.validate!(input[:rack_physical_properties], context: "#{context}[:rack_physical_properties]") unless input[:rack_physical_properties].nil?
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::Outposts
     class UpdateOutpostOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOutpostOutput, context: context)
-        Validators::Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
+        Outpost.validate!(input[:outpost], context: "#{context}[:outpost]") unless input[:outpost].nil?
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::Outposts
         Hearth::Validator.validate!(input, Types::UpdateSiteAddressInput, context: context)
         Hearth::Validator.validate!(input[:site_id], ::String, context: "#{context}[:site_id]")
         Hearth::Validator.validate!(input[:address_type], ::String, context: "#{context}[:address_type]")
-        Validators::Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSiteAddressOutput, context: context)
         Hearth::Validator.validate!(input[:address_type], ::String, context: "#{context}[:address_type]")
-        Validators::Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
+        Address.validate!(input[:address], context: "#{context}[:address]") unless input[:address].nil?
       end
     end
 
@@ -818,7 +820,7 @@ module AWS::SDK::Outposts
     class UpdateSiteOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSiteOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::Outposts
     class UpdateSiteRackPhysicalPropertiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSiteRackPhysicalPropertiesOutput, context: context)
-        Validators::Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
+        Site.validate!(input[:site], context: "#{context}[:site]") unless input[:site].nil?
       end
     end
 
@@ -856,7 +858,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Outpost.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Outpost.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -865,7 +867,7 @@ module AWS::SDK::Outposts
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Site.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Site.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

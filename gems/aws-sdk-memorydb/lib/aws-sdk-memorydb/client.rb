@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MemoryDB
@@ -125,7 +127,7 @@ module AWS::SDK::MemoryDB
     def batch_update_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateClusterInput,
         validate_input: @config.validate_input
@@ -248,7 +250,7 @@ module AWS::SDK::MemoryDB
     def copy_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopySnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopySnapshotInput,
         validate_input: @config.validate_input
@@ -343,7 +345,7 @@ module AWS::SDK::MemoryDB
     def create_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateACLInput,
         validate_input: @config.validate_input
@@ -556,7 +558,7 @@ module AWS::SDK::MemoryDB
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -649,7 +651,7 @@ module AWS::SDK::MemoryDB
     def create_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateParameterGroupInput,
         validate_input: @config.validate_input
@@ -762,7 +764,7 @@ module AWS::SDK::MemoryDB
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -862,7 +864,7 @@ module AWS::SDK::MemoryDB
     def create_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubnetGroupInput,
         validate_input: @config.validate_input
@@ -963,7 +965,7 @@ module AWS::SDK::MemoryDB
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -1043,7 +1045,7 @@ module AWS::SDK::MemoryDB
     def delete_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteACLInput,
         validate_input: @config.validate_input
@@ -1167,7 +1169,7 @@ module AWS::SDK::MemoryDB
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -1241,7 +1243,7 @@ module AWS::SDK::MemoryDB
     def delete_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteParameterGroupInput,
         validate_input: @config.validate_input
@@ -1337,7 +1339,7 @@ module AWS::SDK::MemoryDB
     def delete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotInput,
         validate_input: @config.validate_input
@@ -1415,7 +1417,7 @@ module AWS::SDK::MemoryDB
     def delete_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubnetGroupInput,
         validate_input: @config.validate_input
@@ -1494,7 +1496,7 @@ module AWS::SDK::MemoryDB
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -1584,7 +1586,7 @@ module AWS::SDK::MemoryDB
     def describe_ac_ls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeACLsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeACLsInput,
         validate_input: @config.validate_input
@@ -1718,7 +1720,7 @@ module AWS::SDK::MemoryDB
     def describe_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClustersInput,
         validate_input: @config.validate_input
@@ -1808,7 +1810,7 @@ module AWS::SDK::MemoryDB
     def describe_engine_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEngineVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEngineVersionsInput,
         validate_input: @config.validate_input
@@ -1913,7 +1915,7 @@ module AWS::SDK::MemoryDB
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -1996,7 +1998,7 @@ module AWS::SDK::MemoryDB
     def describe_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeParameterGroupsInput,
         validate_input: @config.validate_input
@@ -2081,7 +2083,7 @@ module AWS::SDK::MemoryDB
     def describe_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeParametersInput,
         validate_input: @config.validate_input
@@ -2180,7 +2182,7 @@ module AWS::SDK::MemoryDB
     def describe_service_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceUpdatesInput,
         validate_input: @config.validate_input
@@ -2299,7 +2301,7 @@ module AWS::SDK::MemoryDB
     def describe_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotsInput,
         validate_input: @config.validate_input
@@ -2387,7 +2389,7 @@ module AWS::SDK::MemoryDB
     def describe_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -2487,7 +2489,7 @@ module AWS::SDK::MemoryDB
     def describe_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsersInput,
         validate_input: @config.validate_input
@@ -2611,7 +2613,7 @@ module AWS::SDK::MemoryDB
     def failover_shard(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FailoverShardInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FailoverShardInput,
         validate_input: @config.validate_input
@@ -2685,7 +2687,7 @@ module AWS::SDK::MemoryDB
     def list_allowed_node_type_updates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAllowedNodeTypeUpdatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAllowedNodeTypeUpdatesInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::MemoryDB
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -2844,7 +2846,7 @@ module AWS::SDK::MemoryDB
     def reset_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetParameterGroupInput,
         validate_input: @config.validate_input
@@ -2935,7 +2937,7 @@ module AWS::SDK::MemoryDB
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3013,7 +3015,7 @@ module AWS::SDK::MemoryDB
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3102,7 +3104,7 @@ module AWS::SDK::MemoryDB
     def update_acl(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateACLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateACLInput,
         validate_input: @config.validate_input
@@ -3280,7 +3282,7 @@ module AWS::SDK::MemoryDB
     def update_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterInput,
         validate_input: @config.validate_input
@@ -3362,7 +3364,7 @@ module AWS::SDK::MemoryDB
     def update_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateParameterGroupInput,
         validate_input: @config.validate_input
@@ -3451,7 +3453,7 @@ module AWS::SDK::MemoryDB
     def update_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubnetGroupInput,
         validate_input: @config.validate_input
@@ -3543,7 +3545,7 @@ module AWS::SDK::MemoryDB
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

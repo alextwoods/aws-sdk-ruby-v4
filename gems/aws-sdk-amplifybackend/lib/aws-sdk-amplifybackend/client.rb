@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AmplifyBackend
@@ -71,7 +73,7 @@ module AWS::SDK::AmplifyBackend
     def clone_backend(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloneBackendInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloneBackendInput,
         validate_input: @config.validate_input
@@ -161,7 +163,7 @@ module AWS::SDK::AmplifyBackend
     def create_backend(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendInput,
         validate_input: @config.validate_input
@@ -269,7 +271,7 @@ module AWS::SDK::AmplifyBackend
     def create_backend_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendAPIInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendAPIInput,
         validate_input: @config.validate_input
@@ -419,7 +421,7 @@ module AWS::SDK::AmplifyBackend
     def create_backend_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendAuthInput,
         validate_input: @config.validate_input
@@ -495,7 +497,7 @@ module AWS::SDK::AmplifyBackend
     def create_backend_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendConfigInput,
         validate_input: @config.validate_input
@@ -590,7 +592,7 @@ module AWS::SDK::AmplifyBackend
     def create_backend_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackendStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackendStorageInput,
         validate_input: @config.validate_input
@@ -662,7 +664,7 @@ module AWS::SDK::AmplifyBackend
     def create_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTokenInput,
         validate_input: @config.validate_input
@@ -739,7 +741,7 @@ module AWS::SDK::AmplifyBackend
     def delete_backend(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackendInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackendInput,
         validate_input: @config.validate_input
@@ -846,7 +848,7 @@ module AWS::SDK::AmplifyBackend
     def delete_backend_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackendAPIInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackendAPIInput,
         validate_input: @config.validate_input
@@ -928,7 +930,7 @@ module AWS::SDK::AmplifyBackend
     def delete_backend_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackendAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackendAuthInput,
         validate_input: @config.validate_input
@@ -1012,7 +1014,7 @@ module AWS::SDK::AmplifyBackend
     def delete_backend_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackendStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackendStorageInput,
         validate_input: @config.validate_input
@@ -1085,7 +1087,7 @@ module AWS::SDK::AmplifyBackend
     def delete_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTokenInput,
         validate_input: @config.validate_input
@@ -1166,7 +1168,7 @@ module AWS::SDK::AmplifyBackend
     def generate_backend_api_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateBackendAPIModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateBackendAPIModelsInput,
         validate_input: @config.validate_input
@@ -1246,7 +1248,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendInput,
         validate_input: @config.validate_input
@@ -1371,7 +1373,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendAPIInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendAPIInput,
         validate_input: @config.validate_input
@@ -1449,7 +1451,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend_api_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendAPIModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendAPIModelsInput,
         validate_input: @config.validate_input
@@ -1580,7 +1582,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendAuthInput,
         validate_input: @config.validate_input
@@ -1664,7 +1666,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendJobInput,
         validate_input: @config.validate_input
@@ -1751,7 +1753,7 @@ module AWS::SDK::AmplifyBackend
     def get_backend_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBackendStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBackendStorageInput,
         validate_input: @config.validate_input
@@ -1827,7 +1829,7 @@ module AWS::SDK::AmplifyBackend
     def get_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTokenInput,
         validate_input: @config.validate_input
@@ -1920,7 +1922,7 @@ module AWS::SDK::AmplifyBackend
     def import_backend_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportBackendAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportBackendAuthInput,
         validate_input: @config.validate_input
@@ -2004,7 +2006,7 @@ module AWS::SDK::AmplifyBackend
     def import_backend_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportBackendStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportBackendStorageInput,
         validate_input: @config.validate_input
@@ -2107,7 +2109,7 @@ module AWS::SDK::AmplifyBackend
     def list_backend_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackendJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackendJobsInput,
         validate_input: @config.validate_input
@@ -2180,7 +2182,7 @@ module AWS::SDK::AmplifyBackend
     def list_s3_buckets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListS3BucketsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListS3BucketsInput,
         validate_input: @config.validate_input
@@ -2257,7 +2259,7 @@ module AWS::SDK::AmplifyBackend
     def remove_all_backends(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveAllBackendsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveAllBackendsInput,
         validate_input: @config.validate_input
@@ -2326,7 +2328,7 @@ module AWS::SDK::AmplifyBackend
     def remove_backend_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveBackendConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveBackendConfigInput,
         validate_input: @config.validate_input
@@ -2433,7 +2435,7 @@ module AWS::SDK::AmplifyBackend
     def update_backend_api(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackendAPIInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackendAPIInput,
         validate_input: @config.validate_input
@@ -2577,7 +2579,7 @@ module AWS::SDK::AmplifyBackend
     def update_backend_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackendAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackendAuthInput,
         validate_input: @config.validate_input
@@ -2662,7 +2664,7 @@ module AWS::SDK::AmplifyBackend
     def update_backend_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackendConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackendConfigInput,
         validate_input: @config.validate_input
@@ -2754,7 +2756,7 @@ module AWS::SDK::AmplifyBackend
     def update_backend_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackendJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackendJobInput,
         validate_input: @config.validate_input
@@ -2848,7 +2850,7 @@ module AWS::SDK::AmplifyBackend
     def update_backend_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBackendStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBackendStorageInput,
         validate_input: @config.validate_input

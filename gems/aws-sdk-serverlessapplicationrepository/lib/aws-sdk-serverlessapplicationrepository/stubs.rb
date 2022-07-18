@@ -20,13 +20,13 @@ module AWS::SDK::ServerlessApplicationRepository
           description: 'description',
           home_page_url: 'home_page_url',
           is_verified_author: false,
-          labels: Stubs::List____listOf__string.default(visited),
+          labels: List____listOf__string.default(visited),
           license_url: 'license_url',
           name: 'name',
           readme_url: 'readme_url',
           spdx_license_id: 'spdx_license_id',
           verified_author_url: 'verified_author_url',
-          version: Stubs::Version.default(visited),
+          version: Version.default(visited),
         }
       end
 
@@ -59,8 +59,8 @@ module AWS::SDK::ServerlessApplicationRepository
         {
           application_id: 'application_id',
           creation_time: 'creation_time',
-          parameter_definitions: Stubs::List____listOfParameterDefinition.default(visited),
-          required_capabilities: Stubs::List____listOfCapability.default(visited),
+          parameter_definitions: List____listOfParameterDefinition.default(visited),
+          required_capabilities: List____listOfCapability.default(visited),
           resources_supported: false,
           semantic_version: 'semantic_version',
           source_code_archive_url: 'source_code_archive_url',
@@ -111,7 +111,7 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('List____listOfParameterDefinition')
         visited = visited + ['List____listOfParameterDefinition']
         [
-          Stubs::ParameterDefinition.default(visited)
+          ParameterDefinition.default(visited)
         ]
       end
 
@@ -132,7 +132,7 @@ module AWS::SDK::ServerlessApplicationRepository
         visited = visited + ['ParameterDefinition']
         {
           allowed_pattern: 'allowed_pattern',
-          allowed_values: Stubs::List____listOf__string.default(visited),
+          allowed_values: List____listOf__string.default(visited),
           constraint_description: 'constraint_description',
           default_value: 'default_value',
           description: 'description',
@@ -142,7 +142,7 @@ module AWS::SDK::ServerlessApplicationRepository
           min_value: 1,
           name: 'name',
           no_echo: false,
-          referenced_by_resources: Stubs::List____listOf__string.default(visited),
+          referenced_by_resources: List____listOf__string.default(visited),
           type: 'type',
         }
       end
@@ -193,8 +193,8 @@ module AWS::SDK::ServerlessApplicationRepository
         {
           application_id: 'application_id',
           creation_time: 'creation_time',
-          parameter_definitions: Stubs::List____listOfParameterDefinition.default(visited),
-          required_capabilities: Stubs::List____listOfCapability.default(visited),
+          parameter_definitions: List____listOfParameterDefinition.default(visited),
+          required_capabilities: List____listOfCapability.default(visited),
           resources_supported: false,
           semantic_version: 'semantic_version',
           source_code_archive_url: 'source_code_archive_url',
@@ -295,13 +295,13 @@ module AWS::SDK::ServerlessApplicationRepository
           description: 'description',
           home_page_url: 'home_page_url',
           is_verified_author: false,
-          labels: Stubs::List____listOf__string.default(visited),
+          labels: List____listOf__string.default(visited),
           license_url: 'license_url',
           name: 'name',
           readme_url: 'readme_url',
           spdx_license_id: 'spdx_license_id',
           verified_author_url: 'verified_author_url',
-          version: Stubs::Version.default(visited),
+          version: Version.default(visited),
         }
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::ServerlessApplicationRepository
     class GetApplicationPolicy
       def self.default(visited=[])
         {
-          statements: Stubs::List____listOfApplicationPolicyStatement.default(visited),
+          statements: List____listOfApplicationPolicyStatement.default(visited),
         }
       end
 
@@ -349,7 +349,7 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('List____listOfApplicationPolicyStatement')
         visited = visited + ['List____listOfApplicationPolicyStatement']
         [
-          Stubs::ApplicationPolicyStatement.default(visited)
+          ApplicationPolicyStatement.default(visited)
         ]
       end
 
@@ -369,9 +369,9 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('ApplicationPolicyStatement')
         visited = visited + ['ApplicationPolicyStatement']
         {
-          actions: Stubs::List____listOf__string.default(visited),
-          principal_org_i_ds: Stubs::List____listOf__string.default(visited),
-          principals: Stubs::List____listOf__string.default(visited),
+          actions: List____listOf__string.default(visited),
+          principal_org_i_ds: List____listOf__string.default(visited),
+          principals: List____listOf__string.default(visited),
           statement_id: 'statement_id',
         }
       end
@@ -420,7 +420,7 @@ module AWS::SDK::ServerlessApplicationRepository
     class ListApplicationDependencies
       def self.default(visited=[])
         {
-          dependencies: Stubs::List____listOfApplicationDependencySummary.default(visited),
+          dependencies: List____listOfApplicationDependencySummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -441,7 +441,7 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('List____listOfApplicationDependencySummary')
         visited = visited + ['List____listOfApplicationDependencySummary']
         [
-          Stubs::ApplicationDependencySummary.default(visited)
+          ApplicationDependencySummary.default(visited)
         ]
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          versions: Stubs::List____listOfVersionSummary.default(visited),
+          versions: List____listOfVersionSummary.default(visited),
         }
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('List____listOfVersionSummary')
         visited = visited + ['List____listOfVersionSummary']
         [
-          Stubs::VersionSummary.default(visited)
+          VersionSummary.default(visited)
         ]
       end
 
@@ -542,7 +542,7 @@ module AWS::SDK::ServerlessApplicationRepository
     class ListApplications
       def self.default(visited=[])
         {
-          applications: Stubs::List____listOfApplicationSummary.default(visited),
+          applications: List____listOfApplicationSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -563,7 +563,7 @@ module AWS::SDK::ServerlessApplicationRepository
         return nil if visited.include?('List____listOfApplicationSummary')
         visited = visited + ['List____listOfApplicationSummary']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::ServerlessApplicationRepository
           creation_time: 'creation_time',
           description: 'description',
           home_page_url: 'home_page_url',
-          labels: Stubs::List____listOf__string.default(visited),
+          labels: List____listOf__string.default(visited),
           name: 'name',
           spdx_license_id: 'spdx_license_id',
         }
@@ -613,7 +613,7 @@ module AWS::SDK::ServerlessApplicationRepository
     class PutApplicationPolicy
       def self.default(visited=[])
         {
-          statements: Stubs::List____listOfApplicationPolicyStatement.default(visited),
+          statements: List____listOfApplicationPolicyStatement.default(visited),
         }
       end
 
@@ -649,13 +649,13 @@ module AWS::SDK::ServerlessApplicationRepository
           description: 'description',
           home_page_url: 'home_page_url',
           is_verified_author: false,
-          labels: Stubs::List____listOf__string.default(visited),
+          labels: List____listOf__string.default(visited),
           license_url: 'license_url',
           name: 'name',
           readme_url: 'readme_url',
           spdx_license_id: 'spdx_license_id',
           verified_author_url: 'verified_author_url',
-          version: Stubs::Version.default(visited),
+          version: Version.default(visited),
         }
       end
 

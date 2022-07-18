@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Ivschat
   module Validators
 
@@ -50,9 +52,9 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input, Types::CreateChatTokenInput, context: context)
         Hearth::Validator.validate!(input[:room_identifier], ::String, context: "#{context}[:room_identifier]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
-        Validators::ChatTokenCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
+        ChatTokenCapabilities.validate!(input[:capabilities], context: "#{context}[:capabilities]") unless input[:capabilities].nil?
         Hearth::Validator.validate!(input[:session_duration_in_minutes], ::Integer, context: "#{context}[:session_duration_in_minutes]")
-        Validators::ChatTokenAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ChatTokenAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -71,8 +73,8 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:maximum_message_rate_per_second], ::Integer, context: "#{context}[:maximum_message_rate_per_second]")
         Hearth::Validator.validate!(input[:maximum_message_length], ::Integer, context: "#{context}[:maximum_message_length]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -86,8 +88,8 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:maximum_message_rate_per_second], ::Integer, context: "#{context}[:maximum_message_rate_per_second]")
         Hearth::Validator.validate!(input[:maximum_message_length], ::Integer, context: "#{context}[:maximum_message_length]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -162,8 +164,8 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:maximum_message_rate_per_second], ::Integer, context: "#{context}[:maximum_message_rate_per_second]")
         Hearth::Validator.validate!(input[:maximum_message_length], ::Integer, context: "#{context}[:maximum_message_length]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::Ivschat
     class ListRoomsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoomsOutput, context: context)
-        Validators::RoomList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
+        RoomList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::Ivschat
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::Ivschat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoomSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoomSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -245,10 +247,10 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input, Types::SendEventInput, context: context)
         Hearth::Validator.validate!(input[:room_identifier], ::String, context: "#{context}[:room_identifier]")
         Hearth::Validator.validate!(input[:event_name], ::String, context: "#{context}[:event_name]")
-        Validators::EventAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        EventAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -291,7 +293,7 @@ module AWS::SDK::Ivschat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -325,7 +327,7 @@ module AWS::SDK::Ivschat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:maximum_message_rate_per_second], ::Integer, context: "#{context}[:maximum_message_rate_per_second]")
         Hearth::Validator.validate!(input[:maximum_message_length], ::Integer, context: "#{context}[:maximum_message_length]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
       end
     end
 
@@ -356,8 +358,8 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input[:update_time], ::Time, context: "#{context}[:update_time]")
         Hearth::Validator.validate!(input[:maximum_message_rate_per_second], ::Integer, context: "#{context}[:maximum_message_rate_per_second]")
         Hearth::Validator.validate!(input[:maximum_message_length], ::Integer, context: "#{context}[:maximum_message_length]")
-        Validators::MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MessageReviewHandler.validate!(input[:message_review_handler], context: "#{context}[:message_review_handler]") unless input[:message_review_handler].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -366,7 +368,7 @@ module AWS::SDK::Ivschat
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
+        ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::Ivschat
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

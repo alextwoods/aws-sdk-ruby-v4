@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::Inspector2
   module Builders
 
@@ -42,10 +40,10 @@ module AWS::SDK::Inspector2
       end
     end
 
-    # Set Builder for AccountIdSet
+    # List Builder for AccountIdSet
     class AccountIdSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

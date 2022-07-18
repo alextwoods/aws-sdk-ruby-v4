@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudTrail
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
       end
     end
 
@@ -28,7 +30,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvancedEventSelector, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AdvancedFieldSelectors.validate!(input[:field_selectors], context: "#{context}[:field_selectors]") unless input[:field_selectors].nil?
+        AdvancedFieldSelectors.validate!(input[:field_selectors], context: "#{context}[:field_selectors]") unless input[:field_selectors].nil?
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdvancedEventSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdvancedEventSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -45,12 +47,12 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdvancedFieldSelector, context: context)
         Hearth::Validator.validate!(input[:field], ::String, context: "#{context}[:field]")
-        Validators::Operator.validate!(input[:equals], context: "#{context}[:equals]") unless input[:equals].nil?
-        Validators::Operator.validate!(input[:starts_with], context: "#{context}[:starts_with]") unless input[:starts_with].nil?
-        Validators::Operator.validate!(input[:ends_with], context: "#{context}[:ends_with]") unless input[:ends_with].nil?
-        Validators::Operator.validate!(input[:not_equals], context: "#{context}[:not_equals]") unless input[:not_equals].nil?
-        Validators::Operator.validate!(input[:not_starts_with], context: "#{context}[:not_starts_with]") unless input[:not_starts_with].nil?
-        Validators::Operator.validate!(input[:not_ends_with], context: "#{context}[:not_ends_with]") unless input[:not_ends_with].nil?
+        Operator.validate!(input[:equals], context: "#{context}[:equals]") unless input[:equals].nil?
+        Operator.validate!(input[:starts_with], context: "#{context}[:starts_with]") unless input[:starts_with].nil?
+        Operator.validate!(input[:ends_with], context: "#{context}[:ends_with]") unless input[:ends_with].nil?
+        Operator.validate!(input[:not_equals], context: "#{context}[:not_equals]") unless input[:not_equals].nil?
+        Operator.validate!(input[:not_starts_with], context: "#{context}[:not_starts_with]") unless input[:not_starts_with].nil?
+        Operator.validate!(input[:not_ends_with], context: "#{context}[:not_ends_with]") unless input[:not_ends_with].nil?
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdvancedFieldSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdvancedFieldSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -118,12 +120,12 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEventDataStoreInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
         Hearth::Validator.validate!(input[:termination_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protection_enabled]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
       end
     end
 
@@ -133,12 +135,12 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:event_data_store_arn], ::String, context: "#{context}[:event_data_store_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
         Hearth::Validator.validate!(input[:termination_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protection_enabled]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
       end
@@ -158,7 +160,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:cloud_watch_logs_role_arn], ::String, context: "#{context}[:cloud_watch_logs_role_arn]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:is_organization_trail], ::TrueClass, ::FalseClass, context: "#{context}[:is_organization_trail]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataResource, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataResourceValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DataResourceValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:query_id], ::String, context: "#{context}[:query_id]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:query_status], ::String, context: "#{context}[:query_status]")
-        Validators::QueryStatisticsForDescribeQuery.validate!(input[:query_statistics], context: "#{context}[:query_statistics]") unless input[:query_statistics].nil?
+        QueryStatisticsForDescribeQuery.validate!(input[:query_statistics], context: "#{context}[:query_statistics]") unless input[:query_statistics].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::CloudTrail
     class DescribeTrailsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTrailsInput, context: context)
-        Validators::TrailNameList.validate!(input[:trail_name_list], context: "#{context}[:trail_name_list]") unless input[:trail_name_list].nil?
+        TrailNameList.validate!(input[:trail_name_list], context: "#{context}[:trail_name_list]") unless input[:trail_name_list].nil?
         Hearth::Validator.validate!(input[:include_shadow_trails], ::TrueClass, ::FalseClass, context: "#{context}[:include_shadow_trails]")
       end
     end
@@ -263,7 +265,7 @@ module AWS::SDK::CloudTrail
     class DescribeTrailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTrailsOutput, context: context)
-        Validators::TrailList.validate!(input[:trail_list], context: "#{context}[:trail_list]") unless input[:trail_list].nil?
+        TrailList.validate!(input[:trail_list], context: "#{context}[:trail_list]") unless input[:trail_list].nil?
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:event_time], ::Time, context: "#{context}[:event_time]")
         Hearth::Validator.validate!(input[:event_source], ::String, context: "#{context}[:event_source]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::ResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:cloud_trail_event], ::String, context: "#{context}[:cloud_trail_event]")
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:termination_protection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protection_enabled]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
@@ -337,7 +339,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDataStore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDataStore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -347,8 +349,8 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input, Types::EventSelector, context: context)
         Hearth::Validator.validate!(input[:read_write_type], ::String, context: "#{context}[:read_write_type]")
         Hearth::Validator.validate!(input[:include_management_events], ::TrueClass, ::FalseClass, context: "#{context}[:include_management_events]")
-        Validators::DataResources.validate!(input[:data_resources], context: "#{context}[:data_resources]") unless input[:data_resources].nil?
-        Validators::ExcludeManagementEventSources.validate!(input[:exclude_management_event_sources], context: "#{context}[:exclude_management_event_sources]") unless input[:exclude_management_event_sources].nil?
+        DataResources.validate!(input[:data_resources], context: "#{context}[:data_resources]") unless input[:data_resources].nil?
+        ExcludeManagementEventSources.validate!(input[:exclude_management_event_sources], context: "#{context}[:exclude_management_event_sources]") unless input[:exclude_management_event_sources].nil?
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -392,7 +394,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:event_data_store_arn], ::String, context: "#{context}[:event_data_store_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
@@ -413,8 +415,8 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventSelectorsOutput, context: context)
         Hearth::Validator.validate!(input[:trail_arn], ::String, context: "#{context}[:trail_arn]")
-        Validators::EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInsightSelectorsOutput, context: context)
         Hearth::Validator.validate!(input[:trail_arn], ::String, context: "#{context}[:trail_arn]")
-        Validators::InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
+        InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
       end
     end
 
@@ -447,8 +449,8 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetQueryResultsOutput, context: context)
         Hearth::Validator.validate!(input[:query_status], ::String, context: "#{context}[:query_status]")
-        Validators::QueryStatistics.validate!(input[:query_statistics], context: "#{context}[:query_statistics]") unless input[:query_statistics].nil?
-        Validators::QueryResultRows.validate!(input[:query_result_rows], context: "#{context}[:query_result_rows]") unless input[:query_result_rows].nil?
+        QueryStatistics.validate!(input[:query_statistics], context: "#{context}[:query_statistics]") unless input[:query_statistics].nil?
+        QueryResultRows.validate!(input[:query_result_rows], context: "#{context}[:query_result_rows]") unless input[:query_result_rows].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
@@ -464,7 +466,7 @@ module AWS::SDK::CloudTrail
     class GetTrailOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTrailOutput, context: context)
-        Validators::Trail.validate!(input[:trail], context: "#{context}[:trail]") unless input[:trail].nil?
+        Trail.validate!(input[:trail], context: "#{context}[:trail]") unless input[:trail].nil?
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InsightSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InsightSelector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -756,7 +758,7 @@ module AWS::SDK::CloudTrail
     class ListEventDataStoresOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventDataStoresOutput, context: context)
-        Validators::EventDataStores.validate!(input[:event_data_stores], context: "#{context}[:event_data_stores]") unless input[:event_data_stores].nil?
+        EventDataStores.validate!(input[:event_data_stores], context: "#{context}[:event_data_stores]") unless input[:event_data_stores].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::CloudTrail
     class ListPublicKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPublicKeysOutput, context: context)
-        Validators::PublicKeyList.validate!(input[:public_key_list], context: "#{context}[:public_key_list]") unless input[:public_key_list].nil?
+        PublicKeyList.validate!(input[:public_key_list], context: "#{context}[:public_key_list]") unless input[:public_key_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -793,7 +795,7 @@ module AWS::SDK::CloudTrail
     class ListQueriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListQueriesOutput, context: context)
-        Validators::Queries.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
+        Queries.validate!(input[:queries], context: "#{context}[:queries]") unless input[:queries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::CloudTrail
     class ListTagsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsInput, context: context)
-        Validators::ResourceIdList.validate!(input[:resource_id_list], context: "#{context}[:resource_id_list]") unless input[:resource_id_list].nil?
+        ResourceIdList.validate!(input[:resource_id_list], context: "#{context}[:resource_id_list]") unless input[:resource_id_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::CloudTrail
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::ResourceTagList.validate!(input[:resource_tag_list], context: "#{context}[:resource_tag_list]") unless input[:resource_tag_list].nil?
+        ResourceTagList.validate!(input[:resource_tag_list], context: "#{context}[:resource_tag_list]") unless input[:resource_tag_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -824,7 +826,7 @@ module AWS::SDK::CloudTrail
     class ListTrailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrailsOutput, context: context)
-        Validators::Trails.validate!(input[:trails], context: "#{context}[:trails]") unless input[:trails].nil?
+        Trails.validate!(input[:trails], context: "#{context}[:trails]") unless input[:trails].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -841,7 +843,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LookupAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LookupAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -849,7 +851,7 @@ module AWS::SDK::CloudTrail
     class LookupEventsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LookupEventsInput, context: context)
-        Validators::LookupAttributesList.validate!(input[:lookup_attributes], context: "#{context}[:lookup_attributes]") unless input[:lookup_attributes].nil?
+        LookupAttributesList.validate!(input[:lookup_attributes], context: "#{context}[:lookup_attributes]") unless input[:lookup_attributes].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:event_category], ::String, context: "#{context}[:event_category]")
@@ -861,7 +863,7 @@ module AWS::SDK::CloudTrail
     class LookupEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LookupEventsOutput, context: context)
-        Validators::EventsList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventsList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -931,7 +933,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PublicKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PublicKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -940,8 +942,8 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEventSelectorsInput, context: context)
         Hearth::Validator.validate!(input[:trail_name], ::String, context: "#{context}[:trail_name]")
-        Validators::EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
       end
     end
 
@@ -949,8 +951,8 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEventSelectorsOutput, context: context)
         Hearth::Validator.validate!(input[:trail_arn], ::String, context: "#{context}[:trail_arn]")
-        Validators::EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        EventSelectors.validate!(input[:event_selectors], context: "#{context}[:event_selectors]") unless input[:event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
       end
     end
 
@@ -958,7 +960,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutInsightSelectorsInput, context: context)
         Hearth::Validator.validate!(input[:trail_name], ::String, context: "#{context}[:trail_name]")
-        Validators::InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
+        InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
       end
     end
 
@@ -966,7 +968,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutInsightSelectorsOutput, context: context)
         Hearth::Validator.validate!(input[:trail_arn], ::String, context: "#{context}[:trail_arn]")
-        Validators::InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
+        InsightSelectors.validate!(input[:insight_selectors], context: "#{context}[:insight_selectors]") unless input[:insight_selectors].nil?
       end
     end
 
@@ -974,7 +976,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Query.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Query.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryResultColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryResultColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QueryResultRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QueryResultRow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1047,7 +1049,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
       end
     end
 
@@ -1078,7 +1080,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1094,7 +1096,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceTag, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
+        TagsList.validate!(input[:tags_list], context: "#{context}[:tags_list]") unless input[:tags_list].nil?
       end
     end
 
@@ -1102,7 +1104,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1127,7 +1129,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:event_data_store_arn], ::String, context: "#{context}[:event_data_store_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
@@ -1203,7 +1205,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::CloudTrail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrailInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrailInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1299,7 +1301,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input, Types::UpdateEventDataStoreInput, context: context)
         Hearth::Validator.validate!(input[:event_data_store], ::String, context: "#{context}[:event_data_store]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")
@@ -1313,7 +1315,7 @@ module AWS::SDK::CloudTrail
         Hearth::Validator.validate!(input[:event_data_store_arn], ::String, context: "#{context}[:event_data_store_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
+        AdvancedEventSelectors.validate!(input[:advanced_event_selectors], context: "#{context}[:advanced_event_selectors]") unless input[:advanced_event_selectors].nil?
         Hearth::Validator.validate!(input[:multi_region_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region_enabled]")
         Hearth::Validator.validate!(input[:organization_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:organization_enabled]")
         Hearth::Validator.validate!(input[:retention_period], ::Integer, context: "#{context}[:retention_period]")

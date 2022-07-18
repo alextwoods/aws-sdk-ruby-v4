@@ -718,11 +718,11 @@ module AWS::SDK::Health
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
@@ -947,11 +947,11 @@ module AWS::SDK::Health
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>The detailed description of the event. Included in the information returned by the

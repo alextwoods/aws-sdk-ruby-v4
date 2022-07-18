@@ -76,7 +76,7 @@ module AWS::SDK::Appflow
     class DescribeConnector
       def self.default(visited=[])
         {
-          connector_configuration: Stubs::ConnectorConfiguration.default(visited),
+          connector_configuration: ConnectorConfiguration.default(visited),
         }
       end
 
@@ -97,12 +97,12 @@ module AWS::SDK::Appflow
         {
           can_use_as_source: false,
           can_use_as_destination: false,
-          supported_destination_connectors: Stubs::ConnectorTypeList.default(visited),
-          supported_scheduling_frequencies: Stubs::SchedulingFrequencyTypeList.default(visited),
+          supported_destination_connectors: ConnectorTypeList.default(visited),
+          supported_scheduling_frequencies: SchedulingFrequencyTypeList.default(visited),
           is_private_link_enabled: false,
           is_private_link_endpoint_url_required: false,
-          supported_trigger_types: Stubs::TriggerTypeList.default(visited),
-          connector_metadata: Stubs::ConnectorMetadata.default(visited),
+          supported_trigger_types: TriggerTypeList.default(visited),
+          connector_metadata: ConnectorMetadata.default(visited),
           connector_type: 'connector_type',
           connector_label: 'connector_label',
           connector_description: 'connector_description',
@@ -110,14 +110,14 @@ module AWS::SDK::Appflow
           connector_name: 'connector_name',
           connector_version: 'connector_version',
           connector_arn: 'connector_arn',
-          connector_modes: Stubs::ConnectorModeList.default(visited),
-          authentication_config: Stubs::AuthenticationConfig.default(visited),
-          connector_runtime_settings: Stubs::ConnectorRuntimeSettingList.default(visited),
-          supported_api_versions: Stubs::SupportedApiVersionList.default(visited),
-          supported_operators: Stubs::SupportedOperatorList.default(visited),
-          supported_write_operations: Stubs::SupportedWriteOperationList.default(visited),
+          connector_modes: ConnectorModeList.default(visited),
+          authentication_config: AuthenticationConfig.default(visited),
+          connector_runtime_settings: ConnectorRuntimeSettingList.default(visited),
+          supported_api_versions: SupportedApiVersionList.default(visited),
+          supported_operators: SupportedOperatorList.default(visited),
+          supported_write_operations: SupportedWriteOperationList.default(visited),
           connector_provisioning_type: 'connector_provisioning_type',
-          connector_provisioning_config: Stubs::ConnectorProvisioningConfig.default(visited),
+          connector_provisioning_config: ConnectorProvisioningConfig.default(visited),
           logo_url: 'logo_url',
           registered_at: Time.now,
           registered_by: 'registered_by',
@@ -163,7 +163,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorProvisioningConfig')
         visited = visited + ['ConnectorProvisioningConfig']
         {
-          lambda: Stubs::LambdaConnectorProvisioningConfig.default(visited),
+          lambda: LambdaConnectorProvisioningConfig.default(visited),
         }
       end
 
@@ -259,7 +259,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorRuntimeSettingList')
         visited = visited + ['ConnectorRuntimeSettingList']
         [
-          Stubs::ConnectorRuntimeSetting.default(visited)
+          ConnectorRuntimeSetting.default(visited)
         ]
       end
 
@@ -285,7 +285,7 @@ module AWS::SDK::Appflow
           label: 'label',
           description: 'description',
           scope: 'scope',
-          connector_supplied_value_options: Stubs::ConnectorSuppliedValueOptionList.default(visited),
+          connector_supplied_value_options: ConnectorSuppliedValueOptionList.default(visited),
         }
       end
 
@@ -333,8 +333,8 @@ module AWS::SDK::Appflow
           is_api_key_auth_supported: false,
           is_o_auth2_supported: false,
           is_custom_auth_supported: false,
-          o_auth2_defaults: Stubs::OAuth2Defaults.default(visited),
-          custom_auth_configs: Stubs::CustomAuthConfigList.default(visited),
+          o_auth2_defaults: OAuth2Defaults.default(visited),
+          custom_auth_configs: CustomAuthConfigList.default(visited),
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('CustomAuthConfigList')
         visited = visited + ['CustomAuthConfigList']
         [
-          Stubs::CustomAuthConfig.default(visited)
+          CustomAuthConfig.default(visited)
         ]
       end
 
@@ -378,7 +378,7 @@ module AWS::SDK::Appflow
         visited = visited + ['CustomAuthConfig']
         {
           custom_authentication_type: 'custom_authentication_type',
-          auth_parameters: Stubs::AuthParameterList.default(visited),
+          auth_parameters: AuthParameterList.default(visited),
         }
       end
 
@@ -397,7 +397,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('AuthParameterList')
         visited = visited + ['AuthParameterList']
         [
-          Stubs::AuthParameter.default(visited)
+          AuthParameter.default(visited)
         ]
       end
 
@@ -422,7 +422,7 @@ module AWS::SDK::Appflow
           label: 'label',
           description: 'description',
           is_sensitive_field: false,
-          connector_supplied_values: Stubs::ConnectorSuppliedValueList.default(visited),
+          connector_supplied_values: ConnectorSuppliedValueList.default(visited),
         }
       end
 
@@ -465,11 +465,11 @@ module AWS::SDK::Appflow
         return nil if visited.include?('OAuth2Defaults')
         visited = visited + ['OAuth2Defaults']
         {
-          oauth_scopes: Stubs::OAuthScopeList.default(visited),
-          token_urls: Stubs::TokenUrlList.default(visited),
-          auth_code_urls: Stubs::AuthCodeUrlList.default(visited),
-          oauth2_grant_types_supported: Stubs::OAuth2GrantTypeSupportedList.default(visited),
-          oauth2_custom_properties: Stubs::OAuth2CustomPropertiesList.default(visited),
+          oauth_scopes: OAuthScopeList.default(visited),
+          token_urls: TokenUrlList.default(visited),
+          auth_code_urls: AuthCodeUrlList.default(visited),
+          oauth2_grant_types_supported: OAuth2GrantTypeSupportedList.default(visited),
+          oauth2_custom_properties: OAuth2CustomPropertiesList.default(visited),
         }
       end
 
@@ -491,7 +491,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('OAuth2CustomPropertiesList')
         visited = visited + ['OAuth2CustomPropertiesList']
         [
-          Stubs::OAuth2CustomParameter.default(visited)
+          OAuth2CustomParameter.default(visited)
         ]
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::Appflow
           label: 'label',
           description: 'description',
           is_sensitive_field: false,
-          connector_supplied_values: Stubs::ConnectorSuppliedValueList.default(visited),
+          connector_supplied_values: ConnectorSuppliedValueList.default(visited),
           type: 'type',
         }
       end
@@ -641,27 +641,27 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorMetadata')
         visited = visited + ['ConnectorMetadata']
         {
-          amplitude: Stubs::AmplitudeMetadata.default(visited),
-          datadog: Stubs::DatadogMetadata.default(visited),
-          dynatrace: Stubs::DynatraceMetadata.default(visited),
-          google_analytics: Stubs::GoogleAnalyticsMetadata.default(visited),
-          infor_nexus: Stubs::InforNexusMetadata.default(visited),
-          marketo: Stubs::MarketoMetadata.default(visited),
-          redshift: Stubs::RedshiftMetadata.default(visited),
-          s3: Stubs::S3Metadata.default(visited),
-          salesforce: Stubs::SalesforceMetadata.default(visited),
-          service_now: Stubs::ServiceNowMetadata.default(visited),
-          singular: Stubs::SingularMetadata.default(visited),
-          slack: Stubs::SlackMetadata.default(visited),
-          snowflake: Stubs::SnowflakeMetadata.default(visited),
-          trendmicro: Stubs::TrendmicroMetadata.default(visited),
-          veeva: Stubs::VeevaMetadata.default(visited),
-          zendesk: Stubs::ZendeskMetadata.default(visited),
-          event_bridge: Stubs::EventBridgeMetadata.default(visited),
-          upsolver: Stubs::UpsolverMetadata.default(visited),
-          customer_profiles: Stubs::CustomerProfilesMetadata.default(visited),
-          honeycode: Stubs::HoneycodeMetadata.default(visited),
-          sapo_data: Stubs::SAPODataMetadata.default(visited),
+          amplitude: AmplitudeMetadata.default(visited),
+          datadog: DatadogMetadata.default(visited),
+          dynatrace: DynatraceMetadata.default(visited),
+          google_analytics: GoogleAnalyticsMetadata.default(visited),
+          infor_nexus: InforNexusMetadata.default(visited),
+          marketo: MarketoMetadata.default(visited),
+          redshift: RedshiftMetadata.default(visited),
+          s3: S3Metadata.default(visited),
+          salesforce: SalesforceMetadata.default(visited),
+          service_now: ServiceNowMetadata.default(visited),
+          singular: SingularMetadata.default(visited),
+          slack: SlackMetadata.default(visited),
+          snowflake: SnowflakeMetadata.default(visited),
+          trendmicro: TrendmicroMetadata.default(visited),
+          veeva: VeevaMetadata.default(visited),
+          zendesk: ZendeskMetadata.default(visited),
+          event_bridge: EventBridgeMetadata.default(visited),
+          upsolver: UpsolverMetadata.default(visited),
+          customer_profiles: CustomerProfilesMetadata.default(visited),
+          honeycode: HoneycodeMetadata.default(visited),
+          sapo_data: SAPODataMetadata.default(visited),
         }
       end
 
@@ -715,7 +715,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('HoneycodeMetadata')
         visited = visited + ['HoneycodeMetadata']
         {
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -781,7 +781,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ZendeskMetadata')
         visited = visited + ['ZendeskMetadata']
         {
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -831,7 +831,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('SnowflakeMetadata')
         visited = visited + ['SnowflakeMetadata']
         {
-          supported_regions: Stubs::RegionList.default(visited),
+          supported_regions: RegionList.default(visited),
         }
       end
 
@@ -869,7 +869,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('SlackMetadata')
         visited = visited + ['SlackMetadata']
         {
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -919,7 +919,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('SalesforceMetadata')
         visited = visited + ['SalesforceMetadata']
         {
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -1001,7 +1001,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('GoogleAnalyticsMetadata')
         visited = visited + ['GoogleAnalyticsMetadata']
         {
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -1125,7 +1125,7 @@ module AWS::SDK::Appflow
     class DescribeConnectorEntity
       def self.default(visited=[])
         {
-          connector_entity_fields: Stubs::ConnectorEntityFieldList.default(visited),
+          connector_entity_fields: ConnectorEntityFieldList.default(visited),
         }
       end
 
@@ -1144,7 +1144,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorEntityFieldList')
         visited = visited + ['ConnectorEntityFieldList']
         [
-          Stubs::ConnectorEntityField.default(visited)
+          ConnectorEntityField.default(visited)
         ]
       end
 
@@ -1170,11 +1170,11 @@ module AWS::SDK::Appflow
           is_primary_key: false,
           default_value: 'default_value',
           is_deprecated: false,
-          supported_field_type_details: Stubs::SupportedFieldTypeDetails.default(visited),
+          supported_field_type_details: SupportedFieldTypeDetails.default(visited),
           description: 'description',
-          source_properties: Stubs::SourceFieldProperties.default(visited),
-          destination_properties: Stubs::DestinationFieldProperties.default(visited),
-          custom_properties: Stubs::CustomProperties.default(visited),
+          source_properties: SourceFieldProperties.default(visited),
+          destination_properties: DestinationFieldProperties.default(visited),
+          custom_properties: CustomProperties.default(visited),
         }
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::Appflow
           is_upsertable: false,
           is_updatable: false,
           is_defaulted_on_create: false,
-          supported_write_operations: Stubs::SupportedWriteOperationList.default(visited),
+          supported_write_operations: SupportedWriteOperationList.default(visited),
         }
       end
 
@@ -1272,7 +1272,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('SupportedFieldTypeDetails')
         visited = visited + ['SupportedFieldTypeDetails']
         {
-          v1: Stubs::FieldTypeDetails.default(visited),
+          v1: FieldTypeDetails.default(visited),
         }
       end
 
@@ -1291,12 +1291,12 @@ module AWS::SDK::Appflow
         visited = visited + ['FieldTypeDetails']
         {
           field_type: 'field_type',
-          filter_operators: Stubs::FilterOperatorList.default(visited),
-          supported_values: Stubs::SupportedValueList.default(visited),
+          filter_operators: FilterOperatorList.default(visited),
+          supported_values: SupportedValueList.default(visited),
           value_regex_pattern: 'value_regex_pattern',
           supported_date_format: 'supported_date_format',
-          field_value_range: Stubs::Range.default(visited),
-          field_length_range: Stubs::Range.default(visited),
+          field_value_range: Range.default(visited),
+          field_length_range: Range.default(visited),
         }
       end
 
@@ -1378,7 +1378,7 @@ module AWS::SDK::Appflow
     class DescribeConnectorProfiles
       def self.default(visited=[])
         {
-          connector_profile_details: Stubs::ConnectorProfileDetailList.default(visited),
+          connector_profile_details: ConnectorProfileDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1399,7 +1399,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorProfileDetailList')
         visited = visited + ['ConnectorProfileDetailList']
         [
-          Stubs::ConnectorProfile.default(visited)
+          ConnectorProfile.default(visited)
         ]
       end
 
@@ -1425,10 +1425,10 @@ module AWS::SDK::Appflow
           connector_label: 'connector_label',
           connection_mode: 'connection_mode',
           credentials_arn: 'credentials_arn',
-          connector_profile_properties: Stubs::ConnectorProfileProperties.default(visited),
+          connector_profile_properties: ConnectorProfileProperties.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
-          private_connection_provisioning_state: Stubs::PrivateConnectionProvisioningState.default(visited),
+          private_connection_provisioning_state: PrivateConnectionProvisioningState.default(visited),
         }
       end
 
@@ -1477,24 +1477,24 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorProfileProperties')
         visited = visited + ['ConnectorProfileProperties']
         {
-          amplitude: Stubs::AmplitudeConnectorProfileProperties.default(visited),
-          datadog: Stubs::DatadogConnectorProfileProperties.default(visited),
-          dynatrace: Stubs::DynatraceConnectorProfileProperties.default(visited),
-          google_analytics: Stubs::GoogleAnalyticsConnectorProfileProperties.default(visited),
-          honeycode: Stubs::HoneycodeConnectorProfileProperties.default(visited),
-          infor_nexus: Stubs::InforNexusConnectorProfileProperties.default(visited),
-          marketo: Stubs::MarketoConnectorProfileProperties.default(visited),
-          redshift: Stubs::RedshiftConnectorProfileProperties.default(visited),
-          salesforce: Stubs::SalesforceConnectorProfileProperties.default(visited),
-          service_now: Stubs::ServiceNowConnectorProfileProperties.default(visited),
-          singular: Stubs::SingularConnectorProfileProperties.default(visited),
-          slack: Stubs::SlackConnectorProfileProperties.default(visited),
-          snowflake: Stubs::SnowflakeConnectorProfileProperties.default(visited),
-          trendmicro: Stubs::TrendmicroConnectorProfileProperties.default(visited),
-          veeva: Stubs::VeevaConnectorProfileProperties.default(visited),
-          zendesk: Stubs::ZendeskConnectorProfileProperties.default(visited),
-          sapo_data: Stubs::SAPODataConnectorProfileProperties.default(visited),
-          custom_connector: Stubs::CustomConnectorProfileProperties.default(visited),
+          amplitude: AmplitudeConnectorProfileProperties.default(visited),
+          datadog: DatadogConnectorProfileProperties.default(visited),
+          dynatrace: DynatraceConnectorProfileProperties.default(visited),
+          google_analytics: GoogleAnalyticsConnectorProfileProperties.default(visited),
+          honeycode: HoneycodeConnectorProfileProperties.default(visited),
+          infor_nexus: InforNexusConnectorProfileProperties.default(visited),
+          marketo: MarketoConnectorProfileProperties.default(visited),
+          redshift: RedshiftConnectorProfileProperties.default(visited),
+          salesforce: SalesforceConnectorProfileProperties.default(visited),
+          service_now: ServiceNowConnectorProfileProperties.default(visited),
+          singular: SingularConnectorProfileProperties.default(visited),
+          slack: SlackConnectorProfileProperties.default(visited),
+          snowflake: SnowflakeConnectorProfileProperties.default(visited),
+          trendmicro: TrendmicroConnectorProfileProperties.default(visited),
+          veeva: VeevaConnectorProfileProperties.default(visited),
+          zendesk: ZendeskConnectorProfileProperties.default(visited),
+          sapo_data: SAPODataConnectorProfileProperties.default(visited),
+          custom_connector: CustomConnectorProfileProperties.default(visited),
         }
       end
 
@@ -1529,8 +1529,8 @@ module AWS::SDK::Appflow
         return nil if visited.include?('CustomConnectorProfileProperties')
         visited = visited + ['CustomConnectorProfileProperties']
         {
-          profile_properties: Stubs::ProfilePropertiesMap.default(visited),
-          o_auth2_properties: Stubs::OAuth2Properties.default(visited),
+          profile_properties: ProfilePropertiesMap.default(visited),
+          o_auth2_properties: OAuth2Properties.default(visited),
         }
       end
 
@@ -1551,7 +1551,7 @@ module AWS::SDK::Appflow
         {
           token_url: 'token_url',
           o_auth2_grant_type: 'o_auth2_grant_type',
-          token_url_custom_properties: Stubs::TokenUrlCustomProperties.default(visited),
+          token_url_custom_properties: TokenUrlCustomProperties.default(visited),
         }
       end
 
@@ -1617,7 +1617,7 @@ module AWS::SDK::Appflow
           client_number: 'client_number',
           logon_language: 'logon_language',
           private_link_service_name: 'private_link_service_name',
-          o_auth_properties: Stubs::OAuthProperties.default(visited),
+          o_auth_properties: OAuthProperties.default(visited),
         }
       end
 
@@ -1643,7 +1643,7 @@ module AWS::SDK::Appflow
         {
           token_url: 'token_url',
           auth_code_url: 'auth_code_url',
-          o_auth_scopes: Stubs::OAuthScopeList.default(visited),
+          o_auth_scopes: OAuthScopeList.default(visited),
         }
       end
 
@@ -1959,8 +1959,8 @@ module AWS::SDK::Appflow
     class DescribeConnectors
       def self.default(visited=[])
         {
-          connector_configurations: Stubs::ConnectorConfigurationsMap.default(visited),
-          connectors: Stubs::ConnectorList.default(visited),
+          connector_configurations: ConnectorConfigurationsMap.default(visited),
+          connectors: ConnectorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1982,7 +1982,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorList')
         visited = visited + ['ConnectorList']
         [
-          Stubs::ConnectorDetail.default(visited)
+          ConnectorDetail.default(visited)
         ]
       end
 
@@ -2012,7 +2012,7 @@ module AWS::SDK::Appflow
           registered_at: Time.now,
           registered_by: 'registered_by',
           connector_provisioning_type: 'connector_provisioning_type',
-          connector_modes: Stubs::ConnectorModeList.default(visited),
+          connector_modes: ConnectorModeList.default(visited),
         }
       end
 
@@ -2040,7 +2040,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorConfigurationsMap')
         visited = visited + ['ConnectorConfigurationsMap']
         {
-          test_key: Stubs::ConnectorConfiguration.default(visited)
+          test_key: ConnectorConfiguration.default(visited)
         }
       end
 
@@ -2064,16 +2064,16 @@ module AWS::SDK::Appflow
           kms_arn: 'kms_arn',
           flow_status: 'flow_status',
           flow_status_message: 'flow_status_message',
-          source_flow_config: Stubs::SourceFlowConfig.default(visited),
-          destination_flow_config_list: Stubs::DestinationFlowConfigList.default(visited),
-          last_run_execution_details: Stubs::ExecutionDetails.default(visited),
-          trigger_config: Stubs::TriggerConfig.default(visited),
-          tasks: Stubs::Tasks.default(visited),
+          source_flow_config: SourceFlowConfig.default(visited),
+          destination_flow_config_list: DestinationFlowConfigList.default(visited),
+          last_run_execution_details: ExecutionDetails.default(visited),
+          trigger_config: TriggerConfig.default(visited),
+          tasks: Tasks.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
           created_by: 'created_by',
           last_updated_by: 'last_updated_by',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2127,7 +2127,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('Tasks')
         visited = visited + ['Tasks']
         [
-          Stubs::Task.default(visited)
+          Task.default(visited)
         ]
       end
 
@@ -2147,11 +2147,11 @@ module AWS::SDK::Appflow
         return nil if visited.include?('Task')
         visited = visited + ['Task']
         {
-          source_fields: Stubs::SourceFields.default(visited),
-          connector_operator: Stubs::ConnectorOperator.default(visited),
+          source_fields: SourceFields.default(visited),
+          connector_operator: ConnectorOperator.default(visited),
           destination_field: 'destination_field',
           task_type: 'task_type',
-          task_properties: Stubs::TaskPropertiesMap.default(visited),
+          task_properties: TaskPropertiesMap.default(visited),
         }
       end
 
@@ -2262,7 +2262,7 @@ module AWS::SDK::Appflow
         visited = visited + ['TriggerConfig']
         {
           trigger_type: 'trigger_type',
-          trigger_properties: Stubs::TriggerProperties.default(visited),
+          trigger_properties: TriggerProperties.default(visited),
         }
       end
 
@@ -2281,7 +2281,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('TriggerProperties')
         visited = visited + ['TriggerProperties']
         {
-          scheduled: Stubs::ScheduledTriggerProperties.default(visited),
+          scheduled: ScheduledTriggerProperties.default(visited),
         }
       end
 
@@ -2353,7 +2353,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('DestinationFlowConfigList')
         visited = visited + ['DestinationFlowConfigList']
         [
-          Stubs::DestinationFlowConfig.default(visited)
+          DestinationFlowConfig.default(visited)
         ]
       end
 
@@ -2376,7 +2376,7 @@ module AWS::SDK::Appflow
           connector_type: 'connector_type',
           api_version: 'api_version',
           connector_profile_name: 'connector_profile_name',
-          destination_connector_properties: Stubs::DestinationConnectorProperties.default(visited),
+          destination_connector_properties: DestinationConnectorProperties.default(visited),
         }
       end
 
@@ -2397,19 +2397,19 @@ module AWS::SDK::Appflow
         return nil if visited.include?('DestinationConnectorProperties')
         visited = visited + ['DestinationConnectorProperties']
         {
-          redshift: Stubs::RedshiftDestinationProperties.default(visited),
-          s3: Stubs::S3DestinationProperties.default(visited),
-          salesforce: Stubs::SalesforceDestinationProperties.default(visited),
-          snowflake: Stubs::SnowflakeDestinationProperties.default(visited),
-          event_bridge: Stubs::EventBridgeDestinationProperties.default(visited),
-          lookout_metrics: Stubs::LookoutMetricsDestinationProperties.default(visited),
-          upsolver: Stubs::UpsolverDestinationProperties.default(visited),
-          honeycode: Stubs::HoneycodeDestinationProperties.default(visited),
-          customer_profiles: Stubs::CustomerProfilesDestinationProperties.default(visited),
-          zendesk: Stubs::ZendeskDestinationProperties.default(visited),
-          marketo: Stubs::MarketoDestinationProperties.default(visited),
-          custom_connector: Stubs::CustomConnectorDestinationProperties.default(visited),
-          sapo_data: Stubs::SAPODataDestinationProperties.default(visited),
+          redshift: RedshiftDestinationProperties.default(visited),
+          s3: S3DestinationProperties.default(visited),
+          salesforce: SalesforceDestinationProperties.default(visited),
+          snowflake: SnowflakeDestinationProperties.default(visited),
+          event_bridge: EventBridgeDestinationProperties.default(visited),
+          lookout_metrics: LookoutMetricsDestinationProperties.default(visited),
+          upsolver: UpsolverDestinationProperties.default(visited),
+          honeycode: HoneycodeDestinationProperties.default(visited),
+          customer_profiles: CustomerProfilesDestinationProperties.default(visited),
+          zendesk: ZendeskDestinationProperties.default(visited),
+          marketo: MarketoDestinationProperties.default(visited),
+          custom_connector: CustomConnectorDestinationProperties.default(visited),
+          sapo_data: SAPODataDestinationProperties.default(visited),
         }
       end
 
@@ -2440,9 +2440,9 @@ module AWS::SDK::Appflow
         visited = visited + ['SAPODataDestinationProperties']
         {
           object_path: 'object_path',
-          success_response_handling_config: Stubs::SuccessResponseHandlingConfig.default(visited),
-          id_field_names: Stubs::IdFieldNameList.default(visited),
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          success_response_handling_config: SuccessResponseHandlingConfig.default(visited),
+          id_field_names: IdFieldNameList.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
           write_operation_type: 'write_operation_type',
         }
       end
@@ -2528,10 +2528,10 @@ module AWS::SDK::Appflow
         visited = visited + ['CustomConnectorDestinationProperties']
         {
           entity_name: 'entity_name',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
           write_operation_type: 'write_operation_type',
-          id_field_names: Stubs::IdFieldNameList.default(visited),
-          custom_properties: Stubs::CustomProperties.default(visited),
+          id_field_names: IdFieldNameList.default(visited),
+          custom_properties: CustomProperties.default(visited),
         }
       end
 
@@ -2554,7 +2554,7 @@ module AWS::SDK::Appflow
         visited = visited + ['MarketoDestinationProperties']
         {
           object: 'object',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
         }
       end
 
@@ -2574,8 +2574,8 @@ module AWS::SDK::Appflow
         visited = visited + ['ZendeskDestinationProperties']
         {
           object: 'object',
-          id_field_names: Stubs::IdFieldNameList.default(visited),
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          id_field_names: IdFieldNameList.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
           write_operation_type: 'write_operation_type',
         }
       end
@@ -2618,7 +2618,7 @@ module AWS::SDK::Appflow
         visited = visited + ['HoneycodeDestinationProperties']
         {
           object: 'object',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
         }
       end
 
@@ -2639,7 +2639,7 @@ module AWS::SDK::Appflow
         {
           bucket_name: 'bucket_name',
           bucket_prefix: 'bucket_prefix',
-          s3_output_format_config: Stubs::UpsolverS3OutputFormatConfig.default(visited),
+          s3_output_format_config: UpsolverS3OutputFormatConfig.default(visited),
         }
       end
 
@@ -2660,8 +2660,8 @@ module AWS::SDK::Appflow
         visited = visited + ['UpsolverS3OutputFormatConfig']
         {
           file_type: 'file_type',
-          prefix_config: Stubs::PrefixConfig.default(visited),
-          aggregation_config: Stubs::AggregationConfig.default(visited),
+          prefix_config: PrefixConfig.default(visited),
+          aggregation_config: AggregationConfig.default(visited),
         }
       end
 
@@ -2736,7 +2736,7 @@ module AWS::SDK::Appflow
         visited = visited + ['EventBridgeDestinationProperties']
         {
           object: 'object',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
         }
       end
 
@@ -2758,7 +2758,7 @@ module AWS::SDK::Appflow
           object: 'object',
           intermediate_bucket_name: 'intermediate_bucket_name',
           bucket_prefix: 'bucket_prefix',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
         }
       end
 
@@ -2780,8 +2780,8 @@ module AWS::SDK::Appflow
         visited = visited + ['SalesforceDestinationProperties']
         {
           object: 'object',
-          id_field_names: Stubs::IdFieldNameList.default(visited),
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          id_field_names: IdFieldNameList.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
           write_operation_type: 'write_operation_type',
         }
       end
@@ -2805,7 +2805,7 @@ module AWS::SDK::Appflow
         {
           bucket_name: 'bucket_name',
           bucket_prefix: 'bucket_prefix',
-          s3_output_format_config: Stubs::S3OutputFormatConfig.default(visited),
+          s3_output_format_config: S3OutputFormatConfig.default(visited),
         }
       end
 
@@ -2826,8 +2826,8 @@ module AWS::SDK::Appflow
         visited = visited + ['S3OutputFormatConfig']
         {
           file_type: 'file_type',
-          prefix_config: Stubs::PrefixConfig.default(visited),
-          aggregation_config: Stubs::AggregationConfig.default(visited),
+          prefix_config: PrefixConfig.default(visited),
+          aggregation_config: AggregationConfig.default(visited),
           preserve_source_data_typing: false,
         }
       end
@@ -2852,7 +2852,7 @@ module AWS::SDK::Appflow
           object: 'object',
           intermediate_bucket_name: 'intermediate_bucket_name',
           bucket_prefix: 'bucket_prefix',
-          error_handling_config: Stubs::ErrorHandlingConfig.default(visited),
+          error_handling_config: ErrorHandlingConfig.default(visited),
         }
       end
 
@@ -2876,8 +2876,8 @@ module AWS::SDK::Appflow
           connector_type: 'connector_type',
           api_version: 'api_version',
           connector_profile_name: 'connector_profile_name',
-          source_connector_properties: Stubs::SourceConnectorProperties.default(visited),
-          incremental_pull_config: Stubs::IncrementalPullConfig.default(visited),
+          source_connector_properties: SourceConnectorProperties.default(visited),
+          incremental_pull_config: IncrementalPullConfig.default(visited),
         }
       end
 
@@ -2917,22 +2917,22 @@ module AWS::SDK::Appflow
         return nil if visited.include?('SourceConnectorProperties')
         visited = visited + ['SourceConnectorProperties']
         {
-          amplitude: Stubs::AmplitudeSourceProperties.default(visited),
-          datadog: Stubs::DatadogSourceProperties.default(visited),
-          dynatrace: Stubs::DynatraceSourceProperties.default(visited),
-          google_analytics: Stubs::GoogleAnalyticsSourceProperties.default(visited),
-          infor_nexus: Stubs::InforNexusSourceProperties.default(visited),
-          marketo: Stubs::MarketoSourceProperties.default(visited),
-          s3: Stubs::S3SourceProperties.default(visited),
-          salesforce: Stubs::SalesforceSourceProperties.default(visited),
-          service_now: Stubs::ServiceNowSourceProperties.default(visited),
-          singular: Stubs::SingularSourceProperties.default(visited),
-          slack: Stubs::SlackSourceProperties.default(visited),
-          trendmicro: Stubs::TrendmicroSourceProperties.default(visited),
-          veeva: Stubs::VeevaSourceProperties.default(visited),
-          zendesk: Stubs::ZendeskSourceProperties.default(visited),
-          sapo_data: Stubs::SAPODataSourceProperties.default(visited),
-          custom_connector: Stubs::CustomConnectorSourceProperties.default(visited),
+          amplitude: AmplitudeSourceProperties.default(visited),
+          datadog: DatadogSourceProperties.default(visited),
+          dynatrace: DynatraceSourceProperties.default(visited),
+          google_analytics: GoogleAnalyticsSourceProperties.default(visited),
+          infor_nexus: InforNexusSourceProperties.default(visited),
+          marketo: MarketoSourceProperties.default(visited),
+          s3: S3SourceProperties.default(visited),
+          salesforce: SalesforceSourceProperties.default(visited),
+          service_now: ServiceNowSourceProperties.default(visited),
+          singular: SingularSourceProperties.default(visited),
+          slack: SlackSourceProperties.default(visited),
+          trendmicro: TrendmicroSourceProperties.default(visited),
+          veeva: VeevaSourceProperties.default(visited),
+          zendesk: ZendeskSourceProperties.default(visited),
+          sapo_data: SAPODataSourceProperties.default(visited),
+          custom_connector: CustomConnectorSourceProperties.default(visited),
         }
       end
 
@@ -2966,7 +2966,7 @@ module AWS::SDK::Appflow
         visited = visited + ['CustomConnectorSourceProperties']
         {
           entity_name: 'entity_name',
-          custom_properties: Stubs::CustomProperties.default(visited),
+          custom_properties: CustomProperties.default(visited),
         }
       end
 
@@ -3143,7 +3143,7 @@ module AWS::SDK::Appflow
         {
           bucket_name: 'bucket_name',
           bucket_prefix: 'bucket_prefix',
-          s3_input_format_config: Stubs::S3InputFormatConfig.default(visited),
+          s3_input_format_config: S3InputFormatConfig.default(visited),
         }
       end
 
@@ -3287,7 +3287,7 @@ module AWS::SDK::Appflow
     class DescribeFlowExecutionRecords
       def self.default(visited=[])
         {
-          flow_executions: Stubs::FlowExecutionList.default(visited),
+          flow_executions: FlowExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3308,7 +3308,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('FlowExecutionList')
         visited = visited + ['FlowExecutionList']
         [
-          Stubs::ExecutionRecord.default(visited)
+          ExecutionRecord.default(visited)
         ]
       end
 
@@ -3330,7 +3330,7 @@ module AWS::SDK::Appflow
         {
           execution_id: 'execution_id',
           execution_status: 'execution_status',
-          execution_result: Stubs::ExecutionResult.default(visited),
+          execution_result: ExecutionResult.default(visited),
           started_at: Time.now,
           last_updated_at: Time.now,
           data_pull_start_time: Time.now,
@@ -3358,7 +3358,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ExecutionResult')
         visited = visited + ['ExecutionResult']
         {
-          error_info: Stubs::ErrorInfo.default(visited),
+          error_info: ErrorInfo.default(visited),
           bytes_processed: 1,
           bytes_written: 1,
           records_processed: 1,
@@ -3400,7 +3400,7 @@ module AWS::SDK::Appflow
     class ListConnectorEntities
       def self.default(visited=[])
         {
-          connector_entity_map: Stubs::ConnectorEntityMap.default(visited),
+          connector_entity_map: ConnectorEntityMap.default(visited),
         }
       end
 
@@ -3419,7 +3419,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorEntityMap')
         visited = visited + ['ConnectorEntityMap']
         {
-          test_key: Stubs::ConnectorEntityList.default(visited)
+          test_key: ConnectorEntityList.default(visited)
         }
       end
 
@@ -3439,7 +3439,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('ConnectorEntityList')
         visited = visited + ['ConnectorEntityList']
         [
-          Stubs::ConnectorEntity.default(visited)
+          ConnectorEntity.default(visited)
         ]
       end
 
@@ -3479,7 +3479,7 @@ module AWS::SDK::Appflow
     class ListConnectors
       def self.default(visited=[])
         {
-          connectors: Stubs::ConnectorList.default(visited),
+          connectors: ConnectorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3498,7 +3498,7 @@ module AWS::SDK::Appflow
     class ListFlows
       def self.default(visited=[])
         {
-          flows: Stubs::FlowList.default(visited),
+          flows: FlowList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3519,7 +3519,7 @@ module AWS::SDK::Appflow
         return nil if visited.include?('FlowList')
         visited = visited + ['FlowList']
         [
-          Stubs::FlowDefinition.default(visited)
+          FlowDefinition.default(visited)
         ]
       end
 
@@ -3552,8 +3552,8 @@ module AWS::SDK::Appflow
           last_updated_at: Time.now,
           created_by: 'created_by',
           last_updated_by: 'last_updated_by',
-          tags: Stubs::TagMap.default(visited),
-          last_run_execution_details: Stubs::ExecutionDetails.default(visited),
+          tags: TagMap.default(visited),
+          last_run_execution_details: ExecutionDetails.default(visited),
         }
       end
 
@@ -3583,7 +3583,7 @@ module AWS::SDK::Appflow
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

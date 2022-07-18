@@ -797,12 +797,12 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_value ||= 0
         self.max_value ||= 0
       end
-
     end
 
     # @!attribute job_name
@@ -1487,11 +1487,11 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.perform_auto_ml ||= false
       end
-
     end
 
     # @!attribute solution_arn
@@ -2254,11 +2254,11 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_tunable ||= false
       end
-
     end
 
     # <p>Provides the name and default range of a continuous hyperparameter
@@ -2293,13 +2293,13 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_value ||= 0
         self.max_value ||= 0
         self.is_tunable ||= false
       end
-
     end
 
     # <p>Specifies the hyperparameters and their default ranges.
@@ -2361,13 +2361,13 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_value ||= 0
         self.max_value ||= 0
         self.is_tunable ||= false
       end
-
     end
 
     # @!attribute campaign_arn
@@ -3424,12 +3424,12 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_value ||= 0
         self.max_value ||= 0
       end
-
     end
 
     # <p>Provide a valid value for the field or parameter.</p>
@@ -4671,12 +4671,12 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.perform_hpo ||= false
         self.perform_auto_ml ||= false
       end
-
     end
 
     # <p>Describes the configuration properties for the solution.</p>
@@ -4914,12 +4914,12 @@ module AWS::SDK::Personalize
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.perform_hpo ||= false
         self.perform_auto_ml ||= false
       end
-
     end
 
     # <p>Provides a summary of the properties of a solution version. For a complete listing, call the

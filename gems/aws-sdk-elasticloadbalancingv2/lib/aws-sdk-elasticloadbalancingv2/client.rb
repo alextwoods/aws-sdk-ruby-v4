@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ElasticLoadBalancingV2
@@ -117,7 +119,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def add_listener_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddListenerCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddListenerCertificatesInput,
         validate_input: @config.validate_input
@@ -200,7 +202,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -495,7 +497,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def create_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateListenerInput,
         validate_input: @config.validate_input
@@ -704,7 +706,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def create_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLoadBalancerInput,
         validate_input: @config.validate_input
@@ -957,7 +959,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def create_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRuleInput,
         validate_input: @config.validate_input
@@ -1213,7 +1215,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def create_target_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTargetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTargetGroupInput,
         validate_input: @config.validate_input
@@ -1283,7 +1285,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def delete_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteListenerInput,
         validate_input: @config.validate_input
@@ -1357,7 +1359,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def delete_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLoadBalancerInput,
         validate_input: @config.validate_input
@@ -1426,7 +1428,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def delete_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleInput,
         validate_input: @config.validate_input
@@ -1498,7 +1500,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def delete_target_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTargetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTargetGroupInput,
         validate_input: @config.validate_input
@@ -1578,7 +1580,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def deregister_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterTargetsInput,
         validate_input: @config.validate_input
@@ -1678,7 +1680,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_account_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountLimitsInput,
         validate_input: @config.validate_input
@@ -1767,7 +1769,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_listener_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeListenerCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeListenerCertificatesInput,
         validate_input: @config.validate_input
@@ -1914,7 +1916,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_listeners(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeListenersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeListenersInput,
         validate_input: @config.validate_input
@@ -2009,7 +2011,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_load_balancer_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoadBalancerAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoadBalancerAttributesInput,
         validate_input: @config.validate_input
@@ -2124,7 +2126,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoadBalancersInput,
         validate_input: @config.validate_input
@@ -2283,7 +2285,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRulesInput,
         validate_input: @config.validate_input
@@ -2381,7 +2383,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_ssl_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSSLPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSSLPoliciesInput,
         validate_input: @config.validate_input
@@ -2461,7 +2463,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -2554,7 +2556,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_target_group_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTargetGroupAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTargetGroupAttributesInput,
         validate_input: @config.validate_input
@@ -2670,7 +2672,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_target_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTargetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTargetGroupsInput,
         validate_input: @config.validate_input
@@ -2759,7 +2761,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def describe_target_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTargetHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTargetHealthInput,
         validate_input: @config.validate_input
@@ -3024,7 +3026,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def modify_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyListenerInput,
         validate_input: @config.validate_input
@@ -3108,7 +3110,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def modify_load_balancer_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyLoadBalancerAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyLoadBalancerAttributesInput,
         validate_input: @config.validate_input
@@ -3347,7 +3349,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def modify_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyRuleInput,
         validate_input: @config.validate_input
@@ -3496,7 +3498,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def modify_target_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTargetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTargetGroupInput,
         validate_input: @config.validate_input
@@ -3577,7 +3579,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def modify_target_group_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyTargetGroupAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyTargetGroupAttributesInput,
         validate_input: @config.validate_input
@@ -3667,7 +3669,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def register_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterTargetsInput,
         validate_input: @config.validate_input
@@ -3747,7 +3749,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def remove_listener_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveListenerCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveListenerCertificatesInput,
         validate_input: @config.validate_input
@@ -3825,7 +3827,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def remove_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsInput,
         validate_input: @config.validate_input
@@ -3902,7 +3904,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def set_ip_address_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIpAddressTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIpAddressTypeInput,
         validate_input: @config.validate_input
@@ -4051,7 +4053,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def set_rule_priorities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetRulePrioritiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetRulePrioritiesInput,
         validate_input: @config.validate_input
@@ -4130,7 +4132,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def set_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -4259,7 +4261,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     def set_subnets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSubnetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSubnetsInput,
         validate_input: @config.validate_input

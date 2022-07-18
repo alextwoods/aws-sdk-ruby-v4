@@ -190,13 +190,13 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_accept_requests ||= false
         self.auto_decline_recurring_requests ||= false
         self.auto_decline_conflicting_requests ||= false
       end
-
     end
 
     # @!attribute client_token
@@ -430,11 +430,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_interoperability ||= false
       end
-
     end
 
     # @!attribute organization_id
@@ -789,11 +789,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_directory ||= false
       end
-
     end
 
     # @!attribute organization_id
@@ -1057,11 +1057,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enforced ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -1163,11 +1163,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_progress ||= 0
       end
-
     end
 
     # @!attribute organization_id
@@ -1852,12 +1852,12 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_test_domain ||= false
         self.is_default ||= false
       end
-
     end
 
     # @!attribute organization_id
@@ -1895,11 +1895,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mailbox_size ||= 0
       end
-
     end
 
     # @!attribute organization_id
@@ -2815,11 +2815,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_domain ||= false
       end
-
     end
 
     # <p>The details of a mailbox export job, including the user or resource ID associated
@@ -2885,11 +2885,11 @@ module AWS::SDK::WorkMail
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_progress ||= 0
       end
-
     end
 
     # Includes enum constants for MailboxExportJobState

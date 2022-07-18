@@ -14,7 +14,7 @@ module AWS::SDK::Transcribe
     class CreateCallAnalyticsCategory
       def self.default(visited=[])
         {
-          category_properties: Stubs::CategoryProperties.default(visited),
+          category_properties: CategoryProperties.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::Transcribe
         visited = visited + ['CategoryProperties']
         {
           category_name: 'category_name',
-          rules: Stubs::RuleList.default(visited),
+          rules: RuleList.default(visited),
           create_time: Time.now,
           last_update_time: Time.now,
         }
@@ -56,7 +56,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('RuleList')
         visited = visited + ['RuleList']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('Rule')
         visited = visited + ['Rule']
         {
-          non_talk_time_filter: Stubs::NonTalkTimeFilter.default(visited),
+          non_talk_time_filter: NonTalkTimeFilter.default(visited),
         }
       end
 
@@ -106,9 +106,9 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('SentimentFilter')
         visited = visited + ['SentimentFilter']
         {
-          sentiments: Stubs::SentimentValueList.default(visited),
-          absolute_time_range: Stubs::AbsoluteTimeRange.default(visited),
-          relative_time_range: Stubs::RelativeTimeRange.default(visited),
+          sentiments: SentimentValueList.default(visited),
+          absolute_time_range: AbsoluteTimeRange.default(visited),
+          relative_time_range: RelativeTimeRange.default(visited),
           participant_role: 'participant_role',
           negate: false,
         }
@@ -201,11 +201,11 @@ module AWS::SDK::Transcribe
         visited = visited + ['TranscriptFilter']
         {
           transcript_filter_type: 'transcript_filter_type',
-          absolute_time_range: Stubs::AbsoluteTimeRange.default(visited),
-          relative_time_range: Stubs::RelativeTimeRange.default(visited),
+          absolute_time_range: AbsoluteTimeRange.default(visited),
+          relative_time_range: RelativeTimeRange.default(visited),
           participant_role: 'participant_role',
           negate: false,
-          targets: Stubs::StringTargetList.default(visited),
+          targets: StringTargetList.default(visited),
         }
       end
 
@@ -250,8 +250,8 @@ module AWS::SDK::Transcribe
         {
           threshold: 1,
           participant_role: 'participant_role',
-          absolute_time_range: Stubs::AbsoluteTimeRange.default(visited),
-          relative_time_range: Stubs::RelativeTimeRange.default(visited),
+          absolute_time_range: AbsoluteTimeRange.default(visited),
+          relative_time_range: RelativeTimeRange.default(visited),
           negate: false,
         }
       end
@@ -275,8 +275,8 @@ module AWS::SDK::Transcribe
         visited = visited + ['NonTalkTimeFilter']
         {
           threshold: 1,
-          absolute_time_range: Stubs::AbsoluteTimeRange.default(visited),
-          relative_time_range: Stubs::RelativeTimeRange.default(visited),
+          absolute_time_range: AbsoluteTimeRange.default(visited),
+          relative_time_range: RelativeTimeRange.default(visited),
           negate: false,
         }
       end
@@ -299,7 +299,7 @@ module AWS::SDK::Transcribe
           language_code: 'language_code',
           base_model_name: 'base_model_name',
           model_name: 'model_name',
-          input_data_config: Stubs::InputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
           model_status: 'model_status',
         }
       end
@@ -522,7 +522,7 @@ module AWS::SDK::Transcribe
     class DescribeLanguageModel
       def self.default(visited=[])
         {
-          language_model: Stubs::LanguageModel.default(visited),
+          language_model: LanguageModel.default(visited),
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::Transcribe
           model_status: 'model_status',
           upgrade_availability: false,
           failure_reason: 'failure_reason',
-          input_data_config: Stubs::InputDataConfig.default(visited),
+          input_data_config: InputDataConfig.default(visited),
         }
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::Transcribe
     class GetCallAnalyticsCategory
       def self.default(visited=[])
         {
-          category_properties: Stubs::CategoryProperties.default(visited),
+          category_properties: CategoryProperties.default(visited),
         }
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::Transcribe
     class GetCallAnalyticsJob
       def self.default(visited=[])
         {
-          call_analytics_job: Stubs::CallAnalyticsJob.default(visited),
+          call_analytics_job: CallAnalyticsJob.default(visited),
         }
       end
 
@@ -611,16 +611,16 @@ module AWS::SDK::Transcribe
           language_code: 'language_code',
           media_sample_rate_hertz: 1,
           media_format: 'media_format',
-          media: Stubs::Media.default(visited),
-          transcript: Stubs::Transcript.default(visited),
+          media: Media.default(visited),
+          transcript: Transcript.default(visited),
           start_time: Time.now,
           creation_time: Time.now,
           completion_time: Time.now,
           failure_reason: 'failure_reason',
           data_access_role_arn: 'data_access_role_arn',
           identified_language_score: 1.0,
-          settings: Stubs::CallAnalyticsJobSettings.default(visited),
-          channel_definitions: Stubs::ChannelDefinitions.default(visited),
+          settings: CallAnalyticsJobSettings.default(visited),
+          channel_definitions: ChannelDefinitions.default(visited),
         }
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('ChannelDefinitions')
         visited = visited + ['ChannelDefinitions']
         [
-          Stubs::ChannelDefinition.default(visited)
+          ChannelDefinition.default(visited)
         ]
       end
 
@@ -696,9 +696,9 @@ module AWS::SDK::Transcribe
           vocabulary_filter_name: 'vocabulary_filter_name',
           vocabulary_filter_method: 'vocabulary_filter_method',
           language_model_name: 'language_model_name',
-          content_redaction: Stubs::ContentRedaction.default(visited),
-          language_options: Stubs::LanguageOptions.default(visited),
-          language_id_settings: Stubs::LanguageIdSettingsMap.default(visited),
+          content_redaction: ContentRedaction.default(visited),
+          language_options: LanguageOptions.default(visited),
+          language_id_settings: LanguageIdSettingsMap.default(visited),
         }
       end
 
@@ -722,7 +722,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('LanguageIdSettingsMap')
         visited = visited + ['LanguageIdSettingsMap']
         {
-          test_key: Stubs::LanguageIdSettings.default(visited)
+          test_key: LanguageIdSettings.default(visited)
         }
       end
 
@@ -786,7 +786,7 @@ module AWS::SDK::Transcribe
         {
           redaction_type: 'redaction_type',
           redaction_output: 'redaction_output',
-          pii_entity_types: Stubs::PiiEntityTypes.default(visited),
+          pii_entity_types: PiiEntityTypes.default(visited),
         }
       end
 
@@ -864,7 +864,7 @@ module AWS::SDK::Transcribe
     class GetMedicalTranscriptionJob
       def self.default(visited=[])
         {
-          medical_transcription_job: Stubs::MedicalTranscriptionJob.default(visited),
+          medical_transcription_job: MedicalTranscriptionJob.default(visited),
         }
       end
 
@@ -887,17 +887,17 @@ module AWS::SDK::Transcribe
           language_code: 'language_code',
           media_sample_rate_hertz: 1,
           media_format: 'media_format',
-          media: Stubs::Media.default(visited),
-          transcript: Stubs::MedicalTranscript.default(visited),
+          media: Media.default(visited),
+          transcript: MedicalTranscript.default(visited),
           start_time: Time.now,
           creation_time: Time.now,
           completion_time: Time.now,
           failure_reason: 'failure_reason',
-          settings: Stubs::MedicalTranscriptionSetting.default(visited),
+          settings: MedicalTranscriptionSetting.default(visited),
           content_identification_type: 'content_identification_type',
           specialty: 'specialty',
           type: 'type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -930,7 +930,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1040,7 +1040,7 @@ module AWS::SDK::Transcribe
     class GetTranscriptionJob
       def self.default(visited=[])
         {
-          transcription_job: Stubs::TranscriptionJob.default(visited),
+          transcription_job: TranscriptionJob.default(visited),
         }
       end
 
@@ -1063,24 +1063,24 @@ module AWS::SDK::Transcribe
           language_code: 'language_code',
           media_sample_rate_hertz: 1,
           media_format: 'media_format',
-          media: Stubs::Media.default(visited),
-          transcript: Stubs::Transcript.default(visited),
+          media: Media.default(visited),
+          transcript: Transcript.default(visited),
           start_time: Time.now,
           creation_time: Time.now,
           completion_time: Time.now,
           failure_reason: 'failure_reason',
-          settings: Stubs::Settings.default(visited),
-          model_settings: Stubs::ModelSettings.default(visited),
-          job_execution_settings: Stubs::JobExecutionSettings.default(visited),
-          content_redaction: Stubs::ContentRedaction.default(visited),
+          settings: Settings.default(visited),
+          model_settings: ModelSettings.default(visited),
+          job_execution_settings: JobExecutionSettings.default(visited),
+          content_redaction: ContentRedaction.default(visited),
           identify_language: false,
           identify_multiple_languages: false,
-          language_options: Stubs::LanguageOptions.default(visited),
+          language_options: LanguageOptions.default(visited),
           identified_language_score: 1.0,
-          language_codes: Stubs::LanguageCodeList.default(visited),
-          tags: Stubs::TagList.default(visited),
-          subtitles: Stubs::SubtitlesOutput.default(visited),
-          language_id_settings: Stubs::LanguageIdSettingsMap.default(visited),
+          language_codes: LanguageCodeList.default(visited),
+          tags: TagList.default(visited),
+          subtitles: SubtitlesOutput.default(visited),
+          language_id_settings: LanguageIdSettingsMap.default(visited),
         }
       end
 
@@ -1120,8 +1120,8 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('SubtitlesOutput')
         visited = visited + ['SubtitlesOutput']
         {
-          formats: Stubs::SubtitleFormats.default(visited),
-          subtitle_file_uris: Stubs::SubtitleFileUris.default(visited),
+          formats: SubtitleFormats.default(visited),
+          subtitle_file_uris: SubtitleFileUris.default(visited),
           output_start_index: 1,
         }
       end
@@ -1182,7 +1182,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('LanguageCodeList')
         visited = visited + ['LanguageCodeList']
         [
-          Stubs::LanguageCodeItem.default(visited)
+          LanguageCodeItem.default(visited)
         ]
       end
 
@@ -1339,7 +1339,7 @@ module AWS::SDK::Transcribe
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          categories: Stubs::CategoryPropertiesList.default(visited),
+          categories: CategoryPropertiesList.default(visited),
         }
       end
 
@@ -1358,7 +1358,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('CategoryPropertiesList')
         visited = visited + ['CategoryPropertiesList']
         [
-          Stubs::CategoryProperties.default(visited)
+          CategoryProperties.default(visited)
         ]
       end
 
@@ -1378,7 +1378,7 @@ module AWS::SDK::Transcribe
         {
           status: 'status',
           next_token: 'next_token',
-          call_analytics_job_summaries: Stubs::CallAnalyticsJobSummaries.default(visited),
+          call_analytics_job_summaries: CallAnalyticsJobSummaries.default(visited),
         }
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('CallAnalyticsJobSummaries')
         visited = visited + ['CallAnalyticsJobSummaries']
         [
-          Stubs::CallAnalyticsJobSummary.default(visited)
+          CallAnalyticsJobSummary.default(visited)
         ]
       end
 
@@ -1447,7 +1447,7 @@ module AWS::SDK::Transcribe
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          models: Stubs::Models.default(visited),
+          models: Models.default(visited),
         }
       end
 
@@ -1466,7 +1466,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('Models')
         visited = visited + ['Models']
         [
-          Stubs::LanguageModel.default(visited)
+          LanguageModel.default(visited)
         ]
       end
 
@@ -1486,7 +1486,7 @@ module AWS::SDK::Transcribe
         {
           status: 'status',
           next_token: 'next_token',
-          medical_transcription_job_summaries: Stubs::MedicalTranscriptionJobSummaries.default(visited),
+          medical_transcription_job_summaries: MedicalTranscriptionJobSummaries.default(visited),
         }
       end
 
@@ -1506,7 +1506,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('MedicalTranscriptionJobSummaries')
         visited = visited + ['MedicalTranscriptionJobSummaries']
         [
-          Stubs::MedicalTranscriptionJobSummary.default(visited)
+          MedicalTranscriptionJobSummary.default(visited)
         ]
       end
 
@@ -1564,7 +1564,7 @@ module AWS::SDK::Transcribe
         {
           status: 'status',
           next_token: 'next_token',
-          vocabularies: Stubs::Vocabularies.default(visited),
+          vocabularies: Vocabularies.default(visited),
         }
       end
 
@@ -1584,7 +1584,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('Vocabularies')
         visited = visited + ['Vocabularies']
         [
-          Stubs::VocabularyInfo.default(visited)
+          VocabularyInfo.default(visited)
         ]
       end
 
@@ -1627,7 +1627,7 @@ module AWS::SDK::Transcribe
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1646,7 +1646,7 @@ module AWS::SDK::Transcribe
         {
           status: 'status',
           next_token: 'next_token',
-          transcription_job_summaries: Stubs::TranscriptionJobSummaries.default(visited),
+          transcription_job_summaries: TranscriptionJobSummaries.default(visited),
         }
       end
 
@@ -1666,7 +1666,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('TranscriptionJobSummaries')
         visited = visited + ['TranscriptionJobSummaries']
         [
-          Stubs::TranscriptionJobSummary.default(visited)
+          TranscriptionJobSummary.default(visited)
         ]
       end
 
@@ -1694,12 +1694,12 @@ module AWS::SDK::Transcribe
           transcription_job_status: 'transcription_job_status',
           failure_reason: 'failure_reason',
           output_location_type: 'output_location_type',
-          content_redaction: Stubs::ContentRedaction.default(visited),
-          model_settings: Stubs::ModelSettings.default(visited),
+          content_redaction: ContentRedaction.default(visited),
+          model_settings: ModelSettings.default(visited),
           identify_language: false,
           identify_multiple_languages: false,
           identified_language_score: 1.0,
-          language_codes: Stubs::LanguageCodeList.default(visited),
+          language_codes: LanguageCodeList.default(visited),
         }
       end
 
@@ -1730,7 +1730,7 @@ module AWS::SDK::Transcribe
         {
           status: 'status',
           next_token: 'next_token',
-          vocabularies: Stubs::Vocabularies.default(visited),
+          vocabularies: Vocabularies.default(visited),
         }
       end
 
@@ -1749,7 +1749,7 @@ module AWS::SDK::Transcribe
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          vocabulary_filters: Stubs::VocabularyFilters.default(visited),
+          vocabulary_filters: VocabularyFilters.default(visited),
         }
       end
 
@@ -1768,7 +1768,7 @@ module AWS::SDK::Transcribe
         return nil if visited.include?('VocabularyFilters')
         visited = visited + ['VocabularyFilters']
         [
-          Stubs::VocabularyFilterInfo.default(visited)
+          VocabularyFilterInfo.default(visited)
         ]
       end
 
@@ -1808,7 +1808,7 @@ module AWS::SDK::Transcribe
     class StartCallAnalyticsJob
       def self.default(visited=[])
         {
-          call_analytics_job: Stubs::CallAnalyticsJob.default(visited),
+          call_analytics_job: CallAnalyticsJob.default(visited),
         }
       end
 
@@ -1824,7 +1824,7 @@ module AWS::SDK::Transcribe
     class StartMedicalTranscriptionJob
       def self.default(visited=[])
         {
-          medical_transcription_job: Stubs::MedicalTranscriptionJob.default(visited),
+          medical_transcription_job: MedicalTranscriptionJob.default(visited),
         }
       end
 
@@ -1840,7 +1840,7 @@ module AWS::SDK::Transcribe
     class StartTranscriptionJob
       def self.default(visited=[])
         {
-          transcription_job: Stubs::TranscriptionJob.default(visited),
+          transcription_job: TranscriptionJob.default(visited),
         }
       end
 
@@ -1884,7 +1884,7 @@ module AWS::SDK::Transcribe
     class UpdateCallAnalyticsCategory
       def self.default(visited=[])
         {
-          category_properties: Stubs::CategoryProperties.default(visited),
+          category_properties: CategoryProperties.default(visited),
         }
       end
 

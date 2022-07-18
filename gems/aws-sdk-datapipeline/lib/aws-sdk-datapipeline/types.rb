@@ -215,11 +215,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.evaluate_expressions ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeObjects.</p>
@@ -247,11 +247,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_more_results ||= false
       end
-
     end
 
     # <p>Contains the parameters for DescribePipelines.</p>
@@ -489,11 +489,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_more_results ||= false
       end
-
     end
 
     # <p>Contains a logical operation for comparing the value of a field with a specified value.</p>
@@ -844,11 +844,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.errored ||= false
       end
-
     end
 
     # <p>Defines the query to run against an object.</p>
@@ -933,11 +933,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_more_results ||= false
       end
-
     end
 
     # <p>Contains the parameters for RemoveTags.</p>
@@ -1001,11 +1001,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.canceled ||= false
       end
-
     end
 
     # <p>Contains the parameters for ReportTaskRunnerHeartbeat.</p>
@@ -1050,11 +1050,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.terminate ||= false
       end
-
     end
 
     # <p>A comparision that is used to determine whether a query should return this object.</p>
@@ -1304,11 +1304,11 @@ module AWS::SDK::DataPipeline
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.errored ||= false
       end
-
     end
 
     # <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>

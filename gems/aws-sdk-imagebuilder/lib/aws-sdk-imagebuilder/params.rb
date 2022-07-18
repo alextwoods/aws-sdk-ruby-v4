@@ -86,7 +86,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(params, ::Hash, Types::CancelImageCreationInput, context: context)
         type = Types::CancelImageCreationInput.new
         type.image_build_version_arn = params[:image_build_version_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -378,7 +378,7 @@ module AWS::SDK::Imagebuilder
         type.uri = params[:uri]
         type.kms_key_id = params[:kms_key_id]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::Imagebuilder
         type.working_directory = params[:working_directory]
         type.target_repository = TargetContainerRepository.build(params[:target_repository], context: "#{context}[:target_repository]") unless params[:target_repository].nil?
         type.kms_key_id = params[:kms_key_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::Imagebuilder
         type.description = params[:description]
         type.distributions = DistributionList.build(params[:distributions], context: "#{context}[:distributions]") unless params[:distributions].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::Imagebuilder
         type.image_tests_configuration = ImageTestsConfiguration.build(params[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless params[:image_tests_configuration].nil?
         type.enhanced_image_metadata_enabled = params[:enhanced_image_metadata_enabled]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::Imagebuilder
         type.schedule = Schedule.build(params[:schedule], context: "#{context}[:schedule]") unless params[:schedule].nil?
         type.status = params[:status]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -524,7 +524,7 @@ module AWS::SDK::Imagebuilder
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.working_directory = params[:working_directory]
         type.additional_instance_configuration = AdditionalInstanceConfiguration.build(params[:additional_instance_configuration], context: "#{context}[:additional_instance_configuration]") unless params[:additional_instance_configuration].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -557,7 +557,7 @@ module AWS::SDK::Imagebuilder
         type.resource_tags = ResourceTagMap.build(params[:resource_tags], context: "#{context}[:resource_tags]") unless params[:resource_tags].nil?
         type.instance_metadata_options = InstanceMetadataOptions.build(params[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless params[:instance_metadata_options].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1319,7 +1319,7 @@ module AWS::SDK::Imagebuilder
         type.uri = params[:uri]
         type.kms_key_id = params[:kms_key_id]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1346,7 +1346,7 @@ module AWS::SDK::Imagebuilder
         type.os_version = params[:os_version]
         type.vm_import_task_id = params[:vm_import_task_id]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2102,7 +2102,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(params, ::Hash, Types::StartImagePipelineExecutionInput, context: context)
         type = Types::StartImagePipelineExecutionInput.new
         type.image_pipeline_arn = params[:image_pipeline_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2213,7 +2213,7 @@ module AWS::SDK::Imagebuilder
         type.distribution_configuration_arn = params[:distribution_configuration_arn]
         type.description = params[:description]
         type.distributions = DistributionList.build(params[:distributions], context: "#{context}[:distributions]") unless params[:distributions].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2243,7 +2243,7 @@ module AWS::SDK::Imagebuilder
         type.enhanced_image_metadata_enabled = params[:enhanced_image_metadata_enabled]
         type.schedule = Schedule.build(params[:schedule], context: "#{context}[:schedule]") unless params[:schedule].nil?
         type.status = params[:status]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2273,7 +2273,7 @@ module AWS::SDK::Imagebuilder
         type.key_pair = params[:key_pair]
         type.terminate_instance_on_failure = params[:terminate_instance_on_failure]
         type.sns_topic_arn = params[:sns_topic_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.resource_tags = ResourceTagMap.build(params[:resource_tags], context: "#{context}[:resource_tags]") unless params[:resource_tags].nil?
         type.instance_metadata_options = InstanceMetadataOptions.build(params[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless params[:instance_metadata_options].nil?
         type

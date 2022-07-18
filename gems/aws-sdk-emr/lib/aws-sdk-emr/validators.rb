@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::EMR
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddInstanceFleetInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::InstanceFleetConfig.validate!(input[:instance_fleet], context: "#{context}[:instance_fleet]") unless input[:instance_fleet].nil?
+        InstanceFleetConfig.validate!(input[:instance_fleet], context: "#{context}[:instance_fleet]") unless input[:instance_fleet].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::EMR
     class AddInstanceGroupsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddInstanceGroupsInput, context: context)
-        Validators::InstanceGroupConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
+        InstanceGroupConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
         Hearth::Validator.validate!(input[:job_flow_id], ::String, context: "#{context}[:job_flow_id]")
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddInstanceGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:job_flow_id], ::String, context: "#{context}[:job_flow_id]")
-        Validators::InstanceGroupIdsList.validate!(input[:instance_group_ids], context: "#{context}[:instance_group_ids]") unless input[:instance_group_ids].nil?
+        InstanceGroupIdsList.validate!(input[:instance_group_ids], context: "#{context}[:instance_group_ids]") unless input[:instance_group_ids].nil?
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
       end
     end
@@ -48,14 +50,14 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddJobFlowStepsInput, context: context)
         Hearth::Validator.validate!(input[:job_flow_id], ::String, context: "#{context}[:job_flow_id]")
-        Validators::StepConfigList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        StepConfigList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
       end
     end
 
     class AddJobFlowStepsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddJobFlowStepsOutput, context: context)
-        Validators::StepIdsList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
+        StepIdsList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -78,8 +80,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::Application, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
-        Validators::StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
+        StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Application.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Application.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -95,17 +97,17 @@ module AWS::SDK::EMR
     class AutoScalingPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingPolicy, context: context)
-        Validators::ScalingConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
-        Validators::ScalingRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        ScalingConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
+        ScalingRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
     class AutoScalingPolicyDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingPolicyDescription, context: context)
-        Validators::AutoScalingPolicyStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::ScalingConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
-        Validators::ScalingRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        AutoScalingPolicyStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ScalingConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
+        ScalingRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoScalingPolicyStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::AutoScalingPolicyStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        AutoScalingPolicyStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
       end
     end
 
@@ -136,10 +138,10 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BlockPublicAccessConfiguration, context: context)
         Hearth::Validator.validate!(input[:block_public_security_group_rules], ::TrueClass, ::FalseClass, context: "#{context}[:block_public_security_group_rules]")
-        Validators::PortRanges.validate!(input[:permitted_public_security_group_rule_ranges], context: "#{context}[:permitted_public_security_group_rule_ranges]") unless input[:permitted_public_security_group_rule_ranges].nil?
+        PortRanges.validate!(input[:permitted_public_security_group_rule_ranges], context: "#{context}[:permitted_public_security_group_rule_ranges]") unless input[:permitted_public_security_group_rule_ranges].nil?
         Hearth::Validator.validate!(input[:classification], ::String, context: "#{context}[:classification]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
-        Validators::StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BootstrapActionConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ScriptBootstrapActionConfig.validate!(input[:script_bootstrap_action], context: "#{context}[:script_bootstrap_action]") unless input[:script_bootstrap_action].nil?
+        ScriptBootstrapActionConfig.validate!(input[:script_bootstrap_action], context: "#{context}[:script_bootstrap_action]") unless input[:script_bootstrap_action].nil?
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BootstrapActionConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BootstrapActionConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -171,7 +173,7 @@ module AWS::SDK::EMR
     class BootstrapActionDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BootstrapActionDetail, context: context)
-        Validators::BootstrapActionConfig.validate!(input[:bootstrap_action_config], context: "#{context}[:bootstrap_action_config]") unless input[:bootstrap_action_config].nil?
+        BootstrapActionConfig.validate!(input[:bootstrap_action_config], context: "#{context}[:bootstrap_action_config]") unless input[:bootstrap_action_config].nil?
       end
     end
 
@@ -179,7 +181,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BootstrapActionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BootstrapActionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -197,7 +199,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CancelStepsInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CancelStepsInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -206,7 +208,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelStepsInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::StepIdsList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
+        StepIdsList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
         Hearth::Validator.validate!(input[:step_cancellation_option], ::String, context: "#{context}[:step_cancellation_option]")
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::EMR
     class CancelStepsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelStepsOutput, context: context)
-        Validators::CancelStepsInfoList.validate!(input[:cancel_steps_info_list], context: "#{context}[:cancel_steps_info_list]") unless input[:cancel_steps_info_list].nil?
+        CancelStepsInfoList.validate!(input[:cancel_steps_info_list], context: "#{context}[:cancel_steps_info_list]") unless input[:cancel_steps_info_list].nil?
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:statistic], ::String, context: "#{context}[:statistic]")
         Hearth::Validator.validate!(input[:threshold], ::Float, context: "#{context}[:threshold]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::MetricDimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        MetricDimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
       end
     end
 
@@ -238,8 +240,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::Cluster, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ClusterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::Ec2InstanceAttributes.validate!(input[:ec2_instance_attributes], context: "#{context}[:ec2_instance_attributes]") unless input[:ec2_instance_attributes].nil?
+        ClusterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        Ec2InstanceAttributes.validate!(input[:ec2_instance_attributes], context: "#{context}[:ec2_instance_attributes]") unless input[:ec2_instance_attributes].nil?
         Hearth::Validator.validate!(input[:instance_collection_type], ::String, context: "#{context}[:instance_collection_type]")
         Hearth::Validator.validate!(input[:log_uri], ::String, context: "#{context}[:log_uri]")
         Hearth::Validator.validate!(input[:log_encryption_kms_key_id], ::String, context: "#{context}[:log_encryption_kms_key_id]")
@@ -249,23 +251,23 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:auto_terminate], ::TrueClass, ::FalseClass, context: "#{context}[:auto_terminate]")
         Hearth::Validator.validate!(input[:termination_protected], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protected]")
         Hearth::Validator.validate!(input[:visible_to_all_users], ::TrueClass, ::FalseClass, context: "#{context}[:visible_to_all_users]")
-        Validators::ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:normalized_instance_hours], ::Integer, context: "#{context}[:normalized_instance_hours]")
         Hearth::Validator.validate!(input[:master_public_dns_name], ::String, context: "#{context}[:master_public_dns_name]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:security_configuration], ::String, context: "#{context}[:security_configuration]")
         Hearth::Validator.validate!(input[:auto_scaling_role], ::String, context: "#{context}[:auto_scaling_role]")
         Hearth::Validator.validate!(input[:scale_down_behavior], ::String, context: "#{context}[:scale_down_behavior]")
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
         Hearth::Validator.validate!(input[:ebs_root_volume_size], ::Integer, context: "#{context}[:ebs_root_volume_size]")
         Hearth::Validator.validate!(input[:repo_upgrade_on_boot], ::String, context: "#{context}[:repo_upgrade_on_boot]")
-        Validators::KerberosAttributes.validate!(input[:kerberos_attributes], context: "#{context}[:kerberos_attributes]") unless input[:kerberos_attributes].nil?
+        KerberosAttributes.validate!(input[:kerberos_attributes], context: "#{context}[:kerberos_attributes]") unless input[:kerberos_attributes].nil?
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
         Hearth::Validator.validate!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
         Hearth::Validator.validate!(input[:step_concurrency_level], ::Integer, context: "#{context}[:step_concurrency_level]")
-        Validators::PlacementGroupConfigList.validate!(input[:placement_groups], context: "#{context}[:placement_groups]") unless input[:placement_groups].nil?
+        PlacementGroupConfigList.validate!(input[:placement_groups], context: "#{context}[:placement_groups]") unless input[:placement_groups].nil?
         Hearth::Validator.validate!(input[:os_release_label], ::String, context: "#{context}[:os_release_label]")
       end
     end
@@ -291,8 +293,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClusterStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ClusterStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
-        Validators::ClusterTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        ClusterStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        ClusterTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::ClusterSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ClusterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ClusterStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:normalized_instance_hours], ::Integer, context: "#{context}[:normalized_instance_hours]")
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
         Hearth::Validator.validate!(input[:outpost_arn], ::String, context: "#{context}[:outpost_arn]")
@@ -312,7 +314,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::Command, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:script_path], ::String, context: "#{context}[:script_path]")
-        Validators::StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
       end
     end
 
@@ -339,7 +341,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Command.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Command.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -359,8 +361,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Configuration, context: context)
         Hearth::Validator.validate!(input[:classification], ::String, context: "#{context}[:classification]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
-        Validators::StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
       end
     end
 
@@ -368,7 +370,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:auth_mode], ::String, context: "#{context}[:auth_mode]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:user_role], ::String, context: "#{context}[:user_role]")
         Hearth::Validator.validate!(input[:workspace_security_group_id], ::String, context: "#{context}[:workspace_security_group_id]")
@@ -404,7 +406,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:default_s3_location], ::String, context: "#{context}[:default_s3_location]")
         Hearth::Validator.validate!(input[:idp_auth_url], ::String, context: "#{context}[:idp_auth_url]")
         Hearth::Validator.validate!(input[:idp_relay_state_parameter_name], ::String, context: "#{context}[:idp_relay_state_parameter_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::EMR
     class DescribeClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -494,15 +496,15 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::DescribeJobFlowsInput, context: context)
         Hearth::Validator.validate!(input[:created_after], ::Time, context: "#{context}[:created_after]")
         Hearth::Validator.validate!(input[:created_before], ::Time, context: "#{context}[:created_before]")
-        Validators::XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
-        Validators::JobFlowExecutionStateList.validate!(input[:job_flow_states], context: "#{context}[:job_flow_states]") unless input[:job_flow_states].nil?
+        XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
+        JobFlowExecutionStateList.validate!(input[:job_flow_states], context: "#{context}[:job_flow_states]") unless input[:job_flow_states].nil?
       end
     end
 
     class DescribeJobFlowsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobFlowsOutput, context: context)
-        Validators::JobFlowDetailList.validate!(input[:job_flows], context: "#{context}[:job_flows]") unless input[:job_flows].nil?
+        JobFlowDetailList.validate!(input[:job_flows], context: "#{context}[:job_flows]") unless input[:job_flows].nil?
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::EMR
     class DescribeNotebookExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNotebookExecutionOutput, context: context)
-        Validators::NotebookExecution.validate!(input[:notebook_execution], context: "#{context}[:notebook_execution]") unless input[:notebook_execution].nil?
+        NotebookExecution.validate!(input[:notebook_execution], context: "#{context}[:notebook_execution]") unless input[:notebook_execution].nil?
       end
     end
 
@@ -533,9 +535,9 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReleaseLabelOutput, context: context)
         Hearth::Validator.validate!(input[:release_label], ::String, context: "#{context}[:release_label]")
-        Validators::SimplifiedApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        SimplifiedApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OSReleaseList.validate!(input[:available_os_releases], context: "#{context}[:available_os_releases]") unless input[:available_os_releases].nil?
+        OSReleaseList.validate!(input[:available_os_releases], context: "#{context}[:available_os_releases]") unless input[:available_os_releases].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::EMR
     class DescribeStepOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStepOutput, context: context)
-        Validators::Step.validate!(input[:step], context: "#{context}[:step]") unless input[:step].nil?
+        Step.validate!(input[:step], context: "#{context}[:step]") unless input[:step].nil?
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::EMR
     class DescribeStudioOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStudioOutput, context: context)
-        Validators::Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
+        Studio.validate!(input[:studio], context: "#{context}[:studio]") unless input[:studio].nil?
       end
     end
 
@@ -605,7 +607,7 @@ module AWS::SDK::EMR
     class EbsBlockDevice
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EbsBlockDevice, context: context)
-        Validators::VolumeSpecification.validate!(input[:volume_specification], context: "#{context}[:volume_specification]") unless input[:volume_specification].nil?
+        VolumeSpecification.validate!(input[:volume_specification], context: "#{context}[:volume_specification]") unless input[:volume_specification].nil?
         Hearth::Validator.validate!(input[:device], ::String, context: "#{context}[:device]")
       end
     end
@@ -613,7 +615,7 @@ module AWS::SDK::EMR
     class EbsBlockDeviceConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EbsBlockDeviceConfig, context: context)
-        Validators::VolumeSpecification.validate!(input[:volume_specification], context: "#{context}[:volume_specification]") unless input[:volume_specification].nil?
+        VolumeSpecification.validate!(input[:volume_specification], context: "#{context}[:volume_specification]") unless input[:volume_specification].nil?
         Hearth::Validator.validate!(input[:volumes_per_instance], ::Integer, context: "#{context}[:volumes_per_instance]")
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EbsBlockDeviceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EbsBlockDeviceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EbsBlockDevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EbsBlockDevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -639,7 +641,7 @@ module AWS::SDK::EMR
     class EbsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EbsConfiguration, context: context)
-        Validators::EbsBlockDeviceConfigList.validate!(input[:ebs_block_device_configs], context: "#{context}[:ebs_block_device_configs]") unless input[:ebs_block_device_configs].nil?
+        EbsBlockDeviceConfigList.validate!(input[:ebs_block_device_configs], context: "#{context}[:ebs_block_device_configs]") unless input[:ebs_block_device_configs].nil?
         Hearth::Validator.validate!(input[:ebs_optimized], ::TrueClass, ::FalseClass, context: "#{context}[:ebs_optimized]")
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EbsVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EbsVolume.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -666,15 +668,15 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::Ec2InstanceAttributes, context: context)
         Hearth::Validator.validate!(input[:ec2_key_name], ::String, context: "#{context}[:ec2_key_name]")
         Hearth::Validator.validate!(input[:ec2_subnet_id], ::String, context: "#{context}[:ec2_subnet_id]")
-        Validators::XmlStringMaxLen256List.validate!(input[:requested_ec2_subnet_ids], context: "#{context}[:requested_ec2_subnet_ids]") unless input[:requested_ec2_subnet_ids].nil?
+        XmlStringMaxLen256List.validate!(input[:requested_ec2_subnet_ids], context: "#{context}[:requested_ec2_subnet_ids]") unless input[:requested_ec2_subnet_ids].nil?
         Hearth::Validator.validate!(input[:ec2_availability_zone], ::String, context: "#{context}[:ec2_availability_zone]")
-        Validators::XmlStringMaxLen256List.validate!(input[:requested_ec2_availability_zones], context: "#{context}[:requested_ec2_availability_zones]") unless input[:requested_ec2_availability_zones].nil?
+        XmlStringMaxLen256List.validate!(input[:requested_ec2_availability_zones], context: "#{context}[:requested_ec2_availability_zones]") unless input[:requested_ec2_availability_zones].nil?
         Hearth::Validator.validate!(input[:iam_instance_profile], ::String, context: "#{context}[:iam_instance_profile]")
         Hearth::Validator.validate!(input[:emr_managed_master_security_group], ::String, context: "#{context}[:emr_managed_master_security_group]")
         Hearth::Validator.validate!(input[:emr_managed_slave_security_group], ::String, context: "#{context}[:emr_managed_slave_security_group]")
         Hearth::Validator.validate!(input[:service_access_security_group], ::String, context: "#{context}[:service_access_security_group]")
-        Validators::StringList.validate!(input[:additional_master_security_groups], context: "#{context}[:additional_master_security_groups]") unless input[:additional_master_security_groups].nil?
-        Validators::StringList.validate!(input[:additional_slave_security_groups], context: "#{context}[:additional_slave_security_groups]") unless input[:additional_slave_security_groups].nil?
+        StringList.validate!(input[:additional_master_security_groups], context: "#{context}[:additional_master_security_groups]") unless input[:additional_master_security_groups].nil?
+        StringList.validate!(input[:additional_slave_security_groups], context: "#{context}[:additional_slave_security_groups]") unless input[:additional_slave_security_groups].nil?
       end
     end
 
@@ -706,7 +708,7 @@ module AWS::SDK::EMR
     class GetAutoTerminationPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAutoTerminationPolicyOutput, context: context)
-        Validators::AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
+        AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
       end
     end
 
@@ -719,8 +721,8 @@ module AWS::SDK::EMR
     class GetBlockPublicAccessConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBlockPublicAccessConfigurationOutput, context: context)
-        Validators::BlockPublicAccessConfiguration.validate!(input[:block_public_access_configuration], context: "#{context}[:block_public_access_configuration]") unless input[:block_public_access_configuration].nil?
-        Validators::BlockPublicAccessConfigurationMetadata.validate!(input[:block_public_access_configuration_metadata], context: "#{context}[:block_public_access_configuration_metadata]") unless input[:block_public_access_configuration_metadata].nil?
+        BlockPublicAccessConfiguration.validate!(input[:block_public_access_configuration], context: "#{context}[:block_public_access_configuration]") unless input[:block_public_access_configuration].nil?
+        BlockPublicAccessConfigurationMetadata.validate!(input[:block_public_access_configuration_metadata], context: "#{context}[:block_public_access_configuration_metadata]") unless input[:block_public_access_configuration_metadata].nil?
       end
     end
 
@@ -734,7 +736,7 @@ module AWS::SDK::EMR
     class GetManagedScalingPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetManagedScalingPolicyOutput, context: context)
-        Validators::ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
+        ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
       end
     end
 
@@ -751,17 +753,17 @@ module AWS::SDK::EMR
     class GetStudioSessionMappingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStudioSessionMappingOutput, context: context)
-        Validators::SessionMappingDetail.validate!(input[:session_mapping], context: "#{context}[:session_mapping]") unless input[:session_mapping].nil?
+        SessionMappingDetail.validate!(input[:session_mapping], context: "#{context}[:session_mapping]") unless input[:session_mapping].nil?
       end
     end
 
     class HadoopJarStepConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HadoopJarStepConfig, context: context)
-        Validators::KeyValueList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        KeyValueList.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
         Hearth::Validator.validate!(input[:jar], ::String, context: "#{context}[:jar]")
         Hearth::Validator.validate!(input[:main_class], ::String, context: "#{context}[:main_class]")
-        Validators::XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
       end
     end
 
@@ -769,9 +771,9 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HadoopStepConfig, context: context)
         Hearth::Validator.validate!(input[:jar], ::String, context: "#{context}[:jar]")
-        Validators::StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        StringMap.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
         Hearth::Validator.validate!(input[:main_class], ::String, context: "#{context}[:main_class]")
-        Validators::StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        StringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
       end
     end
 
@@ -784,12 +786,12 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:public_ip_address], ::String, context: "#{context}[:public_ip_address]")
         Hearth::Validator.validate!(input[:private_dns_name], ::String, context: "#{context}[:private_dns_name]")
         Hearth::Validator.validate!(input[:private_ip_address], ::String, context: "#{context}[:private_ip_address]")
-        Validators::InstanceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        InstanceStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:instance_group_id], ::String, context: "#{context}[:instance_group_id]")
         Hearth::Validator.validate!(input[:instance_fleet_id], ::String, context: "#{context}[:instance_fleet_id]")
         Hearth::Validator.validate!(input[:market], ::String, context: "#{context}[:market]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
-        Validators::EbsVolumeList.validate!(input[:ebs_volumes], context: "#{context}[:ebs_volumes]") unless input[:ebs_volumes].nil?
+        EbsVolumeList.validate!(input[:ebs_volumes], context: "#{context}[:ebs_volumes]") unless input[:ebs_volumes].nil?
       end
     end
 
@@ -798,14 +800,14 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::InstanceFleet, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InstanceFleetStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        InstanceFleetStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:instance_fleet_type], ::String, context: "#{context}[:instance_fleet_type]")
         Hearth::Validator.validate!(input[:target_on_demand_capacity], ::Integer, context: "#{context}[:target_on_demand_capacity]")
         Hearth::Validator.validate!(input[:target_spot_capacity], ::Integer, context: "#{context}[:target_spot_capacity]")
         Hearth::Validator.validate!(input[:provisioned_on_demand_capacity], ::Integer, context: "#{context}[:provisioned_on_demand_capacity]")
         Hearth::Validator.validate!(input[:provisioned_spot_capacity], ::Integer, context: "#{context}[:provisioned_spot_capacity]")
-        Validators::InstanceTypeSpecificationList.validate!(input[:instance_type_specifications], context: "#{context}[:instance_type_specifications]") unless input[:instance_type_specifications].nil?
-        Validators::InstanceFleetProvisioningSpecifications.validate!(input[:launch_specifications], context: "#{context}[:launch_specifications]") unless input[:launch_specifications].nil?
+        InstanceTypeSpecificationList.validate!(input[:instance_type_specifications], context: "#{context}[:instance_type_specifications]") unless input[:instance_type_specifications].nil?
+        InstanceFleetProvisioningSpecifications.validate!(input[:launch_specifications], context: "#{context}[:launch_specifications]") unless input[:launch_specifications].nil?
       end
     end
 
@@ -816,8 +818,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:instance_fleet_type], ::String, context: "#{context}[:instance_fleet_type]")
         Hearth::Validator.validate!(input[:target_on_demand_capacity], ::Integer, context: "#{context}[:target_on_demand_capacity]")
         Hearth::Validator.validate!(input[:target_spot_capacity], ::Integer, context: "#{context}[:target_spot_capacity]")
-        Validators::InstanceTypeConfigList.validate!(input[:instance_type_configs], context: "#{context}[:instance_type_configs]") unless input[:instance_type_configs].nil?
-        Validators::InstanceFleetProvisioningSpecifications.validate!(input[:launch_specifications], context: "#{context}[:launch_specifications]") unless input[:launch_specifications].nil?
+        InstanceTypeConfigList.validate!(input[:instance_type_configs], context: "#{context}[:instance_type_configs]") unless input[:instance_type_configs].nil?
+        InstanceFleetProvisioningSpecifications.validate!(input[:launch_specifications], context: "#{context}[:launch_specifications]") unless input[:launch_specifications].nil?
       end
     end
 
@@ -825,7 +827,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceFleetConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceFleetConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -834,7 +836,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceFleet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceFleet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -851,8 +853,8 @@ module AWS::SDK::EMR
     class InstanceFleetProvisioningSpecifications
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceFleetProvisioningSpecifications, context: context)
-        Validators::SpotProvisioningSpecification.validate!(input[:spot_specification], context: "#{context}[:spot_specification]") unless input[:spot_specification].nil?
-        Validators::OnDemandProvisioningSpecification.validate!(input[:on_demand_specification], context: "#{context}[:on_demand_specification]") unless input[:on_demand_specification].nil?
+        SpotProvisioningSpecification.validate!(input[:spot_specification], context: "#{context}[:spot_specification]") unless input[:spot_specification].nil?
+        OnDemandProvisioningSpecification.validate!(input[:on_demand_specification], context: "#{context}[:on_demand_specification]") unless input[:on_demand_specification].nil?
       end
     end
 
@@ -868,8 +870,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceFleetStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::InstanceFleetStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
-        Validators::InstanceFleetTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        InstanceFleetStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        InstanceFleetTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
       end
     end
 
@@ -893,15 +895,15 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:requested_instance_count], ::Integer, context: "#{context}[:requested_instance_count]")
         Hearth::Validator.validate!(input[:running_instance_count], ::Integer, context: "#{context}[:running_instance_count]")
-        Validators::InstanceGroupStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        InstanceGroupStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:configurations_version], ::Integer, context: "#{context}[:configurations_version]")
-        Validators::ConfigurationList.validate!(input[:last_successfully_applied_configurations], context: "#{context}[:last_successfully_applied_configurations]") unless input[:last_successfully_applied_configurations].nil?
+        ConfigurationList.validate!(input[:last_successfully_applied_configurations], context: "#{context}[:last_successfully_applied_configurations]") unless input[:last_successfully_applied_configurations].nil?
         Hearth::Validator.validate!(input[:last_successfully_applied_configurations_version], ::Integer, context: "#{context}[:last_successfully_applied_configurations_version]")
-        Validators::EbsBlockDeviceList.validate!(input[:ebs_block_devices], context: "#{context}[:ebs_block_devices]") unless input[:ebs_block_devices].nil?
+        EbsBlockDeviceList.validate!(input[:ebs_block_devices], context: "#{context}[:ebs_block_devices]") unless input[:ebs_block_devices].nil?
         Hearth::Validator.validate!(input[:ebs_optimized], ::TrueClass, ::FalseClass, context: "#{context}[:ebs_optimized]")
-        Validators::ShrinkPolicy.validate!(input[:shrink_policy], context: "#{context}[:shrink_policy]") unless input[:shrink_policy].nil?
-        Validators::AutoScalingPolicyDescription.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
+        ShrinkPolicy.validate!(input[:shrink_policy], context: "#{context}[:shrink_policy]") unless input[:shrink_policy].nil?
+        AutoScalingPolicyDescription.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
       end
     end
@@ -915,9 +917,9 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:bid_price], ::String, context: "#{context}[:bid_price]")
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
-        Validators::EbsConfiguration.validate!(input[:ebs_configuration], context: "#{context}[:ebs_configuration]") unless input[:ebs_configuration].nil?
-        Validators::AutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        EbsConfiguration.validate!(input[:ebs_configuration], context: "#{context}[:ebs_configuration]") unless input[:ebs_configuration].nil?
+        AutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
       end
     end
@@ -926,7 +928,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -956,7 +958,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceGroupDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceGroupDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -974,7 +976,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -984,10 +986,10 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::InstanceGroupModifyConfig, context: context)
         Hearth::Validator.validate!(input[:instance_group_id], ::String, context: "#{context}[:instance_group_id]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::EC2InstanceIdsToTerminateList.validate!(input[:ec2_instance_ids_to_terminate], context: "#{context}[:ec2_instance_ids_to_terminate]") unless input[:ec2_instance_ids_to_terminate].nil?
-        Validators::ShrinkPolicy.validate!(input[:shrink_policy], context: "#{context}[:shrink_policy]") unless input[:shrink_policy].nil?
+        EC2InstanceIdsToTerminateList.validate!(input[:ec2_instance_ids_to_terminate], context: "#{context}[:ec2_instance_ids_to_terminate]") unless input[:ec2_instance_ids_to_terminate].nil?
+        ShrinkPolicy.validate!(input[:shrink_policy], context: "#{context}[:shrink_policy]") unless input[:shrink_policy].nil?
         Hearth::Validator.validate!(input[:reconfiguration_type], ::String, context: "#{context}[:reconfiguration_type]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
       end
     end
 
@@ -995,7 +997,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceGroupModifyConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceGroupModifyConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1012,8 +1014,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceGroupStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::InstanceGroupStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
-        Validators::InstanceGroupTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        InstanceGroupStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        InstanceGroupTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1047,8 +1049,8 @@ module AWS::SDK::EMR
     class InstanceResizePolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceResizePolicy, context: context)
-        Validators::EC2InstanceIdsList.validate!(input[:instances_to_terminate], context: "#{context}[:instances_to_terminate]") unless input[:instances_to_terminate].nil?
-        Validators::EC2InstanceIdsList.validate!(input[:instances_to_protect], context: "#{context}[:instances_to_protect]") unless input[:instances_to_protect].nil?
+        EC2InstanceIdsList.validate!(input[:instances_to_terminate], context: "#{context}[:instances_to_terminate]") unless input[:instances_to_terminate].nil?
+        EC2InstanceIdsList.validate!(input[:instances_to_protect], context: "#{context}[:instances_to_protect]") unless input[:instances_to_protect].nil?
         Hearth::Validator.validate!(input[:instance_termination_timeout], ::Integer, context: "#{context}[:instance_termination_timeout]")
       end
     end
@@ -1074,8 +1076,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::InstanceStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
-        Validators::InstanceTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        InstanceStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        InstanceTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
       end
     end
 
@@ -1095,8 +1097,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:weighted_capacity], ::Integer, context: "#{context}[:weighted_capacity]")
         Hearth::Validator.validate!(input[:bid_price], ::String, context: "#{context}[:bid_price]")
         Hearth::Validator.validate!(input[:bid_price_as_percentage_of_on_demand_price], ::Float, context: "#{context}[:bid_price_as_percentage_of_on_demand_price]")
-        Validators::EbsConfiguration.validate!(input[:ebs_configuration], context: "#{context}[:ebs_configuration]") unless input[:ebs_configuration].nil?
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        EbsConfiguration.validate!(input[:ebs_configuration], context: "#{context}[:ebs_configuration]") unless input[:ebs_configuration].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
       end
     end
@@ -1105,7 +1107,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceTypeConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceTypeConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1117,8 +1119,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:weighted_capacity], ::Integer, context: "#{context}[:weighted_capacity]")
         Hearth::Validator.validate!(input[:bid_price], ::String, context: "#{context}[:bid_price]")
         Hearth::Validator.validate!(input[:bid_price_as_percentage_of_on_demand_price], ::Float, context: "#{context}[:bid_price_as_percentage_of_on_demand_price]")
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
-        Validators::EbsBlockDeviceList.validate!(input[:ebs_block_devices], context: "#{context}[:ebs_block_devices]") unless input[:ebs_block_devices].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        EbsBlockDeviceList.validate!(input[:ebs_block_devices], context: "#{context}[:ebs_block_devices]") unless input[:ebs_block_devices].nil?
         Hearth::Validator.validate!(input[:ebs_optimized], ::TrueClass, ::FalseClass, context: "#{context}[:ebs_optimized]")
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
       end
@@ -1128,7 +1130,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceTypeSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceTypeSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1162,11 +1164,11 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:log_uri], ::String, context: "#{context}[:log_uri]")
         Hearth::Validator.validate!(input[:log_encryption_kms_key_id], ::String, context: "#{context}[:log_encryption_kms_key_id]")
         Hearth::Validator.validate!(input[:ami_version], ::String, context: "#{context}[:ami_version]")
-        Validators::JobFlowExecutionStatusDetail.validate!(input[:execution_status_detail], context: "#{context}[:execution_status_detail]") unless input[:execution_status_detail].nil?
-        Validators::JobFlowInstancesDetail.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
-        Validators::StepDetailList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::BootstrapActionDetailList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
-        Validators::SupportedProductsList.validate!(input[:supported_products], context: "#{context}[:supported_products]") unless input[:supported_products].nil?
+        JobFlowExecutionStatusDetail.validate!(input[:execution_status_detail], context: "#{context}[:execution_status_detail]") unless input[:execution_status_detail].nil?
+        JobFlowInstancesDetail.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        StepDetailList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        BootstrapActionDetailList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
+        SupportedProductsList.validate!(input[:supported_products], context: "#{context}[:supported_products]") unless input[:supported_products].nil?
         Hearth::Validator.validate!(input[:visible_to_all_users], ::TrueClass, ::FalseClass, context: "#{context}[:visible_to_all_users]")
         Hearth::Validator.validate!(input[:job_flow_role], ::String, context: "#{context}[:job_flow_role]")
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
@@ -1179,7 +1181,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobFlowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobFlowDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1211,20 +1213,20 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:master_instance_type], ::String, context: "#{context}[:master_instance_type]")
         Hearth::Validator.validate!(input[:slave_instance_type], ::String, context: "#{context}[:slave_instance_type]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::InstanceGroupConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
-        Validators::InstanceFleetConfigList.validate!(input[:instance_fleets], context: "#{context}[:instance_fleets]") unless input[:instance_fleets].nil?
+        InstanceGroupConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
+        InstanceFleetConfigList.validate!(input[:instance_fleets], context: "#{context}[:instance_fleets]") unless input[:instance_fleets].nil?
         Hearth::Validator.validate!(input[:ec2_key_name], ::String, context: "#{context}[:ec2_key_name]")
-        Validators::PlacementType.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
+        PlacementType.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
         Hearth::Validator.validate!(input[:keep_job_flow_alive_when_no_steps], ::TrueClass, ::FalseClass, context: "#{context}[:keep_job_flow_alive_when_no_steps]")
         Hearth::Validator.validate!(input[:termination_protected], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protected]")
         Hearth::Validator.validate!(input[:hadoop_version], ::String, context: "#{context}[:hadoop_version]")
         Hearth::Validator.validate!(input[:ec2_subnet_id], ::String, context: "#{context}[:ec2_subnet_id]")
-        Validators::XmlStringMaxLen256List.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
+        XmlStringMaxLen256List.validate!(input[:ec2_subnet_ids], context: "#{context}[:ec2_subnet_ids]") unless input[:ec2_subnet_ids].nil?
         Hearth::Validator.validate!(input[:emr_managed_master_security_group], ::String, context: "#{context}[:emr_managed_master_security_group]")
         Hearth::Validator.validate!(input[:emr_managed_slave_security_group], ::String, context: "#{context}[:emr_managed_slave_security_group]")
         Hearth::Validator.validate!(input[:service_access_security_group], ::String, context: "#{context}[:service_access_security_group]")
-        Validators::SecurityGroupsList.validate!(input[:additional_master_security_groups], context: "#{context}[:additional_master_security_groups]") unless input[:additional_master_security_groups].nil?
-        Validators::SecurityGroupsList.validate!(input[:additional_slave_security_groups], context: "#{context}[:additional_slave_security_groups]") unless input[:additional_slave_security_groups].nil?
+        SecurityGroupsList.validate!(input[:additional_master_security_groups], context: "#{context}[:additional_master_security_groups]") unless input[:additional_master_security_groups].nil?
+        SecurityGroupsList.validate!(input[:additional_slave_security_groups], context: "#{context}[:additional_slave_security_groups]") unless input[:additional_slave_security_groups].nil?
       end
     end
 
@@ -1236,11 +1238,11 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:master_instance_id], ::String, context: "#{context}[:master_instance_id]")
         Hearth::Validator.validate!(input[:slave_instance_type], ::String, context: "#{context}[:slave_instance_type]")
         Hearth::Validator.validate!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
-        Validators::InstanceGroupDetailList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
+        InstanceGroupDetailList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
         Hearth::Validator.validate!(input[:normalized_instance_hours], ::Integer, context: "#{context}[:normalized_instance_hours]")
         Hearth::Validator.validate!(input[:ec2_key_name], ::String, context: "#{context}[:ec2_key_name]")
         Hearth::Validator.validate!(input[:ec2_subnet_id], ::String, context: "#{context}[:ec2_subnet_id]")
-        Validators::PlacementType.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
+        PlacementType.validate!(input[:placement], context: "#{context}[:placement]") unless input[:placement].nil?
         Hearth::Validator.validate!(input[:keep_job_flow_alive_when_no_steps], ::TrueClass, ::FalseClass, context: "#{context}[:keep_job_flow_alive_when_no_steps]")
         Hearth::Validator.validate!(input[:termination_protected], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protected]")
         Hearth::Validator.validate!(input[:hadoop_version], ::String, context: "#{context}[:hadoop_version]")
@@ -1270,7 +1272,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::EMR
     class ListBootstrapActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBootstrapActionsOutput, context: context)
-        Validators::CommandList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
+        CommandList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1296,7 +1298,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::ListClustersInput, context: context)
         Hearth::Validator.validate!(input[:created_after], ::Time, context: "#{context}[:created_after]")
         Hearth::Validator.validate!(input[:created_before], ::Time, context: "#{context}[:created_before]")
-        Validators::ClusterStateList.validate!(input[:cluster_states], context: "#{context}[:cluster_states]") unless input[:cluster_states].nil?
+        ClusterStateList.validate!(input[:cluster_states], context: "#{context}[:cluster_states]") unless input[:cluster_states].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1304,7 +1306,7 @@ module AWS::SDK::EMR
     class ListClustersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListClustersOutput, context: context)
-        Validators::ClusterSummaryList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        ClusterSummaryList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1320,7 +1322,7 @@ module AWS::SDK::EMR
     class ListInstanceFleetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceFleetsOutput, context: context)
-        Validators::InstanceFleetList.validate!(input[:instance_fleets], context: "#{context}[:instance_fleets]") unless input[:instance_fleets].nil?
+        InstanceFleetList.validate!(input[:instance_fleets], context: "#{context}[:instance_fleets]") unless input[:instance_fleets].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1336,7 +1338,7 @@ module AWS::SDK::EMR
     class ListInstanceGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceGroupsOutput, context: context)
-        Validators::InstanceGroupList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
+        InstanceGroupList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1346,10 +1348,10 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::ListInstancesInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:instance_group_id], ::String, context: "#{context}[:instance_group_id]")
-        Validators::InstanceGroupTypeList.validate!(input[:instance_group_types], context: "#{context}[:instance_group_types]") unless input[:instance_group_types].nil?
+        InstanceGroupTypeList.validate!(input[:instance_group_types], context: "#{context}[:instance_group_types]") unless input[:instance_group_types].nil?
         Hearth::Validator.validate!(input[:instance_fleet_id], ::String, context: "#{context}[:instance_fleet_id]")
         Hearth::Validator.validate!(input[:instance_fleet_type], ::String, context: "#{context}[:instance_fleet_type]")
-        Validators::InstanceStateList.validate!(input[:instance_states], context: "#{context}[:instance_states]") unless input[:instance_states].nil?
+        InstanceStateList.validate!(input[:instance_states], context: "#{context}[:instance_states]") unless input[:instance_states].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1357,7 +1359,7 @@ module AWS::SDK::EMR
     class ListInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstancesOutput, context: context)
-        Validators::InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1376,7 +1378,7 @@ module AWS::SDK::EMR
     class ListNotebookExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNotebookExecutionsOutput, context: context)
-        Validators::NotebookExecutionSummaryList.validate!(input[:notebook_executions], context: "#{context}[:notebook_executions]") unless input[:notebook_executions].nil?
+        NotebookExecutionSummaryList.validate!(input[:notebook_executions], context: "#{context}[:notebook_executions]") unless input[:notebook_executions].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1384,7 +1386,7 @@ module AWS::SDK::EMR
     class ListReleaseLabelsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReleaseLabelsInput, context: context)
-        Validators::ReleaseLabelFilter.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ReleaseLabelFilter.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1393,7 +1395,7 @@ module AWS::SDK::EMR
     class ListReleaseLabelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReleaseLabelsOutput, context: context)
-        Validators::StringList.validate!(input[:release_labels], context: "#{context}[:release_labels]") unless input[:release_labels].nil?
+        StringList.validate!(input[:release_labels], context: "#{context}[:release_labels]") unless input[:release_labels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1408,7 +1410,7 @@ module AWS::SDK::EMR
     class ListSecurityConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSecurityConfigurationsOutput, context: context)
-        Validators::SecurityConfigurationList.validate!(input[:security_configurations], context: "#{context}[:security_configurations]") unless input[:security_configurations].nil?
+        SecurityConfigurationList.validate!(input[:security_configurations], context: "#{context}[:security_configurations]") unless input[:security_configurations].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1417,8 +1419,8 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStepsInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::StepStateList.validate!(input[:step_states], context: "#{context}[:step_states]") unless input[:step_states].nil?
-        Validators::XmlStringList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
+        StepStateList.validate!(input[:step_states], context: "#{context}[:step_states]") unless input[:step_states].nil?
+        XmlStringList.validate!(input[:step_ids], context: "#{context}[:step_ids]") unless input[:step_ids].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1426,7 +1428,7 @@ module AWS::SDK::EMR
     class ListStepsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStepsOutput, context: context)
-        Validators::StepSummaryList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        StepSummaryList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1443,7 +1445,7 @@ module AWS::SDK::EMR
     class ListStudioSessionMappingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStudioSessionMappingsOutput, context: context)
-        Validators::SessionMappingSummaryList.validate!(input[:session_mappings], context: "#{context}[:session_mappings]") unless input[:session_mappings].nil?
+        SessionMappingSummaryList.validate!(input[:session_mappings], context: "#{context}[:session_mappings]") unless input[:session_mappings].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1458,7 +1460,7 @@ module AWS::SDK::EMR
     class ListStudiosOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStudiosOutput, context: context)
-        Validators::StudioSummaryList.validate!(input[:studios], context: "#{context}[:studios]") unless input[:studios].nil?
+        StudioSummaryList.validate!(input[:studios], context: "#{context}[:studios]") unless input[:studios].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1466,7 +1468,7 @@ module AWS::SDK::EMR
     class ManagedScalingPolicy
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ManagedScalingPolicy, context: context)
-        Validators::ComputeLimits.validate!(input[:compute_limits], context: "#{context}[:compute_limits]") unless input[:compute_limits].nil?
+        ComputeLimits.validate!(input[:compute_limits], context: "#{context}[:compute_limits]") unless input[:compute_limits].nil?
       end
     end
 
@@ -1482,7 +1484,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1506,7 +1508,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyInstanceFleetInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::InstanceFleetModifyConfig.validate!(input[:instance_fleet], context: "#{context}[:instance_fleet]") unless input[:instance_fleet].nil?
+        InstanceFleetModifyConfig.validate!(input[:instance_fleet], context: "#{context}[:instance_fleet]") unless input[:instance_fleet].nil?
       end
     end
 
@@ -1520,7 +1522,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyInstanceGroupsInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::InstanceGroupModifyConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
+        InstanceGroupModifyConfigList.validate!(input[:instance_groups], context: "#{context}[:instance_groups]") unless input[:instance_groups].nil?
       end
     end
 
@@ -1534,7 +1536,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SupportedProductConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SupportedProductConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1544,7 +1546,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::NotebookExecution, context: context)
         Hearth::Validator.validate!(input[:notebook_execution_id], ::String, context: "#{context}[:notebook_execution_id]")
         Hearth::Validator.validate!(input[:editor_id], ::String, context: "#{context}[:editor_id]")
-        Validators::ExecutionEngineConfig.validate!(input[:execution_engine], context: "#{context}[:execution_engine]") unless input[:execution_engine].nil?
+        ExecutionEngineConfig.validate!(input[:execution_engine], context: "#{context}[:execution_engine]") unless input[:execution_engine].nil?
         Hearth::Validator.validate!(input[:notebook_execution_name], ::String, context: "#{context}[:notebook_execution_name]")
         Hearth::Validator.validate!(input[:notebook_params], ::String, context: "#{context}[:notebook_params]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
@@ -1554,7 +1556,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:output_notebook_uri], ::String, context: "#{context}[:output_notebook_uri]")
         Hearth::Validator.validate!(input[:last_state_change_reason], ::String, context: "#{context}[:last_state_change_reason]")
         Hearth::Validator.validate!(input[:notebook_instance_security_group_id], ::String, context: "#{context}[:notebook_instance_security_group_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1574,7 +1576,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotebookExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotebookExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1590,7 +1592,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OSRelease.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OSRelease.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1608,7 +1610,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OnDemandProvisioningSpecification, context: context)
         Hearth::Validator.validate!(input[:allocation_strategy], ::String, context: "#{context}[:allocation_strategy]")
-        Validators::OnDemandCapacityReservationOptions.validate!(input[:capacity_reservation_options], context: "#{context}[:capacity_reservation_options]") unless input[:capacity_reservation_options].nil?
+        OnDemandCapacityReservationOptions.validate!(input[:capacity_reservation_options], context: "#{context}[:capacity_reservation_options]") unless input[:capacity_reservation_options].nil?
       end
     end
 
@@ -1624,7 +1626,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlacementGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlacementGroupConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1633,7 +1635,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PlacementType, context: context)
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
-        Validators::XmlStringMaxLen256List.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        XmlStringMaxLen256List.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
       end
     end
 
@@ -1649,7 +1651,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1659,7 +1661,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::PutAutoScalingPolicyInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:instance_group_id], ::String, context: "#{context}[:instance_group_id]")
-        Validators::AutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
+        AutoScalingPolicy.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
       end
     end
 
@@ -1668,7 +1670,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::PutAutoScalingPolicyOutput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:instance_group_id], ::String, context: "#{context}[:instance_group_id]")
-        Validators::AutoScalingPolicyDescription.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
+        AutoScalingPolicyDescription.validate!(input[:auto_scaling_policy], context: "#{context}[:auto_scaling_policy]") unless input[:auto_scaling_policy].nil?
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
       end
     end
@@ -1677,7 +1679,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAutoTerminationPolicyInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
+        AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
       end
     end
 
@@ -1690,7 +1692,7 @@ module AWS::SDK::EMR
     class PutBlockPublicAccessConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutBlockPublicAccessConfigurationInput, context: context)
-        Validators::BlockPublicAccessConfiguration.validate!(input[:block_public_access_configuration], context: "#{context}[:block_public_access_configuration]") unless input[:block_public_access_configuration].nil?
+        BlockPublicAccessConfiguration.validate!(input[:block_public_access_configuration], context: "#{context}[:block_public_access_configuration]") unless input[:block_public_access_configuration].nil?
       end
     end
 
@@ -1704,7 +1706,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutManagedScalingPolicyInput, context: context)
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
-        Validators::ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
+        ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
       end
     end
 
@@ -1766,7 +1768,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        StringList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1785,28 +1787,28 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:additional_info], ::String, context: "#{context}[:additional_info]")
         Hearth::Validator.validate!(input[:ami_version], ::String, context: "#{context}[:ami_version]")
         Hearth::Validator.validate!(input[:release_label], ::String, context: "#{context}[:release_label]")
-        Validators::JobFlowInstancesConfig.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
-        Validators::StepConfigList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
-        Validators::BootstrapActionConfigList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
-        Validators::SupportedProductsList.validate!(input[:supported_products], context: "#{context}[:supported_products]") unless input[:supported_products].nil?
-        Validators::NewSupportedProductsList.validate!(input[:new_supported_products], context: "#{context}[:new_supported_products]") unless input[:new_supported_products].nil?
-        Validators::ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
-        Validators::ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        JobFlowInstancesConfig.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        StepConfigList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        BootstrapActionConfigList.validate!(input[:bootstrap_actions], context: "#{context}[:bootstrap_actions]") unless input[:bootstrap_actions].nil?
+        SupportedProductsList.validate!(input[:supported_products], context: "#{context}[:supported_products]") unless input[:supported_products].nil?
+        NewSupportedProductsList.validate!(input[:new_supported_products], context: "#{context}[:new_supported_products]") unless input[:new_supported_products].nil?
+        ApplicationList.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        ConfigurationList.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:visible_to_all_users], ::TrueClass, ::FalseClass, context: "#{context}[:visible_to_all_users]")
         Hearth::Validator.validate!(input[:job_flow_role], ::String, context: "#{context}[:job_flow_role]")
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:security_configuration], ::String, context: "#{context}[:security_configuration]")
         Hearth::Validator.validate!(input[:auto_scaling_role], ::String, context: "#{context}[:auto_scaling_role]")
         Hearth::Validator.validate!(input[:scale_down_behavior], ::String, context: "#{context}[:scale_down_behavior]")
         Hearth::Validator.validate!(input[:custom_ami_id], ::String, context: "#{context}[:custom_ami_id]")
         Hearth::Validator.validate!(input[:ebs_root_volume_size], ::Integer, context: "#{context}[:ebs_root_volume_size]")
         Hearth::Validator.validate!(input[:repo_upgrade_on_boot], ::String, context: "#{context}[:repo_upgrade_on_boot]")
-        Validators::KerberosAttributes.validate!(input[:kerberos_attributes], context: "#{context}[:kerberos_attributes]") unless input[:kerberos_attributes].nil?
+        KerberosAttributes.validate!(input[:kerberos_attributes], context: "#{context}[:kerberos_attributes]") unless input[:kerberos_attributes].nil?
         Hearth::Validator.validate!(input[:step_concurrency_level], ::Integer, context: "#{context}[:step_concurrency_level]")
-        Validators::ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
-        Validators::PlacementGroupConfigList.validate!(input[:placement_group_configs], context: "#{context}[:placement_group_configs]") unless input[:placement_group_configs].nil?
-        Validators::AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
+        ManagedScalingPolicy.validate!(input[:managed_scaling_policy], context: "#{context}[:managed_scaling_policy]") unless input[:managed_scaling_policy].nil?
+        PlacementGroupConfigList.validate!(input[:placement_group_configs], context: "#{context}[:placement_group_configs]") unless input[:placement_group_configs].nil?
+        AutoTerminationPolicy.validate!(input[:auto_termination_policy], context: "#{context}[:auto_termination_policy]") unless input[:auto_termination_policy].nil?
         Hearth::Validator.validate!(input[:os_release_label], ::String, context: "#{context}[:os_release_label]")
       end
     end
@@ -1823,7 +1825,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScalingAction, context: context)
         Hearth::Validator.validate!(input[:market], ::String, context: "#{context}[:market]")
-        Validators::SimpleScalingPolicyConfiguration.validate!(input[:simple_scaling_policy_configuration], context: "#{context}[:simple_scaling_policy_configuration]") unless input[:simple_scaling_policy_configuration].nil?
+        SimpleScalingPolicyConfiguration.validate!(input[:simple_scaling_policy_configuration], context: "#{context}[:simple_scaling_policy_configuration]") unless input[:simple_scaling_policy_configuration].nil?
       end
     end
 
@@ -1840,8 +1842,8 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::ScalingRule, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ScalingAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::ScalingTrigger.validate!(input[:trigger], context: "#{context}[:trigger]") unless input[:trigger].nil?
+        ScalingAction.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        ScalingTrigger.validate!(input[:trigger], context: "#{context}[:trigger]") unless input[:trigger].nil?
       end
     end
 
@@ -1849,7 +1851,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScalingRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScalingRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1857,7 +1859,7 @@ module AWS::SDK::EMR
     class ScalingTrigger
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScalingTrigger, context: context)
-        Validators::CloudWatchAlarmDefinition.validate!(input[:cloud_watch_alarm_definition], context: "#{context}[:cloud_watch_alarm_definition]") unless input[:cloud_watch_alarm_definition].nil?
+        CloudWatchAlarmDefinition.validate!(input[:cloud_watch_alarm_definition], context: "#{context}[:cloud_watch_alarm_definition]") unless input[:cloud_watch_alarm_definition].nil?
       end
     end
 
@@ -1865,7 +1867,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScriptBootstrapActionConfig, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
       end
     end
 
@@ -1873,7 +1875,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1924,7 +1926,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SessionMappingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SessionMappingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1932,7 +1934,7 @@ module AWS::SDK::EMR
     class SetTerminationProtectionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetTerminationProtectionInput, context: context)
-        Validators::XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
+        XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
         Hearth::Validator.validate!(input[:termination_protected], ::TrueClass, ::FalseClass, context: "#{context}[:termination_protected]")
       end
     end
@@ -1946,7 +1948,7 @@ module AWS::SDK::EMR
     class SetVisibleToAllUsersInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetVisibleToAllUsersInput, context: context)
-        Validators::XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
+        XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
         Hearth::Validator.validate!(input[:visible_to_all_users], ::TrueClass, ::FalseClass, context: "#{context}[:visible_to_all_users]")
       end
     end
@@ -1961,7 +1963,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ShrinkPolicy, context: context)
         Hearth::Validator.validate!(input[:decommission_timeout], ::Integer, context: "#{context}[:decommission_timeout]")
-        Validators::InstanceResizePolicy.validate!(input[:instance_resize_policy], context: "#{context}[:instance_resize_policy]") unless input[:instance_resize_policy].nil?
+        InstanceResizePolicy.validate!(input[:instance_resize_policy], context: "#{context}[:instance_resize_policy]") unless input[:instance_resize_policy].nil?
       end
     end
 
@@ -1986,7 +1988,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimplifiedApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimplifiedApplication.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2008,10 +2010,10 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:relative_path], ::String, context: "#{context}[:relative_path]")
         Hearth::Validator.validate!(input[:notebook_execution_name], ::String, context: "#{context}[:notebook_execution_name]")
         Hearth::Validator.validate!(input[:notebook_params], ::String, context: "#{context}[:notebook_params]")
-        Validators::ExecutionEngineConfig.validate!(input[:execution_engine], context: "#{context}[:execution_engine]") unless input[:execution_engine].nil?
+        ExecutionEngineConfig.validate!(input[:execution_engine], context: "#{context}[:execution_engine]") unless input[:execution_engine].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:notebook_instance_security_group_id], ::String, context: "#{context}[:notebook_instance_security_group_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2027,9 +2029,9 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::Step, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::HadoopStepConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
+        HadoopStepConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
         Hearth::Validator.validate!(input[:action_on_failure], ::String, context: "#{context}[:action_on_failure]")
-        Validators::StepStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        StepStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2038,7 +2040,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::StepConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:action_on_failure], ::String, context: "#{context}[:action_on_failure]")
-        Validators::HadoopJarStepConfig.validate!(input[:hadoop_jar_step], context: "#{context}[:hadoop_jar_step]") unless input[:hadoop_jar_step].nil?
+        HadoopJarStepConfig.validate!(input[:hadoop_jar_step], context: "#{context}[:hadoop_jar_step]") unless input[:hadoop_jar_step].nil?
       end
     end
 
@@ -2046,7 +2048,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StepConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StepConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2054,8 +2056,8 @@ module AWS::SDK::EMR
     class StepDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StepDetail, context: context)
-        Validators::StepConfig.validate!(input[:step_config], context: "#{context}[:step_config]") unless input[:step_config].nil?
-        Validators::StepExecutionStatusDetail.validate!(input[:execution_status_detail], context: "#{context}[:execution_status_detail]") unless input[:execution_status_detail].nil?
+        StepConfig.validate!(input[:step_config], context: "#{context}[:step_config]") unless input[:step_config].nil?
+        StepExecutionStatusDetail.validate!(input[:execution_status_detail], context: "#{context}[:execution_status_detail]") unless input[:execution_status_detail].nil?
       end
     end
 
@@ -2063,7 +2065,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StepDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StepDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2109,9 +2111,9 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StepStatus, context: context)
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::StepStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
-        Validators::StepTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
+        StepStateChangeReason.validate!(input[:state_change_reason], context: "#{context}[:state_change_reason]") unless input[:state_change_reason].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        StepTimeline.validate!(input[:timeline], context: "#{context}[:timeline]") unless input[:timeline].nil?
       end
     end
 
@@ -2120,9 +2122,9 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input, Types::StepSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::HadoopStepConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
+        HadoopStepConfig.validate!(input[:config], context: "#{context}[:config]") unless input[:config].nil?
         Hearth::Validator.validate!(input[:action_on_failure], ::String, context: "#{context}[:action_on_failure]")
-        Validators::StepStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        StepStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -2130,7 +2132,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StepSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StepSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2185,7 +2187,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:auth_mode], ::String, context: "#{context}[:auth_mode]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:user_role], ::String, context: "#{context}[:user_role]")
         Hearth::Validator.validate!(input[:workspace_security_group_id], ::String, context: "#{context}[:workspace_security_group_id]")
@@ -2195,7 +2197,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:default_s3_location], ::String, context: "#{context}[:default_s3_location]")
         Hearth::Validator.validate!(input[:idp_auth_url], ::String, context: "#{context}[:idp_auth_url]")
         Hearth::Validator.validate!(input[:idp_relay_state_parameter_name], ::String, context: "#{context}[:idp_relay_state_parameter_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2216,7 +2218,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StudioSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StudioSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2234,7 +2236,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SupportedProductConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
+        XmlStringList.validate!(input[:args], context: "#{context}[:args]") unless input[:args].nil?
       end
     end
 
@@ -2259,7 +2261,7 @@ module AWS::SDK::EMR
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2267,7 +2269,7 @@ module AWS::SDK::EMR
     class TerminateJobFlowsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TerminateJobFlowsInput, context: context)
-        Validators::XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
+        XmlStringList.validate!(input[:job_flow_ids], context: "#{context}[:job_flow_ids]") unless input[:job_flow_ids].nil?
       end
     end
 
@@ -2283,7 +2285,7 @@ module AWS::SDK::EMR
         Hearth::Validator.validate!(input[:studio_id], ::String, context: "#{context}[:studio_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
         Hearth::Validator.validate!(input[:default_s3_location], ::String, context: "#{context}[:default_s3_location]")
       end
     end

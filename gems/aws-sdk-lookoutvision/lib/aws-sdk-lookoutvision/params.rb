@@ -39,7 +39,7 @@ module AWS::SDK::LookoutVision
         type.project_name = params[:project_name]
         type.dataset_type = params[:dataset_type]
         type.dataset_source = DatasetSource.build(params[:dataset_source], context: "#{context}[:dataset_source]") unless params[:dataset_source].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -59,7 +59,7 @@ module AWS::SDK::LookoutVision
         type = Types::CreateModelInput.new
         type.project_name = params[:project_name]
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.output_config = OutputConfig.build(params[:output_config], context: "#{context}[:output_config]") unless params[:output_config].nil?
         type.kms_key_id = params[:kms_key_id]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -81,7 +81,7 @@ module AWS::SDK::LookoutVision
         Hearth::Validator.validate!(params, ::Hash, Types::CreateProjectInput, context: context)
         type = Types::CreateProjectInput.new
         type.project_name = params[:project_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -180,7 +180,7 @@ module AWS::SDK::LookoutVision
         type = Types::DeleteDatasetInput.new
         type.project_name = params[:project_name]
         type.dataset_type = params[:dataset_type]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -199,7 +199,7 @@ module AWS::SDK::LookoutVision
         type = Types::DeleteModelInput.new
         type.project_name = params[:project_name]
         type.model_version = params[:model_version]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::LookoutVision
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteProjectInput, context: context)
         type = Types::DeleteProjectInput.new
         type.project_name = params[:project_name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -723,7 +723,7 @@ module AWS::SDK::LookoutVision
         type.project_name = params[:project_name]
         type.model_version = params[:model_version]
         type.min_inference_units = params[:min_inference_units]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -746,7 +746,7 @@ module AWS::SDK::LookoutVision
         type.job_name = params[:job_name]
         type.configuration = ModelPackagingConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -766,7 +766,7 @@ module AWS::SDK::LookoutVision
         type = Types::StopModelInput.new
         type.project_name = params[:project_name]
         type.model_version = params[:model_version]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -878,7 +878,7 @@ module AWS::SDK::LookoutVision
         type.project_name = params[:project_name]
         type.dataset_type = params[:dataset_type]
         type.changes = params[:changes]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

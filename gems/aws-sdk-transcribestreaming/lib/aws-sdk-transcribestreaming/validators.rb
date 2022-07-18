@@ -14,8 +14,8 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Alternative, context: context)
         Hearth::Validator.validate!(input[:transcript], ::String, context: "#{context}[:transcript]")
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
       end
     end
 
@@ -23,7 +23,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alternative.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alternative.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         case input
         when Types::AudioStream::AudioEvent
-          Validators::AudioEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AudioEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -84,7 +84,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -114,7 +114,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -123,7 +123,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LanguageWithScore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LanguageWithScore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -147,8 +147,8 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MedicalAlternative, context: context)
         Hearth::Validator.validate!(input[:transcript], ::String, context: "#{context}[:transcript]")
-        Validators::MedicalItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
-        Validators::MedicalEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        MedicalItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        MedicalEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
       end
     end
 
@@ -156,7 +156,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MedicalAlternative.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MedicalAlternative.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -176,7 +176,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MedicalEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MedicalEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MedicalItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MedicalItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:start_time], ::Float, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Float, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:is_partial], ::TrueClass, ::FalseClass, context: "#{context}[:is_partial]")
-        Validators::MedicalAlternativeList.validate!(input[:alternatives], context: "#{context}[:alternatives]") unless input[:alternatives].nil?
+        MedicalAlternativeList.validate!(input[:alternatives], context: "#{context}[:alternatives]") unless input[:alternatives].nil?
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MedicalResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MedicalResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -226,14 +226,14 @@ module AWS::SDK::TranscribeStreaming
     class MedicalTranscript
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MedicalTranscript, context: context)
-        Validators::MedicalResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        MedicalResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
     class MedicalTranscriptEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MedicalTranscriptEvent, context: context)
-        Validators::MedicalTranscript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
+        MedicalTranscript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
       end
     end
 
@@ -241,17 +241,17 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         case input
         when Types::MedicalTranscriptResultStream::TranscriptEvent
-          Validators::MedicalTranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MedicalTranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::MedicalTranscriptResultStream::BadRequestException
-          Validators::BadRequestException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BadRequestException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::MedicalTranscriptResultStream::LimitExceededException
-          Validators::LimitExceededException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          LimitExceededException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::MedicalTranscriptResultStream::InternalFailureException
-          Validators::InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::MedicalTranscriptResultStream::ConflictException
-          Validators::ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::MedicalTranscriptResultStream::ServiceUnavailableException
-          Validators::ServiceUnavailableException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ServiceUnavailableException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -303,10 +303,10 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:start_time], ::Float, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Float, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:is_partial], ::TrueClass, ::FalseClass, context: "#{context}[:is_partial]")
-        Validators::AlternativeList.validate!(input[:alternatives], context: "#{context}[:alternatives]") unless input[:alternatives].nil?
+        AlternativeList.validate!(input[:alternatives], context: "#{context}[:alternatives]") unless input[:alternatives].nil?
         Hearth::Validator.validate!(input[:channel_id], ::String, context: "#{context}[:channel_id]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::LanguageIdentification.validate!(input[:language_identification], context: "#{context}[:language_identification]") unless input[:language_identification].nil?
+        LanguageIdentification.validate!(input[:language_identification], context: "#{context}[:language_identification]") unless input[:language_identification].nil?
       end
     end
 
@@ -314,7 +314,7 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Result.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Result.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -337,7 +337,7 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:show_speaker_label], ::TrueClass, ::FalseClass, context: "#{context}[:show_speaker_label]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
+        AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
         Hearth::Validator.validate!(input[:enable_channel_identification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_channel_identification]")
         Hearth::Validator.validate!(input[:number_of_channels], ::Integer, context: "#{context}[:number_of_channels]")
         Hearth::Validator.validate!(input[:content_identification_type], ::String, context: "#{context}[:content_identification_type]")
@@ -356,7 +356,7 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:show_speaker_label], ::TrueClass, ::FalseClass, context: "#{context}[:show_speaker_label]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::MedicalTranscriptResultStream.validate!(input[:transcript_result_stream], context: "#{context}[:transcript_result_stream]") unless input[:transcript_result_stream].nil?
+        MedicalTranscriptResultStream.validate!(input[:transcript_result_stream], context: "#{context}[:transcript_result_stream]") unless input[:transcript_result_stream].nil?
         Hearth::Validator.validate!(input[:enable_channel_identification], ::TrueClass, ::FalseClass, context: "#{context}[:enable_channel_identification]")
         Hearth::Validator.validate!(input[:number_of_channels], ::Integer, context: "#{context}[:number_of_channels]")
         Hearth::Validator.validate!(input[:content_identification_type], ::String, context: "#{context}[:content_identification_type]")
@@ -371,7 +371,7 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:media_encoding], ::String, context: "#{context}[:media_encoding]")
         Hearth::Validator.validate!(input[:vocabulary_name], ::String, context: "#{context}[:vocabulary_name]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
+        AudioStream.validate!(input[:audio_stream], context: "#{context}[:audio_stream]") unless input[:audio_stream].nil?
         Hearth::Validator.validate!(input[:vocabulary_filter_name], ::String, context: "#{context}[:vocabulary_filter_name]")
         Hearth::Validator.validate!(input[:vocabulary_filter_method], ::String, context: "#{context}[:vocabulary_filter_method]")
         Hearth::Validator.validate!(input[:show_speaker_label], ::TrueClass, ::FalseClass, context: "#{context}[:show_speaker_label]")
@@ -400,7 +400,7 @@ module AWS::SDK::TranscribeStreaming
         Hearth::Validator.validate!(input[:media_encoding], ::String, context: "#{context}[:media_encoding]")
         Hearth::Validator.validate!(input[:vocabulary_name], ::String, context: "#{context}[:vocabulary_name]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::TranscriptResultStream.validate!(input[:transcript_result_stream], context: "#{context}[:transcript_result_stream]") unless input[:transcript_result_stream].nil?
+        TranscriptResultStream.validate!(input[:transcript_result_stream], context: "#{context}[:transcript_result_stream]") unless input[:transcript_result_stream].nil?
         Hearth::Validator.validate!(input[:vocabulary_filter_name], ::String, context: "#{context}[:vocabulary_filter_name]")
         Hearth::Validator.validate!(input[:vocabulary_filter_method], ::String, context: "#{context}[:vocabulary_filter_method]")
         Hearth::Validator.validate!(input[:show_speaker_label], ::TrueClass, ::FalseClass, context: "#{context}[:show_speaker_label]")
@@ -423,14 +423,14 @@ module AWS::SDK::TranscribeStreaming
     class Transcript
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Transcript, context: context)
-        Validators::ResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        ResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
       end
     end
 
     class TranscriptEvent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TranscriptEvent, context: context)
-        Validators::Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
+        Transcript.validate!(input[:transcript], context: "#{context}[:transcript]") unless input[:transcript].nil?
       end
     end
 
@@ -438,17 +438,17 @@ module AWS::SDK::TranscribeStreaming
       def self.validate!(input, context:)
         case input
         when Types::TranscriptResultStream::TranscriptEvent
-          Validators::TranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TranscriptEvent.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TranscriptResultStream::BadRequestException
-          Validators::BadRequestException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BadRequestException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TranscriptResultStream::LimitExceededException
-          Validators::LimitExceededException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          LimitExceededException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TranscriptResultStream::InternalFailureException
-          Validators::InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          InternalFailureException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TranscriptResultStream::ConflictException
-          Validators::ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ConflictException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TranscriptResultStream::ServiceUnavailableException
-          Validators::ServiceUnavailableException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ServiceUnavailableException.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\

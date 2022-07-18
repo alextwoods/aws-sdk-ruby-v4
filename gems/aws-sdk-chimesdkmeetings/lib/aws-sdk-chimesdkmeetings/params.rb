@@ -203,7 +203,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMeetingInput, context: context)
         type = Types::CreateMeetingInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.media_region = params[:media_region]
         type.meeting_host_id = params[:meeting_host_id]
         type.external_meeting_id = params[:external_meeting_id]
@@ -227,7 +227,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateMeetingWithAttendeesInput, context: context)
         type = Types::CreateMeetingWithAttendeesInput.new
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.media_region = params[:media_region]
         type.meeting_host_id = params[:meeting_host_id]
         type.external_meeting_id = params[:external_meeting_id]

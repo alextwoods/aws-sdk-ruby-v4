@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::AlexaForBusiness
   module Validators
 
@@ -32,7 +34,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AddressBookData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AddressBookData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Audio.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Audio.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::BusinessReport, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
-        Validators::BusinessReportS3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        BusinessReportS3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
         Hearth::Validator.validate!(input[:delivery_time], ::Time, context: "#{context}[:delivery_time]")
         Hearth::Validator.validate!(input[:download_url], ::String, context: "#{context}[:download_url]")
       end
@@ -217,9 +219,9 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
         Hearth::Validator.validate!(input[:s3_key_prefix], ::String, context: "#{context}[:s3_key_prefix]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::BusinessReportContentRange.validate!(input[:content_range], context: "#{context}[:content_range]") unless input[:content_range].nil?
-        Validators::BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
-        Validators::BusinessReport.validate!(input[:last_business_report], context: "#{context}[:last_business_report]") unless input[:last_business_report].nil?
+        BusinessReportContentRange.validate!(input[:content_range], context: "#{context}[:content_range]") unless input[:content_range].nil?
+        BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
+        BusinessReport.validate!(input[:last_business_report], context: "#{context}[:last_business_report]") unless input[:last_business_report].nil?
       end
     end
 
@@ -227,7 +229,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BusinessReportSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BusinessReportSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Category.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Category.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -269,9 +271,9 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
-        Validators::PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
-        Validators::MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
+        IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
+        PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
+        MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConferenceProvider.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConferenceProvider.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -292,8 +294,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:first_name], ::String, context: "#{context}[:first_name]")
         Hearth::Validator.validate!(input[:last_name], ::String, context: "#{context}[:last_name]")
         Hearth::Validator.validate!(input[:phone_number], ::String, context: "#{context}[:phone_number]")
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
-        Validators::SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
       end
     end
 
@@ -305,8 +307,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:first_name], ::String, context: "#{context}[:first_name]")
         Hearth::Validator.validate!(input[:last_name], ::String, context: "#{context}[:last_name]")
         Hearth::Validator.validate!(input[:phone_number], ::String, context: "#{context}[:phone_number]")
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
-        Validators::SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContactData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContactData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -322,9 +324,9 @@ module AWS::SDK::AlexaForBusiness
     class Content
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Content, context: context)
-        Validators::TextList.validate!(input[:text_list], context: "#{context}[:text_list]") unless input[:text_list].nil?
-        Validators::SsmlList.validate!(input[:ssml_list], context: "#{context}[:ssml_list]") unless input[:ssml_list].nil?
-        Validators::AudioList.validate!(input[:audio_list], context: "#{context}[:audio_list]") unless input[:audio_list].nil?
+        TextList.validate!(input[:text_list], context: "#{context}[:text_list]") unless input[:text_list].nil?
+        SsmlList.validate!(input[:ssml_list], context: "#{context}[:ssml_list]") unless input[:ssml_list].nil?
+        AudioList.validate!(input[:audio_list], context: "#{context}[:audio_list]") unless input[:audio_list].nil?
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -352,10 +354,10 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
         Hearth::Validator.validate!(input[:s3_key_prefix], ::String, context: "#{context}[:s3_key_prefix]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::BusinessReportContentRange.validate!(input[:content_range], context: "#{context}[:content_range]") unless input[:content_range].nil?
-        Validators::BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
+        BusinessReportContentRange.validate!(input[:content_range], context: "#{context}[:content_range]") unless input[:content_range].nil?
+        BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -371,11 +373,11 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::CreateConferenceProviderInput, context: context)
         Hearth::Validator.validate!(input[:conference_provider_name], ::String, context: "#{context}[:conference_provider_name]")
         Hearth::Validator.validate!(input[:conference_provider_type], ::String, context: "#{context}[:conference_provider_type]")
-        Validators::IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
-        Validators::PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
-        Validators::MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
+        IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
+        PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
+        MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -393,10 +395,10 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:first_name], ::String, context: "#{context}[:first_name]")
         Hearth::Validator.validate!(input[:last_name], ::String, context: "#{context}[:last_name]")
         Hearth::Validator.validate!(input[:phone_number], ::String, context: "#{context}[:phone_number]")
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
-        Validators::SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -410,7 +412,7 @@ module AWS::SDK::AlexaForBusiness
     class CreateEndOfMeetingReminder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEndOfMeetingReminder, context: context)
-        Validators::EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
+        EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
         Hearth::Validator.validate!(input[:reminder_type], ::String, context: "#{context}[:reminder_type]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -422,7 +424,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -445,9 +447,9 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMeetingRoomConfiguration, context: context)
         Hearth::Validator.validate!(input[:room_utilization_metrics_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:room_utilization_metrics_enabled]")
-        Validators::CreateEndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
-        Validators::CreateInstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
-        Validators::CreateRequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
+        CreateEndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
+        CreateInstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
+        CreateRequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
       end
     end
 
@@ -462,9 +464,9 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:current_password], ::String, context: "#{context}[:current_password]")
         Hearth::Validator.validate!(input[:next_password], ::String, context: "#{context}[:next_password]")
         Hearth::Validator.validate!(input[:certificate_authority_arn], ::String, context: "#{context}[:certificate_authority_arn]")
-        Validators::TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
+        TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -490,8 +492,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:max_volume_limit], ::Integer, context: "#{context}[:max_volume_limit]")
         Hearth::Validator.validate!(input[:pstn_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:pstn_enabled]")
         Hearth::Validator.validate!(input[:data_retention_opt_in], ::TrueClass, ::FalseClass, context: "#{context}[:data_retention_opt_in]")
-        Validators::CreateMeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CreateMeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -518,7 +520,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:profile_arn], ::String, context: "#{context}[:profile_arn]")
         Hearth::Validator.validate!(input[:provider_calendar_id], ::String, context: "#{context}[:provider_calendar_id]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -535,7 +537,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:skill_group_name], ::String, context: "#{context}[:skill_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -554,7 +556,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:last_name], ::String, context: "#{context}[:last_name]")
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -773,8 +775,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:mac_address], ::String, context: "#{context}[:mac_address]")
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
         Hearth::Validator.validate!(input[:device_status], ::String, context: "#{context}[:device_status]")
-        Validators::DeviceStatusInfo.validate!(input[:device_status_info], context: "#{context}[:device_status_info]") unless input[:device_status_info].nil?
-        Validators::DeviceNetworkProfileInfo.validate!(input[:network_profile_info], context: "#{context}[:network_profile_info]") unless input[:network_profile_info].nil?
+        DeviceStatusInfo.validate!(input[:device_status_info], context: "#{context}[:device_status_info]") unless input[:device_status_info].nil?
+        DeviceNetworkProfileInfo.validate!(input[:network_profile_info], context: "#{context}[:network_profile_info]") unless input[:network_profile_info].nil?
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:network_profile_name], ::String, context: "#{context}[:network_profile_name]")
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
         Hearth::Validator.validate!(input[:room_name], ::String, context: "#{context}[:room_name]")
-        Validators::DeviceStatusInfo.validate!(input[:device_status_info], context: "#{context}[:device_status_info]") unless input[:device_status_info].nil?
+        DeviceStatusInfo.validate!(input[:device_status_info], context: "#{context}[:device_status_info]") unless input[:device_status_info].nil?
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -819,7 +821,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -852,7 +854,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceStatusDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceStatusDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -860,7 +862,7 @@ module AWS::SDK::AlexaForBusiness
     class DeviceStatusInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceStatusInfo, context: context)
-        Validators::DeviceStatusDetails.validate!(input[:device_status_details], context: "#{context}[:device_status_details]") unless input[:device_status_details].nil?
+        DeviceStatusDetails.validate!(input[:device_status_details], context: "#{context}[:device_status_details]") unless input[:device_status_details].nil?
         Hearth::Validator.validate!(input[:connection_status], ::String, context: "#{context}[:connection_status]")
         Hearth::Validator.validate!(input[:connection_status_updated_time], ::Time, context: "#{context}[:connection_status_updated_time]")
       end
@@ -937,7 +939,7 @@ module AWS::SDK::AlexaForBusiness
     class EndOfMeetingReminder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EndOfMeetingReminder, context: context)
-        Validators::EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
+        EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
         Hearth::Validator.validate!(input[:reminder_type], ::String, context: "#{context}[:reminder_type]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -965,7 +967,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -973,7 +975,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1024,7 +1026,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GatewayGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GatewayGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1042,7 +1044,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GatewaySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GatewaySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1077,7 +1079,7 @@ module AWS::SDK::AlexaForBusiness
     class GetAddressBookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAddressBookOutput, context: context)
-        Validators::AddressBook.validate!(input[:address_book], context: "#{context}[:address_book]") unless input[:address_book].nil?
+        AddressBook.validate!(input[:address_book], context: "#{context}[:address_book]") unless input[:address_book].nil?
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::AlexaForBusiness
     class GetConferencePreferenceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConferencePreferenceOutput, context: context)
-        Validators::ConferencePreference.validate!(input[:preference], context: "#{context}[:preference]") unless input[:preference].nil?
+        ConferencePreference.validate!(input[:preference], context: "#{context}[:preference]") unless input[:preference].nil?
       end
     end
 
@@ -1104,7 +1106,7 @@ module AWS::SDK::AlexaForBusiness
     class GetConferenceProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConferenceProviderOutput, context: context)
-        Validators::ConferenceProvider.validate!(input[:conference_provider], context: "#{context}[:conference_provider]") unless input[:conference_provider].nil?
+        ConferenceProvider.validate!(input[:conference_provider], context: "#{context}[:conference_provider]") unless input[:conference_provider].nil?
       end
     end
 
@@ -1118,7 +1120,7 @@ module AWS::SDK::AlexaForBusiness
     class GetContactOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContactOutput, context: context)
-        Validators::Contact.validate!(input[:contact], context: "#{context}[:contact]") unless input[:contact].nil?
+        Contact.validate!(input[:contact], context: "#{context}[:contact]") unless input[:contact].nil?
       end
     end
 
@@ -1132,7 +1134,7 @@ module AWS::SDK::AlexaForBusiness
     class GetDeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDeviceOutput, context: context)
-        Validators::Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
+        Device.validate!(input[:device], context: "#{context}[:device]") unless input[:device].nil?
       end
     end
 
@@ -1146,7 +1148,7 @@ module AWS::SDK::AlexaForBusiness
     class GetGatewayGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGatewayGroupOutput, context: context)
-        Validators::GatewayGroup.validate!(input[:gateway_group], context: "#{context}[:gateway_group]") unless input[:gateway_group].nil?
+        GatewayGroup.validate!(input[:gateway_group], context: "#{context}[:gateway_group]") unless input[:gateway_group].nil?
       end
     end
 
@@ -1160,7 +1162,7 @@ module AWS::SDK::AlexaForBusiness
     class GetGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGatewayOutput, context: context)
-        Validators::Gateway.validate!(input[:gateway], context: "#{context}[:gateway]") unless input[:gateway].nil?
+        Gateway.validate!(input[:gateway], context: "#{context}[:gateway]") unless input[:gateway].nil?
       end
     end
 
@@ -1175,7 +1177,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::GetInvitationConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:organization_name], ::String, context: "#{context}[:organization_name]")
         Hearth::Validator.validate!(input[:contact_email], ::String, context: "#{context}[:contact_email]")
-        Validators::ShortSkillIdList.validate!(input[:private_skill_ids], context: "#{context}[:private_skill_ids]") unless input[:private_skill_ids].nil?
+        ShortSkillIdList.validate!(input[:private_skill_ids], context: "#{context}[:private_skill_ids]") unless input[:private_skill_ids].nil?
       end
     end
 
@@ -1189,7 +1191,7 @@ module AWS::SDK::AlexaForBusiness
     class GetNetworkProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkProfileOutput, context: context)
-        Validators::NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
+        NetworkProfile.validate!(input[:network_profile], context: "#{context}[:network_profile]") unless input[:network_profile].nil?
       end
     end
 
@@ -1203,7 +1205,7 @@ module AWS::SDK::AlexaForBusiness
     class GetProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetProfileOutput, context: context)
-        Validators::Profile.validate!(input[:profile], context: "#{context}[:profile]") unless input[:profile].nil?
+        Profile.validate!(input[:profile], context: "#{context}[:profile]") unless input[:profile].nil?
       end
     end
 
@@ -1217,7 +1219,7 @@ module AWS::SDK::AlexaForBusiness
     class GetRoomOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoomOutput, context: context)
-        Validators::Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
+        Room.validate!(input[:room], context: "#{context}[:room]") unless input[:room].nil?
       end
     end
 
@@ -1233,7 +1235,7 @@ module AWS::SDK::AlexaForBusiness
     class GetRoomSkillParameterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoomSkillParameterOutput, context: context)
-        Validators::RoomSkillParameter.validate!(input[:room_skill_parameter], context: "#{context}[:room_skill_parameter]") unless input[:room_skill_parameter].nil?
+        RoomSkillParameter.validate!(input[:room_skill_parameter], context: "#{context}[:room_skill_parameter]") unless input[:room_skill_parameter].nil?
       end
     end
 
@@ -1247,7 +1249,7 @@ module AWS::SDK::AlexaForBusiness
     class GetSkillGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSkillGroupOutput, context: context)
-        Validators::SkillGroup.validate!(input[:skill_group], context: "#{context}[:skill_group]") unless input[:skill_group].nil?
+        SkillGroup.validate!(input[:skill_group], context: "#{context}[:skill_group]") unless input[:skill_group].nil?
       end
     end
 
@@ -1320,7 +1322,7 @@ module AWS::SDK::AlexaForBusiness
     class ListBusinessReportSchedulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBusinessReportSchedulesOutput, context: context)
-        Validators::BusinessReportScheduleList.validate!(input[:business_report_schedules], context: "#{context}[:business_report_schedules]") unless input[:business_report_schedules].nil?
+        BusinessReportScheduleList.validate!(input[:business_report_schedules], context: "#{context}[:business_report_schedules]") unless input[:business_report_schedules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1336,7 +1338,7 @@ module AWS::SDK::AlexaForBusiness
     class ListConferenceProvidersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConferenceProvidersOutput, context: context)
-        Validators::ConferenceProvidersList.validate!(input[:conference_providers], context: "#{context}[:conference_providers]") unless input[:conference_providers].nil?
+        ConferenceProvidersList.validate!(input[:conference_providers], context: "#{context}[:conference_providers]") unless input[:conference_providers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1354,7 +1356,7 @@ module AWS::SDK::AlexaForBusiness
     class ListDeviceEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceEventsOutput, context: context)
-        Validators::DeviceEventList.validate!(input[:device_events], context: "#{context}[:device_events]") unless input[:device_events].nil?
+        DeviceEventList.validate!(input[:device_events], context: "#{context}[:device_events]") unless input[:device_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1370,7 +1372,7 @@ module AWS::SDK::AlexaForBusiness
     class ListGatewayGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGatewayGroupsOutput, context: context)
-        Validators::GatewayGroupSummaries.validate!(input[:gateway_groups], context: "#{context}[:gateway_groups]") unless input[:gateway_groups].nil?
+        GatewayGroupSummaries.validate!(input[:gateway_groups], context: "#{context}[:gateway_groups]") unless input[:gateway_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1387,7 +1389,7 @@ module AWS::SDK::AlexaForBusiness
     class ListGatewaysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGatewaysOutput, context: context)
-        Validators::GatewaySummaries.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
+        GatewaySummaries.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1406,7 +1408,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkillsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSkillsOutput, context: context)
-        Validators::SkillSummaryList.validate!(input[:skill_summaries], context: "#{context}[:skill_summaries]") unless input[:skill_summaries].nil?
+        SkillSummaryList.validate!(input[:skill_summaries], context: "#{context}[:skill_summaries]") unless input[:skill_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1422,7 +1424,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkillsStoreCategoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSkillsStoreCategoriesOutput, context: context)
-        Validators::CategoryList.validate!(input[:category_list], context: "#{context}[:category_list]") unless input[:category_list].nil?
+        CategoryList.validate!(input[:category_list], context: "#{context}[:category_list]") unless input[:category_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1439,7 +1441,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSkillsStoreSkillsByCategoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSkillsStoreSkillsByCategoryOutput, context: context)
-        Validators::SkillsStoreSkillList.validate!(input[:skills_store_skills], context: "#{context}[:skills_store_skills]") unless input[:skills_store_skills].nil?
+        SkillsStoreSkillList.validate!(input[:skills_store_skills], context: "#{context}[:skills_store_skills]") unless input[:skills_store_skills].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1456,7 +1458,7 @@ module AWS::SDK::AlexaForBusiness
     class ListSmartHomeAppliancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSmartHomeAppliancesOutput, context: context)
-        Validators::SmartHomeApplianceList.validate!(input[:smart_home_appliances], context: "#{context}[:smart_home_appliances]") unless input[:smart_home_appliances].nil?
+        SmartHomeApplianceList.validate!(input[:smart_home_appliances], context: "#{context}[:smart_home_appliances]") unless input[:smart_home_appliances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1473,7 +1475,7 @@ module AWS::SDK::AlexaForBusiness
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1482,9 +1484,9 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MeetingRoomConfiguration, context: context)
         Hearth::Validator.validate!(input[:room_utilization_metrics_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:room_utilization_metrics_enabled]")
-        Validators::EndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
-        Validators::InstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
-        Validators::RequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
+        EndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
+        InstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
+        RequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
       end
     end
 
@@ -1514,7 +1516,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:current_password], ::String, context: "#{context}[:current_password]")
         Hearth::Validator.validate!(input[:next_password], ::String, context: "#{context}[:next_password]")
         Hearth::Validator.validate!(input[:certificate_authority_arn], ::String, context: "#{context}[:certificate_authority_arn]")
-        Validators::TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
+        TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
       end
     end
 
@@ -1535,7 +1537,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkProfileData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkProfileData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1578,7 +1580,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhoneNumber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1600,7 +1602,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:pstn_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:pstn_enabled]")
         Hearth::Validator.validate!(input[:data_retention_opt_in], ::TrueClass, ::FalseClass, context: "#{context}[:data_retention_opt_in]")
         Hearth::Validator.validate!(input[:address_book_arn], ::String, context: "#{context}[:address_book_arn]")
-        Validators::MeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
+        MeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
       end
     end
 
@@ -1623,7 +1625,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProfileData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProfileData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1631,7 +1633,7 @@ module AWS::SDK::AlexaForBusiness
     class PutConferencePreferenceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutConferencePreferenceInput, context: context)
-        Validators::ConferencePreference.validate!(input[:conference_preference], context: "#{context}[:conference_preference]") unless input[:conference_preference].nil?
+        ConferencePreference.validate!(input[:conference_preference], context: "#{context}[:conference_preference]") unless input[:conference_preference].nil?
       end
     end
 
@@ -1646,7 +1648,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::PutInvitationConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:organization_name], ::String, context: "#{context}[:organization_name]")
         Hearth::Validator.validate!(input[:contact_email], ::String, context: "#{context}[:contact_email]")
-        Validators::ShortSkillIdList.validate!(input[:private_skill_ids], context: "#{context}[:private_skill_ids]") unless input[:private_skill_ids].nil?
+        ShortSkillIdList.validate!(input[:private_skill_ids], context: "#{context}[:private_skill_ids]") unless input[:private_skill_ids].nil?
       end
     end
 
@@ -1661,7 +1663,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::PutRoomSkillParameterInput, context: context)
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
         Hearth::Validator.validate!(input[:skill_id], ::String, context: "#{context}[:skill_id]")
-        Validators::RoomSkillParameter.validate!(input[:room_skill_parameter], context: "#{context}[:room_skill_parameter]") unless input[:room_skill_parameter].nil?
+        RoomSkillParameter.validate!(input[:room_skill_parameter], context: "#{context}[:room_skill_parameter]") unless input[:room_skill_parameter].nil?
       end
     end
 
@@ -1674,7 +1676,7 @@ module AWS::SDK::AlexaForBusiness
     class PutSkillAuthorizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutSkillAuthorizationInput, context: context)
-        Validators::AuthorizationResult.validate!(input[:authorization_result], context: "#{context}[:authorization_result]") unless input[:authorization_result].nil?
+        AuthorizationResult.validate!(input[:authorization_result], context: "#{context}[:authorization_result]") unless input[:authorization_result].nil?
         Hearth::Validator.validate!(input[:skill_id], ::String, context: "#{context}[:skill_id]")
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
       end
@@ -1695,7 +1697,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:device_serial_number], ::String, context: "#{context}[:device_serial_number]")
         Hearth::Validator.validate!(input[:amazon_id], ::String, context: "#{context}[:amazon_id]")
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1740,7 +1742,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::ResolveRoomOutput, context: context)
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
         Hearth::Validator.validate!(input[:room_name], ::String, context: "#{context}[:room_name]")
-        Validators::RoomSkillParameters.validate!(input[:room_skill_parameters], context: "#{context}[:room_skill_parameters]") unless input[:room_skill_parameters].nil?
+        RoomSkillParameters.validate!(input[:room_skill_parameters], context: "#{context}[:room_skill_parameters]") unless input[:room_skill_parameters].nil?
       end
     end
 
@@ -1810,7 +1812,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoomData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoomData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1827,7 +1829,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoomSkillParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoomSkillParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1844,8 +1846,8 @@ module AWS::SDK::AlexaForBusiness
     class SearchAddressBooksInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchAddressBooksInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1854,7 +1856,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchAddressBooksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchAddressBooksOutput, context: context)
-        Validators::AddressBookDataList.validate!(input[:address_books], context: "#{context}[:address_books]") unless input[:address_books].nil?
+        AddressBookDataList.validate!(input[:address_books], context: "#{context}[:address_books]") unless input[:address_books].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1863,8 +1865,8 @@ module AWS::SDK::AlexaForBusiness
     class SearchContactsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchContactsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1873,7 +1875,7 @@ module AWS::SDK::AlexaForBusiness
     class SearchContactsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchContactsOutput, context: context)
-        Validators::ContactDataList.validate!(input[:contacts], context: "#{context}[:contacts]") unless input[:contacts].nil?
+        ContactDataList.validate!(input[:contacts], context: "#{context}[:contacts]") unless input[:contacts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1884,15 +1886,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchDevicesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchDevicesOutput, context: context)
-        Validators::DeviceDataList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceDataList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1903,15 +1905,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchNetworkProfilesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchNetworkProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchNetworkProfilesOutput, context: context)
-        Validators::NetworkProfileDataList.validate!(input[:network_profiles], context: "#{context}[:network_profiles]") unless input[:network_profiles].nil?
+        NetworkProfileDataList.validate!(input[:network_profiles], context: "#{context}[:network_profiles]") unless input[:network_profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1922,15 +1924,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchProfilesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchProfilesOutput, context: context)
-        Validators::ProfileDataList.validate!(input[:profiles], context: "#{context}[:profiles]") unless input[:profiles].nil?
+        ProfileDataList.validate!(input[:profiles], context: "#{context}[:profiles]") unless input[:profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1941,15 +1943,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchRoomsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchRoomsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchRoomsOutput, context: context)
-        Validators::RoomDataList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
+        RoomDataList.validate!(input[:rooms], context: "#{context}[:rooms]") unless input[:rooms].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1960,15 +1962,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchSkillGroupsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchSkillGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchSkillGroupsOutput, context: context)
-        Validators::SkillGroupDataList.validate!(input[:skill_groups], context: "#{context}[:skill_groups]") unless input[:skill_groups].nil?
+        SkillGroupDataList.validate!(input[:skill_groups], context: "#{context}[:skill_groups]") unless input[:skill_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1979,15 +1981,15 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::SearchUsersInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
-        Validators::SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        SortList.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
     class SearchUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchUsersOutput, context: context)
-        Validators::UserDataList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserDataList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
       end
@@ -1996,8 +1998,8 @@ module AWS::SDK::AlexaForBusiness
     class SendAnnouncementInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendAnnouncementInput, context: context)
-        Validators::FilterList.validate!(input[:room_filters], context: "#{context}[:room_filters]") unless input[:room_filters].nil?
-        Validators::Content.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
+        FilterList.validate!(input[:room_filters], context: "#{context}[:room_filters]") unless input[:room_filters].nil?
+        Content.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
         Hearth::Validator.validate!(input[:time_to_live_in_seconds], ::Integer, context: "#{context}[:time_to_live_in_seconds]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
@@ -2044,7 +2046,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SipAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SipAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2056,12 +2058,12 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:invocation_phrase], ::String, context: "#{context}[:invocation_phrase]")
         Hearth::Validator.validate!(input[:release_date], ::String, context: "#{context}[:release_date]")
         Hearth::Validator.validate!(input[:end_user_license_agreement], ::String, context: "#{context}[:end_user_license_agreement]")
-        Validators::GenericKeywords.validate!(input[:generic_keywords], context: "#{context}[:generic_keywords]") unless input[:generic_keywords].nil?
-        Validators::BulletPoints.validate!(input[:bullet_points], context: "#{context}[:bullet_points]") unless input[:bullet_points].nil?
-        Validators::NewInThisVersionBulletPoints.validate!(input[:new_in_this_version_bullet_points], context: "#{context}[:new_in_this_version_bullet_points]") unless input[:new_in_this_version_bullet_points].nil?
-        Validators::SkillTypes.validate!(input[:skill_types], context: "#{context}[:skill_types]") unless input[:skill_types].nil?
-        Validators::Reviews.validate!(input[:reviews], context: "#{context}[:reviews]") unless input[:reviews].nil?
-        Validators::DeveloperInfo.validate!(input[:developer_info], context: "#{context}[:developer_info]") unless input[:developer_info].nil?
+        GenericKeywords.validate!(input[:generic_keywords], context: "#{context}[:generic_keywords]") unless input[:generic_keywords].nil?
+        BulletPoints.validate!(input[:bullet_points], context: "#{context}[:bullet_points]") unless input[:bullet_points].nil?
+        NewInThisVersionBulletPoints.validate!(input[:new_in_this_version_bullet_points], context: "#{context}[:new_in_this_version_bullet_points]") unless input[:new_in_this_version_bullet_points].nil?
+        SkillTypes.validate!(input[:skill_types], context: "#{context}[:skill_types]") unless input[:skill_types].nil?
+        Reviews.validate!(input[:reviews], context: "#{context}[:reviews]") unless input[:reviews].nil?
+        DeveloperInfo.validate!(input[:developer_info], context: "#{context}[:developer_info]") unless input[:developer_info].nil?
       end
     end
 
@@ -2087,7 +2089,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SkillGroupData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SkillGroupData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2114,7 +2116,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SkillSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SkillSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2135,8 +2137,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:skill_name], ::String, context: "#{context}[:skill_name]")
         Hearth::Validator.validate!(input[:short_description], ::String, context: "#{context}[:short_description]")
         Hearth::Validator.validate!(input[:icon_url], ::String, context: "#{context}[:icon_url]")
-        Validators::SampleUtterances.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
-        Validators::SkillDetails.validate!(input[:skill_details], context: "#{context}[:skill_details]") unless input[:skill_details].nil?
+        SampleUtterances.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        SkillDetails.validate!(input[:skill_details], context: "#{context}[:skill_details]") unless input[:skill_details].nil?
         Hearth::Validator.validate!(input[:supports_linking], ::TrueClass, ::FalseClass, context: "#{context}[:supports_linking]")
       end
     end
@@ -2145,7 +2147,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SkillsStoreSkill.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SkillsStoreSkill.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2163,7 +2165,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SmartHomeAppliance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SmartHomeAppliance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2180,7 +2182,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Sort.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Sort.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2197,7 +2199,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ssml.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ssml.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2207,7 +2209,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::StartDeviceSyncInput, context: context)
         Hearth::Validator.validate!(input[:room_arn], ::String, context: "#{context}[:room_arn]")
         Hearth::Validator.validate!(input[:device_arn], ::String, context: "#{context}[:device_arn]")
-        Validators::Features.validate!(input[:features], context: "#{context}[:features]") unless input[:features].nil?
+        Features.validate!(input[:features], context: "#{context}[:features]") unless input[:features].nil?
       end
     end
 
@@ -2251,7 +2253,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2260,7 +2262,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2282,7 +2284,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Text.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Text.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2307,7 +2309,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2340,7 +2342,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:s3_key_prefix], ::String, context: "#{context}[:s3_key_prefix]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:schedule_name], ::String, context: "#{context}[:schedule_name]")
-        Validators::BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
+        BusinessReportRecurrence.validate!(input[:recurrence], context: "#{context}[:recurrence]") unless input[:recurrence].nil?
       end
     end
 
@@ -2355,9 +2357,9 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input, Types::UpdateConferenceProviderInput, context: context)
         Hearth::Validator.validate!(input[:conference_provider_arn], ::String, context: "#{context}[:conference_provider_arn]")
         Hearth::Validator.validate!(input[:conference_provider_type], ::String, context: "#{context}[:conference_provider_type]")
-        Validators::IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
-        Validators::PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
-        Validators::MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
+        IPDialIn.validate!(input[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless input[:ip_dial_in].nil?
+        PSTNDialIn.validate!(input[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless input[:pstn_dial_in].nil?
+        MeetingSetting.validate!(input[:meeting_setting], context: "#{context}[:meeting_setting]") unless input[:meeting_setting].nil?
       end
     end
 
@@ -2375,8 +2377,8 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:first_name], ::String, context: "#{context}[:first_name]")
         Hearth::Validator.validate!(input[:last_name], ::String, context: "#{context}[:last_name]")
         Hearth::Validator.validate!(input[:phone_number], ::String, context: "#{context}[:phone_number]")
-        Validators::PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
-        Validators::SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
+        PhoneNumberList.validate!(input[:phone_numbers], context: "#{context}[:phone_numbers]") unless input[:phone_numbers].nil?
+        SipAddressList.validate!(input[:sip_addresses], context: "#{context}[:sip_addresses]") unless input[:sip_addresses].nil?
       end
     end
 
@@ -2403,7 +2405,7 @@ module AWS::SDK::AlexaForBusiness
     class UpdateEndOfMeetingReminder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEndOfMeetingReminder, context: context)
-        Validators::EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
+        EndOfMeetingReminderMinutesList.validate!(input[:reminder_at_minutes], context: "#{context}[:reminder_at_minutes]") unless input[:reminder_at_minutes].nil?
         Hearth::Validator.validate!(input[:reminder_type], ::String, context: "#{context}[:reminder_type]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -2452,9 +2454,9 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateMeetingRoomConfiguration, context: context)
         Hearth::Validator.validate!(input[:room_utilization_metrics_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:room_utilization_metrics_enabled]")
-        Validators::UpdateEndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
-        Validators::UpdateInstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
-        Validators::UpdateRequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
+        UpdateEndOfMeetingReminder.validate!(input[:end_of_meeting_reminder], context: "#{context}[:end_of_meeting_reminder]") unless input[:end_of_meeting_reminder].nil?
+        UpdateInstantBooking.validate!(input[:instant_booking], context: "#{context}[:instant_booking]") unless input[:instant_booking].nil?
+        UpdateRequireCheckIn.validate!(input[:require_check_in], context: "#{context}[:require_check_in]") unless input[:require_check_in].nil?
       end
     end
 
@@ -2467,7 +2469,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:current_password], ::String, context: "#{context}[:current_password]")
         Hearth::Validator.validate!(input[:next_password], ::String, context: "#{context}[:next_password]")
         Hearth::Validator.validate!(input[:certificate_authority_arn], ::String, context: "#{context}[:certificate_authority_arn]")
-        Validators::TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
+        TrustAnchorList.validate!(input[:trust_anchors], context: "#{context}[:trust_anchors]") unless input[:trust_anchors].nil?
       end
     end
 
@@ -2493,7 +2495,7 @@ module AWS::SDK::AlexaForBusiness
         Hearth::Validator.validate!(input[:max_volume_limit], ::Integer, context: "#{context}[:max_volume_limit]")
         Hearth::Validator.validate!(input[:pstn_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:pstn_enabled]")
         Hearth::Validator.validate!(input[:data_retention_opt_in], ::TrueClass, ::FalseClass, context: "#{context}[:data_retention_opt_in]")
-        Validators::UpdateMeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
+        UpdateMeetingRoomConfiguration.validate!(input[:meeting_room_configuration], context: "#{context}[:meeting_room_configuration]") unless input[:meeting_room_configuration].nil?
       end
     end
 
@@ -2559,7 +2561,7 @@ module AWS::SDK::AlexaForBusiness
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Identitystore
@@ -69,7 +71,7 @@ module AWS::SDK::Identitystore
     def describe_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGroupInput,
         validate_input: @config.validate_input
@@ -147,7 +149,7 @@ module AWS::SDK::Identitystore
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -248,7 +250,7 @@ module AWS::SDK::Identitystore
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -349,7 +351,7 @@ module AWS::SDK::Identitystore
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input

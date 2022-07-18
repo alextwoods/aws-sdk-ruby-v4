@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DevOpsGuru
@@ -86,7 +88,7 @@ module AWS::SDK::DevOpsGuru
     def add_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddNotificationChannelInput,
         validate_input: @config.validate_input
@@ -154,7 +156,7 @@ module AWS::SDK::DevOpsGuru
     def delete_insight(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInsightInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInsightInput,
         validate_input: @config.validate_input
@@ -222,7 +224,7 @@ module AWS::SDK::DevOpsGuru
     def describe_account_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountHealthInput,
         validate_input: @config.validate_input
@@ -302,7 +304,7 @@ module AWS::SDK::DevOpsGuru
     def describe_account_overview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountOverviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountOverviewInput,
         validate_input: @config.validate_input
@@ -465,7 +467,7 @@ module AWS::SDK::DevOpsGuru
     def describe_anomaly(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnomalyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnomalyInput,
         validate_input: @config.validate_input
@@ -533,7 +535,7 @@ module AWS::SDK::DevOpsGuru
     def describe_event_sources_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventSourcesConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventSourcesConfigInput,
         validate_input: @config.validate_input
@@ -604,7 +606,7 @@ module AWS::SDK::DevOpsGuru
     def describe_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFeedbackInput,
         validate_input: @config.validate_input
@@ -707,7 +709,7 @@ module AWS::SDK::DevOpsGuru
     def describe_insight(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInsightInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInsightInput,
         validate_input: @config.validate_input
@@ -787,7 +789,7 @@ module AWS::SDK::DevOpsGuru
     def describe_organization_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationHealthInput,
         validate_input: @config.validate_input
@@ -878,7 +880,7 @@ module AWS::SDK::DevOpsGuru
     def describe_organization_overview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationOverviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationOverviewInput,
         validate_input: @config.validate_input
@@ -998,7 +1000,7 @@ module AWS::SDK::DevOpsGuru
     def describe_organization_resource_collection_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationResourceCollectionHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationResourceCollectionHealthInput,
         validate_input: @config.validate_input
@@ -1097,7 +1099,7 @@ module AWS::SDK::DevOpsGuru
     def describe_resource_collection_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourceCollectionHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourceCollectionHealthInput,
         validate_input: @config.validate_input
@@ -1164,7 +1166,7 @@ module AWS::SDK::DevOpsGuru
     def describe_service_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceIntegrationInput,
         validate_input: @config.validate_input
@@ -1258,7 +1260,7 @@ module AWS::SDK::DevOpsGuru
     def get_cost_estimation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCostEstimationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCostEstimationInput,
         validate_input: @config.validate_input
@@ -1344,7 +1346,7 @@ module AWS::SDK::DevOpsGuru
     def get_resource_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceCollectionInput,
         validate_input: @config.validate_input
@@ -1528,7 +1530,7 @@ module AWS::SDK::DevOpsGuru
     def list_anomalies_for_insight(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnomaliesForInsightInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnomaliesForInsightInput,
         validate_input: @config.validate_input
@@ -1659,7 +1661,7 @@ module AWS::SDK::DevOpsGuru
     def list_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventsInput,
         validate_input: @config.validate_input
@@ -1795,7 +1797,7 @@ module AWS::SDK::DevOpsGuru
     def list_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInsightsInput,
         validate_input: @config.validate_input
@@ -1874,7 +1876,7 @@ module AWS::SDK::DevOpsGuru
     def list_notification_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotificationChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotificationChannelsInput,
         validate_input: @config.validate_input
@@ -2021,7 +2023,7 @@ module AWS::SDK::DevOpsGuru
     def list_organization_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOrganizationInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOrganizationInsightsInput,
         validate_input: @config.validate_input
@@ -2131,7 +2133,7 @@ module AWS::SDK::DevOpsGuru
     def list_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendationsInput,
         validate_input: @config.validate_input
@@ -2202,7 +2204,7 @@ module AWS::SDK::DevOpsGuru
     def put_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFeedbackInput,
         validate_input: @config.validate_input
@@ -2272,7 +2274,7 @@ module AWS::SDK::DevOpsGuru
     def remove_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveNotificationChannelInput,
         validate_input: @config.validate_input
@@ -2434,7 +2436,7 @@ module AWS::SDK::DevOpsGuru
     def search_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchInsightsInput,
         validate_input: @config.validate_input
@@ -2603,7 +2605,7 @@ module AWS::SDK::DevOpsGuru
     def search_organization_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchOrganizationInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchOrganizationInsightsInput,
         validate_input: @config.validate_input
@@ -2690,7 +2692,7 @@ module AWS::SDK::DevOpsGuru
     def start_cost_estimation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCostEstimationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCostEstimationInput,
         validate_input: @config.validate_input
@@ -2765,7 +2767,7 @@ module AWS::SDK::DevOpsGuru
     def update_event_sources_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventSourcesConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventSourcesConfigInput,
         validate_input: @config.validate_input
@@ -2856,7 +2858,7 @@ module AWS::SDK::DevOpsGuru
     def update_resource_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceCollectionInput,
         validate_input: @config.validate_input
@@ -2931,7 +2933,7 @@ module AWS::SDK::DevOpsGuru
     def update_service_integration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceIntegrationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceIntegrationInput,
         validate_input: @config.validate_input

@@ -9,9 +9,6 @@
 
 require 'aws-sdk-greengrassv2'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::GreengrassV2
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

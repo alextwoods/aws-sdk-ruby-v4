@@ -136,7 +136,7 @@ module AWS::SDK::Batch
     class DescribeComputeEnvironments
       def self.default(visited=[])
         {
-          compute_environments: Stubs::ComputeEnvironmentDetailList.default(visited),
+          compute_environments: ComputeEnvironmentDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -157,7 +157,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('ComputeEnvironmentDetailList')
         visited = visited + ['ComputeEnvironmentDetailList']
         [
-          Stubs::ComputeEnvironmentDetail.default(visited)
+          ComputeEnvironmentDetail.default(visited)
         ]
       end
 
@@ -181,14 +181,14 @@ module AWS::SDK::Batch
           compute_environment_arn: 'compute_environment_arn',
           unmanagedv_cpus: 1,
           ecs_cluster_arn: 'ecs_cluster_arn',
-          tags: Stubs::TagrisTagsMap.default(visited),
+          tags: TagrisTagsMap.default(visited),
           type: 'type',
           state: 'state',
           status: 'status',
           status_reason: 'status_reason',
-          compute_resources: Stubs::ComputeResource.default(visited),
+          compute_resources: ComputeResource.default(visited),
           service_role: 'service_role',
-          update_policy: Stubs::UpdatePolicy.default(visited),
+          update_policy: UpdatePolicy.default(visited),
         }
       end
 
@@ -242,18 +242,18 @@ module AWS::SDK::Batch
           minv_cpus: 1,
           maxv_cpus: 1,
           desiredv_cpus: 1,
-          instance_types: Stubs::StringList.default(visited),
+          instance_types: StringList.default(visited),
           image_id: 'image_id',
-          subnets: Stubs::StringList.default(visited),
-          security_group_ids: Stubs::StringList.default(visited),
+          subnets: StringList.default(visited),
+          security_group_ids: StringList.default(visited),
           ec2_key_pair: 'ec2_key_pair',
           instance_role: 'instance_role',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           placement_group: 'placement_group',
           bid_percentage: 1,
           spot_iam_fleet_role: 'spot_iam_fleet_role',
-          launch_template: Stubs::LaunchTemplateSpecification.default(visited),
-          ec2_configuration: Stubs::Ec2ConfigurationList.default(visited),
+          launch_template: LaunchTemplateSpecification.default(visited),
+          ec2_configuration: Ec2ConfigurationList.default(visited),
         }
       end
 
@@ -287,7 +287,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('Ec2ConfigurationList')
         visited = visited + ['Ec2ConfigurationList']
         [
-          Stubs::Ec2Configuration.default(visited)
+          Ec2Configuration.default(visited)
         ]
       end
 
@@ -407,7 +407,7 @@ module AWS::SDK::Batch
     class DescribeJobDefinitions
       def self.default(visited=[])
         {
-          job_definitions: Stubs::JobDefinitionList.default(visited),
+          job_definitions: JobDefinitionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -428,7 +428,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('JobDefinitionList')
         visited = visited + ['JobDefinitionList']
         [
-          Stubs::JobDefinition.default(visited)
+          JobDefinition.default(visited)
         ]
       end
 
@@ -454,14 +454,14 @@ module AWS::SDK::Batch
           status: 'status',
           type: 'type',
           scheduling_priority: 1,
-          parameters: Stubs::ParametersMap.default(visited),
-          retry_strategy: Stubs::RetryStrategy.default(visited),
-          container_properties: Stubs::ContainerProperties.default(visited),
-          timeout: Stubs::JobTimeout.default(visited),
-          node_properties: Stubs::NodeProperties.default(visited),
-          tags: Stubs::TagrisTagsMap.default(visited),
+          parameters: ParametersMap.default(visited),
+          retry_strategy: RetryStrategy.default(visited),
+          container_properties: ContainerProperties.default(visited),
+          timeout: JobTimeout.default(visited),
+          node_properties: NodeProperties.default(visited),
+          tags: TagrisTagsMap.default(visited),
           propagate_tags: false,
-          platform_capabilities: Stubs::PlatformCapabilityList.default(visited),
+          platform_capabilities: PlatformCapabilityList.default(visited),
         }
       end
 
@@ -514,7 +514,7 @@ module AWS::SDK::Batch
         {
           num_nodes: 1,
           main_node: 1,
-          node_range_properties: Stubs::NodeRangeProperties.default(visited),
+          node_range_properties: NodeRangeProperties.default(visited),
         }
       end
 
@@ -534,7 +534,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('NodeRangeProperties')
         visited = visited + ['NodeRangeProperties']
         [
-          Stubs::NodeRangeProperty.default(visited)
+          NodeRangeProperty.default(visited)
         ]
       end
 
@@ -555,7 +555,7 @@ module AWS::SDK::Batch
         visited = visited + ['NodeRangeProperty']
         {
           target_nodes: 'target_nodes',
-          container: Stubs::ContainerProperties.default(visited),
+          container: ContainerProperties.default(visited),
         }
       end
 
@@ -577,23 +577,23 @@ module AWS::SDK::Batch
           image: 'image',
           vcpus: 1,
           memory: 1,
-          command: Stubs::StringList.default(visited),
+          command: StringList.default(visited),
           job_role_arn: 'job_role_arn',
           execution_role_arn: 'execution_role_arn',
-          volumes: Stubs::Volumes.default(visited),
-          environment: Stubs::EnvironmentVariables.default(visited),
-          mount_points: Stubs::MountPoints.default(visited),
+          volumes: Volumes.default(visited),
+          environment: EnvironmentVariables.default(visited),
+          mount_points: MountPoints.default(visited),
           readonly_root_filesystem: false,
           privileged: false,
-          ulimits: Stubs::Ulimits.default(visited),
+          ulimits: Ulimits.default(visited),
           user: 'user',
           instance_type: 'instance_type',
-          resource_requirements: Stubs::ResourceRequirements.default(visited),
-          linux_parameters: Stubs::LinuxParameters.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          secrets: Stubs::SecretList.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
-          fargate_platform_configuration: Stubs::FargatePlatformConfiguration.default(visited),
+          resource_requirements: ResourceRequirements.default(visited),
+          linux_parameters: LinuxParameters.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          secrets: SecretList.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
+          fargate_platform_configuration: FargatePlatformConfiguration.default(visited),
         }
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('SecretList')
         visited = visited + ['SecretList']
         [
-          Stubs::Secret.default(visited)
+          Secret.default(visited)
         ]
       end
 
@@ -707,8 +707,8 @@ module AWS::SDK::Batch
         visited = visited + ['LogConfiguration']
         {
           log_driver: 'log_driver',
-          options: Stubs::LogConfigurationOptionsMap.default(visited),
-          secret_options: Stubs::SecretList.default(visited),
+          options: LogConfigurationOptionsMap.default(visited),
+          secret_options: SecretList.default(visited),
         }
       end
 
@@ -748,10 +748,10 @@ module AWS::SDK::Batch
         return nil if visited.include?('LinuxParameters')
         visited = visited + ['LinuxParameters']
         {
-          devices: Stubs::DevicesList.default(visited),
+          devices: DevicesList.default(visited),
           init_process_enabled: false,
           shared_memory_size: 1,
-          tmpfs: Stubs::TmpfsList.default(visited),
+          tmpfs: TmpfsList.default(visited),
           max_swap: 1,
           swappiness: 1,
         }
@@ -776,7 +776,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('TmpfsList')
         visited = visited + ['TmpfsList']
         [
-          Stubs::Tmpfs.default(visited)
+          Tmpfs.default(visited)
         ]
       end
 
@@ -798,7 +798,7 @@ module AWS::SDK::Batch
         {
           container_path: 'container_path',
           size: 1,
-          mount_options: Stubs::StringList.default(visited),
+          mount_options: StringList.default(visited),
         }
       end
 
@@ -818,7 +818,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('DevicesList')
         visited = visited + ['DevicesList']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::Batch
         {
           host_path: 'host_path',
           container_path: 'container_path',
-          permissions: Stubs::DeviceCgroupPermissions.default(visited),
+          permissions: DeviceCgroupPermissions.default(visited),
         }
       end
 
@@ -880,7 +880,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('ResourceRequirements')
         visited = visited + ['ResourceRequirements']
         [
-          Stubs::ResourceRequirement.default(visited)
+          ResourceRequirement.default(visited)
         ]
       end
 
@@ -920,7 +920,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('Ulimits')
         visited = visited + ['Ulimits']
         [
-          Stubs::Ulimit.default(visited)
+          Ulimit.default(visited)
         ]
       end
 
@@ -962,7 +962,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('MountPoints')
         visited = visited + ['MountPoints']
         [
-          Stubs::MountPoint.default(visited)
+          MountPoint.default(visited)
         ]
       end
 
@@ -1004,7 +1004,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('EnvironmentVariables')
         visited = visited + ['EnvironmentVariables']
         [
-          Stubs::KeyValuePair.default(visited)
+          KeyValuePair.default(visited)
         ]
       end
 
@@ -1044,7 +1044,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('Volumes')
         visited = visited + ['Volumes']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -1064,9 +1064,9 @@ module AWS::SDK::Batch
         return nil if visited.include?('Volume')
         visited = visited + ['Volume']
         {
-          host: Stubs::Host.default(visited),
+          host: Host.default(visited),
           name: 'name',
-          efs_volume_configuration: Stubs::EFSVolumeConfiguration.default(visited),
+          efs_volume_configuration: EFSVolumeConfiguration.default(visited),
         }
       end
 
@@ -1090,7 +1090,7 @@ module AWS::SDK::Batch
           root_directory: 'root_directory',
           transit_encryption: 'transit_encryption',
           transit_encryption_port: 1,
-          authorization_config: Stubs::EFSAuthorizationConfig.default(visited),
+          authorization_config: EFSAuthorizationConfig.default(visited),
         }
       end
 
@@ -1169,7 +1169,7 @@ module AWS::SDK::Batch
         visited = visited + ['RetryStrategy']
         {
           attempts: 1,
-          evaluate_on_exit: Stubs::EvaluateOnExitList.default(visited),
+          evaluate_on_exit: EvaluateOnExitList.default(visited),
         }
       end
 
@@ -1188,7 +1188,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('EvaluateOnExitList')
         visited = visited + ['EvaluateOnExitList']
         [
-          Stubs::EvaluateOnExit.default(visited)
+          EvaluateOnExit.default(visited)
         ]
       end
 
@@ -1250,7 +1250,7 @@ module AWS::SDK::Batch
     class DescribeJobQueues
       def self.default(visited=[])
         {
-          job_queues: Stubs::JobQueueDetailList.default(visited),
+          job_queues: JobQueueDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1271,7 +1271,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('JobQueueDetailList')
         visited = visited + ['JobQueueDetailList']
         [
-          Stubs::JobQueueDetail.default(visited)
+          JobQueueDetail.default(visited)
         ]
       end
 
@@ -1298,8 +1298,8 @@ module AWS::SDK::Batch
           status: 'status',
           status_reason: 'status_reason',
           priority: 1,
-          compute_environment_order: Stubs::ComputeEnvironmentOrders.default(visited),
-          tags: Stubs::TagrisTagsMap.default(visited),
+          compute_environment_order: ComputeEnvironmentOrders.default(visited),
+          tags: TagrisTagsMap.default(visited),
         }
       end
 
@@ -1325,7 +1325,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('ComputeEnvironmentOrders')
         visited = visited + ['ComputeEnvironmentOrders']
         [
-          Stubs::ComputeEnvironmentOrder.default(visited)
+          ComputeEnvironmentOrder.default(visited)
         ]
       end
 
@@ -1363,7 +1363,7 @@ module AWS::SDK::Batch
     class DescribeJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobDetailList.default(visited),
+          jobs: JobDetailList.default(visited),
         }
       end
 
@@ -1382,7 +1382,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('JobDetailList')
         visited = visited + ['JobDetailList']
         [
-          Stubs::JobDetail.default(visited)
+          JobDetail.default(visited)
         ]
       end
 
@@ -1409,23 +1409,23 @@ module AWS::SDK::Batch
           status: 'status',
           share_identifier: 'share_identifier',
           scheduling_priority: 1,
-          attempts: Stubs::AttemptDetails.default(visited),
+          attempts: AttemptDetails.default(visited),
           status_reason: 'status_reason',
           created_at: 1,
-          retry_strategy: Stubs::RetryStrategy.default(visited),
+          retry_strategy: RetryStrategy.default(visited),
           started_at: 1,
           stopped_at: 1,
-          depends_on: Stubs::JobDependencyList.default(visited),
+          depends_on: JobDependencyList.default(visited),
           job_definition: 'job_definition',
-          parameters: Stubs::ParametersMap.default(visited),
-          container: Stubs::ContainerDetail.default(visited),
-          node_details: Stubs::NodeDetails.default(visited),
-          node_properties: Stubs::NodeProperties.default(visited),
-          array_properties: Stubs::ArrayPropertiesDetail.default(visited),
-          timeout: Stubs::JobTimeout.default(visited),
-          tags: Stubs::TagrisTagsMap.default(visited),
+          parameters: ParametersMap.default(visited),
+          container: ContainerDetail.default(visited),
+          node_details: NodeDetails.default(visited),
+          node_properties: NodeProperties.default(visited),
+          array_properties: ArrayPropertiesDetail.default(visited),
+          timeout: JobTimeout.default(visited),
+          tags: TagrisTagsMap.default(visited),
           propagate_tags: false,
-          platform_capabilities: Stubs::PlatformCapabilityList.default(visited),
+          platform_capabilities: PlatformCapabilityList.default(visited),
         }
       end
 
@@ -1466,7 +1466,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('ArrayPropertiesDetail')
         visited = visited + ['ArrayPropertiesDetail']
         {
-          status_summary: Stubs::ArrayJobStatusSummary.default(visited),
+          status_summary: ArrayJobStatusSummary.default(visited),
           size: 1,
           index: 1,
         }
@@ -1531,14 +1531,14 @@ module AWS::SDK::Batch
           image: 'image',
           vcpus: 1,
           memory: 1,
-          command: Stubs::StringList.default(visited),
+          command: StringList.default(visited),
           job_role_arn: 'job_role_arn',
           execution_role_arn: 'execution_role_arn',
-          volumes: Stubs::Volumes.default(visited),
-          environment: Stubs::EnvironmentVariables.default(visited),
-          mount_points: Stubs::MountPoints.default(visited),
+          volumes: Volumes.default(visited),
+          environment: EnvironmentVariables.default(visited),
+          mount_points: MountPoints.default(visited),
           readonly_root_filesystem: false,
-          ulimits: Stubs::Ulimits.default(visited),
+          ulimits: Ulimits.default(visited),
           privileged: false,
           user: 'user',
           exit_code: 1,
@@ -1547,13 +1547,13 @@ module AWS::SDK::Batch
           task_arn: 'task_arn',
           log_stream_name: 'log_stream_name',
           instance_type: 'instance_type',
-          network_interfaces: Stubs::NetworkInterfaceList.default(visited),
-          resource_requirements: Stubs::ResourceRequirements.default(visited),
-          linux_parameters: Stubs::LinuxParameters.default(visited),
-          log_configuration: Stubs::LogConfiguration.default(visited),
-          secrets: Stubs::SecretList.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
-          fargate_platform_configuration: Stubs::FargatePlatformConfiguration.default(visited),
+          network_interfaces: NetworkInterfaceList.default(visited),
+          resource_requirements: ResourceRequirements.default(visited),
+          linux_parameters: LinuxParameters.default(visited),
+          log_configuration: LogConfiguration.default(visited),
+          secrets: SecretList.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
+          fargate_platform_configuration: FargatePlatformConfiguration.default(visited),
         }
       end
 
@@ -1596,7 +1596,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('NetworkInterfaceList')
         visited = visited + ['NetworkInterfaceList']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('JobDependencyList')
         visited = visited + ['JobDependencyList']
         [
-          Stubs::JobDependency.default(visited)
+          JobDependency.default(visited)
         ]
       end
 
@@ -1678,7 +1678,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('AttemptDetails')
         visited = visited + ['AttemptDetails']
         [
-          Stubs::AttemptDetail.default(visited)
+          AttemptDetail.default(visited)
         ]
       end
 
@@ -1698,7 +1698,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('AttemptDetail')
         visited = visited + ['AttemptDetail']
         {
-          container: Stubs::AttemptContainerDetail.default(visited),
+          container: AttemptContainerDetail.default(visited),
           started_at: 1,
           stopped_at: 1,
           status_reason: 'status_reason',
@@ -1727,7 +1727,7 @@ module AWS::SDK::Batch
           exit_code: 1,
           reason: 'reason',
           log_stream_name: 'log_stream_name',
-          network_interfaces: Stubs::NetworkInterfaceList.default(visited),
+          network_interfaces: NetworkInterfaceList.default(visited),
         }
       end
 
@@ -1748,7 +1748,7 @@ module AWS::SDK::Batch
     class DescribeSchedulingPolicies
       def self.default(visited=[])
         {
-          scheduling_policies: Stubs::SchedulingPolicyDetailList.default(visited),
+          scheduling_policies: SchedulingPolicyDetailList.default(visited),
         }
       end
 
@@ -1767,7 +1767,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('SchedulingPolicyDetailList')
         visited = visited + ['SchedulingPolicyDetailList']
         [
-          Stubs::SchedulingPolicyDetail.default(visited)
+          SchedulingPolicyDetail.default(visited)
         ]
       end
 
@@ -1789,8 +1789,8 @@ module AWS::SDK::Batch
         {
           name: 'name',
           arn: 'arn',
-          fairshare_policy: Stubs::FairsharePolicy.default(visited),
-          tags: Stubs::TagrisTagsMap.default(visited),
+          fairshare_policy: FairsharePolicy.default(visited),
+          tags: TagrisTagsMap.default(visited),
         }
       end
 
@@ -1813,7 +1813,7 @@ module AWS::SDK::Batch
         {
           share_decay_seconds: 1,
           compute_reservation: 1,
-          share_distribution: Stubs::ShareAttributesList.default(visited),
+          share_distribution: ShareAttributesList.default(visited),
         }
       end
 
@@ -1833,7 +1833,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('ShareAttributesList')
         visited = visited + ['ShareAttributesList']
         [
-          Stubs::ShareAttributes.default(visited)
+          ShareAttributes.default(visited)
         ]
       end
 
@@ -1871,7 +1871,7 @@ module AWS::SDK::Batch
     class ListJobs
       def self.default(visited=[])
         {
-          job_summary_list: Stubs::JobSummaryList.default(visited),
+          job_summary_list: JobSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1892,7 +1892,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('JobSummaryList')
         visited = visited + ['JobSummaryList']
         [
-          Stubs::JobSummary.default(visited)
+          JobSummary.default(visited)
         ]
       end
 
@@ -1920,9 +1920,9 @@ module AWS::SDK::Batch
           status_reason: 'status_reason',
           started_at: 1,
           stopped_at: 1,
-          container: Stubs::ContainerSummary.default(visited),
-          array_properties: Stubs::ArrayPropertiesSummary.default(visited),
-          node_properties: Stubs::NodePropertiesSummary.default(visited),
+          container: ContainerSummary.default(visited),
+          array_properties: ArrayPropertiesSummary.default(visited),
+          node_properties: NodePropertiesSummary.default(visited),
           job_definition: 'job_definition',
         }
       end
@@ -2012,7 +2012,7 @@ module AWS::SDK::Batch
     class ListSchedulingPolicies
       def self.default(visited=[])
         {
-          scheduling_policies: Stubs::SchedulingPolicyListingDetailList.default(visited),
+          scheduling_policies: SchedulingPolicyListingDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2033,7 +2033,7 @@ module AWS::SDK::Batch
         return nil if visited.include?('SchedulingPolicyListingDetailList')
         visited = visited + ['SchedulingPolicyListingDetailList']
         [
-          Stubs::SchedulingPolicyListingDetail.default(visited)
+          SchedulingPolicyListingDetail.default(visited)
         ]
       end
 
@@ -2069,7 +2069,7 @@ module AWS::SDK::Batch
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagrisTagsMap.default(visited),
+          tags: TagrisTagsMap.default(visited),
         }
       end
 

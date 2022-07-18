@@ -313,11 +313,11 @@ module AWS::SDK::CloudWatchLogs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # @!attribute policy_name
@@ -1567,11 +1567,11 @@ module AWS::SDK::CloudWatchLogs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent ||= 0
       end
-
     end
 
     # <p>Represents a log stream, which is a sequence of log events from
@@ -1734,11 +1734,11 @@ module AWS::SDK::CloudWatchLogs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.event_number ||= 0
       end
-
     end
 
     # <p>Indicates how to transform ingested log events to metric data in a CloudWatch
@@ -2401,13 +2401,13 @@ module AWS::SDK::CloudWatchLogs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.records_matched ||= 0
         self.records_scanned ||= 0
         self.bytes_scanned ||= 0
       end
-
     end
 
     # Includes enum constants for QueryStatus
@@ -2776,11 +2776,11 @@ module AWS::SDK::CloudWatchLogs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # <p>Represents a subscription filter.</p>

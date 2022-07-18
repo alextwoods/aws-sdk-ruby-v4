@@ -304,7 +304,7 @@ module AWS::SDK::Comprehend
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.input_data_config = DocumentClassifierInputDataConfig.build(params[:input_data_config], context: "#{context}[:input_data_config]") unless params[:input_data_config].nil?
         type.output_data_config = DocumentClassifierOutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.language_code = params[:language_code]
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
@@ -331,7 +331,7 @@ module AWS::SDK::Comprehend
         type.endpoint_name = params[:endpoint_name]
         type.model_arn = params[:model_arn]
         type.desired_inference_units = params[:desired_inference_units]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type
@@ -356,7 +356,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.input_data_config = EntityRecognizerInputDataConfig.build(params[:input_data_config], context: "#{context}[:input_data_config]") unless params[:input_data_config].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.language_code = params[:language_code]
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
@@ -2237,7 +2237,7 @@ module AWS::SDK::Comprehend
         type.input_data_config = InputDataConfig.build(params[:input_data_config], context: "#{context}[:input_data_config]") unless params[:input_data_config].nil?
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2264,7 +2264,7 @@ module AWS::SDK::Comprehend
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2293,7 +2293,7 @@ module AWS::SDK::Comprehend
         type.job_name = params[:job_name]
         type.entity_recognizer_arn = params[:entity_recognizer_arn]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2321,7 +2321,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.target_event_types = TargetEventTypes.build(params[:target_event_types], context: "#{context}[:target_event_types]") unless params[:target_event_types].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -2348,7 +2348,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2378,7 +2378,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -2404,7 +2404,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2432,7 +2432,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.language_code = params[:language_code]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2460,7 +2460,7 @@ module AWS::SDK::Comprehend
         type.data_access_role_arn = params[:data_access_role_arn]
         type.job_name = params[:job_name]
         type.number_of_topics = params[:number_of_topics]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.volume_kms_key_id = params[:volume_kms_key_id]
         type.vpc_config = VpcConfig.build(params[:vpc_config], context: "#{context}[:vpc_config]") unless params[:vpc_config].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?

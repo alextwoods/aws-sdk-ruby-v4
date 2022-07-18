@@ -1145,7 +1145,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
         type = Types::ExecuteTransactionInput.new
         type.transact_statements = ParameterizedStatements.build(params[:transact_statements], context: "#{context}[:transact_statements]") unless params[:transact_statements].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.return_consumed_capacity = params[:return_consumed_capacity]
         type
       end
@@ -1256,7 +1256,7 @@ module AWS::SDK::DynamoDB
         type = Types::ExportTableToPointInTimeInput.new
         type.table_arn = params[:table_arn]
         type.export_time = params[:export_time]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.s3_bucket = params[:s3_bucket]
         type.s3_bucket_owner = params[:s3_bucket_owner]
         type.s3_prefix = params[:s3_prefix]
@@ -3049,7 +3049,7 @@ module AWS::SDK::DynamoDB
         type.transact_items = TransactWriteItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
         type.return_item_collection_metrics = params[:return_item_collection_metrics]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Firehose
@@ -393,7 +395,7 @@ module AWS::SDK::Firehose
     def create_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -481,7 +483,7 @@ module AWS::SDK::Firehose
     def delete_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -757,7 +759,7 @@ module AWS::SDK::Firehose
     def describe_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -860,7 +862,7 @@ module AWS::SDK::Firehose
     def list_delivery_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeliveryStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeliveryStreamsInput,
         validate_input: @config.validate_input
@@ -947,7 +949,7 @@ module AWS::SDK::Firehose
     def list_tags_for_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -1054,7 +1056,7 @@ module AWS::SDK::Firehose
     def put_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecordInput,
         validate_input: @config.validate_input
@@ -1187,7 +1189,7 @@ module AWS::SDK::Firehose
     def put_record_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecordBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecordBatchInput,
         validate_input: @config.validate_input
@@ -1299,7 +1301,7 @@ module AWS::SDK::Firehose
     def start_delivery_stream_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDeliveryStreamEncryptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDeliveryStreamEncryptionInput,
         validate_input: @config.validate_input
@@ -1387,7 +1389,7 @@ module AWS::SDK::Firehose
     def stop_delivery_stream_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDeliveryStreamEncryptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDeliveryStreamEncryptionInput,
         validate_input: @config.validate_input
@@ -1472,7 +1474,7 @@ module AWS::SDK::Firehose
     def tag_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -1550,7 +1552,7 @@ module AWS::SDK::Firehose
     def untag_delivery_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagDeliveryStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagDeliveryStreamInput,
         validate_input: @config.validate_input
@@ -1854,7 +1856,7 @@ module AWS::SDK::Firehose
     def update_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDestinationInput,
         validate_input: @config.validate_input

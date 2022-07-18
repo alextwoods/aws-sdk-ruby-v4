@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DataExchange
@@ -57,7 +59,7 @@ module AWS::SDK::DataExchange
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -151,7 +153,7 @@ module AWS::SDK::DataExchange
     def create_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSetInput,
         validate_input: @config.validate_input
@@ -253,7 +255,7 @@ module AWS::SDK::DataExchange
     def create_event_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventActionInput,
         validate_input: @config.validate_input
@@ -469,7 +471,7 @@ module AWS::SDK::DataExchange
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -560,7 +562,7 @@ module AWS::SDK::DataExchange
     def create_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRevisionInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::DataExchange
     def delete_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssetInput,
         validate_input: @config.validate_input
@@ -703,7 +705,7 @@ module AWS::SDK::DataExchange
     def delete_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSetInput,
         validate_input: @config.validate_input
@@ -770,7 +772,7 @@ module AWS::SDK::DataExchange
     def delete_event_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventActionInput,
         validate_input: @config.validate_input
@@ -841,7 +843,7 @@ module AWS::SDK::DataExchange
     def delete_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRevisionInput,
         validate_input: @config.validate_input
@@ -940,7 +942,7 @@ module AWS::SDK::DataExchange
     def get_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAssetInput,
         validate_input: @config.validate_input
@@ -1020,7 +1022,7 @@ module AWS::SDK::DataExchange
     def get_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataSetInput,
         validate_input: @config.validate_input
@@ -1102,7 +1104,7 @@ module AWS::SDK::DataExchange
     def get_event_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventActionInput,
         validate_input: @config.validate_input
@@ -1246,7 +1248,7 @@ module AWS::SDK::DataExchange
     def get_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::DataExchange
     def get_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRevisionInput,
         validate_input: @config.validate_input
@@ -1419,7 +1421,7 @@ module AWS::SDK::DataExchange
     def list_data_set_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSetRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSetRevisionsInput,
         validate_input: @config.validate_input
@@ -1508,7 +1510,7 @@ module AWS::SDK::DataExchange
     def list_data_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataSetsInput,
         validate_input: @config.validate_input
@@ -1601,7 +1603,7 @@ module AWS::SDK::DataExchange
     def list_event_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventActionsInput,
         validate_input: @config.validate_input
@@ -1760,7 +1762,7 @@ module AWS::SDK::DataExchange
     def list_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsInput,
         validate_input: @config.validate_input
@@ -1866,7 +1868,7 @@ module AWS::SDK::DataExchange
     def list_revision_assets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRevisionAssetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRevisionAssetsInput,
         validate_input: @config.validate_input
@@ -1935,7 +1937,7 @@ module AWS::SDK::DataExchange
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2021,7 +2023,7 @@ module AWS::SDK::DataExchange
     def revoke_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeRevisionInput,
         validate_input: @config.validate_input
@@ -2121,7 +2123,7 @@ module AWS::SDK::DataExchange
     def send_api_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendApiAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendApiAssetInput,
         validate_input: @config.validate_input
@@ -2193,7 +2195,7 @@ module AWS::SDK::DataExchange
     def start_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartJobInput,
         validate_input: @config.validate_input
@@ -2266,7 +2268,7 @@ module AWS::SDK::DataExchange
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2340,7 +2342,7 @@ module AWS::SDK::DataExchange
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2443,7 +2445,7 @@ module AWS::SDK::DataExchange
     def update_asset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAssetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAssetInput,
         validate_input: @config.validate_input
@@ -2530,7 +2532,7 @@ module AWS::SDK::DataExchange
     def update_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSetInput,
         validate_input: @config.validate_input
@@ -2628,7 +2630,7 @@ module AWS::SDK::DataExchange
     def update_event_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventActionInput,
         validate_input: @config.validate_input
@@ -2719,7 +2721,7 @@ module AWS::SDK::DataExchange
     def update_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRevisionInput,
         validate_input: @config.validate_input

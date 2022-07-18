@@ -420,11 +420,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.idle_timeout ||= 0
       end
-
     end
 
     # <p>A configuration for Amazon EMR block public access. When
@@ -476,11 +476,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_public_security_group_rules ||= false
       end
-
     end
 
     # <p>Properties that describe the Amazon Web Services principal that created the
@@ -952,13 +952,13 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_terminate ||= false
         self.termination_protected ||= false
         self.visible_to_all_users ||= false
       end
-
     end
 
     # Includes enum constants for ClusterState
@@ -3032,12 +3032,12 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configurations_version ||= 0
         self.last_successfully_applied_configurations_version ||= 0
       end
-
     end
 
     # <p>Configuration defining a new instance group.</p>
@@ -3910,11 +3910,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.visible_to_all_users ||= false
       end
-
     end
 
     # Includes enum constants for JobFlowExecutionState
@@ -4143,12 +4143,12 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_job_flow_alive_when_no_steps ||= false
         self.termination_protected ||= false
       end
-
     end
 
     # <p>Specify the type of Amazon EC2 instances that the cluster (job flow) runs
@@ -4247,12 +4247,12 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_job_flow_alive_when_no_steps ||= false
         self.termination_protected ||= false
       end
-
     end
 
     # <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
@@ -6138,11 +6138,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.visible_to_all_users ||= false
       end
-
     end
 
     # <p> The result of the <a>RunJobFlow</a> operation. </p>
@@ -6447,11 +6447,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.termination_protected ||= false
       end
-
     end
 
     SetTerminationProtectionOutput = ::Struct.new(
@@ -6482,11 +6482,11 @@ module AWS::SDK::EMR
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.visible_to_all_users ||= false
       end
-
     end
 
     SetVisibleToAllUsersOutput = ::Struct.new(

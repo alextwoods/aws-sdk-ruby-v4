@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Mq
   module Validators
 
@@ -37,7 +39,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BrokerEngineType, context: context)
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
-        Validators::List____listOfEngineVersion.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
+        List____listOfEngineVersion.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BrokerInstance, context: context)
         Hearth::Validator.validate!(input[:console_url], ::String, context: "#{context}[:console_url]")
-        Validators::List____listOf__string.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        List____listOf__string.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
       end
     end
@@ -53,12 +55,12 @@ module AWS::SDK::Mq
     class BrokerInstanceOption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BrokerInstanceOption, context: context)
-        Validators::List____listOfAvailabilityZone.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        List____listOfAvailabilityZone.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:host_instance_type], ::String, context: "#{context}[:host_instance_type]")
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
-        Validators::List____listOfDeploymentMode.validate!(input[:supported_deployment_modes], context: "#{context}[:supported_deployment_modes]") unless input[:supported_deployment_modes].nil?
-        Validators::List____listOf__string.validate!(input[:supported_engine_versions], context: "#{context}[:supported_engine_versions]") unless input[:supported_engine_versions].nil?
+        List____listOfDeploymentMode.validate!(input[:supported_deployment_modes], context: "#{context}[:supported_deployment_modes]") unless input[:supported_deployment_modes].nil?
+        List____listOf__string.validate!(input[:supported_engine_versions], context: "#{context}[:supported_engine_versions]") unless input[:supported_engine_versions].nil?
       end
     end
 
@@ -86,9 +88,9 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -112,9 +114,9 @@ module AWS::SDK::Mq
     class Configurations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Configurations, context: context)
-        Validators::ConfigurationId.validate!(input[:current], context: "#{context}[:current]") unless input[:current].nil?
-        Validators::List____listOfConfigurationId.validate!(input[:history], context: "#{context}[:history]") unless input[:history].nil?
-        Validators::ConfigurationId.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
+        ConfigurationId.validate!(input[:current], context: "#{context}[:current]") unless input[:current].nil?
+        List____listOfConfigurationId.validate!(input[:history], context: "#{context}[:history]") unless input[:history].nil?
+        ConfigurationId.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
       end
     end
 
@@ -132,22 +134,22 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:authentication_strategy], ::String, context: "#{context}[:authentication_strategy]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
         Hearth::Validator.validate!(input[:broker_name], ::String, context: "#{context}[:broker_name]")
-        Validators::ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:creator_request_id], ::String, context: "#{context}[:creator_request_id]")
         Hearth::Validator.validate!(input[:deployment_mode], ::String, context: "#{context}[:deployment_mode]")
-        Validators::EncryptionOptions.validate!(input[:encryption_options], context: "#{context}[:encryption_options]") unless input[:encryption_options].nil?
+        EncryptionOptions.validate!(input[:encryption_options], context: "#{context}[:encryption_options]") unless input[:encryption_options].nil?
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:host_instance_type], ::String, context: "#{context}[:host_instance_type]")
-        Validators::LdapServerMetadataInput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
-        Validators::Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
-        Validators::WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
+        LdapServerMetadataInput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
+        Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
+        WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
-        Validators::List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfUser.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfUser.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -166,7 +168,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:authentication_strategy], ::String, context: "#{context}[:authentication_strategy]")
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input, Types::CreateUserInput, context: context)
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
         Hearth::Validator.validate!(input[:console_access], ::TrueClass, ::FalseClass, context: "#{context}[:console_access]")
-        Validators::List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
       end
@@ -231,7 +233,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::Mq
     class DescribeBrokerEngineTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBrokerEngineTypesOutput, context: context)
-        Validators::List____listOfBrokerEngineType.validate!(input[:broker_engine_types], context: "#{context}[:broker_engine_types]") unless input[:broker_engine_types].nil?
+        List____listOfBrokerEngineType.validate!(input[:broker_engine_types], context: "#{context}[:broker_engine_types]") unless input[:broker_engine_types].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -294,7 +296,7 @@ module AWS::SDK::Mq
     class DescribeBrokerInstanceOptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBrokerInstanceOptionsOutput, context: context)
-        Validators::List____listOfBrokerInstanceOption.validate!(input[:broker_instance_options], context: "#{context}[:broker_instance_options]") unless input[:broker_instance_options].nil?
+        List____listOfBrokerInstanceOption.validate!(input[:broker_instance_options], context: "#{context}[:broker_instance_options]") unless input[:broker_instance_options].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -303,35 +305,35 @@ module AWS::SDK::Mq
     class DescribeBrokerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBrokerOutput, context: context)
-        Validators::List____listOfActionRequired.validate!(input[:actions_required], context: "#{context}[:actions_required]") unless input[:actions_required].nil?
+        List____listOfActionRequired.validate!(input[:actions_required], context: "#{context}[:actions_required]") unless input[:actions_required].nil?
         Hearth::Validator.validate!(input[:authentication_strategy], ::String, context: "#{context}[:authentication_strategy]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
         Hearth::Validator.validate!(input[:broker_arn], ::String, context: "#{context}[:broker_arn]")
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
-        Validators::List____listOfBrokerInstance.validate!(input[:broker_instances], context: "#{context}[:broker_instances]") unless input[:broker_instances].nil?
+        List____listOfBrokerInstance.validate!(input[:broker_instances], context: "#{context}[:broker_instances]") unless input[:broker_instances].nil?
         Hearth::Validator.validate!(input[:broker_name], ::String, context: "#{context}[:broker_name]")
         Hearth::Validator.validate!(input[:broker_state], ::String, context: "#{context}[:broker_state]")
-        Validators::Configurations.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        Configurations.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:deployment_mode], ::String, context: "#{context}[:deployment_mode]")
-        Validators::EncryptionOptions.validate!(input[:encryption_options], context: "#{context}[:encryption_options]") unless input[:encryption_options].nil?
+        EncryptionOptions.validate!(input[:encryption_options], context: "#{context}[:encryption_options]") unless input[:encryption_options].nil?
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:host_instance_type], ::String, context: "#{context}[:host_instance_type]")
-        Validators::LdapServerMetadataOutput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
-        Validators::LogsSummary.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
-        Validators::WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
+        LdapServerMetadataOutput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
+        LogsSummary.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
+        WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
         Hearth::Validator.validate!(input[:pending_authentication_strategy], ::String, context: "#{context}[:pending_authentication_strategy]")
         Hearth::Validator.validate!(input[:pending_engine_version], ::String, context: "#{context}[:pending_engine_version]")
         Hearth::Validator.validate!(input[:pending_host_instance_type], ::String, context: "#{context}[:pending_host_instance_type]")
-        Validators::LdapServerMetadataOutput.validate!(input[:pending_ldap_server_metadata], context: "#{context}[:pending_ldap_server_metadata]") unless input[:pending_ldap_server_metadata].nil?
-        Validators::List____listOf__string.validate!(input[:pending_security_groups], context: "#{context}[:pending_security_groups]") unless input[:pending_security_groups].nil?
+        LdapServerMetadataOutput.validate!(input[:pending_ldap_server_metadata], context: "#{context}[:pending_ldap_server_metadata]") unless input[:pending_ldap_server_metadata].nil?
+        List____listOf__string.validate!(input[:pending_security_groups], context: "#{context}[:pending_security_groups]") unless input[:pending_security_groups].nil?
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:storage_type], ::String, context: "#{context}[:storage_type]")
-        Validators::List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::List____listOfUserSummary.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        List____listOf__string.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        List____listOfUserSummary.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -352,9 +354,9 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:engine_type], ::String, context: "#{context}[:engine_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -389,8 +391,8 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input, Types::DescribeUserOutput, context: context)
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
         Hearth::Validator.validate!(input[:console_access], ::TrueClass, ::FalseClass, context: "#{context}[:console_access]")
-        Validators::List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
-        Validators::UserPendingChanges.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
+        List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        UserPendingChanges.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
       end
     end
@@ -429,7 +431,7 @@ module AWS::SDK::Mq
     class LdapServerMetadataInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LdapServerMetadataInput, context: context)
-        Validators::List____listOf__string.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
+        List____listOf__string.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
         Hearth::Validator.validate!(input[:role_base], ::String, context: "#{context}[:role_base]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
         Hearth::Validator.validate!(input[:role_search_matching], ::String, context: "#{context}[:role_search_matching]")
@@ -446,7 +448,7 @@ module AWS::SDK::Mq
     class LdapServerMetadataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LdapServerMetadataOutput, context: context)
-        Validators::List____listOf__string.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
+        List____listOf__string.validate!(input[:hosts], context: "#{context}[:hosts]") unless input[:hosts].nil?
         Hearth::Validator.validate!(input[:role_base], ::String, context: "#{context}[:role_base]")
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
         Hearth::Validator.validate!(input[:role_search_matching], ::String, context: "#{context}[:role_search_matching]")
@@ -470,7 +472,7 @@ module AWS::SDK::Mq
     class ListBrokersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBrokersOutput, context: context)
-        Validators::List____listOfBrokerSummary.validate!(input[:broker_summaries], context: "#{context}[:broker_summaries]") unless input[:broker_summaries].nil?
+        List____listOfBrokerSummary.validate!(input[:broker_summaries], context: "#{context}[:broker_summaries]") unless input[:broker_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:configuration_id], ::String, context: "#{context}[:configuration_id]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfConfigurationRevision.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
+        List____listOfConfigurationRevision.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
       end
     end
 
@@ -505,7 +507,7 @@ module AWS::SDK::Mq
     class ListConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConfigurationsOutput, context: context)
-        Validators::List____listOfConfiguration.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
+        List____listOfConfiguration.validate!(input[:configurations], context: "#{context}[:configurations]") unless input[:configurations].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -521,7 +523,7 @@ module AWS::SDK::Mq
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -540,7 +542,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfUserSummary.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        List____listOfUserSummary.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -559,7 +561,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:audit_log_group], ::String, context: "#{context}[:audit_log_group]")
         Hearth::Validator.validate!(input[:general], ::TrueClass, ::FalseClass, context: "#{context}[:general]")
         Hearth::Validator.validate!(input[:general_log_group], ::String, context: "#{context}[:general_log_group]")
-        Validators::PendingLogs.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
+        PendingLogs.validate!(input[:pending], context: "#{context}[:pending]") unless input[:pending].nil?
       end
     end
 
@@ -615,13 +617,13 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:authentication_strategy], ::String, context: "#{context}[:authentication_strategy]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
-        Validators::ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:host_instance_type], ::String, context: "#{context}[:host_instance_type]")
-        Validators::LdapServerMetadataInput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
-        Validators::Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
-        Validators::WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        LdapServerMetadataInput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
+        Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
+        WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
       end
     end
 
@@ -631,13 +633,13 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:authentication_strategy], ::String, context: "#{context}[:authentication_strategy]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
-        Validators::ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ConfigurationId.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:host_instance_type], ::String, context: "#{context}[:host_instance_type]")
-        Validators::LdapServerMetadataOutput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
-        Validators::Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
-        Validators::WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        LdapServerMetadataOutput.validate!(input[:ldap_server_metadata], context: "#{context}[:ldap_server_metadata]") unless input[:ldap_server_metadata].nil?
+        Logs.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
+        WeeklyStartTime.validate!(input[:maintenance_window_start_time], context: "#{context}[:maintenance_window_start_time]") unless input[:maintenance_window_start_time].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
       end
     end
 
@@ -656,9 +658,9 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        ConfigurationRevision.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfSanitizationWarning.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        List____listOfSanitizationWarning.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -667,7 +669,7 @@ module AWS::SDK::Mq
         Hearth::Validator.validate!(input, Types::UpdateUserInput, context: context)
         Hearth::Validator.validate!(input[:broker_id], ::String, context: "#{context}[:broker_id]")
         Hearth::Validator.validate!(input[:console_access], ::TrueClass, ::FalseClass, context: "#{context}[:console_access]")
-        Validators::List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
       end
@@ -683,7 +685,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::User, context: context)
         Hearth::Validator.validate!(input[:console_access], ::TrueClass, ::FalseClass, context: "#{context}[:console_access]")
-        Validators::List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
       end
@@ -693,7 +695,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserPendingChanges, context: context)
         Hearth::Validator.validate!(input[:console_access], ::TrueClass, ::FalseClass, context: "#{context}[:console_access]")
-        Validators::List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        List____listOf__string.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:pending_change], ::String, context: "#{context}[:pending_change]")
       end
     end
@@ -719,7 +721,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionRequired.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionRequired.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -728,7 +730,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -737,7 +739,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BrokerEngineType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BrokerEngineType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -746,7 +748,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BrokerInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BrokerInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -755,7 +757,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BrokerInstanceOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BrokerInstanceOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -764,7 +766,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BrokerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BrokerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Configuration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -782,7 +784,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationId.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -791,7 +793,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigurationRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigurationRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EngineVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -818,7 +820,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SanitizationWarning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SanitizationWarning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -827,7 +829,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -836,7 +838,7 @@ module AWS::SDK::Mq
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

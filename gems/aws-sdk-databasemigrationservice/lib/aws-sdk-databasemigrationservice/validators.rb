@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DatabaseMigrationService
   module Validators
 
@@ -30,7 +32,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountQuota.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::DatabaseMigrationService
     class ApplyPendingMaintenanceActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApplyPendingMaintenanceActionOutput, context: context)
-        Validators::ResourcePendingMaintenanceActions.validate!(input[:resource_pending_maintenance_actions], context: "#{context}[:resource_pending_maintenance_actions]") unless input[:resource_pending_maintenance_actions].nil?
+        ResourcePendingMaintenanceActions.validate!(input[:resource_pending_maintenance_actions], context: "#{context}[:resource_pending_maintenance_actions]") unless input[:resource_pending_maintenance_actions].nil?
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::DatabaseMigrationService
     class CancelReplicationTaskAssessmentRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CancelReplicationTaskAssessmentRunOutput, context: context)
-        Validators::ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
+        ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -156,12 +158,12 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:s3_bucket_name], ::String, context: "#{context}[:s3_bucket_name]")
         Hearth::Validator.validate!(input[:service_access_role_arn], ::String, context: "#{context}[:service_access_role_arn]")
-        Validators::CollectorHealthCheck.validate!(input[:collector_health_check], context: "#{context}[:collector_health_check]") unless input[:collector_health_check].nil?
+        CollectorHealthCheck.validate!(input[:collector_health_check], context: "#{context}[:collector_health_check]") unless input[:collector_health_check].nil?
         Hearth::Validator.validate!(input[:last_data_received], ::String, context: "#{context}[:last_data_received]")
         Hearth::Validator.validate!(input[:registered_date], ::String, context: "#{context}[:registered_date]")
         Hearth::Validator.validate!(input[:created_date], ::String, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:modified_date], ::String, context: "#{context}[:modified_date]")
-        Validators::InventoryData.validate!(input[:inventory_data], context: "#{context}[:inventory_data]") unless input[:inventory_data].nil?
+        InventoryData.validate!(input[:inventory_data], context: "#{context}[:inventory_data]") unless input[:inventory_data].nil?
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CollectorResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CollectorResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CollectorShortInfoResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CollectorShortInfoResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -225,37 +227,37 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:extra_connection_attributes], ::String, context: "#{context}[:extra_connection_attributes]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
         Hearth::Validator.validate!(input[:ssl_mode], ::String, context: "#{context}[:ssl_mode]")
         Hearth::Validator.validate!(input[:service_access_role_arn], ::String, context: "#{context}[:service_access_role_arn]")
         Hearth::Validator.validate!(input[:external_table_definition], ::String, context: "#{context}[:external_table_definition]")
-        Validators::DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
-        Validators::S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
-        Validators::DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
-        Validators::MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
-        Validators::KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
-        Validators::KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
-        Validators::ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
-        Validators::NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
-        Validators::RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
-        Validators::PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
-        Validators::MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
-        Validators::OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
-        Validators::SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
-        Validators::MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
-        Validators::IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
+        DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
+        S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
+        DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
+        MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
+        KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
+        KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
+        ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
+        NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
+        RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
+        PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
+        MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
+        OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
+        SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
+        MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
+        IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
         Hearth::Validator.validate!(input[:resource_identifier], ::String, context: "#{context}[:resource_identifier]")
-        Validators::DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
-        Validators::RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
-        Validators::GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
+        DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
+        RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
+        GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
       end
     end
 
     class CreateEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEndpointOutput, context: context)
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -265,17 +267,17 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
-        Validators::SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateEventSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEventSubscriptionOutput, context: context)
-        Validators::EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
+        EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
       end
     end
 
@@ -306,14 +308,14 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_instance_identifier], ::String, context: "#{context}[:replication_instance_identifier]")
         Hearth::Validator.validate!(input[:allocated_storage], ::Integer, context: "#{context}[:allocated_storage]")
         Hearth::Validator.validate!(input[:replication_instance_class], ::String, context: "#{context}[:replication_instance_class]")
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:replication_subnet_group_identifier], ::String, context: "#{context}[:replication_subnet_group_identifier]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:multi_az], ::TrueClass, ::FalseClass, context: "#{context}[:multi_az]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
         Hearth::Validator.validate!(input[:dns_name_servers], ::String, context: "#{context}[:dns_name_servers]")
@@ -324,7 +326,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateReplicationInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReplicationInstanceOutput, context: context)
-        Validators::ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
+        ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
       end
     end
 
@@ -333,15 +335,15 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input, Types::CreateReplicationSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:replication_subnet_group_identifier], ::String, context: "#{context}[:replication_subnet_group_identifier]")
         Hearth::Validator.validate!(input[:replication_subnet_group_description], ::String, context: "#{context}[:replication_subnet_group_description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateReplicationSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReplicationSubnetGroupOutput, context: context)
-        Validators::ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
+        ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:cdc_start_time], ::Time, context: "#{context}[:cdc_start_time]")
         Hearth::Validator.validate!(input[:cdc_start_position], ::String, context: "#{context}[:cdc_start_position]")
         Hearth::Validator.validate!(input[:cdc_stop_position], ::String, context: "#{context}[:cdc_stop_position]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:task_data], ::String, context: "#{context}[:task_data]")
         Hearth::Validator.validate!(input[:resource_identifier], ::String, context: "#{context}[:resource_identifier]")
       end
@@ -367,7 +369,7 @@ module AWS::SDK::DatabaseMigrationService
     class CreateReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DatabaseResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DatabaseResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -400,9 +402,9 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:number_of_schemas], ::Integer, context: "#{context}[:number_of_schemas]")
-        Validators::ServerShortInfoResponse.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
-        Validators::DatabaseInstanceSoftwareDetailsResponse.validate!(input[:software_details], context: "#{context}[:software_details]") unless input[:software_details].nil?
-        Validators::CollectorsList.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
+        ServerShortInfoResponse.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        DatabaseInstanceSoftwareDetailsResponse.validate!(input[:software_details], context: "#{context}[:software_details]") unless input[:software_details].nil?
+        CollectorsList.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCertificateOutput, context: context)
-        Validators::Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEndpointOutput, context: context)
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteEventSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteEventSubscriptionOutput, context: context)
-        Validators::EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
+        EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
       end
     end
 
@@ -489,14 +491,14 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteFleetAdvisorDatabasesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFleetAdvisorDatabasesInput, context: context)
-        Validators::StringList.validate!(input[:database_ids], context: "#{context}[:database_ids]") unless input[:database_ids].nil?
+        StringList.validate!(input[:database_ids], context: "#{context}[:database_ids]") unless input[:database_ids].nil?
       end
     end
 
     class DeleteFleetAdvisorDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFleetAdvisorDatabasesOutput, context: context)
-        Validators::StringList.validate!(input[:database_ids], context: "#{context}[:database_ids]") unless input[:database_ids].nil?
+        StringList.validate!(input[:database_ids], context: "#{context}[:database_ids]") unless input[:database_ids].nil?
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteReplicationInstanceOutput, context: context)
-        Validators::ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
+        ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
       end
     end
 
@@ -537,7 +539,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationTaskAssessmentRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteReplicationTaskAssessmentRunOutput, context: context)
-        Validators::ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
+        ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::DatabaseMigrationService
     class DeleteReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeAccountAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesOutput, context: context)
-        Validators::AccountQuotaList.validate!(input[:account_quotas], context: "#{context}[:account_quotas]") unless input[:account_quotas].nil?
+        AccountQuotaList.validate!(input[:account_quotas], context: "#{context}[:account_quotas]") unless input[:account_quotas].nil?
         Hearth::Validator.validate!(input[:unique_account_identifier], ::String, context: "#{context}[:unique_account_identifier]")
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeApplicableIndividualAssessmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeApplicableIndividualAssessmentsOutput, context: context)
-        Validators::IndividualAssessmentNameList.validate!(input[:individual_assessment_names], context: "#{context}[:individual_assessment_names]") unless input[:individual_assessment_names].nil?
+        IndividualAssessmentNameList.validate!(input[:individual_assessment_names], context: "#{context}[:individual_assessment_names]") unless input[:individual_assessment_names].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeCertificatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCertificatesInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -603,14 +605,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCertificatesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
       end
     end
 
     class DescribeConnectionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectionsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -620,7 +622,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        ConnectionList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
       end
     end
 
@@ -637,14 +639,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointSettingsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EndpointSettingsList.validate!(input[:endpoint_settings], context: "#{context}[:endpoint_settings]") unless input[:endpoint_settings].nil?
+        EndpointSettingsList.validate!(input[:endpoint_settings], context: "#{context}[:endpoint_settings]") unless input[:endpoint_settings].nil?
       end
     end
 
     class DescribeEndpointTypesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointTypesInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -654,14 +656,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointTypesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::SupportedEndpointTypeList.validate!(input[:supported_endpoint_types], context: "#{context}[:supported_endpoint_types]") unless input[:supported_endpoint_types].nil?
+        SupportedEndpointTypeList.validate!(input[:supported_endpoint_types], context: "#{context}[:supported_endpoint_types]") unless input[:supported_endpoint_types].nil?
       end
     end
 
     class DescribeEndpointsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -671,7 +673,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        EndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
       end
     end
 
@@ -679,14 +681,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventCategoriesInput, context: context)
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class DescribeEventCategoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventCategoriesOutput, context: context)
-        Validators::EventCategoryGroupList.validate!(input[:event_category_group_list], context: "#{context}[:event_category_group_list]") unless input[:event_category_group_list].nil?
+        EventCategoryGroupList.validate!(input[:event_category_group_list], context: "#{context}[:event_category_group_list]") unless input[:event_category_group_list].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventSubscriptionsInput, context: context)
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -704,7 +706,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventSubscriptionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EventSubscriptionsList.validate!(input[:event_subscriptions_list], context: "#{context}[:event_subscriptions_list]") unless input[:event_subscriptions_list].nil?
+        EventSubscriptionsList.validate!(input[:event_subscriptions_list], context: "#{context}[:event_subscriptions_list]") unless input[:event_subscriptions_list].nil?
       end
     end
 
@@ -716,8 +718,8 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:duration], ::Integer, context: "#{context}[:duration]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -727,14 +729,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
     class DescribeFleetAdvisorCollectorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorCollectorsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -743,7 +745,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorCollectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorCollectorsOutput, context: context)
-        Validators::CollectorResponses.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
+        CollectorResponses.validate!(input[:collectors], context: "#{context}[:collectors]") unless input[:collectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorDatabasesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorDatabasesInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -760,7 +762,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorDatabasesOutput, context: context)
-        Validators::DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
+        DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -776,7 +778,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorLsaAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorLsaAnalysisOutput, context: context)
-        Validators::FleetAdvisorLsaAnalysisResponseList.validate!(input[:analysis], context: "#{context}[:analysis]") unless input[:analysis].nil?
+        FleetAdvisorLsaAnalysisResponseList.validate!(input[:analysis], context: "#{context}[:analysis]") unless input[:analysis].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemaObjectSummaryInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorSchemaObjectSummaryInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -793,7 +795,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemaObjectSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorSchemaObjectSummaryOutput, context: context)
-        Validators::FleetAdvisorSchemaObjectList.validate!(input[:fleet_advisor_schema_objects], context: "#{context}[:fleet_advisor_schema_objects]") unless input[:fleet_advisor_schema_objects].nil?
+        FleetAdvisorSchemaObjectList.validate!(input[:fleet_advisor_schema_objects], context: "#{context}[:fleet_advisor_schema_objects]") unless input[:fleet_advisor_schema_objects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemasInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorSchemasInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -810,7 +812,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeFleetAdvisorSchemasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFleetAdvisorSchemasOutput, context: context)
-        Validators::FleetAdvisorSchemaList.validate!(input[:fleet_advisor_schemas], context: "#{context}[:fleet_advisor_schemas]") unless input[:fleet_advisor_schemas].nil?
+        FleetAdvisorSchemaList.validate!(input[:fleet_advisor_schemas], context: "#{context}[:fleet_advisor_schemas]") unless input[:fleet_advisor_schemas].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -826,7 +828,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeOrderableReplicationInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOrderableReplicationInstancesOutput, context: context)
-        Validators::OrderableReplicationInstanceList.validate!(input[:orderable_replication_instances], context: "#{context}[:orderable_replication_instances]") unless input[:orderable_replication_instances].nil?
+        OrderableReplicationInstanceList.validate!(input[:orderable_replication_instances], context: "#{context}[:orderable_replication_instances]") unless input[:orderable_replication_instances].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -835,7 +837,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePendingMaintenanceActionsInput, context: context)
         Hearth::Validator.validate!(input[:replication_instance_arn], ::String, context: "#{context}[:replication_instance_arn]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
       end
@@ -844,7 +846,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribePendingMaintenanceActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePendingMaintenanceActionsOutput, context: context)
-        Validators::PendingMaintenanceActions.validate!(input[:pending_maintenance_actions], context: "#{context}[:pending_maintenance_actions]") unless input[:pending_maintenance_actions].nil?
+        PendingMaintenanceActions.validate!(input[:pending_maintenance_actions], context: "#{context}[:pending_maintenance_actions]") unless input[:pending_maintenance_actions].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -859,7 +861,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeRefreshSchemasStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRefreshSchemasStatusOutput, context: context)
-        Validators::RefreshSchemasStatus.validate!(input[:refresh_schemas_status], context: "#{context}[:refresh_schemas_status]") unless input[:refresh_schemas_status].nil?
+        RefreshSchemasStatus.validate!(input[:refresh_schemas_status], context: "#{context}[:refresh_schemas_status]") unless input[:refresh_schemas_status].nil?
       end
     end
 
@@ -876,7 +878,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationInstanceTaskLogsOutput, context: context)
         Hearth::Validator.validate!(input[:replication_instance_arn], ::String, context: "#{context}[:replication_instance_arn]")
-        Validators::ReplicationInstanceTaskLogsList.validate!(input[:replication_instance_task_logs], context: "#{context}[:replication_instance_task_logs]") unless input[:replication_instance_task_logs].nil?
+        ReplicationInstanceTaskLogsList.validate!(input[:replication_instance_task_logs], context: "#{context}[:replication_instance_task_logs]") unless input[:replication_instance_task_logs].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::DatabaseMigrationService
     class DescribeReplicationInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationInstancesInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -894,14 +896,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationInstancesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationInstanceList.validate!(input[:replication_instances], context: "#{context}[:replication_instances]") unless input[:replication_instances].nil?
+        ReplicationInstanceList.validate!(input[:replication_instances], context: "#{context}[:replication_instances]") unless input[:replication_instances].nil?
       end
     end
 
     class DescribeReplicationSubnetGroupsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationSubnetGroupsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -911,7 +913,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationSubnetGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationSubnetGroups.validate!(input[:replication_subnet_groups], context: "#{context}[:replication_subnet_groups]") unless input[:replication_subnet_groups].nil?
+        ReplicationSubnetGroups.validate!(input[:replication_subnet_groups], context: "#{context}[:replication_subnet_groups]") unless input[:replication_subnet_groups].nil?
       end
     end
 
@@ -929,14 +931,14 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input, Types::DescribeReplicationTaskAssessmentResultsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
-        Validators::ReplicationTaskAssessmentResultList.validate!(input[:replication_task_assessment_results], context: "#{context}[:replication_task_assessment_results]") unless input[:replication_task_assessment_results].nil?
+        ReplicationTaskAssessmentResultList.validate!(input[:replication_task_assessment_results], context: "#{context}[:replication_task_assessment_results]") unless input[:replication_task_assessment_results].nil?
       end
     end
 
     class DescribeReplicationTaskAssessmentRunsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTaskAssessmentRunsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -946,14 +948,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTaskAssessmentRunsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationTaskAssessmentRunList.validate!(input[:replication_task_assessment_runs], context: "#{context}[:replication_task_assessment_runs]") unless input[:replication_task_assessment_runs].nil?
+        ReplicationTaskAssessmentRunList.validate!(input[:replication_task_assessment_runs], context: "#{context}[:replication_task_assessment_runs]") unless input[:replication_task_assessment_runs].nil?
       end
     end
 
     class DescribeReplicationTaskIndividualAssessmentsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTaskIndividualAssessmentsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -963,14 +965,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTaskIndividualAssessmentsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationTaskIndividualAssessmentList.validate!(input[:replication_task_individual_assessments], context: "#{context}[:replication_task_individual_assessments]") unless input[:replication_task_individual_assessments].nil?
+        ReplicationTaskIndividualAssessmentList.validate!(input[:replication_task_individual_assessments], context: "#{context}[:replication_task_individual_assessments]") unless input[:replication_task_individual_assessments].nil?
       end
     end
 
     class DescribeReplicationTasksInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTasksInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:without_settings], ::TrueClass, ::FalseClass, context: "#{context}[:without_settings]")
@@ -981,7 +983,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReplicationTasksOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReplicationTaskList.validate!(input[:replication_tasks], context: "#{context}[:replication_tasks]") unless input[:replication_tasks].nil?
+        ReplicationTaskList.validate!(input[:replication_tasks], context: "#{context}[:replication_tasks]") unless input[:replication_tasks].nil?
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSchemasOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::SchemaList.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
+        SchemaList.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
       end
     end
 
@@ -1008,7 +1010,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_task_arn], ::String, context: "#{context}[:replication_task_arn]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
@@ -1016,7 +1018,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableStatisticsOutput, context: context)
         Hearth::Validator.validate!(input[:replication_task_arn], ::String, context: "#{context}[:replication_task_arn]")
-        Validators::TableStatisticsList.validate!(input[:table_statistics], context: "#{context}[:table_statistics]") unless input[:table_statistics].nil?
+        TableStatisticsList.validate!(input[:table_statistics], context: "#{context}[:table_statistics]") unless input[:table_statistics].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1083,24 +1085,24 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:service_access_role_arn], ::String, context: "#{context}[:service_access_role_arn]")
         Hearth::Validator.validate!(input[:external_table_definition], ::String, context: "#{context}[:external_table_definition]")
         Hearth::Validator.validate!(input[:external_id], ::String, context: "#{context}[:external_id]")
-        Validators::DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
-        Validators::S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
-        Validators::DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
-        Validators::MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
-        Validators::KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
-        Validators::KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
-        Validators::ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
-        Validators::NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
-        Validators::RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
-        Validators::PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
-        Validators::MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
-        Validators::OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
-        Validators::SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
-        Validators::MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
-        Validators::IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
-        Validators::DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
-        Validators::RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
-        Validators::GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
+        DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
+        S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
+        DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
+        MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
+        KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
+        KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
+        ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
+        NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
+        RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
+        PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
+        MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
+        OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
+        SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
+        MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
+        IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
+        DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
+        RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
+        GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
       end
     end
 
@@ -1108,7 +1110,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1118,7 +1120,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input, Types::EndpointSetting, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::EndpointSettingEnumValues.validate!(input[:enum_values], context: "#{context}[:enum_values]") unless input[:enum_values].nil?
+        EndpointSettingEnumValues.validate!(input[:enum_values], context: "#{context}[:enum_values]") unless input[:enum_values].nil?
         Hearth::Validator.validate!(input[:sensitive], ::TrueClass, ::FalseClass, context: "#{context}[:sensitive]")
         Hearth::Validator.validate!(input[:units], ::String, context: "#{context}[:units]")
         Hearth::Validator.validate!(input[:applicability], ::String, context: "#{context}[:applicability]")
@@ -1141,7 +1143,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1152,7 +1154,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:source_identifier], ::String, context: "#{context}[:source_identifier]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:date], ::Time, context: "#{context}[:date]")
       end
     end
@@ -1170,7 +1172,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventCategoryGroup, context: context)
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventCategoryGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventCategoryGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1187,7 +1189,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1201,8 +1203,8 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:subscription_creation_time], ::String, context: "#{context}[:subscription_creation_time]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceIdsList.validate!(input[:source_ids_list], context: "#{context}[:source_ids_list]") unless input[:source_ids_list].nil?
-        Validators::EventCategoriesList.validate!(input[:event_categories_list], context: "#{context}[:event_categories_list]") unless input[:event_categories_list].nil?
+        SourceIdsList.validate!(input[:source_ids_list], context: "#{context}[:source_ids_list]") unless input[:source_ids_list].nil?
+        EventCategoriesList.validate!(input[:event_categories_list], context: "#{context}[:event_categories_list]") unless input[:event_categories_list].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
     end
@@ -1211,7 +1213,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1229,7 +1231,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1237,7 +1239,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1263,7 +1265,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetAdvisorLsaAnalysisResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetAdvisorLsaAnalysisResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1272,7 +1274,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SchemaResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SchemaResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1281,7 +1283,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetAdvisorSchemaObjectResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetAdvisorSchemaObjectResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1339,14 +1341,14 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:certificate_identifier], ::String, context: "#{context}[:certificate_identifier]")
         Hearth::Validator.validate!(input[:certificate_pem], ::String, context: "#{context}[:certificate_pem]")
         Hearth::Validator.validate!(input[:certificate_wallet], ::String, context: "#{context}[:certificate_wallet]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class ImportCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportCertificateOutput, context: context)
-        Validators::Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -1522,14 +1524,14 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ArnList.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
+        ArnList.validate!(input[:resource_arn_list], context: "#{context}[:resource_arn_list]") unless input[:resource_arn_list].nil?
       end
     end
 
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1570,32 +1572,32 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:ssl_mode], ::String, context: "#{context}[:ssl_mode]")
         Hearth::Validator.validate!(input[:service_access_role_arn], ::String, context: "#{context}[:service_access_role_arn]")
         Hearth::Validator.validate!(input[:external_table_definition], ::String, context: "#{context}[:external_table_definition]")
-        Validators::DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
-        Validators::S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
-        Validators::DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
-        Validators::MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
-        Validators::KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
-        Validators::KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
-        Validators::ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
-        Validators::NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
-        Validators::RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
-        Validators::PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
-        Validators::MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
-        Validators::OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
-        Validators::SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
-        Validators::MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
-        Validators::IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
-        Validators::DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
-        Validators::RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
+        DynamoDbSettings.validate!(input[:dynamo_db_settings], context: "#{context}[:dynamo_db_settings]") unless input[:dynamo_db_settings].nil?
+        S3Settings.validate!(input[:s3_settings], context: "#{context}[:s3_settings]") unless input[:s3_settings].nil?
+        DmsTransferSettings.validate!(input[:dms_transfer_settings], context: "#{context}[:dms_transfer_settings]") unless input[:dms_transfer_settings].nil?
+        MongoDbSettings.validate!(input[:mongo_db_settings], context: "#{context}[:mongo_db_settings]") unless input[:mongo_db_settings].nil?
+        KinesisSettings.validate!(input[:kinesis_settings], context: "#{context}[:kinesis_settings]") unless input[:kinesis_settings].nil?
+        KafkaSettings.validate!(input[:kafka_settings], context: "#{context}[:kafka_settings]") unless input[:kafka_settings].nil?
+        ElasticsearchSettings.validate!(input[:elasticsearch_settings], context: "#{context}[:elasticsearch_settings]") unless input[:elasticsearch_settings].nil?
+        NeptuneSettings.validate!(input[:neptune_settings], context: "#{context}[:neptune_settings]") unless input[:neptune_settings].nil?
+        RedshiftSettings.validate!(input[:redshift_settings], context: "#{context}[:redshift_settings]") unless input[:redshift_settings].nil?
+        PostgreSQLSettings.validate!(input[:postgre_sql_settings], context: "#{context}[:postgre_sql_settings]") unless input[:postgre_sql_settings].nil?
+        MySQLSettings.validate!(input[:my_sql_settings], context: "#{context}[:my_sql_settings]") unless input[:my_sql_settings].nil?
+        OracleSettings.validate!(input[:oracle_settings], context: "#{context}[:oracle_settings]") unless input[:oracle_settings].nil?
+        SybaseSettings.validate!(input[:sybase_settings], context: "#{context}[:sybase_settings]") unless input[:sybase_settings].nil?
+        MicrosoftSQLServerSettings.validate!(input[:microsoft_sql_server_settings], context: "#{context}[:microsoft_sql_server_settings]") unless input[:microsoft_sql_server_settings].nil?
+        IBMDb2Settings.validate!(input[:ibm_db2_settings], context: "#{context}[:ibm_db2_settings]") unless input[:ibm_db2_settings].nil?
+        DocDbSettings.validate!(input[:doc_db_settings], context: "#{context}[:doc_db_settings]") unless input[:doc_db_settings].nil?
+        RedisSettings.validate!(input[:redis_settings], context: "#{context}[:redis_settings]") unless input[:redis_settings].nil?
         Hearth::Validator.validate!(input[:exact_settings], ::TrueClass, ::FalseClass, context: "#{context}[:exact_settings]")
-        Validators::GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
+        GcpMySQLSettings.validate!(input[:gcp_my_sql_settings], context: "#{context}[:gcp_my_sql_settings]") unless input[:gcp_my_sql_settings].nil?
       end
     end
 
     class ModifyEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyEndpointOutput, context: context)
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -1605,7 +1607,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
     end
@@ -1613,7 +1615,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyEventSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyEventSubscriptionOutput, context: context)
-        Validators::EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
+        EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
       end
     end
 
@@ -1624,7 +1626,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:allocated_storage], ::Integer, context: "#{context}[:allocated_storage]")
         Hearth::Validator.validate!(input[:apply_immediately], ::TrueClass, ::FalseClass, context: "#{context}[:apply_immediately]")
         Hearth::Validator.validate!(input[:replication_instance_class], ::String, context: "#{context}[:replication_instance_class]")
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:multi_az], ::TrueClass, ::FalseClass, context: "#{context}[:multi_az]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
@@ -1637,7 +1639,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyReplicationInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReplicationInstanceOutput, context: context)
-        Validators::ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
+        ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
       end
     end
 
@@ -1646,14 +1648,14 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input, Types::ModifyReplicationSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:replication_subnet_group_identifier], ::String, context: "#{context}[:replication_subnet_group_identifier]")
         Hearth::Validator.validate!(input[:replication_subnet_group_description], ::String, context: "#{context}[:replication_subnet_group_description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
     class ModifyReplicationSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReplicationSubnetGroupOutput, context: context)
-        Validators::ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
+        ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
       end
     end
 
@@ -1675,7 +1677,7 @@ module AWS::SDK::DatabaseMigrationService
     class ModifyReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -1710,7 +1712,7 @@ module AWS::SDK::DatabaseMigrationService
     class MoveReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MoveReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -1753,7 +1755,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:add_supplemental_logging], ::TrueClass, ::FalseClass, context: "#{context}[:add_supplemental_logging]")
         Hearth::Validator.validate!(input[:archived_log_dest_id], ::Integer, context: "#{context}[:archived_log_dest_id]")
         Hearth::Validator.validate!(input[:additional_archived_log_dest_id], ::Integer, context: "#{context}[:additional_archived_log_dest_id]")
-        Validators::IntegerList.validate!(input[:extra_archived_log_dest_ids], context: "#{context}[:extra_archived_log_dest_ids]") unless input[:extra_archived_log_dest_ids].nil?
+        IntegerList.validate!(input[:extra_archived_log_dest_ids], context: "#{context}[:extra_archived_log_dest_ids]") unless input[:extra_archived_log_dest_ids].nil?
         Hearth::Validator.validate!(input[:allow_select_nested_tables], ::TrueClass, ::FalseClass, context: "#{context}[:allow_select_nested_tables]")
         Hearth::Validator.validate!(input[:parallel_asm_read_threads], ::Integer, context: "#{context}[:parallel_asm_read_threads]")
         Hearth::Validator.validate!(input[:read_ahead_blocks], ::Integer, context: "#{context}[:read_ahead_blocks]")
@@ -1803,7 +1805,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:max_allocated_storage], ::Integer, context: "#{context}[:max_allocated_storage]")
         Hearth::Validator.validate!(input[:default_allocated_storage], ::Integer, context: "#{context}[:default_allocated_storage]")
         Hearth::Validator.validate!(input[:included_allocated_storage], ::Integer, context: "#{context}[:included_allocated_storage]")
-        Validators::AvailabilityZonesList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        AvailabilityZonesList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
         Hearth::Validator.validate!(input[:release_status], ::String, context: "#{context}[:release_status]")
       end
     end
@@ -1812,7 +1814,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrderableReplicationInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrderableReplicationInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1833,7 +1835,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PendingMaintenanceAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PendingMaintenanceAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1842,7 +1844,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePendingMaintenanceActions.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePendingMaintenanceActions.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1883,7 +1885,7 @@ module AWS::SDK::DatabaseMigrationService
     class RebootReplicationInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootReplicationInstanceOutput, context: context)
-        Validators::ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
+        ReplicationInstance.validate!(input[:replication_instance], context: "#{context}[:replication_instance]") unless input[:replication_instance].nil?
       end
     end
 
@@ -1947,7 +1949,7 @@ module AWS::SDK::DatabaseMigrationService
     class RefreshSchemasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RefreshSchemasOutput, context: context)
-        Validators::RefreshSchemasStatus.validate!(input[:refresh_schemas_status], context: "#{context}[:refresh_schemas_status]") unless input[:refresh_schemas_status].nil?
+        RefreshSchemasStatus.validate!(input[:refresh_schemas_status], context: "#{context}[:refresh_schemas_status]") unless input[:refresh_schemas_status].nil?
       end
     end
 
@@ -1966,7 +1968,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReloadTablesInput, context: context)
         Hearth::Validator.validate!(input[:replication_task_arn], ::String, context: "#{context}[:replication_task_arn]")
-        Validators::TableListToReload.validate!(input[:tables_to_reload], context: "#{context}[:tables_to_reload]") unless input[:tables_to_reload].nil?
+        TableListToReload.validate!(input[:tables_to_reload], context: "#{context}[:tables_to_reload]") unless input[:tables_to_reload].nil?
         Hearth::Validator.validate!(input[:reload_option], ::String, context: "#{context}[:reload_option]")
       end
     end
@@ -1982,7 +1984,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -2000,11 +2002,11 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_instance_status], ::String, context: "#{context}[:replication_instance_status]")
         Hearth::Validator.validate!(input[:allocated_storage], ::Integer, context: "#{context}[:allocated_storage]")
         Hearth::Validator.validate!(input[:instance_create_time], ::Time, context: "#{context}[:instance_create_time]")
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
-        Validators::ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
+        ReplicationSubnetGroup.validate!(input[:replication_subnet_group], context: "#{context}[:replication_subnet_group]") unless input[:replication_subnet_group].nil?
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
-        Validators::ReplicationPendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
+        ReplicationPendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
         Hearth::Validator.validate!(input[:multi_az], ::TrueClass, ::FalseClass, context: "#{context}[:multi_az]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:auto_minor_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:auto_minor_version_upgrade]")
@@ -2012,8 +2014,8 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_instance_arn], ::String, context: "#{context}[:replication_instance_arn]")
         Hearth::Validator.validate!(input[:replication_instance_public_ip_address], ::String, context: "#{context}[:replication_instance_public_ip_address]")
         Hearth::Validator.validate!(input[:replication_instance_private_ip_address], ::String, context: "#{context}[:replication_instance_private_ip_address]")
-        Validators::ReplicationInstancePublicIpAddressList.validate!(input[:replication_instance_public_ip_addresses], context: "#{context}[:replication_instance_public_ip_addresses]") unless input[:replication_instance_public_ip_addresses].nil?
-        Validators::ReplicationInstancePrivateIpAddressList.validate!(input[:replication_instance_private_ip_addresses], context: "#{context}[:replication_instance_private_ip_addresses]") unless input[:replication_instance_private_ip_addresses].nil?
+        ReplicationInstancePublicIpAddressList.validate!(input[:replication_instance_public_ip_addresses], context: "#{context}[:replication_instance_public_ip_addresses]") unless input[:replication_instance_public_ip_addresses].nil?
+        ReplicationInstancePrivateIpAddressList.validate!(input[:replication_instance_private_ip_addresses], context: "#{context}[:replication_instance_private_ip_addresses]") unless input[:replication_instance_private_ip_addresses].nil?
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
         Hearth::Validator.validate!(input[:secondary_availability_zone], ::String, context: "#{context}[:secondary_availability_zone]")
         Hearth::Validator.validate!(input[:free_until], ::Time, context: "#{context}[:free_until]")
@@ -2025,7 +2027,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2061,7 +2063,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationInstanceTaskLog.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationInstanceTaskLog.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2083,7 +2085,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_subnet_group_description], ::String, context: "#{context}[:replication_subnet_group_description]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:subnet_group_status], ::String, context: "#{context}[:subnet_group_status]")
-        Validators::SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
       end
     end
 
@@ -2098,7 +2100,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2122,7 +2124,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:cdc_stop_position], ::String, context: "#{context}[:cdc_stop_position]")
         Hearth::Validator.validate!(input[:recovery_checkpoint], ::String, context: "#{context}[:recovery_checkpoint]")
         Hearth::Validator.validate!(input[:replication_task_arn], ::String, context: "#{context}[:replication_task_arn]")
-        Validators::ReplicationTaskStats.validate!(input[:replication_task_stats], context: "#{context}[:replication_task_stats]") unless input[:replication_task_stats].nil?
+        ReplicationTaskStats.validate!(input[:replication_task_stats], context: "#{context}[:replication_task_stats]") unless input[:replication_task_stats].nil?
         Hearth::Validator.validate!(input[:task_data], ::String, context: "#{context}[:task_data]")
         Hearth::Validator.validate!(input[:target_replication_instance_arn], ::String, context: "#{context}[:target_replication_instance_arn]")
       end
@@ -2145,7 +2147,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationTaskAssessmentResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationTaskAssessmentResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2157,7 +2159,7 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:replication_task_arn], ::String, context: "#{context}[:replication_task_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:replication_task_assessment_run_creation_date], ::Time, context: "#{context}[:replication_task_assessment_run_creation_date]")
-        Validators::ReplicationTaskAssessmentRunProgress.validate!(input[:assessment_progress], context: "#{context}[:assessment_progress]") unless input[:assessment_progress].nil?
+        ReplicationTaskAssessmentRunProgress.validate!(input[:assessment_progress], context: "#{context}[:assessment_progress]") unless input[:assessment_progress].nil?
         Hearth::Validator.validate!(input[:last_failure_message], ::String, context: "#{context}[:last_failure_message]")
         Hearth::Validator.validate!(input[:service_access_role_arn], ::String, context: "#{context}[:service_access_role_arn]")
         Hearth::Validator.validate!(input[:result_location_bucket], ::String, context: "#{context}[:result_location_bucket]")
@@ -2172,7 +2174,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationTaskAssessmentRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationTaskAssessmentRun.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2200,7 +2202,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationTaskIndividualAssessment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationTaskIndividualAssessment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2209,7 +2211,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReplicationTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReplicationTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2250,7 +2252,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourcePendingMaintenanceActions, context: context)
         Hearth::Validator.validate!(input[:resource_identifier], ::String, context: "#{context}[:resource_identifier]")
-        Validators::PendingMaintenanceActionDetails.validate!(input[:pending_maintenance_action_details], context: "#{context}[:pending_maintenance_action_details]") unless input[:pending_maintenance_action_details].nil?
+        PendingMaintenanceActionDetails.validate!(input[:pending_maintenance_action_details], context: "#{context}[:pending_maintenance_action_details]") unless input[:pending_maintenance_action_details].nil?
       end
     end
 
@@ -2362,11 +2364,11 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:code_line_count], ::Integer, context: "#{context}[:code_line_count]")
         Hearth::Validator.validate!(input[:code_size], ::Integer, context: "#{context}[:code_size]")
         Hearth::Validator.validate!(input[:complexity], ::String, context: "#{context}[:complexity]")
-        Validators::ServerShortInfoResponse.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
-        Validators::DatabaseShortInfoResponse.validate!(input[:database_instance], context: "#{context}[:database_instance]") unless input[:database_instance].nil?
+        ServerShortInfoResponse.validate!(input[:server], context: "#{context}[:server]") unless input[:server].nil?
+        DatabaseShortInfoResponse.validate!(input[:database_instance], context: "#{context}[:database_instance]") unless input[:database_instance].nil?
         Hearth::Validator.validate!(input[:schema_id], ::String, context: "#{context}[:schema_id]")
         Hearth::Validator.validate!(input[:schema_name], ::String, context: "#{context}[:schema_name]")
-        Validators::SchemaShortInfoResponse.validate!(input[:original_schema], context: "#{context}[:original_schema]") unless input[:original_schema].nil?
+        SchemaShortInfoResponse.validate!(input[:original_schema], context: "#{context}[:original_schema]") unless input[:original_schema].nil?
         Hearth::Validator.validate!(input[:similarity], ::Float, context: "#{context}[:similarity]")
       end
     end
@@ -2410,7 +2412,7 @@ module AWS::SDK::DatabaseMigrationService
     class StartReplicationTaskAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartReplicationTaskAssessmentOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -2424,15 +2426,15 @@ module AWS::SDK::DatabaseMigrationService
         Hearth::Validator.validate!(input[:result_encryption_mode], ::String, context: "#{context}[:result_encryption_mode]")
         Hearth::Validator.validate!(input[:result_kms_key_arn], ::String, context: "#{context}[:result_kms_key_arn]")
         Hearth::Validator.validate!(input[:assessment_run_name], ::String, context: "#{context}[:assessment_run_name]")
-        Validators::IncludeTestList.validate!(input[:include_only], context: "#{context}[:include_only]") unless input[:include_only].nil?
-        Validators::ExcludeTestList.validate!(input[:exclude], context: "#{context}[:exclude]") unless input[:exclude].nil?
+        IncludeTestList.validate!(input[:include_only], context: "#{context}[:include_only]") unless input[:include_only].nil?
+        ExcludeTestList.validate!(input[:exclude], context: "#{context}[:exclude]") unless input[:exclude].nil?
       end
     end
 
     class StartReplicationTaskAssessmentRunOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartReplicationTaskAssessmentRunOutput, context: context)
-        Validators::ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
+        ReplicationTaskAssessmentRun.validate!(input[:replication_task_assessment_run], context: "#{context}[:replication_task_assessment_run]") unless input[:replication_task_assessment_run].nil?
       end
     end
 
@@ -2450,7 +2452,7 @@ module AWS::SDK::DatabaseMigrationService
     class StartReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -2464,7 +2466,7 @@ module AWS::SDK::DatabaseMigrationService
     class StopReplicationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopReplicationTaskOutput, context: context)
-        Validators::ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
+        ReplicationTask.validate!(input[:replication_task], context: "#{context}[:replication_task]") unless input[:replication_task].nil?
       end
     end
 
@@ -2488,7 +2490,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Subnet, context: context)
         Hearth::Validator.validate!(input[:subnet_identifier], ::String, context: "#{context}[:subnet_identifier]")
-        Validators::AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
+        AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
         Hearth::Validator.validate!(input[:subnet_status], ::String, context: "#{context}[:subnet_status]")
       end
     end
@@ -2513,7 +2515,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2533,7 +2535,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SupportedEndpointType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SupportedEndpointType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2555,7 +2557,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableToReload.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableToReload.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2589,7 +2591,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableStatistics.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2615,7 +2617,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2631,7 +2633,7 @@ module AWS::SDK::DatabaseMigrationService
     class TestConnectionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestConnectionOutput, context: context)
-        Validators::Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
+        Connection.validate!(input[:connection], context: "#{context}[:connection]") unless input[:connection].nil?
       end
     end
 
@@ -2663,7 +2665,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

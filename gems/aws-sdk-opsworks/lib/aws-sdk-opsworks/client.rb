@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::OpsWorks
@@ -194,7 +196,7 @@ module AWS::SDK::OpsWorks
     def assign_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssignInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssignInstanceInput,
         validate_input: @config.validate_input
@@ -274,7 +276,7 @@ module AWS::SDK::OpsWorks
     def assign_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssignVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssignVolumeInput,
         validate_input: @config.validate_input
@@ -354,7 +356,7 @@ module AWS::SDK::OpsWorks
     def associate_elastic_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateElasticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateElasticIpInput,
         validate_input: @config.validate_input
@@ -439,7 +441,7 @@ module AWS::SDK::OpsWorks
     def attach_elastic_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachElasticLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachElasticLoadBalancerInput,
         validate_input: @config.validate_input
@@ -804,7 +806,7 @@ module AWS::SDK::OpsWorks
     def clone_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloneStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloneStackInput,
         validate_input: @config.validate_input
@@ -961,7 +963,7 @@ module AWS::SDK::OpsWorks
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -1070,7 +1072,7 @@ module AWS::SDK::OpsWorks
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -1302,7 +1304,7 @@ module AWS::SDK::OpsWorks
     def create_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceInput,
         validate_input: @config.validate_input
@@ -1510,7 +1512,7 @@ module AWS::SDK::OpsWorks
     def create_layer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLayerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLayerInput,
         validate_input: @config.validate_input
@@ -1873,7 +1875,7 @@ module AWS::SDK::OpsWorks
     def create_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStackInput,
         validate_input: @config.validate_input
@@ -1963,7 +1965,7 @@ module AWS::SDK::OpsWorks
     def create_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserProfileInput,
         validate_input: @config.validate_input
@@ -2036,7 +2038,7 @@ module AWS::SDK::OpsWorks
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -2119,7 +2121,7 @@ module AWS::SDK::OpsWorks
     def delete_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceInput,
         validate_input: @config.validate_input
@@ -2194,7 +2196,7 @@ module AWS::SDK::OpsWorks
     def delete_layer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLayerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLayerInput,
         validate_input: @config.validate_input
@@ -2269,7 +2271,7 @@ module AWS::SDK::OpsWorks
     def delete_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStackInput,
         validate_input: @config.validate_input
@@ -2341,7 +2343,7 @@ module AWS::SDK::OpsWorks
     def delete_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserProfileInput,
         validate_input: @config.validate_input
@@ -2417,7 +2419,7 @@ module AWS::SDK::OpsWorks
     def deregister_ecs_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterEcsClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterEcsClusterInput,
         validate_input: @config.validate_input
@@ -2491,7 +2493,7 @@ module AWS::SDK::OpsWorks
     def deregister_elastic_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterElasticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterElasticIpInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::OpsWorks
     def deregister_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterInstanceInput,
         validate_input: @config.validate_input
@@ -2639,7 +2641,7 @@ module AWS::SDK::OpsWorks
     def deregister_rds_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterRdsDbInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterRdsDbInstanceInput,
         validate_input: @config.validate_input
@@ -2714,7 +2716,7 @@ module AWS::SDK::OpsWorks
     def deregister_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterVolumeInput,
         validate_input: @config.validate_input
@@ -2797,7 +2799,7 @@ module AWS::SDK::OpsWorks
     def describe_agent_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAgentVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAgentVersionsInput,
         validate_input: @config.validate_input
@@ -2917,7 +2919,7 @@ module AWS::SDK::OpsWorks
     def describe_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppsInput,
         validate_input: @config.validate_input
@@ -3019,7 +3021,7 @@ module AWS::SDK::OpsWorks
     def describe_commands(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCommandsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCommandsInput,
         validate_input: @config.validate_input
@@ -3127,7 +3129,7 @@ module AWS::SDK::OpsWorks
     def describe_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeploymentsInput,
         validate_input: @config.validate_input
@@ -3234,7 +3236,7 @@ module AWS::SDK::OpsWorks
     def describe_ecs_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEcsClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEcsClustersInput,
         validate_input: @config.validate_input
@@ -3331,7 +3333,7 @@ module AWS::SDK::OpsWorks
     def describe_elastic_ips(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticIpsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticIpsInput,
         validate_input: @config.validate_input
@@ -3425,7 +3427,7 @@ module AWS::SDK::OpsWorks
     def describe_elastic_load_balancers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeElasticLoadBalancersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeElasticLoadBalancersInput,
         validate_input: @config.validate_input
@@ -3572,7 +3574,7 @@ module AWS::SDK::OpsWorks
     def describe_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancesInput,
         validate_input: @config.validate_input
@@ -3712,7 +3714,7 @@ module AWS::SDK::OpsWorks
     def describe_layers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLayersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLayersInput,
         validate_input: @config.validate_input
@@ -3804,7 +3806,7 @@ module AWS::SDK::OpsWorks
     def describe_load_based_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoadBasedAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoadBasedAutoScalingInput,
         validate_input: @config.validate_input
@@ -3877,7 +3879,7 @@ module AWS::SDK::OpsWorks
     def describe_my_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMyUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMyUserProfileInput,
         validate_input: @config.validate_input
@@ -3952,7 +3954,7 @@ module AWS::SDK::OpsWorks
     def describe_operating_systems(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOperatingSystemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOperatingSystemsInput,
         validate_input: @config.validate_input
@@ -4037,7 +4039,7 @@ module AWS::SDK::OpsWorks
     def describe_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePermissionsInput,
         validate_input: @config.validate_input
@@ -4141,7 +4143,7 @@ module AWS::SDK::OpsWorks
     def describe_raid_arrays(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRaidArraysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRaidArraysInput,
         validate_input: @config.validate_input
@@ -4232,7 +4234,7 @@ module AWS::SDK::OpsWorks
     def describe_rds_db_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRdsDbInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRdsDbInstancesInput,
         validate_input: @config.validate_input
@@ -4328,7 +4330,7 @@ module AWS::SDK::OpsWorks
     def describe_service_errors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeServiceErrorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeServiceErrorsInput,
         validate_input: @config.validate_input
@@ -4404,7 +4406,7 @@ module AWS::SDK::OpsWorks
     def describe_stack_provisioning_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackProvisioningParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackProvisioningParametersInput,
         validate_input: @config.validate_input
@@ -4505,7 +4507,7 @@ module AWS::SDK::OpsWorks
     def describe_stack_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStackSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStackSummaryInput,
         validate_input: @config.validate_input
@@ -4616,7 +4618,7 @@ module AWS::SDK::OpsWorks
     def describe_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStacksInput,
         validate_input: @config.validate_input
@@ -4706,7 +4708,7 @@ module AWS::SDK::OpsWorks
     def describe_time_based_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeBasedAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeBasedAutoScalingInput,
         validate_input: @config.validate_input
@@ -4787,7 +4789,7 @@ module AWS::SDK::OpsWorks
     def describe_user_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserProfilesInput,
         validate_input: @config.validate_input
@@ -4897,7 +4899,7 @@ module AWS::SDK::OpsWorks
     def describe_volumes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVolumesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVolumesInput,
         validate_input: @config.validate_input
@@ -4974,7 +4976,7 @@ module AWS::SDK::OpsWorks
     def detach_elastic_load_balancer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachElasticLoadBalancerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachElasticLoadBalancerInput,
         validate_input: @config.validate_input
@@ -5048,7 +5050,7 @@ module AWS::SDK::OpsWorks
     def disassociate_elastic_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateElasticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateElasticIpInput,
         validate_input: @config.validate_input
@@ -5123,7 +5125,7 @@ module AWS::SDK::OpsWorks
     def get_hostname_suggestion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHostnameSuggestionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHostnameSuggestionInput,
         validate_input: @config.validate_input
@@ -5203,7 +5205,7 @@ module AWS::SDK::OpsWorks
     def grant_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GrantAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GrantAccessInput,
         validate_input: @config.validate_input
@@ -5284,7 +5286,7 @@ module AWS::SDK::OpsWorks
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -5358,7 +5360,7 @@ module AWS::SDK::OpsWorks
     def reboot_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootInstanceInput,
         validate_input: @config.validate_input
@@ -5441,7 +5443,7 @@ module AWS::SDK::OpsWorks
     def register_ecs_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterEcsClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterEcsClusterInput,
         validate_input: @config.validate_input
@@ -5521,7 +5523,7 @@ module AWS::SDK::OpsWorks
     def register_elastic_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterElasticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterElasticIpInput,
         validate_input: @config.validate_input
@@ -5635,7 +5637,7 @@ module AWS::SDK::OpsWorks
     def register_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterInstanceInput,
         validate_input: @config.validate_input
@@ -5720,7 +5722,7 @@ module AWS::SDK::OpsWorks
     def register_rds_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterRdsDbInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterRdsDbInstanceInput,
         validate_input: @config.validate_input
@@ -5800,7 +5802,7 @@ module AWS::SDK::OpsWorks
     def register_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterVolumeInput,
         validate_input: @config.validate_input
@@ -5903,7 +5905,7 @@ module AWS::SDK::OpsWorks
     def set_load_based_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetLoadBasedAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetLoadBasedAutoScalingInput,
         validate_input: @config.validate_input
@@ -6021,7 +6023,7 @@ module AWS::SDK::OpsWorks
     def set_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetPermissionInput,
         validate_input: @config.validate_input
@@ -6104,7 +6106,7 @@ module AWS::SDK::OpsWorks
     def set_time_based_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTimeBasedAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTimeBasedAutoScalingInput,
         validate_input: @config.validate_input
@@ -6178,7 +6180,7 @@ module AWS::SDK::OpsWorks
     def start_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartInstanceInput,
         validate_input: @config.validate_input
@@ -6251,7 +6253,7 @@ module AWS::SDK::OpsWorks
     def start_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStackInput,
         validate_input: @config.validate_input
@@ -6333,7 +6335,7 @@ module AWS::SDK::OpsWorks
     def stop_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopInstanceInput,
         validate_input: @config.validate_input
@@ -6406,7 +6408,7 @@ module AWS::SDK::OpsWorks
     def stop_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStackInput,
         validate_input: @config.validate_input
@@ -6499,7 +6501,7 @@ module AWS::SDK::OpsWorks
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6575,7 +6577,7 @@ module AWS::SDK::OpsWorks
     def unassign_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnassignInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnassignInstanceInput,
         validate_input: @config.validate_input
@@ -6650,7 +6652,7 @@ module AWS::SDK::OpsWorks
     def unassign_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnassignVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnassignVolumeInput,
         validate_input: @config.validate_input
@@ -6724,7 +6726,7 @@ module AWS::SDK::OpsWorks
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6872,7 +6874,7 @@ module AWS::SDK::OpsWorks
     def update_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInput,
         validate_input: @config.validate_input
@@ -6949,7 +6951,7 @@ module AWS::SDK::OpsWorks
     def update_elastic_ip(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateElasticIpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateElasticIpInput,
         validate_input: @config.validate_input
@@ -7136,7 +7138,7 @@ module AWS::SDK::OpsWorks
     def update_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceInput,
         validate_input: @config.validate_input
@@ -7330,7 +7332,7 @@ module AWS::SDK::OpsWorks
     def update_layer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLayerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLayerInput,
         validate_input: @config.validate_input
@@ -7403,7 +7405,7 @@ module AWS::SDK::OpsWorks
     def update_my_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMyUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMyUserProfileInput,
         validate_input: @config.validate_input
@@ -7484,7 +7486,7 @@ module AWS::SDK::OpsWorks
     def update_rds_db_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRdsDbInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRdsDbInstanceInput,
         validate_input: @config.validate_input
@@ -7791,7 +7793,7 @@ module AWS::SDK::OpsWorks
     def update_stack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStackInput,
         validate_input: @config.validate_input
@@ -7880,7 +7882,7 @@ module AWS::SDK::OpsWorks
     def update_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserProfileInput,
         validate_input: @config.validate_input
@@ -7961,7 +7963,7 @@ module AWS::SDK::OpsWorks
     def update_volume(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateVolumeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateVolumeInput,
         validate_input: @config.validate_input

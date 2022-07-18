@@ -867,7 +867,7 @@ module AWS::SDK::Inspector2
     # @!attribute account_ids
     #   <p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     BatchGetAccountStatusInput = ::Struct.new(
       :account_ids,
@@ -994,11 +994,11 @@ module AWS::SDK::Inspector2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>A structure that identifies filter criteria for <code>GetCoverageStatistics</code>.</p>
@@ -1569,7 +1569,7 @@ module AWS::SDK::Inspector2
     # @!attribute account_ids
     #   <p>An array of account IDs you want to disable Amazon Inspector scans for.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute resource_types
     #   <p>The resource scan types you want to disable.</p>
@@ -1877,7 +1877,7 @@ module AWS::SDK::Inspector2
     # @!attribute account_ids
     #   <p>A list of account IDs you want to enable Amazon Inspector scans for.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute resource_types
     #   <p>The resource scan types you want to enable.</p>
@@ -4906,12 +4906,12 @@ module AWS::SDK::Inspector2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total ||= 0
         self.estimated_monthly_cost ||= 0
       end
-
     end
 
     # <p>The total of usage for an account ID.</p>
@@ -5076,11 +5076,11 @@ module AWS::SDK::Inspector2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.epoch ||= 0
       end
-
     end
 
   end

@@ -1872,6 +1872,7 @@ module AWS::SDK::DataSync
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_files_to_transfer ||= 0
@@ -1880,7 +1881,6 @@ module AWS::SDK::DataSync
         self.bytes_written ||= 0
         self.bytes_transferred ||= 0
       end
-
     end
 
     # <p>DescribeTaskRequest</p>

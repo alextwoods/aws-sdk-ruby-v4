@@ -468,11 +468,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # Includes enum constants for ComparisonOperator
@@ -1874,11 +1874,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # @!attribute summary
@@ -2489,11 +2489,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -2782,11 +2782,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>The processing guidance for an Firewall Manager rule. This is like a regular rule <a>Statement</a>, but it can only contain a rule group reference.</p>
@@ -3358,11 +3358,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_items ||= 0
       end
-
     end
 
     # @!attribute sampled_requests
@@ -3395,11 +3395,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.population_size ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -4888,11 +4888,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.managed_by_firewall_manager ||= false
       end
-
     end
 
     # <p>Filtering that specifies which web requests are kept in the logs and which are dropped,
@@ -5045,11 +5045,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.versioning_supported ||= false
       end
-
     end
 
     # <p>Describes a single version of a managed rule group. </p>
@@ -5265,11 +5265,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # Includes enum constants for MapMatchScope
@@ -5963,11 +5963,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # Includes enum constants for RateBasedStatementAggregateKeyType
@@ -6306,11 +6306,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>The action that WAF should take on a web request when it matches a rule's
@@ -6451,11 +6451,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
       end
-
     end
 
     # <p>A rule statement used to run the rules that are defined in a <a>RuleGroup</a>. To use this, create a rule group with your rules, then provide the ARN of the rule group in this statement.</p>
@@ -6619,11 +6619,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weight ||= 0
       end
-
     end
 
     # Includes enum constants for Scope
@@ -6711,11 +6711,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Attackers sometimes insert malicious SQL code into web requests in an effort to extract data from your database. To allow or block web requests that appear to contain malicious SQL code, create one or more SQL injection match conditions. An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want WAF to inspect. Later in the process, when you create a web ACL, you specify whether to allow or block requests that appear to contain malicious SQL code.</p>
@@ -7122,11 +7122,11 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # Includes enum constants for TextTransformationType
@@ -7792,12 +7792,12 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sampled_requests_enabled ||= false
         self.cloud_watch_metrics_enabled ||= false
       end
-
     end
 
     # <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
@@ -8259,12 +8259,12 @@ module AWS::SDK::WAFV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capacity ||= 0
         self.managed_by_firewall_manager ||= false
       end
-
     end
 
     # <p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>

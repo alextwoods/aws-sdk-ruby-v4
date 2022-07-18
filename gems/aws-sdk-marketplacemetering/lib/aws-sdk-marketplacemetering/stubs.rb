@@ -14,8 +14,8 @@ module AWS::SDK::MarketplaceMetering
     class BatchMeterUsage
       def self.default(visited=[])
         {
-          results: Stubs::UsageRecordResultList.default(visited),
-          unprocessed_records: Stubs::UsageRecordList.default(visited),
+          results: UsageRecordResultList.default(visited),
+          unprocessed_records: UsageRecordList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::MarketplaceMetering
         return nil if visited.include?('UsageRecordList')
         visited = visited + ['UsageRecordList']
         [
-          Stubs::UsageRecord.default(visited)
+          UsageRecord.default(visited)
         ]
       end
 
@@ -58,7 +58,7 @@ module AWS::SDK::MarketplaceMetering
           customer_identifier: 'customer_identifier',
           dimension: 'dimension',
           quantity: 1,
-          usage_allocations: Stubs::UsageAllocations.default(visited),
+          usage_allocations: UsageAllocations.default(visited),
         }
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::MarketplaceMetering
         return nil if visited.include?('UsageAllocations')
         visited = visited + ['UsageAllocations']
         [
-          Stubs::UsageAllocation.default(visited)
+          UsageAllocation.default(visited)
         ]
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::MarketplaceMetering
         visited = visited + ['UsageAllocation']
         {
           allocated_usage_quantity: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -120,7 +120,7 @@ module AWS::SDK::MarketplaceMetering
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -160,7 +160,7 @@ module AWS::SDK::MarketplaceMetering
         return nil if visited.include?('UsageRecordResultList')
         visited = visited + ['UsageRecordResultList']
         [
-          Stubs::UsageRecordResult.default(visited)
+          UsageRecordResult.default(visited)
         ]
       end
 
@@ -180,7 +180,7 @@ module AWS::SDK::MarketplaceMetering
         return nil if visited.include?('UsageRecordResult')
         visited = visited + ['UsageRecordResult']
         {
-          usage_record: Stubs::UsageRecord.default(visited),
+          usage_record: UsageRecord.default(visited),
           metering_record_id: 'metering_record_id',
           status: 'status',
         }

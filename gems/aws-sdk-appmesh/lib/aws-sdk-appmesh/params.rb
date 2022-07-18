@@ -191,7 +191,7 @@ module AWS::SDK::AppMesh
         type.virtual_gateway_name = params[:virtual_gateway_name]
         type.spec = GatewayRouteSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -213,7 +213,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.spec = MeshSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::AppMesh
         type.virtual_router_name = params[:virtual_router_name]
         type.spec = RouteSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -259,7 +259,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualGatewaySpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -282,7 +282,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualNodeSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -305,7 +305,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualRouterSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -328,7 +328,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualServiceSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -1727,8 +1727,8 @@ module AWS::SDK::AppMesh
 
     module PortSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -2095,7 +2095,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.virtual_gateway_name = params[:virtual_gateway_name]
         type.spec = GatewayRouteSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -2116,7 +2116,7 @@ module AWS::SDK::AppMesh
         type = Types::UpdateMeshInput.new
         type.mesh_name = params[:mesh_name]
         type.spec = MeshSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2138,7 +2138,7 @@ module AWS::SDK::AppMesh
         type.mesh_name = params[:mesh_name]
         type.virtual_router_name = params[:virtual_router_name]
         type.spec = RouteSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -2160,7 +2160,7 @@ module AWS::SDK::AppMesh
         type.virtual_gateway_name = params[:virtual_gateway_name]
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualGatewaySpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -2182,7 +2182,7 @@ module AWS::SDK::AppMesh
         type.virtual_node_name = params[:virtual_node_name]
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualNodeSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -2204,7 +2204,7 @@ module AWS::SDK::AppMesh
         type.virtual_router_name = params[:virtual_router_name]
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualRouterSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end
@@ -2226,7 +2226,7 @@ module AWS::SDK::AppMesh
         type.virtual_service_name = params[:virtual_service_name]
         type.mesh_name = params[:mesh_name]
         type.spec = VirtualServiceSpec.build(params[:spec], context: "#{context}[:spec]") unless params[:spec].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.mesh_owner = params[:mesh_owner]
         type
       end

@@ -140,11 +140,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_unauthenticated_identities ||= false
       end
-
     end
 
     # <p>An object representing an Amazon Cognito identity pool.</p>
@@ -217,11 +217,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_unauthenticated_identities ||= false
       end
-
     end
 
     # <p>Credentials for the provided identity ID.</p>
@@ -437,11 +437,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_unauthenticated_identities ||= false
       end
-
     end
 
     # <p>The provided developer user identifier is already registered with Cognito under a
@@ -966,12 +966,12 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.hide_disabled ||= false
       end
-
     end
 
     # <p>The response to a ListIdentities request.</p>
@@ -1018,11 +1018,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The result of a successful ListIdentityPools action.</p>
@@ -1113,11 +1113,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Returned in response to a successful <code>LookupDeveloperIdentity</code>
@@ -1703,11 +1703,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_unauthenticated_identities ||= false
       end
-
     end
 
     # <p>An object representing an Amazon Cognito identity pool.</p>
@@ -1780,11 +1780,11 @@ module AWS::SDK::CognitoIdentity
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_unauthenticated_identities ||= false
       end
-
     end
 
   end

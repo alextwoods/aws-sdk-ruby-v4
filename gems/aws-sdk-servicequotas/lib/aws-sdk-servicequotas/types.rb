@@ -1002,11 +1002,11 @@ module AWS::SDK::ServiceQuotas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.global_quota ||= false
       end
-
     end
 
     # <p>The specified resource already exists.</p>
@@ -1133,12 +1133,12 @@ module AWS::SDK::ServiceQuotas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.adjustable ||= false
         self.global_quota ||= false
       end
-
     end
 
     # <p>Information about a quota increase request.</p>
@@ -1195,11 +1195,11 @@ module AWS::SDK::ServiceQuotas
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.global_quota ||= false
       end
-
     end
 
     # Includes enum constants for ServiceQuotaTemplateAssociationStatus

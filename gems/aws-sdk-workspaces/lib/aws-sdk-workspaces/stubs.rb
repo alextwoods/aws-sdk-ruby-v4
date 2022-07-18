@@ -152,7 +152,7 @@ module AWS::SDK::WorkSpaces
     class CreateWorkspaceBundle
       def self.default(visited=[])
         {
-          workspace_bundle: Stubs::WorkspaceBundle.default(visited),
+          workspace_bundle: WorkspaceBundle.default(visited),
         }
       end
 
@@ -175,9 +175,9 @@ module AWS::SDK::WorkSpaces
           owner: 'owner',
           description: 'description',
           image_id: 'image_id',
-          root_storage: Stubs::RootStorage.default(visited),
-          user_storage: Stubs::UserStorage.default(visited),
-          compute_type: Stubs::ComputeType.default(visited),
+          root_storage: RootStorage.default(visited),
+          user_storage: UserStorage.default(visited),
+          compute_type: ComputeType.default(visited),
           last_updated_time: Time.now,
           creation_time: Time.now,
         }
@@ -258,8 +258,8 @@ module AWS::SDK::WorkSpaces
     class CreateWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedCreateWorkspaceRequests.default(visited),
-          pending_requests: Stubs::WorkspaceList.default(visited),
+          failed_requests: FailedCreateWorkspaceRequests.default(visited),
+          pending_requests: WorkspaceList.default(visited),
         }
       end
 
@@ -278,7 +278,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('WorkspaceList')
         visited = visited + ['WorkspaceList']
         [
-          Stubs::Workspace.default(visited)
+          Workspace.default(visited)
         ]
       end
 
@@ -311,8 +311,8 @@ module AWS::SDK::WorkSpaces
           volume_encryption_key: 'volume_encryption_key',
           user_volume_encryption_enabled: false,
           root_volume_encryption_enabled: false,
-          workspace_properties: Stubs::WorkspaceProperties.default(visited),
-          modification_states: Stubs::ModificationStateList.default(visited),
+          workspace_properties: WorkspaceProperties.default(visited),
+          modification_states: ModificationStateList.default(visited),
         }
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ModificationStateList')
         visited = visited + ['ModificationStateList']
         [
-          Stubs::ModificationState.default(visited)
+          ModificationState.default(visited)
         ]
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedCreateWorkspaceRequests')
         visited = visited + ['FailedCreateWorkspaceRequests']
         [
-          Stubs::FailedCreateWorkspaceRequest.default(visited)
+          FailedCreateWorkspaceRequest.default(visited)
         ]
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedCreateWorkspaceRequest')
         visited = visited + ['FailedCreateWorkspaceRequest']
         {
-          workspace_request: Stubs::WorkspaceRequest.default(visited),
+          workspace_request: WorkspaceRequest.default(visited),
           error_code: 'error_code',
           error_message: 'error_message',
         }
@@ -458,8 +458,8 @@ module AWS::SDK::WorkSpaces
           volume_encryption_key: 'volume_encryption_key',
           user_volume_encryption_enabled: false,
           root_volume_encryption_enabled: false,
-          workspace_properties: Stubs::WorkspaceProperties.default(visited),
-          tags: Stubs::TagList.default(visited),
+          workspace_properties: WorkspaceProperties.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::WorkSpaces
     class DescribeAccountModifications
       def self.default(visited=[])
         {
-          account_modifications: Stubs::AccountModificationList.default(visited),
+          account_modifications: AccountModificationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -672,7 +672,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('AccountModificationList')
         visited = visited + ['AccountModificationList']
         [
-          Stubs::AccountModification.default(visited)
+          AccountModification.default(visited)
         ]
       end
 
@@ -718,12 +718,12 @@ module AWS::SDK::WorkSpaces
     class DescribeClientBranding
       def self.default(visited=[])
         {
-          device_type_windows: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_osx: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_android: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_ios: Stubs::IosClientBrandingAttributes.default(visited),
-          device_type_linux: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_web: Stubs::DefaultClientBrandingAttributes.default(visited),
+          device_type_windows: DefaultClientBrandingAttributes.default(visited),
+          device_type_osx: DefaultClientBrandingAttributes.default(visited),
+          device_type_android: DefaultClientBrandingAttributes.default(visited),
+          device_type_ios: IosClientBrandingAttributes.default(visited),
+          device_type_linux: DefaultClientBrandingAttributes.default(visited),
+          device_type_web: DefaultClientBrandingAttributes.default(visited),
         }
       end
 
@@ -750,7 +750,7 @@ module AWS::SDK::WorkSpaces
           support_email: 'support_email',
           support_link: 'support_link',
           forgot_password_link: 'forgot_password_link',
-          login_message: Stubs::LoginMessage.default(visited),
+          login_message: LoginMessage.default(visited),
         }
       end
 
@@ -798,7 +798,7 @@ module AWS::SDK::WorkSpaces
           support_email: 'support_email',
           support_link: 'support_link',
           forgot_password_link: 'forgot_password_link',
-          login_message: Stubs::LoginMessage.default(visited),
+          login_message: LoginMessage.default(visited),
         }
       end
 
@@ -820,7 +820,7 @@ module AWS::SDK::WorkSpaces
     class DescribeClientProperties
       def self.default(visited=[])
         {
-          client_properties_list: Stubs::ClientPropertiesList.default(visited),
+          client_properties_list: ClientPropertiesList.default(visited),
         }
       end
 
@@ -838,7 +838,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ClientPropertiesList')
         visited = visited + ['ClientPropertiesList']
         [
-          Stubs::ClientPropertiesResult.default(visited)
+          ClientPropertiesResult.default(visited)
         ]
       end
 
@@ -859,7 +859,7 @@ module AWS::SDK::WorkSpaces
         visited = visited + ['ClientPropertiesResult']
         {
           resource_id: 'resource_id',
-          client_properties: Stubs::ClientProperties.default(visited),
+          client_properties: ClientProperties.default(visited),
         }
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::WorkSpaces
     class DescribeConnectClientAddIns
       def self.default(visited=[])
         {
-          add_ins: Stubs::ConnectClientAddInList.default(visited),
+          add_ins: ConnectClientAddInList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -914,7 +914,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ConnectClientAddInList')
         visited = visited + ['ConnectClientAddInList']
         [
-          Stubs::ConnectClientAddIn.default(visited)
+          ConnectClientAddIn.default(visited)
         ]
       end
 
@@ -957,7 +957,7 @@ module AWS::SDK::WorkSpaces
       def self.default(visited=[])
         {
           alias_id: 'alias_id',
-          connection_alias_permissions: Stubs::ConnectionAliasPermissions.default(visited),
+          connection_alias_permissions: ConnectionAliasPermissions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -978,7 +978,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ConnectionAliasPermissions')
         visited = visited + ['ConnectionAliasPermissions']
         [
-          Stubs::ConnectionAliasPermission.default(visited)
+          ConnectionAliasPermission.default(visited)
         ]
       end
 
@@ -1016,7 +1016,7 @@ module AWS::SDK::WorkSpaces
     class DescribeConnectionAliases
       def self.default(visited=[])
         {
-          connection_aliases: Stubs::ConnectionAliasList.default(visited),
+          connection_aliases: ConnectionAliasList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1036,7 +1036,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ConnectionAliasList')
         visited = visited + ['ConnectionAliasList']
         [
-          Stubs::ConnectionAlias.default(visited)
+          ConnectionAlias.default(visited)
         ]
       end
 
@@ -1060,7 +1060,7 @@ module AWS::SDK::WorkSpaces
           alias_id: 'alias_id',
           state: 'state',
           owner_account_id: 'owner_account_id',
-          associations: Stubs::ConnectionAliasAssociationList.default(visited),
+          associations: ConnectionAliasAssociationList.default(visited),
         }
       end
 
@@ -1082,7 +1082,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ConnectionAliasAssociationList')
         visited = visited + ['ConnectionAliasAssociationList']
         [
-          Stubs::ConnectionAliasAssociation.default(visited)
+          ConnectionAliasAssociation.default(visited)
         ]
       end
 
@@ -1124,7 +1124,7 @@ module AWS::SDK::WorkSpaces
     class DescribeIpGroups
       def self.default(visited=[])
         {
-          result: Stubs::WorkspacesIpGroupsList.default(visited),
+          result: WorkspacesIpGroupsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1144,7 +1144,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('WorkspacesIpGroupsList')
         visited = visited + ['WorkspacesIpGroupsList']
         [
-          Stubs::WorkspacesIpGroup.default(visited)
+          WorkspacesIpGroup.default(visited)
         ]
       end
 
@@ -1167,7 +1167,7 @@ module AWS::SDK::WorkSpaces
           group_id: 'group_id',
           group_name: 'group_name',
           group_desc: 'group_desc',
-          user_rules: Stubs::IpRuleList.default(visited),
+          user_rules: IpRuleList.default(visited),
         }
       end
 
@@ -1188,7 +1188,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('IpRuleList')
         visited = visited + ['IpRuleList']
         [
-          Stubs::IpRuleItem.default(visited)
+          IpRuleItem.default(visited)
         ]
       end
 
@@ -1226,7 +1226,7 @@ module AWS::SDK::WorkSpaces
     class DescribeTags
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -1242,7 +1242,7 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspaceBundles
       def self.default(visited=[])
         {
-          bundles: Stubs::BundleList.default(visited),
+          bundles: BundleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1262,7 +1262,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('BundleList')
         visited = visited + ['BundleList']
         [
-          Stubs::WorkspaceBundle.default(visited)
+          WorkspaceBundle.default(visited)
         ]
       end
 
@@ -1280,7 +1280,7 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspaceDirectories
       def self.default(visited=[])
         {
-          directories: Stubs::DirectoryList.default(visited),
+          directories: DirectoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1300,7 +1300,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('DirectoryList')
         visited = visited + ['DirectoryList']
         [
-          Stubs::WorkspaceDirectory.default(visited)
+          WorkspaceDirectory.default(visited)
         ]
       end
 
@@ -1324,18 +1324,18 @@ module AWS::SDK::WorkSpaces
           alias: 'alias',
           directory_name: 'directory_name',
           registration_code: 'registration_code',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          dns_ip_addresses: Stubs::DnsIpAddresses.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          dns_ip_addresses: DnsIpAddresses.default(visited),
           customer_user_name: 'customer_user_name',
           iam_role_id: 'iam_role_id',
           directory_type: 'directory_type',
           workspace_security_group_id: 'workspace_security_group_id',
           state: 'state',
-          workspace_creation_properties: Stubs::DefaultWorkspaceCreationProperties.default(visited),
-          ip_group_ids: Stubs::IpGroupIdList.default(visited),
-          workspace_access_properties: Stubs::WorkspaceAccessProperties.default(visited),
+          workspace_creation_properties: DefaultWorkspaceCreationProperties.default(visited),
+          ip_group_ids: IpGroupIdList.default(visited),
+          workspace_access_properties: WorkspaceAccessProperties.default(visited),
           tenancy: 'tenancy',
-          selfservice_permissions: Stubs::SelfservicePermissions.default(visited),
+          selfservice_permissions: SelfservicePermissions.default(visited),
         }
       end
 
@@ -1513,7 +1513,7 @@ module AWS::SDK::WorkSpaces
       def self.default(visited=[])
         {
           image_id: 'image_id',
-          image_permissions: Stubs::ImagePermissions.default(visited),
+          image_permissions: ImagePermissions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1534,7 +1534,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('ImagePermissions')
         visited = visited + ['ImagePermissions']
         [
-          Stubs::ImagePermission.default(visited)
+          ImagePermission.default(visited)
         ]
       end
 
@@ -1570,7 +1570,7 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspaceImages
       def self.default(visited=[])
         {
-          images: Stubs::WorkspaceImageList.default(visited),
+          images: WorkspaceImageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1590,7 +1590,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('WorkspaceImageList')
         visited = visited + ['WorkspaceImageList']
         [
-          Stubs::WorkspaceImage.default(visited)
+          WorkspaceImage.default(visited)
         ]
       end
 
@@ -1613,14 +1613,14 @@ module AWS::SDK::WorkSpaces
           image_id: 'image_id',
           name: 'name',
           description: 'description',
-          operating_system: Stubs::OperatingSystem.default(visited),
+          operating_system: OperatingSystem.default(visited),
           state: 'state',
           required_tenancy: 'required_tenancy',
           error_code: 'error_code',
           error_message: 'error_message',
           created: Time.now,
           owner_account_id: 'owner_account_id',
-          updates: Stubs::UpdateResult.default(visited),
+          updates: UpdateResult.default(visited),
         }
       end
 
@@ -1684,8 +1684,8 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspaceSnapshots
       def self.default(visited=[])
         {
-          rebuild_snapshots: Stubs::SnapshotList.default(visited),
-          restore_snapshots: Stubs::SnapshotList.default(visited),
+          rebuild_snapshots: SnapshotList.default(visited),
+          restore_snapshots: SnapshotList.default(visited),
         }
       end
 
@@ -1704,7 +1704,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('SnapshotList')
         visited = visited + ['SnapshotList']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -1740,7 +1740,7 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspaces
       def self.default(visited=[])
         {
-          workspaces: Stubs::WorkspaceList.default(visited),
+          workspaces: WorkspaceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1758,7 +1758,7 @@ module AWS::SDK::WorkSpaces
     class DescribeWorkspacesConnectionStatus
       def self.default(visited=[])
         {
-          workspaces_connection_status: Stubs::WorkspaceConnectionStatusList.default(visited),
+          workspaces_connection_status: WorkspaceConnectionStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1778,7 +1778,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('WorkspaceConnectionStatusList')
         visited = visited + ['WorkspaceConnectionStatusList']
         [
-          Stubs::WorkspaceConnectionStatus.default(visited)
+          WorkspaceConnectionStatus.default(visited)
         ]
       end
 
@@ -1848,12 +1848,12 @@ module AWS::SDK::WorkSpaces
     class ImportClientBranding
       def self.default(visited=[])
         {
-          device_type_windows: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_osx: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_android: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_ios: Stubs::IosClientBrandingAttributes.default(visited),
-          device_type_linux: Stubs::DefaultClientBrandingAttributes.default(visited),
-          device_type_web: Stubs::DefaultClientBrandingAttributes.default(visited),
+          device_type_windows: DefaultClientBrandingAttributes.default(visited),
+          device_type_osx: DefaultClientBrandingAttributes.default(visited),
+          device_type_android: DefaultClientBrandingAttributes.default(visited),
+          device_type_ios: IosClientBrandingAttributes.default(visited),
+          device_type_linux: DefaultClientBrandingAttributes.default(visited),
+          device_type_web: DefaultClientBrandingAttributes.default(visited),
         }
       end
 
@@ -1890,7 +1890,7 @@ module AWS::SDK::WorkSpaces
     class ListAvailableManagementCidrRanges
       def self.default(visited=[])
         {
-          management_cidr_ranges: Stubs::DedicatedTenancyCidrRangeList.default(visited),
+          management_cidr_ranges: DedicatedTenancyCidrRangeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2044,7 +2044,7 @@ module AWS::SDK::WorkSpaces
     class RebootWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedRebootWorkspaceRequests.default(visited),
+          failed_requests: FailedRebootWorkspaceRequests.default(visited),
         }
       end
 
@@ -2062,7 +2062,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedRebootWorkspaceRequests')
         visited = visited + ['FailedRebootWorkspaceRequests']
         [
-          Stubs::FailedWorkspaceChangeRequest.default(visited)
+          FailedWorkspaceChangeRequest.default(visited)
         ]
       end
 
@@ -2102,7 +2102,7 @@ module AWS::SDK::WorkSpaces
     class RebuildWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedRebuildWorkspaceRequests.default(visited),
+          failed_requests: FailedRebuildWorkspaceRequests.default(visited),
         }
       end
 
@@ -2120,7 +2120,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedRebuildWorkspaceRequests')
         visited = visited + ['FailedRebuildWorkspaceRequests']
         [
-          Stubs::FailedWorkspaceChangeRequest.default(visited)
+          FailedWorkspaceChangeRequest.default(visited)
         ]
       end
 
@@ -2180,7 +2180,7 @@ module AWS::SDK::WorkSpaces
     class StartWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedStartWorkspaceRequests.default(visited),
+          failed_requests: FailedStartWorkspaceRequests.default(visited),
         }
       end
 
@@ -2198,7 +2198,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedStartWorkspaceRequests')
         visited = visited + ['FailedStartWorkspaceRequests']
         [
-          Stubs::FailedWorkspaceChangeRequest.default(visited)
+          FailedWorkspaceChangeRequest.default(visited)
         ]
       end
 
@@ -2216,7 +2216,7 @@ module AWS::SDK::WorkSpaces
     class StopWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedStopWorkspaceRequests.default(visited),
+          failed_requests: FailedStopWorkspaceRequests.default(visited),
         }
       end
 
@@ -2234,7 +2234,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedStopWorkspaceRequests')
         visited = visited + ['FailedStopWorkspaceRequests']
         [
-          Stubs::FailedWorkspaceChangeRequest.default(visited)
+          FailedWorkspaceChangeRequest.default(visited)
         ]
       end
 
@@ -2252,7 +2252,7 @@ module AWS::SDK::WorkSpaces
     class TerminateWorkspaces
       def self.default(visited=[])
         {
-          failed_requests: Stubs::FailedTerminateWorkspaceRequests.default(visited),
+          failed_requests: FailedTerminateWorkspaceRequests.default(visited),
         }
       end
 
@@ -2270,7 +2270,7 @@ module AWS::SDK::WorkSpaces
         return nil if visited.include?('FailedTerminateWorkspaceRequests')
         visited = visited + ['FailedTerminateWorkspaceRequests']
         [
-          Stubs::FailedWorkspaceChangeRequest.default(visited)
+          FailedWorkspaceChangeRequest.default(visited)
         ]
       end
 

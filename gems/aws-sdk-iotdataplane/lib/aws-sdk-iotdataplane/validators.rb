@@ -90,7 +90,7 @@ module AWS::SDK::IoTDataPlane
     class ListNamedShadowsForThingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNamedShadowsForThingOutput, context: context)
-        Validators::NamedShadowList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        NamedShadowList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:timestamp], ::Integer, context: "#{context}[:timestamp]")
       end
@@ -107,7 +107,7 @@ module AWS::SDK::IoTDataPlane
     class ListRetainedMessagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRetainedMessagesOutput, context: context)
-        Validators::RetainedMessageList.validate!(input[:retained_topics], context: "#{context}[:retained_topics]") unless input[:retained_topics].nil?
+        RetainedMessageList.validate!(input[:retained_topics], context: "#{context}[:retained_topics]") unless input[:retained_topics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -162,7 +162,7 @@ module AWS::SDK::IoTDataPlane
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RetainedMessageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RetainedMessageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -56,7 +56,7 @@ module AWS::SDK::ServiceQuotas
     class GetAWSDefaultServiceQuota
       def self.default(visited=[])
         {
-          quota: Stubs::ServiceQuota.default(visited),
+          quota: ServiceQuota.default(visited),
         }
       end
 
@@ -83,9 +83,9 @@ module AWS::SDK::ServiceQuotas
           unit: 'unit',
           adjustable: false,
           global_quota: false,
-          usage_metric: Stubs::MetricInfo.default(visited),
-          period: Stubs::QuotaPeriod.default(visited),
-          error_reason: Stubs::ErrorReason.default(visited),
+          usage_metric: MetricInfo.default(visited),
+          period: QuotaPeriod.default(visited),
+          error_reason: ErrorReason.default(visited),
         }
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::ServiceQuotas
         {
           metric_namespace: 'metric_namespace',
           metric_name: 'metric_name',
-          metric_dimensions: Stubs::MetricDimensionsMapDefinition.default(visited),
+          metric_dimensions: MetricDimensionsMapDefinition.default(visited),
           metric_statistic_recommendation: 'metric_statistic_recommendation',
         }
       end
@@ -212,7 +212,7 @@ module AWS::SDK::ServiceQuotas
     class GetRequestedServiceQuotaChange
       def self.default(visited=[])
         {
-          requested_quota: Stubs::RequestedServiceQuotaChange.default(visited),
+          requested_quota: RequestedServiceQuotaChange.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::ServiceQuotas
     class GetServiceQuota
       def self.default(visited=[])
         {
-          quota: Stubs::ServiceQuota.default(visited),
+          quota: ServiceQuota.default(visited),
         }
       end
 
@@ -288,7 +288,7 @@ module AWS::SDK::ServiceQuotas
     class GetServiceQuotaIncreaseRequestFromTemplate
       def self.default(visited=[])
         {
-          service_quota_increase_request_in_template: Stubs::ServiceQuotaIncreaseRequestInTemplate.default(visited),
+          service_quota_increase_request_in_template: ServiceQuotaIncreaseRequestInTemplate.default(visited),
         }
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::ServiceQuotas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          quotas: Stubs::ServiceQuotaListDefinition.default(visited),
+          quotas: ServiceQuotaListDefinition.default(visited),
         }
       end
 
@@ -356,7 +356,7 @@ module AWS::SDK::ServiceQuotas
         return nil if visited.include?('ServiceQuotaListDefinition')
         visited = visited + ['ServiceQuotaListDefinition']
         [
-          Stubs::ServiceQuota.default(visited)
+          ServiceQuota.default(visited)
         ]
       end
 
@@ -375,7 +375,7 @@ module AWS::SDK::ServiceQuotas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          requested_quotas: Stubs::RequestedServiceQuotaChangeHistoryListDefinition.default(visited),
+          requested_quotas: RequestedServiceQuotaChangeHistoryListDefinition.default(visited),
         }
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::ServiceQuotas
         return nil if visited.include?('RequestedServiceQuotaChangeHistoryListDefinition')
         visited = visited + ['RequestedServiceQuotaChangeHistoryListDefinition']
         [
-          Stubs::RequestedServiceQuotaChange.default(visited)
+          RequestedServiceQuotaChange.default(visited)
         ]
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::ServiceQuotas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          requested_quotas: Stubs::RequestedServiceQuotaChangeHistoryListDefinition.default(visited),
+          requested_quotas: RequestedServiceQuotaChangeHistoryListDefinition.default(visited),
         }
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::ServiceQuotas
     class ListServiceQuotaIncreaseRequestsInTemplate
       def self.default(visited=[])
         {
-          service_quota_increase_request_in_template_list: Stubs::ServiceQuotaIncreaseRequestInTemplateList.default(visited),
+          service_quota_increase_request_in_template_list: ServiceQuotaIncreaseRequestInTemplateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -450,7 +450,7 @@ module AWS::SDK::ServiceQuotas
         return nil if visited.include?('ServiceQuotaIncreaseRequestInTemplateList')
         visited = visited + ['ServiceQuotaIncreaseRequestInTemplateList']
         [
-          Stubs::ServiceQuotaIncreaseRequestInTemplate.default(visited)
+          ServiceQuotaIncreaseRequestInTemplate.default(visited)
         ]
       end
 
@@ -469,7 +469,7 @@ module AWS::SDK::ServiceQuotas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          quotas: Stubs::ServiceQuotaListDefinition.default(visited),
+          quotas: ServiceQuotaListDefinition.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::ServiceQuotas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          services: Stubs::ServiceInfoListDefinition.default(visited),
+          services: ServiceInfoListDefinition.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::ServiceQuotas
         return nil if visited.include?('ServiceInfoListDefinition')
         visited = visited + ['ServiceInfoListDefinition']
         [
-          Stubs::ServiceInfo.default(visited)
+          ServiceInfo.default(visited)
         ]
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::ServiceQuotas
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::OutputTags.default(visited),
+          tags: OutputTags.default(visited),
         }
       end
 
@@ -562,7 +562,7 @@ module AWS::SDK::ServiceQuotas
         return nil if visited.include?('OutputTags')
         visited = visited + ['OutputTags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -600,7 +600,7 @@ module AWS::SDK::ServiceQuotas
     class PutServiceQuotaIncreaseRequestIntoTemplate
       def self.default(visited=[])
         {
-          service_quota_increase_request_in_template: Stubs::ServiceQuotaIncreaseRequestInTemplate.default(visited),
+          service_quota_increase_request_in_template: ServiceQuotaIncreaseRequestInTemplate.default(visited),
         }
       end
 
@@ -616,7 +616,7 @@ module AWS::SDK::ServiceQuotas
     class RequestServiceQuotaIncrease
       def self.default(visited=[])
         {
-          requested_quota: Stubs::RequestedServiceQuotaChange.default(visited),
+          requested_quota: RequestedServiceQuotaChange.default(visited),
         }
       end
 

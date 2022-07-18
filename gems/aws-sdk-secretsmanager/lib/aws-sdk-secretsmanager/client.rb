@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SecretsManager
@@ -121,7 +123,7 @@ module AWS::SDK::SecretsManager
     def cancel_rotate_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelRotateSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelRotateSecretInput,
         validate_input: @config.validate_input
@@ -372,7 +374,7 @@ module AWS::SDK::SecretsManager
     def create_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecretInput,
         validate_input: @config.validate_input
@@ -451,7 +453,7 @@ module AWS::SDK::SecretsManager
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -573,7 +575,7 @@ module AWS::SDK::SecretsManager
     def delete_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecretInput,
         validate_input: @config.validate_input
@@ -681,7 +683,7 @@ module AWS::SDK::SecretsManager
     def describe_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecretInput,
         validate_input: @config.validate_input
@@ -794,7 +796,7 @@ module AWS::SDK::SecretsManager
     def get_random_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRandomPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRandomPasswordInput,
         validate_input: @config.validate_input
@@ -876,7 +878,7 @@ module AWS::SDK::SecretsManager
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::SecretsManager
     def get_secret_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSecretValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSecretValueInput,
         validate_input: @config.validate_input
@@ -1094,7 +1096,7 @@ module AWS::SDK::SecretsManager
     def list_secret_version_ids(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecretVersionIdsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecretVersionIdsInput,
         validate_input: @config.validate_input
@@ -1224,7 +1226,7 @@ module AWS::SDK::SecretsManager
     def list_secrets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecretsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecretsInput,
         validate_input: @config.validate_input
@@ -1316,7 +1318,7 @@ module AWS::SDK::SecretsManager
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1481,7 +1483,7 @@ module AWS::SDK::SecretsManager
     def put_secret_value(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSecretValueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSecretValueInput,
         validate_input: @config.validate_input
@@ -1569,7 +1571,7 @@ module AWS::SDK::SecretsManager
     def remove_regions_from_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveRegionsFromReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveRegionsFromReplicationInput,
         validate_input: @config.validate_input
@@ -1664,7 +1666,7 @@ module AWS::SDK::SecretsManager
     def replicate_secret_to_regions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplicateSecretToRegionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplicateSecretToRegionsInput,
         validate_input: @config.validate_input
@@ -1743,7 +1745,7 @@ module AWS::SDK::SecretsManager
     def restore_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreSecretInput,
         validate_input: @config.validate_input
@@ -1886,7 +1888,7 @@ module AWS::SDK::SecretsManager
     def rotate_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RotateSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RotateSecretInput,
         validate_input: @config.validate_input
@@ -1962,7 +1964,7 @@ module AWS::SDK::SecretsManager
     def stop_replication_to_replica(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopReplicationToReplicaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopReplicationToReplicaInput,
         validate_input: @config.validate_input
@@ -2087,7 +2089,7 @@ module AWS::SDK::SecretsManager
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2182,7 +2184,7 @@ module AWS::SDK::SecretsManager
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2336,7 +2338,7 @@ module AWS::SDK::SecretsManager
     def update_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecretInput,
         validate_input: @config.validate_input
@@ -2447,7 +2449,7 @@ module AWS::SDK::SecretsManager
     def update_secret_version_stage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecretVersionStageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecretVersionStageInput,
         validate_input: @config.validate_input
@@ -2546,7 +2548,7 @@ module AWS::SDK::SecretsManager
     def validate_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateResourcePolicyInput,
         validate_input: @config.validate_input

@@ -262,12 +262,12 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_answer_machine_detection ||= false
         self.await_answer_machine_prompt ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -5627,11 +5627,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention_period_hours ||= 0
       end
-
     end
 
     # <p>Configuration information of an Amazon Lex bot.</p>
@@ -5938,11 +5938,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute contact_flow_summary_list
@@ -6052,11 +6052,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute default_vocabulary_list
@@ -6100,11 +6100,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute hours_of_operation_summary_list
@@ -6429,11 +6429,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute phone_number_summary_list
@@ -6685,11 +6685,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute queue_summary_list
@@ -7242,11 +7242,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.concurrency ||= 0
       end
-
     end
 
     # <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
@@ -9319,12 +9319,12 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
         self.delay ||= 0
       end
-
     end
 
     # <p>Contains the channel and queue identifier for a routing profile.</p>
@@ -9595,11 +9595,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute vocabulary_summary_list
@@ -10803,11 +10803,11 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_order_number ||= false
       end
-
     end
 
     UpdateAgentStatusOutput = ::Struct.new(
@@ -12351,12 +12351,12 @@ module AWS::SDK::Connect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_accept ||= false
         self.after_contact_work_time_limit ||= 0
       end
-
     end
 
     # <p>Contains information about the quick connect configuration settings for a user. The contact

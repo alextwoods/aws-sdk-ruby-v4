@@ -9,9 +9,6 @@
 
 require 'aws-sdk-acmpca'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::ACMPCA
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

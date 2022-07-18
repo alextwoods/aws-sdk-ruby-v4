@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ChimeSDKMessaging
@@ -74,7 +76,7 @@ module AWS::SDK::ChimeSDKMessaging
     def associate_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateChannelFlowInput,
         validate_input: @config.validate_input
@@ -172,7 +174,7 @@ module AWS::SDK::ChimeSDKMessaging
     def batch_create_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateChannelMembershipInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::ChimeSDKMessaging
     def channel_flow_callback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChannelFlowCallbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChannelFlowCallbackInput,
         validate_input: @config.validate_input
@@ -414,7 +416,7 @@ module AWS::SDK::ChimeSDKMessaging
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -505,7 +507,7 @@ module AWS::SDK::ChimeSDKMessaging
     def create_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelBanInput,
         validate_input: @config.validate_input
@@ -628,7 +630,7 @@ module AWS::SDK::ChimeSDKMessaging
     def create_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelFlowInput,
         validate_input: @config.validate_input
@@ -753,7 +755,7 @@ module AWS::SDK::ChimeSDKMessaging
     def create_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelMembershipInput,
         validate_input: @config.validate_input
@@ -857,7 +859,7 @@ module AWS::SDK::ChimeSDKMessaging
     def create_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelModeratorInput,
         validate_input: @config.validate_input
@@ -936,7 +938,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -1017,7 +1019,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelBanInput,
         validate_input: @config.validate_input
@@ -1088,7 +1090,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelFlowInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelMembershipInput,
         validate_input: @config.validate_input
@@ -1252,7 +1254,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelMessageInput,
         validate_input: @config.validate_input
@@ -1333,7 +1335,7 @@ module AWS::SDK::ChimeSDKMessaging
     def delete_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelModeratorInput,
         validate_input: @config.validate_input
@@ -1425,7 +1427,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -1514,7 +1516,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_ban(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelBanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelBanInput,
         validate_input: @config.validate_input
@@ -1595,7 +1597,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelFlowInput,
         validate_input: @config.validate_input
@@ -1684,7 +1686,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelMembershipInput,
         validate_input: @config.validate_input
@@ -1777,7 +1779,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_membership_for_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelMembershipForAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelMembershipForAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -1867,7 +1869,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_moderated_by_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelModeratedByAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelModeratedByAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -1954,7 +1956,7 @@ module AWS::SDK::ChimeSDKMessaging
     def describe_channel_moderator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelModeratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelModeratorInput,
         validate_input: @config.validate_input
@@ -2034,7 +2036,7 @@ module AWS::SDK::ChimeSDKMessaging
     def disassociate_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateChannelFlowInput,
         validate_input: @config.validate_input
@@ -2119,7 +2121,7 @@ module AWS::SDK::ChimeSDKMessaging
     def get_channel_membership_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelMembershipPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelMembershipPreferencesInput,
         validate_input: @config.validate_input
@@ -2221,7 +2223,7 @@ module AWS::SDK::ChimeSDKMessaging
     def get_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelMessageInput,
         validate_input: @config.validate_input
@@ -2335,7 +2337,7 @@ module AWS::SDK::ChimeSDKMessaging
     def get_channel_message_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelMessageStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelMessageStatusInput,
         validate_input: @config.validate_input
@@ -2399,7 +2401,7 @@ module AWS::SDK::ChimeSDKMessaging
     def get_messaging_session_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMessagingSessionEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMessagingSessionEndpointInput,
         validate_input: @config.validate_input
@@ -2491,7 +2493,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_bans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelBansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelBansInput,
         validate_input: @config.validate_input
@@ -2580,7 +2582,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelFlowsInput,
         validate_input: @config.validate_input
@@ -2683,7 +2685,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_memberships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMembershipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMembershipsInput,
         validate_input: @config.validate_input
@@ -2783,7 +2785,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_memberships_for_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMembershipsForAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMembershipsForAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -2907,7 +2909,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelMessagesInput,
         validate_input: @config.validate_input
@@ -2999,7 +3001,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channel_moderators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelModeratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelModeratorsInput,
         validate_input: @config.validate_input
@@ -3114,7 +3116,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -3197,7 +3199,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channels_associated_with_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsAssociatedWithChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsAssociatedWithChannelFlowInput,
         validate_input: @config.validate_input
@@ -3293,7 +3295,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_channels_moderated_by_app_instance_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsModeratedByAppInstanceUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsModeratedByAppInstanceUserInput,
         validate_input: @config.validate_input
@@ -3364,7 +3366,7 @@ module AWS::SDK::ChimeSDKMessaging
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3458,7 +3460,7 @@ module AWS::SDK::ChimeSDKMessaging
     def put_channel_membership_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutChannelMembershipPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutChannelMembershipPreferencesInput,
         validate_input: @config.validate_input
@@ -3543,7 +3545,7 @@ module AWS::SDK::ChimeSDKMessaging
     def redact_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RedactChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RedactChannelMessageInput,
         validate_input: @config.validate_input
@@ -3640,7 +3642,7 @@ module AWS::SDK::ChimeSDKMessaging
     def search_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchChannelsInput,
         validate_input: @config.validate_input
@@ -3764,7 +3766,7 @@ module AWS::SDK::ChimeSDKMessaging
     def send_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendChannelMessageInput,
         validate_input: @config.validate_input
@@ -3841,7 +3843,7 @@ module AWS::SDK::ChimeSDKMessaging
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3915,7 +3917,7 @@ module AWS::SDK::ChimeSDKMessaging
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4007,7 +4009,7 @@ module AWS::SDK::ChimeSDKMessaging
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -4096,7 +4098,7 @@ module AWS::SDK::ChimeSDKMessaging
     def update_channel_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelFlowInput,
         validate_input: @config.validate_input
@@ -4191,7 +4193,7 @@ module AWS::SDK::ChimeSDKMessaging
     def update_channel_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelMessageInput,
         validate_input: @config.validate_input
@@ -4270,7 +4272,7 @@ module AWS::SDK::ChimeSDKMessaging
     def update_channel_read_marker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelReadMarkerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelReadMarkerInput,
         validate_input: @config.validate_input

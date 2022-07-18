@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::SSMIncidents
   module Builders
 
@@ -171,10 +169,10 @@ module AWS::SDK::SSMIncidents
       end
     end
 
-    # Set Builder for EngagementSet
+    # List Builder for EngagementSet
     class EngagementSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end
@@ -200,10 +198,10 @@ module AWS::SDK::SSMIncidents
       end
     end
 
-    # Set Builder for ChatbotSnsConfigurationSet
+    # List Builder for ChatbotSnsConfigurationSet
     class ChatbotSnsConfigurationSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

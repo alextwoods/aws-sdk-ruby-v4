@@ -252,7 +252,7 @@ module AWS::SDK::DataSync
           last_connection_time: Time.now,
           creation_time: Time.now,
           endpoint_type: 'endpoint_type',
-          private_link_config: Stubs::PrivateLinkConfig.default(visited),
+          private_link_config: PrivateLinkConfig.default(visited),
         }
       end
 
@@ -278,8 +278,8 @@ module AWS::SDK::DataSync
         {
           vpc_endpoint_id: 'vpc_endpoint_id',
           private_link_endpoint: 'private_link_endpoint',
-          subnet_arns: Stubs::PLSubnetArnList.default(visited),
-          security_group_arns: Stubs::PLSecurityGroupArnList.default(visited),
+          subnet_arns: PLSubnetArnList.default(visited),
+          security_group_arns: PLSecurityGroupArnList.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          ec2_config: Stubs::Ec2Config.default(visited),
+          ec2_config: Ec2Config.default(visited),
           creation_time: Time.now,
           access_point_arn: 'access_point_arn',
           file_system_access_role_arn: 'file_system_access_role_arn',
@@ -369,7 +369,7 @@ module AWS::SDK::DataSync
         visited = visited + ['Ec2Config']
         {
           subnet_arn: 'subnet_arn',
-          security_group_arns: Stubs::Ec2SecurityGroupArnList.default(visited),
+          security_group_arns: Ec2SecurityGroupArnList.default(visited),
         }
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          security_group_arns: Stubs::Ec2SecurityGroupArnList.default(visited),
+          security_group_arns: Ec2SecurityGroupArnList.default(visited),
           creation_time: Time.now,
         }
       end
@@ -430,8 +430,8 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          security_group_arns: Stubs::Ec2SecurityGroupArnList.default(visited),
-          protocol: Stubs::FsxProtocol.default(visited),
+          security_group_arns: Ec2SecurityGroupArnList.default(visited),
+          protocol: FsxProtocol.default(visited),
           creation_time: Time.now,
         }
       end
@@ -454,7 +454,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('FsxProtocol')
         visited = visited + ['FsxProtocol']
         {
-          nfs: Stubs::FsxProtocolNfs.default(visited),
+          nfs: FsxProtocolNfs.default(visited),
         }
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('FsxProtocolNfs')
         visited = visited + ['FsxProtocolNfs']
         {
-          mount_options: Stubs::NfsMountOptions.default(visited),
+          mount_options: NfsMountOptions.default(visited),
         }
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          security_group_arns: Stubs::Ec2SecurityGroupArnList.default(visited),
+          security_group_arns: Ec2SecurityGroupArnList.default(visited),
           creation_time: Time.now,
           user: 'user',
           domain: 'domain',
@@ -534,15 +534,15 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          name_nodes: Stubs::HdfsNameNodeList.default(visited),
+          name_nodes: HdfsNameNodeList.default(visited),
           block_size: 1,
           replication_factor: 1,
           kms_key_provider_uri: 'kms_key_provider_uri',
-          qop_configuration: Stubs::QopConfiguration.default(visited),
+          qop_configuration: QopConfiguration.default(visited),
           authentication_type: 'authentication_type',
           simple_user: 'simple_user',
           kerberos_principal: 'kerberos_principal',
-          agent_arns: Stubs::AgentArnList.default(visited),
+          agent_arns: AgentArnList.default(visited),
           creation_time: Time.now,
         }
       end
@@ -612,7 +612,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('HdfsNameNodeList')
         visited = visited + ['HdfsNameNodeList']
         [
-          Stubs::HdfsNameNode.default(visited)
+          HdfsNameNode.default(visited)
         ]
       end
 
@@ -652,8 +652,8 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          on_prem_config: Stubs::OnPremConfig.default(visited),
-          mount_options: Stubs::NfsMountOptions.default(visited),
+          on_prem_config: OnPremConfig.default(visited),
+          mount_options: NfsMountOptions.default(visited),
           creation_time: Time.now,
         }
       end
@@ -676,7 +676,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('OnPremConfig')
         visited = visited + ['OnPremConfig']
         {
-          agent_arns: Stubs::AgentArnList.default(visited),
+          agent_arns: AgentArnList.default(visited),
         }
       end
 
@@ -697,7 +697,7 @@ module AWS::SDK::DataSync
           access_key: 'access_key',
           server_port: 1,
           server_protocol: 'server_protocol',
-          agent_arns: Stubs::AgentArnList.default(visited),
+          agent_arns: AgentArnList.default(visited),
           creation_time: Time.now,
         }
       end
@@ -723,8 +723,8 @@ module AWS::SDK::DataSync
           location_arn: 'location_arn',
           location_uri: 'location_uri',
           s3_storage_class: 's3_storage_class',
-          s3_config: Stubs::S3Config.default(visited),
-          agent_arns: Stubs::AgentArnList.default(visited),
+          s3_config: S3Config.default(visited),
+          agent_arns: AgentArnList.default(visited),
           creation_time: Time.now,
         }
       end
@@ -766,10 +766,10 @@ module AWS::SDK::DataSync
         {
           location_arn: 'location_arn',
           location_uri: 'location_uri',
-          agent_arns: Stubs::AgentArnList.default(visited),
+          agent_arns: AgentArnList.default(visited),
           user: 'user',
           domain: 'domain',
-          mount_options: Stubs::SmbMountOptions.default(visited),
+          mount_options: SmbMountOptions.default(visited),
           creation_time: Time.now,
         }
       end
@@ -817,15 +817,15 @@ module AWS::SDK::DataSync
           source_location_arn: 'source_location_arn',
           destination_location_arn: 'destination_location_arn',
           cloud_watch_log_group_arn: 'cloud_watch_log_group_arn',
-          source_network_interface_arns: Stubs::SourceNetworkInterfaceArns.default(visited),
-          destination_network_interface_arns: Stubs::DestinationNetworkInterfaceArns.default(visited),
-          options: Stubs::Options.default(visited),
-          excludes: Stubs::FilterList.default(visited),
-          schedule: Stubs::TaskSchedule.default(visited),
+          source_network_interface_arns: SourceNetworkInterfaceArns.default(visited),
+          destination_network_interface_arns: DestinationNetworkInterfaceArns.default(visited),
+          options: Options.default(visited),
+          excludes: FilterList.default(visited),
+          schedule: TaskSchedule.default(visited),
           error_code: 'error_code',
           error_detail: 'error_detail',
           creation_time: Time.now,
-          includes: Stubs::FilterList.default(visited),
+          includes: FilterList.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('FilterList')
         visited = visited + ['FilterList']
         [
-          Stubs::FilterRule.default(visited)
+          FilterRule.default(visited)
         ]
       end
 
@@ -1002,16 +1002,16 @@ module AWS::SDK::DataSync
         {
           task_execution_arn: 'task_execution_arn',
           status: 'status',
-          options: Stubs::Options.default(visited),
-          excludes: Stubs::FilterList.default(visited),
-          includes: Stubs::FilterList.default(visited),
+          options: Options.default(visited),
+          excludes: FilterList.default(visited),
+          includes: FilterList.default(visited),
           start_time: Time.now,
           estimated_files_to_transfer: 1,
           estimated_bytes_to_transfer: 1,
           files_transferred: 1,
           bytes_written: 1,
           bytes_transferred: 1,
-          result: Stubs::TaskExecutionResultDetail.default(visited),
+          result: TaskExecutionResultDetail.default(visited),
         }
       end
 
@@ -1072,7 +1072,7 @@ module AWS::SDK::DataSync
     class ListAgents
       def self.default(visited=[])
         {
-          agents: Stubs::AgentList.default(visited),
+          agents: AgentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1092,7 +1092,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('AgentList')
         visited = visited + ['AgentList']
         [
-          Stubs::AgentListEntry.default(visited)
+          AgentListEntry.default(visited)
         ]
       end
 
@@ -1132,7 +1132,7 @@ module AWS::SDK::DataSync
     class ListLocations
       def self.default(visited=[])
         {
-          locations: Stubs::LocationList.default(visited),
+          locations: LocationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1152,7 +1152,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('LocationList')
         visited = visited + ['LocationList']
         [
-          Stubs::LocationListEntry.default(visited)
+          LocationListEntry.default(visited)
         ]
       end
 
@@ -1190,7 +1190,7 @@ module AWS::SDK::DataSync
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::OutputTagList.default(visited),
+          tags: OutputTagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1210,7 +1210,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('OutputTagList')
         visited = visited + ['OutputTagList']
         [
-          Stubs::TagListEntry.default(visited)
+          TagListEntry.default(visited)
         ]
       end
 
@@ -1248,7 +1248,7 @@ module AWS::SDK::DataSync
     class ListTaskExecutions
       def self.default(visited=[])
         {
-          task_executions: Stubs::TaskExecutionList.default(visited),
+          task_executions: TaskExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1268,7 +1268,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('TaskExecutionList')
         visited = visited + ['TaskExecutionList']
         [
-          Stubs::TaskExecutionListEntry.default(visited)
+          TaskExecutionListEntry.default(visited)
         ]
       end
 
@@ -1306,7 +1306,7 @@ module AWS::SDK::DataSync
     class ListTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::TaskList.default(visited),
+          tasks: TaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1326,7 +1326,7 @@ module AWS::SDK::DataSync
         return nil if visited.include?('TaskList')
         visited = visited + ['TaskList']
         [
-          Stubs::TaskListEntry.default(visited)
+          TaskListEntry.default(visited)
         ]
       end
 

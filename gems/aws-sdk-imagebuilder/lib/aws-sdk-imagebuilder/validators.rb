@@ -22,7 +22,7 @@ module AWS::SDK::Imagebuilder
     class AdditionalInstanceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdditionalInstanceConfiguration, context: context)
-        Validators::SystemsManagerAgent.validate!(input[:systems_manager_agent], context: "#{context}[:systems_manager_agent]") unless input[:systems_manager_agent].nil?
+        SystemsManagerAgent.validate!(input[:systems_manager_agent], context: "#{context}[:systems_manager_agent]") unless input[:systems_manager_agent].nil?
         Hearth::Validator.validate!(input[:user_data_override], ::String, context: "#{context}[:user_data_override]")
       end
     end
@@ -34,7 +34,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
       end
     end
@@ -44,10 +44,10 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::AmiDistributionConfiguration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::AccountList.validate!(input[:target_account_ids], context: "#{context}[:target_account_ids]") unless input[:target_account_ids].nil?
-        Validators::TagMap.validate!(input[:ami_tags], context: "#{context}[:ami_tags]") unless input[:ami_tags].nil?
+        AccountList.validate!(input[:target_account_ids], context: "#{context}[:target_account_ids]") unless input[:target_account_ids].nil?
+        TagMap.validate!(input[:ami_tags], context: "#{context}[:ami_tags]") unless input[:ami_tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::LaunchPermissionConfiguration.validate!(input[:launch_permission], context: "#{context}[:launch_permission]") unless input[:launch_permission].nil?
+        LaunchPermissionConfiguration.validate!(input[:launch_permission], context: "#{context}[:launch_permission]") unless input[:launch_permission].nil?
       end
     end
 
@@ -55,7 +55,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ami.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ami.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,15 +101,15 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:change_description], ::String, context: "#{context}[:change_description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
-        Validators::ComponentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
-        Validators::ComponentParameterDetailList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
+        ComponentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ComponentParameterDetailList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:data], ::String, context: "#{context}[:data]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -117,7 +117,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentConfiguration, context: context)
         Hearth::Validator.validate!(input[:component_arn], ::String, context: "#{context}[:component_arn]")
-        Validators::ComponentParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ComponentParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -125,7 +125,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ComponentParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ComponentParameterValueList.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        ComponentParameterValueList.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -143,7 +143,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::ComponentParameterDetail, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ComponentParameterValueList.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
+        ComponentParameterValueList.validate!(input[:default_value], context: "#{context}[:default_value]") unless input[:default_value].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentParameterDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentParameterDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -161,7 +161,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -190,14 +190,14 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
-        Validators::ComponentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
+        ComponentState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:change_description], ::String, context: "#{context}[:change_description]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -205,7 +205,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
+        OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
@@ -229,7 +229,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Container, context: context)
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::StringList.validate!(input[:image_uris], context: "#{context}[:image_uris]") unless input[:image_uris].nil?
+        StringList.validate!(input[:image_uris], context: "#{context}[:image_uris]") unless input[:image_uris].nil?
       end
     end
 
@@ -246,8 +246,8 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContainerDistributionConfiguration, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StringList.validate!(input[:container_tags], context: "#{context}[:container_tags]") unless input[:container_tags].nil?
-        Validators::TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
+        StringList.validate!(input[:container_tags], context: "#{context}[:container_tags]") unless input[:container_tags].nil?
+        TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
       end
     end
 
@@ -255,7 +255,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Container.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Container.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -270,16 +270,16 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
-        Validators::InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
+        ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
         Hearth::Validator.validate!(input[:dockerfile_template_data], ::String, context: "#{context}[:dockerfile_template_data]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:working_directory], ::String, context: "#{context}[:working_directory]")
-        Validators::TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
+        TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
       end
     end
 
@@ -293,7 +293,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -301,7 +301,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerRecipeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerRecipeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -314,11 +314,11 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:change_description], ::String, context: "#{context}[:change_description]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
+        OsVersionList.validate!(input[:supported_os_versions], context: "#{context}[:supported_os_versions]") unless input[:supported_os_versions].nil?
         Hearth::Validator.validate!(input[:data], ::String, context: "#{context}[:data]")
         Hearth::Validator.validate!(input[:uri], ::String, context: "#{context}[:uri]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -339,16 +339,16 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:semantic_version], ::String, context: "#{context}[:semantic_version]")
-        Validators::ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
-        Validators::InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
+        ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        InstanceConfiguration.validate!(input[:instance_configuration], context: "#{context}[:instance_configuration]") unless input[:instance_configuration].nil?
         Hearth::Validator.validate!(input[:dockerfile_template_data], ::String, context: "#{context}[:dockerfile_template_data]")
         Hearth::Validator.validate!(input[:dockerfile_template_uri], ::String, context: "#{context}[:dockerfile_template_uri]")
         Hearth::Validator.validate!(input[:platform_override], ::String, context: "#{context}[:platform_override]")
         Hearth::Validator.validate!(input[:image_os_version_override], ::String, context: "#{context}[:image_os_version_override]")
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:working_directory], ::String, context: "#{context}[:working_directory]")
-        Validators::TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
+        TargetContainerRepository.validate!(input[:target_repository], context: "#{context}[:target_repository]") unless input[:target_repository].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -368,8 +368,8 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::CreateDistributionConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -390,9 +390,9 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:container_recipe_arn], ::String, context: "#{context}[:container_recipe_arn]")
         Hearth::Validator.validate!(input[:distribution_configuration_arn], ::String, context: "#{context}[:distribution_configuration_arn]")
         Hearth::Validator.validate!(input[:infrastructure_configuration_arn], ::String, context: "#{context}[:infrastructure_configuration_arn]")
-        Validators::ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
+        ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
         Hearth::Validator.validate!(input[:enhanced_image_metadata_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_image_metadata_enabled]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -415,11 +415,11 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:container_recipe_arn], ::String, context: "#{context}[:container_recipe_arn]")
         Hearth::Validator.validate!(input[:infrastructure_configuration_arn], ::String, context: "#{context}[:infrastructure_configuration_arn]")
         Hearth::Validator.validate!(input[:distribution_configuration_arn], ::String, context: "#{context}[:distribution_configuration_arn]")
-        Validators::ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
+        ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
         Hearth::Validator.validate!(input[:enhanced_image_metadata_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_image_metadata_enabled]")
-        Validators::Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -439,12 +439,12 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:semantic_version], ::String, context: "#{context}[:semantic_version]")
-        Validators::ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
-        Validators::InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:working_directory], ::String, context: "#{context}[:working_directory]")
-        Validators::AdditionalInstanceConfiguration.validate!(input[:additional_instance_configuration], context: "#{context}[:additional_instance_configuration]") unless input[:additional_instance_configuration].nil?
+        AdditionalInstanceConfiguration.validate!(input[:additional_instance_configuration], context: "#{context}[:additional_instance_configuration]") unless input[:additional_instance_configuration].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -463,17 +463,17 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::CreateInfrastructureConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
-        Validators::Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
         Hearth::Validator.validate!(input[:key_pair], ::String, context: "#{context}[:key_pair]")
         Hearth::Validator.validate!(input[:terminate_instance_on_failure], ::TrueClass, ::FalseClass, context: "#{context}[:terminate_instance_on_failure]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -596,12 +596,12 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Distribution, context: context)
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::AmiDistributionConfiguration.validate!(input[:ami_distribution_configuration], context: "#{context}[:ami_distribution_configuration]") unless input[:ami_distribution_configuration].nil?
-        Validators::ContainerDistributionConfiguration.validate!(input[:container_distribution_configuration], context: "#{context}[:container_distribution_configuration]") unless input[:container_distribution_configuration].nil?
-        Validators::LicenseConfigurationArnList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
-        Validators::LaunchTemplateConfigurationList.validate!(input[:launch_template_configurations], context: "#{context}[:launch_template_configurations]") unless input[:launch_template_configurations].nil?
-        Validators::S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
-        Validators::FastLaunchConfigurationList.validate!(input[:fast_launch_configurations], context: "#{context}[:fast_launch_configurations]") unless input[:fast_launch_configurations].nil?
+        AmiDistributionConfiguration.validate!(input[:ami_distribution_configuration], context: "#{context}[:ami_distribution_configuration]") unless input[:ami_distribution_configuration].nil?
+        ContainerDistributionConfiguration.validate!(input[:container_distribution_configuration], context: "#{context}[:container_distribution_configuration]") unless input[:container_distribution_configuration].nil?
+        LicenseConfigurationArnList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
+        LaunchTemplateConfigurationList.validate!(input[:launch_template_configurations], context: "#{context}[:launch_template_configurations]") unless input[:launch_template_configurations].nil?
+        S3ExportConfiguration.validate!(input[:s3_export_configuration], context: "#{context}[:s3_export_configuration]") unless input[:s3_export_configuration].nil?
+        FastLaunchConfigurationList.validate!(input[:fast_launch_configurations], context: "#{context}[:fast_launch_configurations]") unless input[:fast_launch_configurations].nil?
       end
     end
 
@@ -611,11 +611,11 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
+        DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
         Hearth::Validator.validate!(input[:timeout_minutes], ::Integer, context: "#{context}[:timeout_minutes]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::String, context: "#{context}[:date_updated]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -627,8 +627,8 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::String, context: "#{context}[:date_updated]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
       end
     end
 
@@ -636,7 +636,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DistributionConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DistributionConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -645,7 +645,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Distribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Distribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -668,9 +668,9 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FastLaunchConfiguration, context: context)
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::FastLaunchSnapshotConfiguration.validate!(input[:snapshot_configuration], context: "#{context}[:snapshot_configuration]") unless input[:snapshot_configuration].nil?
+        FastLaunchSnapshotConfiguration.validate!(input[:snapshot_configuration], context: "#{context}[:snapshot_configuration]") unless input[:snapshot_configuration].nil?
         Hearth::Validator.validate!(input[:max_parallel_launches], ::Integer, context: "#{context}[:max_parallel_launches]")
-        Validators::FastLaunchLaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
+        FastLaunchLaunchTemplateSpecification.validate!(input[:launch_template], context: "#{context}[:launch_template]") unless input[:launch_template].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
       end
     end
@@ -679,7 +679,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FastLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FastLaunchConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -712,7 +712,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -744,7 +744,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetComponentOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
+        Component.validate!(input[:component], context: "#{context}[:component]") unless input[:component].nil?
       end
     end
 
@@ -774,7 +774,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerRecipeOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ContainerRecipe.validate!(input[:container_recipe], context: "#{context}[:container_recipe]") unless input[:container_recipe].nil?
+        ContainerRecipe.validate!(input[:container_recipe], context: "#{context}[:container_recipe]") unless input[:container_recipe].nil?
       end
     end
 
@@ -804,7 +804,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::DistributionConfiguration.validate!(input[:distribution_configuration], context: "#{context}[:distribution_configuration]") unless input[:distribution_configuration].nil?
+        DistributionConfiguration.validate!(input[:distribution_configuration], context: "#{context}[:distribution_configuration]") unless input[:distribution_configuration].nil?
       end
     end
 
@@ -819,7 +819,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetImageOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::Image.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
+        Image.validate!(input[:image], context: "#{context}[:image]") unless input[:image].nil?
       end
     end
 
@@ -834,7 +834,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetImagePipelineOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImagePipeline.validate!(input[:image_pipeline], context: "#{context}[:image_pipeline]") unless input[:image_pipeline].nil?
+        ImagePipeline.validate!(input[:image_pipeline], context: "#{context}[:image_pipeline]") unless input[:image_pipeline].nil?
       end
     end
 
@@ -864,7 +864,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetImageRecipeOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImageRecipe.validate!(input[:image_recipe], context: "#{context}[:image_recipe]") unless input[:image_recipe].nil?
+        ImageRecipe.validate!(input[:image_recipe], context: "#{context}[:image_recipe]") unless input[:image_recipe].nil?
       end
     end
 
@@ -894,7 +894,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInfrastructureConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::InfrastructureConfiguration.validate!(input[:infrastructure_configuration], context: "#{context}[:infrastructure_configuration]") unless input[:infrastructure_configuration].nil?
+        InfrastructureConfiguration.validate!(input[:infrastructure_configuration], context: "#{context}[:infrastructure_configuration]") unless input[:infrastructure_configuration].nil?
       end
     end
 
@@ -915,17 +915,17 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:enhanced_image_metadata_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_image_metadata_enabled]")
         Hearth::Validator.validate!(input[:os_version], ::String, context: "#{context}[:os_version]")
-        Validators::ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
-        Validators::ImageRecipe.validate!(input[:image_recipe], context: "#{context}[:image_recipe]") unless input[:image_recipe].nil?
-        Validators::ContainerRecipe.validate!(input[:container_recipe], context: "#{context}[:container_recipe]") unless input[:container_recipe].nil?
+        ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ImageRecipe.validate!(input[:image_recipe], context: "#{context}[:image_recipe]") unless input[:image_recipe].nil?
+        ContainerRecipe.validate!(input[:container_recipe], context: "#{context}[:container_recipe]") unless input[:container_recipe].nil?
         Hearth::Validator.validate!(input[:source_pipeline_name], ::String, context: "#{context}[:source_pipeline_name]")
         Hearth::Validator.validate!(input[:source_pipeline_arn], ::String, context: "#{context}[:source_pipeline_arn]")
-        Validators::InfrastructureConfiguration.validate!(input[:infrastructure_configuration], context: "#{context}[:infrastructure_configuration]") unless input[:infrastructure_configuration].nil?
-        Validators::DistributionConfiguration.validate!(input[:distribution_configuration], context: "#{context}[:distribution_configuration]") unless input[:distribution_configuration].nil?
-        Validators::ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
+        InfrastructureConfiguration.validate!(input[:infrastructure_configuration], context: "#{context}[:infrastructure_configuration]") unless input[:infrastructure_configuration].nil?
+        DistributionConfiguration.validate!(input[:distribution_configuration], context: "#{context}[:distribution_configuration]") unless input[:distribution_configuration].nil?
+        ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::OutputResources.validate!(input[:output_resources], context: "#{context}[:output_resources]") unless input[:output_resources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputResources.validate!(input[:output_resources], context: "#{context}[:output_resources]") unless input[:output_resources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:build_type], ::String, context: "#{context}[:build_type]")
       end
     end
@@ -942,7 +942,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImagePackage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImagePackage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -959,14 +959,14 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:container_recipe_arn], ::String, context: "#{context}[:container_recipe_arn]")
         Hearth::Validator.validate!(input[:infrastructure_configuration_arn], ::String, context: "#{context}[:infrastructure_configuration_arn]")
         Hearth::Validator.validate!(input[:distribution_configuration_arn], ::String, context: "#{context}[:distribution_configuration_arn]")
-        Validators::ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
-        Validators::Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
+        Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::String, context: "#{context}[:date_updated]")
         Hearth::Validator.validate!(input[:date_last_run], ::String, context: "#{context}[:date_last_run]")
         Hearth::Validator.validate!(input[:date_next_run], ::String, context: "#{context}[:date_next_run]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -974,7 +974,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImagePipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImagePipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -989,13 +989,13 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
+        ComponentConfigurationList.validate!(input[:components], context: "#{context}[:components]") unless input[:components].nil?
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
-        Validators::InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
+        InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:working_directory], ::String, context: "#{context}[:working_directory]")
-        Validators::AdditionalInstanceConfiguration.validate!(input[:additional_instance_configuration], context: "#{context}[:additional_instance_configuration]") unless input[:additional_instance_configuration].nil?
+        AdditionalInstanceConfiguration.validate!(input[:additional_instance_configuration], context: "#{context}[:additional_instance_configuration]") unless input[:additional_instance_configuration].nil?
       end
     end
 
@@ -1008,7 +1008,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:parent_image], ::String, context: "#{context}[:parent_image]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1016,7 +1016,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageRecipeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageRecipeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1038,11 +1038,11 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:os_version], ::String, context: "#{context}[:os_version]")
-        Validators::ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ImageState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
-        Validators::OutputResources.validate!(input[:output_resources], context: "#{context}[:output_resources]") unless input[:output_resources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        OutputResources.validate!(input[:output_resources], context: "#{context}[:output_resources]") unless input[:output_resources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:build_type], ::String, context: "#{context}[:build_type]")
       end
     end
@@ -1051,7 +1051,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImageVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImageVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,7 +1101,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:data], ::String, context: "#{context}[:data]")
         Hearth::Validator.validate!(input[:uri], ::String, context: "#{context}[:uri]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1124,7 +1124,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
         Hearth::Validator.validate!(input[:os_version], ::String, context: "#{context}[:os_version]")
         Hearth::Validator.validate!(input[:vm_import_task_id], ::String, context: "#{context}[:vm_import_task_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1144,19 +1144,19 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
-        Validators::Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
         Hearth::Validator.validate!(input[:key_pair], ::String, context: "#{context}[:key_pair]")
         Hearth::Validator.validate!(input[:terminate_instance_on_failure], ::TrueClass, ::FalseClass, context: "#{context}[:terminate_instance_on_failure]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::String, context: "#{context}[:date_updated]")
-        Validators::ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1168,9 +1168,9 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:date_created], ::String, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_updated], ::String, context: "#{context}[:date_updated]")
-        Validators::ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
       end
     end
@@ -1179,7 +1179,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InfrastructureConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InfrastructureConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1188,7 +1188,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceBlockDeviceMapping, context: context)
         Hearth::Validator.validate!(input[:device_name], ::String, context: "#{context}[:device_name]")
-        Validators::EbsInstanceBlockDeviceSpecification.validate!(input[:ebs], context: "#{context}[:ebs]") unless input[:ebs].nil?
+        EbsInstanceBlockDeviceSpecification.validate!(input[:ebs], context: "#{context}[:ebs]") unless input[:ebs].nil?
         Hearth::Validator.validate!(input[:virtual_name], ::String, context: "#{context}[:virtual_name]")
         Hearth::Validator.validate!(input[:no_device], ::String, context: "#{context}[:no_device]")
       end
@@ -1198,7 +1198,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceBlockDeviceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceBlockDeviceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceConfiguration, context: context)
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
-        Validators::InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
+        InstanceBlockDeviceMappings.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
       end
     end
 
@@ -1273,10 +1273,10 @@ module AWS::SDK::Imagebuilder
     class LaunchPermissionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchPermissionConfiguration, context: context)
-        Validators::AccountList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
-        Validators::StringList.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
-        Validators::OrganizationArnList.validate!(input[:organization_arns], context: "#{context}[:organization_arns]") unless input[:organization_arns].nil?
-        Validators::OrganizationalUnitArnList.validate!(input[:organizational_unit_arns], context: "#{context}[:organizational_unit_arns]") unless input[:organizational_unit_arns].nil?
+        AccountList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        StringList.validate!(input[:user_groups], context: "#{context}[:user_groups]") unless input[:user_groups].nil?
+        OrganizationArnList.validate!(input[:organization_arns], context: "#{context}[:organization_arns]") unless input[:organization_arns].nil?
+        OrganizationalUnitArnList.validate!(input[:organizational_unit_arns], context: "#{context}[:organizational_unit_arns]") unless input[:organizational_unit_arns].nil?
       end
     end
 
@@ -1293,7 +1293,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LaunchTemplateConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LaunchTemplateConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1320,7 +1320,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentBuildVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ComponentSummaryList.validate!(input[:component_summary_list], context: "#{context}[:component_summary_list]") unless input[:component_summary_list].nil?
+        ComponentSummaryList.validate!(input[:component_summary_list], context: "#{context}[:component_summary_list]") unless input[:component_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1329,7 +1329,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentsInput, context: context)
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:by_name], ::TrueClass, ::FalseClass, context: "#{context}[:by_name]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -1340,7 +1340,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListComponentsOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ComponentVersionList.validate!(input[:component_version_list], context: "#{context}[:component_version_list]") unless input[:component_version_list].nil?
+        ComponentVersionList.validate!(input[:component_version_list], context: "#{context}[:component_version_list]") unless input[:component_version_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1349,7 +1349,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContainerRecipesInput, context: context)
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1359,7 +1359,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListContainerRecipesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ContainerRecipeSummaryList.validate!(input[:container_recipe_summary_list], context: "#{context}[:container_recipe_summary_list]") unless input[:container_recipe_summary_list].nil?
+        ContainerRecipeSummaryList.validate!(input[:container_recipe_summary_list], context: "#{context}[:container_recipe_summary_list]") unless input[:container_recipe_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1367,7 +1367,7 @@ module AWS::SDK::Imagebuilder
     class ListDistributionConfigurationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionConfigurationsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1377,7 +1377,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributionConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::DistributionConfigurationSummaryList.validate!(input[:distribution_configuration_summary_list], context: "#{context}[:distribution_configuration_summary_list]") unless input[:distribution_configuration_summary_list].nil?
+        DistributionConfigurationSummaryList.validate!(input[:distribution_configuration_summary_list], context: "#{context}[:distribution_configuration_summary_list]") unless input[:distribution_configuration_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1386,7 +1386,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImageBuildVersionsInput, context: context)
         Hearth::Validator.validate!(input[:image_version_arn], ::String, context: "#{context}[:image_version_arn]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1396,7 +1396,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImageBuildVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImageSummaryList.validate!(input[:image_summary_list], context: "#{context}[:image_summary_list]") unless input[:image_summary_list].nil?
+        ImageSummaryList.validate!(input[:image_summary_list], context: "#{context}[:image_summary_list]") unless input[:image_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1414,7 +1414,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagePackagesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImagePackageList.validate!(input[:image_package_list], context: "#{context}[:image_package_list]") unless input[:image_package_list].nil?
+        ImagePackageList.validate!(input[:image_package_list], context: "#{context}[:image_package_list]") unless input[:image_package_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1423,7 +1423,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagePipelineImagesInput, context: context)
         Hearth::Validator.validate!(input[:image_pipeline_arn], ::String, context: "#{context}[:image_pipeline_arn]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1433,7 +1433,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagePipelineImagesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImageSummaryList.validate!(input[:image_summary_list], context: "#{context}[:image_summary_list]") unless input[:image_summary_list].nil?
+        ImageSummaryList.validate!(input[:image_summary_list], context: "#{context}[:image_summary_list]") unless input[:image_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1441,7 +1441,7 @@ module AWS::SDK::Imagebuilder
     class ListImagePipelinesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagePipelinesInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1451,7 +1451,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagePipelinesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImagePipelineList.validate!(input[:image_pipeline_list], context: "#{context}[:image_pipeline_list]") unless input[:image_pipeline_list].nil?
+        ImagePipelineList.validate!(input[:image_pipeline_list], context: "#{context}[:image_pipeline_list]") unless input[:image_pipeline_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1460,7 +1460,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImageRecipesInput, context: context)
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImageRecipesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImageRecipeSummaryList.validate!(input[:image_recipe_summary_list], context: "#{context}[:image_recipe_summary_list]") unless input[:image_recipe_summary_list].nil?
+        ImageRecipeSummaryList.validate!(input[:image_recipe_summary_list], context: "#{context}[:image_recipe_summary_list]") unless input[:image_recipe_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1479,7 +1479,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagesInput, context: context)
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:by_name], ::TrueClass, ::FalseClass, context: "#{context}[:by_name]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -1491,7 +1491,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListImagesOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::ImageVersionList.validate!(input[:image_version_list], context: "#{context}[:image_version_list]") unless input[:image_version_list].nil?
+        ImageVersionList.validate!(input[:image_version_list], context: "#{context}[:image_version_list]") unless input[:image_version_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1499,7 +1499,7 @@ module AWS::SDK::Imagebuilder
     class ListInfrastructureConfigurationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInfrastructureConfigurationsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1509,7 +1509,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInfrastructureConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::InfrastructureConfigurationSummaryList.validate!(input[:infrastructure_configuration_summary_list], context: "#{context}[:infrastructure_configuration_summary_list]") unless input[:infrastructure_configuration_summary_list].nil?
+        InfrastructureConfigurationSummaryList.validate!(input[:infrastructure_configuration_summary_list], context: "#{context}[:infrastructure_configuration_summary_list]") unless input[:infrastructure_configuration_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1524,14 +1524,14 @@ module AWS::SDK::Imagebuilder
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class Logging
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Logging, context: context)
-        Validators::S3Logs.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
+        S3Logs.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
       end
     end
 
@@ -1565,8 +1565,8 @@ module AWS::SDK::Imagebuilder
     class OutputResources
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OutputResources, context: context)
-        Validators::AmiList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
-        Validators::ContainerList.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
+        AmiList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
+        ContainerList.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
       end
     end
 
@@ -1794,7 +1794,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1816,7 +1816,7 @@ module AWS::SDK::Imagebuilder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1831,7 +1831,7 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::UpdateDistributionConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:distribution_configuration_arn], ::String, context: "#{context}[:distribution_configuration_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
+        DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1854,9 +1854,9 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input[:container_recipe_arn], ::String, context: "#{context}[:container_recipe_arn]")
         Hearth::Validator.validate!(input[:infrastructure_configuration_arn], ::String, context: "#{context}[:infrastructure_configuration_arn]")
         Hearth::Validator.validate!(input[:distribution_configuration_arn], ::String, context: "#{context}[:distribution_configuration_arn]")
-        Validators::ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
+        ImageTestsConfiguration.validate!(input[:image_tests_configuration], context: "#{context}[:image_tests_configuration]") unless input[:image_tests_configuration].nil?
         Hearth::Validator.validate!(input[:enhanced_image_metadata_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_image_metadata_enabled]")
-        Validators::Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
+        Schedule.validate!(input[:schedule], context: "#{context}[:schedule]") unless input[:schedule].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -1876,17 +1876,17 @@ module AWS::SDK::Imagebuilder
         Hearth::Validator.validate!(input, Types::UpdateInfrastructureConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:infrastructure_configuration_arn], ::String, context: "#{context}[:infrastructure_configuration_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
+        InstanceTypeList.validate!(input[:instance_types], context: "#{context}[:instance_types]") unless input[:instance_types].nil?
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
-        Validators::Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
+        Logging.validate!(input[:logging], context: "#{context}[:logging]") unless input[:logging].nil?
         Hearth::Validator.validate!(input[:key_pair], ::String, context: "#{context}[:key_pair]")
         Hearth::Validator.validate!(input[:terminate_instance_on_failure], ::TrueClass, ::FalseClass, context: "#{context}[:terminate_instance_on_failure]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
+        ResourceTagMap.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        InstanceMetadataOptions.validate!(input[:instance_metadata_options], context: "#{context}[:instance_metadata_options]") unless input[:instance_metadata_options].nil?
       end
     end
 

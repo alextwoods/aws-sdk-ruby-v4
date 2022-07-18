@@ -14,7 +14,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Anomaly.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Anomaly.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -26,9 +26,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:anomaly_start_date], ::String, context: "#{context}[:anomaly_start_date]")
         Hearth::Validator.validate!(input[:anomaly_end_date], ::String, context: "#{context}[:anomaly_end_date]")
         Hearth::Validator.validate!(input[:dimension_value], ::String, context: "#{context}[:dimension_value]")
-        Validators::RootCauses.validate!(input[:root_causes], context: "#{context}[:root_causes]") unless input[:root_causes].nil?
-        Validators::AnomalyScore.validate!(input[:anomaly_score], context: "#{context}[:anomaly_score]") unless input[:anomaly_score].nil?
-        Validators::Impact.validate!(input[:impact], context: "#{context}[:impact]") unless input[:impact].nil?
+        RootCauses.validate!(input[:root_causes], context: "#{context}[:root_causes]") unless input[:root_causes].nil?
+        AnomalyScore.validate!(input[:anomaly_score], context: "#{context}[:anomaly_score]") unless input[:anomaly_score].nil?
+        Impact.validate!(input[:impact], context: "#{context}[:impact]") unless input[:impact].nil?
         Hearth::Validator.validate!(input[:monitor_arn], ::String, context: "#{context}[:monitor_arn]")
         Hearth::Validator.validate!(input[:feedback], ::String, context: "#{context}[:feedback]")
       end
@@ -52,7 +52,7 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:last_evaluated_date], ::String, context: "#{context}[:last_evaluated_date]")
         Hearth::Validator.validate!(input[:monitor_type], ::String, context: "#{context}[:monitor_type]")
         Hearth::Validator.validate!(input[:monitor_dimension], ::String, context: "#{context}[:monitor_dimension]")
-        Validators::Expression.validate!(input[:monitor_specification], context: "#{context}[:monitor_specification]") unless input[:monitor_specification].nil?
+        Expression.validate!(input[:monitor_specification], context: "#{context}[:monitor_specification]") unless input[:monitor_specification].nil?
         Hearth::Validator.validate!(input[:dimensional_value_count], ::Integer, context: "#{context}[:dimensional_value_count]")
       end
     end
@@ -61,7 +61,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalyMonitor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalyMonitor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -79,8 +79,8 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::AnomalySubscription, context: context)
         Hearth::Validator.validate!(input[:subscription_arn], ::String, context: "#{context}[:subscription_arn]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::MonitorArnList.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        MonitorArnList.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
         Hearth::Validator.validate!(input[:threshold], ::Float, context: "#{context}[:threshold]")
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
@@ -91,7 +91,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnomalySubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnomalySubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostAllocationTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostAllocationTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostAllocationTagStatusEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostAllocationTagStatusEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -165,9 +165,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:effective_end], ::String, context: "#{context}[:effective_end]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:rule_version], ::String, context: "#{context}[:rule_version]")
-        Validators::CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
-        Validators::CostCategoryProcessingStatusList.validate!(input[:processing_status], context: "#{context}[:processing_status]") unless input[:processing_status].nil?
+        CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
+        CostCategoryProcessingStatusList.validate!(input[:processing_status], context: "#{context}[:processing_status]") unless input[:processing_status].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostCategoryProcessingStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostCategoryProcessingStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -214,8 +214,8 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:effective_start], ::String, context: "#{context}[:effective_start]")
         Hearth::Validator.validate!(input[:effective_end], ::String, context: "#{context}[:effective_end]")
         Hearth::Validator.validate!(input[:number_of_rules], ::Integer, context: "#{context}[:number_of_rules]")
-        Validators::CostCategoryProcessingStatusList.validate!(input[:processing_status], context: "#{context}[:processing_status]") unless input[:processing_status].nil?
-        Validators::CostCategoryValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        CostCategoryProcessingStatusList.validate!(input[:processing_status], context: "#{context}[:processing_status]") unless input[:processing_status].nil?
+        CostCategoryValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
       end
     end
@@ -224,7 +224,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostCategoryReference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostCategoryReference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -233,8 +233,8 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CostCategoryRule, context: context)
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::Expression.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
-        Validators::CostCategoryInheritedValueDimension.validate!(input[:inherited_value], context: "#{context}[:inherited_value]") unless input[:inherited_value].nil?
+        Expression.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        CostCategoryInheritedValueDimension.validate!(input[:inherited_value], context: "#{context}[:inherited_value]") unless input[:inherited_value].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -243,7 +243,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostCategoryRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostCategoryRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -252,9 +252,9 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CostCategorySplitChargeRule, context: context)
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::CostCategorySplitChargeRuleTargetsList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        CostCategorySplitChargeRuleTargetsList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
-        Validators::CostCategorySplitChargeRuleParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        CostCategorySplitChargeRuleParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -262,7 +262,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CostCategorySplitChargeRuleParameter, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::CostCategorySplitChargeRuleParameterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        CostCategorySplitChargeRuleParameterValuesList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -279,7 +279,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostCategorySplitChargeRuleParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostCategorySplitChargeRuleParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CostCategorySplitChargeRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CostCategorySplitChargeRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -306,8 +306,8 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CostCategoryValues, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
       end
     end
 
@@ -323,18 +323,18 @@ module AWS::SDK::CostExplorer
     class Coverage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Coverage, context: context)
-        Validators::CoverageHours.validate!(input[:coverage_hours], context: "#{context}[:coverage_hours]") unless input[:coverage_hours].nil?
-        Validators::CoverageNormalizedUnits.validate!(input[:coverage_normalized_units], context: "#{context}[:coverage_normalized_units]") unless input[:coverage_normalized_units].nil?
-        Validators::CoverageCost.validate!(input[:coverage_cost], context: "#{context}[:coverage_cost]") unless input[:coverage_cost].nil?
+        CoverageHours.validate!(input[:coverage_hours], context: "#{context}[:coverage_hours]") unless input[:coverage_hours].nil?
+        CoverageNormalizedUnits.validate!(input[:coverage_normalized_units], context: "#{context}[:coverage_normalized_units]") unless input[:coverage_normalized_units].nil?
+        CoverageCost.validate!(input[:coverage_cost], context: "#{context}[:coverage_cost]") unless input[:coverage_cost].nil?
       end
     end
 
     class CoverageByTime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoverageByTime, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::ReservationCoverageGroups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
-        Validators::Coverage.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        ReservationCoverageGroups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        Coverage.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
       end
     end
 
@@ -369,7 +369,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoverageByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoverageByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -377,8 +377,8 @@ module AWS::SDK::CostExplorer
     class CreateAnomalyMonitorInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAnomalyMonitorInput, context: context)
-        Validators::AnomalyMonitor.validate!(input[:anomaly_monitor], context: "#{context}[:anomaly_monitor]") unless input[:anomaly_monitor].nil?
-        Validators::ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        AnomalyMonitor.validate!(input[:anomaly_monitor], context: "#{context}[:anomaly_monitor]") unless input[:anomaly_monitor].nil?
+        ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -392,8 +392,8 @@ module AWS::SDK::CostExplorer
     class CreateAnomalySubscriptionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAnomalySubscriptionInput, context: context)
-        Validators::AnomalySubscription.validate!(input[:anomaly_subscription], context: "#{context}[:anomaly_subscription]") unless input[:anomaly_subscription].nil?
-        Validators::ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        AnomalySubscription.validate!(input[:anomaly_subscription], context: "#{context}[:anomaly_subscription]") unless input[:anomaly_subscription].nil?
+        ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -409,10 +409,10 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::CreateCostCategoryDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:rule_version], ::String, context: "#{context}[:rule_version]")
-        Validators::CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
-        Validators::CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
-        Validators::ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
+        ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -429,9 +429,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::CurrentInstance, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
-        Validators::TagValuesList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
-        Validators::ResourceUtilization.validate!(input[:resource_utilization], context: "#{context}[:resource_utilization]") unless input[:resource_utilization].nil?
+        TagValuesList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
+        ResourceUtilization.validate!(input[:resource_utilization], context: "#{context}[:resource_utilization]") unless input[:resource_utilization].nil?
         Hearth::Validator.validate!(input[:reservation_covered_hours_in_lookback_period], ::String, context: "#{context}[:reservation_covered_hours_in_lookback_period]")
         Hearth::Validator.validate!(input[:savings_plans_covered_hours_in_lookback_period], ::String, context: "#{context}[:savings_plans_covered_hours_in_lookback_period]")
         Hearth::Validator.validate!(input[:on_demand_hours_in_lookback_period], ::String, context: "#{context}[:on_demand_hours_in_lookback_period]")
@@ -508,7 +508,7 @@ module AWS::SDK::CostExplorer
     class DescribeCostCategoryDefinitionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCostCategoryDefinitionOutput, context: context)
-        Validators::CostCategory.validate!(input[:cost_category], context: "#{context}[:cost_category]") unless input[:cost_category].nil?
+        CostCategory.validate!(input[:cost_category], context: "#{context}[:cost_category]") unless input[:cost_category].nil?
       end
     end
 
@@ -516,8 +516,8 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DimensionValues, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
       end
     end
 
@@ -525,7 +525,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DimensionValuesWithAttributes, context: context)
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -533,7 +533,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DimensionValuesWithAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DimensionValuesWithAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -593,9 +593,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:max_cpu_utilization_percentage], ::String, context: "#{context}[:max_cpu_utilization_percentage]")
         Hearth::Validator.validate!(input[:max_memory_utilization_percentage], ::String, context: "#{context}[:max_memory_utilization_percentage]")
         Hearth::Validator.validate!(input[:max_storage_utilization_percentage], ::String, context: "#{context}[:max_storage_utilization_percentage]")
-        Validators::EBSResourceUtilization.validate!(input[:ebs_resource_utilization], context: "#{context}[:ebs_resource_utilization]") unless input[:ebs_resource_utilization].nil?
-        Validators::DiskResourceUtilization.validate!(input[:disk_resource_utilization], context: "#{context}[:disk_resource_utilization]") unless input[:disk_resource_utilization].nil?
-        Validators::NetworkResourceUtilization.validate!(input[:network_resource_utilization], context: "#{context}[:network_resource_utilization]") unless input[:network_resource_utilization].nil?
+        EBSResourceUtilization.validate!(input[:ebs_resource_utilization], context: "#{context}[:ebs_resource_utilization]") unless input[:ebs_resource_utilization].nil?
+        DiskResourceUtilization.validate!(input[:disk_resource_utilization], context: "#{context}[:disk_resource_utilization]") unless input[:disk_resource_utilization].nil?
+        NetworkResourceUtilization.validate!(input[:network_resource_utilization], context: "#{context}[:network_resource_utilization]") unless input[:network_resource_utilization].nil?
       end
     end
 
@@ -632,12 +632,12 @@ module AWS::SDK::CostExplorer
     class Expression
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Expression, context: context)
-        Validators::Expressions.validate!(input[:or], context: "#{context}[:or]") unless input[:or].nil?
-        Validators::Expressions.validate!(input[:and], context: "#{context}[:and]") unless input[:and].nil?
-        Validators::Expression.validate!(input[:not], context: "#{context}[:not]") unless input[:not].nil?
-        Validators::DimensionValues.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
-        Validators::TagValues.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::CostCategoryValues.validate!(input[:cost_categories], context: "#{context}[:cost_categories]") unless input[:cost_categories].nil?
+        Expressions.validate!(input[:or], context: "#{context}[:or]") unless input[:or].nil?
+        Expressions.validate!(input[:and], context: "#{context}[:and]") unless input[:and].nil?
+        Expression.validate!(input[:not], context: "#{context}[:not]") unless input[:not].nil?
+        DimensionValues.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        TagValues.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CostCategoryValues.validate!(input[:cost_categories], context: "#{context}[:cost_categories]") unless input[:cost_categories].nil?
       end
     end
 
@@ -645,7 +645,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Expression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Expression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -662,7 +662,7 @@ module AWS::SDK::CostExplorer
     class ForecastResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ForecastResult, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:mean_value], ::String, context: "#{context}[:mean_value]")
         Hearth::Validator.validate!(input[:prediction_interval_lower_bound], ::String, context: "#{context}[:prediction_interval_lower_bound]")
         Hearth::Validator.validate!(input[:prediction_interval_upper_bound], ::String, context: "#{context}[:prediction_interval_upper_bound]")
@@ -673,7 +673,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ForecastResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ForecastResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -682,9 +682,9 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomaliesInput, context: context)
         Hearth::Validator.validate!(input[:monitor_arn], ::String, context: "#{context}[:monitor_arn]")
-        Validators::AnomalyDateInterval.validate!(input[:date_interval], context: "#{context}[:date_interval]") unless input[:date_interval].nil?
+        AnomalyDateInterval.validate!(input[:date_interval], context: "#{context}[:date_interval]") unless input[:date_interval].nil?
         Hearth::Validator.validate!(input[:feedback], ::String, context: "#{context}[:feedback]")
-        Validators::TotalImpactFilter.validate!(input[:total_impact], context: "#{context}[:total_impact]") unless input[:total_impact].nil?
+        TotalImpactFilter.validate!(input[:total_impact], context: "#{context}[:total_impact]") unless input[:total_impact].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -693,7 +693,7 @@ module AWS::SDK::CostExplorer
     class GetAnomaliesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomaliesOutput, context: context)
-        Validators::Anomalies.validate!(input[:anomalies], context: "#{context}[:anomalies]") unless input[:anomalies].nil?
+        Anomalies.validate!(input[:anomalies], context: "#{context}[:anomalies]") unless input[:anomalies].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -701,7 +701,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalyMonitorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomalyMonitorsInput, context: context)
-        Validators::Values.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
+        Values.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -710,7 +710,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalyMonitorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomalyMonitorsOutput, context: context)
-        Validators::AnomalyMonitors.validate!(input[:anomaly_monitors], context: "#{context}[:anomaly_monitors]") unless input[:anomaly_monitors].nil?
+        AnomalyMonitors.validate!(input[:anomaly_monitors], context: "#{context}[:anomaly_monitors]") unless input[:anomaly_monitors].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -718,7 +718,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalySubscriptionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomalySubscriptionsInput, context: context)
-        Validators::Values.validate!(input[:subscription_arn_list], context: "#{context}[:subscription_arn_list]") unless input[:subscription_arn_list].nil?
+        Values.validate!(input[:subscription_arn_list], context: "#{context}[:subscription_arn_list]") unless input[:subscription_arn_list].nil?
         Hearth::Validator.validate!(input[:monitor_arn], ::String, context: "#{context}[:monitor_arn]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -728,7 +728,7 @@ module AWS::SDK::CostExplorer
     class GetAnomalySubscriptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAnomalySubscriptionsOutput, context: context)
-        Validators::AnomalySubscriptions.validate!(input[:anomaly_subscriptions], context: "#{context}[:anomaly_subscriptions]") unless input[:anomaly_subscriptions].nil?
+        AnomalySubscriptions.validate!(input[:anomaly_subscriptions], context: "#{context}[:anomaly_subscriptions]") unless input[:anomaly_subscriptions].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -736,11 +736,11 @@ module AWS::SDK::CostExplorer
     class GetCostAndUsageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostAndUsageInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
-        Validators::GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -749,20 +749,20 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostAndUsageOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::GroupDefinitions.validate!(input[:group_definitions], context: "#{context}[:group_definitions]") unless input[:group_definitions].nil?
-        Validators::ResultsByTime.validate!(input[:results_by_time], context: "#{context}[:results_by_time]") unless input[:results_by_time].nil?
-        Validators::DimensionValuesWithAttributesList.validate!(input[:dimension_value_attributes], context: "#{context}[:dimension_value_attributes]") unless input[:dimension_value_attributes].nil?
+        GroupDefinitions.validate!(input[:group_definitions], context: "#{context}[:group_definitions]") unless input[:group_definitions].nil?
+        ResultsByTime.validate!(input[:results_by_time], context: "#{context}[:results_by_time]") unless input[:results_by_time].nil?
+        DimensionValuesWithAttributesList.validate!(input[:dimension_value_attributes], context: "#{context}[:dimension_value_attributes]") unless input[:dimension_value_attributes].nil?
       end
     end
 
     class GetCostAndUsageWithResourcesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostAndUsageWithResourcesInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
-        Validators::GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -771,9 +771,9 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostAndUsageWithResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::GroupDefinitions.validate!(input[:group_definitions], context: "#{context}[:group_definitions]") unless input[:group_definitions].nil?
-        Validators::ResultsByTime.validate!(input[:results_by_time], context: "#{context}[:results_by_time]") unless input[:results_by_time].nil?
-        Validators::DimensionValuesWithAttributesList.validate!(input[:dimension_value_attributes], context: "#{context}[:dimension_value_attributes]") unless input[:dimension_value_attributes].nil?
+        GroupDefinitions.validate!(input[:group_definitions], context: "#{context}[:group_definitions]") unless input[:group_definitions].nil?
+        ResultsByTime.validate!(input[:results_by_time], context: "#{context}[:results_by_time]") unless input[:results_by_time].nil?
+        DimensionValuesWithAttributesList.validate!(input[:dimension_value_attributes], context: "#{context}[:dimension_value_attributes]") unless input[:dimension_value_attributes].nil?
       end
     end
 
@@ -781,10 +781,10 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostCategoriesInput, context: context)
         Hearth::Validator.validate!(input[:search_string], ::String, context: "#{context}[:search_string]")
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:cost_category_name], ::String, context: "#{context}[:cost_category_name]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -794,8 +794,8 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostCategoriesOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::CostCategoryNamesList.validate!(input[:cost_category_names], context: "#{context}[:cost_category_names]") unless input[:cost_category_names].nil?
-        Validators::CostCategoryValuesList.validate!(input[:cost_category_values], context: "#{context}[:cost_category_values]") unless input[:cost_category_values].nil?
+        CostCategoryNamesList.validate!(input[:cost_category_names], context: "#{context}[:cost_category_names]") unless input[:cost_category_names].nil?
+        CostCategoryValuesList.validate!(input[:cost_category_values], context: "#{context}[:cost_category_values]") unless input[:cost_category_values].nil?
         Hearth::Validator.validate!(input[:return_size], ::Integer, context: "#{context}[:return_size]")
         Hearth::Validator.validate!(input[:total_size], ::Integer, context: "#{context}[:total_size]")
       end
@@ -804,10 +804,10 @@ module AWS::SDK::CostExplorer
     class GetCostForecastInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostForecastInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:metric], ::String, context: "#{context}[:metric]")
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:prediction_interval_level], ::Integer, context: "#{context}[:prediction_interval_level]")
       end
     end
@@ -815,8 +815,8 @@ module AWS::SDK::CostExplorer
     class GetCostForecastOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCostForecastOutput, context: context)
-        Validators::MetricValue.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
-        Validators::ForecastResultsByTime.validate!(input[:forecast_results_by_time], context: "#{context}[:forecast_results_by_time]") unless input[:forecast_results_by_time].nil?
+        MetricValue.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        ForecastResultsByTime.validate!(input[:forecast_results_by_time], context: "#{context}[:forecast_results_by_time]") unless input[:forecast_results_by_time].nil?
       end
     end
 
@@ -824,11 +824,11 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDimensionValuesInput, context: context)
         Hearth::Validator.validate!(input[:search_string], ::String, context: "#{context}[:search_string]")
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:dimension], ::String, context: "#{context}[:dimension]")
         Hearth::Validator.validate!(input[:context], ::String, context: "#{context}[:context]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -837,7 +837,7 @@ module AWS::SDK::CostExplorer
     class GetDimensionValuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDimensionValuesOutput, context: context)
-        Validators::DimensionValuesWithAttributesList.validate!(input[:dimension_values], context: "#{context}[:dimension_values]") unless input[:dimension_values].nil?
+        DimensionValuesWithAttributesList.validate!(input[:dimension_values], context: "#{context}[:dimension_values]") unless input[:dimension_values].nil?
         Hearth::Validator.validate!(input[:return_size], ::Integer, context: "#{context}[:return_size]")
         Hearth::Validator.validate!(input[:total_size], ::Integer, context: "#{context}[:total_size]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
@@ -847,13 +847,13 @@ module AWS::SDK::CostExplorer
     class GetReservationCoverageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservationCoverageInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
     end
@@ -861,8 +861,8 @@ module AWS::SDK::CostExplorer
     class GetReservationCoverageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservationCoverageOutput, context: context)
-        Validators::CoveragesByTime.validate!(input[:coverages_by_time], context: "#{context}[:coverages_by_time]") unless input[:coverages_by_time].nil?
-        Validators::Coverage.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        CoveragesByTime.validate!(input[:coverages_by_time], context: "#{context}[:coverages_by_time]") unless input[:coverages_by_time].nil?
+        Coverage.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -872,12 +872,12 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::GetReservationPurchaseRecommendationInput, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:service], ::String, context: "#{context}[:service]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:account_scope], ::String, context: "#{context}[:account_scope]")
         Hearth::Validator.validate!(input[:lookback_period_in_days], ::String, context: "#{context}[:lookback_period_in_days]")
         Hearth::Validator.validate!(input[:term_in_years], ::String, context: "#{context}[:term_in_years]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
-        Validators::ServiceSpecification.validate!(input[:service_specification], context: "#{context}[:service_specification]") unless input[:service_specification].nil?
+        ServiceSpecification.validate!(input[:service_specification], context: "#{context}[:service_specification]") unless input[:service_specification].nil?
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -886,8 +886,8 @@ module AWS::SDK::CostExplorer
     class GetReservationPurchaseRecommendationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservationPurchaseRecommendationOutput, context: context)
-        Validators::ReservationPurchaseRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::ReservationPurchaseRecommendations.validate!(input[:recommendations], context: "#{context}[:recommendations]") unless input[:recommendations].nil?
+        ReservationPurchaseRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        ReservationPurchaseRecommendations.validate!(input[:recommendations], context: "#{context}[:recommendations]") unless input[:recommendations].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -895,11 +895,11 @@ module AWS::SDK::CostExplorer
     class GetReservationUtilizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservationUtilizationInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -908,8 +908,8 @@ module AWS::SDK::CostExplorer
     class GetReservationUtilizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservationUtilizationOutput, context: context)
-        Validators::UtilizationsByTime.validate!(input[:utilizations_by_time], context: "#{context}[:utilizations_by_time]") unless input[:utilizations_by_time].nil?
-        Validators::ReservationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        UtilizationsByTime.validate!(input[:utilizations_by_time], context: "#{context}[:utilizations_by_time]") unless input[:utilizations_by_time].nil?
+        ReservationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -917,8 +917,8 @@ module AWS::SDK::CostExplorer
     class GetRightsizingRecommendationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRightsizingRecommendationInput, context: context)
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::RightsizingRecommendationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        RightsizingRecommendationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:service], ::String, context: "#{context}[:service]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
@@ -928,32 +928,32 @@ module AWS::SDK::CostExplorer
     class GetRightsizingRecommendationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRightsizingRecommendationOutput, context: context)
-        Validators::RightsizingRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::RightsizingRecommendationSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
-        Validators::RightsizingRecommendationList.validate!(input[:rightsizing_recommendations], context: "#{context}[:rightsizing_recommendations]") unless input[:rightsizing_recommendations].nil?
+        RightsizingRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        RightsizingRecommendationSummary.validate!(input[:summary], context: "#{context}[:summary]") unless input[:summary].nil?
+        RightsizingRecommendationList.validate!(input[:rightsizing_recommendations], context: "#{context}[:rightsizing_recommendations]") unless input[:rightsizing_recommendations].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::RightsizingRecommendationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        RightsizingRecommendationConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
     class GetSavingsPlansCoverageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansCoverageInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        GroupDefinitions.validate!(input[:group_by], context: "#{context}[:group_by]") unless input[:group_by].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        MetricNames.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
       end
     end
 
     class GetSavingsPlansCoverageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansCoverageOutput, context: context)
-        Validators::SavingsPlansCoverages.validate!(input[:savings_plans_coverages], context: "#{context}[:savings_plans_coverages]") unless input[:savings_plans_coverages].nil?
+        SavingsPlansCoverages.validate!(input[:savings_plans_coverages], context: "#{context}[:savings_plans_coverages]") unless input[:savings_plans_coverages].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -968,15 +968,15 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
         Hearth::Validator.validate!(input[:page_size], ::Integer, context: "#{context}[:page_size]")
         Hearth::Validator.validate!(input[:lookback_period_in_days], ::String, context: "#{context}[:lookback_period_in_days]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
     class GetSavingsPlansPurchaseRecommendationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansPurchaseRecommendationOutput, context: context)
-        Validators::SavingsPlansPurchaseRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
-        Validators::SavingsPlansPurchaseRecommendation.validate!(input[:savings_plans_purchase_recommendation], context: "#{context}[:savings_plans_purchase_recommendation]") unless input[:savings_plans_purchase_recommendation].nil?
+        SavingsPlansPurchaseRecommendationMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        SavingsPlansPurchaseRecommendation.validate!(input[:savings_plans_purchase_recommendation], context: "#{context}[:savings_plans_purchase_recommendation]") unless input[:savings_plans_purchase_recommendation].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -984,21 +984,21 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansUtilizationDetailsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansUtilizationDetailsInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SavingsPlansDataTypes.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SavingsPlansDataTypes.validate!(input[:data_type], context: "#{context}[:data_type]") unless input[:data_type].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
       end
     end
 
     class GetSavingsPlansUtilizationDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansUtilizationDetailsOutput, context: context)
-        Validators::SavingsPlansUtilizationDetails.validate!(input[:savings_plans_utilization_details], context: "#{context}[:savings_plans_utilization_details]") unless input[:savings_plans_utilization_details].nil?
-        Validators::SavingsPlansUtilizationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        SavingsPlansUtilizationDetails.validate!(input[:savings_plans_utilization_details], context: "#{context}[:savings_plans_utilization_details]") unless input[:savings_plans_utilization_details].nil?
+        SavingsPlansUtilizationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1006,18 +1006,18 @@ module AWS::SDK::CostExplorer
     class GetSavingsPlansUtilizationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansUtilizationInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortDefinition.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
       end
     end
 
     class GetSavingsPlansUtilizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSavingsPlansUtilizationOutput, context: context)
-        Validators::SavingsPlansUtilizationsByTime.validate!(input[:savings_plans_utilizations_by_time], context: "#{context}[:savings_plans_utilizations_by_time]") unless input[:savings_plans_utilizations_by_time].nil?
-        Validators::SavingsPlansUtilizationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        SavingsPlansUtilizationsByTime.validate!(input[:savings_plans_utilizations_by_time], context: "#{context}[:savings_plans_utilizations_by_time]") unless input[:savings_plans_utilizations_by_time].nil?
+        SavingsPlansUtilizationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
       end
     end
 
@@ -1025,10 +1025,10 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagsInput, context: context)
         Hearth::Validator.validate!(input[:search_string], ::String, context: "#{context}[:search_string]")
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:tag_key], ::String, context: "#{context}[:tag_key]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
-        Validators::SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        SortDefinitions.validate!(input[:sort_by], context: "#{context}[:sort_by]") unless input[:sort_by].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -1038,7 +1038,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTagsOutput, context: context)
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:return_size], ::Integer, context: "#{context}[:return_size]")
         Hearth::Validator.validate!(input[:total_size], ::Integer, context: "#{context}[:total_size]")
       end
@@ -1047,10 +1047,10 @@ module AWS::SDK::CostExplorer
     class GetUsageForecastInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUsageForecastInput, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
         Hearth::Validator.validate!(input[:metric], ::String, context: "#{context}[:metric]")
         Hearth::Validator.validate!(input[:granularity], ::String, context: "#{context}[:granularity]")
-        Validators::Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        Expression.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:prediction_interval_level], ::Integer, context: "#{context}[:prediction_interval_level]")
       end
     end
@@ -1058,16 +1058,16 @@ module AWS::SDK::CostExplorer
     class GetUsageForecastOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUsageForecastOutput, context: context)
-        Validators::MetricValue.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
-        Validators::ForecastResultsByTime.validate!(input[:forecast_results_by_time], context: "#{context}[:forecast_results_by_time]") unless input[:forecast_results_by_time].nil?
+        MetricValue.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        ForecastResultsByTime.validate!(input[:forecast_results_by_time], context: "#{context}[:forecast_results_by_time]") unless input[:forecast_results_by_time].nil?
       end
     end
 
     class Group
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Group, context: context)
-        Validators::Keys.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
-        Validators::Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
+        Keys.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        Metrics.validate!(input[:metrics], context: "#{context}[:metrics]") unless input[:metrics].nil?
       end
     end
 
@@ -1083,7 +1083,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1092,7 +1092,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1108,11 +1108,11 @@ module AWS::SDK::CostExplorer
     class InstanceDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceDetails, context: context)
-        Validators::EC2InstanceDetails.validate!(input[:ec2_instance_details], context: "#{context}[:ec2_instance_details]") unless input[:ec2_instance_details].nil?
-        Validators::RDSInstanceDetails.validate!(input[:rds_instance_details], context: "#{context}[:rds_instance_details]") unless input[:rds_instance_details].nil?
-        Validators::RedshiftInstanceDetails.validate!(input[:redshift_instance_details], context: "#{context}[:redshift_instance_details]") unless input[:redshift_instance_details].nil?
-        Validators::ElastiCacheInstanceDetails.validate!(input[:elasti_cache_instance_details], context: "#{context}[:elasti_cache_instance_details]") unless input[:elasti_cache_instance_details].nil?
-        Validators::ESInstanceDetails.validate!(input[:es_instance_details], context: "#{context}[:es_instance_details]") unless input[:es_instance_details].nil?
+        EC2InstanceDetails.validate!(input[:ec2_instance_details], context: "#{context}[:ec2_instance_details]") unless input[:ec2_instance_details].nil?
+        RDSInstanceDetails.validate!(input[:rds_instance_details], context: "#{context}[:rds_instance_details]") unless input[:rds_instance_details].nil?
+        RedshiftInstanceDetails.validate!(input[:redshift_instance_details], context: "#{context}[:redshift_instance_details]") unless input[:redshift_instance_details].nil?
+        ElastiCacheInstanceDetails.validate!(input[:elasti_cache_instance_details], context: "#{context}[:elasti_cache_instance_details]") unless input[:elasti_cache_instance_details].nil?
+        ESInstanceDetails.validate!(input[:es_instance_details], context: "#{context}[:es_instance_details]") unless input[:es_instance_details].nil?
       end
     end
 
@@ -1143,7 +1143,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCostAllocationTagsInput, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::CostAllocationTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        CostAllocationTagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -1153,7 +1153,7 @@ module AWS::SDK::CostExplorer
     class ListCostAllocationTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCostAllocationTagsOutput, context: context)
-        Validators::CostAllocationTagList.validate!(input[:cost_allocation_tags], context: "#{context}[:cost_allocation_tags]") unless input[:cost_allocation_tags].nil?
+        CostAllocationTagList.validate!(input[:cost_allocation_tags], context: "#{context}[:cost_allocation_tags]") unless input[:cost_allocation_tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1170,7 +1170,7 @@ module AWS::SDK::CostExplorer
     class ListCostCategoryDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCostCategoryDefinitionsOutput, context: context)
-        Validators::CostCategoryReferencesList.validate!(input[:cost_category_references], context: "#{context}[:cost_category_references]") unless input[:cost_category_references].nil?
+        CostCategoryReferencesList.validate!(input[:cost_category_references], context: "#{context}[:cost_category_references]") unless input[:cost_category_references].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1185,7 +1185,7 @@ module AWS::SDK::CostExplorer
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::MetricValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          MetricValue.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -1228,7 +1228,7 @@ module AWS::SDK::CostExplorer
     class ModifyRecommendationDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyRecommendationDetail, context: context)
-        Validators::TargetInstancesList.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
+        TargetInstancesList.validate!(input[:target_instances], context: "#{context}[:target_instances]") unless input[:target_instances].nil?
       end
     end
 
@@ -1334,8 +1334,8 @@ module AWS::SDK::CostExplorer
     class ReservationCoverageGroup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReservationCoverageGroup, context: context)
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::Coverage.validate!(input[:coverage], context: "#{context}[:coverage]") unless input[:coverage].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Coverage.validate!(input[:coverage], context: "#{context}[:coverage]") unless input[:coverage].nil?
       end
     end
 
@@ -1343,7 +1343,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservationCoverageGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservationCoverageGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1355,9 +1355,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:lookback_period_in_days], ::String, context: "#{context}[:lookback_period_in_days]")
         Hearth::Validator.validate!(input[:term_in_years], ::String, context: "#{context}[:term_in_years]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
-        Validators::ServiceSpecification.validate!(input[:service_specification], context: "#{context}[:service_specification]") unless input[:service_specification].nil?
-        Validators::ReservationPurchaseRecommendationDetails.validate!(input[:recommendation_details], context: "#{context}[:recommendation_details]") unless input[:recommendation_details].nil?
-        Validators::ReservationPurchaseRecommendationSummary.validate!(input[:recommendation_summary], context: "#{context}[:recommendation_summary]") unless input[:recommendation_summary].nil?
+        ServiceSpecification.validate!(input[:service_specification], context: "#{context}[:service_specification]") unless input[:service_specification].nil?
+        ReservationPurchaseRecommendationDetails.validate!(input[:recommendation_details], context: "#{context}[:recommendation_details]") unless input[:recommendation_details].nil?
+        ReservationPurchaseRecommendationSummary.validate!(input[:recommendation_summary], context: "#{context}[:recommendation_summary]") unless input[:recommendation_summary].nil?
       end
     end
 
@@ -1365,7 +1365,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReservationPurchaseRecommendationDetail, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::InstanceDetails.validate!(input[:instance_details], context: "#{context}[:instance_details]") unless input[:instance_details].nil?
+        InstanceDetails.validate!(input[:instance_details], context: "#{context}[:instance_details]") unless input[:instance_details].nil?
         Hearth::Validator.validate!(input[:recommended_number_of_instances_to_purchase], ::String, context: "#{context}[:recommended_number_of_instances_to_purchase]")
         Hearth::Validator.validate!(input[:recommended_normalized_units_to_purchase], ::String, context: "#{context}[:recommended_normalized_units_to_purchase]")
         Hearth::Validator.validate!(input[:minimum_number_of_instances_used_per_hour], ::String, context: "#{context}[:minimum_number_of_instances_used_per_hour]")
@@ -1390,7 +1390,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservationPurchaseRecommendationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservationPurchaseRecommendationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1416,7 +1416,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservationPurchaseRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservationPurchaseRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1426,8 +1426,8 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::ReservationUtilizationGroup, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ReservationAggregates.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ReservationAggregates.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
       end
     end
 
@@ -1435,7 +1435,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservationUtilizationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservationUtilizationGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1443,7 +1443,7 @@ module AWS::SDK::CostExplorer
     class ResourceDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceDetails, context: context)
-        Validators::EC2ResourceDetails.validate!(input[:ec2_resource_details], context: "#{context}[:ec2_resource_details]") unless input[:ec2_resource_details].nil?
+        EC2ResourceDetails.validate!(input[:ec2_resource_details], context: "#{context}[:ec2_resource_details]") unless input[:ec2_resource_details].nil?
       end
     end
 
@@ -1476,7 +1476,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1484,16 +1484,16 @@ module AWS::SDK::CostExplorer
     class ResourceUtilization
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceUtilization, context: context)
-        Validators::EC2ResourceUtilization.validate!(input[:ec2_resource_utilization], context: "#{context}[:ec2_resource_utilization]") unless input[:ec2_resource_utilization].nil?
+        EC2ResourceUtilization.validate!(input[:ec2_resource_utilization], context: "#{context}[:ec2_resource_utilization]") unless input[:ec2_resource_utilization].nil?
       end
     end
 
     class ResultByTime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultByTime, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::Metrics.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
-        Validators::Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        Metrics.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:estimated], ::TrueClass, ::FalseClass, context: "#{context}[:estimated]")
       end
     end
@@ -1502,7 +1502,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResultByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResultByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1511,11 +1511,11 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RightsizingRecommendation, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::CurrentInstance.validate!(input[:current_instance], context: "#{context}[:current_instance]") unless input[:current_instance].nil?
+        CurrentInstance.validate!(input[:current_instance], context: "#{context}[:current_instance]") unless input[:current_instance].nil?
         Hearth::Validator.validate!(input[:rightsizing_type], ::String, context: "#{context}[:rightsizing_type]")
-        Validators::ModifyRecommendationDetail.validate!(input[:modify_recommendation_detail], context: "#{context}[:modify_recommendation_detail]") unless input[:modify_recommendation_detail].nil?
-        Validators::TerminateRecommendationDetail.validate!(input[:terminate_recommendation_detail], context: "#{context}[:terminate_recommendation_detail]") unless input[:terminate_recommendation_detail].nil?
-        Validators::FindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
+        ModifyRecommendationDetail.validate!(input[:modify_recommendation_detail], context: "#{context}[:modify_recommendation_detail]") unless input[:modify_recommendation_detail].nil?
+        TerminateRecommendationDetail.validate!(input[:terminate_recommendation_detail], context: "#{context}[:terminate_recommendation_detail]") unless input[:terminate_recommendation_detail].nil?
+        FindingReasonCodes.validate!(input[:finding_reason_codes], context: "#{context}[:finding_reason_codes]") unless input[:finding_reason_codes].nil?
       end
     end
 
@@ -1531,7 +1531,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RightsizingRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RightsizingRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1570,7 +1570,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RootCause.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1587,9 +1587,9 @@ module AWS::SDK::CostExplorer
     class SavingsPlansCoverage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlansCoverage, context: context)
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::SavingsPlansCoverageData.validate!(input[:coverage], context: "#{context}[:coverage]") unless input[:coverage].nil?
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SavingsPlansCoverageData.validate!(input[:coverage], context: "#{context}[:coverage]") unless input[:coverage].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
       end
     end
 
@@ -1607,7 +1607,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlansCoverage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlansCoverage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1638,15 +1638,15 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:term_in_years], ::String, context: "#{context}[:term_in_years]")
         Hearth::Validator.validate!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
         Hearth::Validator.validate!(input[:lookback_period_in_days], ::String, context: "#{context}[:lookback_period_in_days]")
-        Validators::SavingsPlansPurchaseRecommendationDetailList.validate!(input[:savings_plans_purchase_recommendation_details], context: "#{context}[:savings_plans_purchase_recommendation_details]") unless input[:savings_plans_purchase_recommendation_details].nil?
-        Validators::SavingsPlansPurchaseRecommendationSummary.validate!(input[:savings_plans_purchase_recommendation_summary], context: "#{context}[:savings_plans_purchase_recommendation_summary]") unless input[:savings_plans_purchase_recommendation_summary].nil?
+        SavingsPlansPurchaseRecommendationDetailList.validate!(input[:savings_plans_purchase_recommendation_details], context: "#{context}[:savings_plans_purchase_recommendation_details]") unless input[:savings_plans_purchase_recommendation_details].nil?
+        SavingsPlansPurchaseRecommendationSummary.validate!(input[:savings_plans_purchase_recommendation_summary], context: "#{context}[:savings_plans_purchase_recommendation_summary]") unless input[:savings_plans_purchase_recommendation_summary].nil?
       end
     end
 
     class SavingsPlansPurchaseRecommendationDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlansPurchaseRecommendationDetail, context: context)
-        Validators::SavingsPlansDetails.validate!(input[:savings_plans_details], context: "#{context}[:savings_plans_details]") unless input[:savings_plans_details].nil?
+        SavingsPlansDetails.validate!(input[:savings_plans_details], context: "#{context}[:savings_plans_details]") unless input[:savings_plans_details].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:upfront_cost], ::String, context: "#{context}[:upfront_cost]")
         Hearth::Validator.validate!(input[:estimated_roi], ::String, context: "#{context}[:estimated_roi]")
@@ -1669,7 +1669,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlansPurchaseRecommendationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlansPurchaseRecommendationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1721,19 +1721,19 @@ module AWS::SDK::CostExplorer
     class SavingsPlansUtilizationAggregates
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlansUtilizationAggregates, context: context)
-        Validators::SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
-        Validators::SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
-        Validators::SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
+        SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
+        SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
+        SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
       end
     end
 
     class SavingsPlansUtilizationByTime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlansUtilizationByTime, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
-        Validators::SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
-        Validators::SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
+        SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
+        SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
       end
     end
 
@@ -1741,10 +1741,10 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SavingsPlansUtilizationDetail, context: context)
         Hearth::Validator.validate!(input[:savings_plan_arn], ::String, context: "#{context}[:savings_plan_arn]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
-        Validators::SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
-        Validators::SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SavingsPlansUtilization.validate!(input[:utilization], context: "#{context}[:utilization]") unless input[:utilization].nil?
+        SavingsPlansSavings.validate!(input[:savings], context: "#{context}[:savings]") unless input[:savings].nil?
+        SavingsPlansAmortizedCommitment.validate!(input[:amortized_commitment], context: "#{context}[:amortized_commitment]") unless input[:amortized_commitment].nil?
       end
     end
 
@@ -1752,7 +1752,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlansUtilizationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlansUtilizationDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1761,7 +1761,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SavingsPlansUtilizationByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SavingsPlansUtilizationByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1776,7 +1776,7 @@ module AWS::SDK::CostExplorer
     class ServiceSpecification
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServiceSpecification, context: context)
-        Validators::EC2Specification.validate!(input[:ec2_specification], context: "#{context}[:ec2_specification]") unless input[:ec2_specification].nil?
+        EC2Specification.validate!(input[:ec2_specification], context: "#{context}[:ec2_specification]") unless input[:ec2_specification].nil?
       end
     end
 
@@ -1792,7 +1792,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SortDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SortDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1810,7 +1810,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subscriber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subscriber.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1828,7 +1828,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTagList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -1842,8 +1842,8 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagValues, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
-        Validators::MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
+        Values.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        MatchOptions.validate!(input[:match_options], context: "#{context}[:match_options]") unless input[:match_options].nil?
       end
     end
 
@@ -1851,7 +1851,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TagValues.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TagValues.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1863,9 +1863,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:estimated_monthly_savings], ::String, context: "#{context}[:estimated_monthly_savings]")
         Hearth::Validator.validate!(input[:currency_code], ::String, context: "#{context}[:currency_code]")
         Hearth::Validator.validate!(input[:default_target_instance], ::TrueClass, ::FalseClass, context: "#{context}[:default_target_instance]")
-        Validators::ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
-        Validators::ResourceUtilization.validate!(input[:expected_resource_utilization], context: "#{context}[:expected_resource_utilization]") unless input[:expected_resource_utilization].nil?
-        Validators::PlatformDifferences.validate!(input[:platform_differences], context: "#{context}[:platform_differences]") unless input[:platform_differences].nil?
+        ResourceDetails.validate!(input[:resource_details], context: "#{context}[:resource_details]") unless input[:resource_details].nil?
+        ResourceUtilization.validate!(input[:expected_resource_utilization], context: "#{context}[:expected_resource_utilization]") unless input[:expected_resource_utilization].nil?
+        PlatformDifferences.validate!(input[:platform_differences], context: "#{context}[:platform_differences]") unless input[:platform_differences].nil?
       end
     end
 
@@ -1873,7 +1873,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TargetInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TargetInstance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1928,7 +1928,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ResourceTagKeyList.validate!(input[:resource_tag_keys], context: "#{context}[:resource_tag_keys]") unless input[:resource_tag_keys].nil?
+        ResourceTagKeyList.validate!(input[:resource_tag_keys], context: "#{context}[:resource_tag_keys]") unless input[:resource_tag_keys].nil?
       end
     end
 
@@ -1959,8 +1959,8 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input[:subscription_arn], ::String, context: "#{context}[:subscription_arn]")
         Hearth::Validator.validate!(input[:threshold], ::Float, context: "#{context}[:threshold]")
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
-        Validators::MonitorArnList.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
-        Validators::Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        MonitorArnList.validate!(input[:monitor_arn_list], context: "#{context}[:monitor_arn_list]") unless input[:monitor_arn_list].nil?
+        Subscribers.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
       end
     end
@@ -1985,7 +1985,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateCostAllocationTagsStatusError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateCostAllocationTagsStatusError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1993,14 +1993,14 @@ module AWS::SDK::CostExplorer
     class UpdateCostAllocationTagsStatusInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCostAllocationTagsStatusInput, context: context)
-        Validators::CostAllocationTagStatusList.validate!(input[:cost_allocation_tags_status], context: "#{context}[:cost_allocation_tags_status]") unless input[:cost_allocation_tags_status].nil?
+        CostAllocationTagStatusList.validate!(input[:cost_allocation_tags_status], context: "#{context}[:cost_allocation_tags_status]") unless input[:cost_allocation_tags_status].nil?
       end
     end
 
     class UpdateCostAllocationTagsStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCostAllocationTagsStatusOutput, context: context)
-        Validators::UpdateCostAllocationTagsStatusErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        UpdateCostAllocationTagsStatusErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -2009,9 +2009,9 @@ module AWS::SDK::CostExplorer
         Hearth::Validator.validate!(input, Types::UpdateCostCategoryDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:cost_category_arn], ::String, context: "#{context}[:cost_category_arn]")
         Hearth::Validator.validate!(input[:rule_version], ::String, context: "#{context}[:rule_version]")
-        Validators::CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        CostCategoryRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
-        Validators::CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
+        CostCategorySplitChargeRulesList.validate!(input[:split_charge_rules], context: "#{context}[:split_charge_rules]") unless input[:split_charge_rules].nil?
       end
     end
 
@@ -2026,9 +2026,9 @@ module AWS::SDK::CostExplorer
     class UtilizationByTime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UtilizationByTime, context: context)
-        Validators::DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
-        Validators::ReservationUtilizationGroups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
-        Validators::ReservationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
+        DateInterval.validate!(input[:time_period], context: "#{context}[:time_period]") unless input[:time_period].nil?
+        ReservationUtilizationGroups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        ReservationAggregates.validate!(input[:total], context: "#{context}[:total]") unless input[:total].nil?
       end
     end
 
@@ -2036,7 +2036,7 @@ module AWS::SDK::CostExplorer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UtilizationByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UtilizationByTime.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

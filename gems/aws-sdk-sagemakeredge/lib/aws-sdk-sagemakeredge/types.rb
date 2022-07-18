@@ -40,11 +40,11 @@ module AWS::SDK::SagemakerEdge
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # @!attribute device_name

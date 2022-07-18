@@ -4797,11 +4797,11 @@ module AWS::SDK::OpsWorks
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the response to a <code>ListTags</code> request.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Redshift
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::Redshift
     class AcceptReservedNodeExchangeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AcceptReservedNodeExchangeOutput, context: context)
-        Validators::ReservedNode.validate!(input[:exchanged_reserved_node], context: "#{context}[:exchanged_reserved_node]") unless input[:exchanged_reserved_node].nil?
+        ReservedNode.validate!(input[:exchanged_reserved_node], context: "#{context}[:exchanged_reserved_node]") unless input[:exchanged_reserved_node].nil?
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountAttribute, context: context)
         Hearth::Validator.validate!(input[:attribute_name], ::String, context: "#{context}[:attribute_name]")
-        Validators::AttributeValueList.validate!(input[:attribute_values], context: "#{context}[:attribute_values]") unless input[:attribute_values].nil?
+        AttributeValueList.validate!(input[:attribute_values], context: "#{context}[:attribute_values]") unless input[:attribute_values].nil?
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountWithRestoreAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountWithRestoreAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -106,7 +108,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterAssociatedToSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterAssociatedToSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -142,7 +144,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeValueTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeValueTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -173,7 +175,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthenticationProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthenticationProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -226,7 +228,7 @@ module AWS::SDK::Redshift
     class AuthorizeClusterSecurityGroupIngressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthorizeClusterSecurityGroupIngressOutput, context: context)
-        Validators::ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
+        ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
       end
     end
 
@@ -244,7 +246,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::AuthorizeEndpointAccessInput, context: context)
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:account], ::String, context: "#{context}[:account]")
-        Validators::VpcIdentifierList.validate!(input[:vpc_ids], context: "#{context}[:vpc_ids]") unless input[:vpc_ids].nil?
+        VpcIdentifierList.validate!(input[:vpc_ids], context: "#{context}[:vpc_ids]") unless input[:vpc_ids].nil?
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_status], ::String, context: "#{context}[:cluster_status]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:allowed_all_vp_cs], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_all_vp_cs]")
-        Validators::VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
+        VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
         Hearth::Validator.validate!(input[:endpoint_count], ::Integer, context: "#{context}[:endpoint_count]")
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::Redshift
     class AuthorizeSnapshotAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthorizeSnapshotAccessOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AvailabilityZone, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SupportedPlatformsList.validate!(input[:supported_platforms], context: "#{context}[:supported_platforms]") unless input[:supported_platforms].nil?
+        SupportedPlatformsList.validate!(input[:supported_platforms], context: "#{context}[:supported_platforms]") unless input[:supported_platforms].nil?
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -309,15 +311,15 @@ module AWS::SDK::Redshift
     class BatchDeleteClusterSnapshotsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteClusterSnapshotsInput, context: context)
-        Validators::DeleteClusterSnapshotMessageList.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
+        DeleteClusterSnapshotMessageList.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
       end
     end
 
     class BatchDeleteClusterSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteClusterSnapshotsOutput, context: context)
-        Validators::SnapshotIdentifierList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::BatchSnapshotOperationErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        SnapshotIdentifierList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        BatchSnapshotOperationErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::Redshift
     class BatchModifyClusterSnapshotsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchModifyClusterSnapshotsInput, context: context)
-        Validators::SnapshotIdentifierList.validate!(input[:snapshot_identifier_list], context: "#{context}[:snapshot_identifier_list]") unless input[:snapshot_identifier_list].nil?
+        SnapshotIdentifierList.validate!(input[:snapshot_identifier_list], context: "#{context}[:snapshot_identifier_list]") unless input[:snapshot_identifier_list].nil?
         Hearth::Validator.validate!(input[:manual_snapshot_retention_period], ::Integer, context: "#{context}[:manual_snapshot_retention_period]")
         Hearth::Validator.validate!(input[:force], ::TrueClass, ::FalseClass, context: "#{context}[:force]")
       end
@@ -347,8 +349,8 @@ module AWS::SDK::Redshift
     class BatchModifyClusterSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchModifyClusterSnapshotsOutput, context: context)
-        Validators::SnapshotIdentifierList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
-        Validators::BatchSnapshotOperationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        SnapshotIdentifierList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        BatchSnapshotOperationErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotErrorMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotErrorMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotErrorMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotErrorMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -391,9 +393,9 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:target_number_of_nodes], ::Integer, context: "#{context}[:target_number_of_nodes]")
         Hearth::Validator.validate!(input[:target_cluster_type], ::String, context: "#{context}[:target_cluster_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ImportTablesCompleted.validate!(input[:import_tables_completed], context: "#{context}[:import_tables_completed]") unless input[:import_tables_completed].nil?
-        Validators::ImportTablesInProgress.validate!(input[:import_tables_in_progress], context: "#{context}[:import_tables_in_progress]") unless input[:import_tables_in_progress].nil?
-        Validators::ImportTablesNotStarted.validate!(input[:import_tables_not_started], context: "#{context}[:import_tables_not_started]") unless input[:import_tables_not_started].nil?
+        ImportTablesCompleted.validate!(input[:import_tables_completed], context: "#{context}[:import_tables_completed]") unless input[:import_tables_completed].nil?
+        ImportTablesInProgress.validate!(input[:import_tables_in_progress], context: "#{context}[:import_tables_in_progress]") unless input[:import_tables_in_progress].nil?
+        ImportTablesNotStarted.validate!(input[:import_tables_not_started], context: "#{context}[:import_tables_not_started]") unless input[:import_tables_not_started].nil?
         Hearth::Validator.validate!(input[:avg_resize_rate_in_mega_bytes_per_second], ::Float, context: "#{context}[:avg_resize_rate_in_mega_bytes_per_second]")
         Hearth::Validator.validate!(input[:total_resize_data_in_mega_bytes], ::Integer, context: "#{context}[:total_resize_data_in_mega_bytes]")
         Hearth::Validator.validate!(input[:progress_in_mega_bytes], ::Integer, context: "#{context}[:progress_in_mega_bytes]")
@@ -416,51 +418,51 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:modify_status], ::String, context: "#{context}[:modify_status]")
         Hearth::Validator.validate!(input[:master_username], ::String, context: "#{context}[:master_username]")
         Hearth::Validator.validate!(input[:db_name], ::String, context: "#{context}[:db_name]")
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
         Hearth::Validator.validate!(input[:cluster_create_time], ::Time, context: "#{context}[:cluster_create_time]")
         Hearth::Validator.validate!(input[:automated_snapshot_retention_period], ::Integer, context: "#{context}[:automated_snapshot_retention_period]")
         Hearth::Validator.validate!(input[:manual_snapshot_retention_period], ::Integer, context: "#{context}[:manual_snapshot_retention_period]")
-        Validators::ClusterSecurityGroupMembershipList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
-        Validators::ClusterParameterGroupStatusList.validate!(input[:cluster_parameter_groups], context: "#{context}[:cluster_parameter_groups]") unless input[:cluster_parameter_groups].nil?
+        ClusterSecurityGroupMembershipList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        ClusterParameterGroupStatusList.validate!(input[:cluster_parameter_groups], context: "#{context}[:cluster_parameter_groups]") unless input[:cluster_parameter_groups].nil?
         Hearth::Validator.validate!(input[:cluster_subnet_group_name], ::String, context: "#{context}[:cluster_subnet_group_name]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
-        Validators::PendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
+        PendingModifiedValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
         Hearth::Validator.validate!(input[:cluster_version], ::String, context: "#{context}[:cluster_version]")
         Hearth::Validator.validate!(input[:allow_version_upgrade], ::TrueClass, ::FalseClass, context: "#{context}[:allow_version_upgrade]")
         Hearth::Validator.validate!(input[:number_of_nodes], ::Integer, context: "#{context}[:number_of_nodes]")
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
-        Validators::RestoreStatus.validate!(input[:restore_status], context: "#{context}[:restore_status]") unless input[:restore_status].nil?
-        Validators::DataTransferProgress.validate!(input[:data_transfer_progress], context: "#{context}[:data_transfer_progress]") unless input[:data_transfer_progress].nil?
-        Validators::HsmStatus.validate!(input[:hsm_status], context: "#{context}[:hsm_status]") unless input[:hsm_status].nil?
-        Validators::ClusterSnapshotCopyStatus.validate!(input[:cluster_snapshot_copy_status], context: "#{context}[:cluster_snapshot_copy_status]") unless input[:cluster_snapshot_copy_status].nil?
+        RestoreStatus.validate!(input[:restore_status], context: "#{context}[:restore_status]") unless input[:restore_status].nil?
+        DataTransferProgress.validate!(input[:data_transfer_progress], context: "#{context}[:data_transfer_progress]") unless input[:data_transfer_progress].nil?
+        HsmStatus.validate!(input[:hsm_status], context: "#{context}[:hsm_status]") unless input[:hsm_status].nil?
+        ClusterSnapshotCopyStatus.validate!(input[:cluster_snapshot_copy_status], context: "#{context}[:cluster_snapshot_copy_status]") unless input[:cluster_snapshot_copy_status].nil?
         Hearth::Validator.validate!(input[:cluster_public_key], ::String, context: "#{context}[:cluster_public_key]")
-        Validators::ClusterNodesList.validate!(input[:cluster_nodes], context: "#{context}[:cluster_nodes]") unless input[:cluster_nodes].nil?
-        Validators::ElasticIpStatus.validate!(input[:elastic_ip_status], context: "#{context}[:elastic_ip_status]") unless input[:elastic_ip_status].nil?
+        ClusterNodesList.validate!(input[:cluster_nodes], context: "#{context}[:cluster_nodes]") unless input[:cluster_nodes].nil?
+        ElasticIpStatus.validate!(input[:elastic_ip_status], context: "#{context}[:elastic_ip_status]") unless input[:elastic_ip_status].nil?
         Hearth::Validator.validate!(input[:cluster_revision_number], ::String, context: "#{context}[:cluster_revision_number]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:enhanced_vpc_routing], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_vpc_routing]")
-        Validators::ClusterIamRoleList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
-        Validators::PendingActionsList.validate!(input[:pending_actions], context: "#{context}[:pending_actions]") unless input[:pending_actions].nil?
+        ClusterIamRoleList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
+        PendingActionsList.validate!(input[:pending_actions], context: "#{context}[:pending_actions]") unless input[:pending_actions].nil?
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:elastic_resize_number_of_node_options], ::String, context: "#{context}[:elastic_resize_number_of_node_options]")
-        Validators::DeferredMaintenanceWindowsList.validate!(input[:deferred_maintenance_windows], context: "#{context}[:deferred_maintenance_windows]") unless input[:deferred_maintenance_windows].nil?
+        DeferredMaintenanceWindowsList.validate!(input[:deferred_maintenance_windows], context: "#{context}[:deferred_maintenance_windows]") unless input[:deferred_maintenance_windows].nil?
         Hearth::Validator.validate!(input[:snapshot_schedule_identifier], ::String, context: "#{context}[:snapshot_schedule_identifier]")
         Hearth::Validator.validate!(input[:snapshot_schedule_state], ::String, context: "#{context}[:snapshot_schedule_state]")
         Hearth::Validator.validate!(input[:expected_next_snapshot_schedule_time], ::Time, context: "#{context}[:expected_next_snapshot_schedule_time]")
         Hearth::Validator.validate!(input[:expected_next_snapshot_schedule_time_status], ::String, context: "#{context}[:expected_next_snapshot_schedule_time_status]")
         Hearth::Validator.validate!(input[:next_maintenance_window_start_time], ::Time, context: "#{context}[:next_maintenance_window_start_time]")
-        Validators::ResizeInfo.validate!(input[:resize_info], context: "#{context}[:resize_info]") unless input[:resize_info].nil?
+        ResizeInfo.validate!(input[:resize_info], context: "#{context}[:resize_info]") unless input[:resize_info].nil?
         Hearth::Validator.validate!(input[:availability_zone_relocation_status], ::String, context: "#{context}[:availability_zone_relocation_status]")
         Hearth::Validator.validate!(input[:cluster_namespace_arn], ::String, context: "#{context}[:cluster_namespace_arn]")
         Hearth::Validator.validate!(input[:total_storage_capacity_in_mega_bytes], ::Integer, context: "#{context}[:total_storage_capacity_in_mega_bytes]")
-        Validators::AquaConfiguration.validate!(input[:aqua_configuration], context: "#{context}[:aqua_configuration]") unless input[:aqua_configuration].nil?
+        AquaConfiguration.validate!(input[:aqua_configuration], context: "#{context}[:aqua_configuration]") unless input[:aqua_configuration].nil?
         Hearth::Validator.validate!(input[:default_iam_role_arn], ::String, context: "#{context}[:default_iam_role_arn]")
-        Validators::ReservedNodeExchangeStatus.validate!(input[:reserved_node_exchange_status], context: "#{context}[:reserved_node_exchange_status]") unless input[:reserved_node_exchange_status].nil?
+        ReservedNodeExchangeStatus.validate!(input[:reserved_node_exchange_status], context: "#{context}[:reserved_node_exchange_status]") unless input[:reserved_node_exchange_status].nil?
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:current_database_revision], ::String, context: "#{context}[:current_database_revision]")
         Hearth::Validator.validate!(input[:database_revision_release_date], ::Time, context: "#{context}[:database_revision_release_date]")
-        Validators::RevisionTargetsList.validate!(input[:revision_targets], context: "#{context}[:revision_targets]") unless input[:revision_targets].nil?
+        RevisionTargetsList.validate!(input[:revision_targets], context: "#{context}[:revision_targets]") unless input[:revision_targets].nil?
       end
     end
 
@@ -493,7 +495,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterDbRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterDbRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -510,7 +512,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterIamRole.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterIamRole.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -537,7 +539,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -562,7 +564,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:parameter_group_family], ::String, context: "#{context}[:parameter_group_family]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -592,7 +594,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::ClusterParameterGroupStatus, context: context)
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:parameter_apply_status], ::String, context: "#{context}[:parameter_apply_status]")
-        Validators::ClusterParameterStatusList.validate!(input[:cluster_parameter_status_list], context: "#{context}[:cluster_parameter_status_list]") unless input[:cluster_parameter_status_list].nil?
+        ClusterParameterStatusList.validate!(input[:cluster_parameter_status_list], context: "#{context}[:cluster_parameter_status_list]") unless input[:cluster_parameter_status_list].nil?
       end
     end
 
@@ -600,7 +602,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterParameterGroupStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterParameterGroupStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -618,7 +620,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterParameterStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterParameterStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -635,9 +637,9 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::ClusterSecurityGroup, context: context)
         Hearth::Validator.validate!(input[:cluster_security_group_name], ::String, context: "#{context}[:cluster_security_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EC2SecurityGroupList.validate!(input[:ec2_security_groups], context: "#{context}[:ec2_security_groups]") unless input[:ec2_security_groups].nil?
-        Validators::IPRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        EC2SecurityGroupList.validate!(input[:ec2_security_groups], context: "#{context}[:ec2_security_groups]") unless input[:ec2_security_groups].nil?
+        IPRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -660,7 +662,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -735,8 +737,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:subnet_group_status], ::String, context: "#{context}[:subnet_group_status]")
-        Validators::SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -765,7 +767,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterSubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -808,7 +810,7 @@ module AWS::SDK::Redshift
     class CopyClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyClusterSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -844,8 +846,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
         Hearth::Validator.validate!(input[:master_username], ::String, context: "#{context}[:master_username]")
         Hearth::Validator.validate!(input[:master_user_password], ::String, context: "#{context}[:master_user_password]")
-        Validators::ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
         Hearth::Validator.validate!(input[:cluster_subnet_group_name], ::String, context: "#{context}[:cluster_subnet_group_name]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
@@ -861,11 +863,11 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:hsm_client_certificate_identifier], ::String, context: "#{context}[:hsm_client_certificate_identifier]")
         Hearth::Validator.validate!(input[:hsm_configuration_identifier], ::String, context: "#{context}[:hsm_configuration_identifier]")
         Hearth::Validator.validate!(input[:elastic_ip], ::String, context: "#{context}[:elastic_ip]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:enhanced_vpc_routing], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_vpc_routing]")
         Hearth::Validator.validate!(input[:additional_info], ::String, context: "#{context}[:additional_info]")
-        Validators::IamRoleArnList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
+        IamRoleArnList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:snapshot_schedule_identifier], ::String, context: "#{context}[:snapshot_schedule_identifier]")
         Hearth::Validator.validate!(input[:availability_zone_relocation], ::TrueClass, ::FalseClass, context: "#{context}[:availability_zone_relocation]")
@@ -878,7 +880,7 @@ module AWS::SDK::Redshift
     class CreateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -888,14 +890,14 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:parameter_group_family], ::String, context: "#{context}[:parameter_group_family]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateClusterParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterParameterGroupOutput, context: context)
-        Validators::ClusterParameterGroup.validate!(input[:cluster_parameter_group], context: "#{context}[:cluster_parameter_group]") unless input[:cluster_parameter_group].nil?
+        ClusterParameterGroup.validate!(input[:cluster_parameter_group], context: "#{context}[:cluster_parameter_group]") unless input[:cluster_parameter_group].nil?
       end
     end
 
@@ -904,14 +906,14 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::CreateClusterSecurityGroupInput, context: context)
         Hearth::Validator.validate!(input[:cluster_security_group_name], ::String, context: "#{context}[:cluster_security_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateClusterSecurityGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterSecurityGroupOutput, context: context)
-        Validators::ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
+        ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
       end
     end
 
@@ -921,14 +923,14 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:snapshot_identifier], ::String, context: "#{context}[:snapshot_identifier]")
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:manual_snapshot_retention_period], ::Integer, context: "#{context}[:manual_snapshot_retention_period]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -937,15 +939,15 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::CreateClusterSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:cluster_subnet_group_name], ::String, context: "#{context}[:cluster_subnet_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateClusterSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterSubnetGroupOutput, context: context)
-        Validators::ClusterSubnetGroup.validate!(input[:cluster_subnet_group], context: "#{context}[:cluster_subnet_group]") unless input[:cluster_subnet_group].nil?
+        ClusterSubnetGroup.validate!(input[:cluster_subnet_group], context: "#{context}[:cluster_subnet_group]") unless input[:cluster_subnet_group].nil?
       end
     end
 
@@ -956,7 +958,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
         Hearth::Validator.validate!(input[:endpoint_name], ::String, context: "#{context}[:endpoint_name]")
         Hearth::Validator.validate!(input[:subnet_group_name], ::String, context: "#{context}[:subnet_group_name]")
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
       end
     end
 
@@ -971,8 +973,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:endpoint_create_time], ::Time, context: "#{context}[:endpoint_create_time]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
-        Validators::VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
       end
     end
 
@@ -982,18 +984,18 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateEventSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEventSubscriptionOutput, context: context)
-        Validators::EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
+        EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
       end
     end
 
@@ -1001,14 +1003,14 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHsmClientCertificateInput, context: context)
         Hearth::Validator.validate!(input[:hsm_client_certificate_identifier], ::String, context: "#{context}[:hsm_client_certificate_identifier]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateHsmClientCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHsmClientCertificateOutput, context: context)
-        Validators::HsmClientCertificate.validate!(input[:hsm_client_certificate], context: "#{context}[:hsm_client_certificate]") unless input[:hsm_client_certificate].nil?
+        HsmClientCertificate.validate!(input[:hsm_client_certificate], context: "#{context}[:hsm_client_certificate]") unless input[:hsm_client_certificate].nil?
       end
     end
 
@@ -1021,14 +1023,14 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:hsm_partition_name], ::String, context: "#{context}[:hsm_partition_name]")
         Hearth::Validator.validate!(input[:hsm_partition_password], ::String, context: "#{context}[:hsm_partition_password]")
         Hearth::Validator.validate!(input[:hsm_server_public_certificate], ::String, context: "#{context}[:hsm_server_public_certificate]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateHsmConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHsmConfigurationOutput, context: context)
-        Validators::HsmConfiguration.validate!(input[:hsm_configuration], context: "#{context}[:hsm_configuration]") unless input[:hsm_configuration].nil?
+        HsmConfiguration.validate!(input[:hsm_configuration], context: "#{context}[:hsm_configuration]") unless input[:hsm_configuration].nil?
       end
     end
 
@@ -1036,7 +1038,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateScheduledActionInput, context: context)
         Hearth::Validator.validate!(input[:scheduled_action_name], ::String, context: "#{context}[:scheduled_action_name]")
-        Validators::ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
+        ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:scheduled_action_description], ::String, context: "#{context}[:scheduled_action_description]")
@@ -1050,12 +1052,12 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateScheduledActionOutput, context: context)
         Hearth::Validator.validate!(input[:scheduled_action_name], ::String, context: "#{context}[:scheduled_action_name]")
-        Validators::ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
+        ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:scheduled_action_description], ::String, context: "#{context}[:scheduled_action_description]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -1066,24 +1068,24 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::CreateSnapshotCopyGrantInput, context: context)
         Hearth::Validator.validate!(input[:snapshot_copy_grant_name], ::String, context: "#{context}[:snapshot_copy_grant_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSnapshotCopyGrantOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotCopyGrantOutput, context: context)
-        Validators::SnapshotCopyGrant.validate!(input[:snapshot_copy_grant], context: "#{context}[:snapshot_copy_grant]") unless input[:snapshot_copy_grant].nil?
+        SnapshotCopyGrant.validate!(input[:snapshot_copy_grant], context: "#{context}[:snapshot_copy_grant]") unless input[:snapshot_copy_grant].nil?
       end
     end
 
     class CreateSnapshotScheduleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotScheduleInput, context: context)
-        Validators::ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
         Hearth::Validator.validate!(input[:schedule_description], ::String, context: "#{context}[:schedule_description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate!(input[:next_invocations], ::Integer, context: "#{context}[:next_invocations]")
       end
@@ -1092,13 +1094,13 @@ module AWS::SDK::Redshift
     class CreateSnapshotScheduleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotScheduleOutput, context: context)
-        Validators::ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
         Hearth::Validator.validate!(input[:schedule_description], ::String, context: "#{context}[:schedule_description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:associated_cluster_count], ::Integer, context: "#{context}[:associated_cluster_count]")
-        Validators::AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
+        AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
       end
     end
 
@@ -1106,7 +1108,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1125,7 +1127,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:amount], ::Integer, context: "#{context}[:amount]")
         Hearth::Validator.validate!(input[:period], ::String, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:breach_action], ::String, context: "#{context}[:breach_action]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1139,7 +1141,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:amount], ::Integer, context: "#{context}[:amount]")
         Hearth::Validator.validate!(input[:period], ::String, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:breach_action], ::String, context: "#{context}[:breach_action]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1149,7 +1151,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -1169,7 +1171,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataShareAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataShareAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataShare.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataShare.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1218,7 +1220,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -1228,7 +1230,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::DefaultClusterParameters, context: context)
         Hearth::Validator.validate!(input[:parameter_group_family], ::String, context: "#{context}[:parameter_group_family]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -1245,7 +1247,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeferredMaintenanceWindow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeferredMaintenanceWindow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1277,7 +1279,7 @@ module AWS::SDK::Redshift
     class DeleteClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeleteClusterSnapshotMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeleteClusterSnapshotMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1335,7 +1337,7 @@ module AWS::SDK::Redshift
     class DeleteClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteClusterSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -1370,8 +1372,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:endpoint_create_time], ::Time, context: "#{context}[:endpoint_create_time]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
-        Validators::VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
       end
     end
 
@@ -1475,7 +1477,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteTagsInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1515,14 +1517,14 @@ module AWS::SDK::Redshift
     class DescribeAccountAttributesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesInput, context: context)
-        Validators::AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
+        AttributeNameList.validate!(input[:attribute_names], context: "#{context}[:attribute_names]") unless input[:attribute_names].nil?
       end
     end
 
     class DescribeAccountAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAttributesOutput, context: context)
-        Validators::AttributeList.validate!(input[:account_attributes], context: "#{context}[:account_attributes]") unless input[:account_attributes].nil?
+        AttributeList.validate!(input[:account_attributes], context: "#{context}[:account_attributes]") unless input[:account_attributes].nil?
       end
     end
 
@@ -1536,7 +1538,7 @@ module AWS::SDK::Redshift
     class DescribeAuthenticationProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAuthenticationProfilesOutput, context: context)
-        Validators::AuthenticationProfileList.validate!(input[:authentication_profiles], context: "#{context}[:authentication_profiles]") unless input[:authentication_profiles].nil?
+        AuthenticationProfileList.validate!(input[:authentication_profiles], context: "#{context}[:authentication_profiles]") unless input[:authentication_profiles].nil?
       end
     end
 
@@ -1553,7 +1555,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterDbRevisionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ClusterDbRevisionsList.validate!(input[:cluster_db_revisions], context: "#{context}[:cluster_db_revisions]") unless input[:cluster_db_revisions].nil?
+        ClusterDbRevisionsList.validate!(input[:cluster_db_revisions], context: "#{context}[:cluster_db_revisions]") unless input[:cluster_db_revisions].nil?
       end
     end
 
@@ -1563,8 +1565,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1572,7 +1574,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterParameterGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ParameterGroupList.validate!(input[:parameter_groups], context: "#{context}[:parameter_groups]") unless input[:parameter_groups].nil?
+        ParameterGroupList.validate!(input[:parameter_groups], context: "#{context}[:parameter_groups]") unless input[:parameter_groups].nil?
       end
     end
 
@@ -1589,7 +1591,7 @@ module AWS::SDK::Redshift
     class DescribeClusterParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterParametersOutput, context: context)
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1600,8 +1602,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_security_group_name], ::String, context: "#{context}[:cluster_security_group_name]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1609,7 +1611,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterSecurityGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ClusterSecurityGroups.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
+        ClusterSecurityGroups.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
       end
     end
 
@@ -1624,10 +1626,10 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:owner_account], ::String, context: "#{context}[:owner_account]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
         Hearth::Validator.validate!(input[:cluster_exists], ::TrueClass, ::FalseClass, context: "#{context}[:cluster_exists]")
-        Validators::SnapshotSortingEntityList.validate!(input[:sorting_entities], context: "#{context}[:sorting_entities]") unless input[:sorting_entities].nil?
+        SnapshotSortingEntityList.validate!(input[:sorting_entities], context: "#{context}[:sorting_entities]") unless input[:sorting_entities].nil?
       end
     end
 
@@ -1635,7 +1637,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterSnapshotsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
       end
     end
 
@@ -1645,8 +1647,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_subnet_group_name], ::String, context: "#{context}[:cluster_subnet_group_name]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1654,7 +1656,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterSubnetGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ClusterSubnetGroups.validate!(input[:cluster_subnet_groups], context: "#{context}[:cluster_subnet_groups]") unless input[:cluster_subnet_groups].nil?
+        ClusterSubnetGroups.validate!(input[:cluster_subnet_groups], context: "#{context}[:cluster_subnet_groups]") unless input[:cluster_subnet_groups].nil?
       end
     end
 
@@ -1670,7 +1672,7 @@ module AWS::SDK::Redshift
     class DescribeClusterTracksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterTracksOutput, context: context)
-        Validators::TrackList.validate!(input[:maintenance_tracks], context: "#{context}[:maintenance_tracks]") unless input[:maintenance_tracks].nil?
+        TrackList.validate!(input[:maintenance_tracks], context: "#{context}[:maintenance_tracks]") unless input[:maintenance_tracks].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1689,7 +1691,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ClusterVersionList.validate!(input[:cluster_versions], context: "#{context}[:cluster_versions]") unless input[:cluster_versions].nil?
+        ClusterVersionList.validate!(input[:cluster_versions], context: "#{context}[:cluster_versions]") unless input[:cluster_versions].nil?
       end
     end
 
@@ -1699,8 +1701,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1708,7 +1710,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClustersOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ClusterList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        ClusterList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
       end
     end
 
@@ -1725,7 +1727,7 @@ module AWS::SDK::Redshift
     class DescribeDataSharesForConsumerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSharesForConsumerOutput, context: context)
-        Validators::DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
+        DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1743,7 +1745,7 @@ module AWS::SDK::Redshift
     class DescribeDataSharesForProducerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSharesForProducerOutput, context: context)
-        Validators::DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
+        DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1760,7 +1762,7 @@ module AWS::SDK::Redshift
     class DescribeDataSharesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSharesOutput, context: context)
-        Validators::DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
+        DataShareList.validate!(input[:data_shares], context: "#{context}[:data_shares]") unless input[:data_shares].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1777,7 +1779,7 @@ module AWS::SDK::Redshift
     class DescribeDefaultClusterParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDefaultClusterParametersOutput, context: context)
-        Validators::DefaultClusterParameters.validate!(input[:default_cluster_parameters], context: "#{context}[:default_cluster_parameters]") unless input[:default_cluster_parameters].nil?
+        DefaultClusterParameters.validate!(input[:default_cluster_parameters], context: "#{context}[:default_cluster_parameters]") unless input[:default_cluster_parameters].nil?
       end
     end
 
@@ -1796,7 +1798,7 @@ module AWS::SDK::Redshift
     class DescribeEndpointAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointAccessOutput, context: context)
-        Validators::EndpointAccesses.validate!(input[:endpoint_access_list], context: "#{context}[:endpoint_access_list]") unless input[:endpoint_access_list].nil?
+        EndpointAccesses.validate!(input[:endpoint_access_list], context: "#{context}[:endpoint_access_list]") unless input[:endpoint_access_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1815,7 +1817,7 @@ module AWS::SDK::Redshift
     class DescribeEndpointAuthorizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEndpointAuthorizationOutput, context: context)
-        Validators::EndpointAuthorizations.validate!(input[:endpoint_authorization_list], context: "#{context}[:endpoint_authorization_list]") unless input[:endpoint_authorization_list].nil?
+        EndpointAuthorizations.validate!(input[:endpoint_authorization_list], context: "#{context}[:endpoint_authorization_list]") unless input[:endpoint_authorization_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1830,7 +1832,7 @@ module AWS::SDK::Redshift
     class DescribeEventCategoriesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventCategoriesOutput, context: context)
-        Validators::EventCategoriesMapList.validate!(input[:event_categories_map_list], context: "#{context}[:event_categories_map_list]") unless input[:event_categories_map_list].nil?
+        EventCategoriesMapList.validate!(input[:event_categories_map_list], context: "#{context}[:event_categories_map_list]") unless input[:event_categories_map_list].nil?
       end
     end
 
@@ -1840,8 +1842,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1849,7 +1851,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventSubscriptionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EventSubscriptionsList.validate!(input[:event_subscriptions_list], context: "#{context}[:event_subscriptions_list]") unless input[:event_subscriptions_list].nil?
+        EventSubscriptionsList.validate!(input[:event_subscriptions_list], context: "#{context}[:event_subscriptions_list]") unless input[:event_subscriptions_list].nil?
       end
     end
 
@@ -1870,7 +1872,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -1880,8 +1882,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:hsm_client_certificate_identifier], ::String, context: "#{context}[:hsm_client_certificate_identifier]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1889,7 +1891,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeHsmClientCertificatesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::HsmClientCertificateList.validate!(input[:hsm_client_certificates], context: "#{context}[:hsm_client_certificates]") unless input[:hsm_client_certificates].nil?
+        HsmClientCertificateList.validate!(input[:hsm_client_certificates], context: "#{context}[:hsm_client_certificates]") unless input[:hsm_client_certificates].nil?
       end
     end
 
@@ -1899,8 +1901,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:hsm_configuration_identifier], ::String, context: "#{context}[:hsm_configuration_identifier]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -1908,7 +1910,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeHsmConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::HsmConfigurationList.validate!(input[:hsm_configurations], context: "#{context}[:hsm_configurations]") unless input[:hsm_configurations].nil?
+        HsmConfigurationList.validate!(input[:hsm_configurations], context: "#{context}[:hsm_configurations]") unless input[:hsm_configurations].nil?
       end
     end
 
@@ -1929,7 +1931,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:last_failure_time], ::Time, context: "#{context}[:last_failure_time]")
         Hearth::Validator.validate!(input[:last_failure_message], ::String, context: "#{context}[:last_failure_message]")
         Hearth::Validator.validate!(input[:log_destination_type], ::String, context: "#{context}[:log_destination_type]")
-        Validators::LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
+        LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
       end
     end
 
@@ -1940,7 +1942,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:snapshot_identifier], ::String, context: "#{context}[:snapshot_identifier]")
         Hearth::Validator.validate!(input[:owner_account], ::String, context: "#{context}[:owner_account]")
-        Validators::NodeConfigurationOptionsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        NodeConfigurationOptionsFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
       end
@@ -1949,7 +1951,7 @@ module AWS::SDK::Redshift
     class DescribeNodeConfigurationOptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNodeConfigurationOptionsOutput, context: context)
-        Validators::NodeConfigurationOptionList.validate!(input[:node_configuration_option_list], context: "#{context}[:node_configuration_option_list]") unless input[:node_configuration_option_list].nil?
+        NodeConfigurationOptionList.validate!(input[:node_configuration_option_list], context: "#{context}[:node_configuration_option_list]") unless input[:node_configuration_option_list].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1967,7 +1969,7 @@ module AWS::SDK::Redshift
     class DescribeOrderableClusterOptionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOrderableClusterOptionsOutput, context: context)
-        Validators::OrderableClusterOptionsList.validate!(input[:orderable_cluster_options], context: "#{context}[:orderable_cluster_options]") unless input[:orderable_cluster_options].nil?
+        OrderableClusterOptionsList.validate!(input[:orderable_cluster_options], context: "#{context}[:orderable_cluster_options]") unless input[:orderable_cluster_options].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -1985,7 +1987,7 @@ module AWS::SDK::Redshift
     class DescribePartnersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePartnersOutput, context: context)
-        Validators::PartnerIntegrationInfoList.validate!(input[:partner_integration_info_list], context: "#{context}[:partner_integration_info_list]") unless input[:partner_integration_info_list].nil?
+        PartnerIntegrationInfoList.validate!(input[:partner_integration_info_list], context: "#{context}[:partner_integration_info_list]") unless input[:partner_integration_info_list].nil?
       end
     end
 
@@ -2002,7 +2004,7 @@ module AWS::SDK::Redshift
     class DescribeReservedNodeExchangeStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedNodeExchangeStatusOutput, context: context)
-        Validators::ReservedNodeExchangeStatusList.validate!(input[:reserved_node_exchange_status_details], context: "#{context}[:reserved_node_exchange_status_details]") unless input[:reserved_node_exchange_status_details].nil?
+        ReservedNodeExchangeStatusList.validate!(input[:reserved_node_exchange_status_details], context: "#{context}[:reserved_node_exchange_status_details]") unless input[:reserved_node_exchange_status_details].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -2020,7 +2022,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedNodeOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedNodeOfferingList.validate!(input[:reserved_node_offerings], context: "#{context}[:reserved_node_offerings]") unless input[:reserved_node_offerings].nil?
+        ReservedNodeOfferingList.validate!(input[:reserved_node_offerings], context: "#{context}[:reserved_node_offerings]") unless input[:reserved_node_offerings].nil?
       end
     end
 
@@ -2037,7 +2039,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservedNodesOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedNodeList.validate!(input[:reserved_nodes], context: "#{context}[:reserved_nodes]") unless input[:reserved_nodes].nil?
+        ReservedNodeList.validate!(input[:reserved_nodes], context: "#{context}[:reserved_nodes]") unless input[:reserved_nodes].nil?
       end
     end
 
@@ -2055,9 +2057,9 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:target_number_of_nodes], ::Integer, context: "#{context}[:target_number_of_nodes]")
         Hearth::Validator.validate!(input[:target_cluster_type], ::String, context: "#{context}[:target_cluster_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ImportTablesCompleted.validate!(input[:import_tables_completed], context: "#{context}[:import_tables_completed]") unless input[:import_tables_completed].nil?
-        Validators::ImportTablesInProgress.validate!(input[:import_tables_in_progress], context: "#{context}[:import_tables_in_progress]") unless input[:import_tables_in_progress].nil?
-        Validators::ImportTablesNotStarted.validate!(input[:import_tables_not_started], context: "#{context}[:import_tables_not_started]") unless input[:import_tables_not_started].nil?
+        ImportTablesCompleted.validate!(input[:import_tables_completed], context: "#{context}[:import_tables_completed]") unless input[:import_tables_completed].nil?
+        ImportTablesInProgress.validate!(input[:import_tables_in_progress], context: "#{context}[:import_tables_in_progress]") unless input[:import_tables_in_progress].nil?
+        ImportTablesNotStarted.validate!(input[:import_tables_not_started], context: "#{context}[:import_tables_not_started]") unless input[:import_tables_not_started].nil?
         Hearth::Validator.validate!(input[:avg_resize_rate_in_mega_bytes_per_second], ::Float, context: "#{context}[:avg_resize_rate_in_mega_bytes_per_second]")
         Hearth::Validator.validate!(input[:total_resize_data_in_mega_bytes], ::Integer, context: "#{context}[:total_resize_data_in_mega_bytes]")
         Hearth::Validator.validate!(input[:progress_in_mega_bytes], ::Integer, context: "#{context}[:progress_in_mega_bytes]")
@@ -2078,7 +2080,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:active], ::TrueClass, ::FalseClass, context: "#{context}[:active]")
-        Validators::ScheduledActionFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ScheduledActionFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
       end
@@ -2088,7 +2090,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeScheduledActionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ScheduledActionList.validate!(input[:scheduled_actions], context: "#{context}[:scheduled_actions]") unless input[:scheduled_actions].nil?
+        ScheduledActionList.validate!(input[:scheduled_actions], context: "#{context}[:scheduled_actions]") unless input[:scheduled_actions].nil?
       end
     end
 
@@ -2098,8 +2100,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:snapshot_copy_grant_name], ::String, context: "#{context}[:snapshot_copy_grant_name]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
@@ -2107,7 +2109,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotCopyGrantsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::SnapshotCopyGrantList.validate!(input[:snapshot_copy_grants], context: "#{context}[:snapshot_copy_grants]") unless input[:snapshot_copy_grants].nil?
+        SnapshotCopyGrantList.validate!(input[:snapshot_copy_grants], context: "#{context}[:snapshot_copy_grants]") unless input[:snapshot_copy_grants].nil?
       end
     end
 
@@ -2116,8 +2118,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::DescribeSnapshotSchedulesInput, context: context)
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
       end
@@ -2126,7 +2128,7 @@ module AWS::SDK::Redshift
     class DescribeSnapshotSchedulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotSchedulesOutput, context: context)
-        Validators::SnapshotScheduleList.validate!(input[:snapshot_schedules], context: "#{context}[:snapshot_schedules]") unless input[:snapshot_schedules].nil?
+        SnapshotScheduleList.validate!(input[:snapshot_schedules], context: "#{context}[:snapshot_schedules]") unless input[:snapshot_schedules].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -2158,7 +2160,7 @@ module AWS::SDK::Redshift
     class DescribeTableRestoreStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableRestoreStatusOutput, context: context)
-        Validators::TableRestoreStatusList.validate!(input[:table_restore_status_details], context: "#{context}[:table_restore_status_details]") unless input[:table_restore_status_details].nil?
+        TableRestoreStatusList.validate!(input[:table_restore_status_details], context: "#{context}[:table_restore_status_details]") unless input[:table_restore_status_details].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -2170,15 +2172,15 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
     class DescribeTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTagsOutput, context: context)
-        Validators::TaggedResourceList.validate!(input[:tagged_resources], context: "#{context}[:tagged_resources]") unless input[:tagged_resources].nil?
+        TaggedResourceList.validate!(input[:tagged_resources], context: "#{context}[:tagged_resources]") unless input[:tagged_resources].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -2191,15 +2193,15 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:feature_type], ::String, context: "#{context}[:feature_type]")
         Hearth::Validator.validate!(input[:max_records], ::Integer, context: "#{context}[:max_records]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
-        Validators::TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagValueList.validate!(input[:tag_values], context: "#{context}[:tag_values]") unless input[:tag_values].nil?
       end
     end
 
     class DescribeUsageLimitsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUsageLimitsOutput, context: context)
-        Validators::UsageLimits.validate!(input[:usage_limits], context: "#{context}[:usage_limits]") unless input[:usage_limits].nil?
+        UsageLimits.validate!(input[:usage_limits], context: "#{context}[:usage_limits]") unless input[:usage_limits].nil?
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
     end
@@ -2221,7 +2223,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:last_failure_time], ::Time, context: "#{context}[:last_failure_time]")
         Hearth::Validator.validate!(input[:last_failure_message], ::String, context: "#{context}[:last_failure_message]")
         Hearth::Validator.validate!(input[:log_destination_type], ::String, context: "#{context}[:log_destination_type]")
-        Validators::LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
+        LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
       end
     end
 
@@ -2235,7 +2237,7 @@ module AWS::SDK::Redshift
     class DisableSnapshotCopyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableSnapshotCopyOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -2255,7 +2257,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -2266,7 +2268,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:ec2_security_group_name], ::String, context: "#{context}[:ec2_security_group_name]")
         Hearth::Validator.validate!(input[:ec2_security_group_owner_id], ::String, context: "#{context}[:ec2_security_group_owner_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2274,7 +2276,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EC2SecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EC2SecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2291,7 +2293,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2303,7 +2305,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:s3_key_prefix], ::String, context: "#{context}[:s3_key_prefix]")
         Hearth::Validator.validate!(input[:log_destination_type], ::String, context: "#{context}[:log_destination_type]")
-        Validators::LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
+        LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
       end
     end
 
@@ -2317,7 +2319,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:last_failure_time], ::Time, context: "#{context}[:last_failure_time]")
         Hearth::Validator.validate!(input[:last_failure_message], ::String, context: "#{context}[:last_failure_message]")
         Hearth::Validator.validate!(input[:log_destination_type], ::String, context: "#{context}[:log_destination_type]")
-        Validators::LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
+        LogTypeList.validate!(input[:log_exports], context: "#{context}[:log_exports]") unless input[:log_exports].nil?
       end
     end
 
@@ -2335,7 +2337,7 @@ module AWS::SDK::Redshift
     class EnableSnapshotCopyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableSnapshotCopyOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -2344,7 +2346,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::Endpoint, context: context)
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
-        Validators::VpcEndpointsList.validate!(input[:vpc_endpoints], context: "#{context}[:vpc_endpoints]") unless input[:vpc_endpoints].nil?
+        VpcEndpointsList.validate!(input[:vpc_endpoints], context: "#{context}[:vpc_endpoints]") unless input[:vpc_endpoints].nil?
       end
     end
 
@@ -2359,8 +2361,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:endpoint_create_time], ::Time, context: "#{context}[:endpoint_create_time]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
-        Validators::VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
       end
     end
 
@@ -2368,7 +2370,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2390,7 +2392,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_status], ::String, context: "#{context}[:cluster_status]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:allowed_all_vp_cs], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_all_vp_cs]")
-        Validators::VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
+        VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
         Hearth::Validator.validate!(input[:endpoint_count], ::Integer, context: "#{context}[:endpoint_count]")
       end
     end
@@ -2413,7 +2415,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointAuthorization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointAuthorization.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2452,7 +2454,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:source_identifier], ::String, context: "#{context}[:source_identifier]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:date], ::Time, context: "#{context}[:date]")
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
@@ -2472,7 +2474,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventCategoriesMap, context: context)
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::EventInfoMapList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventInfoMapList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -2480,7 +2482,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventCategoriesMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventCategoriesMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2489,7 +2491,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventInfoMap, context: context)
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:event_description], ::String, context: "#{context}[:event_description]")
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
       end
@@ -2499,7 +2501,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventInfoMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventInfoMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2508,7 +2510,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2522,11 +2524,11 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:subscription_creation_time], ::Time, context: "#{context}[:subscription_creation_time]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceIdsList.validate!(input[:source_ids_list], context: "#{context}[:source_ids_list]") unless input[:source_ids_list].nil?
-        Validators::EventCategoriesList.validate!(input[:event_categories_list], context: "#{context}[:event_categories_list]") unless input[:event_categories_list].nil?
+        SourceIdsList.validate!(input[:source_ids_list], context: "#{context}[:source_ids_list]") unless input[:source_ids_list].nil?
+        EventCategoriesList.validate!(input[:event_categories_list], context: "#{context}[:event_categories_list]") unless input[:event_categories_list].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2541,7 +2543,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventSubscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2554,7 +2556,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
         Hearth::Validator.validate!(input[:auto_create], ::TrueClass, ::FalseClass, context: "#{context}[:auto_create]")
-        Validators::DbGroupList.validate!(input[:db_groups], context: "#{context}[:db_groups]") unless input[:db_groups].nil?
+        DbGroupList.validate!(input[:db_groups], context: "#{context}[:db_groups]") unless input[:db_groups].nil?
       end
     end
 
@@ -2601,7 +2603,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservedNodeExchangeConfigurationOptionsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedNodeConfigurationOptionList.validate!(input[:reserved_node_configuration_option_list], context: "#{context}[:reserved_node_configuration_option_list]") unless input[:reserved_node_configuration_option_list].nil?
+        ReservedNodeConfigurationOptionList.validate!(input[:reserved_node_configuration_option_list], context: "#{context}[:reserved_node_configuration_option_list]") unless input[:reserved_node_configuration_option_list].nil?
       end
     end
 
@@ -2618,7 +2620,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReservedNodeExchangeOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ReservedNodeOfferingList.validate!(input[:reserved_node_offerings], context: "#{context}[:reserved_node_offerings]") unless input[:reserved_node_offerings].nil?
+        ReservedNodeOfferingList.validate!(input[:reserved_node_offerings], context: "#{context}[:reserved_node_offerings]") unless input[:reserved_node_offerings].nil?
       end
     end
 
@@ -2627,7 +2629,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::HsmClientCertificate, context: context)
         Hearth::Validator.validate!(input[:hsm_client_certificate_identifier], ::String, context: "#{context}[:hsm_client_certificate_identifier]")
         Hearth::Validator.validate!(input[:hsm_client_certificate_public_key], ::String, context: "#{context}[:hsm_client_certificate_public_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2642,7 +2644,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HsmClientCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HsmClientCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2668,7 +2670,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:hsm_ip_address], ::String, context: "#{context}[:hsm_ip_address]")
         Hearth::Validator.validate!(input[:hsm_partition_name], ::String, context: "#{context}[:hsm_partition_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2683,7 +2685,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HsmConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HsmConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2716,7 +2718,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::IPRange, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:cidrip], ::String, context: "#{context}[:cidrip]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2724,7 +2726,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IPRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IPRange.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3024,7 +3026,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::MaintenanceTrack, context: context)
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:database_version], ::String, context: "#{context}[:database_version]")
-        Validators::EligibleTracksToUpdateList.validate!(input[:update_targets], context: "#{context}[:update_targets]") unless input[:update_targets].nil?
+        EligibleTracksToUpdateList.validate!(input[:update_targets], context: "#{context}[:update_targets]") unless input[:update_targets].nil?
       end
     end
 
@@ -3039,7 +3041,7 @@ module AWS::SDK::Redshift
     class ModifyAquaConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyAquaConfigurationOutput, context: context)
-        Validators::AquaConfiguration.validate!(input[:aqua_configuration], context: "#{context}[:aqua_configuration]") unless input[:aqua_configuration].nil?
+        AquaConfiguration.validate!(input[:aqua_configuration], context: "#{context}[:aqua_configuration]") unless input[:aqua_configuration].nil?
       end
     end
 
@@ -3070,7 +3072,7 @@ module AWS::SDK::Redshift
     class ModifyClusterDbRevisionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterDbRevisionOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3078,8 +3080,8 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterIamRolesInput, context: context)
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
-        Validators::IamRoleArnList.validate!(input[:add_iam_roles], context: "#{context}[:add_iam_roles]") unless input[:add_iam_roles].nil?
-        Validators::IamRoleArnList.validate!(input[:remove_iam_roles], context: "#{context}[:remove_iam_roles]") unless input[:remove_iam_roles].nil?
+        IamRoleArnList.validate!(input[:add_iam_roles], context: "#{context}[:add_iam_roles]") unless input[:add_iam_roles].nil?
+        IamRoleArnList.validate!(input[:remove_iam_roles], context: "#{context}[:remove_iam_roles]") unless input[:remove_iam_roles].nil?
         Hearth::Validator.validate!(input[:default_iam_role_arn], ::String, context: "#{context}[:default_iam_role_arn]")
       end
     end
@@ -3087,7 +3089,7 @@ module AWS::SDK::Redshift
     class ModifyClusterIamRolesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterIamRolesOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3098,8 +3100,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_type], ::String, context: "#{context}[:cluster_type]")
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
         Hearth::Validator.validate!(input[:number_of_nodes], ::Integer, context: "#{context}[:number_of_nodes]")
-        Validators::ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
         Hearth::Validator.validate!(input[:master_user_password], ::String, context: "#{context}[:master_user_password]")
         Hearth::Validator.validate!(input[:cluster_parameter_group_name], ::String, context: "#{context}[:cluster_parameter_group_name]")
         Hearth::Validator.validate!(input[:automated_snapshot_retention_period], ::Integer, context: "#{context}[:automated_snapshot_retention_period]")
@@ -3137,14 +3139,14 @@ module AWS::SDK::Redshift
     class ModifyClusterMaintenanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterMaintenanceOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
     class ModifyClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3152,7 +3154,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -3176,7 +3178,7 @@ module AWS::SDK::Redshift
     class ModifyClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -3200,14 +3202,14 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::ModifyClusterSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:cluster_subnet_group_name], ::String, context: "#{context}[:cluster_subnet_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
     class ModifyClusterSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterSubnetGroupOutput, context: context)
-        Validators::ClusterSubnetGroup.validate!(input[:cluster_subnet_group], context: "#{context}[:cluster_subnet_group]") unless input[:cluster_subnet_group].nil?
+        ClusterSubnetGroup.validate!(input[:cluster_subnet_group], context: "#{context}[:cluster_subnet_group]") unless input[:cluster_subnet_group].nil?
       end
     end
 
@@ -3215,7 +3217,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyEndpointAccessInput, context: context)
         Hearth::Validator.validate!(input[:endpoint_name], ::String, context: "#{context}[:endpoint_name]")
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
       end
     end
 
@@ -3230,8 +3232,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:endpoint_create_time], ::Time, context: "#{context}[:endpoint_create_time]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:address], ::String, context: "#{context}[:address]")
-        Validators::VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
-        Validators::VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
+        VpcSecurityGroupMembershipList.validate!(input[:vpc_security_groups], context: "#{context}[:vpc_security_groups]") unless input[:vpc_security_groups].nil?
+        VpcEndpoint.validate!(input[:vpc_endpoint], context: "#{context}[:vpc_endpoint]") unless input[:vpc_endpoint].nil?
       end
     end
 
@@ -3241,8 +3243,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:subscription_name], ::String, context: "#{context}[:subscription_name]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
-        Validators::SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
-        Validators::EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        SourceIdsList.validate!(input[:source_ids], context: "#{context}[:source_ids]") unless input[:source_ids].nil?
+        EventCategoriesList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
@@ -3251,7 +3253,7 @@ module AWS::SDK::Redshift
     class ModifyEventSubscriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyEventSubscriptionOutput, context: context)
-        Validators::EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
+        EventSubscription.validate!(input[:event_subscription], context: "#{context}[:event_subscription]") unless input[:event_subscription].nil?
       end
     end
 
@@ -3259,7 +3261,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyScheduledActionInput, context: context)
         Hearth::Validator.validate!(input[:scheduled_action_name], ::String, context: "#{context}[:scheduled_action_name]")
-        Validators::ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
+        ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:scheduled_action_description], ::String, context: "#{context}[:scheduled_action_description]")
@@ -3273,12 +3275,12 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyScheduledActionOutput, context: context)
         Hearth::Validator.validate!(input[:scheduled_action_name], ::String, context: "#{context}[:scheduled_action_name]")
-        Validators::ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
+        ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:scheduled_action_description], ::String, context: "#{context}[:scheduled_action_description]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -3296,7 +3298,7 @@ module AWS::SDK::Redshift
     class ModifySnapshotCopyRetentionPeriodOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifySnapshotCopyRetentionPeriodOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3304,20 +3306,20 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifySnapshotScheduleInput, context: context)
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
-        Validators::ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
       end
     end
 
     class ModifySnapshotScheduleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifySnapshotScheduleOutput, context: context)
-        Validators::ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
         Hearth::Validator.validate!(input[:schedule_description], ::String, context: "#{context}[:schedule_description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:associated_cluster_count], ::Integer, context: "#{context}[:associated_cluster_count]")
-        Validators::AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
+        AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
       end
     end
 
@@ -3340,7 +3342,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:amount], ::Integer, context: "#{context}[:amount]")
         Hearth::Validator.validate!(input[:period], ::String, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:breach_action], ::String, context: "#{context}[:breach_action]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3358,7 +3360,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3377,7 +3379,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeConfigurationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeConfigurationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3387,7 +3389,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::NodeConfigurationOptionsFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:operator], ::String, context: "#{context}[:operator]")
-        Validators::ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -3395,7 +3397,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NodeConfigurationOptionsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NodeConfigurationOptionsFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3420,7 +3422,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_version], ::String, context: "#{context}[:cluster_version]")
         Hearth::Validator.validate!(input[:cluster_type], ::String, context: "#{context}[:cluster_type]")
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
-        Validators::AvailabilityZoneList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        AvailabilityZoneList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
       end
     end
 
@@ -3428,7 +3430,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrderableClusterOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrderableClusterOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3452,7 +3454,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3461,7 +3463,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3482,7 +3484,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartnerIntegrationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartnerIntegrationInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3511,7 +3513,7 @@ module AWS::SDK::Redshift
     class PauseClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PauseClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3552,7 +3554,7 @@ module AWS::SDK::Redshift
     class PurchaseReservedNodeOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PurchaseReservedNodeOfferingOutput, context: context)
-        Validators::ReservedNode.validate!(input[:reserved_node], context: "#{context}[:reserved_node]") unless input[:reserved_node].nil?
+        ReservedNode.validate!(input[:reserved_node], context: "#{context}[:reserved_node]") unless input[:reserved_node].nil?
       end
     end
 
@@ -3566,7 +3568,7 @@ module AWS::SDK::Redshift
     class RebootClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3582,7 +3584,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecurringCharge.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3600,7 +3602,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:data_share_arn], ::String, context: "#{context}[:data_share_arn]")
         Hearth::Validator.validate!(input[:producer_arn], ::String, context: "#{context}[:producer_arn]")
         Hearth::Validator.validate!(input[:allow_publicly_accessible_consumers], ::TrueClass, ::FalseClass, context: "#{context}[:allow_publicly_accessible_consumers]")
-        Validators::DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
+        DataShareAssociationList.validate!(input[:data_share_associations], context: "#{context}[:data_share_associations]") unless input[:data_share_associations].nil?
         Hearth::Validator.validate!(input[:managed_by], ::String, context: "#{context}[:managed_by]")
       end
     end
@@ -3619,7 +3621,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:node_count], ::Integer, context: "#{context}[:node_count]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
         Hearth::Validator.validate!(input[:reserved_node_offering_type], ::String, context: "#{context}[:reserved_node_offering_type]")
       end
     end
@@ -3641,9 +3643,9 @@ module AWS::SDK::Redshift
     class ReservedNodeConfigurationOption
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReservedNodeConfigurationOption, context: context)
-        Validators::ReservedNode.validate!(input[:source_reserved_node], context: "#{context}[:source_reserved_node]") unless input[:source_reserved_node].nil?
+        ReservedNode.validate!(input[:source_reserved_node], context: "#{context}[:source_reserved_node]") unless input[:source_reserved_node].nil?
         Hearth::Validator.validate!(input[:target_reserved_node_count], ::Integer, context: "#{context}[:target_reserved_node_count]")
-        Validators::ReservedNodeOffering.validate!(input[:target_reserved_node_offering], context: "#{context}[:target_reserved_node_offering]") unless input[:target_reserved_node_offering].nil?
+        ReservedNodeOffering.validate!(input[:target_reserved_node_offering], context: "#{context}[:target_reserved_node_offering]") unless input[:target_reserved_node_offering].nil?
       end
     end
 
@@ -3651,7 +3653,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedNodeConfigurationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedNodeConfigurationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3682,7 +3684,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedNodeExchangeStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedNodeExchangeStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3691,7 +3693,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedNode.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3713,7 +3715,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:usage_price], ::Float, context: "#{context}[:usage_price]")
         Hearth::Validator.validate!(input[:currency_code], ::String, context: "#{context}[:currency_code]")
         Hearth::Validator.validate!(input[:offering_type], ::String, context: "#{context}[:offering_type]")
-        Validators::RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
+        RecurringChargeList.validate!(input[:recurring_charges], context: "#{context}[:recurring_charges]") unless input[:recurring_charges].nil?
         Hearth::Validator.validate!(input[:reserved_node_offering_type], ::String, context: "#{context}[:reserved_node_offering_type]")
       end
     end
@@ -3722,7 +3724,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReservedNodeOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReservedNodeOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3746,7 +3748,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::ResetClusterParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:reset_all_parameters], ::TrueClass, ::FalseClass, context: "#{context}[:reset_all_parameters]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -3787,7 +3789,7 @@ module AWS::SDK::Redshift
     class ResizeClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResizeClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3838,8 +3840,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:hsm_configuration_identifier], ::String, context: "#{context}[:hsm_configuration_identifier]")
         Hearth::Validator.validate!(input[:elastic_ip], ::String, context: "#{context}[:elastic_ip]")
         Hearth::Validator.validate!(input[:cluster_parameter_group_name], ::String, context: "#{context}[:cluster_parameter_group_name]")
-        Validators::ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
-        Validators::VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.validate!(input[:cluster_security_groups], context: "#{context}[:cluster_security_groups]") unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.validate!(input[:vpc_security_group_ids], context: "#{context}[:vpc_security_group_ids]") unless input[:vpc_security_group_ids].nil?
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:automated_snapshot_retention_period], ::Integer, context: "#{context}[:automated_snapshot_retention_period]")
         Hearth::Validator.validate!(input[:manual_snapshot_retention_period], ::Integer, context: "#{context}[:manual_snapshot_retention_period]")
@@ -3847,7 +3849,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
         Hearth::Validator.validate!(input[:enhanced_vpc_routing], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_vpc_routing]")
         Hearth::Validator.validate!(input[:additional_info], ::String, context: "#{context}[:additional_info]")
-        Validators::IamRoleArnList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
+        IamRoleArnList.validate!(input[:iam_roles], context: "#{context}[:iam_roles]") unless input[:iam_roles].nil?
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:snapshot_schedule_identifier], ::String, context: "#{context}[:snapshot_schedule_identifier]")
         Hearth::Validator.validate!(input[:number_of_nodes], ::Integer, context: "#{context}[:number_of_nodes]")
@@ -3863,7 +3865,7 @@ module AWS::SDK::Redshift
     class RestoreFromClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreFromClusterSnapshotOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3897,7 +3899,7 @@ module AWS::SDK::Redshift
     class RestoreTableFromClusterSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreTableFromClusterSnapshotOutput, context: context)
-        Validators::TableRestoreStatus.validate!(input[:table_restore_status], context: "#{context}[:table_restore_status]") unless input[:table_restore_status].nil?
+        TableRestoreStatus.validate!(input[:table_restore_status], context: "#{context}[:table_restore_status]") unless input[:table_restore_status].nil?
       end
     end
 
@@ -3918,7 +3920,7 @@ module AWS::SDK::Redshift
     class ResumeClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResumeClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -3935,7 +3937,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RevisionTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RevisionTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3953,7 +3955,7 @@ module AWS::SDK::Redshift
     class RevokeClusterSecurityGroupIngressOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RevokeClusterSecurityGroupIngressOutput, context: context)
-        Validators::ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
+        ClusterSecurityGroup.validate!(input[:cluster_security_group], context: "#{context}[:cluster_security_group]") unless input[:cluster_security_group].nil?
       end
     end
 
@@ -3962,7 +3964,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::RevokeEndpointAccessInput, context: context)
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:account], ::String, context: "#{context}[:account]")
-        Validators::VpcIdentifierList.validate!(input[:vpc_ids], context: "#{context}[:vpc_ids]") unless input[:vpc_ids].nil?
+        VpcIdentifierList.validate!(input[:vpc_ids], context: "#{context}[:vpc_ids]") unless input[:vpc_ids].nil?
         Hearth::Validator.validate!(input[:force], ::TrueClass, ::FalseClass, context: "#{context}[:force]")
       end
     end
@@ -3977,7 +3979,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:cluster_status], ::String, context: "#{context}[:cluster_status]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:allowed_all_vp_cs], ::TrueClass, ::FalseClass, context: "#{context}[:allowed_all_vp_cs]")
-        Validators::VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
+        VpcIdentifierList.validate!(input[:allowed_vp_cs], context: "#{context}[:allowed_vp_cs]") unless input[:allowed_vp_cs].nil?
         Hearth::Validator.validate!(input[:endpoint_count], ::Integer, context: "#{context}[:endpoint_count]")
       end
     end
@@ -3994,7 +3996,7 @@ module AWS::SDK::Redshift
     class RevokeSnapshotAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RevokeSnapshotAccessOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -4008,7 +4010,7 @@ module AWS::SDK::Redshift
     class RotateEncryptionKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RotateEncryptionKeyOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -4053,12 +4055,12 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduledAction, context: context)
         Hearth::Validator.validate!(input[:scheduled_action_name], ::String, context: "#{context}[:scheduled_action_name]")
-        Validators::ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
+        ScheduledActionType.validate!(input[:target_action], context: "#{context}[:target_action]") unless input[:target_action].nil?
         Hearth::Validator.validate!(input[:schedule], ::String, context: "#{context}[:schedule]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:scheduled_action_description], ::String, context: "#{context}[:scheduled_action_description]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        ScheduledActionTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
       end
@@ -4075,7 +4077,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduledActionFilter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -4083,7 +4085,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledActionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledActionFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4092,7 +4094,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4123,9 +4125,9 @@ module AWS::SDK::Redshift
     class ScheduledActionType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduledActionType, context: context)
-        Validators::ResizeClusterMessage.validate!(input[:resize_cluster], context: "#{context}[:resize_cluster]") unless input[:resize_cluster].nil?
-        Validators::PauseClusterMessage.validate!(input[:pause_cluster], context: "#{context}[:pause_cluster]") unless input[:pause_cluster].nil?
-        Validators::ResumeClusterMessage.validate!(input[:resume_cluster], context: "#{context}[:resume_cluster]") unless input[:resume_cluster].nil?
+        ResizeClusterMessage.validate!(input[:resize_cluster], context: "#{context}[:resize_cluster]") unless input[:resize_cluster].nil?
+        PauseClusterMessage.validate!(input[:pause_cluster], context: "#{context}[:pause_cluster]") unless input[:pause_cluster].nil?
+        ResumeClusterMessage.validate!(input[:resume_cluster], context: "#{context}[:resume_cluster]") unless input[:resume_cluster].nil?
       end
     end
 
@@ -4166,7 +4168,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:encrypted_with_hsm], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted_with_hsm]")
-        Validators::AccountsWithRestoreAccessList.validate!(input[:accounts_with_restore_access], context: "#{context}[:accounts_with_restore_access]") unless input[:accounts_with_restore_access].nil?
+        AccountsWithRestoreAccessList.validate!(input[:accounts_with_restore_access], context: "#{context}[:accounts_with_restore_access]") unless input[:accounts_with_restore_access].nil?
         Hearth::Validator.validate!(input[:owner_account], ::String, context: "#{context}[:owner_account]")
         Hearth::Validator.validate!(input[:total_backup_size_in_mega_bytes], ::Float, context: "#{context}[:total_backup_size_in_mega_bytes]")
         Hearth::Validator.validate!(input[:actual_incremental_backup_size_in_mega_bytes], ::Float, context: "#{context}[:actual_incremental_backup_size_in_mega_bytes]")
@@ -4175,8 +4177,8 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:estimated_seconds_to_completion], ::Integer, context: "#{context}[:estimated_seconds_to_completion]")
         Hearth::Validator.validate!(input[:elapsed_time_in_seconds], ::Integer, context: "#{context}[:elapsed_time_in_seconds]")
         Hearth::Validator.validate!(input[:source_region], ::String, context: "#{context}[:source_region]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::RestorableNodeTypeList.validate!(input[:restorable_node_types], context: "#{context}[:restorable_node_types]") unless input[:restorable_node_types].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RestorableNodeTypeList.validate!(input[:restorable_node_types], context: "#{context}[:restorable_node_types]") unless input[:restorable_node_types].nil?
         Hearth::Validator.validate!(input[:enhanced_vpc_routing], ::TrueClass, ::FalseClass, context: "#{context}[:enhanced_vpc_routing]")
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:manual_snapshot_retention_period], ::Integer, context: "#{context}[:manual_snapshot_retention_period]")
@@ -4211,7 +4213,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::SnapshotCopyGrant, context: context)
         Hearth::Validator.validate!(input[:snapshot_copy_grant_name], ::String, context: "#{context}[:snapshot_copy_grant_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -4226,7 +4228,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotCopyGrant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotCopyGrant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4268,7 +4270,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4276,13 +4278,13 @@ module AWS::SDK::Redshift
     class SnapshotSchedule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SnapshotSchedule, context: context)
-        Validators::ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.validate!(input[:schedule_definitions], context: "#{context}[:schedule_definitions]") unless input[:schedule_definitions].nil?
         Hearth::Validator.validate!(input[:schedule_identifier], ::String, context: "#{context}[:schedule_identifier]")
         Hearth::Validator.validate!(input[:schedule_description], ::String, context: "#{context}[:schedule_description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ScheduledSnapshotTimeList.validate!(input[:next_invocations], context: "#{context}[:next_invocations]") unless input[:next_invocations].nil?
         Hearth::Validator.validate!(input[:associated_cluster_count], ::Integer, context: "#{context}[:associated_cluster_count]")
-        Validators::AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
+        AssociatedClusterList.validate!(input[:associated_clusters], context: "#{context}[:associated_clusters]") unless input[:associated_clusters].nil?
       end
     end
 
@@ -4297,7 +4299,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotSchedule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4335,7 +4337,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnapshotSortingEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnapshotSortingEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4360,7 +4362,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Subnet, context: context)
         Hearth::Validator.validate!(input[:subnet_identifier], ::String, context: "#{context}[:subnet_identifier]")
-        Validators::AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
+        AvailabilityZone.validate!(input[:subnet_availability_zone], context: "#{context}[:subnet_availability_zone]") unless input[:subnet_availability_zone].nil?
         Hearth::Validator.validate!(input[:subnet_status], ::String, context: "#{context}[:subnet_status]")
       end
     end
@@ -4385,7 +4387,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4436,7 +4438,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SupportedOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SupportedOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4452,7 +4454,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SupportedPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SupportedPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4495,7 +4497,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableRestoreStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableRestoreStatus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4528,7 +4530,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4545,7 +4547,7 @@ module AWS::SDK::Redshift
     class TaggedResource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TaggedResource, context: context)
-        Validators::Tag.validate!(input[:tag], context: "#{context}[:tag]") unless input[:tag].nil?
+        Tag.validate!(input[:tag], context: "#{context}[:tag]") unless input[:tag].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
       end
@@ -4555,7 +4557,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TaggedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TaggedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4564,7 +4566,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MaintenanceTrack.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MaintenanceTrack.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4629,7 +4631,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::UpdateTarget, context: context)
         Hearth::Validator.validate!(input[:maintenance_track_name], ::String, context: "#{context}[:maintenance_track_name]")
         Hearth::Validator.validate!(input[:database_version], ::String, context: "#{context}[:database_version]")
-        Validators::SupportedOperationList.validate!(input[:supported_operations], context: "#{context}[:supported_operations]") unless input[:supported_operations].nil?
+        SupportedOperationList.validate!(input[:supported_operations], context: "#{context}[:supported_operations]") unless input[:supported_operations].nil?
       end
     end
 
@@ -4643,7 +4645,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input[:amount], ::Integer, context: "#{context}[:amount]")
         Hearth::Validator.validate!(input[:period], ::String, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:breach_action], ::String, context: "#{context}[:breach_action]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -4665,7 +4667,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageLimit.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4684,7 +4686,7 @@ module AWS::SDK::Redshift
         Hearth::Validator.validate!(input, Types::VpcEndpoint, context: context)
         Hearth::Validator.validate!(input[:vpc_endpoint_id], ::String, context: "#{context}[:vpc_endpoint_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
+        NetworkInterfaceList.validate!(input[:network_interfaces], context: "#{context}[:network_interfaces]") unless input[:network_interfaces].nil?
       end
     end
 
@@ -4692,7 +4694,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4727,7 +4729,7 @@ module AWS::SDK::Redshift
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcSecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -4750,11 +4750,11 @@ module AWS::SDK::Organizations
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.aws_managed ||= false
       end
-
     end
 
     # <p>Contains information about a root, OU, or account that a policy is attached to.</p>

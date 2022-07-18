@@ -184,7 +184,7 @@ module AWS::SDK::AppMesh
     # @!attribute ports
     #   <p>One or more ports that the policy is enforced for.</p>
     #
-    #   @return [Set<Integer>]
+    #   @return [Array<Integer>]
     #
     # @!attribute certificate
     #   <p>A reference to an object that represents a client's TLS certificate.</p>
@@ -2270,13 +2270,13 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
         self.healthy_threshold ||= 0
         self.unhealthy_threshold ||= 0
       end
-
     end
 
     # <p>An object that represents an HTTP gateway route.</p>
@@ -3913,11 +3913,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # Includes enum constants for PortProtocol
@@ -5014,7 +5014,7 @@ module AWS::SDK::AppMesh
     # @!attribute ports
     #   <p>One or more ports that the policy is enforced for.</p>
     #
-    #   @return [Set<Integer>]
+    #   @return [Array<Integer>]
     #
     # @!attribute certificate
     #   <p>A reference to an object that represents a virtual gateway's client's Transport Layer Security (TLS)
@@ -5206,11 +5206,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_requests ||= 0
       end
-
     end
 
     # <p>An object that represents the health check policy for a virtual gateway's
@@ -5271,13 +5271,13 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
         self.healthy_threshold ||= 0
         self.unhealthy_threshold ||= 0
       end
-
     end
 
     # <p>An object that represents a type of connection pool.</p>
@@ -5293,11 +5293,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_requests ||= 0
       end
-
     end
 
     # <p>An object that represents a type of connection pool.</p>
@@ -5320,11 +5320,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_connections ||= 0
       end
-
     end
 
     # <p>An object that represents a listener for a virtual gateway.</p>
@@ -5628,11 +5628,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # Includes enum constants for VirtualGatewayPortProtocol
@@ -6012,11 +6012,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_requests ||= 0
       end
-
     end
 
     # <p>An object that represents a type of connection pool.</p>
@@ -6032,11 +6032,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_requests ||= 0
       end
-
     end
 
     # <p>An object that represents a type of connection pool.</p>
@@ -6059,11 +6059,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_connections ||= 0
       end
-
     end
 
     # <p>An object that represents a virtual node returned by a list operation.</p>
@@ -6224,11 +6224,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_connections ||= 0
       end
-
     end
 
     # <p>An object that represents a virtual router returned by a describe operation.</p>
@@ -6626,11 +6626,11 @@ module AWS::SDK::AppMesh
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weight ||= 0
       end
-
     end
 
   end

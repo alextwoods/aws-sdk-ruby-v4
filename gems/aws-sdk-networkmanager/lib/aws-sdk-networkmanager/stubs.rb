@@ -14,7 +14,7 @@ module AWS::SDK::NetworkManager
     class AcceptAttachment
       def self.default(visited=[])
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
         }
       end
 
@@ -43,8 +43,8 @@ module AWS::SDK::NetworkManager
           resource_arn: 'resource_arn',
           attachment_policy_rule_number: 1,
           segment_name: 'segment_name',
-          tags: Stubs::TagList.default(visited),
-          proposed_segment_change: Stubs::ProposedSegmentChange.default(visited),
+          tags: TagList.default(visited),
+          proposed_segment_change: ProposedSegmentChange.default(visited),
           created_at: Time.now,
           updated_at: Time.now,
         }
@@ -77,7 +77,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ProposedSegmentChange')
         visited = visited + ['ProposedSegmentChange']
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           attachment_policy_rule_number: 1,
           segment_name: 'segment_name',
         }
@@ -99,7 +99,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -137,7 +137,7 @@ module AWS::SDK::NetworkManager
     class AssociateConnectPeer
       def self.default(visited=[])
         {
-          connect_peer_association: Stubs::ConnectPeerAssociation.default(visited),
+          connect_peer_association: ConnectPeerAssociation.default(visited),
         }
       end
 
@@ -180,7 +180,7 @@ module AWS::SDK::NetworkManager
     class AssociateCustomerGateway
       def self.default(visited=[])
         {
-          customer_gateway_association: Stubs::CustomerGatewayAssociation.default(visited),
+          customer_gateway_association: CustomerGatewayAssociation.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::NetworkManager
     class AssociateLink
       def self.default(visited=[])
         {
-          link_association: Stubs::LinkAssociation.default(visited),
+          link_association: LinkAssociation.default(visited),
         }
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::NetworkManager
     class AssociateTransitGatewayConnectPeer
       def self.default(visited=[])
         {
-          transit_gateway_connect_peer_association: Stubs::TransitGatewayConnectPeerAssociation.default(visited),
+          transit_gateway_connect_peer_association: TransitGatewayConnectPeerAssociation.default(visited),
         }
       end
 
@@ -307,7 +307,7 @@ module AWS::SDK::NetworkManager
     class CreateConnectAttachment
       def self.default(visited=[])
         {
-          connect_attachment: Stubs::ConnectAttachment.default(visited),
+          connect_attachment: ConnectAttachment.default(visited),
         }
       end
 
@@ -326,9 +326,9 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ConnectAttachment')
         visited = visited + ['ConnectAttachment']
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
           transport_attachment_id: 'transport_attachment_id',
-          options: Stubs::ConnectAttachmentOptions.default(visited),
+          options: ConnectAttachmentOptions.default(visited),
         }
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::NetworkManager
     class CreateConnectPeer
       def self.default(visited=[])
         {
-          connect_peer: Stubs::ConnectPeer.default(visited),
+          connect_peer: ConnectPeer.default(visited),
         }
       end
 
@@ -389,8 +389,8 @@ module AWS::SDK::NetworkManager
           edge_location: 'edge_location',
           state: 'state',
           created_at: Time.now,
-          configuration: Stubs::ConnectPeerConfiguration.default(visited),
-          tags: Stubs::TagList.default(visited),
+          configuration: ConnectPeerConfiguration.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -417,9 +417,9 @@ module AWS::SDK::NetworkManager
         {
           core_network_address: 'core_network_address',
           peer_address: 'peer_address',
-          inside_cidr_blocks: Stubs::ConstrainedStringList.default(visited),
+          inside_cidr_blocks: ConstrainedStringList.default(visited),
           protocol: 'protocol',
-          bgp_configurations: Stubs::ConnectPeerBgpConfigurationList.default(visited),
+          bgp_configurations: ConnectPeerBgpConfigurationList.default(visited),
         }
       end
 
@@ -441,7 +441,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ConnectPeerBgpConfigurationList')
         visited = visited + ['ConnectPeerBgpConfigurationList']
         [
-          Stubs::ConnectPeerBgpConfiguration.default(visited)
+          ConnectPeerBgpConfiguration.default(visited)
         ]
       end
 
@@ -503,7 +503,7 @@ module AWS::SDK::NetworkManager
     class CreateConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -532,7 +532,7 @@ module AWS::SDK::NetworkManager
           description: 'description',
           created_at: Time.now,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::NetworkManager
     class CreateCoreNetwork
       def self.default(visited=[])
         {
-          core_network: Stubs::CoreNetwork.default(visited),
+          core_network: CoreNetwork.default(visited),
         }
       end
 
@@ -583,9 +583,9 @@ module AWS::SDK::NetworkManager
           description: 'description',
           created_at: Time.now,
           state: 'state',
-          segments: Stubs::CoreNetworkSegmentList.default(visited),
-          edges: Stubs::CoreNetworkEdgeList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          segments: CoreNetworkSegmentList.default(visited),
+          edges: CoreNetworkEdgeList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkEdgeList')
         visited = visited + ['CoreNetworkEdgeList']
         [
-          Stubs::CoreNetworkEdge.default(visited)
+          CoreNetworkEdge.default(visited)
         ]
       end
 
@@ -633,7 +633,7 @@ module AWS::SDK::NetworkManager
         {
           edge_location: 'edge_location',
           asn: 1,
-          inside_cidr_blocks: Stubs::ConstrainedStringList.default(visited),
+          inside_cidr_blocks: ConstrainedStringList.default(visited),
         }
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkSegmentList')
         visited = visited + ['CoreNetworkSegmentList']
         [
-          Stubs::CoreNetworkSegment.default(visited)
+          CoreNetworkSegment.default(visited)
         ]
       end
 
@@ -674,8 +674,8 @@ module AWS::SDK::NetworkManager
         visited = visited + ['CoreNetworkSegment']
         {
           name: 'name',
-          edge_locations: Stubs::ExternalRegionCodeList.default(visited),
-          shared_segments: Stubs::ConstrainedStringList.default(visited),
+          edge_locations: ExternalRegionCodeList.default(visited),
+          shared_segments: ConstrainedStringList.default(visited),
         }
       end
 
@@ -713,7 +713,7 @@ module AWS::SDK::NetworkManager
     class CreateDevice
       def self.default(visited=[])
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
         }
       end
 
@@ -735,17 +735,17 @@ module AWS::SDK::NetworkManager
           device_id: 'device_id',
           device_arn: 'device_arn',
           global_network_id: 'global_network_id',
-          aws_location: Stubs::AWSLocation.default(visited),
+          aws_location: AWSLocation.default(visited),
           description: 'description',
           type: 'type',
           vendor: 'vendor',
           model: 'model',
           serial_number: 'serial_number',
-          location: Stubs::Location.default(visited),
+          location: Location.default(visited),
           site_id: 'site_id',
           created_at: Time.now,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::NetworkManager
     class CreateGlobalNetwork
       def self.default(visited=[])
         {
-          global_network: Stubs::GlobalNetwork.default(visited),
+          global_network: GlobalNetwork.default(visited),
         }
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::NetworkManager
           description: 'description',
           created_at: Time.now,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -861,7 +861,7 @@ module AWS::SDK::NetworkManager
     class CreateLink
       def self.default(visited=[])
         {
-          link: Stubs::Link.default(visited),
+          link: Link.default(visited),
         }
       end
 
@@ -886,11 +886,11 @@ module AWS::SDK::NetworkManager
           site_id: 'site_id',
           description: 'description',
           type: 'type',
-          bandwidth: Stubs::Bandwidth.default(visited),
+          bandwidth: Bandwidth.default(visited),
           provider: 'provider',
           created_at: Time.now,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -936,7 +936,7 @@ module AWS::SDK::NetworkManager
     class CreateSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -959,10 +959,10 @@ module AWS::SDK::NetworkManager
           site_arn: 'site_arn',
           global_network_id: 'global_network_id',
           description: 'description',
-          location: Stubs::Location.default(visited),
+          location: Location.default(visited),
           created_at: Time.now,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -985,7 +985,7 @@ module AWS::SDK::NetworkManager
     class CreateSiteToSiteVpnAttachment
       def self.default(visited=[])
         {
-          site_to_site_vpn_attachment: Stubs::SiteToSiteVpnAttachment.default(visited),
+          site_to_site_vpn_attachment: SiteToSiteVpnAttachment.default(visited),
         }
       end
 
@@ -1004,7 +1004,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('SiteToSiteVpnAttachment')
         visited = visited + ['SiteToSiteVpnAttachment']
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
           vpn_connection_arn: 'vpn_connection_arn',
         }
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::NetworkManager
     class CreateVpcAttachment
       def self.default(visited=[])
         {
-          vpc_attachment: Stubs::VpcAttachment.default(visited),
+          vpc_attachment: VpcAttachment.default(visited),
         }
       end
 
@@ -1041,9 +1041,9 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('VpcAttachment')
         visited = visited + ['VpcAttachment']
         {
-          attachment: Stubs::Attachment.default(visited),
-          subnet_arns: Stubs::SubnetArnList.default(visited),
-          options: Stubs::VpcOptions.default(visited),
+          attachment: Attachment.default(visited),
+          subnet_arns: SubnetArnList.default(visited),
+          options: VpcOptions.default(visited),
         }
       end
 
@@ -1099,7 +1099,7 @@ module AWS::SDK::NetworkManager
     class DeleteAttachment
       def self.default(visited=[])
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
         }
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::NetworkManager
     class DeleteConnectPeer
       def self.default(visited=[])
         {
-          connect_peer: Stubs::ConnectPeer.default(visited),
+          connect_peer: ConnectPeer.default(visited),
         }
       end
 
@@ -1133,7 +1133,7 @@ module AWS::SDK::NetworkManager
     class DeleteConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -1150,7 +1150,7 @@ module AWS::SDK::NetworkManager
     class DeleteCoreNetwork
       def self.default(visited=[])
         {
-          core_network: Stubs::CoreNetwork.default(visited),
+          core_network: CoreNetwork.default(visited),
         }
       end
 
@@ -1167,7 +1167,7 @@ module AWS::SDK::NetworkManager
     class DeleteCoreNetworkPolicyVersion
       def self.default(visited=[])
         {
-          core_network_policy: Stubs::CoreNetworkPolicy.default(visited),
+          core_network_policy: CoreNetworkPolicy.default(visited),
         }
       end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::NetworkManager
           description: 'description',
           created_at: Time.now,
           change_set_state: 'change_set_state',
-          policy_errors: Stubs::CoreNetworkPolicyErrorList.default(visited),
+          policy_errors: CoreNetworkPolicyErrorList.default(visited),
           policy_document: 'policy_document',
         }
       end
@@ -1218,7 +1218,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkPolicyErrorList')
         visited = visited + ['CoreNetworkPolicyErrorList']
         [
-          Stubs::CoreNetworkPolicyError.default(visited)
+          CoreNetworkPolicyError.default(visited)
         ]
       end
 
@@ -1258,7 +1258,7 @@ module AWS::SDK::NetworkManager
     class DeleteDevice
       def self.default(visited=[])
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
         }
       end
 
@@ -1275,7 +1275,7 @@ module AWS::SDK::NetworkManager
     class DeleteGlobalNetwork
       def self.default(visited=[])
         {
-          global_network: Stubs::GlobalNetwork.default(visited),
+          global_network: GlobalNetwork.default(visited),
         }
       end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::NetworkManager
     class DeleteLink
       def self.default(visited=[])
         {
-          link: Stubs::Link.default(visited),
+          link: Link.default(visited),
         }
       end
 
@@ -1322,7 +1322,7 @@ module AWS::SDK::NetworkManager
     class DeleteSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -1339,7 +1339,7 @@ module AWS::SDK::NetworkManager
     class DeregisterTransitGateway
       def self.default(visited=[])
         {
-          transit_gateway_registration: Stubs::TransitGatewayRegistration.default(visited),
+          transit_gateway_registration: TransitGatewayRegistration.default(visited),
         }
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::NetworkManager
         {
           global_network_id: 'global_network_id',
           transit_gateway_arn: 'transit_gateway_arn',
-          state: Stubs::TransitGatewayRegistrationStateReason.default(visited),
+          state: TransitGatewayRegistrationStateReason.default(visited),
         }
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::NetworkManager
     class DescribeGlobalNetworks
       def self.default(visited=[])
         {
-          global_networks: Stubs::GlobalNetworkList.default(visited),
+          global_networks: GlobalNetworkList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1419,7 +1419,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('GlobalNetworkList')
         visited = visited + ['GlobalNetworkList']
         [
-          Stubs::GlobalNetwork.default(visited)
+          GlobalNetwork.default(visited)
         ]
       end
 
@@ -1437,7 +1437,7 @@ module AWS::SDK::NetworkManager
     class DisassociateConnectPeer
       def self.default(visited=[])
         {
-          connect_peer_association: Stubs::ConnectPeerAssociation.default(visited),
+          connect_peer_association: ConnectPeerAssociation.default(visited),
         }
       end
 
@@ -1454,7 +1454,7 @@ module AWS::SDK::NetworkManager
     class DisassociateCustomerGateway
       def self.default(visited=[])
         {
-          customer_gateway_association: Stubs::CustomerGatewayAssociation.default(visited),
+          customer_gateway_association: CustomerGatewayAssociation.default(visited),
         }
       end
 
@@ -1471,7 +1471,7 @@ module AWS::SDK::NetworkManager
     class DisassociateLink
       def self.default(visited=[])
         {
-          link_association: Stubs::LinkAssociation.default(visited),
+          link_association: LinkAssociation.default(visited),
         }
       end
 
@@ -1488,7 +1488,7 @@ module AWS::SDK::NetworkManager
     class DisassociateTransitGatewayConnectPeer
       def self.default(visited=[])
         {
-          transit_gateway_connect_peer_association: Stubs::TransitGatewayConnectPeerAssociation.default(visited),
+          transit_gateway_connect_peer_association: TransitGatewayConnectPeerAssociation.default(visited),
         }
       end
 
@@ -1518,7 +1518,7 @@ module AWS::SDK::NetworkManager
     class GetConnectAttachment
       def self.default(visited=[])
         {
-          connect_attachment: Stubs::ConnectAttachment.default(visited),
+          connect_attachment: ConnectAttachment.default(visited),
         }
       end
 
@@ -1535,7 +1535,7 @@ module AWS::SDK::NetworkManager
     class GetConnectPeer
       def self.default(visited=[])
         {
-          connect_peer: Stubs::ConnectPeer.default(visited),
+          connect_peer: ConnectPeer.default(visited),
         }
       end
 
@@ -1552,7 +1552,7 @@ module AWS::SDK::NetworkManager
     class GetConnectPeerAssociations
       def self.default(visited=[])
         {
-          connect_peer_associations: Stubs::ConnectPeerAssociationList.default(visited),
+          connect_peer_associations: ConnectPeerAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1573,7 +1573,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ConnectPeerAssociationList')
         visited = visited + ['ConnectPeerAssociationList']
         [
-          Stubs::ConnectPeerAssociation.default(visited)
+          ConnectPeerAssociation.default(visited)
         ]
       end
 
@@ -1591,7 +1591,7 @@ module AWS::SDK::NetworkManager
     class GetConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1612,7 +1612,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetwork
       def self.default(visited=[])
         {
-          core_network: Stubs::CoreNetwork.default(visited),
+          core_network: CoreNetwork.default(visited),
         }
       end
 
@@ -1647,7 +1647,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetworkChangeSet
       def self.default(visited=[])
         {
-          core_network_changes: Stubs::CoreNetworkChangeList.default(visited),
+          core_network_changes: CoreNetworkChangeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1668,7 +1668,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkChangeList')
         visited = visited + ['CoreNetworkChangeList']
         [
-          Stubs::CoreNetworkChange.default(visited)
+          CoreNetworkChange.default(visited)
         ]
       end
 
@@ -1691,8 +1691,8 @@ module AWS::SDK::NetworkManager
           type: 'type',
           action: 'action',
           identifier: 'identifier',
-          previous_values: Stubs::CoreNetworkChangeValues.default(visited),
-          new_values: Stubs::CoreNetworkChangeValues.default(visited),
+          previous_values: CoreNetworkChangeValues.default(visited),
+          new_values: CoreNetworkChangeValues.default(visited),
         }
       end
 
@@ -1715,12 +1715,12 @@ module AWS::SDK::NetworkManager
         visited = visited + ['CoreNetworkChangeValues']
         {
           segment_name: 'segment_name',
-          edge_locations: Stubs::ExternalRegionCodeList.default(visited),
+          edge_locations: ExternalRegionCodeList.default(visited),
           asn: 1,
           cidr: 'cidr',
           destination_identifier: 'destination_identifier',
-          inside_cidr_blocks: Stubs::ConstrainedStringList.default(visited),
-          shared_segments: Stubs::ConstrainedStringList.default(visited),
+          inside_cidr_blocks: ConstrainedStringList.default(visited),
+          shared_segments: ConstrainedStringList.default(visited),
         }
       end
 
@@ -1742,7 +1742,7 @@ module AWS::SDK::NetworkManager
     class GetCoreNetworkPolicy
       def self.default(visited=[])
         {
-          core_network_policy: Stubs::CoreNetworkPolicy.default(visited),
+          core_network_policy: CoreNetworkPolicy.default(visited),
         }
       end
 
@@ -1759,7 +1759,7 @@ module AWS::SDK::NetworkManager
     class GetCustomerGatewayAssociations
       def self.default(visited=[])
         {
-          customer_gateway_associations: Stubs::CustomerGatewayAssociationList.default(visited),
+          customer_gateway_associations: CustomerGatewayAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1780,7 +1780,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CustomerGatewayAssociationList')
         visited = visited + ['CustomerGatewayAssociationList']
         [
-          Stubs::CustomerGatewayAssociation.default(visited)
+          CustomerGatewayAssociation.default(visited)
         ]
       end
 
@@ -1798,7 +1798,7 @@ module AWS::SDK::NetworkManager
     class GetDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceList.default(visited),
+          devices: DeviceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1819,7 +1819,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('DeviceList')
         visited = visited + ['DeviceList']
         [
-          Stubs::Device.default(visited)
+          Device.default(visited)
         ]
       end
 
@@ -1837,7 +1837,7 @@ module AWS::SDK::NetworkManager
     class GetLinkAssociations
       def self.default(visited=[])
         {
-          link_associations: Stubs::LinkAssociationList.default(visited),
+          link_associations: LinkAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1858,7 +1858,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('LinkAssociationList')
         visited = visited + ['LinkAssociationList']
         [
-          Stubs::LinkAssociation.default(visited)
+          LinkAssociation.default(visited)
         ]
       end
 
@@ -1876,7 +1876,7 @@ module AWS::SDK::NetworkManager
     class GetLinks
       def self.default(visited=[])
         {
-          links: Stubs::LinkList.default(visited),
+          links: LinkList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1897,7 +1897,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('LinkList')
         visited = visited + ['LinkList']
         [
-          Stubs::Link.default(visited)
+          Link.default(visited)
         ]
       end
 
@@ -1915,7 +1915,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResourceCounts
       def self.default(visited=[])
         {
-          network_resource_counts: Stubs::NetworkResourceCountList.default(visited),
+          network_resource_counts: NetworkResourceCountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1936,7 +1936,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('NetworkResourceCountList')
         visited = visited + ['NetworkResourceCountList']
         [
-          Stubs::NetworkResourceCount.default(visited)
+          NetworkResourceCount.default(visited)
         ]
       end
 
@@ -1974,7 +1974,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResourceRelationships
       def self.default(visited=[])
         {
-          relationships: Stubs::RelationshipList.default(visited),
+          relationships: RelationshipList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1995,7 +1995,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('RelationshipList')
         visited = visited + ['RelationshipList']
         [
-          Stubs::Relationship.default(visited)
+          Relationship.default(visited)
         ]
       end
 
@@ -2033,7 +2033,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkResources
       def self.default(visited=[])
         {
-          network_resources: Stubs::NetworkResourceList.default(visited),
+          network_resources: NetworkResourceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2054,7 +2054,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('NetworkResourceList')
         visited = visited + ['NetworkResourceList']
         [
-          Stubs::NetworkResource.default(visited)
+          NetworkResource.default(visited)
         ]
       end
 
@@ -2083,8 +2083,8 @@ module AWS::SDK::NetworkManager
           resource_arn: 'resource_arn',
           definition: 'definition',
           definition_timestamp: Time.now,
-          tags: Stubs::TagList.default(visited),
-          metadata: Stubs::NetworkResourceMetadataMap.default(visited),
+          tags: TagList.default(visited),
+          metadata: NetworkResourceMetadataMap.default(visited),
         }
       end
 
@@ -2131,10 +2131,10 @@ module AWS::SDK::NetworkManager
       def self.default(visited=[])
         {
           route_table_arn: 'route_table_arn',
-          core_network_segment_edge: Stubs::CoreNetworkSegmentEdgeIdentifier.default(visited),
+          core_network_segment_edge: CoreNetworkSegmentEdgeIdentifier.default(visited),
           route_table_type: 'route_table_type',
           route_table_timestamp: Time.now,
-          network_routes: Stubs::NetworkRouteList.default(visited),
+          network_routes: NetworkRouteList.default(visited),
         }
       end
 
@@ -2157,7 +2157,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('NetworkRouteList')
         visited = visited + ['NetworkRouteList']
         [
-          Stubs::NetworkRoute.default(visited)
+          NetworkRoute.default(visited)
         ]
       end
 
@@ -2178,7 +2178,7 @@ module AWS::SDK::NetworkManager
         visited = visited + ['NetworkRoute']
         {
           destination_cidr_block: 'destination_cidr_block',
-          destinations: Stubs::NetworkRouteDestinationList.default(visited),
+          destinations: NetworkRouteDestinationList.default(visited),
           prefix_list_id: 'prefix_list_id',
           state: 'state',
           type: 'type',
@@ -2203,7 +2203,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('NetworkRouteDestinationList')
         visited = visited + ['NetworkRouteDestinationList']
         [
-          Stubs::NetworkRouteDestination.default(visited)
+          NetworkRouteDestination.default(visited)
         ]
       end
 
@@ -2271,7 +2271,7 @@ module AWS::SDK::NetworkManager
     class GetNetworkTelemetry
       def self.default(visited=[])
         {
-          network_telemetry: Stubs::NetworkTelemetryList.default(visited),
+          network_telemetry: NetworkTelemetryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2292,7 +2292,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('NetworkTelemetryList')
         visited = visited + ['NetworkTelemetryList']
         [
-          Stubs::NetworkTelemetry.default(visited)
+          NetworkTelemetry.default(visited)
         ]
       end
 
@@ -2320,7 +2320,7 @@ module AWS::SDK::NetworkManager
           resource_id: 'resource_id',
           resource_arn: 'resource_arn',
           address: 'address',
-          health: Stubs::ConnectionHealth.default(visited),
+          health: ConnectionHealth.default(visited),
         }
       end
 
@@ -2383,7 +2383,7 @@ module AWS::SDK::NetworkManager
     class GetRouteAnalysis
       def self.default(visited=[])
         {
-          route_analysis: Stubs::RouteAnalysis.default(visited),
+          route_analysis: RouteAnalysis.default(visited),
         }
       end
 
@@ -2407,12 +2407,12 @@ module AWS::SDK::NetworkManager
           route_analysis_id: 'route_analysis_id',
           start_timestamp: Time.now,
           status: 'status',
-          source: Stubs::RouteAnalysisEndpointOptions.default(visited),
-          destination: Stubs::RouteAnalysisEndpointOptions.default(visited),
+          source: RouteAnalysisEndpointOptions.default(visited),
+          destination: RouteAnalysisEndpointOptions.default(visited),
           include_return_path: false,
           use_middleboxes: false,
-          forward_path: Stubs::RouteAnalysisPath.default(visited),
-          return_path: Stubs::RouteAnalysisPath.default(visited),
+          forward_path: RouteAnalysisPath.default(visited),
+          return_path: RouteAnalysisPath.default(visited),
         }
       end
 
@@ -2440,8 +2440,8 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('RouteAnalysisPath')
         visited = visited + ['RouteAnalysisPath']
         {
-          completion_status: Stubs::RouteAnalysisCompletion.default(visited),
-          path: Stubs::PathComponentList.default(visited),
+          completion_status: RouteAnalysisCompletion.default(visited),
+          path: PathComponentList.default(visited),
         }
       end
 
@@ -2460,7 +2460,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('PathComponentList')
         visited = visited + ['PathComponentList']
         [
-          Stubs::PathComponent.default(visited)
+          PathComponent.default(visited)
         ]
       end
 
@@ -2481,7 +2481,7 @@ module AWS::SDK::NetworkManager
         visited = visited + ['PathComponent']
         {
           sequence: 1,
-          resource: Stubs::NetworkResourceSummary.default(visited),
+          resource: NetworkResourceSummary.default(visited),
           destination_cidr_block: 'destination_cidr_block',
         }
       end
@@ -2532,7 +2532,7 @@ module AWS::SDK::NetworkManager
         {
           result_code: 'result_code',
           reason_code: 'reason_code',
-          reason_context: Stubs::ReasonContextMap.default(visited),
+          reason_context: ReasonContextMap.default(visited),
         }
       end
 
@@ -2592,7 +2592,7 @@ module AWS::SDK::NetworkManager
     class GetSiteToSiteVpnAttachment
       def self.default(visited=[])
         {
-          site_to_site_vpn_attachment: Stubs::SiteToSiteVpnAttachment.default(visited),
+          site_to_site_vpn_attachment: SiteToSiteVpnAttachment.default(visited),
         }
       end
 
@@ -2609,7 +2609,7 @@ module AWS::SDK::NetworkManager
     class GetSites
       def self.default(visited=[])
         {
-          sites: Stubs::SiteList.default(visited),
+          sites: SiteList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2630,7 +2630,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('SiteList')
         visited = visited + ['SiteList']
         [
-          Stubs::Site.default(visited)
+          Site.default(visited)
         ]
       end
 
@@ -2648,7 +2648,7 @@ module AWS::SDK::NetworkManager
     class GetTransitGatewayConnectPeerAssociations
       def self.default(visited=[])
         {
-          transit_gateway_connect_peer_associations: Stubs::TransitGatewayConnectPeerAssociationList.default(visited),
+          transit_gateway_connect_peer_associations: TransitGatewayConnectPeerAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2669,7 +2669,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('TransitGatewayConnectPeerAssociationList')
         visited = visited + ['TransitGatewayConnectPeerAssociationList']
         [
-          Stubs::TransitGatewayConnectPeerAssociation.default(visited)
+          TransitGatewayConnectPeerAssociation.default(visited)
         ]
       end
 
@@ -2687,7 +2687,7 @@ module AWS::SDK::NetworkManager
     class GetTransitGatewayRegistrations
       def self.default(visited=[])
         {
-          transit_gateway_registrations: Stubs::TransitGatewayRegistrationList.default(visited),
+          transit_gateway_registrations: TransitGatewayRegistrationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2708,7 +2708,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('TransitGatewayRegistrationList')
         visited = visited + ['TransitGatewayRegistrationList']
         [
-          Stubs::TransitGatewayRegistration.default(visited)
+          TransitGatewayRegistration.default(visited)
         ]
       end
 
@@ -2726,7 +2726,7 @@ module AWS::SDK::NetworkManager
     class GetVpcAttachment
       def self.default(visited=[])
         {
-          vpc_attachment: Stubs::VpcAttachment.default(visited),
+          vpc_attachment: VpcAttachment.default(visited),
         }
       end
 
@@ -2743,7 +2743,7 @@ module AWS::SDK::NetworkManager
     class ListAttachments
       def self.default(visited=[])
         {
-          attachments: Stubs::AttachmentList.default(visited),
+          attachments: AttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2764,7 +2764,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('AttachmentList')
         visited = visited + ['AttachmentList']
         [
-          Stubs::Attachment.default(visited)
+          Attachment.default(visited)
         ]
       end
 
@@ -2782,7 +2782,7 @@ module AWS::SDK::NetworkManager
     class ListConnectPeers
       def self.default(visited=[])
         {
-          connect_peers: Stubs::ConnectPeerSummaryList.default(visited),
+          connect_peers: ConnectPeerSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2803,7 +2803,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('ConnectPeerSummaryList')
         visited = visited + ['ConnectPeerSummaryList']
         [
-          Stubs::ConnectPeerSummary.default(visited)
+          ConnectPeerSummary.default(visited)
         ]
       end
 
@@ -2829,7 +2829,7 @@ module AWS::SDK::NetworkManager
           edge_location: 'edge_location',
           connect_peer_state: 'connect_peer_state',
           created_at: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2851,7 +2851,7 @@ module AWS::SDK::NetworkManager
     class ListCoreNetworkPolicyVersions
       def self.default(visited=[])
         {
-          core_network_policy_versions: Stubs::CoreNetworkPolicyVersionList.default(visited),
+          core_network_policy_versions: CoreNetworkPolicyVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2872,7 +2872,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkPolicyVersionList')
         visited = visited + ['CoreNetworkPolicyVersionList']
         [
-          Stubs::CoreNetworkPolicyVersion.default(visited)
+          CoreNetworkPolicyVersion.default(visited)
         ]
       end
 
@@ -2918,7 +2918,7 @@ module AWS::SDK::NetworkManager
     class ListCoreNetworks
       def self.default(visited=[])
         {
-          core_networks: Stubs::CoreNetworkSummaryList.default(visited),
+          core_networks: CoreNetworkSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2939,7 +2939,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('CoreNetworkSummaryList')
         visited = visited + ['CoreNetworkSummaryList']
         [
-          Stubs::CoreNetworkSummary.default(visited)
+          CoreNetworkSummary.default(visited)
         ]
       end
 
@@ -2965,7 +2965,7 @@ module AWS::SDK::NetworkManager
           owner_account_id: 'owner_account_id',
           state: 'state',
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2987,7 +2987,7 @@ module AWS::SDK::NetworkManager
     class ListOrganizationServiceAccessStatus
       def self.default(visited=[])
         {
-          organization_status: Stubs::OrganizationStatus.default(visited),
+          organization_status: OrganizationStatus.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3011,7 +3011,7 @@ module AWS::SDK::NetworkManager
           organization_id: 'organization_id',
           organization_aws_service_access_status: 'organization_aws_service_access_status',
           slr_deployment_status: 'slr_deployment_status',
-          account_status_list: Stubs::AccountStatusList.default(visited),
+          account_status_list: AccountStatusList.default(visited),
         }
       end
 
@@ -3032,7 +3032,7 @@ module AWS::SDK::NetworkManager
         return nil if visited.include?('AccountStatusList')
         visited = visited + ['AccountStatusList']
         [
-          Stubs::AccountStatus.default(visited)
+          AccountStatus.default(visited)
         ]
       end
 
@@ -3070,7 +3070,7 @@ module AWS::SDK::NetworkManager
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3087,7 +3087,7 @@ module AWS::SDK::NetworkManager
     class PutCoreNetworkPolicy
       def self.default(visited=[])
         {
-          core_network_policy: Stubs::CoreNetworkPolicy.default(visited),
+          core_network_policy: CoreNetworkPolicy.default(visited),
         }
       end
 
@@ -3117,7 +3117,7 @@ module AWS::SDK::NetworkManager
     class RegisterTransitGateway
       def self.default(visited=[])
         {
-          transit_gateway_registration: Stubs::TransitGatewayRegistration.default(visited),
+          transit_gateway_registration: TransitGatewayRegistration.default(visited),
         }
       end
 
@@ -3134,7 +3134,7 @@ module AWS::SDK::NetworkManager
     class RejectAttachment
       def self.default(visited=[])
         {
-          attachment: Stubs::Attachment.default(visited),
+          attachment: Attachment.default(visited),
         }
       end
 
@@ -3151,7 +3151,7 @@ module AWS::SDK::NetworkManager
     class RestoreCoreNetworkPolicyVersion
       def self.default(visited=[])
         {
-          core_network_policy: Stubs::CoreNetworkPolicy.default(visited),
+          core_network_policy: CoreNetworkPolicy.default(visited),
         }
       end
 
@@ -3168,7 +3168,7 @@ module AWS::SDK::NetworkManager
     class StartOrganizationServiceAccessUpdate
       def self.default(visited=[])
         {
-          organization_status: Stubs::OrganizationStatus.default(visited),
+          organization_status: OrganizationStatus.default(visited),
         }
       end
 
@@ -3185,7 +3185,7 @@ module AWS::SDK::NetworkManager
     class StartRouteAnalysis
       def self.default(visited=[])
         {
-          route_analysis: Stubs::RouteAnalysis.default(visited),
+          route_analysis: RouteAnalysis.default(visited),
         }
       end
 
@@ -3228,7 +3228,7 @@ module AWS::SDK::NetworkManager
     class UpdateConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -3245,7 +3245,7 @@ module AWS::SDK::NetworkManager
     class UpdateCoreNetwork
       def self.default(visited=[])
         {
-          core_network: Stubs::CoreNetwork.default(visited),
+          core_network: CoreNetwork.default(visited),
         }
       end
 
@@ -3262,7 +3262,7 @@ module AWS::SDK::NetworkManager
     class UpdateDevice
       def self.default(visited=[])
         {
-          device: Stubs::Device.default(visited),
+          device: Device.default(visited),
         }
       end
 
@@ -3279,7 +3279,7 @@ module AWS::SDK::NetworkManager
     class UpdateGlobalNetwork
       def self.default(visited=[])
         {
-          global_network: Stubs::GlobalNetwork.default(visited),
+          global_network: GlobalNetwork.default(visited),
         }
       end
 
@@ -3296,7 +3296,7 @@ module AWS::SDK::NetworkManager
     class UpdateLink
       def self.default(visited=[])
         {
-          link: Stubs::Link.default(visited),
+          link: Link.default(visited),
         }
       end
 
@@ -3314,7 +3314,7 @@ module AWS::SDK::NetworkManager
       def self.default(visited=[])
         {
           resource_arn: 'resource_arn',
-          metadata: Stubs::NetworkResourceMetadataMap.default(visited),
+          metadata: NetworkResourceMetadataMap.default(visited),
         }
       end
 
@@ -3332,7 +3332,7 @@ module AWS::SDK::NetworkManager
     class UpdateSite
       def self.default(visited=[])
         {
-          site: Stubs::Site.default(visited),
+          site: Site.default(visited),
         }
       end
 
@@ -3349,7 +3349,7 @@ module AWS::SDK::NetworkManager
     class UpdateVpcAttachment
       def self.default(visited=[])
         {
-          vpc_attachment: Stubs::VpcAttachment.default(visited),
+          vpc_attachment: VpcAttachment.default(visited),
         }
       end
 

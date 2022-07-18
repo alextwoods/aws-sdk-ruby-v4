@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KinesisVideoArchivedMedia
@@ -474,7 +476,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     def get_dash_streaming_session_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDASHStreamingSessionURLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDASHStreamingSessionURLInput,
         validate_input: @config.validate_input
@@ -906,7 +908,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     def get_hls_streaming_session_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHLSStreamingSessionURLInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHLSStreamingSessionURLInput,
         validate_input: @config.validate_input
@@ -1039,7 +1041,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     def get_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImagesInput,
         validate_input: @config.validate_input
@@ -1294,7 +1296,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
     def list_fragments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFragmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFragmentsInput,
         validate_input: @config.validate_input
@@ -1351,7 +1353,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

@@ -143,17 +143,17 @@ module AWS::SDK::M2
           application_id: 'application_id',
           application_arn: 'application_arn',
           status: 'status',
-          latest_version: Stubs::ApplicationVersionSummary.default(visited),
-          deployed_version: Stubs::DeployedVersionSummary.default(visited),
+          latest_version: ApplicationVersionSummary.default(visited),
+          deployed_version: DeployedVersionSummary.default(visited),
           engine_type: 'engine_type',
-          log_groups: Stubs::LogGroupSummaries.default(visited),
+          log_groups: LogGroupSummaries.default(visited),
           creation_time: Time.now,
           last_start_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           environment_id: 'environment_id',
-          target_group_arns: Stubs::ArnList.default(visited),
-          listener_arns: Stubs::ArnList.default(visited),
-          listener_ports: Stubs::PortList.default(visited),
+          target_group_arns: ArnList.default(visited),
+          listener_arns: ArnList.default(visited),
+          listener_ports: PortList.default(visited),
           load_balancer_dns_name: 'load_balancer_dns_name',
           status_reason: 'status_reason',
         }
@@ -251,7 +251,7 @@ module AWS::SDK::M2
         return nil if visited.include?('LogGroupSummaries')
         visited = visited + ['LogGroupSummaries']
         [
-          Stubs::LogGroupSummary.default(visited)
+          LogGroupSummary.default(visited)
         ]
       end
 
@@ -400,7 +400,7 @@ module AWS::SDK::M2
       def self.default(visited=[])
         {
           data_set_name: 'data_set_name',
-          data_set_org: Stubs::DatasetDetailOrgAttributes.default(visited),
+          data_set_org: DatasetDetailOrgAttributes.default(visited),
           record_length: 1,
           location: 'location',
           blocksize: 1,
@@ -432,7 +432,7 @@ module AWS::SDK::M2
         return nil if visited.include?('DatasetDetailOrgAttributes')
         visited = visited + ['DatasetDetailOrgAttributes']
         {
-          vsam: Stubs::VsamDetailAttributes.default(visited),
+          vsam: VsamDetailAttributes.default(visited),
         }
       end
 
@@ -482,8 +482,8 @@ module AWS::SDK::M2
           record_format: 'record_format',
           compressed: false,
           cache_at_startup: false,
-          primary_key: Stubs::PrimaryKey.default(visited),
-          alternate_keys: Stubs::AlternateKeyList.default(visited),
+          primary_key: PrimaryKey.default(visited),
+          alternate_keys: AlternateKeyList.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::M2
         return nil if visited.include?('AlternateKeyList')
         visited = visited + ['AlternateKeyList']
         [
-          Stubs::AlternateKey.default(visited)
+          AlternateKey.default(visited)
         ]
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::M2
         {
           task_id: 'task_id',
           status: 'status',
-          summary: Stubs::DataSetImportSummary.default(visited),
+          summary: DataSetImportSummary.default(visited),
         }
       end
 
@@ -655,18 +655,18 @@ module AWS::SDK::M2
           engine_type: 'engine_type',
           engine_version: 'engine_version',
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::String50List.default(visited),
-          security_group_ids: Stubs::String50List.default(visited),
+          subnet_ids: String50List.default(visited),
+          security_group_ids: String50List.default(visited),
           creation_time: Time.now,
-          storage_configurations: Stubs::StorageConfigurationList.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          high_availability_config: Stubs::HighAvailabilityConfig.default(visited),
+          storage_configurations: StorageConfigurationList.default(visited),
+          tags: TagMap.default(visited),
+          high_availability_config: HighAvailabilityConfig.default(visited),
           publicly_accessible: false,
           actual_capacity: 1,
           load_balancer_arn: 'load_balancer_arn',
           status_reason: 'status_reason',
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_maintenance: Stubs::PendingMaintenance.default(visited),
+          pending_maintenance: PendingMaintenance.default(visited),
         }
       end
 
@@ -705,7 +705,7 @@ module AWS::SDK::M2
         return nil if visited.include?('PendingMaintenance')
         visited = visited + ['PendingMaintenance']
         {
-          schedule: Stubs::MaintenanceSchedule.default(visited),
+          schedule: MaintenanceSchedule.default(visited),
           engine_version: 'engine_version',
         }
       end
@@ -763,7 +763,7 @@ module AWS::SDK::M2
         return nil if visited.include?('StorageConfigurationList')
         visited = visited + ['StorageConfigurationList']
         [
-          Stubs::StorageConfiguration.default(visited)
+          StorageConfiguration.default(visited)
         ]
       end
 
@@ -783,7 +783,7 @@ module AWS::SDK::M2
         return nil if visited.include?('StorageConfiguration')
         visited = visited + ['StorageConfiguration']
         {
-          efs: Stubs::EfsStorageConfiguration.default(visited),
+          efs: EfsStorageConfiguration.default(visited),
         }
       end
 
@@ -867,7 +867,7 @@ module AWS::SDK::M2
     class ListApplicationVersions
       def self.default(visited=[])
         {
-          application_versions: Stubs::ApplicationVersionSummaryList.default(visited),
+          application_versions: ApplicationVersionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -888,7 +888,7 @@ module AWS::SDK::M2
         return nil if visited.include?('ApplicationVersionSummaryList')
         visited = visited + ['ApplicationVersionSummaryList']
         [
-          Stubs::ApplicationVersionSummary.default(visited)
+          ApplicationVersionSummary.default(visited)
         ]
       end
 
@@ -906,7 +906,7 @@ module AWS::SDK::M2
     class ListApplications
       def self.default(visited=[])
         {
-          applications: Stubs::ApplicationSummaryList.default(visited),
+          applications: ApplicationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -927,7 +927,7 @@ module AWS::SDK::M2
         return nil if visited.include?('ApplicationSummaryList')
         visited = visited + ['ApplicationSummaryList']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -985,7 +985,7 @@ module AWS::SDK::M2
     class ListBatchJobDefinitions
       def self.default(visited=[])
         {
-          batch_job_definitions: Stubs::BatchJobDefinitions.default(visited),
+          batch_job_definitions: BatchJobDefinitions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1006,7 +1006,7 @@ module AWS::SDK::M2
         return nil if visited.include?('BatchJobDefinitions')
         visited = visited + ['BatchJobDefinitions']
         [
-          Stubs::BatchJobDefinition.default(visited)
+          BatchJobDefinition.default(visited)
         ]
       end
 
@@ -1026,7 +1026,7 @@ module AWS::SDK::M2
         return nil if visited.include?('BatchJobDefinition')
         visited = visited + ['BatchJobDefinition']
         {
-          file_batch_job_definition: Stubs::FileBatchJobDefinition.default(visited),
+          file_batch_job_definition: FileBatchJobDefinition.default(visited),
         }
       end
 
@@ -1088,7 +1088,7 @@ module AWS::SDK::M2
     class ListBatchJobExecutions
       def self.default(visited=[])
         {
-          batch_job_executions: Stubs::BatchJobExecutionSummaryList.default(visited),
+          batch_job_executions: BatchJobExecutionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1109,7 +1109,7 @@ module AWS::SDK::M2
         return nil if visited.include?('BatchJobExecutionSummaryList')
         visited = visited + ['BatchJobExecutionSummaryList']
         [
-          Stubs::BatchJobExecutionSummary.default(visited)
+          BatchJobExecutionSummary.default(visited)
         ]
       end
 
@@ -1159,7 +1159,7 @@ module AWS::SDK::M2
     class ListDataSetImportHistory
       def self.default(visited=[])
         {
-          data_set_import_tasks: Stubs::DataSetImportTaskList.default(visited),
+          data_set_import_tasks: DataSetImportTaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::M2
         return nil if visited.include?('DataSetImportTaskList')
         visited = visited + ['DataSetImportTaskList']
         [
-          Stubs::DataSetImportTask.default(visited)
+          DataSetImportTask.default(visited)
         ]
       end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::M2
         {
           task_id: 'task_id',
           status: 'status',
-          summary: Stubs::DataSetImportSummary.default(visited),
+          summary: DataSetImportSummary.default(visited),
         }
       end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::M2
     class ListDataSets
       def self.default(visited=[])
         {
-          data_sets: Stubs::DataSetsSummaryList.default(visited),
+          data_sets: DataSetsSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1241,7 +1241,7 @@ module AWS::SDK::M2
         return nil if visited.include?('DataSetsSummaryList')
         visited = visited + ['DataSetsSummaryList']
         [
-          Stubs::DataSetSummary.default(visited)
+          DataSetSummary.default(visited)
         ]
       end
 
@@ -1287,7 +1287,7 @@ module AWS::SDK::M2
     class ListDeployments
       def self.default(visited=[])
         {
-          deployments: Stubs::DeploymentList.default(visited),
+          deployments: DeploymentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1308,7 +1308,7 @@ module AWS::SDK::M2
         return nil if visited.include?('DeploymentList')
         visited = visited + ['DeploymentList']
         [
-          Stubs::DeploymentSummary.default(visited)
+          DeploymentSummary.default(visited)
         ]
       end
 
@@ -1356,7 +1356,7 @@ module AWS::SDK::M2
     class ListEngineVersions
       def self.default(visited=[])
         {
-          engine_versions: Stubs::EngineVersionsSummaryList.default(visited),
+          engine_versions: EngineVersionsSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1377,7 +1377,7 @@ module AWS::SDK::M2
         return nil if visited.include?('EngineVersionsSummaryList')
         visited = visited + ['EngineVersionsSummaryList']
         [
-          Stubs::EngineVersionsSummary.default(visited)
+          EngineVersionsSummary.default(visited)
         ]
       end
 
@@ -1415,7 +1415,7 @@ module AWS::SDK::M2
     class ListEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentSummaryList.default(visited),
+          environments: EnvironmentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1436,7 +1436,7 @@ module AWS::SDK::M2
         return nil if visited.include?('EnvironmentSummaryList')
         visited = visited + ['EnvironmentSummaryList']
         [
-          Stubs::EnvironmentSummary.default(visited)
+          EnvironmentSummary.default(visited)
         ]
       end
 
@@ -1486,7 +1486,7 @@ module AWS::SDK::M2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

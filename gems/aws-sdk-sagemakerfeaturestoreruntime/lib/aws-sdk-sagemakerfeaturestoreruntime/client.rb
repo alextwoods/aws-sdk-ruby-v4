@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SageMakerFeatureStoreRuntime
@@ -115,7 +117,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     def batch_get_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetRecordInput,
         validate_input: @config.validate_input
@@ -195,7 +197,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     def delete_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecordInput,
         validate_input: @config.validate_input
@@ -280,7 +282,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     def get_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecordInput,
         validate_input: @config.validate_input
@@ -372,7 +374,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     def put_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecordInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Connect
@@ -74,7 +76,7 @@ module AWS::SDK::Connect
     def associate_approved_origin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateApprovedOriginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateApprovedOriginInput,
         validate_input: @config.validate_input
@@ -156,7 +158,7 @@ module AWS::SDK::Connect
     def associate_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateBotInput,
         validate_input: @config.validate_input
@@ -235,7 +237,7 @@ module AWS::SDK::Connect
     def associate_default_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDefaultVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDefaultVocabularyInput,
         validate_input: @config.validate_input
@@ -339,7 +341,7 @@ module AWS::SDK::Connect
     def associate_instance_storage_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateInstanceStorageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateInstanceStorageConfigInput,
         validate_input: @config.validate_input
@@ -413,7 +415,7 @@ module AWS::SDK::Connect
     def associate_lambda_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateLambdaFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateLambdaFunctionInput,
         validate_input: @config.validate_input
@@ -489,7 +491,7 @@ module AWS::SDK::Connect
     def associate_lex_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateLexBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateLexBotInput,
         validate_input: @config.validate_input
@@ -565,7 +567,7 @@ module AWS::SDK::Connect
     def associate_phone_number_contact_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociatePhoneNumberContactFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociatePhoneNumberContactFlowInput,
         validate_input: @config.validate_input
@@ -644,7 +646,7 @@ module AWS::SDK::Connect
     def associate_queue_quick_connects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateQueueQuickConnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateQueueQuickConnectsInput,
         validate_input: @config.validate_input
@@ -729,7 +731,7 @@ module AWS::SDK::Connect
     def associate_routing_profile_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateRoutingProfileQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateRoutingProfileQueuesInput,
         validate_input: @config.validate_input
@@ -803,7 +805,7 @@ module AWS::SDK::Connect
     def associate_security_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSecurityKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSecurityKeyInput,
         validate_input: @config.validate_input
@@ -893,7 +895,7 @@ module AWS::SDK::Connect
     def claim_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClaimPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClaimPhoneNumberInput,
         validate_input: @config.validate_input
@@ -986,7 +988,7 @@ module AWS::SDK::Connect
     def create_agent_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAgentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAgentStatusInput,
         validate_input: @config.validate_input
@@ -1081,7 +1083,7 @@ module AWS::SDK::Connect
     def create_contact_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactFlowInput,
         validate_input: @config.validate_input
@@ -1174,7 +1176,7 @@ module AWS::SDK::Connect
     def create_contact_flow_module(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactFlowModuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactFlowModuleInput,
         validate_input: @config.validate_input
@@ -1275,7 +1277,7 @@ module AWS::SDK::Connect
     def create_hours_of_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHoursOfOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHoursOfOperationInput,
         validate_input: @config.validate_input
@@ -1371,7 +1373,7 @@ module AWS::SDK::Connect
     def create_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceInput,
         validate_input: @config.validate_input
@@ -1467,7 +1469,7 @@ module AWS::SDK::Connect
     def create_integration_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIntegrationAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIntegrationAssociationInput,
         validate_input: @config.validate_input
@@ -1574,7 +1576,7 @@ module AWS::SDK::Connect
     def create_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQueueInput,
         validate_input: @config.validate_input
@@ -1675,7 +1677,7 @@ module AWS::SDK::Connect
     def create_quick_connect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQuickConnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQuickConnectInput,
         validate_input: @config.validate_input
@@ -1787,7 +1789,7 @@ module AWS::SDK::Connect
     def create_routing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoutingProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoutingProfileInput,
         validate_input: @config.validate_input
@@ -1878,7 +1880,7 @@ module AWS::SDK::Connect
     def create_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSecurityProfileInput,
         validate_input: @config.validate_input
@@ -2013,7 +2015,7 @@ module AWS::SDK::Connect
     def create_task_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTaskTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTaskTemplateInput,
         validate_input: @config.validate_input
@@ -2098,7 +2100,7 @@ module AWS::SDK::Connect
     def create_use_case(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUseCaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUseCaseInput,
         validate_input: @config.validate_input
@@ -2228,7 +2230,7 @@ module AWS::SDK::Connect
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::Connect
     def create_user_hierarchy_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserHierarchyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserHierarchyGroupInput,
         validate_input: @config.validate_input
@@ -2416,7 +2418,7 @@ module AWS::SDK::Connect
     def create_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateVocabularyInput,
         validate_input: @config.validate_input
@@ -2488,7 +2490,7 @@ module AWS::SDK::Connect
     def delete_contact_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactFlowInput,
         validate_input: @config.validate_input
@@ -2559,7 +2561,7 @@ module AWS::SDK::Connect
     def delete_contact_flow_module(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactFlowModuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactFlowModuleInput,
         validate_input: @config.validate_input
@@ -2631,7 +2633,7 @@ module AWS::SDK::Connect
     def delete_hours_of_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHoursOfOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHoursOfOperationInput,
         validate_input: @config.validate_input
@@ -2702,7 +2704,7 @@ module AWS::SDK::Connect
     def delete_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceInput,
         validate_input: @config.validate_input
@@ -2774,7 +2776,7 @@ module AWS::SDK::Connect
     def delete_integration_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIntegrationAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIntegrationAssociationInput,
         validate_input: @config.validate_input
@@ -2845,7 +2847,7 @@ module AWS::SDK::Connect
     def delete_quick_connect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQuickConnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQuickConnectInput,
         validate_input: @config.validate_input
@@ -2917,7 +2919,7 @@ module AWS::SDK::Connect
     def delete_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSecurityProfileInput,
         validate_input: @config.validate_input
@@ -2988,7 +2990,7 @@ module AWS::SDK::Connect
     def delete_task_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTaskTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTaskTemplateInput,
         validate_input: @config.validate_input
@@ -3063,7 +3065,7 @@ module AWS::SDK::Connect
     def delete_use_case(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUseCaseInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUseCaseInput,
         validate_input: @config.validate_input
@@ -3137,7 +3139,7 @@ module AWS::SDK::Connect
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -3209,7 +3211,7 @@ module AWS::SDK::Connect
     def delete_user_hierarchy_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserHierarchyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserHierarchyGroupInput,
         validate_input: @config.validate_input
@@ -3283,7 +3285,7 @@ module AWS::SDK::Connect
     def delete_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVocabularyInput,
         validate_input: @config.validate_input
@@ -3365,7 +3367,7 @@ module AWS::SDK::Connect
     def describe_agent_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAgentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAgentStatusInput,
         validate_input: @config.validate_input
@@ -3460,7 +3462,7 @@ module AWS::SDK::Connect
     def describe_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContactInput,
         validate_input: @config.validate_input
@@ -3543,7 +3545,7 @@ module AWS::SDK::Connect
     def describe_contact_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContactFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContactFlowInput,
         validate_input: @config.validate_input
@@ -3624,7 +3626,7 @@ module AWS::SDK::Connect
     def describe_contact_flow_module(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContactFlowModuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContactFlowModuleInput,
         validate_input: @config.validate_input
@@ -3711,7 +3713,7 @@ module AWS::SDK::Connect
     def describe_hours_of_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHoursOfOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHoursOfOperationInput,
         validate_input: @config.validate_input
@@ -3795,7 +3797,7 @@ module AWS::SDK::Connect
     def describe_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceInput,
         validate_input: @config.validate_input
@@ -3870,7 +3872,7 @@ module AWS::SDK::Connect
     def describe_instance_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceAttributeInput,
         validate_input: @config.validate_input
@@ -3964,7 +3966,7 @@ module AWS::SDK::Connect
     def describe_instance_storage_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceStorageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceStorageConfigInput,
         validate_input: @config.validate_input
@@ -4044,7 +4046,7 @@ module AWS::SDK::Connect
     def describe_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePhoneNumberInput,
         validate_input: @config.validate_input
@@ -4130,7 +4132,7 @@ module AWS::SDK::Connect
     def describe_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQueueInput,
         validate_input: @config.validate_input
@@ -4218,7 +4220,7 @@ module AWS::SDK::Connect
     def describe_quick_connect(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQuickConnectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQuickConnectInput,
         validate_input: @config.validate_input
@@ -4302,7 +4304,7 @@ module AWS::SDK::Connect
     def describe_routing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRoutingProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRoutingProfileInput,
         validate_input: @config.validate_input
@@ -4382,7 +4384,7 @@ module AWS::SDK::Connect
     def describe_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSecurityProfileInput,
         validate_input: @config.validate_input
@@ -4475,7 +4477,7 @@ module AWS::SDK::Connect
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -4562,7 +4564,7 @@ module AWS::SDK::Connect
     def describe_user_hierarchy_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserHierarchyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserHierarchyGroupInput,
         validate_input: @config.validate_input
@@ -4638,7 +4640,7 @@ module AWS::SDK::Connect
     def describe_user_hierarchy_structure(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserHierarchyStructureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserHierarchyStructureInput,
         validate_input: @config.validate_input
@@ -4720,7 +4722,7 @@ module AWS::SDK::Connect
     def describe_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeVocabularyInput,
         validate_input: @config.validate_input
@@ -4792,7 +4794,7 @@ module AWS::SDK::Connect
     def disassociate_approved_origin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateApprovedOriginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateApprovedOriginInput,
         validate_input: @config.validate_input
@@ -4874,7 +4876,7 @@ module AWS::SDK::Connect
     def disassociate_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateBotInput,
         validate_input: @config.validate_input
@@ -4952,7 +4954,7 @@ module AWS::SDK::Connect
     def disassociate_instance_storage_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateInstanceStorageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateInstanceStorageConfigInput,
         validate_input: @config.validate_input
@@ -5025,7 +5027,7 @@ module AWS::SDK::Connect
     def disassociate_lambda_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateLambdaFunctionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateLambdaFunctionInput,
         validate_input: @config.validate_input
@@ -5101,7 +5103,7 @@ module AWS::SDK::Connect
     def disassociate_lex_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateLexBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateLexBotInput,
         validate_input: @config.validate_input
@@ -5173,7 +5175,7 @@ module AWS::SDK::Connect
     def disassociate_phone_number_contact_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociatePhoneNumberContactFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociatePhoneNumberContactFlowInput,
         validate_input: @config.validate_input
@@ -5251,7 +5253,7 @@ module AWS::SDK::Connect
     def disassociate_queue_quick_connects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateQueueQuickConnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateQueueQuickConnectsInput,
         validate_input: @config.validate_input
@@ -5332,7 +5334,7 @@ module AWS::SDK::Connect
     def disassociate_routing_profile_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateRoutingProfileQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateRoutingProfileQueuesInput,
         validate_input: @config.validate_input
@@ -5405,7 +5407,7 @@ module AWS::SDK::Connect
     def disassociate_security_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSecurityKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSecurityKeyInput,
         validate_input: @config.validate_input
@@ -5478,7 +5480,7 @@ module AWS::SDK::Connect
     def get_contact_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactAttributesInput,
         validate_input: @config.validate_input
@@ -5700,7 +5702,7 @@ module AWS::SDK::Connect
     def get_current_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCurrentMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCurrentMetricDataInput,
         validate_input: @config.validate_input
@@ -5826,7 +5828,7 @@ module AWS::SDK::Connect
     def get_current_user_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCurrentUserDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCurrentUserDataInput,
         validate_input: @config.validate_input
@@ -5907,7 +5909,7 @@ module AWS::SDK::Connect
     def get_federation_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFederationTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFederationTokenInput,
         validate_input: @config.validate_input
@@ -6198,7 +6200,7 @@ module AWS::SDK::Connect
     def get_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMetricDataInput,
         validate_input: @config.validate_input
@@ -6309,7 +6311,7 @@ module AWS::SDK::Connect
     def get_task_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTaskTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTaskTemplateInput,
         validate_input: @config.validate_input
@@ -6399,7 +6401,7 @@ module AWS::SDK::Connect
     def list_agent_statuses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAgentStatusesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAgentStatusesInput,
         validate_input: @config.validate_input
@@ -6479,7 +6481,7 @@ module AWS::SDK::Connect
     def list_approved_origins(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApprovedOriginsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApprovedOriginsInput,
         validate_input: @config.validate_input
@@ -6569,7 +6571,7 @@ module AWS::SDK::Connect
     def list_bots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotsInput,
         validate_input: @config.validate_input
@@ -6656,7 +6658,7 @@ module AWS::SDK::Connect
     def list_contact_flow_modules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactFlowModulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactFlowModulesInput,
         validate_input: @config.validate_input
@@ -6750,7 +6752,7 @@ module AWS::SDK::Connect
     def list_contact_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactFlowsInput,
         validate_input: @config.validate_input
@@ -6835,13 +6837,32 @@ module AWS::SDK::Connect
     #
     #   resp.data #=> Types::ListContactReferencesOutput
     #   resp.data.reference_summary_list #=> Array<ReferenceSummary>
-    #   resp.data.reference_summary_list[0] #=> ReferenceSummary
+    #   resp.data.reference_summary_list[0] #=> Types::ReferenceSummary, one of [Url, Attachment, String, Number, Date, Email]
+    #   resp.data.reference_summary_list[0].url #=> Types::UrlReference
+    #   resp.data.reference_summary_list[0].url.name #=> String
+    #   resp.data.reference_summary_list[0].url.value #=> String
+    #   resp.data.reference_summary_list[0].attachment #=> Types::AttachmentReference
+    #   resp.data.reference_summary_list[0].attachment.name #=> String
+    #   resp.data.reference_summary_list[0].attachment.value #=> String
+    #   resp.data.reference_summary_list[0].attachment.status #=> String, one of ["APPROVED", "REJECTED"]
+    #   resp.data.reference_summary_list[0].string #=> Types::StringReference
+    #   resp.data.reference_summary_list[0].string.name #=> String
+    #   resp.data.reference_summary_list[0].string.value #=> String
+    #   resp.data.reference_summary_list[0].number #=> Types::NumberReference
+    #   resp.data.reference_summary_list[0].number.name #=> String
+    #   resp.data.reference_summary_list[0].number.value #=> String
+    #   resp.data.reference_summary_list[0].date #=> Types::DateReference
+    #   resp.data.reference_summary_list[0].date.name #=> String
+    #   resp.data.reference_summary_list[0].date.value #=> String
+    #   resp.data.reference_summary_list[0].email #=> Types::EmailReference
+    #   resp.data.reference_summary_list[0].email.name #=> String
+    #   resp.data.reference_summary_list[0].email.value #=> String
     #   resp.data.next_token #=> String
     #
     def list_contact_references(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactReferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactReferencesInput,
         validate_input: @config.validate_input
@@ -6930,7 +6951,7 @@ module AWS::SDK::Connect
     def list_default_vocabularies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDefaultVocabulariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDefaultVocabulariesInput,
         validate_input: @config.validate_input
@@ -7015,7 +7036,7 @@ module AWS::SDK::Connect
     def list_hours_of_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHoursOfOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHoursOfOperationsInput,
         validate_input: @config.validate_input
@@ -7097,7 +7118,7 @@ module AWS::SDK::Connect
     def list_instance_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceAttributesInput,
         validate_input: @config.validate_input
@@ -7199,7 +7220,7 @@ module AWS::SDK::Connect
     def list_instance_storage_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstanceStorageConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstanceStorageConfigsInput,
         validate_input: @config.validate_input
@@ -7286,7 +7307,7 @@ module AWS::SDK::Connect
     def list_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstancesInput,
         validate_input: @config.validate_input
@@ -7378,7 +7399,7 @@ module AWS::SDK::Connect
     def list_integration_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIntegrationAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIntegrationAssociationsInput,
         validate_input: @config.validate_input
@@ -7459,7 +7480,7 @@ module AWS::SDK::Connect
     def list_lambda_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLambdaFunctionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLambdaFunctionsInput,
         validate_input: @config.validate_input
@@ -7543,7 +7564,7 @@ module AWS::SDK::Connect
     def list_lex_bots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLexBotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLexBotsInput,
         validate_input: @config.validate_input
@@ -7641,7 +7662,7 @@ module AWS::SDK::Connect
     def list_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPhoneNumbersInput,
         validate_input: @config.validate_input
@@ -7745,7 +7766,7 @@ module AWS::SDK::Connect
     def list_phone_numbers_v2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPhoneNumbersV2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPhoneNumbersV2Input,
         validate_input: @config.validate_input
@@ -7828,7 +7849,7 @@ module AWS::SDK::Connect
     def list_prompts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPromptsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPromptsInput,
         validate_input: @config.validate_input
@@ -7916,7 +7937,7 @@ module AWS::SDK::Connect
     def list_queue_quick_connects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueueQuickConnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueueQuickConnectsInput,
         validate_input: @config.validate_input
@@ -8011,7 +8032,7 @@ module AWS::SDK::Connect
     def list_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueuesInput,
         validate_input: @config.validate_input
@@ -8101,7 +8122,7 @@ module AWS::SDK::Connect
     def list_quick_connects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQuickConnectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQuickConnectsInput,
         validate_input: @config.validate_input
@@ -8190,7 +8211,7 @@ module AWS::SDK::Connect
     def list_routing_profile_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutingProfileQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutingProfileQueuesInput,
         validate_input: @config.validate_input
@@ -8275,7 +8296,7 @@ module AWS::SDK::Connect
     def list_routing_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutingProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutingProfilesInput,
         validate_input: @config.validate_input
@@ -8358,7 +8379,7 @@ module AWS::SDK::Connect
     def list_security_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityKeysInput,
         validate_input: @config.validate_input
@@ -8442,7 +8463,7 @@ module AWS::SDK::Connect
     def list_security_profile_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityProfilePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityProfilePermissionsInput,
         validate_input: @config.validate_input
@@ -8527,7 +8548,7 @@ module AWS::SDK::Connect
     def list_security_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSecurityProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSecurityProfilesInput,
         validate_input: @config.validate_input
@@ -8598,7 +8619,7 @@ module AWS::SDK::Connect
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -8701,7 +8722,7 @@ module AWS::SDK::Connect
     def list_task_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTaskTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTaskTemplatesInput,
         validate_input: @config.validate_input
@@ -8787,7 +8808,7 @@ module AWS::SDK::Connect
     def list_use_cases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUseCasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUseCasesInput,
         validate_input: @config.validate_input
@@ -8872,7 +8893,7 @@ module AWS::SDK::Connect
     def list_user_hierarchy_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserHierarchyGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserHierarchyGroupsInput,
         validate_input: @config.validate_input
@@ -8954,7 +8975,7 @@ module AWS::SDK::Connect
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -9032,7 +9053,7 @@ module AWS::SDK::Connect
     def put_user_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutUserStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutUserStatusInput,
         validate_input: @config.validate_input
@@ -9105,7 +9126,7 @@ module AWS::SDK::Connect
     def release_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleasePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleasePhoneNumberInput,
         validate_input: @config.validate_input
@@ -9184,7 +9205,7 @@ module AWS::SDK::Connect
     def resume_contact_recording(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeContactRecordingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeContactRecordingInput,
         validate_input: @config.validate_input
@@ -9279,7 +9300,7 @@ module AWS::SDK::Connect
     def search_available_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchAvailablePhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchAvailablePhoneNumbersInput,
         validate_input: @config.validate_input
@@ -9407,7 +9428,7 @@ module AWS::SDK::Connect
     def search_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchUsersInput,
         validate_input: @config.validate_input
@@ -9509,7 +9530,7 @@ module AWS::SDK::Connect
     def search_vocabularies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchVocabulariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchVocabulariesInput,
         validate_input: @config.validate_input
@@ -9653,7 +9674,7 @@ module AWS::SDK::Connect
     def start_chat_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartChatContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartChatContactInput,
         validate_input: @config.validate_input
@@ -9755,7 +9776,7 @@ module AWS::SDK::Connect
     def start_contact_recording(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartContactRecordingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartContactRecordingInput,
         validate_input: @config.validate_input
@@ -9842,7 +9863,7 @@ module AWS::SDK::Connect
     def start_contact_streaming(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartContactStreamingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartContactStreamingInput,
         validate_input: @config.validate_input
@@ -9991,7 +10012,7 @@ module AWS::SDK::Connect
     def start_outbound_voice_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartOutboundVoiceContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartOutboundVoiceContactInput,
         validate_input: @config.validate_input
@@ -10118,7 +10139,7 @@ module AWS::SDK::Connect
     def start_task_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTaskContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTaskContactInput,
         validate_input: @config.validate_input
@@ -10203,7 +10224,7 @@ module AWS::SDK::Connect
     def stop_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopContactInput,
         validate_input: @config.validate_input
@@ -10286,7 +10307,7 @@ module AWS::SDK::Connect
     def stop_contact_recording(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopContactRecordingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopContactRecordingInput,
         validate_input: @config.validate_input
@@ -10365,7 +10386,7 @@ module AWS::SDK::Connect
     def stop_contact_streaming(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopContactStreamingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopContactStreamingInput,
         validate_input: @config.validate_input
@@ -10447,7 +10468,7 @@ module AWS::SDK::Connect
     def suspend_contact_recording(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SuspendContactRecordingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SuspendContactRecordingInput,
         validate_input: @config.validate_input
@@ -10526,7 +10547,7 @@ module AWS::SDK::Connect
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -10640,7 +10661,7 @@ module AWS::SDK::Connect
     def transfer_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransferContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransferContactInput,
         validate_input: @config.validate_input
@@ -10714,7 +10735,7 @@ module AWS::SDK::Connect
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -10806,7 +10827,7 @@ module AWS::SDK::Connect
     def update_agent_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAgentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAgentStatusInput,
         validate_input: @config.validate_input
@@ -10902,7 +10923,7 @@ module AWS::SDK::Connect
     def update_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactInput,
         validate_input: @config.validate_input
@@ -11003,7 +11024,7 @@ module AWS::SDK::Connect
     def update_contact_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactAttributesInput,
         validate_input: @config.validate_input
@@ -11083,7 +11104,7 @@ module AWS::SDK::Connect
     def update_contact_flow_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactFlowContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactFlowContentInput,
         validate_input: @config.validate_input
@@ -11167,7 +11188,7 @@ module AWS::SDK::Connect
     def update_contact_flow_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactFlowMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactFlowMetadataInput,
         validate_input: @config.validate_input
@@ -11243,7 +11264,7 @@ module AWS::SDK::Connect
     def update_contact_flow_module_content(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactFlowModuleContentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactFlowModuleContentInput,
         validate_input: @config.validate_input
@@ -11327,7 +11348,7 @@ module AWS::SDK::Connect
     def update_contact_flow_module_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactFlowModuleMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactFlowModuleMetadataInput,
         validate_input: @config.validate_input
@@ -11409,7 +11430,7 @@ module AWS::SDK::Connect
     def update_contact_flow_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactFlowNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactFlowNameInput,
         validate_input: @config.validate_input
@@ -11485,7 +11506,7 @@ module AWS::SDK::Connect
     def update_contact_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactScheduleInput,
         validate_input: @config.validate_input
@@ -11582,7 +11603,7 @@ module AWS::SDK::Connect
     def update_hours_of_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHoursOfOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHoursOfOperationInput,
         validate_input: @config.validate_input
@@ -11663,7 +11684,7 @@ module AWS::SDK::Connect
     def update_instance_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceAttributeInput,
         validate_input: @config.validate_input
@@ -11765,7 +11786,7 @@ module AWS::SDK::Connect
     def update_instance_storage_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceStorageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceStorageConfigInput,
         validate_input: @config.validate_input
@@ -11845,7 +11866,7 @@ module AWS::SDK::Connect
     def update_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePhoneNumberInput,
         validate_input: @config.validate_input
@@ -11922,7 +11943,7 @@ module AWS::SDK::Connect
     def update_queue_hours_of_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueHoursOfOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueHoursOfOperationInput,
         validate_input: @config.validate_input
@@ -12000,7 +12021,7 @@ module AWS::SDK::Connect
     def update_queue_max_contacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueMaxContactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueMaxContactsInput,
         validate_input: @config.validate_input
@@ -12081,7 +12102,7 @@ module AWS::SDK::Connect
     def update_queue_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueNameInput,
         validate_input: @config.validate_input
@@ -12163,7 +12184,7 @@ module AWS::SDK::Connect
     def update_queue_outbound_caller_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueOutboundCallerConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueOutboundCallerConfigInput,
         validate_input: @config.validate_input
@@ -12240,7 +12261,7 @@ module AWS::SDK::Connect
     def update_queue_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQueueStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQueueStatusInput,
         validate_input: @config.validate_input
@@ -12329,7 +12350,7 @@ module AWS::SDK::Connect
     def update_quick_connect_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQuickConnectConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQuickConnectConfigInput,
         validate_input: @config.validate_input
@@ -12409,7 +12430,7 @@ module AWS::SDK::Connect
     def update_quick_connect_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateQuickConnectNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateQuickConnectNameInput,
         validate_input: @config.validate_input
@@ -12491,7 +12512,7 @@ module AWS::SDK::Connect
     def update_routing_profile_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingProfileConcurrencyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingProfileConcurrencyInput,
         validate_input: @config.validate_input
@@ -12567,7 +12588,7 @@ module AWS::SDK::Connect
     def update_routing_profile_default_outbound_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingProfileDefaultOutboundQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingProfileDefaultOutboundQueueInput,
         validate_input: @config.validate_input
@@ -12648,7 +12669,7 @@ module AWS::SDK::Connect
     def update_routing_profile_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingProfileNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingProfileNameInput,
         validate_input: @config.validate_input
@@ -12735,7 +12756,7 @@ module AWS::SDK::Connect
     def update_routing_profile_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoutingProfileQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoutingProfileQueuesInput,
         validate_input: @config.validate_input
@@ -12818,7 +12839,7 @@ module AWS::SDK::Connect
     def update_security_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecurityProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecurityProfileInput,
         validate_input: @config.validate_input
@@ -12984,7 +13005,7 @@ module AWS::SDK::Connect
     def update_task_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTaskTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTaskTemplateInput,
         validate_input: @config.validate_input
@@ -13060,7 +13081,7 @@ module AWS::SDK::Connect
     def update_user_hierarchy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserHierarchyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserHierarchyInput,
         validate_input: @config.validate_input
@@ -13136,7 +13157,7 @@ module AWS::SDK::Connect
     def update_user_hierarchy_group_name(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserHierarchyGroupNameInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserHierarchyGroupNameInput,
         validate_input: @config.validate_input
@@ -13212,7 +13233,7 @@ module AWS::SDK::Connect
     def update_user_hierarchy_structure(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserHierarchyStructureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserHierarchyStructureInput,
         validate_input: @config.validate_input
@@ -13300,7 +13321,7 @@ module AWS::SDK::Connect
     def update_user_identity_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserIdentityInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserIdentityInfoInput,
         validate_input: @config.validate_input
@@ -13381,7 +13402,7 @@ module AWS::SDK::Connect
     def update_user_phone_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserPhoneConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserPhoneConfigInput,
         validate_input: @config.validate_input
@@ -13457,7 +13478,7 @@ module AWS::SDK::Connect
     def update_user_routing_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserRoutingProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserRoutingProfileInput,
         validate_input: @config.validate_input
@@ -13535,7 +13556,7 @@ module AWS::SDK::Connect
     def update_user_security_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserSecurityProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserSecurityProfilesInput,
         validate_input: @config.validate_input

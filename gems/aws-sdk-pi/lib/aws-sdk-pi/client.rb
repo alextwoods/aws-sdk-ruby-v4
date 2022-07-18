@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PI
@@ -241,7 +243,7 @@ module AWS::SDK::PI
     def describe_dimension_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDimensionKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDimensionKeysInput,
         validate_input: @config.validate_input
@@ -373,7 +375,7 @@ module AWS::SDK::PI
     def get_dimension_key_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDimensionKeyDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDimensionKeyDetailsInput,
         validate_input: @config.validate_input
@@ -454,7 +456,7 @@ module AWS::SDK::PI
     def get_resource_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceMetadataInput,
         validate_input: @config.validate_input
@@ -636,7 +638,7 @@ module AWS::SDK::PI
     def get_resource_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceMetricsInput,
         validate_input: @config.validate_input
@@ -738,7 +740,7 @@ module AWS::SDK::PI
     def list_available_resource_dimensions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableResourceDimensionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableResourceDimensionsInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::PI
     def list_available_resource_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableResourceMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableResourceMetricsInput,
         validate_input: @config.validate_input

@@ -118,20 +118,20 @@ module AWS::SDK::Braket
           role_arn: 'role_arn',
           failure_reason: 'failure_reason',
           job_name: 'job_name',
-          hyper_parameters: Stubs::HyperParameters.default(visited),
-          input_data_config: Stubs::InputConfigList.default(visited),
-          output_data_config: Stubs::JobOutputDataConfig.default(visited),
-          stopping_condition: Stubs::JobStoppingCondition.default(visited),
-          checkpoint_config: Stubs::JobCheckpointConfig.default(visited),
-          algorithm_specification: Stubs::AlgorithmSpecification.default(visited),
-          instance_config: Stubs::InstanceConfig.default(visited),
+          hyper_parameters: HyperParameters.default(visited),
+          input_data_config: InputConfigList.default(visited),
+          output_data_config: JobOutputDataConfig.default(visited),
+          stopping_condition: JobStoppingCondition.default(visited),
+          checkpoint_config: JobCheckpointConfig.default(visited),
+          algorithm_specification: AlgorithmSpecification.default(visited),
+          instance_config: InstanceConfig.default(visited),
           created_at: Time.now,
           started_at: Time.now,
           ended_at: Time.now,
           billable_duration: 1,
-          device_config: Stubs::DeviceConfig.default(visited),
-          events: Stubs::JobEvents.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          device_config: DeviceConfig.default(visited),
+          events: JobEvents.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('JobEvents')
         visited = visited + ['JobEvents']
         [
-          Stubs::JobEventDetails.default(visited)
+          JobEventDetails.default(visited)
         ]
       end
 
@@ -270,8 +270,8 @@ module AWS::SDK::Braket
         return nil if visited.include?('AlgorithmSpecification')
         visited = visited + ['AlgorithmSpecification']
         {
-          script_mode_config: Stubs::ScriptModeConfig.default(visited),
-          container_image: Stubs::ContainerImage.default(visited),
+          script_mode_config: ScriptModeConfig.default(visited),
+          container_image: ContainerImage.default(visited),
         }
       end
 
@@ -388,7 +388,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('InputConfigList')
         visited = visited + ['InputConfigList']
         [
-          Stubs::InputFileConfig.default(visited)
+          InputFileConfig.default(visited)
         ]
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::Braket
         {
           channel_name: 'channel_name',
           content_type: 'content_type',
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
         }
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('DataSource')
         visited = visited + ['DataSource']
         {
-          s3_data_source: Stubs::S3DataSource.default(visited),
+          s3_data_source: S3DataSource.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::Braket
           output_s3_directory: 'output_s3_directory',
           created_at: Time.now,
           ended_at: Time.now,
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
           job_arn: 'job_arn',
         }
       end
@@ -523,7 +523,7 @@ module AWS::SDK::Braket
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -540,7 +540,7 @@ module AWS::SDK::Braket
     class SearchDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceSummaryList.default(visited),
+          devices: DeviceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -561,7 +561,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('DeviceSummaryList')
         visited = visited + ['DeviceSummaryList']
         [
-          Stubs::DeviceSummary.default(visited)
+          DeviceSummary.default(visited)
         ]
       end
 
@@ -605,7 +605,7 @@ module AWS::SDK::Braket
     class SearchJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::JobSummaryList.default(visited),
+          jobs: JobSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -626,7 +626,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('JobSummaryList')
         visited = visited + ['JobSummaryList']
         [
-          Stubs::JobSummary.default(visited)
+          JobSummary.default(visited)
         ]
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::Braket
           created_at: Time.now,
           started_at: Time.now,
           ended_at: Time.now,
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -676,7 +676,7 @@ module AWS::SDK::Braket
     class SearchQuantumTasks
       def self.default(visited=[])
         {
-          quantum_tasks: Stubs::QuantumTaskSummaryList.default(visited),
+          quantum_tasks: QuantumTaskSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -697,7 +697,7 @@ module AWS::SDK::Braket
         return nil if visited.include?('QuantumTaskSummaryList')
         visited = visited + ['QuantumTaskSummaryList']
         [
-          Stubs::QuantumTaskSummary.default(visited)
+          QuantumTaskSummary.default(visited)
         ]
       end
 
@@ -725,7 +725,7 @@ module AWS::SDK::Braket
           output_s3_directory: 'output_s3_directory',
           created_at: Time.now,
           ended_at: Time.now,
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 

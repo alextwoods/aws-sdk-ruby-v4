@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Mq
@@ -164,7 +166,7 @@ module AWS::SDK::Mq
     def create_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBrokerInput,
         validate_input: @config.validate_input
@@ -259,7 +261,7 @@ module AWS::SDK::Mq
     def create_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationInput,
         validate_input: @config.validate_input
@@ -333,7 +335,7 @@ module AWS::SDK::Mq
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -419,7 +421,7 @@ module AWS::SDK::Mq
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -488,7 +490,7 @@ module AWS::SDK::Mq
     def delete_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBrokerInput,
         validate_input: @config.validate_input
@@ -561,7 +563,7 @@ module AWS::SDK::Mq
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::Mq
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -767,7 +769,7 @@ module AWS::SDK::Mq
     def describe_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBrokerInput,
         validate_input: @config.validate_input
@@ -850,7 +852,7 @@ module AWS::SDK::Mq
     def describe_broker_engine_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBrokerEngineTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBrokerEngineTypesInput,
         validate_input: @config.validate_input
@@ -947,7 +949,7 @@ module AWS::SDK::Mq
     def describe_broker_instance_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBrokerInstanceOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBrokerInstanceOptionsInput,
         validate_input: @config.validate_input
@@ -1028,7 +1030,7 @@ module AWS::SDK::Mq
     def describe_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationInput,
         validate_input: @config.validate_input
@@ -1103,7 +1105,7 @@ module AWS::SDK::Mq
     def describe_configuration_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationRevisionInput,
         validate_input: @config.validate_input
@@ -1183,7 +1185,7 @@ module AWS::SDK::Mq
     def describe_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserInput,
         validate_input: @config.validate_input
@@ -1265,7 +1267,7 @@ module AWS::SDK::Mq
     def list_brokers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBrokersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBrokersInput,
         validate_input: @config.validate_input
@@ -1348,7 +1350,7 @@ module AWS::SDK::Mq
     def list_configuration_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationRevisionsInput,
         validate_input: @config.validate_input
@@ -1437,7 +1439,7 @@ module AWS::SDK::Mq
     def list_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationsInput,
         validate_input: @config.validate_input
@@ -1506,7 +1508,7 @@ module AWS::SDK::Mq
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -1588,7 +1590,7 @@ module AWS::SDK::Mq
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -1655,7 +1657,7 @@ module AWS::SDK::Mq
     def reboot_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootBrokerInput,
         validate_input: @config.validate_input
@@ -1809,7 +1811,7 @@ module AWS::SDK::Mq
     def update_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBrokerInput,
         validate_input: @config.validate_input
@@ -1898,7 +1900,7 @@ module AWS::SDK::Mq
     def update_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationInput,
         validate_input: @config.validate_input
@@ -1984,7 +1986,7 @@ module AWS::SDK::Mq
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

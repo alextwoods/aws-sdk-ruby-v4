@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeBuild
   module Validators
 
@@ -20,90 +22,90 @@ module AWS::SDK::CodeBuild
     class BatchDeleteBuildsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteBuildsInput, context: context)
-        Validators::BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
       end
     end
 
     class BatchDeleteBuildsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteBuildsOutput, context: context)
-        Validators::BuildIds.validate!(input[:builds_deleted], context: "#{context}[:builds_deleted]") unless input[:builds_deleted].nil?
-        Validators::BuildsNotDeleted.validate!(input[:builds_not_deleted], context: "#{context}[:builds_not_deleted]") unless input[:builds_not_deleted].nil?
+        BuildIds.validate!(input[:builds_deleted], context: "#{context}[:builds_deleted]") unless input[:builds_deleted].nil?
+        BuildsNotDeleted.validate!(input[:builds_not_deleted], context: "#{context}[:builds_not_deleted]") unless input[:builds_not_deleted].nil?
       end
     end
 
     class BatchGetBuildBatchesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetBuildBatchesInput, context: context)
-        Validators::BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
       end
     end
 
     class BatchGetBuildBatchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetBuildBatchesOutput, context: context)
-        Validators::BuildBatches.validate!(input[:build_batches], context: "#{context}[:build_batches]") unless input[:build_batches].nil?
-        Validators::BuildBatchIds.validate!(input[:build_batches_not_found], context: "#{context}[:build_batches_not_found]") unless input[:build_batches_not_found].nil?
+        BuildBatches.validate!(input[:build_batches], context: "#{context}[:build_batches]") unless input[:build_batches].nil?
+        BuildBatchIds.validate!(input[:build_batches_not_found], context: "#{context}[:build_batches_not_found]") unless input[:build_batches_not_found].nil?
       end
     end
 
     class BatchGetBuildsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetBuildsInput, context: context)
-        Validators::BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
       end
     end
 
     class BatchGetBuildsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetBuildsOutput, context: context)
-        Validators::Builds.validate!(input[:builds], context: "#{context}[:builds]") unless input[:builds].nil?
-        Validators::BuildIds.validate!(input[:builds_not_found], context: "#{context}[:builds_not_found]") unless input[:builds_not_found].nil?
+        Builds.validate!(input[:builds], context: "#{context}[:builds]") unless input[:builds].nil?
+        BuildIds.validate!(input[:builds_not_found], context: "#{context}[:builds_not_found]") unless input[:builds_not_found].nil?
       end
     end
 
     class BatchGetProjectsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetProjectsInput, context: context)
-        Validators::ProjectNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        ProjectNames.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
     class BatchGetProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetProjectsOutput, context: context)
-        Validators::Projects.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
-        Validators::ProjectNames.validate!(input[:projects_not_found], context: "#{context}[:projects_not_found]") unless input[:projects_not_found].nil?
+        Projects.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectNames.validate!(input[:projects_not_found], context: "#{context}[:projects_not_found]") unless input[:projects_not_found].nil?
       end
     end
 
     class BatchGetReportGroupsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetReportGroupsInput, context: context)
-        Validators::ReportGroupArns.validate!(input[:report_group_arns], context: "#{context}[:report_group_arns]") unless input[:report_group_arns].nil?
+        ReportGroupArns.validate!(input[:report_group_arns], context: "#{context}[:report_group_arns]") unless input[:report_group_arns].nil?
       end
     end
 
     class BatchGetReportGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetReportGroupsOutput, context: context)
-        Validators::ReportGroups.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
-        Validators::ReportGroupArns.validate!(input[:report_groups_not_found], context: "#{context}[:report_groups_not_found]") unless input[:report_groups_not_found].nil?
+        ReportGroups.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
+        ReportGroupArns.validate!(input[:report_groups_not_found], context: "#{context}[:report_groups_not_found]") unless input[:report_groups_not_found].nil?
       end
     end
 
     class BatchGetReportsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetReportsInput, context: context)
-        Validators::ReportArns.validate!(input[:report_arns], context: "#{context}[:report_arns]") unless input[:report_arns].nil?
+        ReportArns.validate!(input[:report_arns], context: "#{context}[:report_arns]") unless input[:report_arns].nil?
       end
     end
 
     class BatchGetReportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetReportsOutput, context: context)
-        Validators::Reports.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
-        Validators::ReportArns.validate!(input[:reports_not_found], context: "#{context}[:reports_not_found]") unless input[:reports_not_found].nil?
+        Reports.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
+        ReportArns.validate!(input[:reports_not_found], context: "#{context}[:reports_not_found]") unless input[:reports_not_found].nil?
       end
     end
 
@@ -111,7 +113,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchRestrictions, context: context)
         Hearth::Validator.validate!(input[:maximum_builds_allowed], ::Integer, context: "#{context}[:maximum_builds_allowed]")
-        Validators::ComputeTypesAllowed.validate!(input[:compute_types_allowed], context: "#{context}[:compute_types_allowed]") unless input[:compute_types_allowed].nil?
+        ComputeTypesAllowed.validate!(input[:compute_types_allowed], context: "#{context}[:compute_types_allowed]") unless input[:compute_types_allowed].nil?
       end
     end
 
@@ -128,27 +130,27 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
         Hearth::Validator.validate!(input[:resolved_source_version], ::String, context: "#{context}[:resolved_source_version]")
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::BuildPhases.validate!(input[:phases], context: "#{context}[:phases]") unless input[:phases].nil?
-        Validators::ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
-        Validators::BuildArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
-        Validators::BuildArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
-        Validators::ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
-        Validators::ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        BuildPhases.validate!(input[:phases], context: "#{context}[:phases]") unless input[:phases].nil?
+        ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
+        BuildArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        BuildArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
+        ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::LogsLocation.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
+        LogsLocation.validate!(input[:logs], context: "#{context}[:logs]") unless input[:logs].nil?
         Hearth::Validator.validate!(input[:timeout_in_minutes], ::Integer, context: "#{context}[:timeout_in_minutes]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes], ::Integer, context: "#{context}[:queued_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:build_complete], ::TrueClass, ::FalseClass, context: "#{context}[:build_complete]")
         Hearth::Validator.validate!(input[:initiator], ::String, context: "#{context}[:initiator]")
-        Validators::VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
+        VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::ExportedEnvironmentVariables.validate!(input[:exported_environment_variables], context: "#{context}[:exported_environment_variables]") unless input[:exported_environment_variables].nil?
-        Validators::BuildReportArns.validate!(input[:report_arns], context: "#{context}[:report_arns]") unless input[:report_arns].nil?
-        Validators::ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
-        Validators::DebugSession.validate!(input[:debug_session], context: "#{context}[:debug_session]") unless input[:debug_session].nil?
+        ExportedEnvironmentVariables.validate!(input[:exported_environment_variables], context: "#{context}[:exported_environment_variables]") unless input[:exported_environment_variables].nil?
+        BuildReportArns.validate!(input[:report_arns], context: "#{context}[:report_arns]") unless input[:report_arns].nil?
+        ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
+        DebugSession.validate!(input[:debug_session], context: "#{context}[:debug_session]") unless input[:debug_session].nil?
         Hearth::Validator.validate!(input[:build_batch_arn], ::String, context: "#{context}[:build_batch_arn]")
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildArtifacts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildArtifacts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -187,26 +189,26 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
         Hearth::Validator.validate!(input[:resolved_source_version], ::String, context: "#{context}[:resolved_source_version]")
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::BuildBatchPhases.validate!(input[:phases], context: "#{context}[:phases]") unless input[:phases].nil?
-        Validators::ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
-        Validators::BuildArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
-        Validators::BuildArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
-        Validators::ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
-        Validators::ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        BuildBatchPhases.validate!(input[:phases], context: "#{context}[:phases]") unless input[:phases].nil?
+        ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
+        BuildArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        BuildArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
+        ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
-        Validators::LogsConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
+        LogsConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
         Hearth::Validator.validate!(input[:build_timeout_in_minutes], ::Integer, context: "#{context}[:build_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes], ::Integer, context: "#{context}[:queued_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:complete], ::TrueClass, ::FalseClass, context: "#{context}[:complete]")
         Hearth::Validator.validate!(input[:initiator], ::String, context: "#{context}[:initiator]")
-        Validators::VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
         Hearth::Validator.validate!(input[:build_batch_number], ::Integer, context: "#{context}[:build_batch_number]")
-        Validators::ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
-        Validators::ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
-        Validators::BuildGroups.validate!(input[:build_groups], context: "#{context}[:build_groups]") unless input[:build_groups].nil?
+        ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
+        ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
+        BuildGroups.validate!(input[:build_groups], context: "#{context}[:build_groups]") unless input[:build_groups].nil?
         Hearth::Validator.validate!(input[:debug_session_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:debug_session_enabled]")
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:duration_in_seconds], ::Integer, context: "#{context}[:duration_in_seconds]")
-        Validators::PhaseContexts.validate!(input[:contexts], context: "#{context}[:contexts]") unless input[:contexts].nil?
+        PhaseContexts.validate!(input[:contexts], context: "#{context}[:contexts]") unless input[:contexts].nil?
       end
     end
 
@@ -243,7 +245,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildBatchPhase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildBatchPhase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildBatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildBatch.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -261,10 +263,10 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BuildGroup, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::Identifiers.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
+        Identifiers.validate!(input[:depends_on], context: "#{context}[:depends_on]") unless input[:depends_on].nil?
         Hearth::Validator.validate!(input[:ignore_failure], ::TrueClass, ::FalseClass, context: "#{context}[:ignore_failure]")
-        Validators::BuildSummary.validate!(input[:current_build_summary], context: "#{context}[:current_build_summary]") unless input[:current_build_summary].nil?
-        Validators::BuildSummaries.validate!(input[:prior_build_summary_list], context: "#{context}[:prior_build_summary_list]") unless input[:prior_build_summary_list].nil?
+        BuildSummary.validate!(input[:current_build_summary], context: "#{context}[:current_build_summary]") unless input[:current_build_summary].nil?
+        BuildSummaries.validate!(input[:prior_build_summary_list], context: "#{context}[:prior_build_summary_list]") unless input[:prior_build_summary_list].nil?
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:duration_in_seconds], ::Integer, context: "#{context}[:duration_in_seconds]")
-        Validators::PhaseContexts.validate!(input[:contexts], context: "#{context}[:contexts]") unless input[:contexts].nil?
+        PhaseContexts.validate!(input[:contexts], context: "#{context}[:contexts]") unless input[:contexts].nil?
       end
     end
 
@@ -310,7 +312,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildPhase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildPhase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -347,8 +349,8 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:requested_on], ::Time, context: "#{context}[:requested_on]")
         Hearth::Validator.validate!(input[:build_status], ::String, context: "#{context}[:build_status]")
-        Validators::ResolvedArtifact.validate!(input[:primary_artifact], context: "#{context}[:primary_artifact]") unless input[:primary_artifact].nil?
-        Validators::ResolvedSecondaryArtifacts.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ResolvedArtifact.validate!(input[:primary_artifact], context: "#{context}[:primary_artifact]") unless input[:primary_artifact].nil?
+        ResolvedSecondaryArtifacts.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Build.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Build.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuildNotDeleted.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuildNotDeleted.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CodeCoverage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CodeCoverage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -430,24 +432,24 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::CreateProjectInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
+        ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
-        Validators::ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
-        Validators::ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
-        Validators::ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
-        Validators::ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
+        ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
+        ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:timeout_in_minutes], ::Integer, context: "#{context}[:timeout_in_minutes]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes], ::Integer, context: "#{context}[:queued_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
         Hearth::Validator.validate!(input[:badge_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:badge_enabled]")
-        Validators::LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
-        Validators::ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
-        Validators::ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
+        LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
+        ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
+        ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
         Hearth::Validator.validate!(input[:concurrent_build_limit], ::Integer, context: "#{context}[:concurrent_build_limit]")
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::CodeBuild
     class CreateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateProjectOutput, context: context)
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -464,15 +466,15 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::CreateReportGroupInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateReportGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateReportGroupOutput, context: context)
-        Validators::ReportGroup.validate!(input[:report_group], context: "#{context}[:report_group]") unless input[:report_group].nil?
+        ReportGroup.validate!(input[:report_group], context: "#{context}[:report_group]") unless input[:report_group].nil?
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::CreateWebhookInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:branch_filter], ::String, context: "#{context}[:branch_filter]")
-        Validators::FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
+        FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
         Hearth::Validator.validate!(input[:build_type], ::String, context: "#{context}[:build_type]")
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::CodeBuild
     class CreateWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -512,8 +514,8 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBuildBatchOutput, context: context)
         Hearth::Validator.validate!(input[:status_code], ::String, context: "#{context}[:status_code]")
-        Validators::BuildIds.validate!(input[:builds_deleted], context: "#{context}[:builds_deleted]") unless input[:builds_deleted].nil?
-        Validators::BuildsNotDeleted.validate!(input[:builds_not_deleted], context: "#{context}[:builds_not_deleted]") unless input[:builds_not_deleted].nil?
+        BuildIds.validate!(input[:builds_deleted], context: "#{context}[:builds_deleted]") unless input[:builds_deleted].nil?
+        BuildsNotDeleted.validate!(input[:builds_not_deleted], context: "#{context}[:builds_not_deleted]") unless input[:builds_not_deleted].nil?
       end
     end
 
@@ -614,7 +616,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCodeCoveragesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CodeCoverages.validate!(input[:code_coverages], context: "#{context}[:code_coverages]") unless input[:code_coverages].nil?
+        CodeCoverages.validate!(input[:code_coverages], context: "#{context}[:code_coverages]") unless input[:code_coverages].nil?
       end
     end
 
@@ -624,7 +626,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:report_arn], ::String, context: "#{context}[:report_arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::TestCaseFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        TestCaseFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
@@ -632,7 +634,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTestCasesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TestCases.validate!(input[:test_cases], context: "#{context}[:test_cases]") unless input[:test_cases].nil?
+        TestCases.validate!(input[:test_cases], context: "#{context}[:test_cases]") unless input[:test_cases].nil?
       end
     end
 
@@ -641,7 +643,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::EnvironmentImage, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ImageVersions.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        ImageVersions.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnvironmentLanguage, context: context)
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
-        Validators::EnvironmentImages.validate!(input[:images], context: "#{context}[:images]") unless input[:images].nil?
+        EnvironmentImages.validate!(input[:images], context: "#{context}[:images]") unless input[:images].nil?
       end
     end
 
@@ -666,7 +668,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentLanguage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentLanguage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -675,7 +677,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnvironmentPlatform, context: context)
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
-        Validators::EnvironmentLanguages.validate!(input[:languages], context: "#{context}[:languages]") unless input[:languages].nil?
+        EnvironmentLanguages.validate!(input[:languages], context: "#{context}[:languages]") unless input[:languages].nil?
       end
     end
 
@@ -683,7 +685,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentPlatform.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -701,7 +703,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentVariable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentVariable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -718,7 +720,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExportedEnvironmentVariable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExportedEnvironmentVariable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -727,7 +729,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebhookFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebhookFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -736,7 +738,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FilterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FilterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -753,8 +755,8 @@ module AWS::SDK::CodeBuild
     class GetReportGroupTrendOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetReportGroupTrendOutput, context: context)
-        Validators::ReportGroupTrendStats.validate!(input[:stats], context: "#{context}[:stats]") unless input[:stats].nil?
-        Validators::ReportGroupTrendRawDataList.validate!(input[:raw_data], context: "#{context}[:raw_data]") unless input[:raw_data].nil?
+        ReportGroupTrendStats.validate!(input[:stats], context: "#{context}[:stats]") unless input[:stats].nil?
+        ReportGroupTrendRawDataList.validate!(input[:raw_data], context: "#{context}[:raw_data]") unless input[:raw_data].nil?
       end
     end
 
@@ -839,7 +841,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildBatchesForProjectInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::BuildBatchFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        BuildBatchFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -849,7 +851,7 @@ module AWS::SDK::CodeBuild
     class ListBuildBatchesForProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildBatchesForProjectOutput, context: context)
-        Validators::BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -857,7 +859,7 @@ module AWS::SDK::CodeBuild
     class ListBuildBatchesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildBatchesInput, context: context)
-        Validators::BuildBatchFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        BuildBatchFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -867,7 +869,7 @@ module AWS::SDK::CodeBuild
     class ListBuildBatchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildBatchesOutput, context: context)
-        Validators::BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildBatchIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::CodeBuild
     class ListBuildsForProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildsForProjectOutput, context: context)
-        Validators::BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -900,7 +902,7 @@ module AWS::SDK::CodeBuild
     class ListBuildsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBuildsOutput, context: context)
-        Validators::BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        BuildIds.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -914,7 +916,7 @@ module AWS::SDK::CodeBuild
     class ListCuratedEnvironmentImagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCuratedEnvironmentImagesOutput, context: context)
-        Validators::EnvironmentPlatforms.validate!(input[:platforms], context: "#{context}[:platforms]") unless input[:platforms].nil?
+        EnvironmentPlatforms.validate!(input[:platforms], context: "#{context}[:platforms]") unless input[:platforms].nil?
       end
     end
 
@@ -931,7 +933,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProjectNames.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectNames.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReportGroupArns.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
+        ReportGroupArns.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
       end
     end
 
@@ -960,7 +962,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ReportFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ReportFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
@@ -968,7 +970,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportsForReportGroupOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReportArns.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
+        ReportArns.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
       end
     end
 
@@ -978,7 +980,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::ReportFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ReportFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
@@ -986,7 +988,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReportsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReportArns.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
+        ReportArns.validate!(input[:reports], context: "#{context}[:reports]") unless input[:reports].nil?
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSharedProjectsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ProjectArns.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectArns.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
       end
     end
 
@@ -1022,7 +1024,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSharedReportGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ReportGroupArns.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
+        ReportGroupArns.validate!(input[:report_groups], context: "#{context}[:report_groups]") unless input[:report_groups].nil?
       end
     end
 
@@ -1035,15 +1037,15 @@ module AWS::SDK::CodeBuild
     class ListSourceCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSourceCredentialsOutput, context: context)
-        Validators::SourceCredentialsInfos.validate!(input[:source_credentials_infos], context: "#{context}[:source_credentials_infos]") unless input[:source_credentials_infos].nil?
+        SourceCredentialsInfos.validate!(input[:source_credentials_infos], context: "#{context}[:source_credentials_infos]") unless input[:source_credentials_infos].nil?
       end
     end
 
     class LogsConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogsConfig, context: context)
-        Validators::CloudWatchLogsConfig.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
-        Validators::S3LogsConfig.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
+        CloudWatchLogsConfig.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
+        S3LogsConfig.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
       end
     end
 
@@ -1056,8 +1058,8 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:s3_deep_link], ::String, context: "#{context}[:s3_deep_link]")
         Hearth::Validator.validate!(input[:cloud_watch_logs_arn], ::String, context: "#{context}[:cloud_watch_logs_arn]")
         Hearth::Validator.validate!(input[:s3_logs_arn], ::String, context: "#{context}[:s3_logs_arn]")
-        Validators::CloudWatchLogsConfig.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
-        Validators::S3LogsConfig.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
+        CloudWatchLogsConfig.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
+        S3LogsConfig.validate!(input[:s3_logs], context: "#{context}[:s3_logs]") unless input[:s3_logs].nil?
       end
     end
 
@@ -1088,7 +1090,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhaseContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhaseContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1099,27 +1101,27 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
+        ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
-        Validators::ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
-        Validators::ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
-        Validators::ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
-        Validators::ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
+        ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
+        ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:timeout_in_minutes], ::Integer, context: "#{context}[:timeout_in_minutes]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes], ::Integer, context: "#{context}[:queued_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
-        Validators::VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::ProjectBadge.validate!(input[:badge], context: "#{context}[:badge]") unless input[:badge].nil?
-        Validators::LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
-        Validators::ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
-        Validators::ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        ProjectBadge.validate!(input[:badge], context: "#{context}[:badge]") unless input[:badge].nil?
+        LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
+        ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
+        ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
         Hearth::Validator.validate!(input[:concurrent_build_limit], ::Integer, context: "#{context}[:concurrent_build_limit]")
         Hearth::Validator.validate!(input[:project_visibility], ::String, context: "#{context}[:project_visibility]")
         Hearth::Validator.validate!(input[:public_project_alias], ::String, context: "#{context}[:public_project_alias]")
@@ -1156,7 +1158,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectArtifacts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectArtifacts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1174,7 +1176,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::ProjectBuildBatchConfig, context: context)
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:combine_artifacts], ::TrueClass, ::FalseClass, context: "#{context}[:combine_artifacts]")
-        Validators::BatchRestrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
+        BatchRestrictions.validate!(input[:restrictions], context: "#{context}[:restrictions]") unless input[:restrictions].nil?
         Hearth::Validator.validate!(input[:timeout_in_mins], ::Integer, context: "#{context}[:timeout_in_mins]")
         Hearth::Validator.validate!(input[:batch_report_mode], ::String, context: "#{context}[:batch_report_mode]")
       end
@@ -1185,7 +1187,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::ProjectCache, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
-        Validators::ProjectCacheModes.validate!(input[:modes], context: "#{context}[:modes]") unless input[:modes].nil?
+        ProjectCacheModes.validate!(input[:modes], context: "#{context}[:modes]") unless input[:modes].nil?
       end
     end
 
@@ -1204,10 +1206,10 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
         Hearth::Validator.validate!(input[:compute_type], ::String, context: "#{context}[:compute_type]")
-        Validators::EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariables.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
         Hearth::Validator.validate!(input[:privileged_mode], ::TrueClass, ::FalseClass, context: "#{context}[:privileged_mode]")
         Hearth::Validator.validate!(input[:certificate], ::String, context: "#{context}[:certificate]")
-        Validators::RegistryCredential.validate!(input[:registry_credential], context: "#{context}[:registry_credential]") unless input[:registry_credential].nil?
+        RegistryCredential.validate!(input[:registry_credential], context: "#{context}[:registry_credential]") unless input[:registry_credential].nil?
         Hearth::Validator.validate!(input[:image_pull_credentials_type], ::String, context: "#{context}[:image_pull_credentials_type]")
       end
     end
@@ -1227,7 +1229,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectFileSystemLocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectFileSystemLocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1245,7 +1247,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectSourceVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectSourceVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1256,11 +1258,11 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
         Hearth::Validator.validate!(input[:git_clone_depth], ::Integer, context: "#{context}[:git_clone_depth]")
-        Validators::GitSubmodulesConfig.validate!(input[:git_submodules_config], context: "#{context}[:git_submodules_config]") unless input[:git_submodules_config].nil?
+        GitSubmodulesConfig.validate!(input[:git_submodules_config], context: "#{context}[:git_submodules_config]") unless input[:git_submodules_config].nil?
         Hearth::Validator.validate!(input[:buildspec], ::String, context: "#{context}[:buildspec]")
-        Validators::SourceAuth.validate!(input[:auth], context: "#{context}[:auth]") unless input[:auth].nil?
+        SourceAuth.validate!(input[:auth], context: "#{context}[:auth]") unless input[:auth].nil?
         Hearth::Validator.validate!(input[:report_build_status], ::TrueClass, ::FalseClass, context: "#{context}[:report_build_status]")
-        Validators::BuildStatusConfig.validate!(input[:build_status_config], context: "#{context}[:build_status_config]") unless input[:build_status_config].nil?
+        BuildStatusConfig.validate!(input[:build_status_config], context: "#{context}[:build_status_config]") unless input[:build_status_config].nil?
         Hearth::Validator.validate!(input[:insecure_ssl], ::TrueClass, ::FalseClass, context: "#{context}[:insecure_ssl]")
         Hearth::Validator.validate!(input[:source_identifier], ::String, context: "#{context}[:source_identifier]")
       end
@@ -1278,7 +1280,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1287,7 +1289,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Project.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1326,10 +1328,10 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:expired], ::Time, context: "#{context}[:expired]")
-        Validators::ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
+        ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
-        Validators::TestReportSummary.validate!(input[:test_summary], context: "#{context}[:test_summary]") unless input[:test_summary].nil?
-        Validators::CodeCoverageReportSummary.validate!(input[:code_coverage_summary], context: "#{context}[:code_coverage_summary]") unless input[:code_coverage_summary].nil?
+        TestReportSummary.validate!(input[:test_summary], context: "#{context}[:test_summary]") unless input[:test_summary].nil?
+        CodeCoverageReportSummary.validate!(input[:code_coverage_summary], context: "#{context}[:code_coverage_summary]") unless input[:code_coverage_summary].nil?
       end
     end
 
@@ -1346,7 +1348,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReportExportConfig, context: context)
         Hearth::Validator.validate!(input[:export_config_type], ::String, context: "#{context}[:export_config_type]")
-        Validators::S3ReportExportConfig.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3ReportExportConfig.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
@@ -1363,10 +1365,10 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
+        ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -1384,7 +1386,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportWithRawData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportWithRawData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1402,7 +1404,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1429,7 +1431,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Report.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Report.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1447,7 +1449,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResolvedArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResolvedArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1478,7 +1480,7 @@ module AWS::SDK::CodeBuild
     class RetryBuildBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RetryBuildBatchOutput, context: context)
-        Validators::BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
+        BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
       end
     end
 
@@ -1493,7 +1495,7 @@ module AWS::SDK::CodeBuild
     class RetryBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RetryBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
       end
     end
 
@@ -1549,7 +1551,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceCredentialsInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceCredentialsInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1558,17 +1560,17 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartBuildBatchInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::ProjectSources.validate!(input[:secondary_sources_override], context: "#{context}[:secondary_sources_override]") unless input[:secondary_sources_override].nil?
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_sources_version_override], context: "#{context}[:secondary_sources_version_override]") unless input[:secondary_sources_version_override].nil?
+        ProjectSources.validate!(input[:secondary_sources_override], context: "#{context}[:secondary_sources_override]") unless input[:secondary_sources_override].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_sources_version_override], context: "#{context}[:secondary_sources_version_override]") unless input[:secondary_sources_version_override].nil?
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::ProjectArtifacts.validate!(input[:artifacts_override], context: "#{context}[:artifacts_override]") unless input[:artifacts_override].nil?
-        Validators::ProjectArtifactsList.validate!(input[:secondary_artifacts_override], context: "#{context}[:secondary_artifacts_override]") unless input[:secondary_artifacts_override].nil?
-        Validators::EnvironmentVariables.validate!(input[:environment_variables_override], context: "#{context}[:environment_variables_override]") unless input[:environment_variables_override].nil?
+        ProjectArtifacts.validate!(input[:artifacts_override], context: "#{context}[:artifacts_override]") unless input[:artifacts_override].nil?
+        ProjectArtifactsList.validate!(input[:secondary_artifacts_override], context: "#{context}[:secondary_artifacts_override]") unless input[:secondary_artifacts_override].nil?
+        EnvironmentVariables.validate!(input[:environment_variables_override], context: "#{context}[:environment_variables_override]") unless input[:environment_variables_override].nil?
         Hearth::Validator.validate!(input[:source_type_override], ::String, context: "#{context}[:source_type_override]")
         Hearth::Validator.validate!(input[:source_location_override], ::String, context: "#{context}[:source_location_override]")
-        Validators::SourceAuth.validate!(input[:source_auth_override], context: "#{context}[:source_auth_override]") unless input[:source_auth_override].nil?
+        SourceAuth.validate!(input[:source_auth_override], context: "#{context}[:source_auth_override]") unless input[:source_auth_override].nil?
         Hearth::Validator.validate!(input[:git_clone_depth_override], ::Integer, context: "#{context}[:git_clone_depth_override]")
-        Validators::GitSubmodulesConfig.validate!(input[:git_submodules_config_override], context: "#{context}[:git_submodules_config_override]") unless input[:git_submodules_config_override].nil?
+        GitSubmodulesConfig.validate!(input[:git_submodules_config_override], context: "#{context}[:git_submodules_config_override]") unless input[:git_submodules_config_override].nil?
         Hearth::Validator.validate!(input[:buildspec_override], ::String, context: "#{context}[:buildspec_override]")
         Hearth::Validator.validate!(input[:insecure_ssl_override], ::TrueClass, ::FalseClass, context: "#{context}[:insecure_ssl_override]")
         Hearth::Validator.validate!(input[:report_build_batch_status_override], ::TrueClass, ::FalseClass, context: "#{context}[:report_build_batch_status_override]")
@@ -1576,17 +1578,17 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:image_override], ::String, context: "#{context}[:image_override]")
         Hearth::Validator.validate!(input[:compute_type_override], ::String, context: "#{context}[:compute_type_override]")
         Hearth::Validator.validate!(input[:certificate_override], ::String, context: "#{context}[:certificate_override]")
-        Validators::ProjectCache.validate!(input[:cache_override], context: "#{context}[:cache_override]") unless input[:cache_override].nil?
+        ProjectCache.validate!(input[:cache_override], context: "#{context}[:cache_override]") unless input[:cache_override].nil?
         Hearth::Validator.validate!(input[:service_role_override], ::String, context: "#{context}[:service_role_override]")
         Hearth::Validator.validate!(input[:privileged_mode_override], ::TrueClass, ::FalseClass, context: "#{context}[:privileged_mode_override]")
         Hearth::Validator.validate!(input[:build_timeout_in_minutes_override], ::Integer, context: "#{context}[:build_timeout_in_minutes_override]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes_override], ::Integer, context: "#{context}[:queued_timeout_in_minutes_override]")
         Hearth::Validator.validate!(input[:encryption_key_override], ::String, context: "#{context}[:encryption_key_override]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::LogsConfig.validate!(input[:logs_config_override], context: "#{context}[:logs_config_override]") unless input[:logs_config_override].nil?
-        Validators::RegistryCredential.validate!(input[:registry_credential_override], context: "#{context}[:registry_credential_override]") unless input[:registry_credential_override].nil?
+        LogsConfig.validate!(input[:logs_config_override], context: "#{context}[:logs_config_override]") unless input[:logs_config_override].nil?
+        RegistryCredential.validate!(input[:registry_credential_override], context: "#{context}[:registry_credential_override]") unless input[:registry_credential_override].nil?
         Hearth::Validator.validate!(input[:image_pull_credentials_type_override], ::String, context: "#{context}[:image_pull_credentials_type_override]")
-        Validators::ProjectBuildBatchConfig.validate!(input[:build_batch_config_override], context: "#{context}[:build_batch_config_override]") unless input[:build_batch_config_override].nil?
+        ProjectBuildBatchConfig.validate!(input[:build_batch_config_override], context: "#{context}[:build_batch_config_override]") unless input[:build_batch_config_override].nil?
         Hearth::Validator.validate!(input[:debug_session_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:debug_session_enabled]")
       end
     end
@@ -1594,7 +1596,7 @@ module AWS::SDK::CodeBuild
     class StartBuildBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartBuildBatchOutput, context: context)
-        Validators::BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
+        BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
       end
     end
 
@@ -1602,34 +1604,34 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartBuildInput, context: context)
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
-        Validators::ProjectSources.validate!(input[:secondary_sources_override], context: "#{context}[:secondary_sources_override]") unless input[:secondary_sources_override].nil?
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_sources_version_override], context: "#{context}[:secondary_sources_version_override]") unless input[:secondary_sources_version_override].nil?
+        ProjectSources.validate!(input[:secondary_sources_override], context: "#{context}[:secondary_sources_override]") unless input[:secondary_sources_override].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_sources_version_override], context: "#{context}[:secondary_sources_version_override]") unless input[:secondary_sources_version_override].nil?
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::ProjectArtifacts.validate!(input[:artifacts_override], context: "#{context}[:artifacts_override]") unless input[:artifacts_override].nil?
-        Validators::ProjectArtifactsList.validate!(input[:secondary_artifacts_override], context: "#{context}[:secondary_artifacts_override]") unless input[:secondary_artifacts_override].nil?
-        Validators::EnvironmentVariables.validate!(input[:environment_variables_override], context: "#{context}[:environment_variables_override]") unless input[:environment_variables_override].nil?
+        ProjectArtifacts.validate!(input[:artifacts_override], context: "#{context}[:artifacts_override]") unless input[:artifacts_override].nil?
+        ProjectArtifactsList.validate!(input[:secondary_artifacts_override], context: "#{context}[:secondary_artifacts_override]") unless input[:secondary_artifacts_override].nil?
+        EnvironmentVariables.validate!(input[:environment_variables_override], context: "#{context}[:environment_variables_override]") unless input[:environment_variables_override].nil?
         Hearth::Validator.validate!(input[:source_type_override], ::String, context: "#{context}[:source_type_override]")
         Hearth::Validator.validate!(input[:source_location_override], ::String, context: "#{context}[:source_location_override]")
-        Validators::SourceAuth.validate!(input[:source_auth_override], context: "#{context}[:source_auth_override]") unless input[:source_auth_override].nil?
+        SourceAuth.validate!(input[:source_auth_override], context: "#{context}[:source_auth_override]") unless input[:source_auth_override].nil?
         Hearth::Validator.validate!(input[:git_clone_depth_override], ::Integer, context: "#{context}[:git_clone_depth_override]")
-        Validators::GitSubmodulesConfig.validate!(input[:git_submodules_config_override], context: "#{context}[:git_submodules_config_override]") unless input[:git_submodules_config_override].nil?
+        GitSubmodulesConfig.validate!(input[:git_submodules_config_override], context: "#{context}[:git_submodules_config_override]") unless input[:git_submodules_config_override].nil?
         Hearth::Validator.validate!(input[:buildspec_override], ::String, context: "#{context}[:buildspec_override]")
         Hearth::Validator.validate!(input[:insecure_ssl_override], ::TrueClass, ::FalseClass, context: "#{context}[:insecure_ssl_override]")
         Hearth::Validator.validate!(input[:report_build_status_override], ::TrueClass, ::FalseClass, context: "#{context}[:report_build_status_override]")
-        Validators::BuildStatusConfig.validate!(input[:build_status_config_override], context: "#{context}[:build_status_config_override]") unless input[:build_status_config_override].nil?
+        BuildStatusConfig.validate!(input[:build_status_config_override], context: "#{context}[:build_status_config_override]") unless input[:build_status_config_override].nil?
         Hearth::Validator.validate!(input[:environment_type_override], ::String, context: "#{context}[:environment_type_override]")
         Hearth::Validator.validate!(input[:image_override], ::String, context: "#{context}[:image_override]")
         Hearth::Validator.validate!(input[:compute_type_override], ::String, context: "#{context}[:compute_type_override]")
         Hearth::Validator.validate!(input[:certificate_override], ::String, context: "#{context}[:certificate_override]")
-        Validators::ProjectCache.validate!(input[:cache_override], context: "#{context}[:cache_override]") unless input[:cache_override].nil?
+        ProjectCache.validate!(input[:cache_override], context: "#{context}[:cache_override]") unless input[:cache_override].nil?
         Hearth::Validator.validate!(input[:service_role_override], ::String, context: "#{context}[:service_role_override]")
         Hearth::Validator.validate!(input[:privileged_mode_override], ::TrueClass, ::FalseClass, context: "#{context}[:privileged_mode_override]")
         Hearth::Validator.validate!(input[:timeout_in_minutes_override], ::Integer, context: "#{context}[:timeout_in_minutes_override]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes_override], ::Integer, context: "#{context}[:queued_timeout_in_minutes_override]")
         Hearth::Validator.validate!(input[:encryption_key_override], ::String, context: "#{context}[:encryption_key_override]")
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::LogsConfig.validate!(input[:logs_config_override], context: "#{context}[:logs_config_override]") unless input[:logs_config_override].nil?
-        Validators::RegistryCredential.validate!(input[:registry_credential_override], context: "#{context}[:registry_credential_override]") unless input[:registry_credential_override].nil?
+        LogsConfig.validate!(input[:logs_config_override], context: "#{context}[:logs_config_override]") unless input[:logs_config_override].nil?
+        RegistryCredential.validate!(input[:registry_credential_override], context: "#{context}[:registry_credential_override]") unless input[:registry_credential_override].nil?
         Hearth::Validator.validate!(input[:image_pull_credentials_type_override], ::String, context: "#{context}[:image_pull_credentials_type_override]")
         Hearth::Validator.validate!(input[:debug_session_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:debug_session_enabled]")
       end
@@ -1638,7 +1640,7 @@ module AWS::SDK::CodeBuild
     class StartBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
       end
     end
 
@@ -1652,7 +1654,7 @@ module AWS::SDK::CodeBuild
     class StopBuildBatchOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopBuildBatchOutput, context: context)
-        Validators::BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
+        BuildBatch.validate!(input[:build_batch], context: "#{context}[:build_batch]") unless input[:build_batch].nil?
       end
     end
 
@@ -1666,7 +1668,7 @@ module AWS::SDK::CodeBuild
     class StopBuildOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopBuildOutput, context: context)
-        Validators::Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
+        Build.validate!(input[:build], context: "#{context}[:build]") unless input[:build].nil?
       end
     end
 
@@ -1691,7 +1693,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestCase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestCase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1731,7 +1733,7 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestReportSummary, context: context)
         Hearth::Validator.validate!(input[:total], ::Integer, context: "#{context}[:total]")
-        Validators::ReportStatusCounts.validate!(input[:status_counts], context: "#{context}[:status_counts]") unless input[:status_counts].nil?
+        ReportStatusCounts.validate!(input[:status_counts], context: "#{context}[:status_counts]") unless input[:status_counts].nil?
         Hearth::Validator.validate!(input[:duration_in_nano_seconds], ::Integer, context: "#{context}[:duration_in_nano_seconds]")
       end
     end
@@ -1741,24 +1743,24 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input, Types::UpdateProjectInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
+        ProjectSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ProjectSources.validate!(input[:secondary_sources], context: "#{context}[:secondary_sources]") unless input[:secondary_sources].nil?
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
-        Validators::ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
-        Validators::ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
-        Validators::ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
-        Validators::ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
-        Validators::ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        ProjectSecondarySourceVersions.validate!(input[:secondary_source_versions], context: "#{context}[:secondary_source_versions]") unless input[:secondary_source_versions].nil?
+        ProjectArtifacts.validate!(input[:artifacts], context: "#{context}[:artifacts]") unless input[:artifacts].nil?
+        ProjectArtifactsList.validate!(input[:secondary_artifacts], context: "#{context}[:secondary_artifacts]") unless input[:secondary_artifacts].nil?
+        ProjectCache.validate!(input[:cache], context: "#{context}[:cache]") unless input[:cache].nil?
+        ProjectEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:service_role], ::String, context: "#{context}[:service_role]")
         Hearth::Validator.validate!(input[:timeout_in_minutes], ::Integer, context: "#{context}[:timeout_in_minutes]")
         Hearth::Validator.validate!(input[:queued_timeout_in_minutes], ::Integer, context: "#{context}[:queued_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:encryption_key], ::String, context: "#{context}[:encryption_key]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VpcConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
         Hearth::Validator.validate!(input[:badge_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:badge_enabled]")
-        Validators::LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
-        Validators::ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
-        Validators::ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
+        LogsConfig.validate!(input[:logs_config], context: "#{context}[:logs_config]") unless input[:logs_config].nil?
+        ProjectFileSystemLocations.validate!(input[:file_system_locations], context: "#{context}[:file_system_locations]") unless input[:file_system_locations].nil?
+        ProjectBuildBatchConfig.validate!(input[:build_batch_config], context: "#{context}[:build_batch_config]") unless input[:build_batch_config].nil?
         Hearth::Validator.validate!(input[:concurrent_build_limit], ::Integer, context: "#{context}[:concurrent_build_limit]")
       end
     end
@@ -1766,7 +1768,7 @@ module AWS::SDK::CodeBuild
     class UpdateProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateProjectOutput, context: context)
-        Validators::Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
+        Project.validate!(input[:project], context: "#{context}[:project]") unless input[:project].nil?
       end
     end
 
@@ -1792,15 +1794,15 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateReportGroupInput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ReportExportConfig.validate!(input[:export_config], context: "#{context}[:export_config]") unless input[:export_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class UpdateReportGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateReportGroupOutput, context: context)
-        Validators::ReportGroup.validate!(input[:report_group], context: "#{context}[:report_group]") unless input[:report_group].nil?
+        ReportGroup.validate!(input[:report_group], context: "#{context}[:report_group]") unless input[:report_group].nil?
       end
     end
 
@@ -1810,7 +1812,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:project_name], ::String, context: "#{context}[:project_name]")
         Hearth::Validator.validate!(input[:branch_filter], ::String, context: "#{context}[:branch_filter]")
         Hearth::Validator.validate!(input[:rotate_secret], ::TrueClass, ::FalseClass, context: "#{context}[:rotate_secret]")
-        Validators::FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
+        FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
         Hearth::Validator.validate!(input[:build_type], ::String, context: "#{context}[:build_type]")
       end
     end
@@ -1818,7 +1820,7 @@ module AWS::SDK::CodeBuild
     class UpdateWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateWebhookOutput, context: context)
-        Validators::Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        Webhook.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -1826,8 +1828,8 @@ module AWS::SDK::CodeBuild
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcConfig, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SecurityGroupIds.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -1838,7 +1840,7 @@ module AWS::SDK::CodeBuild
         Hearth::Validator.validate!(input[:payload_url], ::String, context: "#{context}[:payload_url]")
         Hearth::Validator.validate!(input[:secret], ::String, context: "#{context}[:secret]")
         Hearth::Validator.validate!(input[:branch_filter], ::String, context: "#{context}[:branch_filter]")
-        Validators::FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
+        FilterGroups.validate!(input[:filter_groups], context: "#{context}[:filter_groups]") unless input[:filter_groups].nil?
         Hearth::Validator.validate!(input[:build_type], ::String, context: "#{context}[:build_type]")
         Hearth::Validator.validate!(input[:last_modified_secret], ::Time, context: "#{context}[:last_modified_secret]")
       end

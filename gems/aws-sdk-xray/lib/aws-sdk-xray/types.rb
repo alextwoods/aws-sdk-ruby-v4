@@ -1253,11 +1253,11 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.contains_old_group_versions ||= false
       end
-
     end
 
     # @!attribute start_time
@@ -1340,11 +1340,11 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.contains_old_group_versions ||= false
       end
-
     end
 
     # @!attribute trace_ids
@@ -1573,12 +1573,12 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
         self.count ||= 0
       end
-
     end
 
     # <p>Information about an HTTP request.</p>
@@ -2405,6 +2405,7 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
@@ -2412,7 +2413,6 @@ module AWS::SDK::XRay
         self.reservoir_size ||= 0
         self.version ||= 0
       end
-
     end
 
     # <p>A <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html">SamplingRule</a> and its metadata.</p>
@@ -2559,13 +2559,13 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.request_count ||= 0
         self.borrow_count ||= 0
         self.sampled_count ||= 0
       end
-
     end
 
     # <p>Request sampling results for a single rule from a service. Results are for the last 10
@@ -2612,13 +2612,13 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.request_count ||= 0
         self.sampled_count ||= 0
         self.borrow_count ||= 0
       end
-
     end
 
     # <p>The name and value of a sampling rule to apply to a trace summary.</p>
@@ -2695,11 +2695,11 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fixed_rate ||= 0
       end
-
     end
 
     # <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be
@@ -3289,11 +3289,11 @@ module AWS::SDK::XRay
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Information about a user recorded in segment documents.</p>

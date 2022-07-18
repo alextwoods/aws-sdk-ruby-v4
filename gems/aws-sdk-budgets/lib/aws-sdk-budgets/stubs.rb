@@ -92,7 +92,7 @@ module AWS::SDK::Budgets
         {
           account_id: 'account_id',
           budget_name: 'budget_name',
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
         }
       end
 
@@ -116,12 +116,12 @@ module AWS::SDK::Budgets
           budget_name: 'budget_name',
           notification_type: 'notification_type',
           action_type: 'action_type',
-          action_threshold: Stubs::ActionThreshold.default(visited),
-          definition: Stubs::Definition.default(visited),
+          action_threshold: ActionThreshold.default(visited),
+          definition: Definition.default(visited),
           execution_role_arn: 'execution_role_arn',
           approval_model: 'approval_model',
           status: 'status',
-          subscribers: Stubs::Subscribers.default(visited),
+          subscribers: Subscribers.default(visited),
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('Subscribers')
         visited = visited + ['Subscribers']
         [
-          Stubs::Subscriber.default(visited)
+          Subscriber.default(visited)
         ]
       end
 
@@ -188,9 +188,9 @@ module AWS::SDK::Budgets
         return nil if visited.include?('Definition')
         visited = visited + ['Definition']
         {
-          iam_action_definition: Stubs::IamActionDefinition.default(visited),
-          scp_action_definition: Stubs::ScpActionDefinition.default(visited),
-          ssm_action_definition: Stubs::SsmActionDefinition.default(visited),
+          iam_action_definition: IamActionDefinition.default(visited),
+          scp_action_definition: ScpActionDefinition.default(visited),
+          ssm_action_definition: SsmActionDefinition.default(visited),
         }
       end
 
@@ -212,7 +212,7 @@ module AWS::SDK::Budgets
         {
           action_sub_type: 'action_sub_type',
           region: 'region',
-          instance_ids: Stubs::InstanceIds.default(visited),
+          instance_ids: InstanceIds.default(visited),
         }
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::Budgets
         visited = visited + ['ScpActionDefinition']
         {
           policy_id: 'policy_id',
-          target_ids: Stubs::TargetIds.default(visited),
+          target_ids: TargetIds.default(visited),
         }
       end
 
@@ -293,9 +293,9 @@ module AWS::SDK::Budgets
         visited = visited + ['IamActionDefinition']
         {
           policy_arn: 'policy_arn',
-          roles: Stubs::Roles.default(visited),
-          groups: Stubs::Groups.default(visited),
-          users: Stubs::Users.default(visited),
+          roles: Roles.default(visited),
+          groups: Groups.default(visited),
+          users: Users.default(visited),
         }
       end
 
@@ -422,7 +422,7 @@ module AWS::SDK::Budgets
     class DescribeBudget
       def self.default(visited=[])
         {
-          budget: Stubs::Budget.default(visited),
+          budget: Budget.default(visited),
         }
       end
 
@@ -441,16 +441,16 @@ module AWS::SDK::Budgets
         visited = visited + ['Budget']
         {
           budget_name: 'budget_name',
-          budget_limit: Stubs::Spend.default(visited),
-          planned_budget_limits: Stubs::PlannedBudgetLimits.default(visited),
-          cost_filters: Stubs::CostFilters.default(visited),
-          cost_types: Stubs::CostTypes.default(visited),
+          budget_limit: Spend.default(visited),
+          planned_budget_limits: PlannedBudgetLimits.default(visited),
+          cost_filters: CostFilters.default(visited),
+          cost_types: CostTypes.default(visited),
           time_unit: 'time_unit',
-          time_period: Stubs::TimePeriod.default(visited),
-          calculated_spend: Stubs::CalculatedSpend.default(visited),
+          time_period: TimePeriod.default(visited),
+          calculated_spend: CalculatedSpend.default(visited),
           budget_type: 'budget_type',
           last_updated_time: Time.now,
-          auto_adjust_data: Stubs::AutoAdjustData.default(visited),
+          auto_adjust_data: AutoAdjustData.default(visited),
         }
       end
 
@@ -479,7 +479,7 @@ module AWS::SDK::Budgets
         visited = visited + ['AutoAdjustData']
         {
           auto_adjust_type: 'auto_adjust_type',
-          historical_options: Stubs::HistoricalOptions.default(visited),
+          historical_options: HistoricalOptions.default(visited),
           last_auto_adjust_time: Time.now,
         }
       end
@@ -520,8 +520,8 @@ module AWS::SDK::Budgets
         return nil if visited.include?('CalculatedSpend')
         visited = visited + ['CalculatedSpend']
         {
-          actual_spend: Stubs::Spend.default(visited),
-          forecasted_spend: Stubs::Spend.default(visited),
+          actual_spend: Spend.default(visited),
+          forecasted_spend: Spend.default(visited),
         }
       end
 
@@ -618,7 +618,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('CostFilters')
         visited = visited + ['CostFilters']
         {
-          test_key: Stubs::DimensionValues.default(visited)
+          test_key: DimensionValues.default(visited)
         }
       end
 
@@ -658,7 +658,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('PlannedBudgetLimits')
         visited = visited + ['PlannedBudgetLimits']
         {
-          test_key: Stubs::Spend.default(visited)
+          test_key: Spend.default(visited)
         }
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::Budgets
         {
           account_id: 'account_id',
           budget_name: 'budget_name',
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
         }
       end
 
@@ -696,7 +696,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionHistories
       def self.default(visited=[])
         {
-          action_histories: Stubs::ActionHistories.default(visited),
+          action_histories: ActionHistories.default(visited),
           next_token: 'next_token',
         }
       end
@@ -716,7 +716,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('ActionHistories')
         visited = visited + ['ActionHistories']
         [
-          Stubs::ActionHistory.default(visited)
+          ActionHistory.default(visited)
         ]
       end
 
@@ -739,7 +739,7 @@ module AWS::SDK::Budgets
           timestamp: Time.now,
           status: 'status',
           event_type: 'event_type',
-          action_history_details: Stubs::ActionHistoryDetails.default(visited),
+          action_history_details: ActionHistoryDetails.default(visited),
         }
       end
 
@@ -761,7 +761,7 @@ module AWS::SDK::Budgets
         visited = visited + ['ActionHistoryDetails']
         {
           message: 'message',
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
         }
       end
 
@@ -778,7 +778,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionsForAccount
       def self.default(visited=[])
         {
-          actions: Stubs::Actions.default(visited),
+          actions: Actions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -798,7 +798,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('Actions')
         visited = visited + ['Actions']
         [
-          Stubs::Action.default(visited)
+          Action.default(visited)
         ]
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetActionsForBudget
       def self.default(visited=[])
         {
-          actions: Stubs::Actions.default(visited),
+          actions: Actions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -834,7 +834,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetNotificationsForAccount
       def self.default(visited=[])
         {
-          budget_notifications_for_account: Stubs::BudgetNotificationsForAccountList.default(visited),
+          budget_notifications_for_account: BudgetNotificationsForAccountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -854,7 +854,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('BudgetNotificationsForAccountList')
         visited = visited + ['BudgetNotificationsForAccountList']
         [
-          Stubs::BudgetNotificationsForAccount.default(visited)
+          BudgetNotificationsForAccount.default(visited)
         ]
       end
 
@@ -874,7 +874,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('BudgetNotificationsForAccount')
         visited = visited + ['BudgetNotificationsForAccount']
         {
-          notifications: Stubs::Notifications.default(visited),
+          notifications: Notifications.default(visited),
           budget_name: 'budget_name',
         }
       end
@@ -894,7 +894,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('Notifications')
         visited = visited + ['Notifications']
         [
-          Stubs::Notification.default(visited)
+          Notification.default(visited)
         ]
       end
 
@@ -938,7 +938,7 @@ module AWS::SDK::Budgets
     class DescribeBudgetPerformanceHistory
       def self.default(visited=[])
         {
-          budget_performance_history: Stubs::BudgetPerformanceHistory.default(visited),
+          budget_performance_history: BudgetPerformanceHistory.default(visited),
           next_token: 'next_token',
         }
       end
@@ -960,10 +960,10 @@ module AWS::SDK::Budgets
         {
           budget_name: 'budget_name',
           budget_type: 'budget_type',
-          cost_filters: Stubs::CostFilters.default(visited),
-          cost_types: Stubs::CostTypes.default(visited),
+          cost_filters: CostFilters.default(visited),
+          cost_types: CostTypes.default(visited),
           time_unit: 'time_unit',
-          budgeted_and_actual_amounts_list: Stubs::BudgetedAndActualAmountsList.default(visited),
+          budgeted_and_actual_amounts_list: BudgetedAndActualAmountsList.default(visited),
         }
       end
 
@@ -986,7 +986,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('BudgetedAndActualAmountsList')
         visited = visited + ['BudgetedAndActualAmountsList']
         [
-          Stubs::BudgetedAndActualAmounts.default(visited)
+          BudgetedAndActualAmounts.default(visited)
         ]
       end
 
@@ -1006,9 +1006,9 @@ module AWS::SDK::Budgets
         return nil if visited.include?('BudgetedAndActualAmounts')
         visited = visited + ['BudgetedAndActualAmounts']
         {
-          budgeted_amount: Stubs::Spend.default(visited),
-          actual_amount: Stubs::Spend.default(visited),
-          time_period: Stubs::TimePeriod.default(visited),
+          budgeted_amount: Spend.default(visited),
+          actual_amount: Spend.default(visited),
+          time_period: TimePeriod.default(visited),
         }
       end
 
@@ -1026,7 +1026,7 @@ module AWS::SDK::Budgets
     class DescribeBudgets
       def self.default(visited=[])
         {
-          budgets: Stubs::Budgets.default(visited),
+          budgets: Budgets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1046,7 +1046,7 @@ module AWS::SDK::Budgets
         return nil if visited.include?('Budgets')
         visited = visited + ['Budgets']
         [
-          Stubs::Budget.default(visited)
+          Budget.default(visited)
         ]
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::Budgets
     class DescribeNotificationsForBudget
       def self.default(visited=[])
         {
-          notifications: Stubs::Notifications.default(visited),
+          notifications: Notifications.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1082,7 +1082,7 @@ module AWS::SDK::Budgets
     class DescribeSubscribersForNotification
       def self.default(visited=[])
         {
-          subscribers: Stubs::Subscribers.default(visited),
+          subscribers: Subscribers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1138,8 +1138,8 @@ module AWS::SDK::Budgets
         {
           account_id: 'account_id',
           budget_name: 'budget_name',
-          old_action: Stubs::Action.default(visited),
-          new_action: Stubs::Action.default(visited),
+          old_action: Action.default(visited),
+          new_action: Action.default(visited),
         }
       end
 

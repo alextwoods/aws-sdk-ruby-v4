@@ -315,7 +315,7 @@ module AWS::SDK::ServiceCatalog
         type.target_product_name = params[:target_product_name]
         type.source_provisioning_artifact_identifiers = SourceProvisioningArtifactProperties.build(params[:source_provisioning_artifact_identifiers], context: "#{context}[:source_provisioning_artifact_identifiers]") unless params[:source_provisioning_artifact_identifiers].nil?
         type.copy_options = CopyOptions.build(params[:copy_options], context: "#{context}[:copy_options]") unless params[:copy_options].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -339,7 +339,7 @@ module AWS::SDK::ServiceCatalog
         type.parameters = params[:parameters]
         type.type = params[:type]
         type.description = params[:description]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::ServiceCatalog
         type.description = params[:description]
         type.provider_name = params[:provider_name]
         type.tags = AddTags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::ServiceCatalog
         type.product_type = params[:product_type]
         type.tags = AddTags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.provisioning_artifact_parameters = ProvisioningArtifactProperties.build(params[:provisioning_artifact_parameters], context: "#{context}[:provisioning_artifact_parameters]") unless params[:provisioning_artifact_parameters].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -445,7 +445,7 @@ module AWS::SDK::ServiceCatalog
         type.provisioned_product_name = params[:provisioned_product_name]
         type.provisioning_artifact_id = params[:provisioning_artifact_id]
         type.provisioning_parameters = UpdateProvisioningParameters.build(params[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless params[:provisioning_parameters].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -471,7 +471,7 @@ module AWS::SDK::ServiceCatalog
         type.accept_language = params[:accept_language]
         type.product_id = params[:product_id]
         type.parameters = ProvisioningArtifactProperties.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::ServiceCatalog
         type.definition = ServiceActionDefinitionMap.build(params[:definition], context: "#{context}[:definition]") unless params[:definition].nil?
         type.description = params[:description]
         type.accept_language = params[:accept_language]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::ServiceCatalog
         type = Types::ExecuteProvisionedProductPlanInput.new
         type.accept_language = params[:accept_language]
         type.plan_id = params[:plan_id]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -1193,7 +1193,7 @@ module AWS::SDK::ServiceCatalog
         type = Types::ExecuteProvisionedProductServiceActionInput.new
         type.provisioned_product_id = params[:provisioned_product_id]
         type.service_action_id = params[:service_action_id]
-        type.execute_token = params[:execute_token] || SecureRandom.uuid
+        type.execute_token = params[:execute_token] || ::SecureRandom.uuid
         type.accept_language = params[:accept_language]
         type.parameters = ExecutionParameterMap.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
         type
@@ -1327,7 +1327,7 @@ module AWS::SDK::ServiceCatalog
         type.provisioning_artifact_id = params[:provisioning_artifact_id]
         type.provisioned_product_name = params[:provisioned_product_name]
         type.physical_id = params[:physical_id]
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -2100,7 +2100,7 @@ module AWS::SDK::ServiceCatalog
         type.provisioning_preferences = ProvisioningPreferences.build(params[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless params[:provisioning_preferences].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.notification_arns = NotificationArns.build(params[:notification_arns], context: "#{context}[:notification_arns]") unless params[:notification_arns].nil?
-        type.provision_token = params[:provision_token] || SecureRandom.uuid
+        type.provision_token = params[:provision_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3081,7 +3081,7 @@ module AWS::SDK::ServiceCatalog
         type = Types::TerminateProvisionedProductInput.new
         type.provisioned_product_name = params[:provisioned_product_name]
         type.provisioned_product_id = params[:provisioned_product_id]
-        type.terminate_token = params[:terminate_token] || SecureRandom.uuid
+        type.terminate_token = params[:terminate_token] || ::SecureRandom.uuid
         type.ignore_errors = params[:ignore_errors]
         type.accept_language = params[:accept_language]
         type.retain_physical_resources = params[:retain_physical_resources]
@@ -3214,7 +3214,7 @@ module AWS::SDK::ServiceCatalog
         type.provisioning_parameters = UpdateProvisioningParameters.build(params[:provisioning_parameters], context: "#{context}[:provisioning_parameters]") unless params[:provisioning_parameters].nil?
         type.provisioning_preferences = UpdateProvisioningPreferences.build(params[:provisioning_preferences], context: "#{context}[:provisioning_preferences]") unless params[:provisioning_preferences].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.update_token = params[:update_token] || SecureRandom.uuid
+        type.update_token = params[:update_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -3235,7 +3235,7 @@ module AWS::SDK::ServiceCatalog
         type.accept_language = params[:accept_language]
         type.provisioned_product_id = params[:provisioned_product_id]
         type.provisioned_product_properties = ProvisionedProductProperties.build(params[:provisioned_product_properties], context: "#{context}[:provisioned_product_properties]") unless params[:provisioned_product_properties].nil?
-        type.idempotency_token = params[:idempotency_token] || SecureRandom.uuid
+        type.idempotency_token = params[:idempotency_token] || ::SecureRandom.uuid
         type
       end
     end

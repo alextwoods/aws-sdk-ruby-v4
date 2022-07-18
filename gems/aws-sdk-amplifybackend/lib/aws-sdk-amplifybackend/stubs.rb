@@ -343,7 +343,7 @@ module AWS::SDK::AmplifyBackend
           amplify_meta_config: 'amplify_meta_config',
           app_id: 'app_id',
           app_name: 'app_name',
-          backend_environment_list: Stubs::ListOf__string.default(visited),
+          backend_environment_list: ListOf__string.default(visited),
           backend_environment_name: 'backend_environment_name',
           error: 'error',
         }
@@ -391,7 +391,7 @@ module AWS::SDK::AmplifyBackend
           app_id: 'app_id',
           backend_environment_name: 'backend_environment_name',
           error: 'error',
-          resource_config: Stubs::BackendAPIResourceConfig.default(visited),
+          resource_config: BackendAPIResourceConfig.default(visited),
           resource_name: 'resource_name',
         }
       end
@@ -415,10 +415,10 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('BackendAPIResourceConfig')
         visited = visited + ['BackendAPIResourceConfig']
         {
-          additional_auth_types: Stubs::ListOfBackendAPIAuthType.default(visited),
+          additional_auth_types: ListOfBackendAPIAuthType.default(visited),
           api_name: 'api_name',
-          conflict_resolution: Stubs::BackendAPIConflictResolution.default(visited),
-          default_auth_type: Stubs::BackendAPIAuthType.default(visited),
+          conflict_resolution: BackendAPIConflictResolution.default(visited),
+          default_auth_type: BackendAPIAuthType.default(visited),
           service: 'service',
           transform_schema: 'transform_schema',
         }
@@ -444,7 +444,7 @@ module AWS::SDK::AmplifyBackend
         visited = visited + ['BackendAPIAuthType']
         {
           mode: 'mode',
-          settings: Stubs::BackendAPIAppSyncAuthSettings.default(visited),
+          settings: BackendAPIAppSyncAuthSettings.default(visited),
         }
       end
 
@@ -513,7 +513,7 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('ListOfBackendAPIAuthType')
         visited = visited + ['ListOfBackendAPIAuthType']
         [
-          Stubs::BackendAPIAuthType.default(visited)
+          BackendAPIAuthType.default(visited)
         ]
       end
 
@@ -553,7 +553,7 @@ module AWS::SDK::AmplifyBackend
           app_id: 'app_id',
           backend_environment_name: 'backend_environment_name',
           error: 'error',
-          resource_config: Stubs::CreateBackendAuthResourceConfig.default(visited),
+          resource_config: CreateBackendAuthResourceConfig.default(visited),
           resource_name: 'resource_name',
         }
       end
@@ -578,9 +578,9 @@ module AWS::SDK::AmplifyBackend
         visited = visited + ['CreateBackendAuthResourceConfig']
         {
           auth_resources: 'auth_resources',
-          identity_pool_configs: Stubs::CreateBackendAuthIdentityPoolConfig.default(visited),
+          identity_pool_configs: CreateBackendAuthIdentityPoolConfig.default(visited),
           service: 'service',
-          user_pool_configs: Stubs::CreateBackendAuthUserPoolConfig.default(visited),
+          user_pool_configs: CreateBackendAuthUserPoolConfig.default(visited),
         }
       end
 
@@ -601,14 +601,14 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('CreateBackendAuthUserPoolConfig')
         visited = visited + ['CreateBackendAuthUserPoolConfig']
         {
-          forgot_password: Stubs::CreateBackendAuthForgotPasswordConfig.default(visited),
-          mfa: Stubs::CreateBackendAuthMFAConfig.default(visited),
-          o_auth: Stubs::CreateBackendAuthOAuthConfig.default(visited),
-          password_policy: Stubs::CreateBackendAuthPasswordPolicyConfig.default(visited),
-          required_sign_up_attributes: Stubs::ListOfRequiredSignUpAttributesElement.default(visited),
+          forgot_password: CreateBackendAuthForgotPasswordConfig.default(visited),
+          mfa: CreateBackendAuthMFAConfig.default(visited),
+          o_auth: CreateBackendAuthOAuthConfig.default(visited),
+          password_policy: CreateBackendAuthPasswordPolicyConfig.default(visited),
+          required_sign_up_attributes: ListOfRequiredSignUpAttributesElement.default(visited),
           sign_in_method: 'sign_in_method',
           user_pool_name: 'user_pool_name',
-          verification_message: Stubs::CreateBackendAuthVerificationMessageConfig.default(visited),
+          verification_message: CreateBackendAuthVerificationMessageConfig.default(visited),
         }
       end
 
@@ -634,8 +634,8 @@ module AWS::SDK::AmplifyBackend
         visited = visited + ['CreateBackendAuthVerificationMessageConfig']
         {
           delivery_method: 'delivery_method',
-          email_settings: Stubs::EmailSettings.default(visited),
-          sms_settings: Stubs::SmsSettings.default(visited),
+          email_settings: EmailSettings.default(visited),
+          sms_settings: SmsSettings.default(visited),
         }
       end
 
@@ -713,7 +713,7 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('CreateBackendAuthPasswordPolicyConfig')
         visited = visited + ['CreateBackendAuthPasswordPolicyConfig']
         {
-          additional_constraints: Stubs::ListOfAdditionalConstraintsElement.default(visited),
+          additional_constraints: ListOfAdditionalConstraintsElement.default(visited),
           minimum_length: 1.0,
         }
       end
@@ -755,10 +755,10 @@ module AWS::SDK::AmplifyBackend
         {
           domain_prefix: 'domain_prefix',
           o_auth_grant_type: 'o_auth_grant_type',
-          o_auth_scopes: Stubs::ListOfOAuthScopesElement.default(visited),
-          redirect_sign_in_ur_is: Stubs::ListOf__string.default(visited),
-          redirect_sign_out_ur_is: Stubs::ListOf__string.default(visited),
-          social_provider_settings: Stubs::SocialProviderSettings.default(visited),
+          o_auth_scopes: ListOfOAuthScopesElement.default(visited),
+          redirect_sign_in_ur_is: ListOf__string.default(visited),
+          redirect_sign_out_ur_is: ListOf__string.default(visited),
+          social_provider_settings: SocialProviderSettings.default(visited),
         }
       end
 
@@ -781,10 +781,10 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('SocialProviderSettings')
         visited = visited + ['SocialProviderSettings']
         {
-          facebook: Stubs::BackendAuthSocialProviderConfig.default(visited),
-          google: Stubs::BackendAuthSocialProviderConfig.default(visited),
-          login_with_amazon: Stubs::BackendAuthSocialProviderConfig.default(visited),
-          sign_in_with_apple: Stubs::BackendAuthAppleProviderConfig.default(visited),
+          facebook: BackendAuthSocialProviderConfig.default(visited),
+          google: BackendAuthSocialProviderConfig.default(visited),
+          login_with_amazon: BackendAuthSocialProviderConfig.default(visited),
+          sign_in_with_apple: BackendAuthAppleProviderConfig.default(visited),
         }
       end
 
@@ -870,7 +870,7 @@ module AWS::SDK::AmplifyBackend
         visited = visited + ['CreateBackendAuthMFAConfig']
         {
           mfa_mode: 'mfa_mode',
-          settings: Stubs::Settings.default(visited),
+          settings: Settings.default(visited),
         }
       end
 
@@ -889,7 +889,7 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('Settings')
         visited = visited + ['Settings']
         {
-          mfa_types: Stubs::ListOfMfaTypesElement.default(visited),
+          mfa_types: ListOfMfaTypesElement.default(visited),
           sms_message: 'sms_message',
         }
       end
@@ -930,8 +930,8 @@ module AWS::SDK::AmplifyBackend
         visited = visited + ['CreateBackendAuthForgotPasswordConfig']
         {
           delivery_method: 'delivery_method',
-          email_settings: Stubs::EmailSettings.default(visited),
-          sms_settings: Stubs::SmsSettings.default(visited),
+          email_settings: EmailSettings.default(visited),
+          sms_settings: SmsSettings.default(visited),
         }
       end
 
@@ -1002,7 +1002,7 @@ module AWS::SDK::AmplifyBackend
         {
           app_id: 'app_id',
           backend_environment_name: 'backend_environment_name',
-          resource_config: Stubs::GetBackendStorageResourceConfig.default(visited),
+          resource_config: GetBackendStorageResourceConfig.default(visited),
           resource_name: 'resource_name',
         }
       end
@@ -1027,7 +1027,7 @@ module AWS::SDK::AmplifyBackend
         {
           bucket_name: 'bucket_name',
           imported: false,
-          permissions: Stubs::BackendStoragePermissions.default(visited),
+          permissions: BackendStoragePermissions.default(visited),
           service_name: 'service_name',
         }
       end
@@ -1049,8 +1049,8 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('BackendStoragePermissions')
         visited = visited + ['BackendStoragePermissions']
         {
-          authenticated: Stubs::ListOfAuthenticatedElement.default(visited),
-          un_authenticated: Stubs::ListOfUnAuthenticatedElement.default(visited),
+          authenticated: ListOfAuthenticatedElement.default(visited),
+          un_authenticated: ListOfUnAuthenticatedElement.default(visited),
         }
       end
 
@@ -1180,7 +1180,7 @@ module AWS::SDK::AmplifyBackend
     class ListBackendJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::ListOfBackendJobRespObj.default(visited),
+          jobs: ListOfBackendJobRespObj.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1201,7 +1201,7 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('ListOfBackendJobRespObj')
         visited = visited + ['ListOfBackendJobRespObj']
         [
-          Stubs::BackendJobRespObj.default(visited)
+          BackendJobRespObj.default(visited)
         ]
       end
 
@@ -1251,7 +1251,7 @@ module AWS::SDK::AmplifyBackend
     class ListS3Buckets
       def self.default(visited=[])
         {
-          buckets: Stubs::ListOfS3BucketInfo.default(visited),
+          buckets: ListOfS3BucketInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1272,7 +1272,7 @@ module AWS::SDK::AmplifyBackend
         return nil if visited.include?('ListOfS3BucketInfo')
         visited = visited + ['ListOfS3BucketInfo']
         [
-          Stubs::S3BucketInfo.default(visited)
+          S3BucketInfo.default(visited)
         ]
       end
 
@@ -1409,7 +1409,7 @@ module AWS::SDK::AmplifyBackend
           app_id: 'app_id',
           backend_manager_app_id: 'backend_manager_app_id',
           error: 'error',
-          login_auth_config: Stubs::LoginAuthConfigReqObj.default(visited),
+          login_auth_config: LoginAuthConfigReqObj.default(visited),
         }
       end
 

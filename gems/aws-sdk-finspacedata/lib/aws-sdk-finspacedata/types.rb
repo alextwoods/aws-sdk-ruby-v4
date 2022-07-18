@@ -271,11 +271,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
       end
-
     end
 
     # Includes enum constants for ColumnDataType
@@ -586,11 +586,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_update ||= false
       end
-
     end
 
     # Response for creating a data view.
@@ -1165,13 +1165,13 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_update ||= false
         self.create_time ||= 0
         self.last_modified_time ||= 0
       end
-
     end
 
     # <p>The structure for a Dataset.</p>
@@ -1252,12 +1252,12 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
         self.last_modified_time ||= 0
       end
-
     end
 
     # Includes enum constants for DatasetKind
@@ -1619,11 +1619,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
       end
-
     end
 
     # Request for retrieving a data view detail. Grouped / accessible within a dataset by its dataset id.
@@ -1760,13 +1760,13 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_update ||= false
         self.last_modified_time ||= 0
         self.create_time ||= 0
       end
-
     end
 
     # Request for the GetDataset operation.
@@ -1881,12 +1881,12 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
         self.last_modified_time ||= 0
       end
-
     end
 
     # Request for GetProgrammaticAccessCredentials operation
@@ -1907,11 +1907,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_minutes ||= 0
       end
-
     end
 
     # Response for GetProgrammaticAccessCredentials operation
@@ -1932,11 +1932,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration_in_minutes ||= 0
       end
-
     end
 
     # @!attribute user_id
@@ -2075,6 +2075,7 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
@@ -2349,11 +2350,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute permission_groups
@@ -2390,11 +2391,11 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute users
@@ -2489,6 +2490,7 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0
@@ -3193,6 +3195,7 @@ module AWS::SDK::FinspaceData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_time ||= 0

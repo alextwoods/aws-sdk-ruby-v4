@@ -587,11 +587,11 @@ module AWS::SDK::ServiceCatalogAppRegistry
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associated_resource_count ||= 0
       end
-
     end
 
     # @!attribute application

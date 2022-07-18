@@ -411,7 +411,7 @@ module AWS::SDK::AlexaForBusiness
         type = Types::CreateAddressBookInput.new
         type.name = params[:name]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -436,7 +436,7 @@ module AWS::SDK::AlexaForBusiness
         type.format = params[:format]
         type.content_range = BusinessReportContentRange.build(params[:content_range], context: "#{context}[:content_range]") unless params[:content_range].nil?
         type.recurrence = BusinessReportRecurrence.build(params[:recurrence], context: "#{context}[:recurrence]") unless params[:recurrence].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -460,7 +460,7 @@ module AWS::SDK::AlexaForBusiness
         type.ip_dial_in = IPDialIn.build(params[:ip_dial_in], context: "#{context}[:ip_dial_in]") unless params[:ip_dial_in].nil?
         type.pstn_dial_in = PSTNDialIn.build(params[:pstn_dial_in], context: "#{context}[:pstn_dial_in]") unless params[:pstn_dial_in].nil?
         type.meeting_setting = MeetingSetting.build(params[:meeting_setting], context: "#{context}[:meeting_setting]") unless params[:meeting_setting].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -485,7 +485,7 @@ module AWS::SDK::AlexaForBusiness
         type.phone_number = params[:phone_number]
         type.phone_numbers = PhoneNumberList.build(params[:phone_numbers], context: "#{context}[:phone_numbers]") unless params[:phone_numbers].nil?
         type.sip_addresses = SipAddressList.build(params[:sip_addresses], context: "#{context}[:sip_addresses]") unless params[:sip_addresses].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -517,7 +517,7 @@ module AWS::SDK::AlexaForBusiness
         type = Types::CreateGatewayGroupInput.new
         type.name = params[:name]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -567,7 +567,7 @@ module AWS::SDK::AlexaForBusiness
         type.next_password = params[:next_password]
         type.certificate_authority_arn = params[:certificate_authority_arn]
         type.trust_anchors = TrustAnchorList.build(params[:trust_anchors], context: "#{context}[:trust_anchors]") unless params[:trust_anchors].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -593,7 +593,7 @@ module AWS::SDK::AlexaForBusiness
         type.temperature_unit = params[:temperature_unit]
         type.wake_word = params[:wake_word]
         type.locale = params[:locale]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.setup_mode_disabled = params[:setup_mode_disabled]
         type.max_volume_limit = params[:max_volume_limit]
         type.pstn_enabled = params[:pstn_enabled]
@@ -631,7 +631,7 @@ module AWS::SDK::AlexaForBusiness
         type.description = params[:description]
         type.profile_arn = params[:profile_arn]
         type.provider_calendar_id = params[:provider_calendar_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -652,7 +652,7 @@ module AWS::SDK::AlexaForBusiness
         type = Types::CreateSkillGroupInput.new
         type.skill_group_name = params[:skill_group_name]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -675,7 +675,7 @@ module AWS::SDK::AlexaForBusiness
         type.first_name = params[:first_name]
         type.last_name = params[:last_name]
         type.email = params[:email]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -2472,7 +2472,7 @@ module AWS::SDK::AlexaForBusiness
         type.room_filters = FilterList.build(params[:room_filters], context: "#{context}[:room_filters]") unless params[:room_filters].nil?
         type.content = Content.build(params[:content], context: "#{context}[:content]") unless params[:content].nil?
         type.time_to_live_in_seconds = params[:time_to_live_in_seconds]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

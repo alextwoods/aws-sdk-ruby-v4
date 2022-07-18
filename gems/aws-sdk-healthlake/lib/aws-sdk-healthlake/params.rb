@@ -38,7 +38,7 @@ module AWS::SDK::HealthLake
         type.datastore_type_version = params[:datastore_type_version]
         type.sse_configuration = SseConfiguration.build(params[:sse_configuration], context: "#{context}[:sse_configuration]") unless params[:sse_configuration].nil?
         type.preload_data_config = PreloadDataConfig.build(params[:preload_data_config], context: "#{context}[:preload_data_config]") unless params[:preload_data_config].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -425,7 +425,7 @@ module AWS::SDK::HealthLake
         type.output_data_config = OutputDataConfig.build(params[:output_data_config], context: "#{context}[:output_data_config]") unless params[:output_data_config].nil?
         type.datastore_id = params[:datastore_id]
         type.data_access_role_arn = params[:data_access_role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -450,7 +450,7 @@ module AWS::SDK::HealthLake
         type.job_output_data_config = OutputDataConfig.build(params[:job_output_data_config], context: "#{context}[:job_output_data_config]") unless params[:job_output_data_config].nil?
         type.datastore_id = params[:datastore_id]
         type.data_access_role_arn = params[:data_access_role_arn]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

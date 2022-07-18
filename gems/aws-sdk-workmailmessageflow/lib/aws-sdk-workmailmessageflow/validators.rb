@@ -51,7 +51,7 @@ module AWS::SDK::WorkMailMessageFlow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRawMessageContentInput, context: context)
         Hearth::Validator.validate!(input[:message_id], ::String, context: "#{context}[:message_id]")
-        Validators::RawMessageContent.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
+        RawMessageContent.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
       end
     end
 
@@ -64,7 +64,7 @@ module AWS::SDK::WorkMailMessageFlow
     class RawMessageContent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RawMessageContent, context: context)
-        Validators::S3Reference.validate!(input[:s3_reference], context: "#{context}[:s3_reference]") unless input[:s3_reference].nil?
+        S3Reference.validate!(input[:s3_reference], context: "#{context}[:s3_reference]") unless input[:s3_reference].nil?
       end
     end
 

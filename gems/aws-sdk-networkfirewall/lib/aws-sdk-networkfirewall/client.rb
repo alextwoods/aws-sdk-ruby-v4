@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::NetworkFirewall
@@ -158,7 +160,7 @@ module AWS::SDK::NetworkFirewall
     def associate_firewall_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateFirewallPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateFirewallPolicyInput,
         validate_input: @config.validate_input
@@ -257,7 +259,7 @@ module AWS::SDK::NetworkFirewall
     def associate_subnets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSubnetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSubnetsInput,
         validate_input: @config.validate_input
@@ -422,7 +424,7 @@ module AWS::SDK::NetworkFirewall
     def create_firewall(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFirewallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFirewallInput,
         validate_input: @config.validate_input
@@ -583,7 +585,7 @@ module AWS::SDK::NetworkFirewall
     def create_firewall_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFirewallPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFirewallPolicyInput,
         validate_input: @config.validate_input
@@ -878,7 +880,7 @@ module AWS::SDK::NetworkFirewall
     def create_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRuleGroupInput,
         validate_input: @config.validate_input
@@ -995,7 +997,7 @@ module AWS::SDK::NetworkFirewall
     def delete_firewall(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallInput,
         validate_input: @config.validate_input
@@ -1086,7 +1088,7 @@ module AWS::SDK::NetworkFirewall
     def delete_firewall_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallPolicyInput,
         validate_input: @config.validate_input
@@ -1154,7 +1156,7 @@ module AWS::SDK::NetworkFirewall
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1258,7 +1260,7 @@ module AWS::SDK::NetworkFirewall
     def delete_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRuleGroupInput,
         validate_input: @config.validate_input
@@ -1366,7 +1368,7 @@ module AWS::SDK::NetworkFirewall
     def describe_firewall(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFirewallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFirewallInput,
         validate_input: @config.validate_input
@@ -1484,7 +1486,7 @@ module AWS::SDK::NetworkFirewall
     def describe_firewall_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFirewallPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFirewallPolicyInput,
         validate_input: @config.validate_input
@@ -1566,7 +1568,7 @@ module AWS::SDK::NetworkFirewall
     def describe_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -1635,7 +1637,7 @@ module AWS::SDK::NetworkFirewall
     def describe_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1806,7 +1808,7 @@ module AWS::SDK::NetworkFirewall
     def describe_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuleGroupInput,
         validate_input: @config.validate_input
@@ -1899,7 +1901,7 @@ module AWS::SDK::NetworkFirewall
     def describe_rule_group_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRuleGroupMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRuleGroupMetadataInput,
         validate_input: @config.validate_input
@@ -1994,7 +1996,7 @@ module AWS::SDK::NetworkFirewall
     def disassociate_subnets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateSubnetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateSubnetsInput,
         validate_input: @config.validate_input
@@ -2077,7 +2079,7 @@ module AWS::SDK::NetworkFirewall
     def list_firewall_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallPoliciesInput,
         validate_input: @config.validate_input
@@ -2168,7 +2170,7 @@ module AWS::SDK::NetworkFirewall
     def list_firewalls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallsInput,
         validate_input: @config.validate_input
@@ -2265,7 +2267,7 @@ module AWS::SDK::NetworkFirewall
     def list_rule_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRuleGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRuleGroupsInput,
         validate_input: @config.validate_input
@@ -2356,7 +2358,7 @@ module AWS::SDK::NetworkFirewall
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2471,7 +2473,7 @@ module AWS::SDK::NetworkFirewall
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2553,7 +2555,7 @@ module AWS::SDK::NetworkFirewall
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2633,7 +2635,7 @@ module AWS::SDK::NetworkFirewall
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2726,7 +2728,7 @@ module AWS::SDK::NetworkFirewall
     def update_firewall_delete_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallDeleteProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallDeleteProtectionInput,
         validate_input: @config.validate_input
@@ -2816,7 +2818,7 @@ module AWS::SDK::NetworkFirewall
     def update_firewall_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallDescriptionInput,
         validate_input: @config.validate_input
@@ -2907,7 +2909,7 @@ module AWS::SDK::NetworkFirewall
     def update_firewall_encryption_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallEncryptionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallEncryptionConfigurationInput,
         validate_input: @config.validate_input
@@ -3067,7 +3069,7 @@ module AWS::SDK::NetworkFirewall
     def update_firewall_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallPolicyInput,
         validate_input: @config.validate_input
@@ -3159,7 +3161,7 @@ module AWS::SDK::NetworkFirewall
     def update_firewall_policy_change_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallPolicyChangeProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallPolicyChangeProtectionInput,
         validate_input: @config.validate_input
@@ -3282,7 +3284,7 @@ module AWS::SDK::NetworkFirewall
     def update_logging_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLoggingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLoggingConfigurationInput,
         validate_input: @config.validate_input
@@ -3540,7 +3542,7 @@ module AWS::SDK::NetworkFirewall
     def update_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRuleGroupInput,
         validate_input: @config.validate_input
@@ -3630,7 +3632,7 @@ module AWS::SDK::NetworkFirewall
     def update_subnet_change_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubnetChangeProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubnetChangeProtectionInput,
         validate_input: @config.validate_input

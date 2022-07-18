@@ -14,7 +14,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         visited = visited + ['Cluster']
         {
           cluster_arn: 'cluster_arn',
-          cluster_endpoints: Stubs::List____listOfClusterEndpoint.default(visited),
+          cluster_endpoints: List____listOfClusterEndpoint.default(visited),
           name: 'name',
           status: 'status',
         }
@@ -57,7 +57,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('List____listOfClusterEndpoint')
         visited = visited + ['List____listOfClusterEndpoint']
         [
-          Stubs::ClusterEndpoint.default(visited)
+          ClusterEndpoint.default(visited)
         ]
       end
 
@@ -95,7 +95,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class CreateControlPanel
       def self.default(visited=[])
         {
-          control_panel: Stubs::ControlPanel.default(visited),
+          control_panel: ControlPanel.default(visited),
         }
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class CreateRoutingControl
       def self.default(visited=[])
         {
-          routing_control: Stubs::RoutingControl.default(visited),
+          routing_control: RoutingControl.default(visited),
         }
       end
 
@@ -181,8 +181,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class CreateSafetyRule
       def self.default(visited=[])
         {
-          assertion_rule: Stubs::AssertionRule.default(visited),
-          gating_rule: Stubs::GatingRule.default(visited),
+          assertion_rule: AssertionRule.default(visited),
+          gating_rule: GatingRule.default(visited),
         }
       end
 
@@ -203,12 +203,12 @@ module AWS::SDK::Route53RecoveryControlConfig
         visited = visited + ['GatingRule']
         {
           control_panel_arn: 'control_panel_arn',
-          gating_controls: Stubs::List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
+          gating_controls: List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
           name: 'name',
-          rule_config: Stubs::RuleConfig.default(visited),
+          rule_config: RuleConfig.default(visited),
           safety_rule_arn: 'safety_rule_arn',
           status: 'status',
-          target_controls: Stubs::List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
+          target_controls: List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
           wait_period_ms: 1,
         }
       end
@@ -276,10 +276,10 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('AssertionRule')
         visited = visited + ['AssertionRule']
         {
-          asserted_controls: Stubs::List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
+          asserted_controls: List____listOf__stringMin1Max256PatternAZaZ09.default(visited),
           control_panel_arn: 'control_panel_arn',
           name: 'name',
-          rule_config: Stubs::RuleConfig.default(visited),
+          rule_config: RuleConfig.default(visited),
           safety_rule_arn: 'safety_rule_arn',
           status: 'status',
           wait_period_ms: 1,
@@ -356,7 +356,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -373,7 +373,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeControlPanel
       def self.default(visited=[])
         {
-          control_panel: Stubs::ControlPanel.default(visited),
+          control_panel: ControlPanel.default(visited),
         }
       end
 
@@ -390,7 +390,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeRoutingControl
       def self.default(visited=[])
         {
-          routing_control: Stubs::RoutingControl.default(visited),
+          routing_control: RoutingControl.default(visited),
         }
       end
 
@@ -407,8 +407,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeSafetyRule
       def self.default(visited=[])
         {
-          assertion_rule: Stubs::AssertionRule.default(visited),
-          gating_rule: Stubs::GatingRule.default(visited),
+          assertion_rule: AssertionRule.default(visited),
+          gating_rule: GatingRule.default(visited),
         }
       end
 
@@ -426,7 +426,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListAssociatedRoute53HealthChecks
       def self.default(visited=[])
         {
-          health_check_ids: Stubs::List____listOf__stringMax36PatternS.default(visited),
+          health_check_ids: List____listOf__stringMax36PatternS.default(visited),
           next_token: 'next_token',
         }
       end
@@ -465,7 +465,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListClusters
       def self.default(visited=[])
         {
-          clusters: Stubs::List____listOfCluster.default(visited),
+          clusters: List____listOfCluster.default(visited),
           next_token: 'next_token',
         }
       end
@@ -486,7 +486,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('List____listOfCluster')
         visited = visited + ['List____listOfCluster']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -504,7 +504,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListControlPanels
       def self.default(visited=[])
         {
-          control_panels: Stubs::List____listOfControlPanel.default(visited),
+          control_panels: List____listOfControlPanel.default(visited),
           next_token: 'next_token',
         }
       end
@@ -525,7 +525,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('List____listOfControlPanel')
         visited = visited + ['List____listOfControlPanel']
         [
-          Stubs::ControlPanel.default(visited)
+          ControlPanel.default(visited)
         ]
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          routing_controls: Stubs::List____listOfRoutingControl.default(visited),
+          routing_controls: List____listOfRoutingControl.default(visited),
         }
       end
 
@@ -564,7 +564,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('List____listOfRoutingControl')
         visited = visited + ['List____listOfRoutingControl']
         [
-          Stubs::RoutingControl.default(visited)
+          RoutingControl.default(visited)
         ]
       end
 
@@ -583,7 +583,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          safety_rules: Stubs::List____listOfRule.default(visited),
+          safety_rules: List____listOfRule.default(visited),
         }
       end
 
@@ -603,7 +603,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('List____listOfRule')
         visited = visited + ['List____listOfRule']
         [
-          Stubs::Rule.default(visited)
+          Rule.default(visited)
         ]
       end
 
@@ -623,8 +623,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         return nil if visited.include?('Rule')
         visited = visited + ['Rule']
         {
-          assertion: Stubs::AssertionRule.default(visited),
-          gating: Stubs::GatingRule.default(visited),
+          assertion: AssertionRule.default(visited),
+          gating: GatingRule.default(visited),
         }
       end
 
@@ -641,7 +641,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__stringMin0Max256PatternS.default(visited),
+          tags: Map____mapOf__stringMin0Max256PatternS.default(visited),
         }
       end
 
@@ -704,7 +704,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class UpdateControlPanel
       def self.default(visited=[])
         {
-          control_panel: Stubs::ControlPanel.default(visited),
+          control_panel: ControlPanel.default(visited),
         }
       end
 
@@ -721,7 +721,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class UpdateRoutingControl
       def self.default(visited=[])
         {
-          routing_control: Stubs::RoutingControl.default(visited),
+          routing_control: RoutingControl.default(visited),
         }
       end
 
@@ -738,8 +738,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class UpdateSafetyRule
       def self.default(visited=[])
         {
-          assertion_rule: Stubs::AssertionRule.default(visited),
-          gating_rule: Stubs::GatingRule.default(visited),
+          assertion_rule: AssertionRule.default(visited),
+          gating_rule: GatingRule.default(visited),
         }
       end
 

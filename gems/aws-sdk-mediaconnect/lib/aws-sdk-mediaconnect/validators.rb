@@ -14,7 +14,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowMediaStreamsInput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfAddMediaStreamRequest.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
+        List____listOfAddMediaStreamRequest.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
       end
     end
 
@@ -22,7 +22,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowMediaStreamsOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfMediaStream.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
+        List____listOfMediaStream.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
       end
     end
 
@@ -37,7 +37,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowOutputsInput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfAddOutputRequest.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        List____listOfAddOutputRequest.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -45,7 +45,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowOutputsOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -53,7 +53,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowSourcesInput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfSetSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOfSetSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
@@ -61,7 +61,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowSourcesOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOfSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
       end
     end
 
@@ -69,7 +69,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowVpcInterfacesInput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfVpcInterfaceRequest.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
+        List____listOfVpcInterfaceRequest.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
       end
     end
 
@@ -77,7 +77,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddFlowVpcInterfacesOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfVpcInterface.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
+        List____listOfVpcInterface.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
       end
     end
 
@@ -92,7 +92,7 @@ module AWS::SDK::MediaConnect
     class AddMediaStreamRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddMediaStreamRequest, context: context)
-        Validators::MediaStreamAttributesRequest.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MediaStreamAttributesRequest.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:clock_rate], ::Integer, context: "#{context}[:clock_rate]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:media_stream_id], ::Integer, context: "#{context}[:media_stream_id]")
@@ -105,12 +105,12 @@ module AWS::SDK::MediaConnect
     class AddOutputRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddOutputRequest, context: context)
-        Validators::List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
+        List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:max_latency], ::Integer, context: "#{context}[:max_latency]")
-        Validators::List____listOfMediaStreamOutputConfigurationRequest.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
+        List____listOfMediaStreamOutputConfigurationRequest.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
         Hearth::Validator.validate!(input[:min_latency], ::Integer, context: "#{context}[:min_latency]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
@@ -119,7 +119,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:sender_control_port], ::Integer, context: "#{context}[:sender_control_port]")
         Hearth::Validator.validate!(input[:smoothing_latency], ::Integer, context: "#{context}[:smoothing_latency]")
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
-        Validators::VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
+        VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
       end
     end
 
@@ -141,22 +141,22 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFlowInput, context: context)
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
-        Validators::List____listOfGrantEntitlementRequest.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
-        Validators::List____listOfAddMediaStreamRequest.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
+        List____listOfGrantEntitlementRequest.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        List____listOfAddMediaStreamRequest.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfAddOutputRequest.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::SetSourceRequest.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::FailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
-        Validators::List____listOfSetSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::List____listOfVpcInterfaceRequest.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
-        Validators::AddMaintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        List____listOfAddOutputRequest.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        SetSourceRequest.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        FailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
+        List____listOfSetSourceRequest.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOfVpcInterfaceRequest.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
+        AddMaintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
       end
     end
 
     class CreateFlowOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFlowOutput, context: context)
-        Validators::Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
+        Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
       end
     end
 
@@ -185,8 +185,8 @@ module AWS::SDK::MediaConnect
     class DescribeFlowOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFlowOutput, context: context)
-        Validators::Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -200,7 +200,7 @@ module AWS::SDK::MediaConnect
     class DescribeOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOfferingOutput, context: context)
-        Validators::Offering.validate!(input[:offering], context: "#{context}[:offering]") unless input[:offering].nil?
+        Offering.validate!(input[:offering], context: "#{context}[:offering]") unless input[:offering].nil?
       end
     end
 
@@ -214,7 +214,7 @@ module AWS::SDK::MediaConnect
     class DescribeReservationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReservationOutput, context: context)
-        Validators::Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
+        Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
       end
     end
 
@@ -223,7 +223,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::DestinationConfiguration, context: context)
         Hearth::Validator.validate!(input[:destination_ip], ::String, context: "#{context}[:destination_ip]")
         Hearth::Validator.validate!(input[:destination_port], ::Integer, context: "#{context}[:destination_port]")
-        Validators::Interface.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
+        Interface.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
         Hearth::Validator.validate!(input[:outbound_ip], ::String, context: "#{context}[:outbound_ip]")
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::DestinationConfigurationRequest, context: context)
         Hearth::Validator.validate!(input[:destination_ip], ::String, context: "#{context}[:destination_ip]")
         Hearth::Validator.validate!(input[:destination_port], ::Integer, context: "#{context}[:destination_port]")
-        Validators::InterfaceRequest.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
+        InterfaceRequest.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
       end
     end
 
@@ -273,11 +273,11 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::Entitlement, context: context)
         Hearth::Validator.validate!(input[:data_transfer_subscriber_fee_percent], ::Integer, context: "#{context}[:data_transfer_subscriber_fee_percent]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:entitlement_status], ::String, context: "#{context}[:entitlement_status]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -286,7 +286,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::FailoverConfig, context: context)
         Hearth::Validator.validate!(input[:failover_mode], ::String, context: "#{context}[:failover_mode]")
         Hearth::Validator.validate!(input[:recovery_window], ::Integer, context: "#{context}[:recovery_window]")
-        Validators::SourcePriority.validate!(input[:source_priority], context: "#{context}[:source_priority]") unless input[:source_priority].nil?
+        SourcePriority.validate!(input[:source_priority], context: "#{context}[:source_priority]") unless input[:source_priority].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
@@ -297,17 +297,17 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:egress_ip], ::String, context: "#{context}[:egress_ip]")
-        Validators::List____listOfEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        List____listOfEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOfMediaStream.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
+        List____listOfMediaStream.validate!(input[:media_streams], context: "#{context}[:media_streams]") unless input[:media_streams].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::FailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
-        Validators::List____listOfSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        List____listOfOutput.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        FailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
+        List____listOfSource.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::List____listOfVpcInterface.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
-        Validators::Maintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        List____listOfVpcInterface.validate!(input[:vpc_interfaces], context: "#{context}[:vpc_interfaces]") unless input[:vpc_interfaces].nil?
+        Maintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
       end
     end
 
@@ -349,10 +349,10 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::GrantEntitlementRequest, context: context)
         Hearth::Validator.validate!(input[:data_transfer_subscriber_fee_percent], ::Integer, context: "#{context}[:data_transfer_subscriber_fee_percent]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:entitlement_status], ::String, context: "#{context}[:entitlement_status]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
@@ -366,7 +366,7 @@ module AWS::SDK::MediaConnect
     class GrantFlowEntitlementsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrantFlowEntitlementsInput, context: context)
-        Validators::List____listOfGrantEntitlementRequest.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        List____listOfGrantEntitlementRequest.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
       end
     end
@@ -374,7 +374,7 @@ module AWS::SDK::MediaConnect
     class GrantFlowEntitlementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrantFlowEntitlementsOutput, context: context)
-        Validators::List____listOfEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        List____listOfEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
       end
     end
@@ -384,7 +384,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::InputConfiguration, context: context)
         Hearth::Validator.validate!(input[:input_ip], ::String, context: "#{context}[:input_ip]")
         Hearth::Validator.validate!(input[:input_port], ::Integer, context: "#{context}[:input_port]")
-        Validators::Interface.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
+        Interface.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
       end
     end
 
@@ -392,7 +392,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputConfigurationRequest, context: context)
         Hearth::Validator.validate!(input[:input_port], ::Integer, context: "#{context}[:input_port]")
-        Validators::InterfaceRequest.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
+        InterfaceRequest.validate!(input[:interface], context: "#{context}[:interface]") unless input[:interface].nil?
       end
     end
 
@@ -428,7 +428,7 @@ module AWS::SDK::MediaConnect
     class ListEntitlementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitlementsOutput, context: context)
-        Validators::List____listOfListedEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        List____listOfListedEntitlement.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -444,7 +444,7 @@ module AWS::SDK::MediaConnect
     class ListFlowsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFlowsOutput, context: context)
-        Validators::List____listOfListedFlow.validate!(input[:flows], context: "#{context}[:flows]") unless input[:flows].nil?
+        List____listOfListedFlow.validate!(input[:flows], context: "#{context}[:flows]") unless input[:flows].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -461,7 +461,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOfferingsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfOffering.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
+        List____listOfOffering.validate!(input[:offerings], context: "#{context}[:offerings]") unless input[:offerings].nil?
       end
     end
 
@@ -477,7 +477,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReservationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfReservation.validate!(input[:reservations], context: "#{context}[:reservations]") unless input[:reservations].nil?
+        List____listOfReservation.validate!(input[:reservations], context: "#{context}[:reservations]") unless input[:reservations].nil?
       end
     end
 
@@ -491,7 +491,7 @@ module AWS::SDK::MediaConnect
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -513,7 +513,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:source_type], ::String, context: "#{context}[:source_type]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::Maintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        Maintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
       end
     end
 
@@ -530,7 +530,7 @@ module AWS::SDK::MediaConnect
     class MediaStream
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStream, context: context)
-        Validators::MediaStreamAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MediaStreamAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:clock_rate], ::Integer, context: "#{context}[:clock_rate]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:fmt], ::Integer, context: "#{context}[:fmt]")
@@ -544,7 +544,7 @@ module AWS::SDK::MediaConnect
     class MediaStreamAttributes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamAttributes, context: context)
-        Validators::Fmtp.validate!(input[:fmtp], context: "#{context}[:fmtp]") unless input[:fmtp].nil?
+        Fmtp.validate!(input[:fmtp], context: "#{context}[:fmtp]") unless input[:fmtp].nil?
         Hearth::Validator.validate!(input[:lang], ::String, context: "#{context}[:lang]")
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::MediaConnect
     class MediaStreamAttributesRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamAttributesRequest, context: context)
-        Validators::FmtpRequest.validate!(input[:fmtp], context: "#{context}[:fmtp]") unless input[:fmtp].nil?
+        FmtpRequest.validate!(input[:fmtp], context: "#{context}[:fmtp]") unless input[:fmtp].nil?
         Hearth::Validator.validate!(input[:lang], ::String, context: "#{context}[:lang]")
       end
     end
@@ -560,9 +560,9 @@ module AWS::SDK::MediaConnect
     class MediaStreamOutputConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamOutputConfiguration, context: context)
-        Validators::List____listOfDestinationConfiguration.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
+        List____listOfDestinationConfiguration.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
         Hearth::Validator.validate!(input[:encoding_name], ::String, context: "#{context}[:encoding_name]")
-        Validators::EncodingParameters.validate!(input[:encoding_parameters], context: "#{context}[:encoding_parameters]") unless input[:encoding_parameters].nil?
+        EncodingParameters.validate!(input[:encoding_parameters], context: "#{context}[:encoding_parameters]") unless input[:encoding_parameters].nil?
         Hearth::Validator.validate!(input[:media_stream_name], ::String, context: "#{context}[:media_stream_name]")
       end
     end
@@ -570,9 +570,9 @@ module AWS::SDK::MediaConnect
     class MediaStreamOutputConfigurationRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamOutputConfigurationRequest, context: context)
-        Validators::List____listOfDestinationConfigurationRequest.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
+        List____listOfDestinationConfigurationRequest.validate!(input[:destination_configurations], context: "#{context}[:destination_configurations]") unless input[:destination_configurations].nil?
         Hearth::Validator.validate!(input[:encoding_name], ::String, context: "#{context}[:encoding_name]")
-        Validators::EncodingParametersRequest.validate!(input[:encoding_parameters], context: "#{context}[:encoding_parameters]") unless input[:encoding_parameters].nil?
+        EncodingParametersRequest.validate!(input[:encoding_parameters], context: "#{context}[:encoding_parameters]") unless input[:encoding_parameters].nil?
         Hearth::Validator.validate!(input[:media_stream_name], ::String, context: "#{context}[:media_stream_name]")
       end
     end
@@ -581,7 +581,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamSourceConfiguration, context: context)
         Hearth::Validator.validate!(input[:encoding_name], ::String, context: "#{context}[:encoding_name]")
-        Validators::List____listOfInputConfiguration.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
+        List____listOfInputConfiguration.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
         Hearth::Validator.validate!(input[:media_stream_name], ::String, context: "#{context}[:media_stream_name]")
       end
     end
@@ -590,7 +590,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MediaStreamSourceConfigurationRequest, context: context)
         Hearth::Validator.validate!(input[:encoding_name], ::String, context: "#{context}[:encoding_name]")
-        Validators::List____listOfInputConfigurationRequest.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
+        List____listOfInputConfigurationRequest.validate!(input[:input_configurations], context: "#{context}[:input_configurations]") unless input[:input_configurations].nil?
         Hearth::Validator.validate!(input[:media_stream_name], ::String, context: "#{context}[:media_stream_name]")
       end
     end
@@ -598,7 +598,7 @@ module AWS::SDK::MediaConnect
     class Messages
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Messages, context: context)
-        Validators::List____listOf__string.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        List____listOf__string.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -619,7 +619,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:offering_description], ::String, context: "#{context}[:offering_description]")
         Hearth::Validator.validate!(input[:price_per_unit], ::String, context: "#{context}[:price_per_unit]")
         Hearth::Validator.validate!(input[:price_units], ::String, context: "#{context}[:price_units]")
-        Validators::ResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
       end
     end
 
@@ -629,16 +629,16 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:data_transfer_subscriber_fee_percent], ::Integer, context: "#{context}[:data_transfer_subscriber_fee_percent]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:listener_address], ::String, context: "#{context}[:listener_address]")
         Hearth::Validator.validate!(input[:media_live_input_arn], ::String, context: "#{context}[:media_live_input_arn]")
-        Validators::List____listOfMediaStreamOutputConfiguration.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
+        List____listOfMediaStreamOutputConfiguration.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:output_arn], ::String, context: "#{context}[:output_arn]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
-        Validators::Transport.validate!(input[:transport], context: "#{context}[:transport]") unless input[:transport].nil?
-        Validators::VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
+        Transport.validate!(input[:transport], context: "#{context}[:transport]") unless input[:transport].nil?
+        VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
       end
     end
 
@@ -654,7 +654,7 @@ module AWS::SDK::MediaConnect
     class PurchaseOfferingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PurchaseOfferingOutput, context: context)
-        Validators::Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
+        Reservation.validate!(input[:reservation], context: "#{context}[:reservation]") unless input[:reservation].nil?
       end
     end
 
@@ -718,7 +718,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveFlowVpcInterfaceOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOf__string.validate!(input[:non_deleted_network_interface_ids], context: "#{context}[:non_deleted_network_interface_ids]") unless input[:non_deleted_network_interface_ids].nil?
+        List____listOf__string.validate!(input[:non_deleted_network_interface_ids], context: "#{context}[:non_deleted_network_interface_ids]") unless input[:non_deleted_network_interface_ids].nil?
         Hearth::Validator.validate!(input[:vpc_interface_name], ::String, context: "#{context}[:vpc_interface_name]")
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:reservation_arn], ::String, context: "#{context}[:reservation_arn]")
         Hearth::Validator.validate!(input[:reservation_name], ::String, context: "#{context}[:reservation_name]")
         Hearth::Validator.validate!(input[:reservation_state], ::String, context: "#{context}[:reservation_state]")
-        Validators::ResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
+        ResourceSpecification.validate!(input[:resource_specification], context: "#{context}[:resource_specification]") unless input[:resource_specification].nil?
         Hearth::Validator.validate!(input[:start], ::String, context: "#{context}[:start]")
       end
     end
@@ -776,14 +776,14 @@ module AWS::SDK::MediaConnect
     class SetSourceRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetSourceRequest, context: context)
-        Validators::Encryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
+        Encryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:ingest_port], ::Integer, context: "#{context}[:ingest_port]")
         Hearth::Validator.validate!(input[:max_bitrate], ::Integer, context: "#{context}[:max_bitrate]")
         Hearth::Validator.validate!(input[:max_latency], ::Integer, context: "#{context}[:max_latency]")
         Hearth::Validator.validate!(input[:max_sync_buffer], ::Integer, context: "#{context}[:max_sync_buffer]")
-        Validators::List____listOfMediaStreamSourceConfigurationRequest.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
+        List____listOfMediaStreamSourceConfigurationRequest.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
         Hearth::Validator.validate!(input[:min_latency], ::Integer, context: "#{context}[:min_latency]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
@@ -799,17 +799,17 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Source, context: context)
         Hearth::Validator.validate!(input[:data_transfer_subscriber_fee_percent], ::Integer, context: "#{context}[:data_transfer_subscriber_fee_percent]")
-        Validators::Encryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
+        Encryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:ingest_ip], ::String, context: "#{context}[:ingest_ip]")
         Hearth::Validator.validate!(input[:ingest_port], ::Integer, context: "#{context}[:ingest_port]")
-        Validators::List____listOfMediaStreamSourceConfiguration.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
+        List____listOfMediaStreamSourceConfiguration.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sender_control_port], ::Integer, context: "#{context}[:sender_control_port]")
         Hearth::Validator.validate!(input[:sender_ip_address], ::String, context: "#{context}[:sender_ip_address]")
         Hearth::Validator.validate!(input[:source_arn], ::String, context: "#{context}[:source_arn]")
-        Validators::Transport.validate!(input[:transport], context: "#{context}[:transport]") unless input[:transport].nil?
+        Transport.validate!(input[:transport], context: "#{context}[:transport]") unless input[:transport].nil?
         Hearth::Validator.validate!(input[:vpc_interface_name], ::String, context: "#{context}[:vpc_interface_name]")
         Hearth::Validator.validate!(input[:whitelist_cidr], ::String, context: "#{context}[:whitelist_cidr]")
       end
@@ -856,7 +856,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -876,7 +876,7 @@ module AWS::SDK::MediaConnect
     class Transport
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Transport, context: context)
-        Validators::List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
+        List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
         Hearth::Validator.validate!(input[:max_bitrate], ::Integer, context: "#{context}[:max_bitrate]")
         Hearth::Validator.validate!(input[:max_latency], ::Integer, context: "#{context}[:max_latency]")
         Hearth::Validator.validate!(input[:max_sync_buffer], ::Integer, context: "#{context}[:max_sync_buffer]")
@@ -894,7 +894,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -924,7 +924,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input, Types::UpdateFailoverConfig, context: context)
         Hearth::Validator.validate!(input[:failover_mode], ::String, context: "#{context}[:failover_mode]")
         Hearth::Validator.validate!(input[:recovery_window], ::Integer, context: "#{context}[:recovery_window]")
-        Validators::SourcePriority.validate!(input[:source_priority], context: "#{context}[:source_priority]") unless input[:source_priority].nil?
+        SourcePriority.validate!(input[:source_priority], context: "#{context}[:source_priority]") unless input[:source_priority].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
@@ -933,18 +933,18 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowEntitlementInput, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::UpdateEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        UpdateEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:entitlement_status], ::String, context: "#{context}[:entitlement_status]")
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
+        List____listOf__string.validate!(input[:subscribers], context: "#{context}[:subscribers]") unless input[:subscribers].nil?
       end
     end
 
     class UpdateFlowEntitlementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowEntitlementOutput, context: context)
-        Validators::Entitlement.validate!(input[:entitlement], context: "#{context}[:entitlement]") unless input[:entitlement].nil?
+        Entitlement.validate!(input[:entitlement], context: "#{context}[:entitlement]") unless input[:entitlement].nil?
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
       end
     end
@@ -953,15 +953,15 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowInput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::UpdateFailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
-        Validators::UpdateMaintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
+        UpdateFailoverConfig.validate!(input[:source_failover_config], context: "#{context}[:source_failover_config]") unless input[:source_failover_config].nil?
+        UpdateMaintenance.validate!(input[:maintenance], context: "#{context}[:maintenance]") unless input[:maintenance].nil?
       end
     end
 
     class UpdateFlowMediaStreamInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowMediaStreamInput, context: context)
-        Validators::MediaStreamAttributesRequest.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        MediaStreamAttributesRequest.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:clock_rate], ::Integer, context: "#{context}[:clock_rate]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
@@ -975,27 +975,27 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowMediaStreamOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::MediaStream.validate!(input[:media_stream], context: "#{context}[:media_stream]") unless input[:media_stream].nil?
+        MediaStream.validate!(input[:media_stream], context: "#{context}[:media_stream]") unless input[:media_stream].nil?
       end
     end
 
     class UpdateFlowOperationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowOperationOutput, context: context)
-        Validators::Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
+        Flow.validate!(input[:flow], context: "#{context}[:flow]") unless input[:flow].nil?
       end
     end
 
     class UpdateFlowOutputInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowOutputInput, context: context)
-        Validators::List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
+        List____listOf__string.validate!(input[:cidr_allow_list], context: "#{context}[:cidr_allow_list]") unless input[:cidr_allow_list].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
-        Validators::UpdateEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        UpdateEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
         Hearth::Validator.validate!(input[:max_latency], ::Integer, context: "#{context}[:max_latency]")
-        Validators::List____listOfMediaStreamOutputConfigurationRequest.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
+        List____listOfMediaStreamOutputConfigurationRequest.validate!(input[:media_stream_output_configurations], context: "#{context}[:media_stream_output_configurations]") unless input[:media_stream_output_configurations].nil?
         Hearth::Validator.validate!(input[:min_latency], ::Integer, context: "#{context}[:min_latency]")
         Hearth::Validator.validate!(input[:output_arn], ::String, context: "#{context}[:output_arn]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
@@ -1005,7 +1005,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:sender_ip_address], ::String, context: "#{context}[:sender_ip_address]")
         Hearth::Validator.validate!(input[:smoothing_latency], ::Integer, context: "#{context}[:smoothing_latency]")
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
-        Validators::VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
+        VpcInterfaceAttachment.validate!(input[:vpc_interface_attachment], context: "#{context}[:vpc_interface_attachment]") unless input[:vpc_interface_attachment].nil?
       end
     end
 
@@ -1013,14 +1013,14 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowOutputOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::Output.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
+        Output.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
       end
     end
 
     class UpdateFlowSourceInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowSourceInput, context: context)
-        Validators::UpdateEncryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
+        UpdateEncryption.validate!(input[:decryption], context: "#{context}[:decryption]") unless input[:decryption].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:entitlement_arn], ::String, context: "#{context}[:entitlement_arn]")
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
@@ -1028,7 +1028,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:max_bitrate], ::Integer, context: "#{context}[:max_bitrate]")
         Hearth::Validator.validate!(input[:max_latency], ::Integer, context: "#{context}[:max_latency]")
         Hearth::Validator.validate!(input[:max_sync_buffer], ::Integer, context: "#{context}[:max_sync_buffer]")
-        Validators::List____listOfMediaStreamSourceConfigurationRequest.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
+        List____listOfMediaStreamSourceConfigurationRequest.validate!(input[:media_stream_source_configurations], context: "#{context}[:media_stream_source_configurations]") unless input[:media_stream_source_configurations].nil?
         Hearth::Validator.validate!(input[:min_latency], ::Integer, context: "#{context}[:min_latency]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:sender_control_port], ::Integer, context: "#{context}[:sender_control_port]")
@@ -1044,7 +1044,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFlowSourceOutput, context: context)
         Hearth::Validator.validate!(input[:flow_arn], ::String, context: "#{context}[:flow_arn]")
-        Validators::Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        Source.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
       end
     end
 
@@ -1061,10 +1061,10 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcInterface, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::List____listOf__string.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
+        List____listOf__string.validate!(input[:network_interface_ids], context: "#{context}[:network_interface_ids]") unless input[:network_interface_ids].nil?
         Hearth::Validator.validate!(input[:network_interface_type], ::String, context: "#{context}[:network_interface_type]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
       end
     end
@@ -1082,7 +1082,7 @@ module AWS::SDK::MediaConnect
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:network_interface_type], ::String, context: "#{context}[:network_interface_type]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        List____listOf__string.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
       end
     end
@@ -1091,7 +1091,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AddMediaStreamRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AddMediaStreamRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1100,7 +1100,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AddOutputRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AddOutputRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1109,7 +1109,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DestinationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DestinationConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1118,7 +1118,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DestinationConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DestinationConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1127,7 +1127,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GrantEntitlementRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GrantEntitlementRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1145,7 +1145,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1154,7 +1154,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1163,7 +1163,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedEntitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedEntitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1172,7 +1172,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListedFlow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListedFlow.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1181,7 +1181,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaStream.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1190,7 +1190,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaStreamOutputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaStreamOutputConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaStreamOutputConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaStreamOutputConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1208,7 +1208,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaStreamSourceConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaStreamSourceConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1217,7 +1217,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaStreamSourceConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaStreamSourceConfigurationRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1226,7 +1226,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Offering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1235,7 +1235,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Output.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1244,7 +1244,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Reservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Reservation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1253,7 +1253,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SetSourceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SetSourceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1262,7 +1262,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Source.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Source.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1271,7 +1271,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1280,7 +1280,7 @@ module AWS::SDK::MediaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VpcInterfaceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VpcInterfaceRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

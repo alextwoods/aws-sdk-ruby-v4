@@ -151,10 +151,10 @@ module AWS::SDK::GroundStation
           ground_station: 'ground_station',
           contact_status: 'contact_status',
           error_message: 'error_message',
-          maximum_elevation: Stubs::Elevation.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          maximum_elevation: Elevation.default(visited),
+          tags: TagsMap.default(visited),
           region: 'region',
-          dataflow_list: Stubs::DataflowList.default(visited),
+          dataflow_list: DataflowList.default(visited),
         }
       end
 
@@ -186,7 +186,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('DataflowList')
         visited = visited + ['DataflowList']
         [
-          Stubs::DataflowDetail.default(visited)
+          DataflowDetail.default(visited)
         ]
       end
 
@@ -206,8 +206,8 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('DataflowDetail')
         visited = visited + ['DataflowDetail']
         {
-          source: Stubs::Source.default(visited),
-          destination: Stubs::Destination.default(visited),
+          source: Source.default(visited),
+          destination: Destination.default(visited),
           error_message: 'error_message',
         }
       end
@@ -230,7 +230,7 @@ module AWS::SDK::GroundStation
         {
           config_type: 'config_type',
           config_id: 'config_id',
-          config_details: Stubs::ConfigDetails.default(visited),
+          config_details: ConfigDetails.default(visited),
           dataflow_destination_region: 'dataflow_destination_region',
         }
       end
@@ -252,7 +252,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('ConfigDetails')
         visited = visited + ['ConfigDetails']
         {
-          endpoint_details: Stubs::EndpointDetails.default(visited),
+          endpoint_details: EndpointDetails.default(visited),
         }
       end
 
@@ -318,8 +318,8 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('EndpointDetails')
         visited = visited + ['EndpointDetails']
         {
-          security_details: Stubs::SecurityDetails.default(visited),
-          endpoint: Stubs::DataflowEndpoint.default(visited),
+          security_details: SecurityDetails.default(visited),
+          endpoint: DataflowEndpoint.default(visited),
         }
       end
 
@@ -339,7 +339,7 @@ module AWS::SDK::GroundStation
         visited = visited + ['DataflowEndpoint']
         {
           name: 'name',
-          address: Stubs::SocketAddress.default(visited),
+          address: SocketAddress.default(visited),
           status: 'status',
           mtu: 1,
         }
@@ -382,8 +382,8 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('SecurityDetails')
         visited = visited + ['SecurityDetails']
         {
-          subnet_ids: Stubs::SubnetList.default(visited),
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetList.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -446,7 +446,7 @@ module AWS::SDK::GroundStation
         {
           config_type: 'config_type',
           config_id: 'config_id',
-          config_details: Stubs::ConfigDetails.default(visited),
+          config_details: ConfigDetails.default(visited),
           dataflow_source_region: 'dataflow_source_region',
         }
       end
@@ -510,8 +510,8 @@ module AWS::SDK::GroundStation
           config_arn: 'config_arn',
           name: 'name',
           config_type: 'config_type',
-          config_data: Stubs::ConfigTypeData.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          config_data: ConfigTypeData.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -535,7 +535,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('ConfigTypeData')
         visited = visited + ['ConfigTypeData']
         {
-          antenna_downlink_config: Stubs::AntennaDownlinkConfig.default(visited),
+          antenna_downlink_config: AntennaDownlinkConfig.default(visited),
         }
       end
 
@@ -614,8 +614,8 @@ module AWS::SDK::GroundStation
         visited = visited + ['AntennaUplinkConfig']
         {
           transmit_disabled: false,
-          spectrum_config: Stubs::UplinkSpectrumConfig.default(visited),
-          target_eirp: Stubs::Eirp.default(visited),
+          spectrum_config: UplinkSpectrumConfig.default(visited),
+          target_eirp: Eirp.default(visited),
         }
       end
 
@@ -655,7 +655,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('UplinkSpectrumConfig')
         visited = visited + ['UplinkSpectrumConfig']
         {
-          center_frequency: Stubs::Frequency.default(visited),
+          center_frequency: Frequency.default(visited),
           polarization: 'polarization',
         }
       end
@@ -695,9 +695,9 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('AntennaDownlinkDemodDecodeConfig')
         visited = visited + ['AntennaDownlinkDemodDecodeConfig']
         {
-          spectrum_config: Stubs::SpectrumConfig.default(visited),
-          demodulation_config: Stubs::DemodulationConfig.default(visited),
-          decode_config: Stubs::DecodeConfig.default(visited),
+          spectrum_config: SpectrumConfig.default(visited),
+          demodulation_config: DemodulationConfig.default(visited),
+          decode_config: DecodeConfig.default(visited),
         }
       end
 
@@ -753,8 +753,8 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('SpectrumConfig')
         visited = visited + ['SpectrumConfig']
         {
-          center_frequency: Stubs::Frequency.default(visited),
-          bandwidth: Stubs::FrequencyBandwidth.default(visited),
+          center_frequency: Frequency.default(visited),
+          bandwidth: FrequencyBandwidth.default(visited),
           polarization: 'polarization',
         }
       end
@@ -833,7 +833,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('AntennaDownlinkConfig')
         visited = visited + ['AntennaDownlinkConfig']
         {
-          spectrum_config: Stubs::SpectrumConfig.default(visited),
+          spectrum_config: SpectrumConfig.default(visited),
         }
       end
 
@@ -851,8 +851,8 @@ module AWS::SDK::GroundStation
         {
           dataflow_endpoint_group_id: 'dataflow_endpoint_group_id',
           dataflow_endpoint_group_arn: 'dataflow_endpoint_group_arn',
-          endpoints_details: Stubs::EndpointDetailsList.default(visited),
-          tags: Stubs::TagsMap.default(visited),
+          endpoints_details: EndpointDetailsList.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -874,7 +874,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('EndpointDetailsList')
         visited = visited + ['EndpointDetailsList']
         [
-          Stubs::EndpointDetails.default(visited)
+          EndpointDetails.default(visited)
         ]
       end
 
@@ -924,9 +924,9 @@ module AWS::SDK::GroundStation
           contact_pre_pass_duration_seconds: 1,
           contact_post_pass_duration_seconds: 1,
           minimum_viable_contact_duration_seconds: 1,
-          dataflow_edges: Stubs::DataflowEdgeList.default(visited),
+          dataflow_edges: DataflowEdgeList.default(visited),
           tracking_config_arn: 'tracking_config_arn',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -954,7 +954,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('DataflowEdgeList')
         visited = visited + ['DataflowEdgeList']
         [
-          Stubs::DataflowEdge.default(visited)
+          DataflowEdge.default(visited)
         ]
       end
 
@@ -995,7 +995,7 @@ module AWS::SDK::GroundStation
           satellite_id: 'satellite_id',
           satellite_arn: 'satellite_arn',
           norad_satellite_id: 1,
-          ground_stations: Stubs::GroundStationIdList.default(visited),
+          ground_stations: GroundStationIdList.default(visited),
         }
       end
 
@@ -1036,7 +1036,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          config_list: Stubs::ConfigList.default(visited),
+          config_list: ConfigList.default(visited),
         }
       end
 
@@ -1056,7 +1056,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('ConfigList')
         visited = visited + ['ConfigList']
         [
-          Stubs::ConfigListItem.default(visited)
+          ConfigListItem.default(visited)
         ]
       end
 
@@ -1099,7 +1099,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          contact_list: Stubs::ContactList.default(visited),
+          contact_list: ContactList.default(visited),
         }
       end
 
@@ -1119,7 +1119,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('ContactList')
         visited = visited + ['ContactList']
         [
-          Stubs::ContactData.default(visited)
+          ContactData.default(visited)
         ]
       end
 
@@ -1149,9 +1149,9 @@ module AWS::SDK::GroundStation
           ground_station: 'ground_station',
           contact_status: 'contact_status',
           error_message: 'error_message',
-          maximum_elevation: Stubs::Elevation.default(visited),
+          maximum_elevation: Elevation.default(visited),
           region: 'region',
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 
@@ -1180,7 +1180,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          dataflow_endpoint_group_list: Stubs::DataflowEndpointGroupList.default(visited),
+          dataflow_endpoint_group_list: DataflowEndpointGroupList.default(visited),
         }
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('DataflowEndpointGroupList')
         visited = visited + ['DataflowEndpointGroupList']
         [
-          Stubs::DataflowEndpointListItem.default(visited)
+          DataflowEndpointListItem.default(visited)
         ]
       end
 
@@ -1239,7 +1239,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ground_station_list: Stubs::GroundStationList.default(visited),
+          ground_station_list: GroundStationList.default(visited),
         }
       end
 
@@ -1259,7 +1259,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('GroundStationList')
         visited = visited + ['GroundStationList']
         [
-          Stubs::GroundStationData.default(visited)
+          GroundStationData.default(visited)
         ]
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          mission_profile_list: Stubs::MissionProfileList.default(visited),
+          mission_profile_list: MissionProfileList.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('MissionProfileList')
         visited = visited + ['MissionProfileList']
         [
-          Stubs::MissionProfileListItem.default(visited)
+          MissionProfileListItem.default(visited)
         ]
       end
 
@@ -1363,7 +1363,7 @@ module AWS::SDK::GroundStation
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          satellites: Stubs::SatelliteList.default(visited),
+          satellites: SatelliteList.default(visited),
         }
       end
 
@@ -1383,7 +1383,7 @@ module AWS::SDK::GroundStation
         return nil if visited.include?('SatelliteList')
         visited = visited + ['SatelliteList']
         [
-          Stubs::SatelliteListItem.default(visited)
+          SatelliteListItem.default(visited)
         ]
       end
 
@@ -1406,7 +1406,7 @@ module AWS::SDK::GroundStation
           satellite_id: 'satellite_id',
           satellite_arn: 'satellite_arn',
           norad_satellite_id: 1,
-          ground_stations: Stubs::GroundStationIdList.default(visited),
+          ground_stations: GroundStationIdList.default(visited),
         }
       end
 
@@ -1425,7 +1425,7 @@ module AWS::SDK::GroundStation
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsMap.default(visited),
+          tags: TagsMap.default(visited),
         }
       end
 

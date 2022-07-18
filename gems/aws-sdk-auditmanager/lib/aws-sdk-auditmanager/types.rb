@@ -222,12 +222,12 @@ module AWS::SDK::AuditManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.evidence_count ||= 0
         self.assessment_report_evidence_count ||= 0
       end
-
     end
 
     # <p> Represents a set of controls in an Audit Manager assessment. </p>
@@ -289,12 +289,12 @@ module AWS::SDK::AuditManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.system_evidence_count ||= 0
         self.manual_evidence_count ||= 0
       end
-
     end
 
     # <p> The folder where Audit Manager stores evidence for an assessment. </p>
@@ -417,6 +417,7 @@ module AWS::SDK::AuditManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_evidence ||= 0
@@ -429,7 +430,6 @@ module AWS::SDK::AuditManager
         self.evidence_by_type_user_activity_count ||= 0
         self.evidence_aws_service_source_count ||= 0
       end
-
     end
 
     # <p> The file used to structure and automate Audit Manager assessments for a given
@@ -540,12 +540,12 @@ module AWS::SDK::AuditManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.controls_count ||= 0
         self.control_sets_count ||= 0
       end
-
     end
 
     # <p> Represents a share request for a custom framework in Audit Manager. </p>

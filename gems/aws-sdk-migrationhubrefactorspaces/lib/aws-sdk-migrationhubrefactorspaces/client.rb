@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MigrationHubRefactorSpaces
@@ -115,7 +117,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -218,7 +220,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -381,7 +383,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def create_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRouteInput,
         validate_input: @config.validate_input
@@ -522,7 +524,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def create_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceInput,
         validate_input: @config.validate_input
@@ -601,7 +603,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -674,7 +676,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -741,7 +743,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -822,7 +824,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def delete_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRouteInput,
         validate_input: @config.validate_input
@@ -909,7 +911,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def delete_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceInput,
         validate_input: @config.validate_input
@@ -1009,7 +1011,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -1096,7 +1098,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def get_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentInput,
         validate_input: @config.validate_input
@@ -1164,7 +1166,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1266,7 +1268,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def get_route(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRouteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRouteInput,
         validate_input: @config.validate_input
@@ -1369,7 +1371,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def get_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceInput,
         validate_input: @config.validate_input
@@ -1477,7 +1479,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -1565,7 +1567,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_environment_vpcs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentVpcsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentVpcsInput,
         validate_input: @config.validate_input
@@ -1661,7 +1663,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -1771,7 +1773,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoutesInput,
         validate_input: @config.validate_input
@@ -1882,7 +1884,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -1952,7 +1954,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2028,7 +2030,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2108,7 +2110,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2184,7 +2186,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

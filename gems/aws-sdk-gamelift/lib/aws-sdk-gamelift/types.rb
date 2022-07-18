@@ -7824,11 +7824,11 @@ module AWS::SDK::GameLift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latency_in_milliseconds ||= 0
       end
-
     end
 
     # <p>Sets a latency cap for individual players when placing a game session. With a latency
@@ -8312,12 +8312,12 @@ module AWS::SDK::GameLift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scaling_adjustment ||= 0
         self.threshold ||= 0
       end
-
     end
 
     # <p>Represents the returned data in response to a request operation.</p>
@@ -8953,12 +8953,12 @@ module AWS::SDK::GameLift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scaling_adjustment ||= 0
         self.threshold ||= 0
       end
-
     end
 
     # Includes enum constants for ScalingStatusType
@@ -9773,11 +9773,11 @@ module AWS::SDK::GameLift
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_value ||= 0
       end
-
     end
 
     # <p>

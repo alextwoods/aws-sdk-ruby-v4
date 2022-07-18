@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Honeycode
@@ -125,7 +127,7 @@ module AWS::SDK::Honeycode
     def batch_create_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateTableRowsInput,
         validate_input: @config.validate_input
@@ -237,7 +239,7 @@ module AWS::SDK::Honeycode
     def batch_delete_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteTableRowsInput,
         validate_input: @config.validate_input
@@ -368,7 +370,7 @@ module AWS::SDK::Honeycode
     def batch_update_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateTableRowsInput,
         validate_input: @config.validate_input
@@ -512,7 +514,7 @@ module AWS::SDK::Honeycode
     def batch_upsert_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpsertTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpsertTableRowsInput,
         validate_input: @config.validate_input
@@ -620,7 +622,7 @@ module AWS::SDK::Honeycode
     def describe_table_data_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableDataImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableDataImportJobInput,
         validate_input: @config.validate_input
@@ -748,7 +750,7 @@ module AWS::SDK::Honeycode
     def get_screen_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetScreenDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetScreenDataInput,
         validate_input: @config.validate_input
@@ -865,7 +867,7 @@ module AWS::SDK::Honeycode
     def invoke_screen_automation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeScreenAutomationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeScreenAutomationInput,
         validate_input: @config.validate_input
@@ -962,7 +964,7 @@ module AWS::SDK::Honeycode
     def list_table_columns(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTableColumnsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTableColumnsInput,
         validate_input: @config.validate_input
@@ -1082,7 +1084,7 @@ module AWS::SDK::Honeycode
     def list_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTableRowsInput,
         validate_input: @config.validate_input
@@ -1175,7 +1177,7 @@ module AWS::SDK::Honeycode
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: @config.validate_input
@@ -1246,7 +1248,7 @@ module AWS::SDK::Honeycode
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1362,7 +1364,7 @@ module AWS::SDK::Honeycode
     def query_table_rows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryTableRowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryTableRowsInput,
         validate_input: @config.validate_input
@@ -1497,7 +1499,7 @@ module AWS::SDK::Honeycode
     def start_table_data_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTableDataImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTableDataImportJobInput,
         validate_input: @config.validate_input
@@ -1574,7 +1576,7 @@ module AWS::SDK::Honeycode
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1651,7 +1653,7 @@ module AWS::SDK::Honeycode
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

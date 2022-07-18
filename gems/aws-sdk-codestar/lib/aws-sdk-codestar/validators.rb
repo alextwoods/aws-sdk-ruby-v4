@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodeStar
   module Validators
 
@@ -31,8 +33,8 @@ module AWS::SDK::CodeStar
     class Code
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Code, context: context)
-        Validators::CodeSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
-        Validators::CodeDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        CodeSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        CodeDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -46,15 +48,15 @@ module AWS::SDK::CodeStar
     class CodeDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeDestination, context: context)
-        Validators::CodeCommitCodeDestination.validate!(input[:code_commit], context: "#{context}[:code_commit]") unless input[:code_commit].nil?
-        Validators::GitHubCodeDestination.validate!(input[:git_hub], context: "#{context}[:git_hub]") unless input[:git_hub].nil?
+        CodeCommitCodeDestination.validate!(input[:code_commit], context: "#{context}[:code_commit]") unless input[:code_commit].nil?
+        GitHubCodeDestination.validate!(input[:git_hub], context: "#{context}[:git_hub]") unless input[:git_hub].nil?
       end
     end
 
     class CodeSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeSource, context: context)
-        Validators::S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
@@ -72,9 +74,9 @@ module AWS::SDK::CodeStar
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::SourceCode.validate!(input[:source_code], context: "#{context}[:source_code]") unless input[:source_code].nil?
-        Validators::Toolchain.validate!(input[:toolchain], context: "#{context}[:toolchain]") unless input[:toolchain].nil?
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SourceCode.validate!(input[:source_code], context: "#{context}[:source_code]") unless input[:source_code].nil?
+        Toolchain.validate!(input[:toolchain], context: "#{context}[:toolchain]") unless input[:toolchain].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::CodeStar
         Hearth::Validator.validate!(input[:created_time_stamp], ::Time, context: "#{context}[:created_time_stamp]")
         Hearth::Validator.validate!(input[:stack_id], ::String, context: "#{context}[:stack_id]")
         Hearth::Validator.validate!(input[:project_template_id], ::String, context: "#{context}[:project_template_id]")
-        Validators::ProjectStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ProjectStatus.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::CodeStar
     class ListProjectsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProjectsOutput, context: context)
-        Validators::ProjectsList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
+        ProjectsList.validate!(input[:projects], context: "#{context}[:projects]") unless input[:projects].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -258,7 +260,7 @@ module AWS::SDK::CodeStar
     class ListResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesOutput, context: context)
-        Validators::ResourcesResult.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ResourcesResult.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::CodeStar
     class ListTagsForProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForProjectOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -292,7 +294,7 @@ module AWS::SDK::CodeStar
     class ListTeamMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTeamMembersOutput, context: context)
-        Validators::TeamMemberResult.validate!(input[:team_members], context: "#{context}[:team_members]") unless input[:team_members].nil?
+        TeamMemberResult.validate!(input[:team_members], context: "#{context}[:team_members]") unless input[:team_members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -308,7 +310,7 @@ module AWS::SDK::CodeStar
     class ListUserProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserProfilesOutput, context: context)
-        Validators::UserProfilesList.validate!(input[:user_profiles], context: "#{context}[:user_profiles]") unless input[:user_profiles].nil?
+        UserProfilesList.validate!(input[:user_profiles], context: "#{context}[:user_profiles]") unless input[:user_profiles].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProjectSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -394,7 +396,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Code.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Code.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -412,14 +414,14 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagProjectInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class TagProjectOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagProjectOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TeamMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TeamMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -478,16 +480,16 @@ module AWS::SDK::CodeStar
     class Toolchain
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Toolchain, context: context)
-        Validators::ToolchainSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        ToolchainSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TemplateParameterMap.validate!(input[:stack_parameters], context: "#{context}[:stack_parameters]") unless input[:stack_parameters].nil?
+        TemplateParameterMap.validate!(input[:stack_parameters], context: "#{context}[:stack_parameters]") unless input[:stack_parameters].nil?
       end
     end
 
     class ToolchainSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ToolchainSource, context: context)
-        Validators::S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        S3Location.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
@@ -495,7 +497,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagProjectInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::TagKeys.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagKeys.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::CodeStar
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserProfileSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserProfileSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudControl
@@ -73,7 +75,7 @@ module AWS::SDK::CloudControl
     def cancel_resource_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelResourceRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelResourceRequestInput,
         validate_input: @config.validate_input
@@ -197,7 +199,7 @@ module AWS::SDK::CloudControl
     def create_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::CloudControl
     def delete_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceInput,
         validate_input: @config.validate_input
@@ -400,7 +402,7 @@ module AWS::SDK::CloudControl
     def get_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceInput,
         validate_input: @config.validate_input
@@ -483,7 +485,7 @@ module AWS::SDK::CloudControl
     def get_resource_request_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceRequestStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceRequestStatusInput,
         validate_input: @config.validate_input
@@ -588,7 +590,7 @@ module AWS::SDK::CloudControl
     def list_resource_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceRequestsInput,
         validate_input: @config.validate_input
@@ -688,7 +690,7 @@ module AWS::SDK::CloudControl
     def list_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInput,
         validate_input: @config.validate_input
@@ -810,7 +812,7 @@ module AWS::SDK::CloudControl
     def update_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceInput,
         validate_input: @config.validate_input

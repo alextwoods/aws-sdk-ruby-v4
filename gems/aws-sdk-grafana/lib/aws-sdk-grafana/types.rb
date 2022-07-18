@@ -982,11 +982,11 @@ module AWS::SDK::Grafana
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.login_validity_duration ||= 0
       end
-
     end
 
     # Includes enum constants for SamlConfigurationStatus

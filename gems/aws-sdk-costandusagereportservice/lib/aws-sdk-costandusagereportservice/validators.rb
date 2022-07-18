@@ -44,7 +44,7 @@ module AWS::SDK::CostAndUsageReportService
     class DescribeReportDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeReportDefinitionsOutput, context: context)
-        Validators::ReportDefinitionList.validate!(input[:report_definitions], context: "#{context}[:report_definitions]") unless input[:report_definitions].nil?
+        ReportDefinitionList.validate!(input[:report_definitions], context: "#{context}[:report_definitions]") unless input[:report_definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -67,7 +67,7 @@ module AWS::SDK::CostAndUsageReportService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyReportDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:report_name], ::String, context: "#{context}[:report_name]")
-        Validators::ReportDefinition.validate!(input[:report_definition], context: "#{context}[:report_definition]") unless input[:report_definition].nil?
+        ReportDefinition.validate!(input[:report_definition], context: "#{context}[:report_definition]") unless input[:report_definition].nil?
       end
     end
 
@@ -80,7 +80,7 @@ module AWS::SDK::CostAndUsageReportService
     class PutReportDefinitionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutReportDefinitionInput, context: context)
-        Validators::ReportDefinition.validate!(input[:report_definition], context: "#{context}[:report_definition]") unless input[:report_definition].nil?
+        ReportDefinition.validate!(input[:report_definition], context: "#{context}[:report_definition]") unless input[:report_definition].nil?
       end
     end
 
@@ -97,11 +97,11 @@ module AWS::SDK::CostAndUsageReportService
         Hearth::Validator.validate!(input[:time_unit], ::String, context: "#{context}[:time_unit]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:compression], ::String, context: "#{context}[:compression]")
-        Validators::SchemaElementList.validate!(input[:additional_schema_elements], context: "#{context}[:additional_schema_elements]") unless input[:additional_schema_elements].nil?
+        SchemaElementList.validate!(input[:additional_schema_elements], context: "#{context}[:additional_schema_elements]") unless input[:additional_schema_elements].nil?
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
         Hearth::Validator.validate!(input[:s3_prefix], ::String, context: "#{context}[:s3_prefix]")
         Hearth::Validator.validate!(input[:s3_region], ::String, context: "#{context}[:s3_region]")
-        Validators::AdditionalArtifactList.validate!(input[:additional_artifacts], context: "#{context}[:additional_artifacts]") unless input[:additional_artifacts].nil?
+        AdditionalArtifactList.validate!(input[:additional_artifacts], context: "#{context}[:additional_artifacts]") unless input[:additional_artifacts].nil?
         Hearth::Validator.validate!(input[:refresh_closed_reports], ::TrueClass, ::FalseClass, context: "#{context}[:refresh_closed_reports]")
         Hearth::Validator.validate!(input[:report_versioning], ::String, context: "#{context}[:report_versioning]")
         Hearth::Validator.validate!(input[:billing_view_arn], ::String, context: "#{context}[:billing_view_arn]")
@@ -112,7 +112,7 @@ module AWS::SDK::CostAndUsageReportService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

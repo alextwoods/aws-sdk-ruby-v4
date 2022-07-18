@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SNS
@@ -89,7 +91,7 @@ module AWS::SDK::SNS
     def add_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
         validate_input: @config.validate_input
@@ -162,7 +164,7 @@ module AWS::SDK::SNS
     def check_if_phone_number_is_opted_out(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckIfPhoneNumberIsOptedOutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckIfPhoneNumberIsOptedOutInput,
         validate_input: @config.validate_input
@@ -246,7 +248,7 @@ module AWS::SDK::SNS
     def confirm_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmSubscriptionInput,
         validate_input: @config.validate_input
@@ -372,7 +374,7 @@ module AWS::SDK::SNS
     def create_platform_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlatformApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlatformApplicationInput,
         validate_input: @config.validate_input
@@ -474,7 +476,7 @@ module AWS::SDK::SNS
     def create_platform_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlatformEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlatformEndpointInput,
         validate_input: @config.validate_input
@@ -557,7 +559,7 @@ module AWS::SDK::SNS
     def create_sms_sandbox_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSMSSandboxPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSMSSandboxPhoneNumberInput,
         validate_input: @config.validate_input
@@ -723,7 +725,7 @@ module AWS::SDK::SNS
     def create_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTopicInput,
         validate_input: @config.validate_input
@@ -795,7 +797,7 @@ module AWS::SDK::SNS
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -866,7 +868,7 @@ module AWS::SDK::SNS
     def delete_platform_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlatformApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlatformApplicationInput,
         validate_input: @config.validate_input
@@ -942,7 +944,7 @@ module AWS::SDK::SNS
     def delete_sms_sandbox_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSMSSandboxPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSMSSandboxPhoneNumberInput,
         validate_input: @config.validate_input
@@ -1013,7 +1015,7 @@ module AWS::SDK::SNS
     def delete_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTopicInput,
         validate_input: @config.validate_input
@@ -1085,7 +1087,7 @@ module AWS::SDK::SNS
     def get_endpoint_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEndpointAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEndpointAttributesInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::SNS
     def get_platform_application_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPlatformApplicationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPlatformApplicationAttributesInput,
         validate_input: @config.validate_input
@@ -1233,7 +1235,7 @@ module AWS::SDK::SNS
     def get_sms_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSMSAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSMSAttributesInput,
         validate_input: @config.validate_input
@@ -1305,7 +1307,7 @@ module AWS::SDK::SNS
     def get_sms_sandbox_account_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSMSSandboxAccountStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSMSSandboxAccountStatusInput,
         validate_input: @config.validate_input
@@ -1375,7 +1377,7 @@ module AWS::SDK::SNS
     def get_subscription_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSubscriptionAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSubscriptionAttributesInput,
         validate_input: @config.validate_input
@@ -1446,7 +1448,7 @@ module AWS::SDK::SNS
     def get_topic_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTopicAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTopicAttributesInput,
         validate_input: @config.validate_input
@@ -1534,7 +1536,7 @@ module AWS::SDK::SNS
     def list_endpoints_by_platform_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointsByPlatformApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointsByPlatformApplicationInput,
         validate_input: @config.validate_input
@@ -1618,7 +1620,7 @@ module AWS::SDK::SNS
     def list_origination_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOriginationNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOriginationNumbersInput,
         validate_input: @config.validate_input
@@ -1698,7 +1700,7 @@ module AWS::SDK::SNS
     def list_phone_numbers_opted_out(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPhoneNumbersOptedOutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPhoneNumbersOptedOutInput,
         validate_input: @config.validate_input
@@ -1782,7 +1784,7 @@ module AWS::SDK::SNS
     def list_platform_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlatformApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlatformApplicationsInput,
         validate_input: @config.validate_input
@@ -1869,7 +1871,7 @@ module AWS::SDK::SNS
     def list_sms_sandbox_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSMSSandboxPhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSMSSandboxPhoneNumbersInput,
         validate_input: @config.validate_input
@@ -1949,7 +1951,7 @@ module AWS::SDK::SNS
     def list_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSubscriptionsInput,
         validate_input: @config.validate_input
@@ -2033,7 +2035,7 @@ module AWS::SDK::SNS
     def list_subscriptions_by_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSubscriptionsByTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSubscriptionsByTopicInput,
         validate_input: @config.validate_input
@@ -2106,7 +2108,7 @@ module AWS::SDK::SNS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2182,7 +2184,7 @@ module AWS::SDK::SNS
     def list_topics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTopicsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTopicsInput,
         validate_input: @config.validate_input
@@ -2252,7 +2254,7 @@ module AWS::SDK::SNS
     def opt_in_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::OptInPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::OptInPhoneNumberInput,
         validate_input: @config.validate_input
@@ -2483,7 +2485,7 @@ module AWS::SDK::SNS
     def publish(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishInput,
         validate_input: @config.validate_input
@@ -2591,7 +2593,7 @@ module AWS::SDK::SNS
     def publish_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishBatchInput,
         validate_input: @config.validate_input
@@ -2663,7 +2665,7 @@ module AWS::SDK::SNS
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::SNS
     def set_endpoint_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetEndpointAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetEndpointAttributesInput,
         validate_input: @config.validate_input
@@ -2930,7 +2932,7 @@ module AWS::SDK::SNS
     def set_platform_application_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetPlatformApplicationAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetPlatformApplicationAttributesInput,
         validate_input: @config.validate_input
@@ -3094,7 +3096,7 @@ module AWS::SDK::SNS
     def set_sms_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSMSAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSMSAttributesInput,
         validate_input: @config.validate_input
@@ -3220,7 +3222,7 @@ module AWS::SDK::SNS
     def set_subscription_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetSubscriptionAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetSubscriptionAttributesInput,
         validate_input: @config.validate_input
@@ -3354,7 +3356,7 @@ module AWS::SDK::SNS
     def set_topic_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTopicAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTopicAttributesInput,
         validate_input: @config.validate_input
@@ -3587,7 +3589,7 @@ module AWS::SDK::SNS
     def subscribe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubscribeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubscribeInput,
         validate_input: @config.validate_input
@@ -3687,7 +3689,7 @@ module AWS::SDK::SNS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3761,7 +3763,7 @@ module AWS::SDK::SNS
     def unsubscribe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnsubscribeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnsubscribeInput,
         validate_input: @config.validate_input
@@ -3836,7 +3838,7 @@ module AWS::SDK::SNS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3917,7 +3919,7 @@ module AWS::SDK::SNS
     def verify_sms_sandbox_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifySMSSandboxPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifySMSSandboxPhoneNumberInput,
         validate_input: @config.validate_input

@@ -20,7 +20,7 @@ module AWS::SDK::Schemas
           source_arn: 'source_arn',
           state: 'state',
           cross_account: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::Schemas
           description: 'description',
           registry_arn: 'registry_arn',
           registry_name: 'registry_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -91,7 +91,7 @@ module AWS::SDK::Schemas
           schema_arn: 'schema_arn',
           schema_name: 'schema_name',
           schema_version: 'schema_version',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
           version_created_date: Time.now,
         }
@@ -211,7 +211,7 @@ module AWS::SDK::Schemas
           source_arn: 'source_arn',
           state: 'state',
           cross_account: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -237,7 +237,7 @@ module AWS::SDK::Schemas
           description: 'description',
           registry_arn: 'registry_arn',
           registry_name: 'registry_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::Schemas
           schema_arn: 'schema_arn',
           schema_name: 'schema_name',
           schema_version: 'schema_version',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
           version_created_date: Time.now,
         }
@@ -367,7 +367,7 @@ module AWS::SDK::Schemas
     class ListDiscoverers
       def self.default(visited=[])
         {
-          discoverers: Stubs::List____listOfDiscovererSummary.default(visited),
+          discoverers: List____listOfDiscovererSummary.default(visited),
           next_token: 'next_token',
         }
       end
@@ -388,7 +388,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfDiscovererSummary')
         visited = visited + ['List____listOfDiscovererSummary']
         [
-          Stubs::DiscovererSummary.default(visited)
+          DiscovererSummary.default(visited)
         ]
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::Schemas
           source_arn: 'source_arn',
           state: 'state',
           cross_account: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -435,7 +435,7 @@ module AWS::SDK::Schemas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          registries: Stubs::List____listOfRegistrySummary.default(visited),
+          registries: List____listOfRegistrySummary.default(visited),
         }
       end
 
@@ -455,7 +455,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfRegistrySummary')
         visited = visited + ['List____listOfRegistrySummary']
         [
-          Stubs::RegistrySummary.default(visited)
+          RegistrySummary.default(visited)
         ]
       end
 
@@ -477,7 +477,7 @@ module AWS::SDK::Schemas
         {
           registry_arn: 'registry_arn',
           registry_name: 'registry_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::Schemas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          schema_versions: Stubs::List____listOfSchemaVersionSummary.default(visited),
+          schema_versions: List____listOfSchemaVersionSummary.default(visited),
         }
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfSchemaVersionSummary')
         visited = visited + ['List____listOfSchemaVersionSummary']
         [
-          Stubs::SchemaVersionSummary.default(visited)
+          SchemaVersionSummary.default(visited)
         ]
       end
 
@@ -559,7 +559,7 @@ module AWS::SDK::Schemas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          schemas: Stubs::List____listOfSchemaSummary.default(visited),
+          schemas: List____listOfSchemaSummary.default(visited),
         }
       end
 
@@ -579,7 +579,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfSchemaSummary')
         visited = visited + ['List____listOfSchemaSummary']
         [
-          Stubs::SchemaSummary.default(visited)
+          SchemaSummary.default(visited)
         ]
       end
 
@@ -602,7 +602,7 @@ module AWS::SDK::Schemas
           last_modified: Time.now,
           schema_arn: 'schema_arn',
           schema_name: 'schema_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version_count: 1,
         }
       end
@@ -623,7 +623,7 @@ module AWS::SDK::Schemas
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -683,7 +683,7 @@ module AWS::SDK::Schemas
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          schemas: Stubs::List____listOfSearchSchemaSummary.default(visited),
+          schemas: List____listOfSearchSchemaSummary.default(visited),
         }
       end
 
@@ -703,7 +703,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfSearchSchemaSummary')
         visited = visited + ['List____listOfSearchSchemaSummary']
         [
-          Stubs::SearchSchemaSummary.default(visited)
+          SearchSchemaSummary.default(visited)
         ]
       end
 
@@ -726,7 +726,7 @@ module AWS::SDK::Schemas
           registry_name: 'registry_name',
           schema_arn: 'schema_arn',
           schema_name: 'schema_name',
-          schema_versions: Stubs::List____listOfSearchSchemaVersionSummary.default(visited),
+          schema_versions: List____listOfSearchSchemaVersionSummary.default(visited),
         }
       end
 
@@ -747,7 +747,7 @@ module AWS::SDK::Schemas
         return nil if visited.include?('List____listOfSearchSchemaVersionSummary')
         visited = visited + ['List____listOfSearchSchemaVersionSummary']
         [
-          Stubs::SearchSchemaVersionSummary.default(visited)
+          SearchSchemaVersionSummary.default(visited)
         ]
       end
 
@@ -857,7 +857,7 @@ module AWS::SDK::Schemas
           source_arn: 'source_arn',
           state: 'state',
           cross_account: false,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::Schemas
           description: 'description',
           registry_arn: 'registry_arn',
           registry_name: 'registry_name',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -908,7 +908,7 @@ module AWS::SDK::Schemas
           schema_arn: 'schema_arn',
           schema_name: 'schema_name',
           schema_version: 'schema_version',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
           version_created_date: Time.now,
         }

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MachineLearning
@@ -75,7 +77,7 @@ module AWS::SDK::MachineLearning
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -173,7 +175,7 @@ module AWS::SDK::MachineLearning
     def create_batch_prediction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBatchPredictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBatchPredictionInput,
         validate_input: @config.validate_input
@@ -342,7 +344,7 @@ module AWS::SDK::MachineLearning
     def create_data_source_from_rds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceFromRDSInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceFromRDSInput,
         validate_input: @config.validate_input
@@ -525,7 +527,7 @@ module AWS::SDK::MachineLearning
     def create_data_source_from_redshift(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceFromRedshiftInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceFromRedshiftInput,
         validate_input: @config.validate_input
@@ -660,7 +662,7 @@ module AWS::SDK::MachineLearning
     def create_data_source_from_s3(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataSourceFromS3Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataSourceFromS3Input,
         validate_input: @config.validate_input
@@ -754,7 +756,7 @@ module AWS::SDK::MachineLearning
     def create_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEvaluationInput,
         validate_input: @config.validate_input
@@ -925,7 +927,7 @@ module AWS::SDK::MachineLearning
     def create_ml_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMLModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMLModelInput,
         validate_input: @config.validate_input
@@ -999,7 +1001,7 @@ module AWS::SDK::MachineLearning
     def create_realtime_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRealtimeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRealtimeEndpointInput,
         validate_input: @config.validate_input
@@ -1073,7 +1075,7 @@ module AWS::SDK::MachineLearning
     def delete_batch_prediction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBatchPredictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBatchPredictionInput,
         validate_input: @config.validate_input
@@ -1145,7 +1147,7 @@ module AWS::SDK::MachineLearning
     def delete_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataSourceInput,
         validate_input: @config.validate_input
@@ -1219,7 +1221,7 @@ module AWS::SDK::MachineLearning
     def delete_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEvaluationInput,
         validate_input: @config.validate_input
@@ -1293,7 +1295,7 @@ module AWS::SDK::MachineLearning
     def delete_ml_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMLModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMLModelInput,
         validate_input: @config.validate_input
@@ -1367,7 +1369,7 @@ module AWS::SDK::MachineLearning
     def delete_realtime_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRealtimeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRealtimeEndpointInput,
         validate_input: @config.validate_input
@@ -1448,7 +1450,7 @@ module AWS::SDK::MachineLearning
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -1639,7 +1641,7 @@ module AWS::SDK::MachineLearning
     def describe_batch_predictions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBatchPredictionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBatchPredictionsInput,
         validate_input: @config.validate_input
@@ -1836,7 +1838,7 @@ module AWS::SDK::MachineLearning
     def describe_data_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSourcesInput,
         validate_input: @config.validate_input
@@ -2027,7 +2029,7 @@ module AWS::SDK::MachineLearning
     def describe_evaluations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEvaluationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEvaluationsInput,
         validate_input: @config.validate_input
@@ -2234,7 +2236,7 @@ module AWS::SDK::MachineLearning
     def describe_ml_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMLModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMLModelsInput,
         validate_input: @config.validate_input
@@ -2312,7 +2314,7 @@ module AWS::SDK::MachineLearning
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -2398,7 +2400,7 @@ module AWS::SDK::MachineLearning
     def get_batch_prediction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBatchPredictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBatchPredictionInput,
         validate_input: @config.validate_input
@@ -2508,7 +2510,7 @@ module AWS::SDK::MachineLearning
     def get_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataSourceInput,
         validate_input: @config.validate_input
@@ -2593,7 +2595,7 @@ module AWS::SDK::MachineLearning
     def get_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEvaluationInput,
         validate_input: @config.validate_input
@@ -2695,7 +2697,7 @@ module AWS::SDK::MachineLearning
     def get_ml_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMLModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMLModelInput,
         validate_input: @config.validate_input
@@ -2780,7 +2782,7 @@ module AWS::SDK::MachineLearning
     def predict(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PredictInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PredictInput,
         validate_input: @config.validate_input
@@ -2854,7 +2856,7 @@ module AWS::SDK::MachineLearning
     def update_batch_prediction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBatchPredictionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBatchPredictionInput,
         validate_input: @config.validate_input
@@ -2928,7 +2930,7 @@ module AWS::SDK::MachineLearning
     def update_data_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDataSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDataSourceInput,
         validate_input: @config.validate_input
@@ -3002,7 +3004,7 @@ module AWS::SDK::MachineLearning
     def update_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEvaluationInput,
         validate_input: @config.validate_input
@@ -3081,7 +3083,7 @@ module AWS::SDK::MachineLearning
     def update_ml_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMLModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMLModelInput,
         validate_input: @config.validate_input

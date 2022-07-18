@@ -30,7 +30,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchCreateVariableError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchCreateVariableError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -38,15 +38,15 @@ module AWS::SDK::FraudDetector
     class BatchCreateVariableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateVariableInput, context: context)
-        Validators::VariableEntryList.validate!(input[:variable_entries], context: "#{context}[:variable_entries]") unless input[:variable_entries].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VariableEntryList.validate!(input[:variable_entries], context: "#{context}[:variable_entries]") unless input[:variable_entries].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class BatchCreateVariableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchCreateVariableOutput, context: context)
-        Validators::BatchCreateVariableErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        BatchCreateVariableErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -63,7 +63,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetVariableError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetVariableError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -71,15 +71,15 @@ module AWS::SDK::FraudDetector
     class BatchGetVariableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetVariableInput, context: context)
-        Validators::NameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
+        NameList.validate!(input[:names], context: "#{context}[:names]") unless input[:names].nil?
       end
     end
 
     class BatchGetVariableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetVariableOutput, context: context)
-        Validators::VariableList.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
-        Validators::BatchGetVariableErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        VariableList.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
+        BatchGetVariableErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
       end
     end
 
@@ -106,7 +106,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchImport.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchImport.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPrediction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPrediction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:output_path], ::String, context: "#{context}[:output_path]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -202,7 +202,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:detector_name], ::String, context: "#{context}[:detector_name]")
         Hearth::Validator.validate!(input[:detector_version], ::String, context: "#{context}[:detector_version]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -217,11 +217,11 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::CreateDetectorVersionInput, context: context)
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
-        Validators::ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
+        ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
         Hearth::Validator.validate!(input[:rule_execution_mode], ::String, context: "#{context}[:rule_execution_mode]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -241,7 +241,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_type], ::String, context: "#{context}[:model_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -257,10 +257,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_id], ::String, context: "#{context}[:model_id]")
         Hearth::Validator.validate!(input[:model_type], ::String, context: "#{context}[:model_type]")
         Hearth::Validator.validate!(input[:training_data_source], ::String, context: "#{context}[:training_data_source]")
-        Validators::TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
-        Validators::ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
-        Validators::IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
+        ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
+        IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -282,15 +282,15 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
-        Validators::NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleOutput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -303,7 +303,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:variable_type], ::String, context: "#{context}[:variable_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -326,8 +326,8 @@ module AWS::SDK::FraudDetector
     class DataValidationMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataValidationMetrics, context: context)
-        Validators::FileValidationMessageList.validate!(input[:file_level_messages], context: "#{context}[:file_level_messages]") unless input[:file_level_messages].nil?
-        Validators::FieldValidationMessageList.validate!(input[:field_level_messages], context: "#{context}[:field_level_messages]") unless input[:field_level_messages].nil?
+        FileValidationMessageList.validate!(input[:file_level_messages], context: "#{context}[:file_level_messages]") unless input[:file_level_messages].nil?
+        FieldValidationMessageList.validate!(input[:field_level_messages], context: "#{context}[:field_level_messages]") unless input[:field_level_messages].nil?
       end
     end
 
@@ -511,7 +511,7 @@ module AWS::SDK::FraudDetector
     class DeleteRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRuleInput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -547,7 +547,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDetectorOutput, context: context)
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
-        Validators::DetectorVersionSummaryList.validate!(input[:detector_version_summaries], context: "#{context}[:detector_version_summaries]") unless input[:detector_version_summaries].nil?
+        DetectorVersionSummaryList.validate!(input[:detector_version_summaries], context: "#{context}[:detector_version_summaries]") unless input[:detector_version_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
@@ -567,7 +567,7 @@ module AWS::SDK::FraudDetector
     class DescribeModelVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeModelVersionsOutput, context: context)
-        Validators::ModelVersionDetailList.validate!(input[:model_version_details], context: "#{context}[:model_version_details]") unless input[:model_version_details].nil?
+        ModelVersionDetailList.validate!(input[:model_version_details], context: "#{context}[:model_version_details]") unless input[:model_version_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -588,7 +588,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Detector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Detector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DetectorVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DetectorVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -636,8 +636,8 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::EvaluatedExternalModel, context: context)
         Hearth::Validator.validate!(input[:model_endpoint], ::String, context: "#{context}[:model_endpoint]")
         Hearth::Validator.validate!(input[:use_event_variables], ::TrueClass, ::FalseClass, context: "#{context}[:use_event_variables]")
-        Validators::MapOfStrings.validate!(input[:input_variables], context: "#{context}[:input_variables]") unless input[:input_variables].nil?
-        Validators::MapOfStrings.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
+        MapOfStrings.validate!(input[:input_variables], context: "#{context}[:input_variables]") unless input[:input_variables].nil?
+        MapOfStrings.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
       end
     end
 
@@ -647,7 +647,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_id], ::String, context: "#{context}[:model_id]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
         Hearth::Validator.validate!(input[:model_type], ::String, context: "#{context}[:model_type]")
-        Validators::ListOfModelVersionEvaluations.validate!(input[:evaluations], context: "#{context}[:evaluations]") unless input[:evaluations].nil?
+        ListOfModelVersionEvaluations.validate!(input[:evaluations], context: "#{context}[:evaluations]") unless input[:evaluations].nil?
       end
     end
 
@@ -658,7 +658,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:rule_version], ::String, context: "#{context}[:rule_version]")
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:expression_with_values], ::String, context: "#{context}[:expression_with_values]")
-        Validators::ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
         Hearth::Validator.validate!(input[:evaluated], ::TrueClass, ::FalseClass, context: "#{context}[:evaluated]")
         Hearth::Validator.validate!(input[:matched], ::TrueClass, ::FalseClass, context: "#{context}[:matched]")
       end
@@ -668,7 +668,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluatedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluatedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -679,10 +679,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
         Hearth::Validator.validate!(input[:event_timestamp], ::String, context: "#{context}[:event_timestamp]")
-        Validators::EventAttributeMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        EventAttributeMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
         Hearth::Validator.validate!(input[:current_label], ::String, context: "#{context}[:current_label]")
         Hearth::Validator.validate!(input[:label_timestamp], ::String, context: "#{context}[:label_timestamp]")
-        Validators::ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
       end
     end
 
@@ -713,11 +713,11 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::EventType, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ListOfStrings.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
-        Validators::ListOfStrings.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
-        Validators::NonEmptyListOfStrings.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        ListOfStrings.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        ListOfStrings.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        NonEmptyListOfStrings.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
         Hearth::Validator.validate!(input[:event_ingestion], ::String, context: "#{context}[:event_ingestion]")
-        Validators::IngestedEventStatistics.validate!(input[:ingested_event_statistics], context: "#{context}[:ingested_event_statistics]") unless input[:ingested_event_statistics].nil?
+        IngestedEventStatistics.validate!(input[:ingested_event_statistics], context: "#{context}[:ingested_event_statistics]") unless input[:ingested_event_statistics].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::String, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
@@ -757,8 +757,8 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_endpoint], ::String, context: "#{context}[:model_endpoint]")
         Hearth::Validator.validate!(input[:model_source], ::String, context: "#{context}[:model_source]")
         Hearth::Validator.validate!(input[:invoke_model_endpoint_role_arn], ::String, context: "#{context}[:invoke_model_endpoint_role_arn]")
-        Validators::ModelInputConfiguration.validate!(input[:input_configuration], context: "#{context}[:input_configuration]") unless input[:input_configuration].nil?
-        Validators::ModelOutputConfiguration.validate!(input[:output_configuration], context: "#{context}[:output_configuration]") unless input[:output_configuration].nil?
+        ModelInputConfiguration.validate!(input[:input_configuration], context: "#{context}[:input_configuration]") unless input[:input_configuration].nil?
+        ModelOutputConfiguration.validate!(input[:output_configuration], context: "#{context}[:output_configuration]") unless input[:output_configuration].nil?
         Hearth::Validator.validate!(input[:model_endpoint_status], ::String, context: "#{context}[:model_endpoint_status]")
         Hearth::Validator.validate!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::String, context: "#{context}[:created_time]")
@@ -771,7 +771,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ModelEndpointDataBlob.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ModelEndpointDataBlob.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -780,7 +780,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExternalModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExternalModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -788,8 +788,8 @@ module AWS::SDK::FraudDetector
     class ExternalModelOutputs
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExternalModelOutputs, context: context)
-        Validators::ExternalModelSummary.validate!(input[:external_model], context: "#{context}[:external_model]") unless input[:external_model].nil?
-        Validators::ExternalModelPredictionMap.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        ExternalModelSummary.validate!(input[:external_model], context: "#{context}[:external_model]") unless input[:external_model].nil?
+        ExternalModelPredictionMap.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
       end
     end
 
@@ -850,7 +850,7 @@ module AWS::SDK::FraudDetector
     class GetBatchImportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBatchImportJobsOutput, context: context)
-        Validators::BatchImportList.validate!(input[:batch_imports], context: "#{context}[:batch_imports]") unless input[:batch_imports].nil?
+        BatchImportList.validate!(input[:batch_imports], context: "#{context}[:batch_imports]") unless input[:batch_imports].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -867,7 +867,7 @@ module AWS::SDK::FraudDetector
     class GetBatchPredictionJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBatchPredictionJobsOutput, context: context)
-        Validators::BatchPredictionList.validate!(input[:batch_predictions], context: "#{context}[:batch_predictions]") unless input[:batch_predictions].nil?
+        BatchPredictionList.validate!(input[:batch_predictions], context: "#{context}[:batch_predictions]") unless input[:batch_predictions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -901,9 +901,9 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
         Hearth::Validator.validate!(input[:detector_version_id], ::String, context: "#{context}[:detector_version_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
-        Validators::ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
+        ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::String, context: "#{context}[:created_time]")
@@ -924,7 +924,7 @@ module AWS::SDK::FraudDetector
     class GetDetectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDetectorsOutput, context: context)
-        Validators::DetectorList.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
+        DetectorList.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -941,7 +941,7 @@ module AWS::SDK::FraudDetector
     class GetEntityTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEntityTypesOutput, context: context)
-        Validators::EntityTypeList.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        EntityTypeList.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -957,7 +957,7 @@ module AWS::SDK::FraudDetector
     class GetEventOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventOutput, context: context)
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
       end
     end
 
@@ -968,10 +968,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:detector_version_id], ::String, context: "#{context}[:detector_version_id]")
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
-        Validators::ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:event_timestamp], ::String, context: "#{context}[:event_timestamp]")
-        Validators::EventVariableMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
-        Validators::ExternalModelEndpointDataBlobMap.validate!(input[:external_model_endpoint_data_blobs], context: "#{context}[:external_model_endpoint_data_blobs]") unless input[:external_model_endpoint_data_blobs].nil?
+        EventVariableMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        ExternalModelEndpointDataBlobMap.validate!(input[:external_model_endpoint_data_blobs], context: "#{context}[:external_model_endpoint_data_blobs]") unless input[:external_model_endpoint_data_blobs].nil?
       end
     end
 
@@ -997,12 +997,12 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
         Hearth::Validator.validate!(input[:detector_version_id], ::String, context: "#{context}[:detector_version_id]")
         Hearth::Validator.validate!(input[:detector_version_status], ::String, context: "#{context}[:detector_version_status]")
-        Validators::ListOfEventVariableSummaries.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
-        Validators::EvaluatedRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        ListOfEventVariableSummaries.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        EvaluatedRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:rule_execution_mode], ::String, context: "#{context}[:rule_execution_mode]")
-        Validators::ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
-        Validators::ListOfEvaluatedModelVersions.validate!(input[:evaluated_model_versions], context: "#{context}[:evaluated_model_versions]") unless input[:evaluated_model_versions].nil?
-        Validators::ListOfEvaluatedExternalModels.validate!(input[:evaluated_external_models], context: "#{context}[:evaluated_external_models]") unless input[:evaluated_external_models].nil?
+        ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        ListOfEvaluatedModelVersions.validate!(input[:evaluated_model_versions], context: "#{context}[:evaluated_model_versions]") unless input[:evaluated_model_versions].nil?
+        ListOfEvaluatedExternalModels.validate!(input[:evaluated_external_models], context: "#{context}[:evaluated_external_models]") unless input[:evaluated_external_models].nil?
         Hearth::Validator.validate!(input[:prediction_timestamp], ::String, context: "#{context}[:prediction_timestamp]")
       end
     end
@@ -1010,9 +1010,9 @@ module AWS::SDK::FraudDetector
     class GetEventPredictionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventPredictionOutput, context: context)
-        Validators::ListOfModelScores.validate!(input[:model_scores], context: "#{context}[:model_scores]") unless input[:model_scores].nil?
-        Validators::ListOfRuleResults.validate!(input[:rule_results], context: "#{context}[:rule_results]") unless input[:rule_results].nil?
-        Validators::ListOfExternalModelOutputs.validate!(input[:external_model_outputs], context: "#{context}[:external_model_outputs]") unless input[:external_model_outputs].nil?
+        ListOfModelScores.validate!(input[:model_scores], context: "#{context}[:model_scores]") unless input[:model_scores].nil?
+        ListOfRuleResults.validate!(input[:rule_results], context: "#{context}[:rule_results]") unless input[:rule_results].nil?
+        ListOfExternalModelOutputs.validate!(input[:external_model_outputs], context: "#{context}[:external_model_outputs]") unless input[:external_model_outputs].nil?
       end
     end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::FraudDetector
     class GetEventTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventTypesOutput, context: context)
-        Validators::EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
+        EventTypeList.validate!(input[:event_types], context: "#{context}[:event_types]") unless input[:event_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1045,7 +1045,7 @@ module AWS::SDK::FraudDetector
     class GetExternalModelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExternalModelsOutput, context: context)
-        Validators::ExternalModelList.validate!(input[:external_models], context: "#{context}[:external_models]") unless input[:external_models].nil?
+        ExternalModelList.validate!(input[:external_models], context: "#{context}[:external_models]") unless input[:external_models].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1059,7 +1059,7 @@ module AWS::SDK::FraudDetector
     class GetKMSEncryptionKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetKMSEncryptionKeyOutput, context: context)
-        Validators::KMSKey.validate!(input[:kms_key], context: "#{context}[:kms_key]") unless input[:kms_key].nil?
+        KMSKey.validate!(input[:kms_key], context: "#{context}[:kms_key]") unless input[:kms_key].nil?
       end
     end
 
@@ -1075,7 +1075,7 @@ module AWS::SDK::FraudDetector
     class GetLabelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLabelsOutput, context: context)
-        Validators::LabelList.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        LabelList.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1096,9 +1096,9 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_type], ::String, context: "#{context}[:model_type]")
         Hearth::Validator.validate!(input[:model_version_number], ::String, context: "#{context}[:model_version_number]")
         Hearth::Validator.validate!(input[:training_data_source], ::String, context: "#{context}[:training_data_source]")
-        Validators::TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
-        Validators::ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
-        Validators::IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
+        TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
+        ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
+        IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
@@ -1118,7 +1118,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetModelsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ModelList.validate!(input[:models], context: "#{context}[:models]") unless input[:models].nil?
+        ModelList.validate!(input[:models], context: "#{context}[:models]") unless input[:models].nil?
       end
     end
 
@@ -1134,7 +1134,7 @@ module AWS::SDK::FraudDetector
     class GetOutcomesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOutcomesOutput, context: context)
-        Validators::OutcomeList.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        OutcomeList.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1153,7 +1153,7 @@ module AWS::SDK::FraudDetector
     class GetRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRulesOutput, context: context)
-        Validators::RuleDetailList.validate!(input[:rule_details], context: "#{context}[:rule_details]") unless input[:rule_details].nil?
+        RuleDetailList.validate!(input[:rule_details], context: "#{context}[:rule_details]") unless input[:rule_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1170,7 +1170,7 @@ module AWS::SDK::FraudDetector
     class GetVariablesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetVariablesOutput, context: context)
-        Validators::VariableList.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
+        VariableList.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1189,7 +1189,7 @@ module AWS::SDK::FraudDetector
     class IngestedEventsDetail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IngestedEventsDetail, context: context)
-        Validators::IngestedEventsTimeWindow.validate!(input[:ingested_events_time_window], context: "#{context}[:ingested_events_time_window]") unless input[:ingested_events_time_window].nil?
+        IngestedEventsTimeWindow.validate!(input[:ingested_events_time_window], context: "#{context}[:ingested_events_time_window]") unless input[:ingested_events_time_window].nil?
       end
     end
 
@@ -1239,7 +1239,7 @@ module AWS::SDK::FraudDetector
     class LabelSchema
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LabelSchema, context: context)
-        Validators::LabelMapper.validate!(input[:label_mapper], context: "#{context}[:label_mapper]") unless input[:label_mapper].nil?
+        LabelMapper.validate!(input[:label_mapper], context: "#{context}[:label_mapper]") unless input[:label_mapper].nil?
         Hearth::Validator.validate!(input[:unlabeled_events_treatment], ::String, context: "#{context}[:unlabeled_events_treatment]")
       end
     end
@@ -1247,11 +1247,11 @@ module AWS::SDK::FraudDetector
     class ListEventPredictionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventPredictionsInput, context: context)
-        Validators::FilterCondition.validate!(input[:event_id], context: "#{context}[:event_id]") unless input[:event_id].nil?
-        Validators::FilterCondition.validate!(input[:event_type], context: "#{context}[:event_type]") unless input[:event_type].nil?
-        Validators::FilterCondition.validate!(input[:detector_id], context: "#{context}[:detector_id]") unless input[:detector_id].nil?
-        Validators::FilterCondition.validate!(input[:detector_version_id], context: "#{context}[:detector_version_id]") unless input[:detector_version_id].nil?
-        Validators::PredictionTimeRange.validate!(input[:prediction_time_range], context: "#{context}[:prediction_time_range]") unless input[:prediction_time_range].nil?
+        FilterCondition.validate!(input[:event_id], context: "#{context}[:event_id]") unless input[:event_id].nil?
+        FilterCondition.validate!(input[:event_type], context: "#{context}[:event_type]") unless input[:event_type].nil?
+        FilterCondition.validate!(input[:detector_id], context: "#{context}[:detector_id]") unless input[:detector_id].nil?
+        FilterCondition.validate!(input[:detector_version_id], context: "#{context}[:detector_version_id]") unless input[:detector_version_id].nil?
+        PredictionTimeRange.validate!(input[:prediction_time_range], context: "#{context}[:prediction_time_range]") unless input[:prediction_time_range].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1260,7 +1260,7 @@ module AWS::SDK::FraudDetector
     class ListEventPredictionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventPredictionsOutput, context: context)
-        Validators::ListOfEventPredictionSummaries.validate!(input[:event_prediction_summaries], context: "#{context}[:event_prediction_summaries]") unless input[:event_prediction_summaries].nil?
+        ListOfEventPredictionSummaries.validate!(input[:event_prediction_summaries], context: "#{context}[:event_prediction_summaries]") unless input[:event_prediction_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1269,7 +1269,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluatedExternalModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluatedExternalModel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1278,7 +1278,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluatedModelVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluatedModelVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1287,7 +1287,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventPredictionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventPredictionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1296,7 +1296,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventVariableSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventVariableSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1305,7 +1305,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExternalModelOutputs.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExternalModelOutputs.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1314,7 +1314,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogOddsMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogOddsMetric.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1323,7 +1323,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ModelScores.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ModelScores.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1332,7 +1332,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ModelVersionEvaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ModelVersionEvaluation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1341,7 +1341,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ModelVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ModelVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1350,7 +1350,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1376,7 +1376,7 @@ module AWS::SDK::FraudDetector
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1446,8 +1446,8 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModelOutputConfiguration, context: context)
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::JsonKeyToVariableMap.validate!(input[:json_key_to_variable_map], context: "#{context}[:json_key_to_variable_map]") unless input[:json_key_to_variable_map].nil?
-        Validators::CsvIndexToVariableMap.validate!(input[:csv_index_to_variable_map], context: "#{context}[:csv_index_to_variable_map]") unless input[:csv_index_to_variable_map].nil?
+        JsonKeyToVariableMap.validate!(input[:json_key_to_variable_map], context: "#{context}[:json_key_to_variable_map]") unless input[:json_key_to_variable_map].nil?
+        CsvIndexToVariableMap.validate!(input[:csv_index_to_variable_map], context: "#{context}[:csv_index_to_variable_map]") unless input[:csv_index_to_variable_map].nil?
       end
     end
 
@@ -1464,8 +1464,8 @@ module AWS::SDK::FraudDetector
     class ModelScores
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModelScores, context: context)
-        Validators::ModelVersion.validate!(input[:model_version], context: "#{context}[:model_version]") unless input[:model_version].nil?
-        Validators::ModelPredictionMap.validate!(input[:scores], context: "#{context}[:scores]") unless input[:scores].nil?
+        ModelVersion.validate!(input[:model_version], context: "#{context}[:model_version]") unless input[:model_version].nil?
+        ModelPredictionMap.validate!(input[:scores], context: "#{context}[:scores]") unless input[:scores].nil?
       end
     end
 
@@ -1487,10 +1487,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_version_number], ::String, context: "#{context}[:model_version_number]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:training_data_source], ::String, context: "#{context}[:training_data_source]")
-        Validators::TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
-        Validators::ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
-        Validators::IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
-        Validators::TrainingResult.validate!(input[:training_result], context: "#{context}[:training_result]") unless input[:training_result].nil?
+        TrainingDataSchema.validate!(input[:training_data_schema], context: "#{context}[:training_data_schema]") unless input[:training_data_schema].nil?
+        ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
+        IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
+        TrainingResult.validate!(input[:training_result], context: "#{context}[:training_result]") unless input[:training_result].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::String, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
@@ -1502,7 +1502,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::ModelVersionEvaluation, context: context)
         Hearth::Validator.validate!(input[:output_variable_name], ::String, context: "#{context}[:output_variable_name]")
         Hearth::Validator.validate!(input[:evaluation_score], ::String, context: "#{context}[:evaluation_score]")
-        Validators::PredictionExplanations.validate!(input[:prediction_explanations], context: "#{context}[:prediction_explanations]") unless input[:prediction_explanations].nil?
+        PredictionExplanations.validate!(input[:prediction_explanations], context: "#{context}[:prediction_explanations]") unless input[:prediction_explanations].nil?
       end
     end
 
@@ -1539,7 +1539,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Outcome.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Outcome.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1547,7 +1547,7 @@ module AWS::SDK::FraudDetector
     class PredictionExplanations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PredictionExplanations, context: context)
-        Validators::ListOfVariableImpactExplanations.validate!(input[:variable_impact_explanations], context: "#{context}[:variable_impact_explanations]") unless input[:variable_impact_explanations].nil?
+        ListOfVariableImpactExplanations.validate!(input[:variable_impact_explanations], context: "#{context}[:variable_impact_explanations]") unless input[:variable_impact_explanations].nil?
       end
     end
 
@@ -1565,7 +1565,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1580,7 +1580,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::PutEntityTypeInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1595,11 +1595,11 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::PutEventTypeInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::NonEmptyListOfStrings.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
-        Validators::ListOfStrings.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
-        Validators::NonEmptyListOfStrings.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
+        NonEmptyListOfStrings.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        ListOfStrings.validate!(input[:labels], context: "#{context}[:labels]") unless input[:labels].nil?
+        NonEmptyListOfStrings.validate!(input[:entity_types], context: "#{context}[:entity_types]") unless input[:entity_types].nil?
         Hearth::Validator.validate!(input[:event_ingestion], ::String, context: "#{context}[:event_ingestion]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1615,10 +1615,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_endpoint], ::String, context: "#{context}[:model_endpoint]")
         Hearth::Validator.validate!(input[:model_source], ::String, context: "#{context}[:model_source]")
         Hearth::Validator.validate!(input[:invoke_model_endpoint_role_arn], ::String, context: "#{context}[:invoke_model_endpoint_role_arn]")
-        Validators::ModelInputConfiguration.validate!(input[:input_configuration], context: "#{context}[:input_configuration]") unless input[:input_configuration].nil?
-        Validators::ModelOutputConfiguration.validate!(input[:output_configuration], context: "#{context}[:output_configuration]") unless input[:output_configuration].nil?
+        ModelInputConfiguration.validate!(input[:input_configuration], context: "#{context}[:input_configuration]") unless input[:input_configuration].nil?
+        ModelOutputConfiguration.validate!(input[:output_configuration], context: "#{context}[:output_configuration]") unless input[:output_configuration].nil?
         Hearth::Validator.validate!(input[:model_endpoint_status], ::String, context: "#{context}[:model_endpoint_status]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1646,7 +1646,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::PutLabelInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1661,7 +1661,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::PutOutcomeInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1703,7 +1703,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:rule_version], ::String, context: "#{context}[:rule_version]")
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
-        Validators::NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::String, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
@@ -1714,7 +1714,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1723,7 +1723,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1732,7 +1732,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleResult, context: context)
         Hearth::Validator.validate!(input[:rule_id], ::String, context: "#{context}[:rule_id]")
-        Validators::ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        ListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
       end
     end
 
@@ -1742,10 +1742,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:event_id], ::String, context: "#{context}[:event_id]")
         Hearth::Validator.validate!(input[:event_type_name], ::String, context: "#{context}[:event_type_name]")
         Hearth::Validator.validate!(input[:event_timestamp], ::String, context: "#{context}[:event_timestamp]")
-        Validators::EventVariableMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
+        EventVariableMap.validate!(input[:event_variables], context: "#{context}[:event_variables]") unless input[:event_variables].nil?
         Hearth::Validator.validate!(input[:assigned_label], ::String, context: "#{context}[:assigned_label]")
         Hearth::Validator.validate!(input[:label_timestamp], ::String, context: "#{context}[:label_timestamp]")
-        Validators::ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ListOfEntities.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
       end
     end
 
@@ -1767,7 +1767,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1787,8 +1787,8 @@ module AWS::SDK::FraudDetector
     class TrainingDataSchema
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrainingDataSchema, context: context)
-        Validators::ListOfStrings.validate!(input[:model_variables], context: "#{context}[:model_variables]") unless input[:model_variables].nil?
-        Validators::LabelSchema.validate!(input[:label_schema], context: "#{context}[:label_schema]") unless input[:label_schema].nil?
+        ListOfStrings.validate!(input[:model_variables], context: "#{context}[:model_variables]") unless input[:model_variables].nil?
+        LabelSchema.validate!(input[:label_schema], context: "#{context}[:label_schema]") unless input[:label_schema].nil?
       end
     end
 
@@ -1796,16 +1796,16 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrainingMetrics, context: context)
         Hearth::Validator.validate!(input[:auc], ::Float, context: "#{context}[:auc]")
-        Validators::MetricDataPointsList.validate!(input[:metric_data_points], context: "#{context}[:metric_data_points]") unless input[:metric_data_points].nil?
+        MetricDataPointsList.validate!(input[:metric_data_points], context: "#{context}[:metric_data_points]") unless input[:metric_data_points].nil?
       end
     end
 
     class TrainingResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrainingResult, context: context)
-        Validators::DataValidationMetrics.validate!(input[:data_validation_metrics], context: "#{context}[:data_validation_metrics]") unless input[:data_validation_metrics].nil?
-        Validators::TrainingMetrics.validate!(input[:training_metrics], context: "#{context}[:training_metrics]") unless input[:training_metrics].nil?
-        Validators::VariableImportanceMetrics.validate!(input[:variable_importance_metrics], context: "#{context}[:variable_importance_metrics]") unless input[:variable_importance_metrics].nil?
+        DataValidationMetrics.validate!(input[:data_validation_metrics], context: "#{context}[:data_validation_metrics]") unless input[:data_validation_metrics].nil?
+        TrainingMetrics.validate!(input[:training_metrics], context: "#{context}[:training_metrics]") unless input[:training_metrics].nil?
+        VariableImportanceMetrics.validate!(input[:variable_importance_metrics], context: "#{context}[:variable_importance_metrics]") unless input[:variable_importance_metrics].nil?
       end
     end
 
@@ -1813,7 +1813,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1828,10 +1828,10 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, Types::UpdateDetectorVersionInput, context: context)
         Hearth::Validator.validate!(input[:detector_id], ::String, context: "#{context}[:detector_id]")
         Hearth::Validator.validate!(input[:detector_version_id], ::String, context: "#{context}[:detector_version_id]")
-        Validators::ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
-        Validators::RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        ListOfStrings.validate!(input[:external_model_endpoints], context: "#{context}[:external_model_endpoints]") unless input[:external_model_endpoints].nil?
+        RuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
+        ListOfModelVersions.validate!(input[:model_versions], context: "#{context}[:model_versions]") unless input[:model_versions].nil?
         Hearth::Validator.validate!(input[:rule_execution_mode], ::String, context: "#{context}[:rule_execution_mode]")
       end
     end
@@ -1909,9 +1909,9 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input[:model_id], ::String, context: "#{context}[:model_id]")
         Hearth::Validator.validate!(input[:model_type], ::String, context: "#{context}[:model_type]")
         Hearth::Validator.validate!(input[:major_version_number], ::String, context: "#{context}[:major_version_number]")
-        Validators::ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
-        Validators::IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ExternalEventsDetail.validate!(input[:external_events_detail], context: "#{context}[:external_events_detail]") unless input[:external_events_detail].nil?
+        IngestedEventsDetail.validate!(input[:ingested_events_detail], context: "#{context}[:ingested_events_detail]") unless input[:ingested_events_detail].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1944,7 +1944,7 @@ module AWS::SDK::FraudDetector
     class UpdateRuleMetadataInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleMetadataInput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
       end
     end
@@ -1958,19 +1958,19 @@ module AWS::SDK::FraudDetector
     class UpdateRuleVersionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleVersionInput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:expression], ::String, context: "#{context}[:expression]")
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
-        Validators::NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NonEmptyListOfStrings.validate!(input[:outcomes], context: "#{context}[:outcomes]") unless input[:outcomes].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class UpdateRuleVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleVersionOutput, context: context)
-        Validators::Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        Rule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -2028,7 +2028,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VariableEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VariableEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2045,7 +2045,7 @@ module AWS::SDK::FraudDetector
     class VariableImportanceMetrics
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VariableImportanceMetrics, context: context)
-        Validators::ListOfLogOddsMetrics.validate!(input[:log_odds_metrics], context: "#{context}[:log_odds_metrics]") unless input[:log_odds_metrics].nil?
+        ListOfLogOddsMetrics.validate!(input[:log_odds_metrics], context: "#{context}[:log_odds_metrics]") unless input[:log_odds_metrics].nil?
       end
     end
 
@@ -2053,7 +2053,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Variable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Variable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2062,7 +2062,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2071,7 +2071,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2080,7 +2080,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2089,7 +2089,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FileValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FileValidationMessage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2098,7 +2098,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Label.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Label.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2108,7 +2108,7 @@ module AWS::SDK::FraudDetector
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::NonEmptyListOfStrings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          NonEmptyListOfStrings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2117,7 +2117,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2126,7 +2126,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VariableImpactExplanation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VariableImpactExplanation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2135,7 +2135,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDataPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDataPoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2144,7 +2144,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Model.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2153,7 +2153,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ModelVersionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ModelVersionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2171,7 +2171,7 @@ module AWS::SDK::FraudDetector
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
