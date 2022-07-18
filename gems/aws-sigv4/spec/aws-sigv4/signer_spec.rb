@@ -447,31 +447,6 @@ module AWS
           # Suite doesn't cover anything
           context 'gap cases' do
             let(:subject) { Signer.new(required_options.merge(omit_session_token: true)) }
-            it 'lower-cases and sort all header keys except authorization' do
-              signature = subject.sign_request(
-                request: {
-                  http_method: 'PUT',
-                  url: 'http://domain.com',
-                  headers: {
-                    'Xyz' => '1',
-                    'Abc' => '2',
-                    'Mno' => '3',
-                    'Authorization' => '4',
-                    'authorization' => '5',
-                    'X-Amz-Date' => '20161024T184027Z',
-                  }
-                }
-              )
-              expect(signature.metadata[:canonical_request])
-                .to include(<<~HEADERS.strip)
-                  abc:2
-                  host:domain.com
-                  mno:3
-                  x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-                  x-amz-date:20161024T184027Z
-                  xyz:1
-              HEADERS
-            end
 
             it 'leaves whitespace in quoted values in-tact' do
               signature = subject.sign_request(
@@ -506,14 +481,14 @@ module AWS
               signature = subject.sign_request(
                 request: {
                   http_method: 'PUT',
-                  url: 'http://domain.com?q.options=abc&q=xyz&q=mno',
+                  url: 'http://domain.com?q.options=abc&q=xyz&q=mno&q=xyz',
                   headers: {
                     'X-Amz-Date' => '20160101T112233Z',
                   }
                 }
               )
               expect(signature.metadata[:canonical_request])
-                .to include('q=mno&q=xyz&q.options=abc')
+                .to include('q=mno&q=xyz&q=xyz&q.options=abc')
             end
 
             # TODO - cover the case where keys and values are the same
